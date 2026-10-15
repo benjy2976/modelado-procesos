@@ -1,0 +1,27 @@
+esquema: paquete-contexto-v1
+id_paquete: pendiente
+tarea: pendiente
+objetivo: pendiente
+producto_esperado: pendiente
+proceso: pendiente
+modalidad: POR-DEFINIR
+limites:
+  inicio: pendiente
+  fin: pendiente
+  exclusiones: []
+contexto_autorizado: []
+reglas_validadas: []
+fuentes_pendientes_autorizadas: []
+evidencias_as_is: []
+modelo_vigente: null
+glosario_aplicable: []
+archivos_modificables: []
+restricciones:
+  - No usar conocimiento general para afirmaciones normativas.
+  - Registrar EVIDENCIA-INSUFICIENTE cuando las fuentes no sostengan una conclusion.
+preguntas_abiertas: []
+formato_salida: pendiente
+criterio_cierre: pendiente
+preparado_por: pendiente
+fecha: pendiente
+commit_base: pendiente

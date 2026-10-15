@@ -1,0 +1,367 @@
+{
+  "fecha_corte": "2026-10-14",
+  "landing_pages": [
+    {
+      "id": "PROC-001",
+      "url": "https://www.gob.pe/institucion/pcm/normas-legales/6501954-002-2025-pcm-sgp",
+      "destino": "01-referencias/02-gestion-por-procesos/originales/nt-002-2025-pcm-sgp",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "PROC-002",
+      "url": "https://www.gob.pe/institucion/pcm/normas-legales/7260049-009-2025-pcm-sgp",
+      "destino": "01-referencias/02-gestion-por-procesos/originales/guia-practica-2025",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "INV-001",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/213388-242-2018-ef",
+      "destino": "01-referencias/03-invierte-pe/marco-legal/dl-1252",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "INV-002",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/7111320-088-2025-ef",
+      "destino": "01-referencias/03-invierte-pe/marco-legal/reglamento-dl-1252",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "INV-002A",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/228893-284-2018-ef",
+      "destino": "01-referencias/03-invierte-pe/marco-legal/reglamento-dl-1252",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "INV-002C",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/8402978-140-2026-ef",
+      "destino": "01-referencias/03-invierte-pe/marco-legal/reglamento-dl-1252-vigente-2026",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "INV-004",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/6426942-0002-2025-ef-63-01",
+      "destino": "01-referencias/03-invierte-pe/cierre-inversiones",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "INV-004B",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/7348455-0018-2025-ef-63-01",
+      "destino": "01-referencias/03-invierte-pe/cierre-inversiones",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "CON-001",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/6444155-ley-n-32069-ley-general-de-contrataciones-publicas-y-modificatorias",
+      "destino": "01-referencias/04-contrataciones-publicas/ley-y-reglamento",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-003",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/6736681-indice-de-directivas-vigentes-ley-n-32069",
+      "destino": "01-referencias/04-contrataciones-publicas/directivas",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-003A",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/7614286-0001-2026-ef-54-01",
+      "destino": "01-referencias/04-contrataciones-publicas/bases-estandar-2026",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-003B",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/7339968-tableros-de-requisitos-de-calificacion-y-factores-de-evaluacion-v-2",
+      "destino": "01-referencias/04-contrataciones-publicas/herramientas-orientacion",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "CON-004",
+      "url": "https://www.gob.pe/institucion/oece/normas-legales/7281401-017-2025-oece-cd",
+      "destino": "01-referencias/04-contrataciones-publicas/cuaderno-incidencias",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-005",
+      "url": "https://www.gob.pe/institucion/oece/normas-legales/7472010-083-2025-oece-pre",
+      "destino": "01-referencias/04-contrataciones-publicas/valorizaciones-seace",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-006",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/8074763-manual-de-usuario-del-cuaderno-de-incidencias-cdi-vigente",
+      "destino": "01-referencias/04-contrataciones-publicas/cuaderno-incidencias/manuales",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CON-007",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/8074640-manual-de-usuario-para-el-cuaderno-de-incidencias-administrador-de-usuarios-del-cdi-vigente",
+      "destino": "01-referencias/04-contrataciones-publicas/cuaderno-incidencias/manuales",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "CON-008",
+      "url": "https://www.gob.pe/institucion/oece/informes-publicaciones/6820502-manual-de-usuario-para-presentacion-y-subsanacion-de-valorizaciones-de-obra-a-traves-del-seace",
+      "destino": "01-referencias/04-contrataciones-publicas/valorizaciones-seace/manuales",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CTRL-001",
+      "url": "https://www.gob.pe/institucion/contraloria/normas-legales/4984570-017-2023-cg-gmpl",
+      "destino": "01-referencias/05-control-gubernamental/administracion-directa",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CTRL-001A",
+      "url": "https://www.gob.pe/institucion/contraloria/informes-publicaciones/5623662-anexos-a-la-directriz-de-obras-por-administracion-directa",
+      "destino": "01-referencias/05-control-gubernamental/administracion-directa/anexos",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CTRL-001B",
+      "url": "https://www.gob.pe/institucion/contraloria/informes-publicaciones/5630912-directriz-ejecucion-de-obras-publicas-por-administracion-directa",
+      "destino": "01-referencias/05-control-gubernamental/administracion-directa/directriz",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CTRL-002",
+      "url": "https://www.gob.pe/institucion/contraloria/informes-publicaciones/5399216-guia-resumen-de-orientacion-infobras",
+      "destino": "01-referencias/05-control-gubernamental/infobras",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "CTRL-003",
+      "url": "https://www.gob.pe/institucion/contraloria/normas-legales/3656507-013-2022-cg-norm",
+      "destino": "01-referencias/05-control-gubernamental/control-simultaneo",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "CTRL-003A",
+      "url": "https://www.gob.pe/institucion/contraloria/normas-legales/6831451-219-2025-cg",
+      "destino": "01-referencias/05-control-gubernamental/control-simultaneo",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "PRES-001",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/7475743-32513",
+      "destino": "01-referencias/06-presupuesto-y-administracion/presupuesto-2026",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "BIM-001",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/4035069-0003-2023-ef-63-01",
+      "destino": "01-referencias/08-bim/02-guias-nacionales/guia-nacional-2023",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-002",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/4200319-0005-2023-ef-63-01",
+      "destino": "01-referencias/08-bim/02-guias-nacionales/guia-tecnica-2023",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-005",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/7037100-0007-2025-ef-63-01",
+      "destino": "01-referencias/08-bim/01-marco-normativo/rd-0007-2025",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "TEC-001",
+      "url": "https://www.gob.pe/es/institucion/vivienda/informes-publicaciones/2309793-reglamento-nacional-de-edificaciones-rne",
+      "destino": "01-referencias/07-normativa-tecnica-sectorial/rne",
+      "aplicabilidad": 3
+    }
+  ],
+  "direct_downloads": [
+    {
+      "id": "INV-003",
+      "url": "https://www.mef.gob.pe/es/normatividad-inv-publica/instrumento/directivas/19114-resolucion-directoral-n-001-2019-ef-63-01-2/file",
+      "destino": "01-referencias/03-invierte-pe/directiva-general/directiva-001-2019-ef-63-01-actualizada-2025.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-000",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/planBIMpE.pdf",
+      "destino": "01-referencias/08-bim/01-marco-normativo/plan-implementacion-hoja-ruta-bim-peru.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-001I",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/guia_nacional_BIM_2023.pdf",
+      "destino": "01-referencias/08-bim/02-guias-nacionales/infografia-actualizaciones-guia-nacional-bim-2023.pdf",
+      "aplicabilidad": 3
+    },
+    {
+      "id": "BIM-001A",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/nota_tecnica_bim.pdf",
+      "destino": "01-referencias/08-bim/02-guias-nacionales/nota-tecnica-introduccion-bim.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-002A",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/anexo_RD005_2023EF6301.pdf",
+      "destino": "01-referencias/08-bim/02-guias-nacionales/guia-tecnica-bim-edificaciones-infraestructura-2023.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-003R",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/9169586/7528229-rd019_2025ef6301.pdf?v=1766074346",
+      "destino": "01-referencias/08-bim/01-marco-normativo/rd-0019-2025-ef-63-01.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-003",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/9171636/7528229-lineamientos-para-la-adopcion-progresiva-de-bim-en-las-fases-del-ciclo-de-inversion.pdf?v=1766089465",
+      "destino": "01-referencias/08-bim/01-marco-normativo/lineamientos-adopcion-progresiva-bim-2025.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-004",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/9171637/7528229-guia-para-la-aplicacion-de-estandares-abiertos-openbim-y-practicas-colaborativas-para-el-desarrollo-de-modelos-de-informacion.pdf?v=1766089466",
+      "destino": "01-referencias/08-bim/03-openbim/guia-openbim-practicas-colaborativas-2025.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-004A",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/9171638/7528229-recomendaciones-bim-para-infraestructura-educativa.pdf?v=1766089467",
+      "destino": "01-referencias/08-bim/09-casos-capacitaciones/recomendaciones-bim-infraestructura-educativa-2025.pdf",
+      "aplicabilidad": 3
+    },
+    {
+      "id": "BIM-004B",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/9171639/7528229-orientaciones-para-la-adopcion-de-bim-en-una-entidad-o-empresa-publica.pdf?v=1766089468",
+      "destino": "01-referencias/08-bim/01-marco-normativo/orientaciones-adopcion-bim-entidad-publica-2025.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-005A",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/8485095/7037100-nota_tecnica_rd0007_2025ef6301.pdf?v=1755106656",
+      "destino": "01-referencias/08-bim/04-entorno-comun-datos/nota-tecnica-recursos-tecnologicos-cde-2025.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006A",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_A.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-a-nivel-informacion-necesaria.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006B",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_B.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-b-oir.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006C",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_C.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-c-air.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006D",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_D.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-d-pir.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006E",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_E.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-e-eir.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006F",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_F.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-f-bep.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006G",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_G.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-g-cca.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006H",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_H.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-h-matriz-responsabilidades.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_I.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-i-midp.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006J",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_J.xlsx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-j-tidp.xlsx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006K",
+      "url": "https://www.mef.gob.pe/planbimperu/docs/recursos/Anexo_L.docx",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/anexo-k-lista-verificacion-cde.docx",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006IA",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_matriz_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-nivel-informacion-necesaria.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I1",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato1_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-oir.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I2",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato2_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-air.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I3",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato3_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-pir.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I4",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato4_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-eir.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I5",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato5_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-bep.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I6",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato6_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-cca.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I7",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato7_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-matriz-responsabilidades.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I8",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato8_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-midp.pdf",
+      "aplicabilidad": 5
+    },
+    {
+      "id": "BIM-006I9",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato9_RD0005_2021EF6301.pdf",
+      "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-tidp.pdf",
+      "aplicabilidad": 5
+    }
+  ]
+}

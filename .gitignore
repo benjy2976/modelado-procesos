@@ -1,0 +1,30 @@
+# Temporales
+99-temporal/*
+!99-temporal/README.md
+*.tmp
+*.bak
+~$*
+
+# Sistema y editores
+Thumbs.db
+.DS_Store
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Salidas regenerables locales
+__pycache__/
+*.pyc
+.venv/
+/01-referencias/09-derivados-texto/cache/
+
+# Biblioteca publica regenerable desde el indice y el descargador
+/01-referencias/0[2-8]-*/**/*.pdf
+/01-referencias/0[2-8]-*/**/*.doc
+/01-referencias/0[2-8]-*/**/*.docx
+/01-referencias/0[2-8]-*/**/*.xls
+/01-referencias/0[2-8]-*/**/*.xlsx
+/01-referencias/0[2-8]-*/**/*.ppt
+/01-referencias/0[2-8]-*/**/*.pptx
+
+# Documento aportado localmente que aun no tiene una fuente reproducible
+!/01-referencias/02-gestion-por-procesos/originales/bpmn-2-manual-referencia-guia-practica.pdf

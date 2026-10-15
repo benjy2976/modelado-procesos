@@ -1,0 +1,16 @@
+esquema: evento-revision-v1
+id_evento: pendiente
+id_regla: pendiente
+revision_regla: pendiente
+accion: pendiente
+resultado: pendiente
+fecha_hora: pendiente
+revisor_id_institucional: pendiente
+rol_especialidad: pendiente
+sha256_fuente_verificado: pendiente
+ubicacion_normativa_verificada: false
+vigencia_verificada: false
+aplicabilidad_verificada: false
+comentario: pendiente
+evento_anterior: null
+commit_git: pendiente

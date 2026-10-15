@@ -1,0 +1,2 @@
+# Dependencia usada por evaluar_calidad.py. El descargador usa solo la biblioteca estandar.
+pypdf==6.10.0
