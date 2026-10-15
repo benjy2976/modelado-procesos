@@ -14,6 +14,8 @@ Contiene la representacion controlada de niveles 0 y 1, el inventario de proceso
 ## Contenido
 
 - [Inventario de procesos](inventario-procesos.md)
+- [Mapa de procesos Nivel 0](mapa-procesos-nivel-0.md)
+- [S4 Gestion de las inversiones](s4-gestion-de-las-inversiones.md)
 - [Fuentes institucionales aprobadas](../01-referencias/01-institucionales-grh/originales/README.md)
 - [Modelamiento de niveles siguientes](../03-modelamiento/README.md)
 

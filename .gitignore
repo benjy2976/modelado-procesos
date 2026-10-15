@@ -1,6 +1,7 @@
 # Temporales
 99-temporal/*
 !99-temporal/README.md
+/tmp/
 *.tmp
 *.bak
 ~$*

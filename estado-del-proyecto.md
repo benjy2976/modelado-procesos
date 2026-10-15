@@ -12,7 +12,7 @@ confidencialidad: INTERNO
 - Fecha de actualizacion: 2026-10-15
 - Fase: entorno documental verificado; listo para iniciar el piloto de conocimiento
 - Ambito inicial: S4.3 Ejecucion de la inversion
-- Estado del modelamiento: pendiente de recibir la propuesta de descomposicion elaborada por el equipo
+- Estado del modelamiento: mapas Nivel 0 y S4 Nivel 0/1 transcritos a Markdown consultable; pendiente de recibir la propuesta de descomposicion de S4.3 elaborada por el equipo
 - Estado BIM: aprendizaje y adopcion progresiva; la informacion se organizara con rutas estables y trazabilidad Git, sin declarar el repositorio como CDE institucional
 - Descargas: lote base oficial de 219 archivos completado y evaluado tecnicamente
 - Git: estrategia hibrida configurada; repositorio inicial publicado en remoto, recursos publicos regenerables fuera de Git y LFS reservado para binarios no reproducibles
@@ -39,7 +39,8 @@ confidencialidad: INTERNO
 - Manual operativo para clasificar conocimiento y aplicar validaciones desde la fuente hasta la linea base.
 - Arquitectura inicial de navegacion con mapas de contenido y relaciones portables entre areas.
 - Estandar obligatorio de produccion en Obsidian, configuracion compartida de plantillas y notas diarias, y area de coordinacion.
+- Transcripcion trazable del mapa de procesos Nivel 0 y de la ficha S4, incluidos intercambios, vista de relaciones, indicadores y discrepancias pendientes de validacion.
 
 ## Siguiente hito
 
-Probar el manual con un conjunto pequeno de reglas de la Norma Tecnica de Gestion por Procesos; implementar extractor Markdown trazable y validador de esquemas; luego construir la primera version de consulta del catalogo antes del flujo web autenticado.
+Revisar humanamente las transcripciones de los mapas, obtener la propuesta de descomposicion de S4.3 y preparar su paquete de contexto; en paralelo, probar el manual con un conjunto pequeno de reglas de la Norma Tecnica de Gestion por Procesos e implementar el extractor Markdown trazable.
