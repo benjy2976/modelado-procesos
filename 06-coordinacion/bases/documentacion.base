@@ -1,0 +1,40 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'tipo != null'
+properties:
+  file.path:
+    displayName: Ruta
+  tipo:
+    displayName: Tipo
+  area:
+    displayName: Area
+  estado_documento:
+    displayName: Estado
+  clase_conocimiento:
+    displayName: Clase de conocimiento
+  file.mtime:
+    displayName: Ultima modificacion
+views:
+  - type: table
+    name: Documentacion
+    filters:
+      not:
+        - 'file.inFolder("04-recursos-reutilizables/plantillas/obsidian")'
+    order:
+      - file.path
+      - tipo
+      - area
+      - estado_documento
+      - clase_conocimiento
+      - file.mtime
+  - type: table
+    name: Plantillas
+    filters:
+      and:
+        - 'file.inFolder("04-recursos-reutilizables/plantillas/obsidian")'
+    order:
+      - file.path
+      - tipo
+      - estado_documento
+

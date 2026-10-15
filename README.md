@@ -1,6 +1,15 @@
+---
+tipo: mapa-de-contenido
+area: proyecto
+estado_documento: VIGENTE
+clase_conocimiento: NO-APLICA
+---
+
 # Modelamiento de procesos - Ejecucion de inversiones
 
 Repositorio de trabajo para documentar, contrastar, modelar y mejorar los procesos de gestion de inversiones del Gobierno Regional de Huanuco, con enfasis inicial en S4.3 Ejecucion de la inversion y con adopcion progresiva de BIM.
+
+Entrada de navegacion: [Inicio de la boveda](00-inicio.md).
 
 ## Puesta en marcha despues de clonar
 
@@ -46,24 +55,27 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 ## Lectura inicial
 
-1. `estado-del-proyecto.md`
-2. `AGENTS.md`
-3. `00-gobernanza/alcance.md`
-4. `00-gobernanza/protocolo-trabajo-con-ia.md`
-5. `00-gobernanza/protocolo-conocimiento-confiable.md`
-6. `00-gobernanza/protocolo-versionado-y-releases.md`
-7. `01-referencias/00-catalogo/plan-descargas.md`
+1. [Estado del proyecto](estado-del-proyecto.md)
+2. [Instrucciones para agentes](AGENTS.md)
+3. [Alcance](00-gobernanza/alcance.md)
+4. [Manual operativo del conocimiento](00-gobernanza/manual-operativo-del-conocimiento.md)
+5. [Estandar obligatorio de Obsidian](00-gobernanza/estandar-obligatorio-obsidian.md)
+6. [Protocolo de trabajo con IA](00-gobernanza/protocolo-trabajo-con-ia.md)
+7. [Protocolo de conocimiento confiable](00-gobernanza/protocolo-conocimiento-confiable.md)
+8. [Versionado y releases](00-gobernanza/protocolo-versionado-y-releases.md)
+9. [Plan de descargas](01-referencias/00-catalogo/plan-descargas.md)
 
 ## Estructura
 
-- `00-gobernanza`: reglas, metodo, decisiones y plan de trabajo.
-- `01-referencias`: fuentes externas e institucionales; los originales son inmutables.
-- `02-arquitectura-procesos`: mapas aprobados e inventario de procesos.
-- `03-modelamiento`: trabajo vigente organizado por proceso y tipo de artefacto.
-- `04-recursos-reutilizables`: plantillas, glosarios, actores, controles y componentes comunes.
-- `05-herramientas`: utilidades de catalogacion, OCR, BPMN y trazabilidad.
-- `90-bandeja-entrada`: archivos recibidos pendientes de clasificacion.
-- `99-temporal`: salidas transitorias que no deben versionarse.
+- [Gobernanza](00-gobernanza/README.md): reglas, metodo, decisiones y plan de trabajo.
+- [Referencias](01-referencias/README.md): fuentes externas e institucionales; los originales son inmutables.
+- [Arquitectura de procesos](02-arquitectura-procesos/README.md): mapas aprobados e inventario de procesos.
+- [Modelamiento](03-modelamiento/README.md): trabajo vigente organizado por proceso y tipo de artefacto.
+- [Recursos reutilizables](04-recursos-reutilizables/README.md): plantillas, glosarios, actores, controles y componentes comunes.
+- [Herramientas](05-herramientas/README.md): utilidades de catalogacion, OCR, BPMN y trazabilidad.
+- [Coordinacion](06-coordinacion/README.md): reuniones, diario, Canvas y Bases transversales.
+- [Bandeja de entrada](90-bandeja-entrada/README.md): archivos recibidos pendientes de clasificacion.
+- [Temporal](99-temporal/README.md): salidas transitorias que no deben versionarse.
 
 ## Fuentes maestras
 
@@ -78,6 +90,8 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 La IA puede extraer, proponer, relacionar y revisar, pero no validar conocimiento normativo. Cada regla confiable debe vincularse con un original, hash, ubicacion precisa, vigencia y evento de validacion humana. Las reglas YAML son la fuente maestra; `04-recursos-reutilizables/conocimiento/catalogo-reglas.csv` es una vista regenerable.
 
 Cada tarea de IA usa un paquete de contexto limitado. No se carga la biblioteca completa ni se aceptan afirmaciones normativas basadas en memoria general del modelo. El equipo validara las reglas mediante el flujo definido en `00-gobernanza/protocolo-conocimiento-confiable.md` y, progresivamente, mediante la aplicacion requerida en `05-herramientas/validador-conocimiento/README.md`.
+
+La linea de trabajo completa, desde el ingreso de una fuente hasta la aprobacion de una propuesta o modelo, se encuentra en `00-gobernanza/manual-operativo-del-conocimiento.md`. El manual clasifica cada afirmacion como normativa, observada, referencia, inferencia, propuesta o decision y determina las validaciones aplicables a cada clase.
 
 ## Versiones y publicaciones
 

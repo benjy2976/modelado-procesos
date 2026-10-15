@@ -1,4 +1,13 @@
+---
+tipo: guia
+area: herramientas
+estado_documento: VIGENTE
+clase_conocimiento: NO-APLICA
+---
+
 # Requisitos del validador de conocimiento
+
+[Inicio](../../00-inicio.md) · [Herramientas](../README.md)
 
 ## Objetivo
 
@@ -89,3 +98,9 @@ La aplicacion debe serializar las escrituras para evitar conflictos y producir c
 5. Busqueda semantica, solo si el catalogo curado justifica su complejidad.
 
 La seleccion de framework, autenticacion y despliegue se decidira al iniciar la implementacion, sin alterar este contrato funcional.
+
+## Documentos rectores
+
+- [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md)
+- [Protocolo de conocimiento confiable](../../00-gobernanza/protocolo-conocimiento-confiable.md)
+- [Conocimiento estructurado](../../04-recursos-reutilizables/conocimiento/README.md)

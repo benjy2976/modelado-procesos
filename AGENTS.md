@@ -8,6 +8,9 @@
 
 ## Reglas obligatorias
 
+- Cumplir `00-gobernanza/estandar-obligatorio-obsidian.md` al crear o modificar notas de conocimiento.
+- Enlazar todo Markdown nuevo desde el mapa de contenido de su area; no dejar notas huerfanas.
+- Tratar Canvas y Bases como vistas: ninguna regla, decision o conclusion durable puede existir solo en ellos.
 - No modificar originales ubicados en `01-referencias/**/originales`.
 - No sobrescribir informacion publicada o aprobada.
 - Mantener separados AS-IS, analisis y TO-BE.

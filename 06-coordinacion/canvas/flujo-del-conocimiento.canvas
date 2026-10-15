@@ -1,0 +1,125 @@
+{
+  "nodes": [
+    {
+      "id": "fuentes",
+      "type": "file",
+      "file": "01-referencias/README.md",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "manual",
+      "type": "file",
+      "file": "00-gobernanza/manual-operativo-del-conocimiento.md",
+      "x": 440,
+      "y": -280,
+      "width": 420,
+      "height": 240
+    },
+    {
+      "id": "extraccion",
+      "type": "file",
+      "file": "05-herramientas/extractor-documental/README.md",
+      "x": 440,
+      "y": 40,
+      "width": 420,
+      "height": 220
+    },
+    {
+      "id": "conocimiento",
+      "type": "file",
+      "file": "04-recursos-reutilizables/conocimiento/README.md",
+      "x": 940,
+      "y": 0,
+      "width": 400,
+      "height": 240
+    },
+    {
+      "id": "validacion",
+      "type": "file",
+      "file": "05-herramientas/validador-conocimiento/README.md",
+      "x": 1420,
+      "y": -280,
+      "width": 420,
+      "height": 240
+    },
+    {
+      "id": "modelamiento",
+      "type": "file",
+      "file": "03-modelamiento/README.md",
+      "x": 1420,
+      "y": 40,
+      "width": 420,
+      "height": 220
+    },
+    {
+      "id": "publicacion",
+      "type": "file",
+      "file": "00-gobernanza/protocolo-versionado-y-releases.md",
+      "x": 1920,
+      "y": 0,
+      "width": 420,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "fuentes",
+      "fromSide": "right",
+      "toNode": "extraccion",
+      "toSide": "left",
+      "label": "produce extracciones"
+    },
+    {
+      "id": "e2",
+      "fromNode": "manual",
+      "fromSide": "right",
+      "toNode": "conocimiento",
+      "toSide": "top",
+      "label": "rige"
+    },
+    {
+      "id": "e3",
+      "fromNode": "extraccion",
+      "fromSide": "right",
+      "toNode": "conocimiento",
+      "toSide": "left",
+      "label": "sustenta propuestas"
+    },
+    {
+      "id": "e4",
+      "fromNode": "conocimiento",
+      "fromSide": "right",
+      "toNode": "validacion",
+      "toSide": "left",
+      "label": "se revisa"
+    },
+    {
+      "id": "e5",
+      "fromNode": "conocimiento",
+      "fromSide": "right",
+      "toNode": "modelamiento",
+      "toSide": "left",
+      "label": "alimenta"
+    },
+    {
+      "id": "e6",
+      "fromNode": "validacion",
+      "fromSide": "right",
+      "toNode": "publicacion",
+      "toSide": "top",
+      "label": "habilita"
+    },
+    {
+      "id": "e7",
+      "fromNode": "modelamiento",
+      "fromSide": "right",
+      "toNode": "publicacion",
+      "toSide": "left",
+      "label": "genera linea base"
+    }
+  ]
+}

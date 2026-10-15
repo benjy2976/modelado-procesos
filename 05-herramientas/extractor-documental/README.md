@@ -1,4 +1,13 @@
+---
+tipo: guia
+area: herramientas
+estado_documento: VIGENTE
+clase_conocimiento: NO-APLICA
+---
+
 # Requisitos del extractor documental
+
+[Inicio](../../00-inicio.md) · [Herramientas](../README.md)
 
 ## Objetivo
 
@@ -33,6 +42,8 @@ La cache completa no se versiona. Se regenera desde los originales restaurados. 
 - `NO-CONFIABLE`: la estructura, OCR o contenido impide utilizar la extraccion sin lectura directa del original.
 
 El estado se refiere a fidelidad de extraccion, no a vigencia ni interpretacion juridica.
+
+La extraccion es una etapa del [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md) y alimenta [Conocimiento estructurado](../../04-recursos-reutilizables/conocimiento/README.md).
 
 ## Criterios de aceptacion
 

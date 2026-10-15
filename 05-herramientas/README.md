@@ -1,4 +1,13 @@
+---
+tipo: mapa-de-contenido
+area: herramientas
+estado_documento: VIGENTE
+clase_conocimiento: NO-APLICA
+---
+
 # Herramientas previstas
+
+[Inicio](../00-inicio.md)
 
 1. Catalogador y verificador de hashes.
 2. Detector de texto y calidad OCR.
@@ -12,6 +21,13 @@
 10. Auditor de reproducibilidad del repositorio y la cache documental.
 
 Las especificaciones son `extractor-documental/README.md` y `validador-conocimiento/README.md`. La aplicacion debe conservar YAML y eventos de revision como fuentes maestras versionadas.
+
+## Especificaciones
+
+- [Extractor documental](extractor-documental/README.md)
+- [Validador de conocimiento](validador-conocimiento/README.md)
+- [Referencias y catalogos](../01-referencias/README.md)
+- [Conocimiento estructurado](../04-recursos-reutilizables/conocimiento/README.md)
 
 ## Biblioteca publica reproducible
 
