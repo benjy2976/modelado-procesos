@@ -24,6 +24,7 @@ Las especificaciones son `extractor-documental/README.md` y `validador-conocimie
 
 ## Especificaciones
 
+- [Guia de instalacion y propuesta de herramientas](guia-entorno.md): entorno ampliado, utilidad, versiones y comprobaciones al clonar.
 - [Extractor documental](extractor-documental/README.md)
 - [Validador de conocimiento](validador-conocimiento/README.md)
 - [Referencias y catalogos](../01-referencias/README.md)

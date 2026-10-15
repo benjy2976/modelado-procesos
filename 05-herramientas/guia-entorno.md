@@ -1,0 +1,166 @@
+---
+tipo: guia
+area: herramientas
+estado_documento: BORRADOR
+clase_conocimiento: PROPUESTA
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-15
+confidencialidad: INTERNO
+---
+
+# Entorno propuesto para trabajo documental y desarrollo
+
+Esta guia propone un conjunto local de herramientas para acelerar catalogacion, extraccion, trazabilidad y desarrollo. Distingue la instalacion observada de los usos futuros: disponer de una biblioteca no equivale a tener implementados el extractor, el validador normativo o una aplicacion web.
+
+[Herramientas](README.md) · Se rige por [Reproducibilidad](../00-gobernanza/reproducibilidad.md) y el [estandar de Obsidian](../00-gobernanza/estandar-obligatorio-obsidian.md).
+
+## Instalacion observada
+
+El 2026-10-15 se encontro Git con Git LFS 3.8.0 y Python 3.15. Se agrego Python 3.13.16 en paralelo y se preparo `.venv` con el perfil ampliado. Python 3.13 es la version de referencia de este perfil; el minimo 3.10 del catalogador existente no implica compatibilidad con todas estas dependencias. No se cambio el Python predeterminado ni el PATH permanente del equipo.
+
+Las versiones de todas las dependencias, incluidas las transitivas, estan en [requirements-herramientas.txt](../requirements-herramientas.txt), con hashes de distribuciones. El inventario regenerable de cada equipo se escribe en `99-temporal/entorno-instalado.json` y no se versiona. La comprobacion se describe mas abajo; no certifica vigencia normativa ni seguridad integral de los paquetes.
+
+## Herramientas del perfil ampliado
+
+Los enlaces de esta tabla son referencias oficiales del proyecto o sus mantenedores en PyPI, consultadas el 2026-10-15. La columna de utilidad es una propuesta de aplicacion en este repositorio.
+
+| Herramienta | Version instalada | Utilidad propuesta |
+|---|---|---|
+| [uv](https://docs.astral.sh/uv/) | 0.13.1 | Resolver dependencias y regenerar el archivo fijado con hashes. |
+| [pypdf](https://pypi.org/project/pypdf/) | 6.10.0 | Medir texto por pagina y apoyar el evaluador documental existente. |
+| [pdfplumber](https://pypi.org/project/pdfplumber/) | 0.11.10 | Extraer texto y tablas con posicion para contrastarlos con la pagina original. |
+| [PyYAML](https://pypi.org/project/PyYAML/) | 6.0.3 | Leer reglas, metadatos y paquetes de contexto usando `safe_load`. |
+| [jsonschema](https://pypi.org/project/jsonschema/) | 4.26.0 | Comprobar estructura de reglas y eventos; no validar su contenido juridico. |
+| [lxml](https://pypi.org/project/lxml/) | 6.1.3 | Procesar XML BPMN y, cuando se incorporen esquemas oficiales, comprobar XSD. La prueba actual solo comprueba lectura XML. |
+| [openpyxl](https://pypi.org/project/openpyxl/) | 3.1.5 | Leer y generar matrices XLSX. No calcula formulas como Excel. |
+| [python-docx](https://pypi.org/project/python-docx/) | 1.2.0 | Producir borradores Word a partir de conocimiento trazable. |
+| [ReportLab](https://pypi.org/project/reportlab/) | 5.0.1 | Generar reportes PDF derivados de datos y fuentes editables. |
+| [Pillow](https://pypi.org/project/Pillow/) | 12.3.0 | Inspeccionar y preparar imagenes derivadas para revision documental. |
+| [RapidFuzz](https://pypi.org/project/RapidFuzz/) | 3.14.6 | Sugerir coincidencias entre titulos, actores y terminos; requiere revision humana. |
+| [pytest](https://docs.pytest.org/en/stable/) | 9.1.1 | Probar futuros extractores y validadores con casos controlados. |
+| [Ruff](https://docs.astral.sh/ruff/) | 0.17.1 | Detectar errores comunes en scripts y mantener formato consistente. |
+
+PDFMiner y PDFium llegan como dependencias de pdfplumber; no hace falta instalar Poppler para la comprobacion incluida. No se han instalado plugins de comunidad de Obsidian ni servicios de nube. Las operaciones de comprobacion usan datos sinteticos y memoria local, sin enviar documentos a servicios externos. Instalar o actualizar paquetes si requiere conexion al indice de paquetes.
+
+## Guia al clonar en Windows
+
+### Requisitos del equipo
+
+Instalar Git desde [Git para Windows](https://git-scm.com/download/win), comprobar Git LFS y disponer de Python 3.13. Obsidian se usa para autoria segun el estandar del proyecto. Si las aplicaciones ya existen, no es necesario reinstalarlas.
+
+```powershell
+git --version
+git lfs version
+py -3.13 --version
+```
+
+Con el administrador de Python que admite `py install`, agregar la version de referencia asi:
+
+```powershell
+py install 3.13
+```
+
+Si el comando no existe, instalar Python 3.13 desde [Python para Windows](https://www.python.org/downloads/windows/). Cerrar y abrir la terminal despues de instalar. En una red institucional, usar los instaladores e indices autorizados. No colocar credenciales en archivos versionados.
+
+### Preparacion automatica
+
+Reemplazar la URL de ejemplo por la del repositorio:
+
+```powershell
+git clone <URL-DEL-REPOSITORIO> modelado-procesos
+cd modelado-procesos
+git lfs install --local
+git lfs pull
+py -3.13 05-herramientas/preparar_entorno.py
+```
+
+El preparador crea `.venv` si falta, exige Python 3.13, instala con `pip --require-hashes` y ejecuta la comprobacion funcional. Puede volver a ejecutarse; no borra el entorno existente ni elimina paquetes adicionales. Un entorno nuevo es la referencia para reproducir exactamente el conjunto. No requiere activar `.venv` ni cambiar la politica de ejecucion de PowerShell.
+
+### Alternativa manual
+
+```powershell
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --require-hashes -r requirements-herramientas.txt
+.\.venv\Scripts\python.exe 05-herramientas/verificar_entorno.py
+```
+
+El perfil minimo anterior sigue disponible con `requirements.txt` para quien solo necesite el evaluador PDF. Instalar ambos perfiles en entornos separados si se desea comparar su reproducibilidad.
+
+### Restaurar y auditar documentos
+
+La instalacion de herramientas y la restauracion de documentos son pasos independientes:
+
+```powershell
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo restaurar
+.\.venv\Scripts\python.exe 05-herramientas/auditar_reproducibilidad.py
+```
+
+El restaurador escribe solo recursos ausentes y verifica hashes; no sustituye originales existentes. Los recursos no disponibles o modificados requieren revision segun el protocolo. El auditor revisa la biblioteca, exclusiones y LFS; el verificador de entorno revisa herramientas. Se deben usar ambos para finalidades distintas.
+
+### Uso diario
+
+Seleccionar `.venv/Scripts/python.exe` como interprete del editor y ejecutar los scripts con esa ruta. Ejemplos:
+
+```powershell
+.\.venv\Scripts\python.exe 05-herramientas/verificar_entorno.py
+.\.venv\Scripts\python.exe -m ruff check 05-herramientas/preparar_entorno.py 05-herramientas/verificar_entorno.py
+.\.venv\Scripts\python.exe -m pytest --version
+```
+
+`pytest --version` solo comprueba la disponibilidad del ejecutor; no existe aun una suite general del proyecto. No aplicar correcciones masivas de Ruff al codigo existente sin revisar su alcance.
+
+## Otros sistemas operativos
+
+El preparador contempla `.venv/bin/python` en Linux/macOS. Con Python 3.13, Git y LFS disponibles:
+
+```bash
+python3.13 05-herramientas/preparar_entorno.py
+.venv/bin/python 05-herramientas/verificar_entorno.py
+```
+
+El archivo fijado se resolvio y comprobo en Windows x64; la instalacion en Linux/macOS queda pendiente de prueba. Si aparecen dependencias especificas de plataforma, generar y revisar un archivo propio, sin afirmar equivalencia automaticamente.
+
+## Mantenimiento de versiones
+
+[requirements-herramientas.in](../requirements-herramientas.in) declara el conjunto directo; `.txt` es el resultado fijado que consume la instalacion. Mantener `pypdf` alineado con `requirements.txt`.
+
+```powershell
+# Regenerar preservando versiones compatibles ya fijadas.
+.\.venv\Scripts\python.exe -m uv pip compile requirements-herramientas.in --python-version 3.13 --generate-hashes --no-header --output-file requirements-herramientas.txt
+# Para una actualizacion intencional, agregar --upgrade al comando anterior.
+py -3.13 05-herramientas/preparar_entorno.py
+```
+
+Revisar el diff, comprobar versiones y funciones, actualizar esta tabla y repetir la instalacion en un entorno limpio antes de publicar una nueva referencia. Los hashes verifican la distribucion descargada; no reemplazan la evaluacion del paquete. Las dependencias no se actualizan automaticamente al trabajar.
+
+## Propuesta de ampliacion por necesidad
+
+Estas herramientas quedan propuestas, sin instalar en esta intervencion. La seleccion evita decidir el framework web antes del hito previsto.
+
+| Herramienta | Cuando incorporarla | Condicion de uso |
+|---|---|---|
+| [Tesseract OCR](https://tesseract-ocr.github.io/) y [OCRmyPDF](https://ocrmypdf.readthedocs.io/) | Primer lote confirmado sin texto aprovechable | Preparar dependencias y lenguaje espanol; procesar solo copias derivadas y revisar fidelidad. |
+| [Pandoc](https://pandoc.org/) | Exportaciones repetidas de Markdown a Word/HTML | Definir plantilla y comprobar visualmente el resultado. |
+| [bpmn.io](https://bpmn.io/) y Node.js LTS | Editor o renderizador BPMN integrado | Mantener `.bpmn` como fuente maestra y SVG/PDF como derivados; fijar dependencias cuando exista aplicacion. |
+| [IfcOpenShell](https://ifcopenshell.org/) | Primer caso real de consulta IFC | Comprobar compatibilidad, tamano y necesidades de informacion antes de agregarlo. |
+
+## Solucion de problemas
+
+- **`python` o `py` no encontrado:** abrir una terminal nueva; comprobar la instalacion. Usar el ejecutable de Python 3.13 directamente si no existe el lanzador.
+- **Git no disponible en esta sesion:** abrir una terminal nueva. Si existe en la ruta habitual, puede habilitarse solo para la sesion con `$env:PATH = 'C:\Program Files\Git\cmd;' + $env:PATH`. No reinstalar sin comprobarlo.
+- **`.venv` usa otra version:** el preparador se detiene. Conservar o renombrar manualmente el entorno anterior antes de crear otro; el script no lo elimina.
+- **Fallo de hash o descarga:** detenerse y revisar indice, proxy, conectividad o archivo fijado. No desactivar hashes ni verificaciones TLS.
+- **Conexion restringida:** solicitar acceso al indice autorizado o preparar un repositorio de ruedas compatible con este archivo y plataforma.
+- **Comprobacion funcional fallida:** consultar la salida y `99-temporal/entorno-instalado.json`; no declarar el entorno listo hasta resolverla.
+
+## Pendientes y relaciones
+
+La propuesta de herramientas no aprueba cambios metodologicos ni sustituye validacion humana. La instalacion observada es un hecho tecnico local. Esta guia implementa la preparacion del [area de herramientas](README.md) y apoya los requisitos del [extractor](extractor-documental/README.md) y del [validador](validador-conocimiento/README.md).
+
+Decision tecnica local de esta preparacion: conservar el perfil minimo y agregar un perfil ampliado con Python 3.13 en `.venv`, sin dependencias globales. Esto permite reproducir el trabajo sin anticipar el framework de la aplicacion; su adopcion como estandar del equipo sigue siendo propuesta.
+
+La auditoria documental ejecutada el 2026-10-15 encontro ausentes los 219 recursos publicos indexados en esta copia local. El entorno instalado no subsana esa ausencia: ejecutar la restauracion indicada antes de declarar reconstruida la biblioteca. Esta intervencion no descargo ni modifico originales.
+
+- Pendiente: probar clonacion desde otro equipo y transferencia LFS.
+- Pendiente: probar instalacion fuera de Windows x64.
+- Pendiente: desarrollar el extractor trazable y el validador de esquemas usando este entorno.

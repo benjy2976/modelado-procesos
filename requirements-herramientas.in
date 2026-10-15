@@ -1,0 +1,14 @@
+# Perfil ampliado para desarrollo documental local. Compilar con uv; ver guia.
+-r requirements.txt
+uv
+pdfplumber
+PyYAML
+jsonschema
+lxml
+openpyxl
+python-docx
+reportlab
+Pillow
+rapidfuzz
+pytest
+ruff

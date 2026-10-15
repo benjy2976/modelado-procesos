@@ -19,6 +19,7 @@ confidencialidad: INTERNO
 - Obsidian: boveda independiente operativa mediante CLI; estandar obligatorio de autoria, mapas, propiedades, plantillas, reuniones, Canvas y Bases definidos; estado visual excluido de Git
 - Conocimiento: manual operativo y protocolo obligatorio definidos; catalogo, plantillas y requisitos del validador web preparados; implementacion pendiente
 - Reproducibilidad: dependencias fijadas y auditor automatizado incorporado; falta validar clonacion y transferencia LFS contra un remoto
+- Entorno ampliado: Python 3.13 en `.venv`, dependencias con hashes, preparador y verificador funcional; guia propuesta en [Herramientas](05-herramientas/guia-entorno.md)
 
 ## Completado
 

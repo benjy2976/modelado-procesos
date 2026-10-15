@@ -13,6 +13,8 @@ Entrada de navegacion: [Inicio de la boveda](00-inicio.md).
 
 ## Puesta en marcha despues de clonar
 
+Para el entorno ampliado de trabajo documental y desarrollo, seguir la [guia de instalacion y propuesta de herramientas](05-herramientas/guia-entorno.md). Incluye preparacion automatica con Python 3.13, versiones fijadas con hashes y comprobacion funcional. Los pasos siguientes conservan el perfil minimo del catalogador.
+
 Requisitos:
 
 - Git y Git LFS.

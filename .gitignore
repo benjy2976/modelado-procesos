@@ -17,6 +17,8 @@ Thumbs.db
 __pycache__/
 *.pyc
 .venv/
+.ruff_cache/
+.pytest_cache/
 /01-referencias/09-derivados-texto/cache/
 
 # Biblioteca publica regenerable desde el indice y el descargador
