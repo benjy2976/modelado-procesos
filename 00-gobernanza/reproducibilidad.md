@@ -14,7 +14,7 @@ La reproducibilidad no equivale a preservacion externa indefinida. Si una entida
 
 - Git.
 - Git LFS 3 o posterior.
-- Python 3.10 o posterior.
+- Python estable 3.11 o posterior; cada nueva version menor se incorpora a la matriz probada despues de resolver, instalar y ejecutar las comprobaciones del entorno.
 - Dependencias fijadas en `requirements.txt` para la evaluacion documental.
 - Acceso a las URLs oficiales registradas y a un indice de paquetes Python o espejo institucional.
 - Un remoto con soporte Git LFS para compartir los cuatro binarios locales del commit inicial.
@@ -25,7 +25,7 @@ La reproducibilidad no equivale a preservacion externa indefinida. Si una entida
 git clone <URL-DEL-REPOSITORIO>
 cd ejecucion
 git lfs install --local
-python -m venv .venv
+python3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo restaurar
 .\.venv\Scripts\python.exe 05-herramientas/auditar_reproducibilidad.py
@@ -48,16 +48,16 @@ En Linux o macOS se sustituye `.\.venv\Scripts\python.exe` por `.venv/bin/python
 Ejecutar:
 
 ```powershell
-python 05-herramientas/auditar_reproducibilidad.py
+.\.venv\Scripts\python.exe 05-herramientas/auditar_reproducibilidad.py
 ```
 
 La auditoria verifica archivos, tamanos, hashes, rutas, reglas de exclusion, atributos LFS, configuracion JSON y archivos minimos. No comprueba que todas las URLs sigan disponibles; esa comprobacion corresponde a `--modo actualizar` y puede detectar contenido nuevo sin sobrescribir originales.
 
 ## Limites actuales
 
-- Todavia no existe un remoto configurado; por ello no se ha probado un clon desde otra maquina ni la transferencia LFS.
+- El remoto `origin` esta configurado, la rama local esta sincronizada y los cuatro objetos LFS se recuperaron y verificaron desde el remoto en el equipo actual; todavia falta probar la clonacion completa desde otra maquina.
 - El extractor Markdown y el validador web estan especificados, pero aun no implementados.
 - La vigencia juridica no se deduce de la reproducibilidad tecnica y requiere validacion especializada.
 - El manual BPMN aportado localmente y los tres PDF institucionales dependen del remoto LFS; antes de publicarlos en un remoto externo debe confirmarse autorizacion y licencia.
 
-Con estos limites, el commit inicial puede declararse tecnicamente auditable y reconstruible, pero no todavia preservado de forma independiente de las fuentes oficiales.
+Con estos limites, el repositorio puede declararse tecnicamente auditable y reconstruible en el equipo actual, pero no todavia preservado de forma independiente de las fuentes oficiales ni verificado mediante una clonacion externa completa.

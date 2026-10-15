@@ -36,13 +36,13 @@ El indice versionado es `01-referencias/00-catalogo/registro-descargas.csv`. Sus
 
 ```powershell
 # Despues de clonar: descarga solo archivos ausentes, verifica su SHA-256 y no modifica el indice.
-python 05-herramientas/catalogador-documental/descargar_recursos.py --modo restaurar
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo restaurar
 
 # Consulta las fichas oficiales y agrega adjuntos nuevos al indice.
-python 05-herramientas/catalogador-documental/descargar_recursos.py --modo descubrir
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo descubrir
 
 # Vuelve a consultar los recursos y detecta cambios de contenido.
-python 05-herramientas/catalogador-documental/descargar_recursos.py --modo actualizar
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo actualizar
 ```
 
 `actualizar` nunca sobrescribe un original. Si el contenido remoto cambia, deja un candidato en `99-temporal/actualizaciones-documentales/` y mantiene intacto el indice versionado hasta su revision.
@@ -52,7 +52,7 @@ El reporte de cada ejecucion se genera en `99-temporal/registro-ultima-sincroniz
 ## Auditoria previa a commit o release
 
 ```powershell
-python 05-herramientas/auditar_reproducibilidad.py
+.\.venv\Scripts\python.exe 05-herramientas/auditar_reproducibilidad.py
 ```
 
 El resultado `APTO CON DEPENDENCIAS EXTERNAS DECLARADAS` confirma integridad local, exclusiones y LFS. Las advertencias recuerdan los limites que no puede resolver el repositorio por si solo, como la permanencia de URLs publicas o un remoto aun no configurado.

@@ -10,8 +10,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+MIN_PYTHON = (3, 11)
 REGISTRO = ROOT / "01-referencias/00-catalogo/registro-descargas.csv"
 CONFIG = ROOT / "05-herramientas/catalogador-documental/fuentes-descarga.json"
 BINARIOS_LFS = {
@@ -55,8 +55,8 @@ def main() -> int:
         if not (ROOT / relative).is_file():
             errors.append(f"Falta archivo requerido: {relative}")
 
-    if sys.version_info < (3, 10):
-        errors.append(f"Python {sys.version.split()[0]} no cumple el minimo 3.10.")
+    if sys.version_info[:2] < MIN_PYTHON:
+        errors.append(f"Python {sys.version.split()[0]} no cumple el minimo 3.11.")
     requirements = ROOT / "requirements.txt"
     if requirements.is_file():
         dependencies = [

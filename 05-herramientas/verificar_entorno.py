@@ -10,19 +10,37 @@ from importlib.metadata import PackageNotFoundError, version
 from io import BytesIO
 from pathlib import Path
 
+from packaging.markers import Marker
+
 ROOT = Path(__file__).resolve().parents[1]
+MIN_PYTHON = (3, 11)
+MAX_PYTHON_PROBADO = (3, 14)
 
 
 def main() -> int:
     errors = []
+    warnings = []
     installed = {}
-    if sys.version_info[:2] != (3, 13):
-        errors.append("El perfil ampliado requiere Python 3.13.")
-    for name, expected in re.findall(
-        r"^([\w.-]+)==([^\s;\\]+)",
+    current_python = sys.version_info[:2]
+    if (
+        sys.implementation.name != "cpython"
+        or current_python < MIN_PYTHON
+        or sys.version_info.releaselevel != "final"
+    ):
+        errors.append("El perfil ampliado requiere CPython estable 3.11 o posterior.")
+    elif current_python > MAX_PYTHON_PROBADO:
+        warnings.append(
+            "Esta version de Python supera la matriz probada hasta 3.14; "
+            "el resultado comprueba este equipo, pero no amplia por si solo "
+            "la compatibilidad declarada del proyecto."
+        )
+    for name, expected, marker in re.findall(
+        r"^([\w.-]+)==([^\s;\\]+)(?:\s*;\s*([^\\]+?))?\s*\\$",
         (ROOT / "requirements-herramientas.txt").read_text(encoding="utf-8"),
         re.MULTILINE,
     ):
+        if marker and not Marker(marker.strip()).evaluate():
+            continue
         try:
             installed[name] = version(name)
             if installed[name] != expected:
@@ -97,6 +115,7 @@ def main() -> int:
         "plataforma": sys.platform,
         "paquetes": installed,
         "herramientas": native,
+        "advertencias": warnings,
         "errores": errors,
     }
     output = ROOT / "99-temporal/entorno-instalado.json"
@@ -106,7 +125,12 @@ def main() -> int:
     )
     for error in errors:
         print(f"ERROR: {error}")
-    print(f"Paquetes comprobados: {len(installed)}; errores: {len(errors)}")
+    for warning in warnings:
+        print(f"ADVERTENCIA: {warning}")
+    print(
+        f"Paquetes comprobados: {len(installed)}; "
+        f"advertencias: {len(warnings)}; errores: {len(errors)}"
+    )
     print(f"Inventario local: {output.relative_to(ROOT)}")
     return 1 if errors else 0
 

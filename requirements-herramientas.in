@@ -1,4 +1,4 @@
-# Perfil ampliado para desarrollo documental local. Compilar con uv; ver guia.
+# Perfil ampliado para CPython estable >=3.11. Compilar universalmente con uv; ver guia.
 -r requirements.txt
 uv
 pdfplumber

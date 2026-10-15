@@ -17,7 +17,6 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-
 ROOT = Path(__file__).resolve().parents[2]
 REGISTRO = ROOT / "01-referencias/00-catalogo/registro-descargas.csv"
 SALIDA = ROOT / "01-referencias/00-catalogo/evaluacion-calidad-documental.csv"
@@ -54,7 +53,7 @@ def eval_pdf(path: Path) -> dict[str, object]:
     for page in reader.pages:
         try:
             counts.append(len((page.extract_text() or "").strip()))
-        except Exception:
+        except Exception:  # noqa: BLE001 -- una pagina ilegible no detiene el lote
             counts.append(0)
             errors += 1
     text_pages = sum(n >= 20 for n in counts)
@@ -168,7 +167,7 @@ def main() -> int:
                         "estructura_0_5": 2,
                         "detalle_tecnico": "integridad superficial; requiere aplicacion especializada",
                     })
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 -- registra formatos heterogeneos
                 flags.append("ERROR-LECTURA")
                 detail["detalle_tecnico"] = f"{type(exc).__name__}: {exc}"
             if path.stat().st_size < 10_000:

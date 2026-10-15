@@ -10,7 +10,7 @@ confidencialidad: INTERNO
 # Estado del proyecto
 
 - Fecha de actualizacion: 2026-10-15
-- Fase: preparacion del entorno documental
+- Fase: entorno documental verificado; listo para iniciar el piloto de conocimiento
 - Ambito inicial: S4.3 Ejecucion de la inversion
 - Estado del modelamiento: pendiente de recibir la propuesta de descomposicion elaborada por el equipo
 - Estado BIM: aprendizaje y adopcion progresiva; la informacion se organizara con rutas estables y trazabilidad Git, sin declarar el repositorio como CDE institucional
@@ -18,8 +18,8 @@ confidencialidad: INTERNO
 - Git: estrategia hibrida configurada; repositorio inicial publicado en remoto, recursos publicos regenerables fuera de Git y LFS reservado para binarios no reproducibles
 - Obsidian: boveda independiente operativa mediante CLI; estandar obligatorio de autoria, mapas, propiedades, plantillas, reuniones, Canvas y Bases definidos; estado visual excluido de Git
 - Conocimiento: manual operativo y protocolo obligatorio definidos; catalogo, plantillas y requisitos del validador web preparados; implementacion pendiente
-- Reproducibilidad: dependencias fijadas y auditor automatizado incorporado; falta validar clonacion y transferencia LFS contra un remoto
-- Entorno ampliado: Python 3.13 en `.venv`, dependencias con hashes, preparador y verificador funcional; guia propuesta en [Herramientas](05-herramientas/guia-entorno.md)
+- Reproducibilidad: dependencias fijadas, auditor automatizado aprobado, `origin` sincronizado y cuatro objetos LFS recuperados e integros; falta validar la clonacion completa desde otro equipo
+- Entorno ampliado: politica abierta desde Python estable 3.11; `.venv` local operativo con CPython 3.14.7 x64, dependencias universales con hashes y controles de instalacion y funcionamiento; guia propuesta en [Herramientas](05-herramientas/guia-entorno.md)
 
 ## Completado
 

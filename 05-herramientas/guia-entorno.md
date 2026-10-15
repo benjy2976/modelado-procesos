@@ -16,7 +16,9 @@ Esta guia propone un conjunto local de herramientas para acelerar catalogacion, 
 
 ## Instalacion observada
 
-El 2026-10-15 se encontro Git con Git LFS 3.8.0 y Python 3.15. Se agrego Python 3.13.16 en paralelo y se preparo `.venv` con el perfil ampliado. Python 3.13 es la version de referencia de este perfil; el minimo 3.10 del catalogador existente no implica compatibilidad con todas estas dependencias. No se cambio el Python predeterminado ni el PATH permanente del equipo.
+El 2026-10-15 se encontro Git con Git LFS 3.6.0. El lanzador de Windows reconoce CPython 3.14.3 de 64 bits, 3.10.11 de 32 bits y 3.9.13 de 32 bits; ademas existe Miniforge con Python 3.14.7 de 64 bits. El comando `python` apunta a 3.10.11 y `python3` a 3.14.3. Se creo `.venv` con CPython 3.14.7 de 64 bits, sin cambiar el Python predeterminado ni el `PATH` permanente del equipo.
+
+El perfil ampliado admite CPython estable 3.11 o posterior. Python 3.10 no se adopta como minimo porque alcanzo fin de soporte el 2026-10-01, segun el [estado oficial de versiones de Python](https://devguide.python.org/versions/). La matriz objetivo actual comprende 3.11, 3.12, 3.13 y 3.14; en este equipo se ejecuto la prueba funcional con 3.14.7. Una version posterior puede intentar preparar el entorno, pero no se declara compatible hasta que resuelva el archivo fijado, instale todas las distribuciones y supere el verificador.
 
 Las versiones de todas las dependencias, incluidas las transitivas, estan en [requirements-herramientas.txt](../requirements-herramientas.txt), con hashes de distribuciones. El inventario regenerable de cada equipo se escribe en `99-temporal/entorno-instalado.json` y no se versiona. La comprobacion se describe mas abajo; no certifica vigencia normativa ni seguridad integral de los paquetes.
 
@@ -24,7 +26,7 @@ Las versiones de todas las dependencias, incluidas las transitivas, estan en [re
 
 Los enlaces de esta tabla son referencias oficiales del proyecto o sus mantenedores en PyPI, consultadas el 2026-10-15. La columna de utilidad es una propuesta de aplicacion en este repositorio.
 
-| Herramienta | Version instalada | Utilidad propuesta |
+| Herramienta | Version fijada | Utilidad propuesta |
 |---|---|---|
 | [uv](https://docs.astral.sh/uv/) | 0.13.1 | Resolver dependencias y regenerar el archivo fijado con hashes. |
 | [pypdf](https://pypi.org/project/pypdf/) | 6.10.0 | Medir texto por pagina y apoyar el evaluador documental existente. |
@@ -46,21 +48,22 @@ PDFMiner y PDFium llegan como dependencias de pdfplumber; no hace falta instalar
 
 ### Requisitos del equipo
 
-Instalar Git desde [Git para Windows](https://git-scm.com/download/win), comprobar Git LFS y disponer de Python 3.13. Obsidian se usa para autoria segun el estandar del proyecto. Si las aplicaciones ya existen, no es necesario reinstalarlas.
+Instalar Git desde [Git para Windows](https://git-scm.com/download/win), comprobar Git LFS y disponer de una version estable de CPython 3.11 o posterior. Obsidian se usa para autoria segun el estandar del proyecto. Si las aplicaciones ya existen, no es necesario reinstalarlas.
 
 ```powershell
 git --version
 git lfs version
-py -3.13 --version
+py -0p
+python3 --version
 ```
 
-Con el administrador de Python que admite `py install`, agregar la version de referencia asi:
+En el equipo observado, `python3` selecciona Python 3.14 de 64 bits y es apto para preparar el proyecto. Si no existe ningun interprete compatible, el administrador de Python permite instalar una version estable soportada; por ejemplo:
 
 ```powershell
-py install 3.13
+py install 3.14
 ```
 
-Si el comando no existe, instalar Python 3.13 desde [Python para Windows](https://www.python.org/downloads/windows/). Cerrar y abrir la terminal despues de instalar. En una red institucional, usar los instaladores e indices autorizados. No colocar credenciales en archivos versionados.
+Si el comando no existe, instalar una version estable 3.11 o posterior desde [Python para Windows](https://www.python.org/downloads/windows/). Se recomienda la version estable mas reciente que figure en la matriz probada. Cerrar y abrir la terminal despues de instalar. En una red institucional, usar los instaladores e indices autorizados. No colocar credenciales en archivos versionados.
 
 ### Preparacion automatica
 
@@ -71,15 +74,15 @@ git clone <URL-DEL-REPOSITORIO> modelado-procesos
 cd modelado-procesos
 git lfs install --local
 git lfs pull
-py -3.13 05-herramientas/preparar_entorno.py
+python3 05-herramientas/preparar_entorno.py
 ```
 
-El preparador crea `.venv` si falta, exige Python 3.13, instala con `pip --require-hashes` y ejecuta la comprobacion funcional. Puede volver a ejecutarse; no borra el entorno existente ni elimina paquetes adicionales. Un entorno nuevo es la referencia para reproducir exactamente el conjunto. No requiere activar `.venv` ni cambiar la politica de ejecucion de PowerShell.
+El preparador crea `.venv` si falta, exige CPython estable 3.11 o posterior, instala con `pip --require-hashes` y ejecuta la comprobacion funcional. Puede volver a ejecutarse; no borra el entorno existente ni elimina paquetes adicionales. Un entorno nuevo es la referencia para reproducir exactamente el conjunto. No requiere activar `.venv` ni cambiar la politica de ejecucion de PowerShell. Si `python3` no identifica un interprete compatible, se puede sustituir por `py -3.11`, `py -3.12`, `py -3.13`, `py -3.14` o por la ruta exacta de otro CPython compatible.
 
 ### Alternativa manual
 
 ```powershell
-py -3.13 -m venv .venv
+python3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --require-hashes -r requirements-herramientas.txt
 .\.venv\Scripts\python.exe 05-herramientas/verificar_entorno.py
 ```
@@ -111,27 +114,29 @@ Seleccionar `.venv/Scripts/python.exe` como interprete del editor y ejecutar los
 
 ## Otros sistemas operativos
 
-El preparador contempla `.venv/bin/python` en Linux/macOS. Con Python 3.13, Git y LFS disponibles:
+El preparador contempla `.venv/bin/python` en Linux/macOS. Con CPython estable 3.11 o posterior, Git y LFS disponibles:
 
 ```bash
-python3.13 05-herramientas/preparar_entorno.py
+python3 05-herramientas/preparar_entorno.py
 .venv/bin/python 05-herramientas/verificar_entorno.py
 ```
 
-El archivo fijado se resolvio y comprobo en Windows x64; la instalacion en Linux/macOS queda pendiente de prueba. Si aparecen dependencias especificas de plataforma, generar y revisar un archivo propio, sin afirmar equivalencia automaticamente.
+El archivo fijado se resuelve universalmente desde Python 3.11 mediante el [mecanismo de resolucion universal de uv](https://docs.astral.sh/uv/concepts/resolution/). La prueba funcional local se ejecuto en Windows x64 con Python 3.14.7; la instalacion en Linux/macOS y las demas versiones de la matriz quedan pendientes de prueba funcional. La resolucion universal comprueba metadatos y marcadores, pero no sustituye la ejecucion en cada sistema.
 
 ## Mantenimiento de versiones
 
 [requirements-herramientas.in](../requirements-herramientas.in) declara el conjunto directo; `.txt` es el resultado fijado que consume la instalacion. Mantener `pypdf` alineado con `requirements.txt`.
 
 ```powershell
-# Regenerar preservando versiones compatibles ya fijadas.
-.\.venv\Scripts\python.exe -m uv pip compile requirements-herramientas.in --python-version 3.13 --generate-hashes --no-header --output-file requirements-herramientas.txt
+# Regenerar para Python 3.11 y posteriores, preservando versiones compatibles ya fijadas.
+.\.venv\Scripts\python.exe -m uv pip compile requirements-herramientas.in --universal --python-version 3.11 --generate-hashes --no-header --output-file requirements-herramientas.txt
 # Para una actualizacion intencional, agregar --upgrade al comando anterior.
-py -3.13 05-herramientas/preparar_entorno.py
+python3 05-herramientas/preparar_entorno.py
 ```
 
-Revisar el diff, comprobar versiones y funciones, actualizar esta tabla y repetir la instalacion en un entorno limpio antes de publicar una nueva referencia. Los hashes verifican la distribucion descargada; no reemplazan la evaluacion del paquete. Las dependencias no se actualizan automaticamente al trabajar.
+Revisar el diff, comprobar versiones y funciones, actualizar esta tabla y repetir la instalacion en entornos limpios para cada version de la matriz antes de ampliar la compatibilidad declarada. Los hashes verifican la distribucion descargada; no reemplazan la evaluacion del paquete. Las dependencias no se actualizan automaticamente al trabajar.
+
+No existe una garantia tecnica honesta para todas las versiones futuras de Python. La politica es mantener el limite inferior sin fijar un limite superior artificial: una version nueva comienza como candidata, debe resolver e instalar las dependencias fijadas y superar `verificar_entorno.py`; despues se incorpora expresamente a la matriz probada. Un fallo obliga a actualizar o sustituir la dependencia afectada, nunca a omitir la comprobacion.
 
 ## Propuesta de ampliacion por necesidad
 
@@ -146,7 +151,7 @@ Estas herramientas quedan propuestas, sin instalar en esta intervencion. La sele
 
 ## Solucion de problemas
 
-- **`python` o `py` no encontrado:** abrir una terminal nueva; comprobar la instalacion. Usar el ejecutable de Python 3.13 directamente si no existe el lanzador.
+- **`python`, `python3` o `py` no encontrado:** abrir una terminal nueva y comprobar la instalacion. Usar la ruta del ejecutable compatible directamente si no existe el lanzador.
 - **Git no disponible en esta sesion:** abrir una terminal nueva. Si existe en la ruta habitual, puede habilitarse solo para la sesion con `$env:PATH = 'C:\Program Files\Git\cmd;' + $env:PATH`. No reinstalar sin comprobarlo.
 - **`.venv` usa otra version:** el preparador se detiene. Conservar o renombrar manualmente el entorno anterior antes de crear otro; el script no lo elimina.
 - **Fallo de hash o descarga:** detenerse y revisar indice, proxy, conectividad o archivo fijado. No desactivar hashes ni verificaciones TLS.
@@ -157,9 +162,9 @@ Estas herramientas quedan propuestas, sin instalar en esta intervencion. La sele
 
 La propuesta de herramientas no aprueba cambios metodologicos ni sustituye validacion humana. La instalacion observada es un hecho tecnico local. Esta guia implementa la preparacion del [area de herramientas](README.md) y apoya los requisitos del [extractor](extractor-documental/README.md) y del [validador](validador-conocimiento/README.md).
 
-Decision tecnica local de esta preparacion: conservar el perfil minimo y agregar un perfil ampliado con Python 3.13 en `.venv`, sin dependencias globales. Esto permite reproducir el trabajo sin anticipar el framework de la aplicacion; su adopcion como estandar del equipo sigue siendo propuesta.
+Decision tecnica local de esta preparacion: conservar el perfil minimo y agregar un perfil ampliado con CPython estable 3.11 o posterior en `.venv`, sin dependencias globales. La compatibilidad se gobierna mediante un minimo, una matriz probada y una puerta de incorporacion para versiones futuras; su adopcion como estandar del equipo sigue siendo propuesta.
 
-La auditoria documental ejecutada el 2026-10-15 encontro ausentes los 219 recursos publicos indexados en esta copia local. El entorno instalado no subsana esa ausencia: ejecutar la restauracion indicada antes de declarar reconstruida la biblioteca. Esta intervencion no descargo ni modifico originales.
+La auditoria documental ejecutada el 2026-10-15 encontro presentes y revisados los 219 recursos publicos indexados en esta copia local. La cache documental sigue siendo regenerable y no forma parte de Git. Esta intervencion no descargo ni modifico originales.
 
 - Pendiente: probar clonacion desde otro equipo y transferencia LFS.
 - Pendiente: probar instalacion fuera de Windows x64.

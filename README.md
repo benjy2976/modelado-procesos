@@ -13,19 +13,19 @@ Entrada de navegacion: [Inicio de la boveda](00-inicio.md).
 
 ## Puesta en marcha despues de clonar
 
-Para el entorno ampliado de trabajo documental y desarrollo, seguir la [guia de instalacion y propuesta de herramientas](05-herramientas/guia-entorno.md). Incluye preparacion automatica con Python 3.13, versiones fijadas con hashes y comprobacion funcional. Los pasos siguientes conservan el perfil minimo del catalogador.
+Para el entorno ampliado de trabajo documental y desarrollo, seguir la [guia de instalacion y propuesta de herramientas](05-herramientas/guia-entorno.md). Incluye preparacion automatica con Python estable 3.11 o posterior, dependencias fijadas con hashes y comprobacion funcional. Los pasos siguientes conservan el perfil minimo del catalogador.
 
 Requisitos:
 
 - Git y Git LFS.
-- Python 3.10 o posterior disponible como `python`.
+- Python estable 3.11 o posterior. El comando concreto puede ser `python`, `python3` o `py -3.x`, segun el equipo.
 - Acceso a internet o espejos institucionales para instalar dependencias y reconstruir la biblioteca publica.
 
 ```powershell
 git clone <URL-DEL-REPOSITORIO>
 cd ejecucion
 git lfs install --local
-python -m venv .venv
+python3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo restaurar
 .\.venv\Scripts\python.exe 05-herramientas/auditar_reproducibilidad.py
@@ -39,10 +39,10 @@ El resultado de la sincronizacion queda en `99-temporal/registro-ultima-sincroni
 
 ```powershell
 # Busca adjuntos nuevos desde las paginas oficiales configuradas.
-python 05-herramientas/catalogador-documental/descargar_recursos.py --modo descubrir
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo descubrir
 
 # Comprueba si cambio el contenido de recursos ya registrados.
-python 05-herramientas/catalogador-documental/descargar_recursos.py --modo actualizar
+.\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/descargar_recursos.py --modo actualizar
 ```
 
 `actualizar` nunca sobrescribe un original. Cuando detecta contenido diferente, guarda el candidato en `99-temporal/actualizaciones-documentales/` para revision humana. Solo despues de verificar fuente, vigencia, integridad y calidad se actualizan y confirman en Git el indice o la configuracion de fuentes. Para agregar una familia documental se edita `05-herramientas/catalogador-documental/fuentes-descarga.json` y se ejecuta `descubrir`.

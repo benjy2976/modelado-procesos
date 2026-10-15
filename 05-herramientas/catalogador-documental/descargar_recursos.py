@@ -14,7 +14,6 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
-
 ALLOWED_EXTENSIONS = {".pdf", ".docx", ".xlsx", ".pptx", ".doc", ".xls"}
 USER_AGENT = "Mozilla/5.0 (compatible; GRH-documental/2.0; public-records)"
 REGISTRY_FIELDS = [
@@ -68,7 +67,9 @@ def relative_path(root: Path, value: str | Path) -> str:
 def links_from_landing_page(page_url: str) -> list[str]:
     body, final_url, _ = fetch(page_url)
     source = html.unescape(body.decode("utf-8", errors="replace"))
-    candidates = re.findall(r'''(?:href|src)=["']([^"']+)["']''', source, flags=re.I)
+    candidates = re.findall(
+        r'''(?:href|src)=["']([^"']+)["']''', source, flags=re.IGNORECASE
+    )
     links: list[str] = []
     seen: set[str] = set()
     for candidate in candidates:

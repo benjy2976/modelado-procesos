@@ -7,11 +7,19 @@ import venv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+MIN_PYTHON = (3, 11)
 
 
 def main() -> int:
-    if sys.version_info[:2] != (3, 13):
-        print("Usar Python 3.13: py -3.13 05-herramientas/preparar_entorno.py")
+    if (
+        sys.implementation.name != "cpython"
+        or sys.version_info[:2] < MIN_PYTHON
+        or sys.version_info.releaselevel != "final"
+    ):
+        print(
+            "Usar una version estable de Python 3.11 o posterior: "
+            "<python-compatible> 05-herramientas/preparar_entorno.py"
+        )
         return 1
     target = ROOT / ".venv"
     executable = target / (
@@ -27,7 +35,11 @@ def main() -> int:
             [
                 str(executable),
                 "-c",
-                "import sys; assert sys.version_info[:2] == (3, 13)",
+                (
+                    "import sys; assert sys.implementation.name == 'cpython'; "
+                    "assert sys.version_info[:2] >= (3, 11); "
+                    "assert sys.version_info.releaselevel == 'final'"
+                ),
             ],
             check=True,
         )
