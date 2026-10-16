@@ -1,0 +1,72 @@
+esquema: regla-normativa-v1
+id_regla: REG-CON-ADIC-002
+titulo: Adicionales de obra con deductivos vinculados
+dominio: contrataciones
+tipo_regla: PERMISO
+enunciado: En obras bajo solo construccion, la autoridad de la gestion administrativa puede autorizar adicionales
+  hasta por el 15% del monto del contrato original, restandole los presupuestos deductivos vinculados; el titular
+  puede autorizar porcentajes mayores en los supuestos y condiciones del reglamento.
+actor: autoridad de la gestion administrativa o titular de la entidad
+accion: autorizar
+objeto: prestaciones adicionales de obra
+condiciones:
+- restar los presupuestos deductivos vinculados
+excepciones: []
+plazo: null
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3
+  etapas: []
+  modalidades:
+  - contrata
+  tipologias: []
+  aplica_si: []
+  no_aplica_si: []
+fuente:
+  id_documento: CON-001
+  archivo_original: 01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf
+  sha256: F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/9295551/6444155-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf?v=1787002595
+  fecha_consulta: '2026-10-16'
+  articulo: Articulo 64
+  numeral: 64.2-64.3
+  pagina_pdf: '31'
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: '64.2. Tratándose de obras bajo el sistema de entrega de solo construcción, la autoridad de la gestión
+    administrativa puede autorizar la ejecución y el pago de prestaciones adicionales hasta por el 15 % del monto
+    total del contrato original, restándole los presupuestos deductivos vinculados. 64.3. En el supuesto referido
+    en el párrafo anterior, se contemplan las siguientes excepciones, cuyas condiciones se establecen en el reglamento:
+    a) El titular de la entidad puede autorizar la ejecución y pago de prestaciones adicionales de obras mayores
+    al 15 % y hasta un máximo de 30 % del monto originalmente contratado, restándole los presupuestos deductivos
+    vinculados, siempre que cuente con los'
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- Texto consolidado de la Ley 32069 con modificaciones hasta el 19-07-2026; confirmar modificaciones posteriores.
+- Cita extraida automaticamente de la capa de texto del PDF con espacios normalizados; puede conservar cortes de
+  palabra del original.

@@ -18,7 +18,7 @@ tags:
 # Resumen de calidad documental
 
 - Fecha de evaluacion: 2026-10-16
-- Archivos evaluados: 229
+- Archivos evaluados: 230
 - Fallas de integridad o hash: 0
 - PDF sin texto que requieren OCR en copia derivada: 5
 - PDF con texto parcial que requieren revision: 0
@@ -26,7 +26,7 @@ tags:
 
 ## Calificaciones
 
-- A-ALTA: 150
+- A-ALTA: 151
 - B-ADECUADA: 74
 - C-CONDICIONADA: 5
 
@@ -34,7 +34,7 @@ tags:
 
 - EDITABLE-OFFICE: 57
 - SIN-TEXTO_REQUIERE-OCR: 5
-- TEXTO-EXTRAIBLE: 167
+- TEXTO-EXTRAIBLE: 168
 
 ## Archivos que requieren OCR
 

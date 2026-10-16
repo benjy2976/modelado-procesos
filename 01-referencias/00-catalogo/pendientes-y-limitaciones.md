@@ -48,6 +48,7 @@ El lote descargado constituye una biblioteca base para modelar la ejecucion de i
 | `TEC-003A` | Reglamento de la Ley 29783 (DS 005-2012-TR) | Con texto; pendiente de lectura |
 | `PRES-002` | Directiva 0004-2021-EF/54.01, almacenamiento y distribucion de bienes muebles | Con texto; pendiente de lectura |
 | `PRES-002A` | RD 0006-2022-EF/54.01, modifica la Directiva 0004-2021-EF/54.01 | Con texto; pendiente de lectura |
+| `CON-009` | TUO de la Ley 31589, obras publicas paralizadas (DS 206-2024-EF) | Con texto; leido para la paralizacion de obra en S4.3.2 |
 
 Siguen faltando:
 

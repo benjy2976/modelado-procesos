@@ -12,9 +12,9 @@ tags:
 # Estado del proyecto
 
 - Fecha de actualizacion: 2026-10-16
-- Fase: estructura centrada en procesos implementada (`DEC-017`); traduccion S4 lista para revision humana de fidelidad; S4.3 a la espera de insumos para elaborar su ficha
+- Fase: estructura centrada en procesos implementada (`DEC-017`); traduccion S4 lista para revision humana de fidelidad; S4.3 descompuesto en tres subprocesos de nivel 2 propuestos (`DEC-023`, `DEC-024`), con S4.3.2 Ejecucion en modelamiento
 - Ambito inicial: S4.3 Ejecucion de la inversion
-- Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 delimitado (`DEC-020`) con modelo logico y ficha borrador en `ELABORACION` a partir de la propuesta del equipo; 9 guias de lectura de fuentes y 24 reglas `BORRADOR-IA` pendientes de validacion humana; TO-BE pendiente para una etapa posterior
+- Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 delimitado (`DEC-020`) con modelo logico y ficha borrador en `ELABORACION` a partir de la propuesta del equipo; carpetas de S4.3.1, S4.3.2 y S4.3.3 creadas; S4.3.2 con modelo logico de subprocesos de evento y sustento en `ELABORACION`; 10 guias de lectura de fuentes y 28 reglas `BORRADOR-IA` pendientes de validacion humana; TO-BE pendiente para una etapa posterior
 - Estado BIM: aprendizaje y adopcion progresiva; la informacion se organizara con rutas estables y trazabilidad Git, sin declarar el repositorio como CDE institucional
 - Descargas: lote base oficial de 219 archivos y 10 incorporados el 2026-10-16 (Formato 08-A, Obras por Impuestos, seguridad y salud en el trabajo, abastecimiento); 229 recursos indexados, verificados por hash y evaluados; la Ley 29783 requiere OCR en copia derivada
 - Git: estrategia hibrida configurada; repositorio inicial publicado en remoto, recursos publicos regenerables fuera de Git y LFS reservado para binarios no reproducibles

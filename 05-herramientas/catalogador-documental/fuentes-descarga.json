@@ -198,6 +198,12 @@
       "url": "https://www.gob.pe/institucion/mef/normas-legales/3467331-210-2022-ef",
       "destino": "01-referencias/03-invierte-pe/obras-por-impuestos/reglamento",
       "aplicabilidad": 4
+    },
+    {
+      "id": "CON-009",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/6150540-206-2024-ef",
+      "destino": "01-referencias/04-contrataciones-publicas/obras-paralizadas",
+      "aplicabilidad": 4
     }
   ],
   "direct_downloads": [

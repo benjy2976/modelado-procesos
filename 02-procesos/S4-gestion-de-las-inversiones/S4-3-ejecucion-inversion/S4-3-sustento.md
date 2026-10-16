@@ -309,5 +309,6 @@ El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un 
 ## Relaciones
 
 - [Portada de S4.3](00-S4-3-ejecucion-inversion.md)
+- [Sustento de S4.3.2 Ejecucion](S4-3-2-ejecucion/S4-3-2-sustento.md)
 - [Sustento de S4](../S4-sustento.md)
 - [Manual operativo del conocimiento](../../../00-gobernanza/manual-operativo-del-conocimiento.md)

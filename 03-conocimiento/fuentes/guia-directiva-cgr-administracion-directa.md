@@ -56,6 +56,8 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 | Plan de Abastecimiento de Obra | El residente lo elabora para todo el plazo segun los calendarios del expediente y emite al menos el 80% de los requerimientos en siete dias | Num. 7.2.3, p. 14 | `REG-CGR-AD-003` |
 | Adquisiciones previas al inicio | Sesenta dias para adquirir lo necesario para al menos los primeros treinta dias de obra; nada fuera del plan | Num. 7.2.4, p. 14 | `REG-CGR-AD-004` |
 | Provision durante la obra | Almacen de obra y provision de bienes y servicios segun calendario, con control patrimonial y financiero | Num. 7.3.3, p. 15-16 | - |
+| Modificaciones | Toda modificacion de alcance, costo y plazo requiere sustento tecnico y legal, presupuesto y aprobacion del titular o su delegado; adicionales, deductivos, mayores metrados y partidas nuevas | Num. 7.3.6, p. 17 | - |
+| Paralizacion | Ante desabastecimiento, demoras en aprobaciones o consultas, o fuerza mayor, el residente informa en el cuaderno, emite informe y solicita la modificacion del plazo con fechas de paralizacion y reinicio | Num. 7.3.7, p. 18 | `REG-CGR-AD-005` |
 | Culminacion | Anotacion del residente, corroboracion del inspector o supervisor en cinco dias y designacion del Comite de Culminacion y Liquidacion | Num. 7.4, p. 19-20 | `REG-CGR-AD-002` |
 
 ## Alertas

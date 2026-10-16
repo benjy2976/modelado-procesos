@@ -57,7 +57,13 @@ Entradas y productos de S4.3 tal como figuran en la ficha aprobada de S4 (pagina
 
 ## Subprocesos Nivel 2
 
-Aun no definidos. Cada subproceso tendra su carpeta `S4-3-n-<nombre>/` cuando se apruebe la descomposicion de S4.3.
+Propuestos en `DEC-023` y `DEC-024`, pendientes de aprobar con la descomposicion de S4.3:
+
+| Codigo | Subproceso | Instancia | Estado |
+|---|---|---|---|
+| S4.3.1 | [Gestion de la ejecucion](S4-3-1-gestion-de-la-ejecucion/00-S4-3-1-gestion-de-la-ejecucion.md) | Una por inversion, transversal | Sin documentos |
+| S4.3.2 | [Ejecucion](S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) | Una por contrato o frente | Modelo logico y sustento en `ELABORACION` |
+| S4.3.3 | [Recepcion](S4-3-3-recepcion/00-S4-3-3-recepcion.md) | Una por ejecucion concluida o resuelta | Sin documentos |
 
 ## Pendientes
 

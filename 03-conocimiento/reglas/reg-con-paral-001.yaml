@@ -1,0 +1,78 @@
+esquema: regla-normativa-v1
+id_regla: REG-CON-PARAL-001
+titulo: Obra publica paralizada
+dominio: contrataciones
+tipo_regla: DEFINICION
+enunciado: Es obra publica paralizada la contratada con avance fisico de al menos 40% cuyo contrato vigente no reporta
+  ejecucion fisica por 6 meses o mas, o que proviene de un contrato resuelto o nulo; la paralizacion incluye controversias,
+  abandono, deficiencias del expediente u otras situaciones que impidan su continuidad; en administracion directa,
+  avance de al menos 50% sin ejecucion por mas de 6 meses.
+actor: null
+accion: null
+objeto: obra publica paralizada
+condiciones: []
+excepciones: []
+plazo: null
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3
+  etapas: []
+  modalidades:
+  - contrata
+  - administracion-directa
+  tipologias: []
+  aplica_si: []
+  no_aplica_si: []
+fuente:
+  id_documento: CON-009
+  archivo_original: 01-referencias/04-contrataciones-publicas/obras-paralizadas/ds206_2024ef.pdf
+  sha256: FD097F262745AFB7B5C1E9279E2C4E0DF1B63B2276DC6480CF5C75FE59AE08F7
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/7173979/6150540-ds206_2024ef.pdf?v=1730903374
+  fecha_consulta: '2026-10-16'
+  articulo: Articulo 2
+  numeral: 2.1-2.3
+  pagina_pdf: '2'
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: '2.1. La presente ley aplica a todas las entidades del Estado que tengan a su cargo la ejecución
+    de las obras públicas paralizadas, a las que se refiere el artículo 1, contratadas bajo la aplicación de la
+    Ley de Contrataciones del Estado, que cuenten con un avance físico igual o mayor al 40% y que, a la fecha del
+    registro del inventario al que se refiere el artículo 3 de la presente ley, cumplen con alguno de los siguientes
+    supuestos: (i) el contrato se encuentra vigente, pero sin reportar ejecución física por un período igual o mayor
+    a 6 (seis) meses; o, (ii) provenga de un contrato resuelto o declarado nulo. 2.2. La paralización incluye situaciones
+    de controversias, abandono, deficiencias del expediente técnico, causas no previsibles en el expediente técnico
+    u otras situaciones imprevisibles posteriores al perfeccionamiento del contrato que impidan su continuidad,
+    culminación o puesta en funcionamiento. 2.3. Se considera obra pública paralizada iniciada bajo la modalidad
+    de administración directa aquella que cuente con un avance físico igual o mayor al 50% y que no reporte ejecución
+    física por un período mayor a 6 (seis) meses o más a la fecha del registro del inventario a que se refiere el
+    artículo 3 de la presente ley.'
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- TUO de la Ley 31589 aprobado por DS 206-2024-EF (06-11-2024); confirmar modificatorias posteriores.
+- Cita extraida automaticamente de la capa de texto del PDF con espacios normalizados; puede conservar cortes de
+  palabra del original.

@@ -37,6 +37,7 @@ Reglamento que regula la contratacion y la ejecucion contractual. Para S4.3 impo
 
 | Tema | Ubicacion | Pagina PDF |
 |---|---|---:|
+| Nulidad del contrato | Articulo 111 | 61 |
 | Resolucion del contrato, procedimiento y efectos | Articulos 121-123 | 66-68 |
 | Requerimiento para obras | Articulo 154 | 82 |
 | Sistemas de entrega de obra | Articulo 158 | 85 |
@@ -45,9 +46,13 @@ Reglamento que regula la contratacion y la ejecucion contractual. Para S4.3 impo
 | Adelantos en obras | Articulos 178-184 | 96-100 |
 | Supervision de obras | Articulos 185-187 | 101-103 |
 | Cuaderno de incidencias | Articulo 188 | 104 |
-| Modificaciones contractuales y prestaciones adicionales | Articulos 191-197 | 106-111 |
-| Ampliacion y suspension de plazo | Articulos 198-202 | 112-114 |
-| Monitoreo y control de obras | Articulo 207 | 117 |
+| Consultas sobre incidencias en obra | Articulo 190 | 105 |
+| Modificaciones contractuales y prestaciones adicionales | Articulos 191-197 | 106-112 |
+| Ampliacion y suspension de plazo | Articulos 198-202 | 112-115 |
+| Actualizacion del programa de ejecucion | Articulo 206 | 116 |
+| Monitoreo y control de obras | Articulo 207 | 116-117 |
+| Intervencion economica de la obra | Articulo 208 | 117 |
+| Reajustes | Articulo 209 | 118 |
 | Valorizaciones | Articulos 210-211 | 118-119 |
 | Recepcion de obra | Articulo 212 | 119-121 |
 | Liquidacion de obras | Articulo 215 | 121-123 |
@@ -61,6 +66,18 @@ Reglamento que regula la contratacion y la ejecucion contractual. Para S4.3 impo
 | Recepcion | Solicitud en cuaderno, certificado de conformidad tecnica del supervisor, comite de recepcion, verificacion in situ y acta de recepcion o pliego de observaciones | Art. 212.1-212.4, p. 119-120 | `REG-CON-OBRA-003` |
 | Contrato resuelto | No hay recepcion: se realiza constatacion fisica e inventario con supervisor y notario o juez de paz; luego la obra pasa a la entidad y se liquida | Art. 123.4, p. 67 | `REG-CON-OBRA-004` |
 | Liquidacion | El plazo corre desde la recepcion, la conformidad de la ultima prestacion o la resolucion consentida, segun el caso | Art. 215.1, p. 121-122 | `REG-CON-OBRA-005` |
+
+## Articulos de la Ley 32069 citados
+
+Texto consolidado de la Ley con modificaciones hasta el 19-07-2026, catalogo `CON-001`, [archivo](../../01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf), SHA-256 `F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7`. Fecha de consulta: 2026-10-16.
+
+| Tema | Lo que establece (parafrasis) | Ubicacion | Regla |
+|---|---|---|---|
+| Adicionales y reducciones | En bienes, servicios y consultorias, adicionales hasta 25% del contrato original y reduccion hasta el mismo porcentaje | Art. 64.1, p. 30-31 | `REG-CON-ADIC-001` |
+| Adicionales de obra | En solo construccion, hasta 15% restando los presupuestos deductivos vinculados; porcentajes mayores con autorizacion del titular segun el reglamento | Art. 64.2-64.3, p. 31 | `REG-CON-ADIC-002` |
+| Nulidad del contrato | Supuestos de nulidad del contrato | Art. 71, p. 35 | - |
+
+Los eventos que estos articulos originan durante la ejecucion estan catalogados en el [sustento de S4.3.2](../../02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-sustento.md).
 
 ## Alertas
 

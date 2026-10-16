@@ -25,6 +25,7 @@ Cada guia resume una fuente consultada para que una persona o un agente sepa que
 | [Reglamento de Invierte.pe](guia-reglamento-invierte-pe.md) | DS 140-2026-EF | Normativa | Componentes de la fase de Ejecucion y funciones de la UEI |
 | [Directiva General de Invierte.pe](guia-directiva-general-invierte-pe.md) | Directiva 001-2019-EF/63.01 | Normativa | Registros, culminacion, seguimiento y cierre |
 | [Reglamento de la Ley 32069](guia-reglamento-ley-32069.md) | Reglamento de la Ley General de Contrataciones Publicas | Normativa | Ejecucion contractual de obras: inicio, supervision, recepcion, resolucion y liquidacion |
+| [TUO de la Ley 31589](guia-ley-31589-obras-paralizadas.md) | DS 206-2024-EF | Normativa | Obra publica paralizada y su reactivacion |
 | [Directiva de administracion directa](guia-directiva-cgr-administracion-directa.md) | Directiva 017-2023-CG/GMPL | Normativa | Fases de la obra ejecutada por administracion directa |
 | [Norma Tecnica de gestion por procesos](guia-nt-002-2025-pcm-sgp.md) | NT 002-2025-PCM-SGP | Normativa | Niveles, documentos y aprobacion de procesos |
 | [Directivas OECE del Cuaderno de Incidencias y valorizaciones](guia-directivas-oece-cdi-valorizaciones.md) | Directivas 017-2025 y 018-2025-OECE-CD | Normativa | Rol Monitor de la entidad |

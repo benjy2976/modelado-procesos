@@ -1,0 +1,89 @@
+@startuml
+' FUENTE EDITABLE - modelo logico de S4.3.2 en etapa de elaboracion (PROPUESTA).
+' Vista de nivel 2: flujo principal (vida de la ejecucion) y subprocesos de evento sin interrupcion
+' contraidos [+], cada uno con su disparador; su detalle se modelara en su propio diagrama (nivel 3).
+' Patron DEC-024: sin bucles. Base: S4-3-2-sustento.md y reglas BORRADOR-IA de 03-conocimiento/reglas.
+' Marcas: [EQ] equipo; [NORM] normativa citada en el sustento; [PROP] propuesta de modelamiento. No es BPMN.
+title S4.3.2 Ejecución - modelo lógico (propuesta en elaboración)
+caption Vista lógica PlantUML; no es BPMN. Cajas [+] con borde discontinuo: subprocesos de evento que se detallan en su propio diagrama
+
+left to right direction
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam rectangle {
+  RoundCorner 16
+  BackgroundColor #EEF3FF
+  BorderColor #006B8F
+  FontColor #172B4D
+}
+skinparam package {
+  BorderColor #006B8F
+  FontColor #172B4D
+}
+skinparam ArrowColor #44546A
+skinparam ArrowFontColor #44546A
+skinparam ArrowFontSize 11
+
+rectangle "<b>S4.3.1 Gestión de la ejecución</b> [+]\nproceso hermano, transversal" as G #F9D7B5
+rectangle "<b>S4.3.3 Recepción</b> [+]\nproceso hermano" as R #F9D7B5
+
+package "S4.3.2 Ejecución: una instancia por contrato o frente de ejecución [PROP]" {
+
+  package "Flujo principal: vida de la ejecución" {
+    rectangle "<b>Evento recibido</b>\nCondiciones de inicio\ncumplidas [PROP]" as E0 #FFF2CC
+    rectangle "Suscribir el acta de\ninicio de obra o\nequivalente [EQ]" as A1
+    rectangle "Ejecutar la obra conforme al\nexpediente técnico y al programa\nde ejecución; registrar ocurrencias\nen el cuaderno de obra [NORM]" as A2
+    hexagon "¿Cómo termina\nla ejecución? [EQ]" as X
+    rectangle "<b>Fin</b>: obra culminada [NORM]" as T1 #FFF2CC
+    rectangle "<b>Fin</b>: contrato resuelto,\ninterrumpe la ejecución [NORM]" as T2 #FFF2CC
+    rectangle "<b>Fin</b>: contrato declarado nulo,\ninterrumpe la ejecución [NORM]" as T3 #FFF2CC
+  }
+
+  package "Subprocesos de evento sin interrupción: se activan cada vez que ocurre su disparador mientras la obra está en ejecución; pueden ocurrir a la vez [PROP]" as SE {
+    package "Control periódico" as K1 {
+      rectangle "<i>Cierre de cada mes</i>\n<b>S4.3.2.1 Valorización</b> [+] [EQ]" as V #EEF3FF;line.dashed
+    }
+    package "Modifican alcance y costo" as K2 {
+      rectangle "<i>Prestación indispensable no prevista</i>\n<b>S4.3.2.2 Adicional de obra con</b>\n<b>deductivo vinculado</b> [+] [EQ]" as AD #EEF3FF;line.dashed
+      rectangle "<i>Prestación que deja de ser necesaria</i>\n<b>S4.3.2.7 Reducción de prestaciones</b> [+] [PROP]" as RD #EEF3FF;line.dashed
+      rectangle "<i>Mayor metrado a precios unitarios</i>\n<b>S4.3.2.8 Mayores metrados</b> [+] [PROP]" as MM #EEF3FF;line.dashed
+    }
+    package "Modifican el plazo" as K3 {
+      rectangle "<i>Causa que impide continuar</i>\n<b>S4.3.2.3 Suspensión de plazo</b> [+] [PROP]" as SU #EEF3FF;line.dashed
+      rectangle "<i>Causal que afecta la ruta crítica</i>\n<b>S4.3.2.4 Ampliación de plazo</b> [+] [PROP]" as AM #EEF3FF;line.dashed
+      rectangle "<i>Supuesto de paralización</i>\n<b>S4.3.2.6 Paralización de obra</b> [+] [PROP]" as PA #EEF3FF;line.dashed
+    }
+    package "Atienden incidencias" as K4 {
+      rectangle "<i>Consulta anotada en el cuaderno</i>\n<b>S4.3.2.5 Consulta de obra</b> [+] [PROP]" as CO #EEF3FF;line.dashed
+    }
+  }
+}
+
+G --> E0 : condiciones de inicio
+E0 --> A1
+A1 --> A2
+A2 --> X
+X --> T1 : culminada
+X --> T2 : resuelto
+X --> T3 : nulo
+T1 --> R : obra culminada\npara recepción
+T2 --> R : para constatación física\ne inventario
+T3 --> R : tratamiento:\nEVIDENCIA-INSUFICIENTE
+
+A2 ..> SE : <i>mientras la obra está en ejecución</i>
+K2 ..> A2 : <i>modifican alcance y costo</i>
+K3 ..> A2 : <i>modifican el plazo</i>
+CO ..> AM : <i>puede originar</i>
+PA ..> T2 : <i>puede derivar en resolución</i>
+SE ..> G : valorizaciones aprobadas y\nmodificaciones aprobadas [PROP]
+
+legend bottom
+  Alcance [EQ]: contrata y administración directa en un solo diagrama, con diferencias anotadas en cada subproceso [PROP].
+  Cursiva en cada caja [+]: disparador del subproceso de evento. Los grupos son una ayuda de lectura, no procesos.
+  Códigos S4.3.2.1 y S4.3.2.2 tomados del modelo del equipo [EQ]; los demás siguen el orden del modelo del equipo y están por confirmar [PROP].
+  Toda modificación se registra en el Banco de Inversiones antes de ejecutarse (REG-INV-EJEC-004).
+  Al terminar el flujo principal, los subprocesos de evento ya no se activan (DEC-024).
+endlegend
+@enduml
