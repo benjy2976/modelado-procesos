@@ -3,11 +3,13 @@ tipo: guia
 area: gobernanza
 estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
+tags:
+  - tema/gobernanza
 ---
 
 # Manual operativo para construir y usar conocimiento
 
-Sube a: [Gobernanza](00-gobernanza.md)
+Sube a: [Gobernanza](00-GOBERNANZA.md)
 
 ## 1. Proposito
 

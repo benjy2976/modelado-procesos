@@ -9,6 +9,8 @@ Uso, desde la raiz del repositorio y con Obsidian cerrado o sin el grafo abierto
     python 05-herramientas/configurar_grafo_obsidian.py
     python 05-herramientas/configurar_grafo_obsidian.py --vista conocimiento
     python 05-herramientas/configurar_grafo_obsidian.py --vista navegacion
+    python 05-herramientas/configurar_grafo_obsidian.py --vista modelo-procesos
+    python 05-herramientas/configurar_grafo_obsidian.py --vista proceso --codigo S4.3
     python 05-herramientas/configurar_grafo_obsidian.py --check
 """
 
@@ -26,6 +28,9 @@ GRAFO = ROOT / ".obsidian" / "graph.json"
 
 # El orden importa: Obsidian aplica el primer grupo que coincide con cada nota.
 GRUPOS = (
+    ("Procesos en alcance", "[alcance_proyecto:EN-ALCANCE]", 0xFF7F0E),
+    ("Procesos de referencia", "[alcance_proyecto:REFERENCIA]", 0xC7C7C7),
+    ("Actores externos", "path:03-conocimiento/actores-y-roles", 0xE6C229),
     ("Notas indice", "[tipo:mapa-de-contenido]", 0x9AA0A6),
     (
         "Documentos NT",
@@ -43,8 +48,18 @@ GRUPOS = (
 
 VISTAS = {
     "navegacion": "",
-    "conocimiento": "-[tipo:mapa-de-contenido] -file:00-inicio -file:README -path:00-gobernanza/plantillas",
+    "conocimiento": "-[tipo:mapa-de-contenido] -file:00-GESTION-POR-PROCESOS-GRH -file:README -path:00-gobernanza/plantillas",
+    "modelo-procesos": (
+        "(path:02-procesos [tipo:mapa-de-contenido] -path:02-procesos/to-be) OR path:03-conocimiento/actores-y-roles"
+    ),
+    "proceso": None,  # se construye con --codigo
 }
+
+
+def filtro_proceso(codigo: str) -> str:
+    partes = codigo.strip().upper().split(".")
+    cadena = ["-".join(partes[: i + 1]).lower() for i in range(len(partes))]
+    return "tag:#proceso/" + "/".join(cadena)
 
 
 def grupos_obsidian() -> list[dict]:
@@ -76,6 +91,7 @@ def escribir(config: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--vista", choices=sorted(VISTAS), help="filtro del grafo global que se aplicara")
+    parser.add_argument("--codigo", help="codigo NT del proceso para la vista 'proceso', por ejemplo S4.3")
     parser.add_argument("--check", action="store_true", help="solo comprueba si los grupos estan aplicados")
     args = parser.parse_args()
 
@@ -87,15 +103,18 @@ def main() -> int:
         print("PENDIENTE: los grupos de color difieren de los del proyecto.")
         return 1
 
+    if args.vista == "proceso" and not args.codigo:
+        parser.error("la vista 'proceso' requiere --codigo, por ejemplo --codigo S4.3")
+    filtro = filtro_proceso(args.codigo) if args.vista == "proceso" else VISTAS.get(args.vista)
     config["colorGroups"] = grupos_obsidian()
     if args.vista is not None:
-        config["search"] = VISTAS[args.vista]
+        config["search"] = filtro
     escribir(config)
     print(f"Grupos aplicados en {GRAFO.relative_to(ROOT)}:")
     for nombre, consulta, _ in GRUPOS:
         print(f"  - {nombre}: {consulta}")
     if args.vista is not None:
-        print(f"Vista '{args.vista}': {VISTAS[args.vista] or '(sin filtro)'}")
+        print(f"Vista '{args.vista}': {filtro or '(sin filtro)'}")
     print("Si Obsidian esta abierto, cierre y vuelva a abrir el grafo para ver los cambios.")
     return 0
 

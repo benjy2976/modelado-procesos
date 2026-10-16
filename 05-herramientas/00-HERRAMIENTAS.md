@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Herramientas previstas
+tags:
+  - tema/automatizacion
 ---
 
 # Herramientas previstas
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 1. Catalogador y verificador de hashes.
 2. Detector de texto y calidad OCR.
@@ -23,6 +25,7 @@ Sube a: [Inicio de la boveda](../00-inicio.md)
 10. Auditor de reproducibilidad del repositorio y la cache documental.
 11. Gestor local de modelos PlantUML/BPMN, derivados, validaciones e intercambio compacto con IA.
 12. Configurador local del grafo de Obsidian con los grupos de color y vistas comunes (`configurar_grafo_obsidian.py`).
+13. Gestor del vocabulario de etiquetas: revisar, aplicar, renombrar y listar (`gestionar_etiquetas.py`).
 
 Las especificaciones son `extractor-documental/00-extractor-documental.md` y `validador-conocimiento/00-validador-conocimiento.md`. La aplicacion debe conservar YAML y eventos de revision como fuentes maestras versionadas.
 
@@ -34,17 +37,28 @@ Las especificaciones son `extractor-documental/00-extractor-documental.md` y `va
 - [Gestor local de modelos](gestor-modelos/00-gestor-modelos.md)
 - [Iniciativa del gestor de modelos](../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md)
 - [Estandar de artefactos de modelamiento](../00-gobernanza/estandar-artefactos-modelamiento.md)
-- [Referencias y catalogos](../01-referencias/00-referencias.md)
-- [Conocimiento estructurado](../03-conocimiento/00-conocimiento.md)
+- [Referencias y catalogos](../01-referencias/00-REFERENCIAS.md)
+- [Conocimiento estructurado](../03-conocimiento/00-CONOCIMIENTO.md)
 
 ## Grafo de Obsidian
 
 ```powershell
 # Aplica los grupos de color comunes; conserva el resto de la configuracion personal.
 .\.venv\Scripts\python.exe 05-herramientas/configurar_grafo_obsidian.py --vista conocimiento
+.\.venv\Scripts\python.exe 05-herramientas/configurar_grafo_obsidian.py --vista modelo-procesos
+.\.venv\Scripts\python.exe 05-herramientas/configurar_grafo_obsidian.py --vista proceso --codigo S4.3
 ```
 
 Los grupos y vistas se describen en el [estandar de Obsidian](../00-gobernanza/estandar-obligatorio-obsidian.md), seccion 7.1.
+
+## Etiquetas
+
+```powershell
+# Comprueba que todas las notas cumplen el vocabulario de etiquetas
+.\.venv\Scripts\python.exe 05-herramientas/gestionar_etiquetas.py revisar
+```
+
+El vocabulario y el resto de comandos se describen en el [estandar de Obsidian](../00-gobernanza/estandar-obligatorio-obsidian.md), seccion 6.1.
 
 ## Biblioteca publica reproducible
 

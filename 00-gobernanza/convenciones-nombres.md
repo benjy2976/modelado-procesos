@@ -1,16 +1,43 @@
+---
+id: GOV-CONVENCIONES-NOMBRES
+tipo: guia
+area: gobernanza
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/gobernanza
+  - tema/obsidian
+---
+
 # Convenciones de nombres y versiones
 
 ## Archivos de trabajo
 
-- Minusculas, sin tildes, separados por guiones.
-- Codigo de proceso al inicio cuando corresponda.
+- Sin tildes y con guiones como separador.
 - El estado y la version se registran en metadatos y Git, no en cadenas como `final-final2`.
-
-- Las carpetas de proceso usan el codigo NT con guiones y una denominacion corta: `s4-gestion-de-las-inversiones/`, `s4-3-ejecucion-inversion/`.
-- Los documentos del proceso usan nombres fijos precedidos por el codigo: `s4-3-ficha-producto-proceso.md`, `s4-3-fichas-indicador.md`, `s4-3-sustento.md`, `s4-3-diagrama-proceso.bpmn`.
 - Sufijos reservados: `-propuesta` para la unica variacion de un documento aprobado y `-to-be` para los documentos del arbol TO-BE.
 
-Ejemplo: `s4-3-diagrama-proceso.bpmn`.
+## Mayusculas para enfatizar
+
+Las mayusculas marcan tres niveles visuales (`DEC-019`); fuera de ellos todo nombre va en minusculas.
+
+| Nivel | Regla | Ejemplos |
+|---|---|---|
+| 1. Entrada y areas | Nota indice completa en mayusculas | `00-GESTION-POR-PROCESOS-GRH.md`, `00-PROCESOS.md`, `00-GOBERNANZA.md` |
+| 2. Procesos | Codigo NT en mayusculas, con guion en lugar de punto; el resto en minusculas | Carpetas `S4-gestion-de-las-inversiones/`, `S4-3-ejecucion-inversion/`; indice `00-S4-3-ejecucion-inversion.md`; documentos `S4-3-ficha-producto-proceso.md`, `S4-3-fichas-indicador.md`, `S4-3-sustento.md`, `S4-3-diagrama-proceso.bpmn` |
+| 3. Contenido | Minusculas | `registro-decisiones.md`, `00-bases.md` |
+
+- Las carpetas de area conservan su nombre en minusculas (`02-procesos/`); solo su nota indice va en mayusculas.
+- Los indices de subareas que no son procesos van en minusculas.
+- Dos archivos no pueden diferir solo en mayusculas: Windows no los distingue y GitHub si.
+- En Windows, un cambio solo de mayusculas se hace con `git mv` en dos pasos, pasando por un nombre temporal, y se comprueba que la carpeta en disco quede igual que en Git.
+- Los enlaces deben coincidir exactamente en mayusculas con el nombre del archivo.
+- Las etiquetas y los nombres de propiedades van siempre en minusculas.
 
 ## Versionado
 

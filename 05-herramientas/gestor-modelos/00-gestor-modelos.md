@@ -32,16 +32,16 @@ Desde la raiz del repositorio:
 
 ```powershell
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_plantuml.py `
-  02-procesos\s4-gestion-de-las-inversiones\s4-diagrama-proceso-logico.puml `
-  --output 02-procesos\s4-gestion-de-las-inversiones\s4-diagrama-proceso-logico.svg
+  02-procesos\S4-gestion-de-las-inversiones\S4-diagrama-proceso-logico.puml `
+  --output 02-procesos\S4-gestion-de-las-inversiones\S4-diagrama-proceso-logico.svg
 ```
 
 Para comprobar que el derivado versionado esta actualizado sin sobrescribirlo:
 
 ```powershell
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_plantuml.py `
-  02-procesos\s4-gestion-de-las-inversiones\s4-diagrama-proceso-logico.puml `
-  --output 02-procesos\s4-gestion-de-las-inversiones\s4-diagrama-proceso-logico.svg `
+  02-procesos\S4-gestion-de-las-inversiones\S4-diagrama-proceso-logico.puml `
+  --output 02-procesos\S4-gestion-de-las-inversiones\S4-diagrama-proceso-logico.svg `
   --check
 ```
 
@@ -51,4 +51,4 @@ La descarga falla si el contenido remoto no coincide con el hash fijado. La sali
 
 - [Estandar de artefactos de modelamiento](../../00-gobernanza/estandar-artefactos-modelamiento.md)
 - [Plantilla de modelo logico con carriles](../../00-gobernanza/plantillas/modelamiento/modelo-logico-carriles.puml)
-- [S4 Gestion de las inversiones](../../02-procesos/s4-gestion-de-las-inversiones/s4-ficha-producto-proceso.md)
+- [S4 Gestion de las inversiones](../../02-procesos/S4-gestion-de-las-inversiones/S4-ficha-producto-proceso.md)

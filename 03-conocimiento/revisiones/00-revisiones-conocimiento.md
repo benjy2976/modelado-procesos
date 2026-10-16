@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Eventos de revision
+tags:
+  - tema/conocimiento
 ---
 
 # Eventos de revision
 
-Sube a: [Conocimiento](../00-conocimiento.md)
+Sube a: [Conocimiento](../00-CONOCIMIENTO.md)
 
 Cada archivo representa una accion humana auditable sobre una regla. Los eventos registrados no se modifican ni eliminan; una correccion se expresa mediante un evento posterior que referencia al anterior.
 

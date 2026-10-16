@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Referencias
+tags:
+  - tema/referencias
 ---
 
 # Referencias
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 Esta area conserva documentos externos e institucionales. Los originales son inmutables.
 
@@ -46,5 +48,5 @@ Cada recurso debe registrarse en `00-catalogo/catalogo-documental.csv`. Si requi
 ## Relaciones
 
 - Se rige por el [Manual operativo del conocimiento](../00-gobernanza/manual-operativo-del-conocimiento.md).
-- Alimenta [Conocimiento estructurado](../03-conocimiento/00-conocimiento.md).
-- Se automatiza mediante [Herramientas](../05-herramientas/00-herramientas.md).
+- Alimenta [Conocimiento estructurado](../03-conocimiento/00-CONOCIMIENTO.md).
+- Se automatiza mediante [Herramientas](../05-herramientas/00-HERRAMIENTAS.md).

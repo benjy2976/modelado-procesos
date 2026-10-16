@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Canvas
+tags:
+  - tema/coordinacion
 ---
 
 # Canvas
 
-Sube a: [Coordinacion](../00-coordinacion.md)
+Sube a: [Coordinacion](../00-COORDINACION.md)
 
 Esta carpeta contiene Canvas transversales. Los Canvas propios de un proceso se guardan dentro de su area de modelamiento.
 

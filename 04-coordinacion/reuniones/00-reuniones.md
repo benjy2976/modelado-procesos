@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Reuniones
+tags:
+  - tema/coordinacion
 ---
 
 # Reuniones
 
-Sube a: [Coordinacion](../00-coordinacion.md)
+Sube a: [Coordinacion](../00-COORDINACION.md)
 
 Las actas se organizan por anio y se crean con `00-gobernanza/plantillas/obsidian/reunion.md`.
 

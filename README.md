@@ -9,7 +9,7 @@ clase_conocimiento: NO-APLICA
 
 Repositorio de trabajo para documentar, contrastar, modelar y mejorar los procesos de gestion de inversiones del Gobierno Regional de Huanuco, con enfasis inicial en S4.3 Ejecucion de la inversion y con adopcion progresiva de BIM.
 
-Entrada de navegacion: [Inicio de la boveda](00-inicio.md).
+Entrada de navegacion: [Gestion por procesos del GRH](00-GESTION-POR-PROCESOS-GRH.md).
 
 ## Puesta en marcha despues de clonar
 
@@ -53,7 +53,7 @@ La evaluacion tecnica de PDF es opcional y requiere `pypdf`:
 .\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/evaluar_calidad.py
 ```
 
-En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.exe`. La guia detallada, los limites de la garantia y las reglas de inmutabilidad estan en `00-gobernanza/reproducibilidad.md`, `01-referencias/00-referencias.md` y `01-referencias/00-catalogo/plan-descargas.md`.
+En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.exe`. La guia detallada, los limites de la garantia y las reglas de inmutabilidad estan en `00-gobernanza/reproducibilidad.md`, `01-referencias/00-REFERENCIAS.md` y `01-referencias/00-catalogo/plan-descargas.md`.
 
 ## Lectura inicial
 
@@ -69,14 +69,14 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 ## Estructura
 
-- [Gobernanza](00-gobernanza/00-gobernanza.md): reglas, metodo, decisiones, plantillas y plan de trabajo.
-- [Referencias](01-referencias/00-referencias.md): fuentes externas e institucionales; los originales son inmutables.
-- [Procesos](02-procesos/00-procesos.md): mapa institucional y procesos jerarquizados por codigo NT, cada uno con su ficha, indicadores, diagrama y sustento.
-- [Conocimiento](03-conocimiento/00-conocimiento.md): reglas normativas curadas, eventos de revision y catalogos comunes.
-- [Coordinacion](04-coordinacion/00-coordinacion.md): reuniones, diario, Canvas y Bases transversales.
-- [Herramientas](05-herramientas/00-herramientas.md): utilidades de catalogacion, OCR, PlantUML, BPMN y trazabilidad.
-- [Bandeja de entrada](90-bandeja-entrada/00-bandeja-entrada.md): archivos recibidos pendientes de clasificacion.
-- [Temporal](99-temporal/00-temporal.md): salidas transitorias que no deben versionarse.
+- [Gobernanza](00-gobernanza/00-GOBERNANZA.md): reglas, metodo, decisiones, plantillas y plan de trabajo.
+- [Referencias](01-referencias/00-REFERENCIAS.md): fuentes externas e institucionales; los originales son inmutables.
+- [Procesos](02-procesos/00-PROCESOS.md): mapa institucional y procesos jerarquizados por codigo NT, cada uno con su ficha, indicadores, diagrama y sustento.
+- [Conocimiento](03-conocimiento/00-CONOCIMIENTO.md): reglas normativas curadas, eventos de revision y catalogos comunes.
+- [Coordinacion](04-coordinacion/00-COORDINACION.md): reuniones, diario, Canvas y Bases transversales.
+- [Herramientas](05-herramientas/00-HERRAMIENTAS.md): utilidades de catalogacion, OCR, PlantUML, BPMN y trazabilidad.
+- [Bandeja de entrada](90-bandeja-entrada/00-BANDEJA-ENTRADA.md): archivos recibidos pendientes de clasificacion.
+- [Temporal](99-temporal/00-TEMPORAL.md): salidas transitorias que no deben versionarse.
 
 ## Fuentes maestras
 

@@ -1,3 +1,17 @@
+---
+id: GOV-PROTOCOLO-CONOCIMIENTO-CONFIABLE
+tipo: guia
+area: gobernanza
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/gobernanza
+---
 # Protocolo de conocimiento confiable
 
 ## Objetivo

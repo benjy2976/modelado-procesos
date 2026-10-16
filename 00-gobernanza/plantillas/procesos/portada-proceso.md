@@ -5,6 +5,8 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 codigo_proceso: pendiente
 nivel_proceso: pendiente
+proceso_padre: pendiente
+alcance_proyecto: EN-ALCANCE
 aliases:
   - pendiente
 ---
@@ -22,6 +24,14 @@ Sube a: <!-- enlace a la nota indice del proceso padre -->
 ## Que hace
 
 <!-- Objetivo tomado de la ficha, con enlace a la ficha. -->
+
+## Interacciones
+
+<!-- Una fila por entrada o producto observado, con el texto literal de la fuente y un enlace a la nota indice del proceso o actor contraparte. -->
+
+| Sentido | Contraparte | Elemento observado |
+|---|---|---|
+|  |  |  |
 
 ## Documentos del proceso
 

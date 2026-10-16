@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Biblioteca BIM
+tags:
+  - tema/bim
 ---
 
 # Biblioteca BIM
 
-Sube a: [Referencias](../00-referencias.md)
+Sube a: [Referencias](../00-REFERENCIAS.md)
 
 ## Clasificacion
 

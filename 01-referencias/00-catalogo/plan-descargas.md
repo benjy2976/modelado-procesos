@@ -1,3 +1,17 @@
+---
+id: REF-PLAN-DESCARGAS
+tipo: guia
+area: referencias
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/referencias
+---
 # Plan de descargas y evaluacion
 
 El lote base fue descargado y evaluado el 2026-10-14. Los binarios publicos funcionan como cache local regenerable y no se versionan en Git; el indice de URL y SHA-256 si se versiona.

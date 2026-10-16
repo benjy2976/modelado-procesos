@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Conocimiento
+tags:
+  - tema/conocimiento
 ---
 
 # Conocimiento
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 Esta area contiene conocimiento reutilizable por varios procesos: reglas normativas curadas, sus eventos de revision y catalogos comunes de actores, sistemas, documentos, riesgos y reglas de negocio. Su operacion se rige por el [protocolo de conocimiento confiable](../00-gobernanza/protocolo-conocimiento-confiable.md). Las plantillas se encuentran en [Plantillas](../00-gobernanza/plantillas/00-plantillas.md).
 
@@ -33,13 +35,13 @@ Los borradores producidos por IA deben conservar `estado_validacion: BORRADOR-IA
 
 Carpetas reservadas; se completan cuando exista evidencia:
 
-- `actores-y-roles/`
+- [Actores y roles](actores-y-roles/00-actores-y-roles.md)
 - `sistemas/`
 - `documentos-y-formatos/`
 - `riesgos-y-controles/`
 - `reglas-de-negocio/`
 
-Los indicadores no se catalogan aqui: cada proceso mantiene sus fichas de indicador en su carpeta de [Procesos](../02-procesos/00-procesos.md).
+Los indicadores no se catalogan aqui: cada proceso mantiene sus fichas de indicador en su carpeta de [Procesos](../02-procesos/00-PROCESOS.md).
 
 ## Relaciones
 

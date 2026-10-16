@@ -27,9 +27,9 @@ tags:
 
 # S4 Gestion de las inversiones - Ficha de producto y proceso
 
-Sube a: [S4 Gestion de las inversiones](00-s4-gestion-de-las-inversiones.md)
+Sube a: [S4 Gestion de las inversiones](00-S4-gestion-de-las-inversiones.md)
 
-Transcripcion de la ficha institucional aprobada del proceso Nivel 0 S4 (formato institucional, version 3.0), ordenada segun los campos de la ficha de producto y proceso de la NT 002-2025-PCM-SGP. El contenido se conserva tal como figura en el original; su fuente, calidad, control de fidelidad y discrepancias se encuentran en el [sustento de S4](s4-sustento.md).
+Transcripcion de la ficha institucional aprobada del proceso Nivel 0 S4 (formato institucional, version 3.0), ordenada segun los campos de la ficha de producto y proceso de la NT 002-2025-PCM-SGP. El contenido se conserva tal como figura en el original; su fuente, calidad, control de fidelidad y discrepancias se encuentran en el [sustento de S4](S4-sustento.md).
 
 > [!important] Documento aprobado
 > El equipo del proyecto confirmo el 2026-10-16 que la ficha S4 es oficial y aprobada. Este documento no se edita: cualquier variacion se plantea en un archivo `-propuesta`. La transcripcion queda pendiente de la comprobacion humana de fidelidad.
@@ -150,13 +150,13 @@ Las filas siguientes estructuran la tabla de las paginas impresas 120-121. Descr
 
 La vista siguiente fue generada localmente desde PlantUML. Presenta los cinco procesos Nivel 1, los responsables consignados y las entradas y salidas de las paginas impresas 120-123. Las flechas centrales representan intercambios entre procesos de S4, no orden temporal ni flujo de secuencia BPMN.
 
-![Vista logica de interacciones aprobadas de S4](s4-diagrama-proceso-logico.svg)
+![Vista logica de interacciones aprobadas de S4](S4-diagrama-proceso-logico.svg)
 
 La fuente se regenera y comprueba con el [gestor local de modelos](../../05-herramientas/gestor-modelos/00-gestor-modelos.md). El SVG es derivado y no debe editarse manualmente.
 
 ## Indicadores del proceso
 
-Las fichas de indicador S4-IND-1, S4-IND-2 y S4-IND-3 se registran en [fichas de indicador de S4](s4-fichas-indicador.md).
+Las fichas de indicador S4-IND-1, S4-IND-2 y S4-IND-3 se registran en [fichas de indicador de S4](S4-fichas-indicador.md).
 
 ## Datos propios del formato institucional
 
@@ -170,12 +170,12 @@ Las fichas de indicador S4-IND-1, S4-IND-2 y S4-IND-3 se registran en [fichas de
 |---|---|---|
 | Sin nombre visible en el original | Sin nombre visible en el original | Sin nombre visible en el original |
 
-La situacion se registra como `EVIDENCIA-INSUFICIENTE` en el [sustento de S4](s4-sustento.md).
+La situacion se registra como `EVIDENCIA-INSUFICIENTE` en el [sustento de S4](S4-sustento.md).
 
 ## Relaciones
 
-- [Portada de S4](00-s4-gestion-de-las-inversiones.md)
-- [Fichas de indicador de S4](s4-fichas-indicador.md)
-- [Sustento de S4](s4-sustento.md)
+- [Portada de S4](00-S4-gestion-de-las-inversiones.md)
+- [Fichas de indicador de S4](S4-fichas-indicador.md)
+- [Sustento de S4](S4-sustento.md)
 - [Inventario de productos y procesos](../mapa-de-procesos-institucional/inventario-productos-procesos.md)
 - [Mapa de procesos Nivel 0](../mapa-de-procesos-institucional/mapa-procesos-nivel-0.md)

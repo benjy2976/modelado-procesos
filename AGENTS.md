@@ -10,6 +10,7 @@
 
 - Cumplir `00-gobernanza/estandar-obligatorio-obsidian.md` al crear o modificar notas de conocimiento.
 - Enlazar todo Markdown nuevo desde el mapa de contenido de su area; no dejar notas huerfanas.
+- Seguir `00-gobernanza/convenciones-nombres.md` (mayusculas en tres niveles) y el vocabulario de etiquetas `00-gobernanza/vocabulario-etiquetas.yaml`; ejecutar `05-herramientas/gestionar_etiquetas.py revisar` antes de proponer un commit.
 - Tratar Canvas y Bases como vistas: ninguna regla, decision o conclusion durable puede existir solo en ellos.
 - No modificar originales ubicados en `01-referencias/**/originales`.
 - No sobrescribir informacion publicada o aprobada. Un documento con `estado_institucional: APROBADO` no se edita; una variacion se plantea en un unico archivo `<codigo>-<documento>-propuesta.md`.

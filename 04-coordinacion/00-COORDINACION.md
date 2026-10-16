@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Coordinacion
+tags:
+  - tema/coordinacion
 ---
 
 # Coordinacion
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 Esta area organiza captura diaria, reuniones, Canvas y Bases transversales. No reemplaza las fuentes maestras de gobierno, conocimiento o modelamiento.
 

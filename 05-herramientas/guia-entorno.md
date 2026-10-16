@@ -6,13 +6,15 @@ clase_conocimiento: PROPUESTA
 fecha_creacion: 2026-10-15
 fecha_actualizacion: 2026-10-15
 confidencialidad: INTERNO
+tags:
+  - tema/automatizacion
 ---
 
 # Entorno propuesto para trabajo documental y desarrollo
 
 Esta guia propone un conjunto local de herramientas para acelerar catalogacion, extraccion, trazabilidad y desarrollo. Distingue la instalacion observada de los usos futuros: disponer de una biblioteca no equivale a tener implementados el extractor, el validador normativo o una aplicacion web.
 
-[Herramientas](00-herramientas.md) · Se rige por [Reproducibilidad](../00-gobernanza/reproducibilidad.md) y el [estandar de Obsidian](../00-gobernanza/estandar-obligatorio-obsidian.md).
+[Herramientas](00-HERRAMIENTAS.md) · Se rige por [Reproducibilidad](../00-gobernanza/reproducibilidad.md) y el [estandar de Obsidian](../00-gobernanza/estandar-obligatorio-obsidian.md).
 
 ## Instalacion observada
 
@@ -160,7 +162,7 @@ Estas herramientas quedan propuestas, sin instalar en esta intervencion. La sele
 
 ## Pendientes y relaciones
 
-La propuesta de herramientas no aprueba cambios metodologicos ni sustituye validacion humana. La instalacion observada es un hecho tecnico local. Esta guia implementa la preparacion del [area de herramientas](00-herramientas.md) y apoya los requisitos del [extractor](extractor-documental/00-extractor-documental.md) y del [validador](validador-conocimiento/00-validador-conocimiento.md).
+La propuesta de herramientas no aprueba cambios metodologicos ni sustituye validacion humana. La instalacion observada es un hecho tecnico local. Esta guia implementa la preparacion del [area de herramientas](00-HERRAMIENTAS.md) y apoya los requisitos del [extractor](extractor-documental/00-extractor-documental.md) y del [validador](validador-conocimiento/00-validador-conocimiento.md).
 
 Decision tecnica local de esta preparacion: conservar el perfil minimo y agregar un perfil ampliado con CPython estable 3.11 o posterior en `.venv`, sin dependencias globales. La compatibilidad se gobierna mediante un minimo, una matriz probada y una puerta de incorporacion para versiones futuras; su adopcion como estandar del equipo sigue siendo propuesta.
 

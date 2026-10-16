@@ -73,21 +73,21 @@ Solo un modelo formal validado puede formar parte de una linea base BPMN. Las vi
 Cada proceso tiene su carpeta dentro de `02-procesos`, anidada bajo la de su proceso padre y nombrada con su codigo NT (`DEC-017`). Todos sus archivos empiezan por el codigo del proceso. Para S4.3 el patron es:
 
 ```text
-02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/
-|-- 00-s4-3-ejecucion-inversion.md             nota indice y portada
-|-- s4-3-ficha-producto-proceso.md              Anexo 2; fuente del PDF
-|-- s4-3-fichas-indicador.md                    Anexo 4; fuente del PDF
-|-- s4-3-sustento.md                            fuentes, evidencias, historial; no se exporta
-|-- s4-3-diagrama-proceso-modelo.yaml           configuracion del diagrama
-|-- s4-3-diagrama-proceso-logico.puml           etapa logica
-|-- s4-3-diagrama-proceso-logico.svg
-|-- s4-3-diagrama-proceso.bpmn                  etapa formal
-|-- s4-3-diagrama-proceso.svg
-|-- s4-3-diagrama-proceso-resumen-generado.md
-|-- s4-3-diagrama-proceso-manifest.json
-|-- s4-3-diagrama-proceso-validacion.json
-|-- s4-3-diagrama-proceso-validacion.md
-`-- s4-3-n-<nombre>/                            subproceso Nivel 2, mismo patron
+02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/
+|-- 00-S4-3-ejecucion-inversion.md             nota indice y portada
+|-- S4-3-ficha-producto-proceso.md              Anexo 2; fuente del PDF
+|-- S4-3-fichas-indicador.md                    Anexo 4; fuente del PDF
+|-- S4-3-sustento.md                            fuentes, evidencias, historial; no se exporta
+|-- S4-3-diagrama-proceso-modelo.yaml           configuracion del diagrama
+|-- S4-3-diagrama-proceso-logico.puml           etapa logica
+|-- S4-3-diagrama-proceso-logico.svg
+|-- S4-3-diagrama-proceso.bpmn                  etapa formal
+|-- S4-3-diagrama-proceso.svg
+|-- S4-3-diagrama-proceso-resumen-generado.md
+|-- S4-3-diagrama-proceso-manifest.json
+|-- S4-3-diagrama-proceso-validacion.json
+|-- S4-3-diagrama-proceso-validacion.md
+`-- S4-3-n-<nombre>/                            subproceso Nivel 2, mismo patron
 ```
 
 En el ultimo nivel se agregan, solo si el proceso cumple algun criterio del numeral 6.1.3 d de la NT, `<codigo>-procedimiento.md` (Anexo 7) y su diagrama de flujo `<codigo>-procedimiento-diagrama.bpmn` con su `.svg` (Anexo 8).
@@ -229,5 +229,5 @@ Antes de una release:
 - [Metodologia de modelamiento](metodologia-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
-- [Procesos](../02-procesos/00-procesos.md)
+- [Procesos](../02-procesos/00-PROCESOS.md)
 - [Plantillas de procesos](plantillas/00-plantillas.md)

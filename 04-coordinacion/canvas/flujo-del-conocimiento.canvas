@@ -3,7 +3,7 @@
     {
       "id": "fuentes",
       "type": "file",
-      "file": "01-referencias/00-referencias.md",
+      "file": "01-referencias/00-REFERENCIAS.md",
       "x": 0,
       "y": 0,
       "width": 360,
@@ -30,7 +30,7 @@
     {
       "id": "conocimiento",
       "type": "file",
-      "file": "03-conocimiento/00-conocimiento.md",
+      "file": "03-conocimiento/00-CONOCIMIENTO.md",
       "x": 940,
       "y": 0,
       "width": 400,
@@ -48,7 +48,7 @@
     {
       "id": "modelamiento",
       "type": "file",
-      "file": "02-procesos/00-procesos.md",
+      "file": "02-procesos/00-PROCESOS.md",
       "x": 1420,
       "y": 40,
       "width": 420,

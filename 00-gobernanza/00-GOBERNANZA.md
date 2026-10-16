@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Gobernanza
+tags:
+  - tema/gobernanza
 ---
 
 # Gobernanza
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 Esta area define como se delimita, documenta, valida, versiona y publica el trabajo del proyecto.
 
@@ -30,6 +32,7 @@ Esta area define como se delimita, documenta, valida, versiona y publica el trab
 - [Estructura centrada en procesos (aprobada, DEC-017)](propuesta-estructura-intuitiva.md)
 - [Plantillas](plantillas/00-plantillas.md)
 - [Propuesta de nombres para notas indice y lectura del grafo](propuesta-notas-indice-y-grafo.md)
+- [Identidad, mayusculas, etiquetas y vistas del modelo de procesos (aprobada, DEC-019)](propuesta-identidad-etiquetas-y-vistas.md)
 - [Protocolo de conocimiento confiable](protocolo-conocimiento-confiable.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
 
@@ -38,13 +41,14 @@ Esta area define como se delimita, documenta, valida, versiona y publica el trab
 - [Arquitectura de informacion y enlaces](arquitectura-de-informacion.md)
 - [Estandar obligatorio de Obsidian](estandar-obligatorio-obsidian.md)
 - [Convenciones de nombres](convenciones-nombres.md)
+- [Vocabulario de etiquetas](vocabulario-etiquetas.yaml)
 - [Versionado y releases](protocolo-versionado-y-releases.md)
 - [Reproducibilidad](reproducibilidad.md)
 
 ## Relaciones principales
 
-- Las fuentes se administran en [Referencias](../01-referencias/00-referencias.md).
-- El conocimiento validado se conserva en [Conocimiento estructurado](../03-conocimiento/00-conocimiento.md).
-- El metodo se aplica en [Procesos](../02-procesos/00-procesos.md).
-- La automatizacion se implementa en [Herramientas](../05-herramientas/00-herramientas.md).
+- Las fuentes se administran en [Referencias](../01-referencias/00-REFERENCIAS.md).
+- El conocimiento validado se conserva en [Conocimiento estructurado](../03-conocimiento/00-CONOCIMIENTO.md).
+- El metodo se aplica en [Procesos](../02-procesos/00-PROCESOS.md).
+- La automatizacion se implementa en [Herramientas](../05-herramientas/00-HERRAMIENTAS.md).
 

@@ -14,12 +14,12 @@ responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
   - tema/procesos
-  - proceso/s4-3
+  - proceso/s4/s4-3
 ---
 
 # S4.3 Ejecucion de la inversion - Sustento
 
-Sube a: [S4.3 Ejecucion de la inversion](00-s4-3-ejecucion-inversion.md)
+Sube a: [S4.3 Ejecucion de la inversion](00-S4-3-ejecucion-inversion.md)
 
 Registra las fuentes, evidencias, vacios e historial de revision que sustentan los documentos de S4.3. No se exporta a PDF.
 
@@ -32,7 +32,7 @@ Registra las fuentes, evidencias, vacios e historial de revision que sustentan l
 
 ## Elementos observados
 
-Clase: `OBSERVADO` en la fuente institucional aprobada. Se transcriben tal como figuran en la [ficha de S4](../s4-ficha-producto-proceso.md).
+Clase: `OBSERVADO` en la fuente institucional aprobada. Se transcriben tal como figuran en la [ficha de S4](../S4-ficha-producto-proceso.md).
 
 | Elemento | Texto observado | Contraparte |
 |---|---|---|
@@ -85,6 +85,6 @@ El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un 
 
 ## Relaciones
 
-- [Portada de S4.3](00-s4-3-ejecucion-inversion.md)
-- [Sustento de S4](../s4-sustento.md)
+- [Portada de S4.3](00-S4-3-ejecucion-inversion.md)
+- [Sustento de S4](../S4-sustento.md)
 - [Manual operativo del conocimiento](../../../00-gobernanza/manual-operativo-del-conocimiento.md)

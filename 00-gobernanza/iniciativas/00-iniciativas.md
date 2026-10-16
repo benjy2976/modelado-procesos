@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Iniciativas
+tags:
+  - tema/iniciativas
 ---
 
 # Iniciativas
 
-Sube a: [Gobernanza](../00-gobernanza.md)
+Sube a: [Gobernanza](../00-GOBERNANZA.md)
 
 Este registro concentra las iniciativas que cambian herramientas, metodos, fuentes maestras o capacidades transversales del proyecto. Su gestion se rige por el [protocolo de gestion de iniciativas](../protocolo-gestion-iniciativas.md).
 
@@ -23,4 +25,4 @@ Este registro concentra las iniciativas que cambian herramientas, metodos, fuent
 
 - [Registro de decisiones](../registro-decisiones.md)
 - [Plan de trabajo](../plan-de-trabajo.md)
-- [Herramientas](../../05-herramientas/00-herramientas.md)
+- [Herramientas](../../05-herramientas/00-HERRAMIENTAS.md)

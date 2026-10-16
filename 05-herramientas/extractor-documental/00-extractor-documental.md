@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Requisitos del extractor documental
+tags:
+  - tema/automatizacion
 ---
 
 # Requisitos del extractor documental
 
-Sube a: [Herramientas previstas](../00-herramientas.md)
+Sube a: [Herramientas previstas](../00-HERRAMIENTAS.md)
 
 ## Objetivo
 
@@ -45,7 +47,7 @@ La cache completa no se versiona. Se regenera desde los originales restaurados. 
 
 El estado se refiere a fidelidad de extraccion, no a vigencia ni interpretacion juridica.
 
-La extraccion es una etapa del [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md) y alimenta [Conocimiento estructurado](../../03-conocimiento/00-conocimiento.md).
+La extraccion es una etapa del [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md) y alimenta [Conocimiento estructurado](../../03-conocimiento/00-CONOCIMIENTO.md).
 
 ## Criterios de aceptacion
 

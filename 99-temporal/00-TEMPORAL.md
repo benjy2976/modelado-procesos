@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Temporal
+tags:
+  - tema/git
 ---
 
 # Temporal
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 OCR intermedio, renderizados, pruebas y salidas regenerables. Su contenido no debe utilizarse como evidencia ni publicarse.
 

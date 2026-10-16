@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Diario
+tags:
+  - tema/coordinacion
 ---
 
 # Diario
 
-Sube a: [Coordinacion](../00-coordinacion.md)
+Sube a: [Coordinacion](../00-COORDINACION.md)
 
 La configuracion portable de Obsidian crea notas en `YYYY/MM/YYYY-MM-DD.md` mediante la plantilla `diario.md`.
 

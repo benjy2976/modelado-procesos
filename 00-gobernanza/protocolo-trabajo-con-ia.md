@@ -1,3 +1,18 @@
+---
+id: GOV-PROTOCOLO-TRABAJO-IA
+tipo: guia
+area: gobernanza
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/gobernanza
+  - tema/ia
+---
 # Protocolo de trabajo con inteligencia artificial
 
 ## Proposito

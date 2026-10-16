@@ -1,3 +1,17 @@
+---
+id: REF-RESUMEN-CALIDAD-DOCUMENTAL
+tipo: evidencia
+area: referencias
+estado_documento: VIGENTE
+clase_conocimiento: OBSERVADO
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/referencias
+---
 # Resumen de calidad documental
 
 - Fecha de evaluacion: 2026-10-15

@@ -1,3 +1,17 @@
+---
+id: REF-RUBRICA-CALIDAD
+tipo: guia
+area: referencias
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/referencias
+---
 # Rubrica de calidad documental
 
 Cada recurso se evalua despues de descargarlo. Una pagina web localizada no demuestra que el archivo tenga OCR ni que sea la version vigente.

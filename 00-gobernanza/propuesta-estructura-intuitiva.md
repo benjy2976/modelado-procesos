@@ -269,4 +269,4 @@ Criterio de aceptacion: una persona sin conocer la arquitectura del repositorio 
 - [Estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
 - [Registro de decisiones](registro-decisiones.md)
-- [Procesos](../02-procesos/00-procesos.md)
+- [Procesos](../02-procesos/00-PROCESOS.md)

@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Requisitos del validador de conocimiento
+tags:
+  - tema/automatizacion
 ---
 
 # Requisitos del validador de conocimiento
 
-Sube a: [Herramientas previstas](../00-herramientas.md)
+Sube a: [Herramientas previstas](../00-HERRAMIENTAS.md)
 
 ## Objetivo
 
@@ -105,4 +107,4 @@ La seleccion de framework, autenticacion y despliegue se decidira al iniciar la 
 
 - [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md)
 - [Protocolo de conocimiento confiable](../../00-gobernanza/protocolo-conocimiento-confiable.md)
-- [Conocimiento estructurado](../../03-conocimiento/00-conocimiento.md)
+- [Conocimiento estructurado](../../03-conocimiento/00-CONOCIMIENTO.md)

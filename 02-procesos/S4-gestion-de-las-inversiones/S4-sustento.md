@@ -19,7 +19,7 @@ tags:
 
 # S4 Gestion de las inversiones - Sustento
 
-Sube a: [S4 Gestion de las inversiones](00-s4-gestion-de-las-inversiones.md)
+Sube a: [S4 Gestion de las inversiones](00-S4-gestion-de-las-inversiones.md)
 
 Registra la fuente, la calidad, la autoridad, el control de fidelidad, las discrepancias y el historial de revision de los documentos de S4. No se exporta a PDF.
 
@@ -46,9 +46,9 @@ Registra la fuente, la calidad, la autoridad, el control de fidelidad, las discr
 ## Autoridad y uso
 
 - El PDF institucional es la fuente primaria aprobada.
-- La [ficha de producto y proceso](s4-ficha-producto-proceso.md) y las [fichas de indicador](s4-fichas-indicador.md) son la traduccion estructurada para consulta, trazabilidad y posterior modelamiento.
-- El archivo [PlantUML logico](s4-diagrama-proceso-logico.puml) es la fuente editable de la vista visual y el [SVG](s4-diagrama-proceso-logico.svg) es su derivado generado.
-- La [configuracion del modelo](s4-diagrama-proceso-modelo.yaml) declara fuente, alcance, artefactos y estado de revision.
+- La [ficha de producto y proceso](S4-ficha-producto-proceso.md) y las [fichas de indicador](S4-fichas-indicador.md) son la traduccion estructurada para consulta, trazabilidad y posterior modelamiento.
+- El archivo [PlantUML logico](S4-diagrama-proceso-logico.puml) es la fuente editable de la vista visual y el [SVG](S4-diagrama-proceso-logico.svg) es su derivado generado.
+- La [configuracion del modelo](S4-diagrama-proceso-modelo.yaml) declara fuente, alcance, artefactos y estado de revision.
 - Ninguna discrepancia del original se armoniza automaticamente. Una correccion requiere evidencia o decision institucional registrada.
 
 ## Control de fidelidad de la traduccion
@@ -128,8 +128,8 @@ flowchart LR
 
 ## Relaciones
 
-- [Portada de S4](00-s4-gestion-de-las-inversiones.md)
-- [Ficha de producto y proceso de S4](s4-ficha-producto-proceso.md)
-- [Fichas de indicador de S4](s4-fichas-indicador.md)
+- [Portada de S4](00-S4-gestion-de-las-inversiones.md)
+- [Ficha de producto y proceso de S4](S4-ficha-producto-proceso.md)
+- [Fichas de indicador de S4](S4-fichas-indicador.md)
 - [Registro de decisiones](../../00-gobernanza/registro-decisiones.md)
 - [Metodologia de modelamiento](../../00-gobernanza/metodologia-modelamiento.md)

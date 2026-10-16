@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Procesos
+tags:
+  - tema/procesos
 ---
 
 # Procesos
 
-Sube a: [Inicio de la boveda](../00-inicio.md)
+Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
 Esta area reune la documentacion de cada proceso tal como la organiza la Norma Tecnica de gestion por procesos (NT 002-2025-PCM-SGP): por niveles, con codigo y con su juego de documentos. El alcance actual es **S4.3 Ejecucion de la inversion**.
 
@@ -23,12 +25,14 @@ flowchart TD
     S431 --> PROC["Ultimo nivel<br/>procedimiento cuando corresponda"]
 ```
 
-1. **Cada carpeta es un proceso.** Su nombre empieza por el codigo NT (`s4`, `s4-3`, `s4-3-1`). Los subprocesos son subcarpetas.
+1. **Cada carpeta es un proceso.** Su nombre empieza por el codigo NT en mayusculas, con guion en lugar de punto (`S4`, `S4-3`, `S4-3-1`). Los subprocesos son subcarpetas.
+   - Los procesos **en alcance** tienen su documentacion completa (`alcance_proyecto: EN-ALCANCE`).
+   - Los procesos **relacionados** fuera de alcance son nodos de referencia: solo una nota indice con su identificacion y fuente (`alcance_proyecto: REFERENCIA`). Permiten ver en el grafo el modelo de procesos y sus interacciones (`DEC-019`).
 2. **Cada proceso tiene el mismo juego de documentos**, siempre con el codigo al inicio del nombre:
 
 | Documento | Archivo | Referencia NT |
 |---|---|---|
-| Portada (nota indice) | `00-<carpeta>.md`, por ejemplo `00-s4-3-ejecucion-inversion.md` | - |
+| Portada (nota indice) | `00-<carpeta>.md`, por ejemplo `00-S4-3-ejecucion-inversion.md` | - |
 | Ficha de producto y proceso | `<codigo>-ficha-producto-proceso.md` | Numeral 6.1.3 a; Anexo 2 |
 | Fichas de indicador | `<codigo>-fichas-indicador.md` | Numeral 6.1.3 b; Anexo 4 |
 | Diagrama del proceso | `<codigo>-diagrama-proceso-logico.puml` o `<codigo>-diagrama-proceso.bpmn`, con su `.svg` derivado | Anexo 3 |
@@ -54,9 +58,16 @@ Las reglas completas estan en el [estandar de artefactos](../00-gobernanza/estan
 ## Contenido
 
 - [Mapa de procesos institucional](mapa-de-procesos-institucional/00-mapa-de-procesos-institucional.md): mapa Nivel 0 e inventario de productos y procesos.
-- [S4 Gestion de las inversiones](s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md): proceso Nivel 0 aprobado.
-  - [S4.3 Ejecucion de la inversion](s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/00-s4-3-ejecucion-inversion.md): alcance actual del proyecto.
+- [S4 Gestion de las inversiones](S4-gestion-de-las-inversiones/00-S4-gestion-de-las-inversiones.md): proceso Nivel 0 aprobado.
+  - [S4.3 Ejecucion de la inversion](S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/00-S4-3-ejecucion-inversion.md): alcance actual del proyecto.
+- [S2 Gestion contable y financiera](S2-gestion-contable-y-financiera/00-S2-gestion-contable-y-financiera.md): nodo de referencia, contraparte de S4.3 mediante S2.1.
+- [S3 Gestion de bienes y servicios](S3-gestion-de-bienes-y-servicios/00-S3-gestion-de-bienes-y-servicios.md): nodo de referencia, contraparte de S4.3 mediante S3.1 y S3.2.
 - [TO-BE](to-be/00-to-be.md): rediseno futuro, pendiente.
+
+## Vistas del modelo
+
+- En el grafo, la vista `modelo-procesos` muestra solo procesos y actores con su jerarquia e interacciones; la vista `proceso` muestra una rama completa. Se aplican con `05-herramientas/configurar_grafo_obsidian.py`.
+- La [Base de procesos](../04-coordinacion/bases/procesos.base) lista los nodos de proceso y los documentos NT con sus estados.
 
 ## Fuentes y metodo
 

@@ -1,0 +1,72 @@
+version: 1
+descripcion: >-
+  Vocabulario controlado de etiquetas de la boveda (DEC-019). Es la fuente maestra:
+  para agregar, cambiar o retirar una etiqueta se edita este archivo o se usa
+  05-herramientas/gestionar_etiquetas.py renombrar, y despues se ejecuta aplicar y revisar.
+espacios:
+  proceso:
+    descripcion: >-
+      Jerarquia de procesos con etiquetas anidadas (proceso/s4/s4-3). Se deriva de las
+      carpetas de 02-procesos o de la propiedad codigo_proceso; no se escribe a mano.
+    derivada: true
+  tema:
+    descripcion: Faceta tematica; toda nota lleva al menos una.
+    valores:
+      procesos: Arquitectura, fichas, modelos y documentos de proceso.
+      gobernanza: Reglas, decisiones, planes y protocolos del proyecto.
+      conocimiento: Reglas normativas, revisiones y catalogos comunes.
+      referencias: Biblioteca, catalogo y calidad documental.
+      coordinacion: Reuniones, diario, Canvas y Bases.
+      obsidian: Boveda, notas, enlaces y vistas.
+      automatizacion: Herramientas y scripts.
+      ia: Trabajo con inteligencia artificial.
+      git: Versionado, releases y reproducibilidad.
+      iniciativas: Iniciativas del proyecto.
+      glosario: Terminologia.
+      invierte-pe: Sistema Nacional de Programacion Multianual y Gestion de Inversiones.
+      contrataciones: Contrataciones publicas.
+      control-gubernamental: Control gubernamental.
+      presupuesto: Presupuesto y administracion.
+      normativa-tecnica: Normativa tecnica sectorial.
+      bim: BIM y gestion de la informacion.
+temas_por_ruta:
+  - prefijo: 02-procesos/
+    tema: procesos
+  - prefijo: 03-conocimiento/
+    tema: conocimiento
+  - prefijo: 04-coordinacion/
+    tema: coordinacion
+  - prefijo: 05-herramientas/
+    tema: automatizacion
+  - prefijo: 99-temporal/
+    tema: git
+  - prefijo: 90-bandeja-entrada/
+    tema: referencias
+  - prefijo: 01-referencias/03-invierte-pe/
+    tema: invierte-pe
+  - prefijo: 01-referencias/04-contrataciones-publicas/
+    tema: contrataciones
+  - prefijo: 01-referencias/05-control-gubernamental/
+    tema: control-gubernamental
+  - prefijo: 01-referencias/06-presupuesto-y-administracion/
+    tema: presupuesto
+  - prefijo: 01-referencias/07-normativa-tecnica-sectorial/
+    tema: normativa-tecnica
+  - prefijo: 01-referencias/08-bim/
+    tema: bim
+  - prefijo: 01-referencias/
+    tema: referencias
+  - prefijo: 00-gobernanza/iniciativas/
+    tema: iniciativas
+  - prefijo: 00-gobernanza/
+    tema: gobernanza
+  - prefijo: glosario.md
+    tema: glosario
+  - prefijo: ''
+    tema: gobernanza
+excluir:
+  - 00-gobernanza/plantillas/
+  - AGENTS.md
+  - README.md
+renombres:
+  proceso/s4-3: proceso/s4/s4-3

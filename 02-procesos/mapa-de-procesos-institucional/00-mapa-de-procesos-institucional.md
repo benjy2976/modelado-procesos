@@ -5,11 +5,13 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 aliases:
   - Mapa de procesos institucional
+tags:
+  - tema/procesos
 ---
 
 # Mapa de procesos institucional
 
-Sube a: [Procesos](../00-procesos.md)
+Sube a: [Procesos](../00-PROCESOS.md)
 
 Corresponde al nivel 0 de la entidad. Segun la NT 002-2025-PCM-SGP (numeral 6.1.3 c y Anexo 6), el mapa de procesos institucional se compone del diagrama del mapa de procesos y del inventario de productos y procesos. Aqui se conservan sus transcripciones trazables; los originales permanecen en `01-referencias`.
 
@@ -20,5 +22,5 @@ Corresponde al nivel 0 de la entidad. Segun la NT 002-2025-PCM-SGP (numeral 6.1.
 
 ## Relaciones
 
-- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md)
+- [S4 Gestion de las inversiones](../S4-gestion-de-las-inversiones/00-S4-gestion-de-las-inversiones.md)
 - [Fuentes institucionales aprobadas](../../01-referencias/01-institucionales-grh/originales/00-originales-institucionales-grh.md)

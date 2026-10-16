@@ -9,7 +9,7 @@ aliases:
 
 # Plantillas
 
-Sube a: [Gobernanza](../00-gobernanza.md)
+Sube a: [Gobernanza](../00-GOBERNANZA.md)
 
 Plantillas obligatorias del proyecto. Obsidian las ofrece desde esta carpeta mediante el complemento de plantillas. Su uso se rige por el [estandar obligatorio de Obsidian](../estandar-obligatorio-obsidian.md).
 

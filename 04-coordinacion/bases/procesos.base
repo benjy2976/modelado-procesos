@@ -1,0 +1,46 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'codigo_proceso != null'
+    - not:
+        - 'file.inFolder("00-gobernanza/plantillas")'
+properties:
+  file.name:
+    displayName: Nota
+  codigo_proceso:
+    displayName: Codigo
+  nivel_proceso:
+    displayName: Nivel
+  alcance_proyecto:
+    displayName: Alcance
+  proceso_padre:
+    displayName: Proceso padre
+  documento_nt:
+    displayName: Documento NT
+  estado_institucional:
+    displayName: Estado institucional
+  nivel_revision:
+    displayName: Nivel de revision
+views:
+  - type: table
+    name: Nodos de proceso
+    filters:
+      and:
+        - 'alcance_proyecto != null'
+    order:
+      - codigo_proceso
+      - file.name
+      - nivel_proceso
+      - alcance_proyecto
+      - proceso_padre
+  - type: table
+    name: Documentos NT
+    filters:
+      and:
+        - 'documento_nt != null'
+    order:
+      - codigo_proceso
+      - documento_nt
+      - estado_institucional
+      - nivel_revision
+      - file.name

@@ -13,7 +13,7 @@ tags:
 
 # Estandar obligatorio de produccion de conocimiento en Obsidian
 
-Sube a: [Gobernanza](00-gobernanza.md)
+Sube a: [Gobernanza](00-GOBERNANZA.md)
 
 ## 1. Condicion obligatoria
 
@@ -96,6 +96,7 @@ Los documentos de cada proceso en `02-procesos` agregan, segun corresponda (`DEC
 | `estado_institucional` | `PROPUESTA` o `APROBADO` | Documentos NT |
 | `nivel_revision` | `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA`, `APROBACION` o `null` si esta aprobado | Documentos NT en propuesta |
 | `modifica` | Archivo aprobado que se busca variar o `null` | Archivos `-propuesta` |
+| `alcance_proyecto` | `EN-ALCANCE` o `REFERENCIA` | Notas indice de proceso (`DEC-019`) |
 
 `estado_institucional` y `nivel_revision` describen el circuito institucional del documento y no sustituyen a `estado_documento`. Solo una persona, con evidencia registrada en el sustento, puede cambiar el nivel de revision o marcar `APROBADO`.
 
@@ -134,13 +135,40 @@ La jerarquia y las relaciones se detallan en [Arquitectura de informacion y enla
 - Las propiedades guardan datos atomicos para busqueda y Bases; no contienen parrafos ni justificaciones.
 - Los nombres de propiedades son estables, en minusculas y con guion bajo.
 - Los estados, aprobaciones y clasificaciones obligatorias se registran en propiedades o esquemas, no solo mediante etiquetas.
-- Las etiquetas se reservan para facetas tematicas transversales. Formato recomendado: `tema/bim`, `tema/contrataciones`, `tema/invierte-pe`.
+- Las etiquetas se reservan para facetas de filtrado y siguen la seccion 6.1.
 - Los alias se usan para siglas, nombres alternativos o denominaciones anteriores; no reemplazan el identificador estable.
 - Un cambio masivo de nombre o tipo de propiedad requiere decision registrada y comprobacion de impacto en Bases, busquedas y plantillas.
 
+### 6.1 Etiquetas obligatorias
+
+El vocabulario controlado vive en [vocabulario-etiquetas.yaml](vocabulario-etiquetas.yaml), que es su fuente maestra (`DEC-019`). Toda nota con propiedades, salvo plantillas, lleva:
+
+1. **Al menos una etiqueta `tema/`** del vocabulario. Si una nota no tiene ninguna, se le asigna la que corresponde a su ruta; las demas se agregan a mano cuando aportan.
+2. **Una etiqueta `proceso/` jerarquica** si pertenece a un proceso: `proceso/s4`, `proceso/s4/s4-3`, `proceso/s4/s4-3/s4-3-1`. Se deriva de las carpetas de `02-procesos` o de la propiedad `codigo_proceso`; no se escribe a mano. Una busqueda por la etiqueta padre incluye a sus anidadas.
+
+Las etiquetas van en minusculas, con numeros y guiones; no se admiten etiquetas libres ni espacios fuera del vocabulario.
+
+El vocabulario es dinamico. Para ajustarlo:
+
+```powershell
+# Comprobar todas las notas sin modificar nada
+.\.venv\Scripts\python.exe 05-herramientas/gestionar_etiquetas.py revisar
+
+# Aplicar renombres registrados, derivar procesos y asignar temas por ruta
+.\.venv\Scripts\python.exe 05-herramientas/gestionar_etiquetas.py aplicar
+
+# Renombrar una etiqueta en el vocabulario y en todas las notas
+.\.venv\Scripts\python.exe 05-herramientas/gestionar_etiquetas.py renombrar tema/viejo tema/nuevo
+
+# Ver cuantas notas usan cada etiqueta
+.\.venv\Scripts\python.exe 05-herramientas/gestionar_etiquetas.py listar
+```
+
+Agregar un tema consiste en anadirlo a `espacios.tema.valores` y, si corresponde, a `temas_por_ruta`. Los renombres quedan registrados en `renombres` para que `aplicar` corrija etiquetas antiguas. Un cambio de vocabulario que altere el significado de una faceta se registra como decision.
+
 ## 7. Mapas, enlaces entrantes, grafo y busqueda
 
-- El mapa raiz es [Inicio de la boveda](../00-inicio.md).
+- El mapa raiz es [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md).
 - Cada area y subarea mantiene una nota indice `00-<nombre>.md` como mapa de contenido, segun la [arquitectura de informacion](arquitectura-de-informacion.md), seccion "Notas indice".
 - Los enlaces entrantes ayudan a descubrir dependencias, pero no reemplazan el enlace desde el mapa padre.
 - El grafo es una herramienta diagnostica; su posicion visual, color o proximidad NO constituye una relacion formal.
@@ -149,10 +177,13 @@ La jerarquia y las relaciones se detallan en [Arquitectura de informacion y enla
 
 ### 7.1 Lectura comun del grafo
 
-Para que el grafo muestre el conocimiento y no solo la navegacion, el equipo usa los mismos grupos de color y vistas (`DEC-018`). El orden importa: Obsidian aplica el primer grupo que coincide.
+Para que el grafo muestre el conocimiento y el modelo de procesos, el equipo usa los mismos grupos de color y vistas (`DEC-018` y `DEC-019`). El orden importa: Obsidian aplica el primer grupo que coincide.
 
 | Grupo | Consulta | Color |
 |---|---|---|
+| Procesos en alcance | `[alcance_proyecto:EN-ALCANCE]` | Naranja |
+| Procesos de referencia | `[alcance_proyecto:REFERENCIA]` | Gris claro |
+| Actores externos | `path:03-conocimiento/actores-y-roles` | Amarillo |
 | Notas indice | `[tipo:mapa-de-contenido]` | Gris |
 | Documentos NT | `[documento_nt:ficha-producto-proceso] OR [documento_nt:ficha-indicador] OR [documento_nt:procedimiento] OR [documento_nt:inventario] OR [documento_nt:mapa]` | Azul |
 | Sustentos | `file:sustento` | Turquesa |
@@ -162,10 +193,12 @@ Para que el grafo muestre el conocimiento y no solo la navegacion, el equipo usa
 
 | Vista | Filtro | Uso |
 |---|---|---|
-| Navegacion | Sin filtro | Recorrer el arbol de areas y procesos |
-| Conocimiento | `-[tipo:mapa-de-contenido] -file:00-inicio -file:README -path:00-gobernanza/plantillas` | Ver solo el conocimiento y sus relaciones |
+| `navegacion` | Sin filtro | Recorrer el arbol de areas y procesos |
+| `conocimiento` | `-[tipo:mapa-de-contenido] -file:00-GESTION-POR-PROCESOS-GRH -file:README -path:00-gobernanza/plantillas` | Ver solo el conocimiento y sus relaciones |
+| `modelo-procesos` | `(path:02-procesos [tipo:mapa-de-contenido] -path:02-procesos/to-be) OR path:03-conocimiento/actores-y-roles` | Ver procesos y actores con su jerarquia e interacciones |
+| `proceso --codigo S4.3` | `tag:#proceso/s4/s4-3` | Ver todos los documentos de un proceso y sus subprocesos |
 
-`.obsidian/graph.json` no se versiona porque Obsidian reescribe en el el zoom y otros valores en cada uso. Cada persona aplica la configuracion comun con `python 05-herramientas/configurar_grafo_obsidian.py`, opcionalmente con `--vista conocimiento` o `--vista navegacion`; el script conserva el resto de su configuracion personal. Para trabajar en un proceso se recomienda el grafo local de su nota indice con profundidad 2.
+`.obsidian/graph.json` no se versiona porque Obsidian reescribe en el el zoom y otros valores en cada uso. Cada persona aplica la configuracion comun con `python 05-herramientas/configurar_grafo_obsidian.py --vista <vista>`; el script conserva el resto de su configuracion personal. La [Base de procesos](../04-coordinacion/bases/procesos.base) ofrece la misma informacion en forma de tabla. Para trabajar en un proceso tambien sirve el grafo local de su nota indice con profundidad 2.
 
 ## 8. Plantillas
 

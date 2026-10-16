@@ -27,9 +27,9 @@ tags:
 
 # S4 Gestion de las inversiones - Fichas de indicador
 
-Sube a: [S4 Gestion de las inversiones](00-s4-gestion-de-las-inversiones.md)
+Sube a: [S4 Gestion de las inversiones](00-S4-gestion-de-las-inversiones.md)
 
-Transcripcion de las tres fichas de indicador que acompanan a la ficha aprobada de S4 (paginas impresas 124-126). El contenido se conserva tal como figura en el original; su control de fidelidad y discrepancias se encuentran en el [sustento de S4](s4-sustento.md).
+Transcripcion de las tres fichas de indicador que acompanan a la ficha aprobada de S4 (paginas impresas 124-126). El contenido se conserva tal como figura en el original; su control de fidelidad y discrepancias se encuentran en el [sustento de S4](S4-sustento.md).
 
 > [!important] Documento aprobado
 > Forma parte de la linea base institucional confirmada por el equipo el 2026-10-16. No se edita: cualquier variacion se plantea en un archivo `-propuesta`.
@@ -102,5 +102,5 @@ Transcripcion de las tres fichas de indicador que acompanan a la ficha aprobada 
 
 ## Relaciones
 
-- [Ficha de producto y proceso de S4](s4-ficha-producto-proceso.md)
-- [Sustento de S4](s4-sustento.md)
+- [Ficha de producto y proceso de S4](S4-ficha-producto-proceso.md)
+- [Sustento de S4](S4-sustento.md)

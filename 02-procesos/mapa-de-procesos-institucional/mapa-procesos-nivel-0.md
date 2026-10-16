@@ -73,7 +73,7 @@ El mapa rotula visualmente este grupo como `PROCESOS MISIONALES`, aunque utiliza
 | S1 | Gestion del recurso humano |
 | S2 | Gestion contable y financiera |
 | S3 | Gestion de bienes y servicios |
-| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md) |
+| S4 | [Gestion de las inversiones](../S4-gestion-de-las-inversiones/00-S4-gestion-de-las-inversiones.md) |
 | S5 | Gestion de transformacion digital |
 | S6 | Gestion de asuntos legales |
 | S7 | Gestion de archivo |
@@ -109,5 +109,5 @@ flowchart LR
 ## Relaciones
 
 - [Inventario de productos y procesos](inventario-productos-procesos.md)
-- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md)
+- [S4 Gestion de las inversiones](../S4-gestion-de-las-inversiones/00-S4-gestion-de-las-inversiones.md)
 - [Mapa de procesos institucional](00-mapa-de-procesos-institucional.md)
