@@ -53,6 +53,7 @@ Norma que regula como las entidades identifican, documentan, aprueban, evaluan y
 | Documentos | Ficha de producto y proceso con diagrama, ficha de indicador, mapa de procesos y procedimiento | Num. 6.1.3, p. 11 | - |
 | Procedimiento | Solo en procesos de ultimo nivel, maximo uno por proceso y solo si cumple algun criterio | Num. 6.1.3 d, p. 13 | `REG-GPP-DOC-001` |
 | Diagrama | Representa secuencia, roles, entradas, productos y receptores; se recomienda BPMN | Num. 6.1.3 a y nota 8, p. 12 | - |
+| Modelo del diagrama | Un proceso con carriles por rol en orden jerarquico, inicio con elemento de entrada, actividades en infinitivo, divergencias y convergencias, subprocesos cuyas entradas y salidas interactuan con el proceso, registros y producto antes del fin | Anexo 3, p. 27 | - |
 | Aprobacion | Elabora y aprueba el dueno del proceso, con opinion tecnica de la unidad de gestion por procesos | Num. 6.1.4, Tabla 1, p. 14 | - |
 | Actividad y tarea | La actividad agrupa tareas; la tarea es el nivel mas desagregado y se describe en el procedimiento | Glosario, p. 21-23 | - |
 

@@ -1,11 +1,13 @@
 @startuml
 ' FUENTE EDITABLE - modelo logico de S4.3 en etapa de elaboracion (PROPUESTA).
-' Base: propuesta de descomposicion del equipo (2026-10-16), respuestas del equipo y
-' reglas BORRADOR-IA registradas en 03-conocimiento/reglas. Sustento: S4-3-sustento.md.
-' Marcas: [OBS] observado en la ficha aprobada de S4; [EQ] definido por el equipo;
-' [PROP] propuesta de modelamiento pendiente de revision. No es BPMN.
+' Estructura conforme al Anexo 3 de la NT 002-2025-PCM-SGP (un proceso, carril por rol,
+' subprocesos con entradas y salidas) y a buenas practicas BPMN (DEC-024): los subprocesos que
+' coexisten se relacionan por eventos que se envian y reciben, no por secuencia ni bucles.
+' Base: DEC-020 a DEC-024 y reglas BORRADOR-IA de 03-conocimiento/reglas. Sustento: S4-3-sustento.md.
+' Marcas: [OBS] ficha aprobada de S4; [EQ] equipo; [PROP] propuesta de modelamiento. No es BPMN.
+' Cajas amarillas: eventos recibidos de otro subproceso. Los envios entre subprocesos se indican en notas.
 title S4.3 Ejecución de la inversión - modelo lógico (propuesta en elaboración)
-caption Vista lógica PlantUML para revisión del equipo; no es BPMN ni define responsables internos
+caption Vista lógica PlantUML con la estructura del Anexo 3 de la NT; no es BPMN
 
 skinparam backgroundColor #FFFFFF
 skinparam shadowing false
@@ -20,110 +22,93 @@ skinparam ArrowColor #44546A
 skinparam noteBorderColor #7F8C8D
 skinparam noteFontColor #172B4D
 
-|S4.3 Ejecución de la inversión|
+|Sub Gerencia de Gestión de Obras y Supervisión; unidades ejecutoras [OBS]|
 start
+:<b>Elemento de entrada</b>: Expediente técnico, documento\nequivalente aprobado y/o EETT (desde S4.2) [OBS];
 note left #E7EED8
-  <b>Entradas [OBS]</b>
+  <b>Elementos de entrada [OBS]</b>
   * S4.2: Expediente técnico, documento
     equivalente aprobado y/o EETT
   * Gobiernos Nacional, Regional y Local:
     Convenios (condición del proyecto [EQ])
+  * S3.2: Servicio contratado / bien adquirido /
+    consultoría y obra contratada
 end note
-:Inversión con expediente técnico o
-documento equivalente aprobado;
+note right
+  <b>Rol [OBS]</b>: Sub Gerencia de Gestión de Obras
+  y Supervisión; unidades ejecutoras que
+  pertenecen al GRH (responsable consignado
+  en la ficha S4). Carriles por unidad de
+  organización: EVIDENCIA-INSUFICIENTE
+end note
 
 fork
-
-if (C1 ¿Diseño y construcción con contrato
-vigente desde S4.2? [EQ]) then (No)
-  :<b>S4.3.1 Procura</b>
-  Planificación administrativa de la ejecución [EQ]:
-  asignación presupuestal, TDR y contratación de
-  ejecución y supervisión, o requerimientos y adquisiciones
-  por administración directa; Obras por Impuestos [EQ]
-  Condiciones previas al inicio [PROP];
+  :<b>S4.3.1 Gestión de la ejecución</b> [+]
+  Una instancia por inversión; vive toda S4.3 [PROP]
+  Planifica, contrata y provee; mantiene el equipo
+  de gestión y hace el seguimiento [EQ];
   note left
-    Anticipa la latencia de los flujos de
-    adquisición de la entidad [EQ].
-    AD: Plan de Abastecimiento de Obra y
-    adquisiciones para los primeros 30 días
-    (REG-CGR-AD-003, REG-CGR-AD-004)
+    <b>Envía mientras sigue activo [PROP]</b>
+    * Condiciones de inicio cumplidas
+    * Contratos, bienes, insumos y personal
+      provistos durante la ejecución
+    <b>Recibe [PROP]</b>
+    * Requerimientos, valorizaciones y avance
+    * Recepción o constatación concluida
+    Termina cuando todas las ejecuciones
+    fueron recibidas o constatadas [PROP]
   end note
   note right #F9D7B5
-    <b>Intercambios [OBS]</b>
+    <b>Intercambios externos [OBS]</b>
     * Salida a S3.1: Designación de personal y/o
       requerimiento de contratación de consultoría
       de obra/bienes y servicios
     * Entrada de S3.2: Servicio contratado / bien
       adquirido / consultoría y obra contratada
+    * Salida a MEF / INFOBRAS: Reporte de
+      inversiones ejecutadas
   end note
-else (Sí)
-endif
-
--> Acta de inicio de obra o equivalente [EQ];
-
-:<b>S4.3.2 Ejecución</b>
-Ejecución física y financiera [PROP]
-Registro previo de modificaciones [PROP]
-AD: provisión de bienes y servicios según
-el plan de abastecimiento [EQ]
-Ejecución de la obra por el contratista
-o por la entidad [PROP];
-note right #F9D7B5
-  <b>Salidas [OBS]</b>
-  * S2.1 Gestión Contable: Expediente para pagos
-  * MEF / INFOBRAS: Reporte de inversiones ejecutadas
-end note
-
--> Obra o prestación concluida, o contrato resuelto [EQ];
-
-:<b>S4.3.3 Recepción</b>
-Recepción de obra, conformidad de bienes y servicios,
-o constatación física e inventario si el contrato
-fue resuelto [PROP];
-
 fork again
-  :<b>S4.3.4 Gestión y seguimiento de la inversión</b>
-  Transversal a S4.3.1, S4.3.2 y S4.3.3 [EQ]
-  Requerimientos del componente de gestión del proyecto:
-  monitor, especialistas, asistentes, equipos de
-  protección y materiales [EQ]
-  Monitoreo de contratos (rol Monitor), vigilancia del
-  avance y seguimiento mensual [PROP];
+  :<b>Evento recibido</b>: condiciones de inicio
+cumplidas, enviadas por S4.3.1 [PROP]; <<#FFF2CC>>
+  :Acta de inicio de obra o equivalente [EQ];
+  :<b>S4.3.2 Ejecución</b> [+]
+  Una instancia por contrato o frente de ejecución [PROP]
+  Ejecución física y financiera; registro previo
+  de modificaciones [PROP];
+  note right #F9D7B5
+    <b>Salida [OBS]</b>
+    * S2.1 Gestión Contable: Expediente para pagos
+    <b>Envía a S4.3.1 [PROP]</b>
+    * Requerimientos, valorizaciones y avance
+  end note
+  :<b>S4.3.3 Recepción</b> [+]
+  Una instancia por ejecución concluida o resuelta [PROP]
+  Recepción de obra, conformidad de bienes y servicios,
+  o constatación física e inventario [PROP];
   note right
-    Gestión del proyecto: rubro del costo de inversión
-    (Instructivo Formato 08-A, p. 19-20)
-    REG-CON-CDI-001, REG-INV-EJEC-005,
-    REG-INV-EJEC-006, REG-RNE-G050-001
-    Solo durante S4.3; S4.2 y S4.4 usan sus
-    propios componentes del Formato 08 [EQ]
+    <b>Envía a S4.3.1 [PROP]</b>
+    * Recepción o constatación concluida
   end note
 end fork
 
-if (C2 ¿Contrato resuelto con saldo
-por ejecutar? [EQ]) then (Sí)
+if (C1 ¿Contrato resuelto con saldo\npor ejecutar? [EQ]) then (Sí)
   fork
-    :Informe de estado situacional del
-    Proyecto/programa o IOARR por saldo
-    de obra hacia S4.2 [OBS];
-    note right
-      El saldo vuelve a S4.2 para elaborar
-      el expediente de saldo y reinicia el ciclo [EQ]
-    end note
+    :<b>Producto</b>: Informe de estado situacional del\nProyecto/programa o IOARR por saldo\nde obra hacia S4.2 [OBS];
   fork again
-    :Información técnico y financiero
-    para liquidación ET hacia S4.4 [OBS];
+    :<b>Producto</b>: Información técnico y financiero\npara liquidación ET hacia S4.4 [OBS];
   end fork
   stop
 else (No)
-  :Información técnico y financiero
-  para liquidación ET hacia S4.4 [OBS];
+  :<b>Producto</b>: Información técnico y financiero\npara liquidación ET hacia S4.4 [OBS];
   stop
 endif
 
 legend bottom
-  Alcance [EQ]: todas las inversiones (proyectos, programas e IOARR), no solo obras.
-  Modalidades [EQ]: contrata, administración directa y Obras por Impuestos.
-  La liquidación ocurre en S4.4 [EQ]. Fuentes y observaciones: S4-3-sustento.md.
+  Alcance [EQ]: todas las inversiones (proyectos, programas e IOARR); modalidades: contrata, administración directa y Obras por Impuestos.
+  Diseño y construcción: S4.3.1 no contrata la obra; el contrato proviene de S4.2 [EQ].
+  Caja amarilla: evento que la rama espera de otro subproceso; la rama emisora no termina al enviarlo.
+  [+] Subproceso de nivel 2: su detalle (eventos, subprocesos de evento y temporizadores) se modelará en su propio diagrama.
+  Carriles por unidad de organización pendientes de confirmar con el dueño del proceso: EVIDENCIA-INSUFICIENTE.
 endlegend
 @enduml

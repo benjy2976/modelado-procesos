@@ -61,4 +61,4 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 ## Alertas
 
 - En administracion directa la culminacion y la liquidacion forman una sola fase a cargo del mismo comite; en contrata, la recepcion y la liquidacion son actos distintos. La frontera entre S4.3 y S4.4 puede diferir segun la modalidad.
-- La preparacion (num. 7.2) es el equivalente, en administracion directa, a lo que el equipo denomina "procura".
+- La preparacion (num. 7.2) y la provision durante la obra (num. 7.3.3) corresponden, en administracion directa, a S4.3.1 Gestion de la ejecucion (`DEC-023`).

@@ -66,7 +66,7 @@ Las columnas de entradas y de productos se leen por separado: una misma fila no 
 
 ![Modelo logico de S4.3](S4-3-diagrama-proceso-logico.svg)
 
-Procesos de nivel 2 propuestos: S4.3.1 Procura, S4.3.2 Ejecucion y S4.3.3 Recepcion, en secuencia, y S4.3.4 Gestion y seguimiento de la inversion, transversal a los tres.
+Procesos de nivel 2 propuestos: S4.3.1 Gestion de la ejecucion, transversal a toda S4.3, que entrega contratos y condiciones de inicio a S4.3.2 Ejecucion; y S4.3.3 Recepcion.
 
 ## Riesgos
 

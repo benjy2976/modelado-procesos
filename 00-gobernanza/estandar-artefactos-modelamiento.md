@@ -151,6 +151,17 @@ Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o me
 6. El SVG usa nombre estable, texto legible y se incrusta desde la nota asociada.
 7. Una vista PlantUML no puede introducir actividades, responsables o decisiones sin sustento registrado.
 
+## 6.1 Subprocesos concurrentes
+
+Regla adoptada en `DEC-024` para modelos logicos y formales:
+
+1. La secuencia expresa que algo termina y otra cosa empieza. Si dos subprocesos coexisten e intercambian productos, no se dibujan en secuencia.
+2. Dentro de un mismo proceso, un subproceso que debe permanecer activo va en una rama paralela; lo que entrega sin terminar se representa como evento que envia, y la rama que lo necesita espera ese evento.
+3. Con participantes externos o procesos con su propio control, la relacion se representa con flujos de mensaje entre pools.
+4. No se usan bucles para mantener vivo un proceso. Los sucesos que llegan mientras el proceso esta activo se modelan con subprocesos de evento sin interrupcion en el diagrama de detalle.
+5. Se declara la instancia de cada subproceso (por ejemplo, una por inversion o una por contrato) y se marca la instancia multiple cuando corresponda.
+6. En PlantUML los eventos recibidos se dibujan como actividades de color `#FFF2CC` y los envios se indican en notas, porque la version fijada no representa de forma fiable las formas de envio y recepcion.
+
 ## 7. Reglas para BPMN
 
 1. El archivo debe ser BPMN 2.0 XML valido y portable.

@@ -118,11 +118,11 @@ Por decision del equipo (`DEC-022`), el modelamiento trabaja desde el nivel 2 y 
 
 | N | Observacion | Fuente | Origen |
 |---|---|---|---|
-| N1-01 | El Reglamento vigente de Invierte.pe incorpora la planificacion de la ejecucion como componente de la fase de Ejecucion; la ficha S4 no la ubica. En el modelamiento actual se atiende dentro de S4.3.1 Procura | `REG-INV-EJEC-001`, `REG-INV-EJEC-002` | Evaluacion de S4.3 |
+| N1-01 | El Reglamento vigente de Invierte.pe incorpora la planificacion de la ejecucion como componente de la fase de Ejecucion; la ficha S4 no la ubica. En el modelamiento actual se atiende dentro de S4.3.1 Gestion de la ejecucion | `REG-INV-EJEC-001`, `REG-INV-EJEC-002` | Evaluacion de S4.3 |
 | N1-02 | Conceptualmente la gestion del proyecto acompana la inversion hasta la liquidacion y el cierre; en el GORE se divide por componentes del Formato 08 (expediente tecnico en S4.2, gestion en S4.3, liquidacion en S4.4) | Instructivo del Formato 08-A, p. 19-20 | `DEC-022` |
 | N1-03 | En diseno y construccion el contrato del ejecutor se celebra en la etapa de expediente (S4.2); la interaccion S3.2 -> S4.2 de la ficha solo menciona "servicio contratado" | `REG-CON-OBRA-001`; respuesta del equipo | `DEC-020` |
 | N1-04 | La relacion S4.3 -> S4.4 tiene tres redacciones distintas en el original y una cuarta en la propuesta del equipo | Discrepancias de este sustento | Evaluacion de S4.3 |
-| N1-05 | La ficha S4 no menciona el subproceso transversal de gestion y seguimiento ni la constatacion por contrato resuelto, que se modelan en el nivel 2 | `DEC-021`; `REG-CON-OBRA-004` | Modelamiento de S4.3 |
+| N1-05 | La ficha S4 no menciona la gestion de la ejecucion como actividad transversal ni la constatacion por contrato resuelto, que se modelan en el nivel 2 | `DEC-023`; `REG-CON-OBRA-004` | Modelamiento de S4.3 |
 
 ## Limites para el modelamiento
 

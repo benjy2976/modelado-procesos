@@ -57,3 +57,8 @@ Manual de Freund, Rucker y Hitpass (4.a edicion en espanol, 2014). Es una **refe
 | En el nivel descriptivo se modela el caso normal ("happy path"); las variantes solo si son parte del flujo normal | p. 147 |
 | En el nivel descriptivo usar XOR-gateways para bifurcar y evitar uniones tecnicas (XOR-join) innecesarias | p. 147 |
 | Un subproceso se marca con el signo (+) y su detalle se modela en un diagrama propio | p. 84 |
+| Dentro de un pool la coordinacion la da el flujo de secuencia; entre participantes con su propio control solo hay flujos de mensaje | Sec. 2.9.1, p. 99-100 |
+| Ejemplo de colaboracion: cada participante con su propio proceso, conectados en los puntos de intercambio | Sec. 2.9.3, p. 103-104 |
+| Subproceso de evento sin interrupcion: se dispara cada vez que ocurre el evento mientras el proceso contenedor sigue activo | Sec. 2.8.6, p. 96-97 |
+| Bucles e instancias multiples para repeticiones con condicion conocida | Sec. 2.7.2, p. 79-81 |
+| Pool con instancias multiples para participantes que pueden ser uno o muchos | Sec. 2.9.5, p. 107 |

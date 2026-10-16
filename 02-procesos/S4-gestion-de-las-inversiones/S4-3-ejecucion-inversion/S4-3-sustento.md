@@ -207,6 +207,50 @@ Respuesta del equipo del proyecto del 2026-10-16:
 
 Contraste (`INFERENCIA`): la practica es coherente con el Formato 08-A, que registra como rubros separados del costo de inversion la gestion del proyecto, el expediente tecnico, la supervision y la liquidacion, cada uno con fechas propias ([Instructivo del Formato 08-A](../../../03-conocimiento/fuentes/guia-instructivo-formato-08-a.md), p. 19 y 26). La extension conceptual de la gestion "hasta la liquidacion y el cierre" (p. 20) se registra como observacion para una futura revision del nivel 1 en el [sustento de S4](../S4-sustento.md).
 
+### Integracion de la procura en la gestion de la ejecucion
+
+Planteamiento del equipo del proyecto del 2026-10-16 (clase `DECISION` del equipo, `DEC-023`): la procura y la gestion son lo mismo. La gestion entrega a la ejecucion los contratos de bienes, servicios, obras y consultorias, y las condiciones para el inicio de obra.
+
+Contraste (`INFERENCIA`):
+
+| Aspecto | Resultado | Fuente |
+|---|---|---|
+| Contratar es parte de gestionar | Coherente: entre las tareas de la gestion del proyecto figuran preparar terminos de referencia, actuar como area usuaria en selecciones y contrataciones y monitorear la ejecucion de los contratos | Instructivo del Formato 08-A, p. 20 |
+| Hito de inicio | Se conserva: el acta de inicio de obra o equivalente pasa a ser el evento que habilita S4.3.2, una vez que S4.3.1 entrega las condiciones de inicio | `REG-CON-OBRA-002`; Directiva 017-2023-CG, num. 7.3.1 |
+| Diseno y construccion | Se conserva: S4.3.1 existe, pero no contrata la obra porque su contrato proviene de S4.2 | `REG-CON-OBRA-001` |
+| Administracion directa | La provision continua de bienes, servicios y personal de obra pasa a S4.3.1 y reemplaza lo decidido para la provision dentro de S4.3.2 | `REG-CGR-AD-003`, `REG-CGR-AD-004` |
+| Componentes del Formato 08 | Una misma gestion contrata con cargo a distintos rubros (obra, supervision, gestion del proyecto); la separacion de componentes es presupuestal, no de proceso | `DEC-022`; Instructivo del Formato 08-A, p. 19 |
+
+Resultado: S4.3 se descompone en S4.3.1 Gestion de la ejecucion (transversal), S4.3.2 Ejecucion y S4.3.3 Recepcion. Los apartados anteriores sobre procura y sobre el subproceso S4.3.4 se conservan como antecedente.
+
+### Diseno de subprocesos concurrentes
+
+Duda del equipo (2026-10-16): si S4.3.1 entrega contratos y condiciones que inician la ejecucion, como se representa que siga activo y bajo que logica se separa de S4.3.2 y S4.3.3. Respuesta adoptada en `DEC-024`.
+
+Fundamento (`REFERENCIA` y `NORMATIVO` citado):
+
+| Criterio | Fuente |
+|---|---|
+| El diagrama del proceso grafica su secuencia logica e interaccion, los roles, los elementos de entrada, los productos y sus receptores | NT 002-2025-PCM-SGP, num. 6.1.3 a, p. 12 |
+| Modelo referencial: un proceso con carriles por rol (unidades de organizacion en orden jerarquico), actividades en infinitivo, subprocesos cuyas entradas y salidas interactuan con el proceso, registros y producto | NT 002-2025-PCM-SGP, Anexo 3, p. 27 |
+| Dentro de un proceso la coordinacion la da el flujo; si participantes con su propio control deben coordinarse, se separan y solo intercambian mensajes | Manual BPMN, sec. 2.9.1, p. 99-100; sec. 2.9.3, p. 103-104 |
+| Un proceso que entrega algo no termina: termina en su evento de fin; lo que entrega en el camino es un evento intermedio | Manual BPMN, sec. 2.6, p. 53 en adelante |
+| Para atender sucesos que llegan mientras el proceso sigue activo se usa un subproceso de evento sin interrupcion, que puede repetirse; no un bucle | Manual BPMN, sec. 2.8.6, p. 96-97; sec. 2.7.2, p. 79-81 |
+| Cuando un participante tiene varias instancias se marca como instancia multiple | Manual BPMN, sec. 2.9.5, p. 107 |
+
+Criterios de separacion propuestos (`PROPUESTA`, pendientes de validacion del equipo):
+
+| | S4.3.1 Gestion de la ejecucion | S4.3.2 Ejecucion | S4.3.3 Recepcion |
+|---|---|---|---|
+| Instancia | Una por inversion | Una por contrato o frente de ejecucion | Una por ejecucion concluida o resuelta |
+| Objeto | La inversion y sus recursos | La intervencion fisica | El resultado de cada ejecucion |
+| Actor principal | Entidad: equipo de gestion y monitor | Contratista o residente, con supervisor o inspector | Comite de recepcion o de culminacion |
+| Inicia con | Expediente tecnico aprobado | Condiciones de inicio cumplidas y acta de inicio | Obra o prestacion concluida, o contrato resuelto |
+| Termina con | Todas las ejecuciones recibidas o constatadas | Obra o prestacion concluida, o contrato resuelto | Acta de recepcion o constatacion |
+| Envia | Condiciones de inicio; contratos, bienes, insumos y personal | Requerimientos, valorizaciones y avance | Recepcion o constatacion concluida |
+
+Representacion en el nivel 1: un solo proceso S4.3 con su carril de rol (Anexo 3), S4.3.1 en una rama paralela que permanece activa, y S4.3.2 y S4.3.3 en otra rama que espera el evento "condiciones de inicio cumplidas". El detalle de eventos, subprocesos de evento y temporizadores corresponde al diagrama de nivel 2 de cada subproceso. Que las valorizaciones y el expediente para pagos se gestionen desde S4.3.1 es una `PROPUESTA` por confirmar.
+
 ### Situacion de las observaciones
 
 | N | Situacion |
@@ -237,7 +281,7 @@ Contraste (`INFERENCIA`): la practica es coherente con el Formato 08-A, que regi
 | Nombre | S4.3 Ejecucion de la inversion | `OBSERVADO` | Ficha S4, p. 120-121 |
 | Tipo de proceso | Apoyo | `INFERENCIA` | Tipo de S4 en su ficha aprobada y codigo `S` (NT 002-2025-PCM-SGP, Anexo 1) |
 | Entradas y productos | Texto literal de las filas de S4.3 | `OBSERVADO` | Ficha S4, p. 120-121 |
-| Subprocesos | S4.3.1 Procura, S4.3.2 Ejecucion, S4.3.3 Recepcion | `PROPUESTA` | Propuesta del equipo y respuestas P1-P6 |
+| Subprocesos | S4.3.1 Gestion de la ejecucion (transversal), S4.3.2 Ejecucion, S4.3.3 Recepcion | `PROPUESTA` | Propuesta del equipo, respuestas P1-P14 y `DEC-023` |
 | Dueno, objetivo y objetivo estrategico | Pendientes | `EVIDENCIA-INSUFICIENTE` | P10 |
 
 ## Informacion BIM
