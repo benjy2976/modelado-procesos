@@ -1,3 +1,19 @@
+---
+id: GOV-PLAN-TRABAJO
+tipo: guia
+area: gobernanza
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
+proceso:
+  - S4.3
+fecha_creacion: 2026-10-14
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/gobernanza
+---
+
 # Plan de trabajo inicial
 
 ## Fase 1 - Preparacion
@@ -24,13 +40,27 @@
 
 ## Fase 4 - Preparacion del piloto
 
+- Estado al 2026-10-16: piloto PlantUML implementado tecnicamente; pendiente la conformidad humana de la traduccion S4 y la propuesta de descomposicion de S4.3.
 - Recibir la propuesta de descomposicion del equipo.
 - Contrastar propuesta, normativa y evidencia institucional.
 - Seleccionar modalidad o caso piloto.
+- Revisar la vista PlantUML de interacciones S4 ya generada; el mapa institucional Nivel 0 conserva su representacion conceptual Markdown/Mermaid.
 
 ## Fase 5 - Modelamiento
 
+- Construir y revisar el modelo logico PlantUML.
 - Levantar y validar AS-IS.
+- Formalizar el modelo validado en BPMN 2.0 XML y generar sus derivados.
 - Analizar brechas y requisitos BIM.
 - Formular y validar TO-BE.
 - Publicar una linea base solo con trazabilidad normativa y humana completa.
+
+## Fase 6 - Automatizacion del modelamiento
+
+- Implementar manifiestos, construccion incremental, hashes y validadores.
+- Generar SVG y resumenes Markdown sin edicion manual.
+- Implementar intercambio compacto de operaciones con IA.
+- Construir la aplicacion web local sobre el mismo nucleo que la CLI.
+- Integrar controles previos a revision, commit y release.
+
+La construccion se rige por la [iniciativa de modelamiento hibrido](iniciativas/iniciativa-modelamiento-hibrido.md).

@@ -178,7 +178,8 @@ Una fuente pendiente puede emplearse para investigar o formular una propuesta, p
 4. Asignar identificadores estables a actividades, decisiones, reglas y propuestas.
 5. Vincular cada elemento relevante con su evidencia o regla.
 6. Registrar alternativas descartadas y la razon de la decision cuando afecten el alcance o el diseno.
-7. Mantener BPMN 2.0 XML como fuente maestra; SVG y PDF son derivados.
+7. Usar PlantUML como fuente conceptual temporal cuando el modelo se encuentre en etapa logica.
+8. Mantener BPMN 2.0 XML como fuente maestra de los modelos formales; SVG y PDF son derivados. El mapa institucional Nivel 0 aplica la excepcion del [estandar de artefactos](estandar-artefactos-modelamiento.md).
 
 **Puerta F6 - Producto revisable:** trazabilidad completa, supuestos visibles, preguntas abiertas identificadas y ausencia de afirmaciones normativas no autorizadas.
 

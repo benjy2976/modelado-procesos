@@ -1,3 +1,18 @@
+---
+id: GOV-PROT-VERSIONADO-RELEASES
+tipo: guia
+area: gobernanza
+estado_documento: VIGENTE
+clase_conocimiento: NO-APLICA
+proceso: []
+fecha_creacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
+confidencialidad: INTERNO
+tags:
+  - tema/git
+---
+
 # Protocolo de versionado y releases
 
 ## Principio
@@ -37,7 +52,7 @@ Ejemplos: `s4.3-as-is-v0.9.0-rc.1`, `s4.3-as-is-v1.0.0` y `s4.3-to-be-v1.0.0`.
 
 ## Publicacion
 
-Antes de crear una release se valida que BPMN 2.0 XML sea la fuente maestra, que SVG/PDF sean derivados reproducibles, que AS-IS y TO-BE esten separados y que todas las afirmaciones normativas tengan trazabilidad hacia reglas en estado `VALIDADO`. El tag debe ser anotado y no debe moverse despues de publicado.
+Antes de crear una release de un modelo formal se valida que BPMN 2.0 XML sea la fuente maestra, que SVG/PDF sean derivados reproducibles, que AS-IS y TO-BE esten separados y que todas las afirmaciones normativas tengan trazabilidad hacia reglas en estado `VALIDADO`. El mapa institucional de procesos Nivel 0 aplica la excepcion definida en el [estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md). El tag debe ser anotado y no debe moverse despues de publicado.
 
 Ejemplo local, solo despues de contar con aprobacion registrada:
 

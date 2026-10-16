@@ -2,13 +2,15 @@
 id: AP-S4-GESTION-INVERSIONES
 tipo: nota-conocimiento
 area: arquitectura-procesos
-estado_documento: BORRADOR
-clase_conocimiento: OBSERVADO
+estado_documento: VIGENTE
+clase_conocimiento: REFERENCIA
+estado_institucional: APROBADO
+confirmacion_estado: equipo-proyecto-2026-10-16
 proceso:
   - S4
 fecha_creacion: 2026-10-15
-fecha_actualizacion: 2026-10-15
-responsable: pendiente
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
   - tema/procesos
@@ -17,10 +19,10 @@ tags:
 
 # S4 Gestion de las inversiones
 
-Esta nota transcribe la ficha institucional de S4, su descomposicion Nivel 1, sus intercambios y sus tres fichas de indicadores. Constituye una fuente de consulta estructurada para el futuro modelamiento de S4.3, pero no contiene aun la descomposicion propuesta por el equipo.
+Esta nota transcribe la ficha institucional aprobada de S4, su descomposicion Nivel 1, sus intercambios y sus tres fichas de indicadores. Sus elementos constituyen regla de arquitectura para este proyecto y fuente de consulta estructurada para el futuro modelamiento de S4.3; no contiene aun la descomposicion propuesta por el equipo.
 
-> [!info] Estado de la transcripcion
-> Contenido observado en la fuente institucional y pendiente de revision humana. Se preservan las denominaciones y aparentes errores del original cuando son relevantes; las discrepancias se registran expresamente al final.
+> [!important] Linea base institucional aprobada
+> El equipo del proyecto confirmo el 2026-10-16 que la ficha S4 es oficial y aprobada. El PDF original conserva la maxima autoridad; esta traduccion Markdown/PlantUML queda pendiente de la comprobacion humana de fidelidad. Se preservan las denominaciones y aparentes errores relevantes del original, y las discrepancias se registran expresamente.
 
 ## Identificacion documental
 
@@ -31,7 +33,7 @@ Esta nota transcribe la ficha institucional de S4, su descomposicion Nivel 1, su
 | Version | 3.0 |
 | Ubicacion precisa | Paginas PDF 1-7; paginas impresas 120-126 |
 | Fecha de consulta | 2026-10-15 |
-| Vigencia | Por confirmar |
+| Vigencia | Aprobado y adoptado como linea base vigente del proyecto por confirmacion del equipo; acto y fecha formal no visibles en el PDF |
 | SHA-256 | `F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83` |
 | Original inmutable | [s4-gestion-inversion.pdf](../01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf) |
 
@@ -40,7 +42,15 @@ Esta nota transcribe la ficha institucional de S4, su descomposicion Nivel 1, su
 - Las siete paginas poseen una capa de texto utilizable; no se aplico OCR.
 - Las siete paginas fueron renderizadas e inspeccionadas visualmente para contrastar estructura, tablas y diagrama.
 - La pagina impresa 123 contiene el diagrama principalmente como grafico; sus relaciones se contrastaron con las tablas de las paginas impresas 120-121.
-- La legibilidad es suficiente para consulta y transcripcion, pero las discrepancias documentales enumeradas mas adelante impiden tratar esta nota como linea base validada.
+- La legibilidad es suficiente para consulta y transcripcion. Las discrepancias documentales enumeradas mas adelante forman parte del control de fidelidad y no se corrigen sin decision institucional.
+
+## Autoridad y uso
+
+- El PDF institucional es la fuente primaria aprobada.
+- Esta nota es la traduccion estructurada para consulta, trazabilidad y posterior modelamiento.
+- El archivo [PlantUML logico](s4-gestion-de-las-inversiones-logico.puml) es la fuente editable de la vista visual y el [SVG](s4-gestion-de-las-inversiones-logico.svg) es su derivado generado.
+- La [configuracion del modelo](s4-gestion-de-las-inversiones-modelo.yaml) declara fuente, alcance, artefactos y estado de revision.
+- Ninguna discrepancia del original se armoniza automaticamente. Una correccion requiere evidencia o decision institucional registrada.
 
 ## Ficha del proceso Nivel 0
 
@@ -144,9 +154,17 @@ Las filas siguientes estructuran la tabla de las paginas impresas 120-121. Descr
 | Salida | MEF | Evaluacion EX POST |
 | Salida | E1.3 Desarrollo de la cartera de inversiones multianual | Actualizacion de brecha del diagnostico |
 
-## Vista de relaciones derivada
+## Vista logica reproducible
 
-Esta vista reproduce las relaciones principales observadas en la tabla y en el diagrama de la pagina impresa 123. Es un indice visual Mermaid, no un modelo BPMN ni una declaracion de orden temporal.
+La vista siguiente fue generada localmente desde PlantUML. Presenta los cinco procesos Nivel 1, los responsables consignados y las entradas y salidas de las paginas impresas 120-123. Las flechas centrales representan intercambios entre procesos de S4, no orden temporal ni flujo de secuencia BPMN.
+
+![Vista logica de interacciones aprobadas de S4](s4-gestion-de-las-inversiones-logico.svg)
+
+La fuente se regenera y comprueba con el [gestor local de modelos](../05-herramientas/gestor-modelos/README.md). El SVG es derivado y no debe editarse manualmente.
+
+### Vista Mermaid provisional
+
+Esta vista anterior se conserva temporalmente como control comparativo hasta que el equipo acepte la traduccion PlantUML. Es un indice visual Mermaid, no un modelo BPMN ni una declaracion de orden temporal.
 
 ```mermaid
 flowchart LR
@@ -176,6 +194,21 @@ flowchart LR
     P45 -->|"Brecha / Evaluacion EX POST"| MEF
     P45 -->|"Actualizacion de brecha"| E13
 ```
+
+## Control de fidelidad de la traduccion
+
+| Control | Resultado tecnico | Estado humano |
+|---|---|---|
+| Procesos Nivel 1 | 5 de 5 representados: S4.1 a S4.5 | Pendiente de conformidad |
+| Filas de interaccion | 32 de 32 transcritas en las tablas y notas visuales | Pendiente de conformidad |
+| Interacciones dirigidas unicas | 26 de 26 representadas al descontar las seis relaciones internas repetidas como entrada y salida | Pendiente de conformidad |
+| Responsables | Los responsables de los cinco procesos se incorporaron desde las paginas impresas 120-121 | Pendiente de conformidad |
+| Indicadores | 3 de 3 fichas transcritas desde las paginas impresas 124-126 | Pendiente de conformidad |
+| Discrepancias del original | Se conservan y enumeran sin normalizacion silenciosa | Pendiente de decision cuando corresponda |
+| Derivado PlantUML | Generacion local reproducible y comprobacion byte a byte operativas | Superado tecnicamente |
+
+> [!warning] Revision requerida
+> La comprobacion tecnica demuestra completitud estructural, no fidelidad institucional por si sola. El equipo debe contrastar esta nota y el SVG con el PDF aprobado. Hasta esa conformidad, la configuracion mantiene `PENDIENTE-REVISION-HUMANA`.
 
 ## Indicadores observados
 
@@ -249,20 +282,21 @@ flowchart LR
 
 | Hallazgo observado | Tratamiento |
 |---|---|
-| El encabezado de la pagina impresa 120 dice `S4. Gestion de la inversion`, mientras el campo nombre dice `S4. Gestion de las inversiones`. | Se usa el nombre del campo estructurado y se conserva la discrepancia para validacion. |
+| El encabezado de la pagina impresa 120 dice `S4. Gestion de la inversion`, mientras el campo nombre dice `S4. Gestion de las inversiones`. | Se usa el nombre del campo estructurado y se conserva la discrepancia para revision de fidelidad. |
 | El proceso S4 figura como tipo `Apoyo`, pero las tres fichas califican sus indicadores como `Misional`. | No se armoniza sin decision institucional. |
 | La denominacion del proceso usa `IOARR`, mientras varios productos dicen `IOAAR`. | Se conservan ambos textos tal como aparecen; requiere correccion o confirmacion humana. |
-| El diagrama usa algunos prefijos `PA` para procesos que la ficha identifica como `S`. | La tabla estructurada usa los codigos de la ficha; el diagrama original debe revisarse antes de una linea base. |
+| La relacion S4.3 a S4.4 usa `Informacion tecnico y financiero para liquidacion ET` como salida de S4.3, `Informacion tecnico y financiero de la inversion` como entrada de S4.4 y una tercera formulacion en el diagrama de la pagina impresa 123. | La vista PlantUML conserva las dos formulaciones de la tabla en sus notas y usa en la flecha central la formulacion del diagrama; no se unifican sin decision institucional. |
+| El diagrama usa algunos prefijos `PA` para procesos que la ficha identifica como `S`. | La traduccion estructurada usa los codigos de la ficha y conserva el hallazgo; no se modifica el original. |
 | La seccion de indicadores de la pagina impresa 122 enumera solo S4-IND-1, pero las paginas siguientes contienen S4-IND-1, S4-IND-2 y S4-IND-3. | Se registran los tres y se mantiene el hallazgo. |
 | Los campos Elaborado por, Revisado por y Aprobado por aparecen sin nombres visibles. | EVIDENCIA-INSUFICIENTE para atribuir autoria, revision o aprobacion. |
-| La fuente no muestra en estas paginas el acto aprobatorio ni una fecha de vigencia. | EVIDENCIA-INSUFICIENTE; debe localizarse el control documental o acto correspondiente. |
+| La fuente no muestra en estas paginas el acto aprobatorio ni una fecha de vigencia. | La aprobacion fue confirmada por el equipo; permanece EVIDENCIA-INSUFICIENTE para identificar el acto y su fecha. |
 
 ## Limites para el modelamiento
 
-- Esta nota representa AS-IS documental observado; no es el AS-IS operativo validado con especialistas.
+- Esta nota representa la arquitectura institucional aprobada de S4; no es el AS-IS operativo detallado y validado con especialistas.
 - No se han inferido actividades internas de S4.3, responsables adicionales, compuertas, eventos, plazos, reglas contractuales ni requisitos BIM.
 - La primera descomposicion de S4.3 debe incorporar la propuesta del equipo como una nota de analisis separada y contrastarla con evidencia y normas antes de promoverla a linea base.
-- Cuando se modele, el BPMN 2.0 XML sera la fuente maestra; cualquier SVG, PDF, Mermaid o Canvas sera una vista derivada.
+- Cuando se modele el flujo operativo, el BPMN 2.0 XML sera la fuente maestra; cualquier SVG, PDF, Mermaid o Canvas sera una vista derivada. La vista PlantUML de esta nota sigue siendo una traduccion logica de la ficha aprobada, no un BPMN formal.
 
 ## Relaciones
 

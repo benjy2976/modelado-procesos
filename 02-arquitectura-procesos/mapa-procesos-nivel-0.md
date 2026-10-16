@@ -2,12 +2,14 @@
 id: AP-MAPA-NIVEL-0
 tipo: nota-conocimiento
 area: arquitectura-procesos
-estado_documento: BORRADOR
-clase_conocimiento: OBSERVADO
+estado_documento: VIGENTE
+clase_conocimiento: REFERENCIA
+estado_institucional: APROBADO
+confirmacion_estado: equipo-proyecto-2026-10-16
 proceso: []
 fecha_creacion: 2026-10-15
-fecha_actualizacion: 2026-10-15
-responsable: pendiente
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
   - tema/procesos
@@ -15,10 +17,10 @@ tags:
 
 # Mapa de procesos Nivel 0
 
-Esta nota transcribe el mapa institucional Nivel 0 para que pueda consultarse sin abrir el PDF. Registra cuatro procesos estrategicos, cuatro misionales y ocho de apoyo; S4 Gestion de las inversiones pertenece al grupo de apoyo.
+Esta nota transcribe el mapa institucional Nivel 0 aprobado para que pueda consultarse sin abrir el PDF. Registra cuatro procesos estrategicos, cuatro misionales y ocho procesos codificados `S`; la ficha aprobada de S4 clasifica S4 Gestion de las inversiones como proceso de apoyo. Sus codigos, denominaciones y relacion global son regla de arquitectura para este proyecto mientras no se reciba una version institucional posterior. La discrepancia de rotulo del grupo `S` se conserva en los limites de uso.
 
-> [!info] Estado de la transcripcion
-> Es una representacion de trabajo obtenida de la fuente institucional. No reemplaza el original ni acredita por si sola su acto de aprobacion o vigencia.
+> [!important] Linea base institucional aprobada
+> El equipo del proyecto confirmo el 2026-10-16 que este mapa es el definitivo y aprobado. El PDF original conserva la maxima autoridad; esta representacion controlada queda pendiente de la comprobacion final de fidelidad. El acto y la fecha formal de aprobacion no son visibles en el archivo recibido.
 
 ## Identificacion de la fuente
 
@@ -29,7 +31,7 @@ Esta nota transcribe el mapa institucional Nivel 0 para que pueda consultarse si
 | Unidad indicada | Gerencia Regional de Planeamiento, Presupuesto y Acondicionamiento Territorial; Sub Gerencia de Modernizacion y Transformacion Digital |
 | Ubicacion precisa | Pagina PDF 1 de 1 |
 | Fecha de consulta | 2026-10-15 |
-| Vigencia | Por confirmar |
+| Vigencia | Aprobado y adoptado como linea base vigente del proyecto por confirmacion del equipo; acto y fecha formal no visibles en el PDF |
 | SHA-256 | `4918B636122C9AF3825B159EF89B75C26FE6189FA908EDBB162ECAE046FF374F` |
 | Original inmutable | [mapa-procesos-grh-nivel-0.pdf](../01-referencias/01-institucionales-grh/originales/mapa-procesos-grh-nivel-0.pdf) |
 
@@ -58,7 +60,9 @@ Esta nota transcribe el mapa institucional Nivel 0 para que pueda consultarse si
 | M3 | Integracion territorial regional |
 | M4 | Gestion ambiental y de riesgo de desastres |
 
-## Procesos de apoyo
+## Procesos S del grupo inferior
+
+El mapa rotula visualmente este grupo como `PROCESOS MISIONALES`, aunque utiliza codigos `S1` a `S8` y la ficha aprobada de S4 clasifica S4 como `Apoyo`. La tabla conserva los codigos y denominaciones; no generaliza la clasificacion de los ocho procesos sin una aclaracion institucional.
 
 | Codigo | Denominacion observada |
 |---|---|
@@ -79,7 +83,7 @@ La vista siguiente resume la estructura y las interacciones graficas generales o
 flowchart LR
     IN["Requisitos y necesidades"] --> E["Procesos estrategicos\nE1 a E4"]
     IN --> M["Procesos misionales\nM1 a M4"]
-    IN --> S["Procesos de apoyo\nS1 a S8"]
+    IN --> S["Procesos S del grupo inferior\nS1 a S8"]
     E <--> M
     E <--> S
     M <--> S
@@ -91,7 +95,10 @@ flowchart LR
 ## Calidad y limites de uso
 
 - Evidencia observada: codigos, denominaciones, agrupacion y version se leen en la unica pagina del original.
-- EVIDENCIA-INSUFICIENTE: la pagina no identifica el acto aprobatorio, la fecha de aprobacion ni una fecha de vigencia.
+- Estado institucional: aprobado y definitivo segun confirmacion del equipo del proyecto del 2026-10-16.
+- EVIDENCIA-INSUFICIENTE: la pagina no permite identificar el acto aprobatorio ni su fecha; esta carencia documental no modifica la confirmacion institucional recibida, pero debe completarse cuando se ubique el control correspondiente.
+- Evidencia visual: se observan tres sellos institucionales y trazos de firma en la parte inferior; no se atribuyen nombres ni cargos porque no son legibles con certeza.
+- Discrepancia del original: el bloque inferior `S1` a `S8` esta rotulado `PROCESOS MISIONALES`, mientras la ficha S4 identifica S4 como tipo `Apoyo`. No se corrige el PDF ni se extiende automaticamente esa clasificacion a los demas procesos `S`.
 - La orientacion visual del PDF dificulta la lectura directa, pero su capa de texto es utilizable; no fue necesario aplicar OCR.
 - Las flechas del mapa expresan interaccion general entre agrupaciones. No deben interpretarse como flujo BPMN, dependencia contractual ni orden temporal.
 

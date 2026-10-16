@@ -1,0 +1,19 @@
+{
+  "version": "1.2026.8",
+  "consulted_at": "2026-10-16",
+  "artifacts": {
+    "windows_x64_native": {
+      "url": "https://github.com/plantuml/plantuml/releases/download/v1.2026.8/native-plantuml-windows-amd64-1.2026.8.zip",
+      "sha256": "75c62a594d7db35fec5b4e745b9a6cf1a82acbc2dae9d99b4d5ab4b2ee6518d6",
+      "archive_cache_path": "99-temporal/herramientas/plantuml/native-plantuml-windows-amd64-1.2026.8.zip",
+      "executable_cache_path": "99-temporal/herramientas/plantuml/native-windows-amd64-1.2026.8/plantuml.exe",
+      "executable_sha256": "9849e7585cb656b81e2cd85640aa4b73959c1c83ba1cbf5c2080ae9a87895886"
+    },
+    "java_jar": {
+      "url": "https://github.com/plantuml/plantuml/releases/download/v1.2026.8/plantuml-1.2026.8.jar",
+      "sha256": "5e1ecfa8ecd32c90b03bbf3b1eb6f020943f98ab0fcf4032be31a0002ee2c462",
+      "cache_path": "99-temporal/herramientas/plantuml/plantuml-1.2026.8.jar",
+      "minimum_java": 11
+    }
+  }
+}

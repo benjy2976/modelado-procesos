@@ -1,9 +1,16 @@
 ---
+id: GOV-REGISTRO-DECISIONES
 tipo: decision
 area: gobernanza
 estado_documento: VIGENTE
 clase_conocimiento: DECISION
+proceso: []
+fecha_creacion: 2026-10-14
+fecha_actualizacion: 2026-10-16
+responsable: equipo-proyecto
 confidencialidad: INTERNO
+tags:
+  - tema/gobernanza
 ---
 
 # Registro de decisiones
@@ -21,3 +28,8 @@ confidencialidad: INTERNO
 | DEC-009 | 2026-10-15 | Adoptar un manual operativo unico para construir, validar y usar conocimiento en analisis, propuestas y modelos. | Aplicar controles proporcionales al tipo de afirmacion y mantener trazabilidad desde la fuente hasta la linea base. | Las afirmaciones se clasifican como normativas, observadas, referencias, inferencias, propuestas o decisiones; cada producto debe superar las puertas de validacion que le correspondan. | Equipo del proyecto |
 | DEC-010 | 2026-10-15 | Organizar la boveda mediante un mapa de inicio, mapas de contenido por area y enlaces Markdown relativos. | Hacer explicita la jerarquia y las dependencias sin duplicar archivos ni depender exclusivamente de Obsidian. | Todo Markdown nuevo debe enlazarse desde el mapa de su area; los enlaces cruzados deben expresar una relacion real y verificable. | Equipo del proyecto |
 | DEC-011 | 2026-10-15 | Establecer Obsidian como entorno obligatorio de produccion de conocimiento y adoptar un estandar comun de autoria. | Aprovechar propiedades, plantillas, reuniones, tareas, Canvas, Bases, enlaces y busqueda sin perder portabilidad, trazabilidad ni fuentes maestras. | Toda nota nueva debe cumplir el perfil aplicable; Canvas y Bases son vistas; la configuracion compartida se versiona y el estado personal se excluye. | Equipo del proyecto |
+| DEC-012 | 2026-10-16 | Adoptar un protocolo, registro central y plantilla obligatoria para las iniciativas que cambien herramientas, metodos, fuentes maestras o capacidades transversales. | Evitar desarrollos sin alcance, arquitectura, fases, pruebas, riesgos y criterios de aceptacion previamente documentados. | Cada iniciativa usa un ID estable, estado propio, ficha enlazada y puertas de decision, construccion, adopcion y publicacion. | Equipo del proyecto |
+| DEC-013 | 2026-10-16 | Adoptar PlantUML como fuente editable de los modelos logicos durante el levantamiento, con renderizado SVG local y reproducible. | Disponer de carriles y flujos legibles para personas e IA antes de la formalizacion BPMN, sin editar imagenes ni depender de servicios externos. | Los `.puml` se versionan durante la etapa logica; sus SVG son derivados y PlantUML deja de ser maestro editable cuando existe el BPMN formal. | Equipo del proyecto |
+| DEC-014 | 2026-10-16 | Adoptar el modelamiento hibrido con BPMN 2.0 XML como maestro formal, derivados automaticos y un gestor local construido primero como CLI y despues como aplicacion web. | Modificar cada dato una sola vez, evitar divergencias y reducir el contexto necesario para personas e IA. | SVG, PDF, resumenes y reportes no se editan; la herramienta construye, valida, compara y aplica operaciones estructuradas sobre el maestro. | Equipo del proyecto |
+| DEC-015 | 2026-10-16 | Exceptuar al mapa institucional de procesos Nivel 0 del flujo PlantUML/BPMN y mantenerlo como representacion conceptual lineal en Markdown/Mermaid. | El mapa Nivel 0 clasifica macroprocesos y no representa un flujo operativo que requiera pools, lanes o semantica BPMN. | La excepcion no alcanza a las interacciones de S4 ni a modelos AS-IS o TO-BE; Nivel 0 conserva trazabilidad al original, Git y revision humana. | Equipo del proyecto |
+| DEC-016 | 2026-10-16 | Adoptar el mapa de procesos Nivel 0 y la ficha S4 recibidos como lineas base institucionales oficiales y aprobadas del proyecto. | El equipo confirmo expresamente su condicion definitiva y aprobada; sus codigos, denominaciones, clasificacion e interacciones deben regir el modelamiento posterior. | Las traducciones Markdown y PlantUML se verifican contra los PDF; la falta de acto o fecha visible se mantiene como metadato pendiente y no se confunde con validacion normativa. | Equipo del proyecto |

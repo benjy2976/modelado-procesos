@@ -20,7 +20,7 @@
 - Para usar una regla como sustento normativo de una linea base debe cumplir `00-gobernanza/protocolo-conocimiento-confiable.md`.
 - Distinguir expresamente evidencia observada, exigencia normativa, inferencia y propuesta.
 - Si las fuentes autorizadas son insuficientes, registrar `EVIDENCIA-INSUFICIENTE` en vez de completar el vacio.
-- BPMN 2.0 XML es la fuente maestra de los diagramas; SVG y PDF son derivados.
+- BPMN 2.0 XML es la fuente maestra de los modelos formales; SVG y PDF son derivados. Se exceptua unicamente el mapa institucional de procesos Nivel 0, que es una representacion conceptual lineal de macroprocesos y puede mantenerse en Markdown/Mermaid sin BPMN ni carriles.
 - Usar nombres estables. El historial se conserva con Git, no agregando `final`, `final2` o fechas al nombre de cada borrador.
 - No duplicar ni mover archivos entre carpetas de estado. El trabajo vigente permanece en su ruta estable y las lineas base se gestionan segun `00-gobernanza/protocolo-versionado-y-releases.md`.
 - Para PDF, medir primero si posee texto; aplicar OCR solo a una copia derivada.

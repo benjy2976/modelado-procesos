@@ -23,6 +23,8 @@ Plantillas, actores, sistemas, documentos, reglas de negocio, riesgos, controles
 - [Plantilla de reunion](plantillas/obsidian/reunion.md)
 - [Plantilla de diario](plantillas/obsidian/diario.md)
 - [Plantilla de propuesta](plantillas/obsidian/propuesta.md)
+- [Plantilla de iniciativa](plantillas/obsidian/iniciativa.md)
+- [Plantilla de modelo logico PlantUML con carriles](plantillas/modelamiento/modelo-logico-carriles.puml)
 - [Plantilla de mapa de contenido](plantillas/obsidian/mapa-de-contenido.md)
 - [Glosario del proyecto](../glosario.md)
 

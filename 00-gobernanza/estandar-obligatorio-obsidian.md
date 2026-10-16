@@ -4,7 +4,7 @@ area: gobernanza
 estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 fecha_creacion: 2026-10-15
-fecha_actualizacion: 2026-10-15
+fecha_actualizacion: 2026-10-16
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -33,7 +33,8 @@ En este documento:
 |---|---|---|
 | Markdown `.md` | Narrativa, actas, analisis, mapas de contenido y documentacion | Fuente maestra textual cuando corresponda |
 | YAML `.yaml` | Reglas, eventos y paquetes de contexto estructurados | Fuente maestra del dato definido por su esquema |
-| BPMN `.bpmn` | Modelo de proceso | Fuente maestra del diagrama |
+| PlantUML `.puml` | Modelo logico durante levantamiento | Fuente conceptual temporal; deja de ser editable al formalizar BPMN |
+| BPMN `.bpmn` | Modelo formal de proceso | Fuente maestra formal; se exceptua el mapa institucional Nivel 0 |
 | Canvas `.canvas` | Exploracion y representacion espacial | Vista de trabajo; no puede ser el unico lugar de una conclusion |
 | Base `.base` | Consulta, filtro, agrupacion y tablero | Vista regenerable sobre archivos y propiedades |
 | PDF o archivo original | Evidencia documental | Original inmutable, sujeto al catalogo y a su hash |
@@ -75,7 +76,7 @@ clase_conocimiento: NO-APLICA
 
 ### 3.2 Vocabularios iniciales
 
-- `tipo`: `mapa-de-contenido`, `nota-conocimiento`, `reunion`, `diario`, `analisis`, `propuesta`, `decision`, `evidencia`, `guia`, `estado-proyecto`, `plantilla` o `instruccion`.
+- `tipo`: `mapa-de-contenido`, `nota-conocimiento`, `reunion`, `diario`, `analisis`, `propuesta`, `iniciativa`, `decision`, `evidencia`, `guia`, `estado-proyecto`, `plantilla` o `instruccion`.
 - `estado_documento`: `BORRADOR`, `EN-REVISION`, `VIGENTE`, `CERRADO` o `RETIRADO`.
 - `clase_conocimiento`: `NORMATIVO`, `OBSERVADO`, `REFERENCIA`, `INFERENCIA`, `PROPUESTA`, `DECISION` o `NO-APLICA`.
 - `confidencialidad`: `PUBLICO`, `INTERNO` o `RESTRINGIDO`.
@@ -138,6 +139,7 @@ Plantillas iniciales:
 - `reunion.md` para sesiones de levantamiento, revision o decision.
 - `diario.md` para captura diaria transitoria.
 - `propuesta.md` para alternativas TO-BE o de mejora.
+- `iniciativa.md` para capacidades, herramientas o cambios metodologicos que requieren construccion progresiva.
 - `mapa-de-contenido.md` para nuevas areas o subareas.
 
 Modificar una plantilla requiere revisar las notas futuras que dependen de ella. Las plantillas se editan en modo fuente para evitar que el editor transforme variables como `{{date}}` o `{{title}}`.

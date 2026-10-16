@@ -9,7 +9,7 @@ clase_conocimiento: NO-APLICA
 
 [Inicio](../00-inicio.md)
 
-Contiene la representacion controlada de niveles 0 y 1, el inventario de procesos y sus interacciones. Los originales aprobados permanecen en `01-referencias`; aqui se mantienen representaciones de trabajo o publicadas con trazabilidad hacia ellos.
+Contiene la representacion controlada de niveles 0 y 1, el inventario de procesos y sus interacciones. El mapa Nivel 0 y la ficha S4 han sido confirmados por el equipo como lineas base institucionales aprobadas. Los originales permanecen en `01-referencias`; aqui se mantienen sus traducciones trazables y los controles de fidelidad.
 
 ## Contenido
 

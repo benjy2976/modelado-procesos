@@ -17,11 +17,15 @@ Esta area define como se delimita, documenta, valida, versiona y publica el trab
 - [Plan de trabajo](plan-de-trabajo.md)
 - [Estado actual](../estado-del-proyecto.md)
 - [Registro de decisiones](registro-decisiones.md)
+- [Protocolo de gestion de iniciativas](protocolo-gestion-iniciativas.md)
+- [Registro de iniciativas](iniciativas/README.md)
 
 ## Metodo
 
 - [Manual operativo del conocimiento](manual-operativo-del-conocimiento.md)
 - [Metodologia de modelamiento](metodologia-modelamiento.md)
+- [Estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md)
+- [Propuesta de estructura intuitiva centrada en procesos](propuesta-estructura-intuitiva.md)
 - [Protocolo de conocimiento confiable](protocolo-conocimiento-confiable.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
 

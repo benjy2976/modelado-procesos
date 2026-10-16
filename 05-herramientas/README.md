@@ -19,6 +19,7 @@ clase_conocimiento: NO-APLICA
 8. Generador y validador del catalogo de reglas.
 9. Aplicacion web interna para revision especializada del conocimiento.
 10. Auditor de reproducibilidad del repositorio y la cache documental.
+11. Gestor local de modelos PlantUML/BPMN, derivados, validaciones e intercambio compacto con IA.
 
 Las especificaciones son `extractor-documental/README.md` y `validador-conocimiento/README.md`. La aplicacion debe conservar YAML y eventos de revision como fuentes maestras versionadas.
 
@@ -27,6 +28,9 @@ Las especificaciones son `extractor-documental/README.md` y `validador-conocimie
 - [Guia de instalacion y propuesta de herramientas](guia-entorno.md): entorno ampliado, utilidad, versiones y comprobaciones al clonar.
 - [Extractor documental](extractor-documental/README.md)
 - [Validador de conocimiento](validador-conocimiento/README.md)
+- [Gestor local de modelos](gestor-modelos/README.md)
+- [Iniciativa del gestor de modelos](../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md)
+- [Estandar de artefactos de modelamiento](../00-gobernanza/estandar-artefactos-modelamiento.md)
 - [Referencias y catalogos](../01-referencias/README.md)
 - [Conocimiento estructurado](../04-recursos-reutilizables/conocimiento/README.md)
 

@@ -1,0 +1,129 @@
+@startuml
+' FUENTE EDITABLE - vista logica de una linea base institucional aprobada.
+' Fuente: s4-gestion-inversion.pdf, paginas PDF 1-4 / impresas 120-123.
+' SHA-256: F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83
+' Las flechas representan intercambios de entradas o productos, no orden temporal.
+!pragma layout smetana
+title S4. Gestión de las inversiones - interacciones institucionales aprobadas
+caption Vista lógica PlantUML para revisión de fidelidad; no es BPMN ni describe una secuencia operativa
+
+top to bottom direction
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam linetype ortho
+skinparam nodesep 40
+skinparam ranksep 65
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam ArrowColor #006B8F
+skinparam ArrowFontColor #243447
+skinparam noteBorderColor #7F8C8D
+skinparam noteFontColor #172B4D
+skinparam rectangle {
+  BackgroundColor #E8EDFF
+  BorderColor #006B8F
+  FontColor #172B4D
+  RoundCorner 12
+  BorderThickness 2
+}
+
+rectangle "<b>S4.1 Formulación y evaluación de programa/proyectos de inversión</b>\ny registro y aprobación de IOARR\n<size:10>Responsable: Sub Gerencia de Formulación y Evaluación de Estudios de Pre-Inversión; unidades formuladoras que pertenecen al GRH</size>" as S41
+note left of S41 #E7EED8
+  <b>Entradas observadas</b>
+  * Población y Gobiernos Nacional, Regional y Local:
+    Necesidades / Convenios
+  * PCM: Declaratoria de estados de emergencias
+  * E1.3 Desarrollo de la cartera de inversiones multianual:
+    Cartera de inversiones
+  * S3.2 Contratación de bienes y servicios: Servicio contratado
+end note
+note right of S41 #F9D7B5
+  <b>Salidas observadas</b>
+  * MINISTERIOS: Proyecto de inversión viable / IOAAR aprobado /
+    Programas de inversión viable
+  * S3.1 Programación de bienes y servicios: Designación de personal
+    técnico y/o requerimiento de contratación de servicio
+  * S4.2: Proyecto de inversión viable / IOAAR aprobado /
+    Programas de inversión viable
+end note
+
+rectangle "<b>S4.2 Elaboración del expediente técnico, documento equivalente</b>\ny/o especificaciones técnicas\n<size:10>Responsable: Sub Gerencia de Estudios; unidades ejecutoras que pertenecen al GRH</size>" as S42
+note left of S42 #E7EED8
+  <b>Entradas observadas</b>
+  * S3.2 Contratación de bienes y servicios: Servicio contratado
+  * Gobiernos Nacional, Regional y Local: Convenios
+  * S4.1: Proyecto de inversión viable / IOAAR aprobado /
+    Programas de inversión viable
+  * S4.3: Informe de estado situacional del Proyecto/programa
+    o IOARR por saldo de obra
+end note
+note right of S42 #F9D7B5
+  <b>Salidas observadas</b>
+  * S3.1 Programación de bienes y servicios: Designación de personal
+    técnico y/o requerimiento de contratación de servicio
+  * MINISTERIOS: Expediente técnico, documento equivalente
+    aprobado y/o EET
+  * S4.3: Expediente técnico, documento equivalente aprobado y/o EETT
+  * S4.4: Información técnico y financiero para liquidación ET
+end note
+
+rectangle "<b>S4.3 Ejecución de la inversión</b>\n<size:10>Responsable: Sub Gerencia de Gestión de Obras y Supervisión; unidades ejecutoras que pertenecen al GRH</size>" as S43
+note left of S43 #E7EED8
+  <b>Entradas observadas</b>
+  * S4.2: Expediente técnico, documento equivalente aprobado y/o EETT
+  * Gobiernos Nacional, Regional y Local: Convenios
+  * S3.2 Contratación de bienes y servicios: Servicio contratado /
+    bien adquirido / consultoría y obra contratada
+end note
+note right of S43 #F9D7B5
+  <b>Salidas observadas</b>
+  * S3.1 Programación de bienes y servicios: Designación de personal
+    y/o requerimiento de contratación de consultoría de obra/bienes y servicios
+  * MEF / INFOBRAS: Reporte de inversiones ejecutadas
+  * S2.1 Gestión Contable: Expediente para pagos
+  * S4.4: Información técnico y financiero para liquidación ET
+  * S4.2: Informe de estado situacional del Proyecto/programa
+    o IOARR por saldo de obra
+end note
+
+rectangle "<b>S4.4 Liquidación, transferencia y cierre de inversión</b>\n<size:10>Responsable: Sub Gerencia de Liquidación; unidades ejecutoras que pertenecen al GRH</size>" as S44
+note left of S44 #E7EED8
+  <b>Entradas observadas</b>
+  * S4.2: Información técnico y financiero para liquidación ET
+  * S4.3: Información técnico y financiero de la inversión
+end note
+note right of S44 #F9D7B5
+  <b>Salidas observadas</b>
+  * MEF: Registro de cierre de inversión
+  * Unidad productora: Inversión transferida
+  * S4.5: Formato N°9. cierre de la inversión
+end note
+
+rectangle "<b>S4.5 Funcionamiento - OPMI</b>\n<size:10>Responsable: Sub Gerencia de Programación Multianual de Inversiones</size>" as S45
+note left of S45 #E7EED8
+  <b>Entrada observada</b>
+  * S4.4: Formato N°9. cierre de la inversión
+end note
+note right of S45 #F9D7B5
+  <b>Salidas observadas</b>
+  * MEF: Actualización de brecha del diagnóstico
+  * MEF: Evaluación EX POST
+  * E1.3 Desarrollo de la cartera de inversiones multianual:
+    Actualización de brecha del diagnóstico
+end note
+
+S41 --> S42 : proyecto viable / IOAAR / programa viable
+S42 --> S43 : expediente / documento equivalente / EETT
+S43 --> S42 : estado situacional por saldo de obra
+S42 --> S44 : información para liquidación ET
+S43 --> S44 : información técnico y financiero para liquidación de la inversión
+S44 --> S45 : Formato N°9
+
+legend bottom
+  |= Color |= Significado |
+  |<#E7EED8> | Proveedor y entrada consignados en la ficha |
+  |<#E8EDFF> | Proceso Nivel 1 aprobado de S4 y responsable consignado |
+  |<#F9D7B5> | Receptor y producto consignados en la ficha |
+  Las flechas centrales son intercambios entre procesos de S4, no flujos de secuencia BPMN.
+endlegend
+@enduml

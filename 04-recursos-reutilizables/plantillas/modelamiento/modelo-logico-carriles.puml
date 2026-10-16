@@ -1,0 +1,32 @@
+@startuml
+' PLANTILLA - completar solo con evidencia, inferencias o propuestas identificadas.
+' Un modelo logico no es BPMN y no reemplaza la validacion especializada.
+title MODELO LOGICO - [codigo y nombre]
+caption Fuente editable PlantUML; vista de trabajo, no BPMN
+
+skinparam backgroundColor #FFFFFF
+skinparam activity {
+  BackgroundColor #EEF3FF
+  BorderColor #006B8F
+  FontColor #172B4D
+}
+skinparam ArrowColor #44546A
+
+|Participante o unidad 1|
+start
+:ACT-001 Actividad observada;
+
+|Participante o unidad 2|
+:ACT-002 Actividad observada;
+if (DEC-001 Decision confirmada?) then (Si)
+  :ACT-003 Resultado;
+else (No)
+  :ACT-004 Tratamiento alterno;
+endif
+stop
+
+legend bottom
+  Cada actividad, responsable y decision debe tener sustento registrado.
+  Las propuestas deben permanecer separadas del AS-IS observado.
+endlegend
+@enduml
