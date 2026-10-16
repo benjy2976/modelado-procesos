@@ -19,7 +19,7 @@ tags:
 
 # Mapa de procesos Nivel 0
 
-[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [Mapa de procesos institucional](README.md)
+Sube a: [Mapa de procesos institucional](00-mapa-de-procesos-institucional.md)
 
 Esta nota transcribe el mapa institucional Nivel 0 aprobado para que pueda consultarse sin abrir el PDF. Registra cuatro procesos estrategicos, cuatro misionales y ocho procesos codificados `S`; la ficha aprobada de S4 clasifica S4 Gestion de las inversiones como proceso de apoyo. Sus codigos, denominaciones y relacion global son regla de arquitectura para este proyecto mientras no se reciba una version institucional posterior. La discrepancia de rotulo del grupo `S` se conserva en los limites de uso.
 
@@ -73,7 +73,7 @@ El mapa rotula visualmente este grupo como `PROCESOS MISIONALES`, aunque utiliza
 | S1 | Gestion del recurso humano |
 | S2 | Gestion contable y financiera |
 | S3 | Gestion de bienes y servicios |
-| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md) |
+| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md) |
 | S5 | Gestion de transformacion digital |
 | S6 | Gestion de asuntos legales |
 | S7 | Gestion de archivo |
@@ -109,5 +109,5 @@ flowchart LR
 ## Relaciones
 
 - [Inventario de productos y procesos](inventario-productos-procesos.md)
-- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md)
-- [Mapa de procesos institucional](README.md)
+- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md)
+- [Mapa de procesos institucional](00-mapa-de-procesos-institucional.md)

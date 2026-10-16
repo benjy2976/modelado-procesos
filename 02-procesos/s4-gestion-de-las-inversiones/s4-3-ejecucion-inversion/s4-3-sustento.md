@@ -19,7 +19,7 @@ tags:
 
 # S4.3 Ejecucion de la inversion - Sustento
 
-[Inicio](../../../00-inicio.md) · [Procesos](../../README.md) · [S4](../README.md) · [S4.3](README.md)
+Sube a: [S4.3 Ejecucion de la inversion](00-s4-3-ejecucion-inversion.md)
 
 Registra las fuentes, evidencias, vacios e historial de revision que sustentan los documentos de S4.3. No se exporta a PDF.
 
@@ -75,7 +75,7 @@ Para cada actividad relevante se registraran, cuando exista evidencia:
 - evidencia de aceptacion;
 - relacion con EIR, BEP, MIDP, TIDP y matriz de responsabilidades.
 
-El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un CDE institucional futuro se registrara como una integracion externa. Referencias: [biblioteca BIM](../../../01-referencias/08-bim/README.md).
+El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un CDE institucional futuro se registrara como una integracion externa. Referencias: [biblioteca BIM](../../../01-referencias/08-bim/00-bim.md).
 
 ## Historial de revision
 
@@ -85,6 +85,6 @@ El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un 
 
 ## Relaciones
 
-- [Portada de S4.3](README.md)
+- [Portada de S4.3](00-s4-3-ejecucion-inversion.md)
 - [Sustento de S4](../s4-sustento.md)
 - [Manual operativo del conocimiento](../../../00-gobernanza/manual-operativo-del-conocimiento.md)

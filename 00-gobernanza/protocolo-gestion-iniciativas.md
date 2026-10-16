@@ -33,7 +33,7 @@ Una tarea local y reversible puede documentarse en su artefacto de trabajo. Cuan
 
 ## 2. Registro y ubicacion
 
-Las iniciativas transversales se registran en `00-gobernanza/iniciativas/` y se enlazan desde su [mapa de contenido](iniciativas/README.md). Una iniciativa especifica de un area puede mantener sus entregables en esa area, pero su ficha y estado deben aparecer en el registro central.
+Las iniciativas transversales se registran en `00-gobernanza/iniciativas/` y se enlazan desde su [mapa de contenido](iniciativas/00-iniciativas.md). Una iniciativa especifica de un area puede mantener sus entregables en esa area, pero su ficha y estado deben aparecer en el registro central.
 
 Cada iniciativa usa un identificador estable `INI-NNN` y la [plantilla de iniciativa](plantillas/obsidian/iniciativa.md).
 
@@ -123,7 +123,7 @@ El estado general del proyecto resume solo los hitos relevantes y enlaza la inic
 
 ## 8. Relaciones
 
-- [Registro de iniciativas](iniciativas/README.md)
+- [Registro de iniciativas](iniciativas/00-iniciativas.md)
 - [Registro de decisiones](registro-decisiones.md)
 - [Plan de trabajo](plan-de-trabajo.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)

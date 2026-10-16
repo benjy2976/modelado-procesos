@@ -8,9 +8,13 @@ fecha_actualizacion: "{{date:YYYY-MM-DD}}"
 responsable: pendiente
 confidencialidad: INTERNO
 tags: []
+aliases:
+  - pendiente
 ---
 
 # {{title}}
+
+Sube a: <!-- enlace a la nota indice inmediata; guardar esta nota como 00-<nombre-de-la-carpeta>.md -->
 
 ## Proposito
 

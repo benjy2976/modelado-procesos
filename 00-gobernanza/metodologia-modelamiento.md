@@ -55,6 +55,6 @@ Una regla pendiente puede orientar la investigacion, pero no sustentar por si so
 ## Relaciones
 
 - [Estandar de artefactos](estandar-artefactos-modelamiento.md)
-- [Procesos](../02-procesos/README.md)
-- [Plantillas de procesos](plantillas/README.md)
+- [Procesos](../02-procesos/00-procesos.md)
+- [Plantillas de procesos](plantillas/00-plantillas.md)
 - [Manual operativo del conocimiento](manual-operativo-del-conocimiento.md)

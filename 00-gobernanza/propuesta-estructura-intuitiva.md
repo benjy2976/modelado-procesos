@@ -198,13 +198,13 @@ En esta etapa solo existira su `README.md`, que documentara proposito, relacion 
 
 | Ruta actual | Ruta propuesta | Operacion |
 |---|---|---|
-| `02-arquitectura-procesos/README.md` | `02-procesos/README.md` | mover y reescribir |
+| `02-arquitectura-procesos/README.md` | `02-procesos/00-procesos.md` | mover y reescribir |
 | `02-arquitectura-procesos/mapa-procesos-nivel-0.md` | `02-procesos/mapa-de-procesos-institucional/mapa-procesos-nivel-0.md` | mover |
 | `02-arquitectura-procesos/inventario-procesos.md` | `02-procesos/mapa-de-procesos-institucional/inventario-productos-procesos.md` | mover y adaptar al Anexo 1 con productos de la ficha S4 |
 | `02-arquitectura-procesos/s4-gestion-de-las-inversiones.md` | `02-procesos/s4-gestion-de-las-inversiones/` dividido en `s4-ficha-producto-proceso.md`, `s4-fichas-indicador.md` y `s4-sustento.md` | mover y dividir sin alterar el contenido transcrito |
 | `02-arquitectura-procesos/s4-gestion-de-las-inversiones-logico.puml`, `.svg` y `-modelo.yaml` | `02-procesos/s4-gestion-de-las-inversiones/s4-diagrama-proceso-logico.*` y `s4-diagrama-proceso-modelo.yaml` | mover y regenerar SVG |
-| `03-modelamiento/README.md` | integrado en `02-procesos/README.md` | eliminar despues de integrar |
-| `03-modelamiento/procesos/s4-3-ejecucion-inversion/README.md` | `02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/README.md` | mover y reescribir como portada |
+| `03-modelamiento/README.md` | integrado en `02-procesos/00-procesos.md` | eliminar despues de integrar |
+| `03-modelamiento/procesos/s4-3-ejecucion-inversion/README.md` | `02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/00-s4-3-ejecucion-inversion.md` | mover y reescribir como portada |
 | `03-modelamiento/.../00-alcance`, `01-levantamiento`, `02-modelos/as-is`, `03-analisis`, `05-validacion` | se retiran (vacias); su funcion pasa a la ficha, el diagrama y el sustento | eliminar |
 | `03-modelamiento/.../02-modelos/to-be` | `02-procesos/to-be/` | reemplazar por README de pendiente |
 | `03-modelamiento/.../04-bim/README.md` | criterios BIM dentro de la plantilla de sustento, hasta que se defina su tratamiento | integrar |
@@ -269,4 +269,4 @@ Criterio de aceptacion: una persona sin conocer la arquitectura del repositorio 
 - [Estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
 - [Registro de decisiones](registro-decisiones.md)
-- [Procesos](../02-procesos/README.md)
+- [Procesos](../02-procesos/00-procesos.md)

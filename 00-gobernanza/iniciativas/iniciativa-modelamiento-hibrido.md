@@ -358,9 +358,9 @@ El siguiente hito es registrar la conformidad o las correcciones de la traduccio
 
 ## 16. Relaciones
 
-- [Registro de iniciativas](README.md)
+- [Registro de iniciativas](00-iniciativas.md)
 - [Estandar de artefactos para el modelamiento hibrido](../estandar-artefactos-modelamiento.md)
 - [Registro de decisiones](../registro-decisiones.md)
 - [Metodologia de modelamiento](../metodologia-modelamiento.md)
-- [S4.3 Ejecucion de la inversion](../../02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/README.md)
-- [Herramientas](../../05-herramientas/README.md)
+- [S4.3 Ejecucion de la inversion](../../02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/00-s4-3-ejecucion-inversion.md)
+- [Herramientas](../../05-herramientas/00-herramientas.md)

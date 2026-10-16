@@ -74,7 +74,7 @@ Cada proceso tiene su carpeta dentro de `02-procesos`, anidada bajo la de su pro
 
 ```text
 02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/
-|-- README.md                                   portada
+|-- 00-s4-3-ejecucion-inversion.md             nota indice y portada
 |-- s4-3-ficha-producto-proceso.md              Anexo 2; fuente del PDF
 |-- s4-3-fichas-indicador.md                    Anexo 4; fuente del PDF
 |-- s4-3-sustento.md                            fuentes, evidencias, historial; no se exporta
@@ -229,5 +229,5 @@ Antes de una release:
 - [Metodologia de modelamiento](metodologia-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
-- [Procesos](../02-procesos/README.md)
-- [Plantillas de procesos](plantillas/README.md)
+- [Procesos](../02-procesos/00-procesos.md)
+- [Plantillas de procesos](plantillas/00-plantillas.md)

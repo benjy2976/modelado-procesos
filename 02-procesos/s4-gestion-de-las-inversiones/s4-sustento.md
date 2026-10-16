@@ -19,7 +19,7 @@ tags:
 
 # S4 Gestion de las inversiones - Sustento
 
-[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [S4](README.md)
+Sube a: [S4 Gestion de las inversiones](00-s4-gestion-de-las-inversiones.md)
 
 Registra la fuente, la calidad, la autoridad, el control de fidelidad, las discrepancias y el historial de revision de los documentos de S4. No se exporta a PDF.
 
@@ -128,7 +128,7 @@ flowchart LR
 
 ## Relaciones
 
-- [Portada de S4](README.md)
+- [Portada de S4](00-s4-gestion-de-las-inversiones.md)
 - [Ficha de producto y proceso de S4](s4-ficha-producto-proceso.md)
 - [Fichas de indicador de S4](s4-fichas-indicador.md)
 - [Registro de decisiones](../../00-gobernanza/registro-decisiones.md)

@@ -18,20 +18,20 @@ Este es el punto de entrada a la documentacion del proyecto. Los enlaces expresa
 
 ## Empezar por el proceso
 
-- **Foco actual:** [S4.3 Ejecucion de la inversion](02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/README.md): situacion y siguiente documento a elaborar.
-- **Proceso padre aprobado:** [S4 Gestion de las inversiones](02-procesos/s4-gestion-de-las-inversiones/README.md): ficha, indicadores y diagrama.
-- **Como leer los procesos:** [Procesos](02-procesos/README.md): niveles, codigos, documentos y niveles de revision.
+- **Foco actual:** [S4.3 Ejecucion de la inversion](02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/00-s4-3-ejecucion-inversion.md): situacion y siguiente documento a elaborar.
+- **Proceso padre aprobado:** [S4 Gestion de las inversiones](02-procesos/s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md): ficha, indicadores y diagrama.
+- **Como leer los procesos:** [Procesos](02-procesos/00-procesos.md): niveles, codigos, documentos y niveles de revision.
 
 ## Areas
 
-1. [Gobernanza](00-gobernanza/README.md): alcance, decisiones, metodo, plantillas, IA, versiones y reproducibilidad.
-2. [Referencias](01-referencias/README.md): fuentes originales, catalogos, calidad y derivados de texto.
-3. [Procesos](02-procesos/README.md): mapa institucional, procesos jerarquizados por codigo con su ficha, indicadores, diagrama y sustento, y arbol TO-BE pendiente.
-4. [Conocimiento](03-conocimiento/README.md): reglas normativas curadas, eventos de revision y catalogos comunes.
-5. [Coordinacion](04-coordinacion/README.md): reuniones, diario, Canvas y Bases transversales.
-6. [Herramientas](05-herramientas/README.md): descarga, extraccion, renderizado, validacion y auditoria.
-7. [Bandeja de entrada](90-bandeja-entrada/README.md): material aun no clasificado ni verificado.
-8. [Temporal](99-temporal/README.md): salidas regenerables que no constituyen evidencia.
+1. [Gobernanza](00-gobernanza/00-gobernanza.md): alcance, decisiones, metodo, plantillas, IA, versiones y reproducibilidad.
+2. [Referencias](01-referencias/00-referencias.md): fuentes originales, catalogos, calidad y derivados de texto.
+3. [Procesos](02-procesos/00-procesos.md): mapa institucional, procesos jerarquizados por codigo con su ficha, indicadores, diagrama y sustento, y arbol TO-BE pendiente.
+4. [Conocimiento](03-conocimiento/00-conocimiento.md): reglas normativas curadas, eventos de revision y catalogos comunes.
+5. [Coordinacion](04-coordinacion/00-coordinacion.md): reuniones, diario, Canvas y Bases transversales.
+6. [Herramientas](05-herramientas/00-herramientas.md): descarga, extraccion, renderizado, validacion y auditoria.
+7. [Bandeja de entrada](90-bandeja-entrada/00-bandeja-entrada.md): material aun no clasificado ni verificado.
+8. [Temporal](99-temporal/00-temporal.md): salidas regenerables que no constituyen evidencia.
 
 ## Recorrido de trabajo
 
@@ -46,12 +46,12 @@ Gobernanza
 ```
 
 - La linea completa esta en el [Manual operativo del conocimiento](00-gobernanza/manual-operativo-del-conocimiento.md).
-- Las reglas curadas se administran en [Conocimiento estructurado](03-conocimiento/README.md).
+- Las reglas curadas se administran en [Conocimiento estructurado](03-conocimiento/00-conocimiento.md).
 - La biblioteca se controla desde el [Catalogo documental](01-referencias/00-catalogo/plan-descargas.md).
 
 ## Navegacion
 
-Cada area mantiene un `README.md` como mapa de contenido. Todo documento nuevo debe quedar enlazado desde el mapa de su area y, cuando exista una dependencia real, desde el documento relacionado. Las reglas se encuentran en [Arquitectura de informacion y enlaces](00-gobernanza/arquitectura-de-informacion.md).
+Cada area mantiene una nota indice `00-<nombre>.md` como mapa de contenido. Todo documento nuevo debe quedar enlazado desde el mapa de su area y, cuando exista una dependencia real, desde el documento relacionado. Las reglas se encuentran en [Arquitectura de informacion y enlaces](00-gobernanza/arquitectura-de-informacion.md).
 
 La redaccion y el uso de propiedades, plantillas, reuniones, tareas, Canvas y Bases se rigen por el [Estandar obligatorio de Obsidian](00-gobernanza/estandar-obligatorio-obsidian.md).
 

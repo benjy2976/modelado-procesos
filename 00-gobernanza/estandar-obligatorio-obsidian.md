@@ -13,7 +13,7 @@ tags:
 
 # Estandar obligatorio de produccion de conocimiento en Obsidian
 
-[Inicio](../00-inicio.md) · [Gobernanza](README.md)
+Sube a: [Gobernanza](00-gobernanza.md)
 
 ## 1. Condicion obligatoria
 
@@ -43,7 +43,7 @@ En este documento:
 
 ## 3. Perfil minimo de una nota
 
-Toda nota de conocimiento nueva, excepto README, instrucciones, plantillas y extracciones regenerables, DEBE comenzar con propiedades YAML.
+Toda nota de conocimiento nueva, excepto notas indice, instrucciones, plantillas y extracciones regenerables, DEBE comenzar con propiedades YAML.
 
 ```yaml
 ---
@@ -63,7 +63,7 @@ tags: []
 
 ### 3.1 Perfil reducido
 
-Los mapas de contenido, README, guias, instrucciones y plantillas cuya funcion sea inequivoca pueden omitir identificador, fechas, responsable y etiquetas. Como minimo declaran:
+Los mapas de contenido (notas indice `00-`), guias, instrucciones y plantillas cuya funcion sea inequivoca pueden omitir identificador, fechas, responsable y etiquetas. Como minimo declaran:
 
 ```yaml
 ---
@@ -141,15 +141,35 @@ La jerarquia y las relaciones se detallan en [Arquitectura de informacion y enla
 ## 7. Mapas, enlaces entrantes, grafo y busqueda
 
 - El mapa raiz es [Inicio de la boveda](../00-inicio.md).
-- Cada area mantiene un `README.md` como mapa de contenido.
+- Cada area y subarea mantiene una nota indice `00-<nombre>.md` como mapa de contenido, segun la [arquitectura de informacion](arquitectura-de-informacion.md), seccion "Notas indice".
 - Los enlaces entrantes ayudan a descubrir dependencias, pero no reemplazan el enlace desde el mapa padre.
 - El grafo es una herramienta diagnostica; su posicion visual, color o proximidad NO constituye una relacion formal.
 - Las busquedas reutilizables que afecten al equipo se documentan en Markdown o en una Base; no deben depender solo del historial local de busqueda.
 - Los marcadores personales y la disposicion de paneles son estado local y no se versionan.
 
+### 7.1 Lectura comun del grafo
+
+Para que el grafo muestre el conocimiento y no solo la navegacion, el equipo usa los mismos grupos de color y vistas (`DEC-018`). El orden importa: Obsidian aplica el primer grupo que coincide.
+
+| Grupo | Consulta | Color |
+|---|---|---|
+| Notas indice | `[tipo:mapa-de-contenido]` | Gris |
+| Documentos NT | `[documento_nt:ficha-producto-proceso] OR [documento_nt:ficha-indicador] OR [documento_nt:procedimiento] OR [documento_nt:inventario] OR [documento_nt:mapa]` | Azul |
+| Sustentos | `file:sustento` | Turquesa |
+| Conocimiento | `path:03-conocimiento` | Verde |
+| Referencias | `path:01-referencias` | Marron |
+| Gobernanza | `path:00-gobernanza` | Morado |
+
+| Vista | Filtro | Uso |
+|---|---|---|
+| Navegacion | Sin filtro | Recorrer el arbol de areas y procesos |
+| Conocimiento | `-[tipo:mapa-de-contenido] -file:00-inicio -file:README -path:00-gobernanza/plantillas` | Ver solo el conocimiento y sus relaciones |
+
+`.obsidian/graph.json` no se versiona porque Obsidian reescribe en el el zoom y otros valores en cada uso. Cada persona aplica la configuracion comun con `python 05-herramientas/configurar_grafo_obsidian.py`, opcionalmente con `--vista conocimiento` o `--vista navegacion`; el script conserva el resto de su configuracion personal. Para trabajar en un proceso se recomienda el grafo local de su nota indice con profundidad 2.
+
 ## 8. Plantillas
 
-Las notas repetibles DEBEN originarse en las plantillas de `00-gobernanza/plantillas/`, indexadas en su [mapa de plantillas](plantillas/README.md). Obsidian las ofrece desde esa carpeta.
+Las notas repetibles DEBEN originarse en las plantillas de `00-gobernanza/plantillas/`, indexadas en su [mapa de plantillas](plantillas/00-plantillas.md). Obsidian las ofrece desde esa carpeta.
 
 Los documentos de cada proceso usan las plantillas `nt-002/` (ficha de producto y proceso, fichas de indicador y procedimiento) y `procesos/` (portada y sustento), conforme al [estandar de artefactos](estandar-artefactos-modelamiento.md).
 
@@ -303,7 +323,7 @@ Antes de una release:
 
 - Toda nota nueva creada despues de `DEC-011` debe cumplir este estandar desde su creacion.
 - Toda nota existente debe adoptar el perfil aplicable cuando se modifique materialmente y, en cualquier caso, antes de formar parte de una linea base.
-- Los mapas de contenido, README, plantillas, instrucciones y caches pueden usar un perfil reducido si su funcion es inequivoca.
+- Los mapas de contenido, plantillas, instrucciones y caches pueden usar un perfil reducido si su funcion es inequivoca.
 - Una desviacion requiere justificacion, responsable, alcance y plazo de regularizacion.
 - El futuro auditor de la boveda verificara propiedades, enlaces, ubicacion, plantillas y archivos de configuracion permitidos.
 

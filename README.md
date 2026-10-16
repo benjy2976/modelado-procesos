@@ -53,7 +53,7 @@ La evaluacion tecnica de PDF es opcional y requiere `pypdf`:
 .\.venv\Scripts\python.exe 05-herramientas/catalogador-documental/evaluar_calidad.py
 ```
 
-En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.exe`. La guia detallada, los limites de la garantia y las reglas de inmutabilidad estan en `00-gobernanza/reproducibilidad.md`, `01-referencias/README.md` y `01-referencias/00-catalogo/plan-descargas.md`.
+En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.exe`. La guia detallada, los limites de la garantia y las reglas de inmutabilidad estan en `00-gobernanza/reproducibilidad.md`, `01-referencias/00-referencias.md` y `01-referencias/00-catalogo/plan-descargas.md`.
 
 ## Lectura inicial
 
@@ -69,14 +69,14 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 ## Estructura
 
-- [Gobernanza](00-gobernanza/README.md): reglas, metodo, decisiones, plantillas y plan de trabajo.
-- [Referencias](01-referencias/README.md): fuentes externas e institucionales; los originales son inmutables.
-- [Procesos](02-procesos/README.md): mapa institucional y procesos jerarquizados por codigo NT, cada uno con su ficha, indicadores, diagrama y sustento.
-- [Conocimiento](03-conocimiento/README.md): reglas normativas curadas, eventos de revision y catalogos comunes.
-- [Coordinacion](04-coordinacion/README.md): reuniones, diario, Canvas y Bases transversales.
-- [Herramientas](05-herramientas/README.md): utilidades de catalogacion, OCR, PlantUML, BPMN y trazabilidad.
-- [Bandeja de entrada](90-bandeja-entrada/README.md): archivos recibidos pendientes de clasificacion.
-- [Temporal](99-temporal/README.md): salidas transitorias que no deben versionarse.
+- [Gobernanza](00-gobernanza/00-gobernanza.md): reglas, metodo, decisiones, plantillas y plan de trabajo.
+- [Referencias](01-referencias/00-referencias.md): fuentes externas e institucionales; los originales son inmutables.
+- [Procesos](02-procesos/00-procesos.md): mapa institucional y procesos jerarquizados por codigo NT, cada uno con su ficha, indicadores, diagrama y sustento.
+- [Conocimiento](03-conocimiento/00-conocimiento.md): reglas normativas curadas, eventos de revision y catalogos comunes.
+- [Coordinacion](04-coordinacion/00-coordinacion.md): reuniones, diario, Canvas y Bases transversales.
+- [Herramientas](05-herramientas/00-herramientas.md): utilidades de catalogacion, OCR, PlantUML, BPMN y trazabilidad.
+- [Bandeja de entrada](90-bandeja-entrada/00-bandeja-entrada.md): archivos recibidos pendientes de clasificacion.
+- [Temporal](99-temporal/00-temporal.md): salidas transitorias que no deben versionarse.
 
 ## Fuentes maestras
 
@@ -90,7 +90,7 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 La IA puede extraer, proponer, relacionar y revisar, pero no validar conocimiento normativo. Cada regla confiable debe vincularse con un original, hash, ubicacion precisa, vigencia y evento de validacion humana. Las reglas YAML son la fuente maestra; `03-conocimiento/catalogo-reglas.csv` es una vista regenerable.
 
-Cada tarea de IA usa un paquete de contexto limitado. No se carga la biblioteca completa ni se aceptan afirmaciones normativas basadas en memoria general del modelo. El equipo validara las reglas mediante el flujo definido en `00-gobernanza/protocolo-conocimiento-confiable.md` y, progresivamente, mediante la aplicacion requerida en `05-herramientas/validador-conocimiento/README.md`.
+Cada tarea de IA usa un paquete de contexto limitado. No se carga la biblioteca completa ni se aceptan afirmaciones normativas basadas en memoria general del modelo. El equipo validara las reglas mediante el flujo definido en `00-gobernanza/protocolo-conocimiento-confiable.md` y, progresivamente, mediante la aplicacion requerida en `05-herramientas/validador-conocimiento/00-validador-conocimiento.md`.
 
 La linea de trabajo completa, desde el ingreso de una fuente hasta la aprobacion de una propuesta o modelo, se encuentra en `00-gobernanza/manual-operativo-del-conocimiento.md`. El manual clasifica cada afirmacion como normativa, observada, referencia, inferencia, propuesta o decision y determina las validaciones aplicables a cada clase.
 

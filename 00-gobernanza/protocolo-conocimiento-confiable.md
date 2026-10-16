@@ -17,7 +17,7 @@ Convertir fuentes oficiales y evidencia institucional en conocimiento estructura
 
 El Markdown extraido nunca sustituye al original. Si difieren, prevalece el original y la extraccion debe corregirse o marcarse como no confiable.
 
-Las extracciones se generan bajo `01-referencias/09-derivados-texto/cache/` segun `05-herramientas/extractor-documental/README.md`. Son cache reproducible y no se versionan de forma masiva. Las reglas, revisiones y decisiones curadas si se versionan.
+Las extracciones se generan bajo `01-referencias/09-derivados-texto/cache/` segun `05-herramientas/extractor-documental/00-extractor-documental.md`. Son cache reproducible y no se versionan de forma masiva. Las reglas, revisiones y decisiones curadas si se versionan.
 
 ## Flujo obligatorio
 

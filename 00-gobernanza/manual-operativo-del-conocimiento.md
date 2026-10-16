@@ -7,7 +7,7 @@ clase_conocimiento: NO-APLICA
 
 # Manual operativo para construir y usar conocimiento
 
-[Inicio](../00-inicio.md) · [Gobernanza](README.md)
+Sube a: [Gobernanza](00-gobernanza.md)
 
 ## 1. Proposito
 

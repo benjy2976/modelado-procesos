@@ -2,7 +2,7 @@
 
 ## Antes de trabajar
 
-1. Leer `estado-del-proyecto.md` y el README del area afectada.
+1. Leer `estado-del-proyecto.md` y la nota indice `00-<nombre>.md` del area afectada.
 2. Revisar `git status` y preservar cualquier cambio existente.
 3. Consultar solo las fuentes necesarias para la tarea.
 

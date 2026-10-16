@@ -27,7 +27,7 @@ tags:
 
 # S4 Gestion de las inversiones - Ficha de producto y proceso
 
-[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [S4](README.md)
+Sube a: [S4 Gestion de las inversiones](00-s4-gestion-de-las-inversiones.md)
 
 Transcripcion de la ficha institucional aprobada del proceso Nivel 0 S4 (formato institucional, version 3.0), ordenada segun los campos de la ficha de producto y proceso de la NT 002-2025-PCM-SGP. El contenido se conserva tal como figura en el original; su fuente, calidad, control de fidelidad y discrepancias se encuentran en el [sustento de S4](s4-sustento.md).
 
@@ -152,7 +152,7 @@ La vista siguiente fue generada localmente desde PlantUML. Presenta los cinco pr
 
 ![Vista logica de interacciones aprobadas de S4](s4-diagrama-proceso-logico.svg)
 
-La fuente se regenera y comprueba con el [gestor local de modelos](../../05-herramientas/gestor-modelos/README.md). El SVG es derivado y no debe editarse manualmente.
+La fuente se regenera y comprueba con el [gestor local de modelos](../../05-herramientas/gestor-modelos/00-gestor-modelos.md). El SVG es derivado y no debe editarse manualmente.
 
 ## Indicadores del proceso
 
@@ -174,7 +174,7 @@ La situacion se registra como `EVIDENCIA-INSUFICIENTE` en el [sustento de S4](s4
 
 ## Relaciones
 
-- [Portada de S4](README.md)
+- [Portada de S4](00-s4-gestion-de-las-inversiones.md)
 - [Fichas de indicador de S4](s4-fichas-indicador.md)
 - [Sustento de S4](s4-sustento.md)
 - [Inventario de productos y procesos](../mapa-de-procesos-institucional/inventario-productos-procesos.md)

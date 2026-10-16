@@ -5,11 +5,15 @@ estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 codigo_proceso: pendiente
 nivel_proceso: pendiente
+aliases:
+  - pendiente
 ---
 
 # {{title}}
 
-<!-- Portada uniforme de un proceso. Guardar como README.md dentro de la carpeta del proceso y enlazarla desde la portada del proceso padre. -->
+Sube a: <!-- enlace a la nota indice del proceso padre -->
+
+<!-- Portada uniforme de un proceso. Guardar como 00-<nombre-de-la-carpeta>.md dentro de la carpeta del proceso, agregar aliases con el nombre legible y enlazarla desde la portada del proceso padre. -->
 
 ## Ubicacion
 

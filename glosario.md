@@ -38,6 +38,7 @@ tags:
 | Ficha de producto y proceso | Documento que registra y describe los elementos de la caracterizacion de un proceso e incluye su diagrama. NT 002-2025-PCM-SGP, numeral 6.1.3 a y Anexo 2. En el proyecto es la fuente del PDF a aprobar. | No |
 | Procedimiento | Descripcion de las tareas de un proceso de ultimo nivel; solo se elabora si cumple algun criterio y como maximo uno por proceso. NT 002-2025-PCM-SGP, numeral 6.1.3 d y Anexo 7. | No |
 | Dueno del proceso | Unidad de organizacion con responsabilidad y autoridad para disenar, implementar, controlar y mejorar el proceso; elabora y aprueba su documentacion. NT 002-2025-PCM-SGP, Anexo 2 y numeral 6.1.4. | No |
+| Nota indice | Nota `00-<nombre>.md` que funciona como mapa de contenido y portada de su carpeta; el prefijo `00-` se reserva para ellas y para `00-inicio.md` (`DEC-018`). | No |
 | Sustento | Archivo de cada proceso que registra fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias e historial de revision; no se exporta (`DEC-017`). | No |
 | Propuesta | Todo documento de proceso aun no aprobado. Tambien designa el unico archivo `-propuesta` con que se plantea variar un documento aprobado (`DEC-017`). | No |
 | Nivel de revision | Etapa del circuito de un documento de proceso: `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA` y `APROBACION` (`DEC-017`). | No |

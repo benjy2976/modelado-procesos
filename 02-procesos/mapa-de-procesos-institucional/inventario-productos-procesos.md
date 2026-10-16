@@ -21,7 +21,7 @@ tags:
 
 # Inventario de productos y procesos
 
-[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [Mapa de procesos institucional](README.md)
+Sube a: [Mapa de procesos institucional](00-mapa-de-procesos-institucional.md)
 
 Inventario con el formato del Anexo 1 de la NT 002-2025-PCM-SGP (producto del proceso, codigo y proceso de nivel n), limitado a la rama S4 que esta en alcance. Sus filas provienen de la ficha institucional aprobada de S4; el inventario como documento es una propuesta del proyecto en elaboracion.
 
@@ -53,10 +53,10 @@ Los productos se transcriben tal como figuran en las filas `Salida` de la [ficha
 
 | Codigo | Proceso | Nivel | Documentacion NT | Situacion |
 |---|---|---:|---|---|
-| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md) | 0 | Ficha y fichas de indicador aprobadas | Traduccion en verificacion de fidelidad |
+| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md) | 0 | Ficha y fichas de indicador aprobadas | Traduccion en verificacion de fidelidad |
 | S4.1 | Formulacion y evaluacion de programa/proyectos de inversion y registro y aprobacion de IOARR | 1 | Sin ficha propia en las fuentes recibidas | Fuera del alcance actual |
 | S4.2 | Elaboracion del expediente tecnico, documento equivalente y/o especificaciones tecnicas | 1 | Sin ficha propia en las fuentes recibidas | Fuera del alcance actual |
-| S4.3 | [Ejecucion de la inversion](../s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/README.md) | 1 | Ficha pendiente de elaboracion | Alcance actual del proyecto |
+| S4.3 | [Ejecucion de la inversion](../s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/00-s4-3-ejecucion-inversion.md) | 1 | Ficha pendiente de elaboracion | Alcance actual del proyecto |
 | S4.4 | Liquidacion, transferencia y cierre de inversion | 1 | Sin ficha propia en las fuentes recibidas | Fuera del alcance actual |
 | S4.5 | Funcionamiento - OPMI | 1 | Sin ficha propia en las fuentes recibidas | Fuera del alcance actual |
 
@@ -74,4 +74,4 @@ Los procesos Nivel 2 de S4.3 se incorporaran cuando se apruebe su descomposicion
 ## Relaciones
 
 - [Mapa de procesos Nivel 0](mapa-procesos-nivel-0.md)
-- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md)
+- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/00-s4-gestion-de-las-inversiones.md)
