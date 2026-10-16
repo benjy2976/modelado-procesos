@@ -14,7 +14,7 @@ tags:
 - Fecha de actualizacion: 2026-10-16
 - Fase: estructura centrada en procesos implementada (`DEC-017`); traduccion S4 lista para revision humana de fidelidad; S4.3 a la espera de insumos para elaborar su ficha
 - Ambito inicial: S4.3 Ejecucion de la inversion
-- Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 delimitado (`DEC-020`) con modelo logico y ficha borrador en `ELABORACION` a partir de la propuesta del equipo; 6 guias de lectura de fuentes y 18 reglas `BORRADOR-IA` pendientes de validacion humana; TO-BE pendiente para una etapa posterior
+- Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 delimitado (`DEC-020`) con modelo logico y ficha borrador en `ELABORACION` a partir de la propuesta del equipo; 9 guias de lectura de fuentes y 24 reglas `BORRADOR-IA` pendientes de validacion humana; TO-BE pendiente para una etapa posterior
 - Estado BIM: aprendizaje y adopcion progresiva; la informacion se organizara con rutas estables y trazabilidad Git, sin declarar el repositorio como CDE institucional
 - Descargas: lote base oficial de 219 archivos completado y evaluado tecnicamente
 - Git: estrategia hibrida configurada; repositorio inicial publicado en remoto, recursos publicos regenerables fuera de Git y LFS reservado para binarios no reproducibles

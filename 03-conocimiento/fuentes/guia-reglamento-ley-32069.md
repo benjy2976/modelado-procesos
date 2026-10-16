@@ -64,5 +64,6 @@ Reglamento que regula la contratacion y la ejecucion contractual. Para S4.3 impo
 
 ## Alertas
 
+- La figura del Monitor no aparece en el texto de la Ley ni del Reglamento consultados (solo "monitoreo"); esta en las [directivas del OECE](guia-directivas-oece-cdi-valorizaciones.md).
 - Los terminos normativos son "fase de seleccion", "ejecucion contractual", "recepcion", "constatacion fisica e inventario" y "liquidacion"; "procura" no aparece en el texto consultado.
 - La liquidacion del contrato de obra es parte de la ejecucion contractual en esta norma; en el mapa del Gobierno Regional corresponde a S4.4. La frontera debe decidirse y registrarse.

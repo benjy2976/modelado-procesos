@@ -26,12 +26,16 @@ fuente:
     - REG-CON-BYS-001
     - REG-CGR-AD-001
     - REG-CGR-AD-002
+    - REG-CGR-AD-003
+    - REG-CGR-AD-004
+    - REG-CON-CDI-001
+    - REG-RNE-G050-001
 artefactos:
   fuente_plantuml: S4-3-diagrama-proceso-logico.puml
   derivado_svg: S4-3-diagrama-proceso-logico.svg
   motor: ../../../05-herramientas/gestor-modelos/plantuml.lock.json
 semantica:
-  alcance: Descomposicion de S4.3 en S4.3.1 Procura, S4.3.2 Ejecucion y S4.3.3 Recepcion, con sus intercambios observados.
+  alcance: Descomposicion de S4.3 en S4.3.1 Procura, S4.3.2 Ejecucion y S4.3.3 Recepcion, con S4.3.4 Gestion y seguimiento transversal, y sus intercambios observados.
   marcas: OBS observado en la ficha aprobada de S4; EQ definido por el equipo; PROP propuesta de modelamiento.
   interpretacion_flechas: Secuencia logica entre subprocesos; no es flujo BPMN.
 revision:

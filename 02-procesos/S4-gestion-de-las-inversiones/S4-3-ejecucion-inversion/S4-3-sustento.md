@@ -128,6 +128,73 @@ Respuestas del equipo del proyecto del 2026-10-16 a las preguntas P1-P6. Clase `
 | P5 | La planificacion de la ejecucion que realiza la entidad va en la procura; la demas planificacion la hacen los especialistas de obra | Parcialmente coherente: la definicion reglamentaria incluye la planificacion para el expediente tecnico y para la ejecucion fisica (`REG-INV-EJEC-002`). Si se ubica en S4.3.1, la planificacion previa al expediente debe quedar cubierta en S4.2 | S4.3.1 incluye la planificacion de la ejecucion fisica a cargo de la entidad; pendiente confirmar la de S4.2 |
 | P6 | Un contrato resuelto puede continuar por saldo de obra: vuelve a S4.2 para elaborar el expediente de saldo y reinicia el ciclo | Coherente con la ficha S4 (salida de S4.3 a S4.2: informe de estado situacional por saldo de obra) y con el uso de diseno y construccion para saldos (`REG-CON-OBRA-001`). La obra con contrato resuelto tambien se liquida (`REG-CON-OBRA-004`) | Compuerta C2: con saldo, salen el informe a S4.2 y la informacion a S4.4 |
 
+### Definicion de Procura precisada por el equipo
+
+Precision del equipo del proyecto del 2026-10-16 (clase `DECISION` del equipo):
+
+- El expediente tecnico planifica la intervencion (por ejemplo, el cronograma de 120 dias de obra), pero no la parte administrativa de la entidad.
+- **Procura** es la planificacion y gestion administrativa que permite ejecutar la intervencion: asignacion presupuestal; elaboracion de terminos de referencia y convocatoria de la ejecucion y de la supervision; en administracion directa, requerimientos, contratacion de servicios (por ejemplo, el deposito de material excedente) y adquisicion de materiales.
+- Su objetivo es anticipar la latencia de los flujos de adquisicion de la entidad: lo que la obra necesita en una fecha debe haberse requerido y adquirido antes.
+- En diseno y construccion no hay procura en S4.3 porque esa planificacion y la contratacion se realizaron en la etapa del expediente tecnico.
+
+Contraste con las fuentes (`INFERENCIA`):
+
+| Aspecto | Fuente | Resultado |
+|---|---|---|
+| La planificacion de la ejecucion incluye recursos, contrataciones, cronograma, riesgos y controles | `REG-INV-EJEC-002` | Coherente: la procura corresponde a la parte de la planificacion de la ejecucion a cargo de la entidad |
+| En administracion directa, el residente elabora el Plan de Abastecimiento de Obra para todo el plazo y emite al menos el 80% de los requerimientos en siete dias | `REG-CGR-AD-003` | Coherente: es un producto de la procura en esa modalidad |
+| En administracion directa, las adquisiciones previas al inicio deben cubrir al menos los primeros treinta dias de obra, en un plazo de sesenta dias | `REG-CGR-AD-004` | Coherente: la norma exige anticipar la latencia |
+| La provision de bienes y servicios continua segun el calendario durante la ejecucion fisica (almacen de obra) | Directiva 017-2023-CG, num. 7.3.3, p. 15-16 | Implicancia: en administracion directa la procura no termina con el acta de inicio; las adquisiciones posteriores a los primeros treinta dias ocurren en paralelo a S4.3.2 |
+
+Pregunta derivada:
+
+| N | Pregunta |
+|---|---|
+| P11 | Las adquisiciones que continuan durante la obra, se modelan como parte de S4.3.2 Ejecucion (provision segun el plan de abastecimiento) o como una procura que se mantiene activa en paralelo? |
+
+### Respuesta a P11 y componente de gestion de la inversion
+
+Respuesta del equipo del proyecto del 2026-10-16:
+
+| Aspecto | Contenido | Clase |
+|---|---|---|
+| Provision de la obra por administracion directa | Las adquisiciones posteriores a las cubiertas por la procura se modelan dentro de S4.3.2 Ejecucion, como provision segun el plan de abastecimiento (opcion a) | `DECISION` del equipo |
+| Componente de gestion de la inversion | Las obras e inversiones incluyen un componente de gestion; para el se emiten requerimientos durante toda la ejecucion: contratacion del monitor, especialistas y asistentes, y bienes como papel e impresion necesarios para gestionar la inversion | `OBSERVADO` (practica descrita por el equipo; pendiente de evidencia documental) |
+| Base normativa del componente de gestion | El Reglamento y la Directiva General de Invierte.pe, el Reglamento de la Ley 32069 y la Directiva 017-2023-CG consultados no regulan expresamente este componente ni la figura del monitor; solo regulan los gastos generales de obra, que son un concepto distinto | `EVIDENCIA-INSUFICIENTE` |
+
+Implicancia (`INFERENCIA`): los requerimientos del componente de gestion no terminan con la procura ni dependen de la modalidad; acompanan toda la ejecucion y se relacionan con obligaciones permanentes de la UEI, como la vigilancia del avance y el seguimiento mensual (`REG-INV-EJEC-005`, `REG-INV-EJEC-006`).
+
+| N | Pregunta |
+|---|---|
+| P12 | Como se modela el componente de gestion: dentro de S4.3.2 Ejecucion, o como un subproceso transversal de gestion y seguimiento de la inversion que acompana a S4.3.1, S4.3.2 y S4.3.3? |
+| P13 | Que documento interno o lineamiento regula el componente de gestion y la contratacion del monitor? |
+
+### Respuesta sobre el componente de gestion e investigacion normativa
+
+Respuesta del equipo del proyecto del 2026-10-16: el componente de gestion se modela como subproceso transversal (opcion b, `DEC-021`). El equipo no conoce un documento interno que lo regule; senala que la normativa de contrataciones menciona al monitor, que el Formato 08 de Invierte.pe permite presupuestar la gestion y que son necesarios gastos como equipos de proteccion para el personal de la entidad y los especialistas, y materiales de escritorio.
+
+Resultado de la investigacion (2026-10-16):
+
+| Tema | Hallazgo | Clase | Fuente |
+|---|---|---|---|
+| Costo de gestion del proyecto | Es un rubro del costo de inversion, indispensable si se justifica; se estima con recursos humanos, materiales, intangibles y servicios exclusivos de la ejecucion; no todos los proyectos lo consideran | `REFERENCIA` | [Instructivo del Formato 08-A](../../../03-conocimiento/fuentes/guia-instructivo-formato-08-a.md), p. 19 |
+| Tareas de la gestion del proyecto | Preparar terminos de referencia, actuar como area usuaria en contrataciones y supervisar o monitorear los contratos hasta la liquidacion y el cierre | `REFERENCIA` | Instructivo del Formato 08-A, p. 20 |
+| Registro del rubro | El Formato 09 de cierre desagrega el costo en gestion del proyecto, expediente tecnico, supervision y liquidacion | `NORMATIVO` citado | RD 0002-2025-EF/63.01, Formato 09, p. 2-3 |
+| Monitor | Rol de la entidad para el monitoreo y seguimiento de contratos de obra y consultoria de obra, asignable a uno o mas servidores; accede a las valorizaciones del SEACE | `NORMATIVO` citado | `REG-CON-CDI-001`, `REG-CON-CDI-002`, `REG-CON-VAL-001` |
+| Equipo de proteccion | Todo el personal que labora en obra debe contar con equipo de proteccion; los visitantes usan casco verde | `NORMATIVO` citado | `REG-RNE-G050-001` |
+| Provision del equipo de proteccion al personal de la entidad | No consta en la biblioteca (Ley 29783) | `EVIDENCIA-INSUFICIENTE` | - |
+| Materiales de escritorio e impresion | Encajan como "materiales" del costo de gestion del proyecto | `INFERENCIA` | Instructivo del Formato 08-A, p. 19 |
+
+Implicancias (`INFERENCIA`):
+
+- La gestion del proyecto tiene un fundamento de costo (Formato 08-A y Formato 09) y un rol operativo normado (Monitor), lo que respalda modelarla como subproceso transversal S4.3.4.
+- Segun el instructivo, la gestion acompana la ejecucion "hasta la liquidacion y el cierre", es decir, tambien durante S4.4.
+- El instructivo es de 2019; debe confirmarse una version alineada al DS 140-2026-EF.
+
+| N | Pregunta |
+|---|---|
+| P14 | El subproceso de gestion y seguimiento termina con la recepcion (fin de S4.3) o continua acompanando la liquidacion y el cierre en S4.4? |
+
 ### Situacion de las observaciones
 
 | N | Situacion |

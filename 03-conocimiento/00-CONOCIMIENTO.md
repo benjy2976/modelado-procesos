@@ -25,7 +25,7 @@ Esta area contiene conocimiento reutilizable por varios procesos: reglas normati
 - [Eventos de revision](revisiones/00-revisiones-conocimiento.md): `revisiones/*.yaml`, eventos inmutables de propuesta, observacion, validacion, retiro o revalidacion.
 - `catalogo-reglas.csv`: indice generado desde los YAML para busqueda, control y consumo por la aplicacion web.
 
-Estado al 2026-10-16: 17 reglas en `BORRADOR-IA` sobre la fase de Ejecucion (Invierte.pe), la ejecucion contractual de obras (Ley 32069), la administracion directa (Contraloria) y los procedimientos (NT 002-2025-PCM-SGP). Ninguna esta validada.
+Estado al 2026-10-16: 24 reglas en `BORRADOR-IA` sobre la fase de Ejecucion (Invierte.pe), la ejecucion contractual de obras y el rol Monitor (Ley 32069 y directivas del OECE), la administracion directa (Contraloria), la seguridad en obra (RNE G.050) y los procedimientos (NT 002-2025-PCM-SGP). Ninguna esta validada.
 
 El catalogo CSV no se edita manualmente una vez que exista el generador. Si existe diferencia, prevalecen los YAML y sus eventos de revision.
 

@@ -32,13 +32,23 @@ end note
 :Inversión con expediente técnico o
 documento equivalente aprobado;
 
+fork
+
 if (C1 ¿Diseño y construcción con contrato
 vigente desde S4.2? [EQ]) then (No)
   :<b>S4.3.1 Procura</b>
-  Planificación de la ejecución a cargo de la entidad [EQ]
-  Contratación, preparación por administración directa
-  u Obras por Impuestos [EQ]
+  Planificación administrativa de la ejecución [EQ]:
+  asignación presupuestal, TDR y contratación de
+  ejecución y supervisión, o requerimientos y adquisiciones
+  por administración directa; Obras por Impuestos [EQ]
   Condiciones previas al inicio [PROP];
+  note left
+    Anticipa la latencia de los flujos de
+    adquisición de la entidad [EQ].
+    AD: Plan de Abastecimiento de Obra y
+    adquisiciones para los primeros 30 días
+    (REG-CGR-AD-003, REG-CGR-AD-004)
+  end note
   note right #F9D7B5
     <b>Intercambios [OBS]</b>
     * Salida a S3.1: Designación de personal y/o
@@ -54,8 +64,11 @@ endif
 
 :<b>S4.3.2 Ejecución</b>
 Ejecución física y financiera [PROP]
-Registro previo de modificaciones, vigilancia
-del avance y seguimiento mensual [PROP];
+Registro previo de modificaciones [PROP]
+AD: provisión de bienes y servicios según
+el plan de abastecimiento [EQ]
+Ejecución de la obra por el contratista
+o por la entidad [PROP];
 note right #F9D7B5
   <b>Salidas [OBS]</b>
   * S2.1 Gestión Contable: Expediente para pagos
@@ -68,6 +81,23 @@ end note
 Recepción de obra, conformidad de bienes y servicios,
 o constatación física e inventario si el contrato
 fue resuelto [PROP];
+
+fork again
+  :<b>S4.3.4 Gestión y seguimiento de la inversión</b>
+  Transversal a S4.3.1, S4.3.2 y S4.3.3 [EQ]
+  Requerimientos del componente de gestión del proyecto:
+  monitor, especialistas, asistentes, equipos de
+  protección y materiales [EQ]
+  Monitoreo de contratos (rol Monitor), vigilancia del
+  avance y seguimiento mensual [PROP];
+  note right
+    Gestión del proyecto: rubro del costo de inversión
+    (Instructivo Formato 08-A, p. 19-20)
+    REG-CON-CDI-001, REG-INV-EJEC-005,
+    REG-INV-EJEC-006, REG-RNE-G050-001
+    ¿Continúa durante S4.4? (pendiente) [PROP]
+  end note
+end fork
 
 if (C2 ¿Contrato resuelto con saldo
 por ejecutar? [EQ]) then (Sí)

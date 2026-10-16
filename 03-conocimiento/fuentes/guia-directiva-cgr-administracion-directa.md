@@ -53,6 +53,9 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 | Fases | Aprobacion de la ejecucion, preparacion, ejecucion fisica, y culminacion y liquidacion; luego transferencia interna o externa | Num. 6.6, p. 7 | `REG-CGR-AD-001` |
 | Requisito previo | Expediente aprobado y actualizado, y modelado BIM 3D sin colisiones cuando corresponda | Num. 6.6, p. 7 | `REG-CGR-AD-001` |
 | Inicio del plazo | En entidades del SNPMGI, el plazo corre cuando se cumplen las condiciones de ese sistema; fuera de el, la directiva lista condiciones propias | Num. 7.3.1, p. 15 | - |
+| Plan de Abastecimiento de Obra | El residente lo elabora para todo el plazo segun los calendarios del expediente y emite al menos el 80% de los requerimientos en siete dias | Num. 7.2.3, p. 14 | `REG-CGR-AD-003` |
+| Adquisiciones previas al inicio | Sesenta dias para adquirir lo necesario para al menos los primeros treinta dias de obra; nada fuera del plan | Num. 7.2.4, p. 14 | `REG-CGR-AD-004` |
+| Provision durante la obra | Almacen de obra y provision de bienes y servicios segun calendario, con control patrimonial y financiero | Num. 7.3.3, p. 15-16 | - |
 | Culminacion | Anotacion del residente, corroboracion del inspector o supervisor en cinco dias y designacion del Comite de Culminacion y Liquidacion | Num. 7.4, p. 19-20 | `REG-CGR-AD-002` |
 
 ## Alertas

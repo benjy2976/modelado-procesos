@@ -27,6 +27,9 @@ Cada guia resume una fuente consultada para que una persona o un agente sepa que
 | [Reglamento de la Ley 32069](guia-reglamento-ley-32069.md) | Reglamento de la Ley General de Contrataciones Publicas | Normativa | Ejecucion contractual de obras: inicio, supervision, recepcion, resolucion y liquidacion |
 | [Directiva de administracion directa](guia-directiva-cgr-administracion-directa.md) | Directiva 017-2023-CG/GMPL | Normativa | Fases de la obra ejecutada por administracion directa |
 | [Norma Tecnica de gestion por procesos](guia-nt-002-2025-pcm-sgp.md) | NT 002-2025-PCM-SGP | Normativa | Niveles, documentos y aprobacion de procesos |
+| [Directivas OECE del Cuaderno de Incidencias y valorizaciones](guia-directivas-oece-cdi-valorizaciones.md) | Directivas 017-2025 y 018-2025-OECE-CD | Normativa | Rol Monitor de la entidad |
+| [Instructivo del Formato 08-A](guia-instructivo-formato-08-a.md) | MEF, Directiva 001-2019-EF/63.01 | Referencia (fuente externa por incorporar) | Costo y tareas de la gestion del proyecto |
+| [Norma G.050 del RNE](guia-rne-g050-seguridad-construccion.md) | DS 010-2009-VIVIENDA | Normativa | Equipo de proteccion en obra |
 | [Manual BPMN 2.0](guia-manual-bpmn.md) | Freund, Rucker y Hitpass, 4.a edicion 2014 | Referencia tecnica | Buenas practicas de notacion |
 
 ## Como se mantienen

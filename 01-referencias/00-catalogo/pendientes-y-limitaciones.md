@@ -40,6 +40,8 @@ El lote descargado constituye una biblioteca base para modelar la ejecucion de i
 
 - Ley 29230 de Obras por Impuestos, su reglamento y disposiciones vigentes.
 - Normativa del Sistema Nacional de Abastecimiento aplicable a la recepcion de bienes.
+- Instructivo vigente del Formato N 08-A del MEF (consultado en linea el 2026-10-16; version 2019) y su eventual actualizacion al DS 140-2026-EF.
+- Ley 29783 de Seguridad y Salud en el Trabajo y su reglamento, para la provision de equipos de proteccion al personal de la entidad.
 
 Hasta incorporarlas, las afirmaciones sobre esos temas se registran como `EVIDENCIA-INSUFICIENTE`.
 
