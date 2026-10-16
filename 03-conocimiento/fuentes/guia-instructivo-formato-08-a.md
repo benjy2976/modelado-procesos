@@ -23,8 +23,8 @@ Sube a: [Guias de lectura de fuentes](00-fuentes.md)
 
 Instructivo de la Direccion General del MEF para registrar el Formato N 08-A "Registros en la fase de Ejecucion para proyectos de inversion". Es una **guia de aplicacion** (clase `REFERENCIA`), no una norma: orienta como registrar, pero no crea obligaciones por si misma. Para S4.3 importa porque define el costo de **gestion del proyecto**.
 
-> [!warning] Fuente externa aun no incorporada a la biblioteca
-> Se consulto desde el portal del MEF el 2026-10-16. Debe incorporarse mediante el catalogador documental antes de usarla como sustento de una linea base.
+> [!note] Incorporada a la biblioteca
+> Se incorporo el 2026-10-16 con el descargador como `INV-005`; el archivo descargado coincide por hash con el consultado en linea.
 
 ## Identificacion
 
@@ -33,6 +33,8 @@ Instructivo de la Direccion General del MEF para registrar el Formato N 08-A "Re
 | Titulo | Instructivo del Formato N 08-A, Registro en la Fase de Ejecucion para Proyectos de Inversion |
 | Emisor | Ministerio de Economia y Finanzas (Direccion General de Inversion Publica) |
 | Version | Directiva 001-2019-EF/63.01; portada "2019, actualizado al 05 de setiembre" |
+| Catalogo | `INV-005` |
+| Original | [instructivo-formato-08-a.pdf](../../01-referencias/03-invierte-pe/formatos-ejecucion/instructivo-formato-08-a.pdf) |
 | URL oficial | https://www.mef.gob.pe/contenidos/inv_publica/docs/Instructivo_BI/Instructivo_Formato_08_ejecucion.pdf |
 | SHA-256 del archivo consultado | `2978F1FC70A2247736898559F94281BE76F857BB466FB7993CACC7DDD79AE2D0` |
 | Paginas | 36, con texto |

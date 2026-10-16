@@ -12,26 +12,29 @@ confidencialidad: INTERNO
 tags:
   - tema/referencias
 ---
+
+<!-- GENERADO - NO EDITAR: 05-herramientas/catalogador-documental/evaluar_calidad.py -->
+
 # Resumen de calidad documental
 
-- Fecha de evaluacion: 2026-10-15
-- Archivos evaluados: 219
+- Fecha de evaluacion: 2026-10-16
+- Archivos evaluados: 229
 - Fallas de integridad o hash: 0
-- PDF sin texto que requieren OCR en copia derivada: 4
+- PDF sin texto que requieren OCR en copia derivada: 5
 - PDF con texto parcial que requieren revision: 0
 - Alcance: evaluacion automatica de integridad, extraccion de texto y trazabilidad; no constituye dictamen de vigencia juridica ni revision visual exhaustiva.
 
 ## Calificaciones
 
-- A-ALTA: 142
-- B-ADECUADA: 73
-- C-CONDICIONADA: 4
+- A-ALTA: 150
+- B-ADECUADA: 74
+- C-CONDICIONADA: 5
 
 ## Estado de texto
 
 - EDITABLE-OFFICE: 57
-- SIN-TEXTO_REQUIERE-OCR: 4
-- TEXTO-EXTRAIBLE: 158
+- SIN-TEXTO_REQUIERE-OCR: 5
+- TEXTO-EXTRAIBLE: 167
 
 ## Archivos que requieren OCR
 
@@ -39,6 +42,7 @@ tags:
 - `01-referencias/05-control-gubernamental/control-simultaneo/rc-n-219-2025-cg.pdf`
 - `01-referencias/07-normativa-tecnica-sectorial/rne/57-e.080-dise-o-y-construcci-n-con-tierra-reforzada---rm-n-121-2017-vivienda.pdf`
 - `01-referencias/07-normativa-tecnica-sectorial/rne/65-em.040-instalaciones-de-gas---rm-n-341-2018-vivienda.pdf`
+- `01-referencias/07-normativa-tecnica-sectorial/seguridad-salud-trabajo/ley_n__29783.pdf`
 
 ## Archivos con texto parcial
 

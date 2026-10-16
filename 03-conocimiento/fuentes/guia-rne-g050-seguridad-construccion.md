@@ -43,4 +43,4 @@ Norma del Reglamento Nacional de Edificaciones sobre seguridad y salud en obras 
 
 ## Alertas
 
-- La norma establece que el personal debe contar con el equipo, pero no quien lo provee al personal de la entidad. Esa obligacion del empleador suele regularse en la Ley 29783 de Seguridad y Salud en el Trabajo, que no esta en la biblioteca: `EVIDENCIA-INSUFICIENTE`.
+- La norma establece que el personal debe contar con el equipo, pero no quien lo provee al personal de la entidad. Esa obligacion del empleador suele regularse en la Ley 29783 de Seguridad y Salud en el Trabajo y su reglamento, incorporados el 2026-10-16 (`TEC-003`, `TEC-003A`) y aun no leidos; la ley requiere OCR en copia derivada. Mientras tanto: `EVIDENCIA-INSUFICIENTE`.

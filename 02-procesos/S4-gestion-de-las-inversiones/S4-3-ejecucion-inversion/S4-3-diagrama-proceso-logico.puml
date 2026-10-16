@@ -95,7 +95,8 @@ fork again
     (Instructivo Formato 08-A, p. 19-20)
     REG-CON-CDI-001, REG-INV-EJEC-005,
     REG-INV-EJEC-006, REG-RNE-G050-001
-    ¿Continúa durante S4.4? (pendiente) [PROP]
+    Solo durante S4.3; S4.2 y S4.4 usan sus
+    propios componentes del Formato 08 [EQ]
   end note
 end fork
 

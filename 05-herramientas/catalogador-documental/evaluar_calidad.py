@@ -217,6 +217,23 @@ def main() -> int:
     unreadable = [r for r in results if "OCR-REQUERIDO" in str(r["alertas"])]
     partial = [r for r in results if "OCR-PARCIAL" in str(r["alertas"])]
     report = [
+        "---",
+        "id: REF-RESUMEN-CALIDAD-DOCUMENTAL",
+        "tipo: evidencia",
+        "area: referencias",
+        "estado_documento: VIGENTE",
+        "clase_conocimiento: OBSERVADO",
+        "proceso: []",
+        "fecha_creacion: 2026-10-15",
+        f"fecha_actualizacion: {date.today().isoformat()}",
+        "responsable: equipo-proyecto",
+        "confidencialidad: INTERNO",
+        "tags:",
+        "  - tema/referencias",
+        "---",
+        "",
+        "<!-- GENERADO - NO EDITAR: 05-herramientas/catalogador-documental/evaluar_calidad.py -->",
+        "",
         "# Resumen de calidad documental",
         "",
         f"- Fecha de evaluacion: {date.today().isoformat()}",

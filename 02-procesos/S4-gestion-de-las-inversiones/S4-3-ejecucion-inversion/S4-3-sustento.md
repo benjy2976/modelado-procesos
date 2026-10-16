@@ -121,8 +121,8 @@ Respuestas del equipo del proyecto del 2026-10-16 a las preguntas P1-P6. Clase `
 
 | N | Respuesta del equipo | Contraste con las fuentes | Efecto en el modelo |
 |---|---|---|---|
-| P1 | S4.3 abarca todas las inversiones, no solo obras | Coherente: la fase de Ejecucion rige para proyectos e IOARR (`REG-INV-EJEC-001`). Para bienes y servicios la conformidad la otorga el area usuaria y la recepcion de bienes se rige por el Sistema Nacional de Abastecimiento (`REG-CON-BYS-001`); esa normativa no esta en la biblioteca: `EVIDENCIA-INSUFICIENTE` | Se elimina la compuerta "Obra?"; S4.3.3 cubre recepcion de obra y conformidad de bienes y servicios |
-| P2 | Modalidades en uso: contrata, administracion directa y Obras por Impuestos. Los convenios son, en general, para que el GORE ejecute; son una condicion del proyecto, no una modalidad | Contrata: Reglamento de la Ley 32069. Administracion directa: `REG-CGR-AD-001` y justificacion previa `REG-INV-EJEC-008`. Obras por Impuestos (Ley 29230 y su reglamento): sin fuentes en la biblioteca, `EVIDENCIA-INSUFICIENTE` | S4.3.1 cubre contratacion, preparacion por administracion directa y Obras por Impuestos; convenios como entrada |
+| P1 | S4.3 abarca todas las inversiones, no solo obras | Coherente: la fase de Ejecucion rige para proyectos e IOARR (`REG-INV-EJEC-001`). Para bienes y servicios la conformidad la otorga el area usuaria y la recepcion de bienes se rige por el Sistema Nacional de Abastecimiento (`REG-CON-BYS-001`); la Directiva 0004-2021-EF/54.01 y su modificatoria se incorporaron a la biblioteca el 2026-10-16 (`PRES-002`, `PRES-002A`) y estan pendientes de lectura | Se elimina la compuerta "Obra?"; S4.3.3 cubre recepcion de obra y conformidad de bienes y servicios |
+| P2 | Modalidades en uso: contrata, administracion directa y Obras por Impuestos. Los convenios son, en general, para que el GORE ejecute; son una condicion del proyecto, no una modalidad | Contrata: Reglamento de la Ley 32069. Administracion directa: `REG-CGR-AD-001` y justificacion previa `REG-INV-EJEC-008`. Obras por Impuestos: TUO de la Ley 29230, su reglamento y su modificatoria se incorporaron a la biblioteca el 2026-10-16 (`INV-006`, `INV-006A`, `INV-006B`) y estan pendientes de lectura | S4.3.1 cubre contratacion, preparacion por administracion directa y Obras por Impuestos; convenios como entrada |
 | P3 | La salida "No" de "Solo construccion?" es diseno y construccion: el contrato existe desde S4.2, por lo que no hay procura | Coherente: en diseno y construccion el contratista elabora el expediente y ejecuta la obra (`REG-CON-OBRA-001`); el contrato puede terminarse durante el diseno (Reglamento Ley 32069, art. 175.2, p. 93). Las condiciones de inicio del art. 176.1 aplican tambien a este sistema (`REG-CON-OBRA-002`). Queda por confirmar en que proceso se contrata la supervision | Compuerta C1: "Diseno y construccion con contrato vigente desde S4.2?" |
 | P4 | La liquidacion ocurre en S4.4 | En contrata la liquidacion sigue a la recepcion o a la resolucion consentida (`REG-CON-OBRA-005`). En administracion directa un mismo Comite de Culminacion y Liquidacion actua en S4.3 y S4.4 (`REG-CGR-AD-002`). El registro de la culminacion en el Formato 09, seccion B (`REG-INV-EJEC-007`), sigue sin asignar | S4.3 termina con la recepcion o constatacion y entrega informacion a S4.4 |
 | P5 | La planificacion de la ejecucion que realiza la entidad va en la procura; la demas planificacion la hacen los especialistas de obra | Parcialmente coherente: la definicion reglamentaria incluye la planificacion para el expediente tecnico y para la ejecucion fisica (`REG-INV-EJEC-002`). Si se ubica en S4.3.1, la planificacion previa al expediente debe quedar cubierta en S4.2 | S4.3.1 incluye la planificacion de la ejecucion fisica a cargo de la entidad; pendiente confirmar la de S4.2 |
@@ -182,7 +182,7 @@ Resultado de la investigacion (2026-10-16):
 | Registro del rubro | El Formato 09 de cierre desagrega el costo en gestion del proyecto, expediente tecnico, supervision y liquidacion | `NORMATIVO` citado | RD 0002-2025-EF/63.01, Formato 09, p. 2-3 |
 | Monitor | Rol de la entidad para el monitoreo y seguimiento de contratos de obra y consultoria de obra, asignable a uno o mas servidores; accede a las valorizaciones del SEACE | `NORMATIVO` citado | `REG-CON-CDI-001`, `REG-CON-CDI-002`, `REG-CON-VAL-001` |
 | Equipo de proteccion | Todo el personal que labora en obra debe contar con equipo de proteccion; los visitantes usan casco verde | `NORMATIVO` citado | `REG-RNE-G050-001` |
-| Provision del equipo de proteccion al personal de la entidad | No consta en la biblioteca (Ley 29783) | `EVIDENCIA-INSUFICIENTE` | - |
+| Provision del equipo de proteccion al personal de la entidad | Ley 29783 y su reglamento incorporados el 2026-10-16 (`TEC-003`, `TEC-003A`); pendientes de lectura y la ley requiere OCR en copia derivada | `EVIDENCIA-INSUFICIENTE` hasta su lectura | - |
 | Materiales de escritorio e impresion | Encajan como "materiales" del costo de gestion del proyecto | `INFERENCIA` | Instructivo del Formato 08-A, p. 19 |
 
 Implicancias (`INFERENCIA`):
@@ -194,6 +194,18 @@ Implicancias (`INFERENCIA`):
 | N | Pregunta |
 |---|---|
 | P14 | El subproceso de gestion y seguimiento termina con la recepcion (fin de S4.3) o continua acompanando la liquidacion y el cierre en S4.4? |
+
+### Alcance de la gestion por etapa y del modelamiento
+
+Respuesta del equipo del proyecto del 2026-10-16:
+
+| Aspecto | Contenido | Clase |
+|---|---|---|
+| Gestion por etapa en el GORE | Conceptualmente la gestion acompana la inversion hasta la liquidacion y el cierre, pero en el GORE cada etapa se financia y contrata con su propio componente del Formato 08: el componente de expediente tecnico en S4.2, el de gestion del proyecto solo en S4.3 y el de liquidacion en S4.4 | `OBSERVADO` (practica del GORE descrita por el equipo) |
+| Alcance de S4.3.4 | El subproceso de gestion y seguimiento inicia y termina dentro de S4.3 | `DECISION` del equipo (`DEC-022`) |
+| Alcance del modelamiento | Se modela desde el nivel 2 en adelante; el mapa Nivel 0 y la ficha S4 con su descomposicion de nivel 1 no se modifican por ahora | `DECISION` del equipo (`DEC-022`) |
+
+Contraste (`INFERENCIA`): la practica es coherente con el Formato 08-A, que registra como rubros separados del costo de inversion la gestion del proyecto, el expediente tecnico, la supervision y la liquidacion, cada uno con fechas propias ([Instructivo del Formato 08-A](../../../03-conocimiento/fuentes/guia-instructivo-formato-08-a.md), p. 19 y 26). La extension conceptual de la gestion "hasta la liquidacion y el cierre" (p. 20) se registra como observacion para una futura revision del nivel 1 en el [sustento de S4](../S4-sustento.md).
 
 ### Situacion de las observaciones
 

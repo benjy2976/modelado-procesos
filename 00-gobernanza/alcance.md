@@ -19,7 +19,7 @@ tags:
 ## Incluye
 
 - Biblioteca normativa e institucional relacionada con gestion y ejecucion de inversiones.
-- Modelamiento progresivo de los niveles inferiores de S4.3.
+- Modelamiento progresivo de los niveles inferiores de S4.3, desde el nivel 2 en adelante (`DEC-022`). El mapa Nivel 0 y la ficha S4 aprobados no se modifican por ahora; las mejoras al nivel 1 se registran como observaciones en el sustento de S4.
 - Trazabilidad entre norma, regla, actividad, rol, sistema, evidencia, riesgo y control.
 - Catalogo versionado de reglas y validacion especializada mediante una aplicacion web interna.
 - Paquetes de contexto controlados para el trabajo con personas y modelos de IA.

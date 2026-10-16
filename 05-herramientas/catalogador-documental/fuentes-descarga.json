@@ -1,5 +1,5 @@
 {
-  "fecha_corte": "2026-10-14",
+  "fecha_corte": "2026-10-16",
   "landing_pages": [
     {
       "id": "PROC-001",
@@ -168,6 +168,36 @@
       "url": "https://www.gob.pe/es/institucion/vivienda/informes-publicaciones/2309793-reglamento-nacional-de-edificaciones-rne",
       "destino": "01-referencias/07-normativa-tecnica-sectorial/rne",
       "aplicabilidad": 3
+    },
+    {
+      "id": "INV-006",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/2941618-081-2022-ef",
+      "destino": "01-referencias/03-invierte-pe/obras-por-impuestos/tuo-ley-29230",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "INV-006B",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/5185738-011-2024-ef",
+      "destino": "01-referencias/03-invierte-pe/obras-por-impuestos/reglamento",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "TEC-003",
+      "url": "https://www.gob.pe/institucion/congreso-de-la-republica/normas-legales/462576-29783",
+      "destino": "01-referencias/07-normativa-tecnica-sectorial/seguridad-salud-trabajo",
+      "aplicabilidad": 3
+    },
+    {
+      "id": "TEC-003A",
+      "url": "https://www.gob.pe/institucion/presidencia/normas-legales/462577-005-2012-tr",
+      "destino": "01-referencias/07-normativa-tecnica-sectorial/seguridad-salud-trabajo",
+      "aplicabilidad": 3
+    },
+    {
+      "id": "INV-006A",
+      "url": "https://www.gob.pe/institucion/mef/normas-legales/3467331-210-2022-ef",
+      "destino": "01-referencias/03-invierte-pe/obras-por-impuestos/reglamento",
+      "aplicabilidad": 4
     }
   ],
   "direct_downloads": [
@@ -362,6 +392,24 @@
       "url": "https://www.mef.gob.pe/contenidos/inv_publica/anexos/instructivo_formato9_RD0005_2021EF6301.pdf",
       "destino": "01-referencias/08-bim/08-plantillas-oficiales/instructivos/instructivo-tidp.pdf",
       "aplicabilidad": 5
+    },
+    {
+      "id": "INV-005",
+      "url": "https://www.mef.gob.pe/contenidos/inv_publica/docs/Instructivo_BI/Instructivo_Formato_08_ejecucion.pdf",
+      "destino": "01-referencias/03-invierte-pe/formatos-ejecucion/instructivo-formato-08-a.pdf",
+      "aplicabilidad": 4
+    },
+    {
+      "id": "PRES-002",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/2149387/RD0011_2021EF5401.pdf.pdf?v=1630595278",
+      "destino": "01-referencias/06-presupuesto-y-administracion/abastecimiento/rd-0011-2021-ef-54-01-directiva-0004-2021-almacenamiento-distribucion.pdf",
+      "aplicabilidad": 3
+    },
+    {
+      "id": "PRES-002A",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/3963111/RD0006_2022EF5401.pdf.pdf",
+      "destino": "01-referencias/06-presupuesto-y-administracion/abastecimiento/rd-0006-2022-ef-54-01-modifica-directiva-0004-2021.pdf",
+      "aplicabilidad": 3
     }
   ]
 }
