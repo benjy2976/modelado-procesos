@@ -34,6 +34,13 @@ tags:
 | PlantUML | Notacion textual utilizada para construir modelos logicos con carriles y generar vistas SVG durante el levantamiento. | No |
 | Derivado | Archivo generado desde una fuente maestra, como SVG, PDF, resumen Markdown o reporte; no se edita manualmente. | No |
 | Iniciativa | Cambio o capacidad transversal documentada con alcance, arquitectura, fases, riesgos, pruebas y criterios de aceptacion. | No |
+| Nivel de proceso | Clasificacion de los procesos segun su desagregacion: el nivel 0 o macroproceso es el mas agregado y se desagrega en nivel 1, nivel 2 hasta el ultimo nivel n. NT 002-2025-PCM-SGP, glosario, pagina PDF 22. | No |
+| Ficha de producto y proceso | Documento que registra y describe los elementos de la caracterizacion de un proceso e incluye su diagrama. NT 002-2025-PCM-SGP, numeral 6.1.3 a y Anexo 2. En el proyecto es la fuente del PDF a aprobar. | No |
+| Procedimiento | Descripcion de las tareas de un proceso de ultimo nivel; solo se elabora si cumple algun criterio y como maximo uno por proceso. NT 002-2025-PCM-SGP, numeral 6.1.3 d y Anexo 7. | No |
+| Dueno del proceso | Unidad de organizacion con responsabilidad y autoridad para disenar, implementar, controlar y mejorar el proceso; elabora y aprueba su documentacion. NT 002-2025-PCM-SGP, Anexo 2 y numeral 6.1.4. | No |
+| Sustento | Archivo de cada proceso que registra fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias e historial de revision; no se exporta (`DEC-017`). | No |
+| Propuesta | Todo documento de proceso aun no aprobado. Tambien designa el unico archivo `-propuesta` con que se plantea variar un documento aprobado (`DEC-017`). | No |
+| Nivel de revision | Etapa del circuito de un documento de proceso: `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA` y `APROBACION` (`DEC-017`). | No |
 | EIR | Requisitos de intercambio de informacion. | Si |
 | BEP | Plan de Ejecucion BIM. | Si |
 | MIDP | Programa general de desarrollo de la informacion. | Si |

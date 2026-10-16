@@ -7,18 +7,19 @@ confirmacion_estado:
   fecha: 2026-10-16
   observacion: El acto y la fecha formal de aprobacion no son visibles en el PDF recibido.
 autoridad:
-  contenido_institucional: ../01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf
-  vista_logica: s4-gestion-de-las-inversiones-logico.puml
-  nota_estructurada: s4-gestion-de-las-inversiones.md
+  contenido_institucional: ../../01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf
+  vista_logica: s4-diagrama-proceso-logico.puml
+  ficha: s4-ficha-producto-proceso.md
+  sustento: s4-sustento.md
 fuente:
   sha256: F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83
   paginas_pdf: 1-7
   pagina_diagrama_pdf: 4
   paginas_impresas: 120-126
 artefactos:
-  fuente_plantuml: s4-gestion-de-las-inversiones-logico.puml
-  derivado_svg: s4-gestion-de-las-inversiones-logico.svg
-  motor: ../05-herramientas/gestor-modelos/plantuml.lock.json
+  fuente_plantuml: s4-diagrama-proceso-logico.puml
+  derivado_svg: s4-diagrama-proceso-logico.svg
+  motor: ../../05-herramientas/gestor-modelos/plantuml.lock.json
 semantica:
   alcance: Interacciones del proceso S4 y su descomposicion aprobada en S4.1 a S4.5.
   interpretacion_flechas: Intercambio de entradas o productos; no representa orden temporal.

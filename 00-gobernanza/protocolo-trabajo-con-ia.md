@@ -32,7 +32,7 @@ Toda tarea asistida por IA debe poder reconstruirse a partir de fuentes identifi
 
 ## Paquete de contexto
 
-Cada tarea debe declarar un archivo basado en `04-recursos-reutilizables/plantillas/paquete-contexto.yaml`. Como minimo contiene:
+Cada tarea debe declarar un archivo basado en `00-gobernanza/plantillas/conocimiento/paquete-contexto.yaml`. Como minimo contiene:
 
 - objetivo y producto esperado;
 - proceso, modalidad y limites;

@@ -1,10 +1,18 @@
 ---
-id: AP-S4-GESTION-INVERSIONES
+id: AP-S4-FICHA-PRODUCTO-PROCESO
 tipo: nota-conocimiento
-area: arquitectura-procesos
+area: procesos
 estado_documento: VIGENTE
 clase_conocimiento: REFERENCIA
+codigo_proceso: S4
+nivel_proceso: 0
+tipo_proceso: APOYO
+proceso_padre: null
+documento_nt: ficha-producto-proceso
+anexo_nt: 2
 estado_institucional: APROBADO
+nivel_revision: null
+modifica: null
 confirmacion_estado: equipo-proyecto-2026-10-16
 proceso:
   - S4
@@ -17,53 +25,24 @@ tags:
   - proceso/s4
 ---
 
-# S4 Gestion de las inversiones
+# S4 Gestion de las inversiones - Ficha de producto y proceso
 
-Esta nota transcribe la ficha institucional aprobada de S4, su descomposicion Nivel 1, sus intercambios y sus tres fichas de indicadores. Sus elementos constituyen regla de arquitectura para este proyecto y fuente de consulta estructurada para el futuro modelamiento de S4.3; no contiene aun la descomposicion propuesta por el equipo.
+[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [S4](README.md)
 
-> [!important] Linea base institucional aprobada
-> El equipo del proyecto confirmo el 2026-10-16 que la ficha S4 es oficial y aprobada. El PDF original conserva la maxima autoridad; esta traduccion Markdown/PlantUML queda pendiente de la comprobacion humana de fidelidad. Se preservan las denominaciones y aparentes errores relevantes del original, y las discrepancias se registran expresamente.
+Transcripcion de la ficha institucional aprobada del proceso Nivel 0 S4 (formato institucional, version 3.0), ordenada segun los campos de la ficha de producto y proceso de la NT 002-2025-PCM-SGP. El contenido se conserva tal como figura en el original; su fuente, calidad, control de fidelidad y discrepancias se encuentran en el [sustento de S4](s4-sustento.md).
 
-## Identificacion documental
+> [!important] Documento aprobado
+> El equipo del proyecto confirmo el 2026-10-16 que la ficha S4 es oficial y aprobada. Este documento no se edita: cualquier variacion se plantea en un archivo `-propuesta`. La transcripcion queda pendiente de la comprobacion humana de fidelidad.
 
-| Campo | Valor observado |
-|---|---|
-| Documento | Ficha del proceso Nivel 0 S4 y fichas de indicadores |
-| Codigo del mapa | SGMD-MP-003 |
-| Version | 3.0 |
-| Ubicacion precisa | Paginas PDF 1-7; paginas impresas 120-126 |
-| Fecha de consulta | 2026-10-15 |
-| Vigencia | Aprobado y adoptado como linea base vigente del proyecto por confirmacion del equipo; acto y fecha formal no visibles en el PDF |
-| SHA-256 | `F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83` |
-| Original inmutable | [s4-gestion-inversion.pdf](../01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf) |
+## Nombre del proceso
 
-### Calidad tecnica de la fuente
+S4. Gestion de las inversiones
 
-- Las siete paginas poseen una capa de texto utilizable; no se aplico OCR.
-- Las siete paginas fueron renderizadas e inspeccionadas visualmente para contrastar estructura, tablas y diagrama.
-- La pagina impresa 123 contiene el diagrama principalmente como grafico; sus relaciones se contrastaron con las tablas de las paginas impresas 120-121.
-- La legibilidad es suficiente para consulta y transcripcion. Las discrepancias documentales enumeradas mas adelante forman parte del control de fidelidad y no se corrigen sin decision institucional.
+## Tipo de proceso
 
-## Autoridad y uso
+Apoyo
 
-- El PDF institucional es la fuente primaria aprobada.
-- Esta nota es la traduccion estructurada para consulta, trazabilidad y posterior modelamiento.
-- El archivo [PlantUML logico](s4-gestion-de-las-inversiones-logico.puml) es la fuente editable de la vista visual y el [SVG](s4-gestion-de-las-inversiones-logico.svg) es su derivado generado.
-- La [configuracion del modelo](s4-gestion-de-las-inversiones-modelo.yaml) declara fuente, alcance, artefactos y estado de revision.
-- Ninguna discrepancia del original se armoniza automaticamente. Una correccion requiere evidencia o decision institucional registrada.
-
-## Ficha del proceso Nivel 0
-
-| Campo | Transcripcion observada |
-|---|---|
-| Nombre del proceso | S4. Gestion de las inversiones |
-| Version | 3.0 |
-| Objetivo | Determinar el uso adecuado de los recursos publicos destinados a la inversion para la efectiva prestacion de servicios y la provision de la infraestructura necesaria en el plazo previsto alineados al cierre de brechas. |
-| Tipo de proceso | Apoyo |
-| Objetivo estrategico | OEI. 06 Garantizar una gestion institucional orientada al ciudadano. |
-| Accion estrategica | AEI.06.10 Procesos administrativos eficientes en inversiones para Infraestructura en el departamento de Huanuco. |
-
-### Dueno del proceso
+## Dueno del proceso
 
 - Gerencia Regional de Infraestructura.
   - Sub Gerencia de Estudios.
@@ -83,7 +62,22 @@ Esta nota transcribe la ficha institucional aprobada de S4, su descomposicion Ni
 - Direccion Regional de Agricultura.
 - Direccion Regional de Energia y Minas.
 
-## Descomposicion observada en Nivel 1
+## Objetivo del proceso
+
+Determinar el uso adecuado de los recursos publicos destinados a la inversion para la efectiva prestacion de servicios y la provision de la infraestructura necesaria en el plazo previsto alineados al cierre de brechas.
+
+## Objetivo estrategico
+
+| Campo | Transcripcion observada |
+|---|---|
+| Objetivo estrategico | OEI. 06 Garantizar una gestion institucional orientada al ciudadano. |
+| Accion estrategica | AEI.06.10 Procesos administrativos eficientes en inversiones para Infraestructura en el departamento de Huanuco. |
+
+## Proveedor, elementos de entrada, producto y receptor
+
+La ficha institucional organiza estos elementos por proceso Nivel 1. En las tablas, `Entrada` identifica al proveedor y el elemento de entrada; `Salida` identifica el producto y su receptor.
+
+### Procesos Nivel 1 y responsables
 
 | Codigo | Proceso | Responsable observado |
 |---|---|---|
@@ -92,8 +86,6 @@ Esta nota transcribe la ficha institucional aprobada de S4, su descomposicion Ni
 | S4.3 | Ejecucion de la inversion | Sub Gerencia de Gestion de Obras y Supervision; unidades ejecutoras que pertenecen al GRH |
 | S4.4 | Liquidacion, transferencia y cierre de inversion | Sub Gerencia de Liquidacion; unidades ejecutoras que pertenecen al GRH |
 | S4.5 | Funcionamiento - OPMI | Sub Gerencia de Programacion Multianual de Inversiones |
-
-## Intercambios observados
 
 Las filas siguientes estructuran la tabla de las paginas impresas 120-121. Describen proveedores, entradas, productos y receptores; no agregan actividades ni una secuencia que la fuente no declare.
 
@@ -154,153 +146,36 @@ Las filas siguientes estructuran la tabla de las paginas impresas 120-121. Descr
 | Salida | MEF | Evaluacion EX POST |
 | Salida | E1.3 Desarrollo de la cartera de inversiones multianual | Actualizacion de brecha del diagnostico |
 
-## Vista logica reproducible
+## Actividades del proceso
 
 La vista siguiente fue generada localmente desde PlantUML. Presenta los cinco procesos Nivel 1, los responsables consignados y las entradas y salidas de las paginas impresas 120-123. Las flechas centrales representan intercambios entre procesos de S4, no orden temporal ni flujo de secuencia BPMN.
 
-![Vista logica de interacciones aprobadas de S4](s4-gestion-de-las-inversiones-logico.svg)
+![Vista logica de interacciones aprobadas de S4](s4-diagrama-proceso-logico.svg)
 
-La fuente se regenera y comprueba con el [gestor local de modelos](../05-herramientas/gestor-modelos/README.md). El SVG es derivado y no debe editarse manualmente.
+La fuente se regenera y comprueba con el [gestor local de modelos](../../05-herramientas/gestor-modelos/README.md). El SVG es derivado y no debe editarse manualmente.
 
-### Vista Mermaid provisional
+## Indicadores del proceso
 
-Esta vista anterior se conserva temporalmente como control comparativo hasta que el equipo acepte la traduccion PlantUML. Es un indice visual Mermaid, no un modelo BPMN ni una declaracion de orden temporal.
+Las fichas de indicador S4-IND-1, S4-IND-2 y S4-IND-3 se registran en [fichas de indicador de S4](s4-fichas-indicador.md).
 
-```mermaid
-flowchart LR
-    EXT["Poblacion y gobiernos"] -->|"Necesidades / convenios"| P41["S4.1\nFormulacion y evaluacion"]
-    EXT -->|"Convenios"| P42["S4.2\nExpediente tecnico"]
-    EXT -->|"Convenios"| P43["S4.3\nEjecucion de la inversion"]
-    PCM["PCM"] -->|"Declaratoria de emergencia"| P41
-    E13["E1.3 Cartera multianual"] -->|"Cartera de inversiones"| P41
-    S32["S3.2 Contratacion"] -->|"Servicio / bien / consultoria / obra"| P41
-    S32 --> P42
-    S32 --> P43
-    P41 -->|"Proyecto viable / IOAAR / programa viable"| P42
-    P41 -->|"Proyecto viable / IOAAR / programa viable"| MIN["Ministerios"]
-    P42 -->|"Expediente o documento equivalente / EETT"| P43
-    P42 -->|"Expediente o documento equivalente / EET"| MIN
-    P43 -->|"Estado situacional por saldo de obra"| P42
-    P42 -->|"Informacion para liquidacion ET"| P44["S4.4\nLiquidacion, transferencia y cierre"]
-    P43 -->|"Informacion tecnica y financiera"| P44
-    P44 -->|"Formato N°9"| P45["S4.5\nFuncionamiento - OPMI"]
-    P41 --> S31["S3.1 Programacion de bienes y servicios"]
-    P42 --> S31
-    P43 --> S31
-    P43 -->|"Expediente para pagos"| S21["S2.1 Gestion Contable"]
-    P43 -->|"Reporte"| MEF["MEF / INFOBRAS"]
-    P44 -->|"Registro de cierre"| MEF
-    P44 -->|"Inversion transferida"| UP["Unidad productora"]
-    P45 -->|"Brecha / Evaluacion EX POST"| MEF
-    P45 -->|"Actualizacion de brecha"| E13
-```
+## Datos propios del formato institucional
 
-## Control de fidelidad de la traduccion
+| Campo | Transcripcion observada |
+|---|---|
+| Version | 3.0 |
 
-| Control | Resultado tecnico | Estado humano |
+## Elaborado por, revisado por y aprobado por
+
+| Elaborado por | Revisado por | Aprobado por |
 |---|---|---|
-| Procesos Nivel 1 | 5 de 5 representados: S4.1 a S4.5 | Pendiente de conformidad |
-| Filas de interaccion | 32 de 32 transcritas en las tablas y notas visuales | Pendiente de conformidad |
-| Interacciones dirigidas unicas | 26 de 26 representadas al descontar las seis relaciones internas repetidas como entrada y salida | Pendiente de conformidad |
-| Responsables | Los responsables de los cinco procesos se incorporaron desde las paginas impresas 120-121 | Pendiente de conformidad |
-| Indicadores | 3 de 3 fichas transcritas desde las paginas impresas 124-126 | Pendiente de conformidad |
-| Discrepancias del original | Se conservan y enumeran sin normalizacion silenciosa | Pendiente de decision cuando corresponda |
-| Derivado PlantUML | Generacion local reproducible y comprobacion byte a byte operativas | Superado tecnicamente |
+| Sin nombre visible en el original | Sin nombre visible en el original | Sin nombre visible en el original |
 
-> [!warning] Revision requerida
-> La comprobacion tecnica demuestra completitud estructural, no fidelidad institucional por si sola. El equipo debe contrastar esta nota y el SVG con el PDF aprobado. Hasta esa conformidad, la configuracion mantiene `PENDIENTE-REVISION-HUMANA`.
-
-## Indicadores observados
-
-### S4-IND-1 Proyectos declarados viables
-
-| Campo | Transcripcion observada |
-|---|---|
-| Producto | Proyecto de inversion viable / IOAAR aprobado / Programas de inversion viable |
-| Nombre | Porcentaje de proyectos de inversion declarados viables en el plazo previsto con Metodologia convencional |
-| Tipo | Misional |
-| Justificacion | Medir el numero de Estudios de Pre Inversion Viables y/o Aprobados con la Metodologia Convencional |
-| Responsable de medicion | Sub Gerencia de Formulacion y Evaluacion de Estudios de Pre Inversion |
-| Responsable de la accion | Gerencia Regional de Planeamiento, Presupuesto y Acondicionamiento Territorial (GRPPAT) |
-| Formula | `(PAA/PCA) x 100` |
-| PAA | Numero de Estudios de Pre Inversion Viables y/o Aprobados en el año |
-| PCA | Numero de Procesos PAC convocados oportunamente |
-| Especificacion | Metodologia Convencional: la formulacion de proyecto consiste en analizar y valorar viabilidad, rentabilidad y sostenibilidad, considerando aspectos tecnicos, economicos, sociales y ambientales |
-| Sentido / unidad / frecuencia | Ascendente / porcentaje / anual |
-| Fuente de datos | Inventario de proyectos de la Sub Gerencia de Estudios de Pre Inversion |
-| Ubicacion precisa | Pagina PDF 5; pagina impresa 124 |
-
-| Año | 2024 | 2025 | 2026 | 2027 | 2028 |
-|---|---:|---:|---:|---:|---:|
-| Valor | 70% | 73% | 76% | 78% | 80% |
-
-### S4-IND-2 Obras ejecutadas y culminadas
-
-| Campo | Transcripcion observada |
-|---|---|
-| Producto | Inversion transferida |
-| Nombre | Porcentaje de obras de Inversion Publica ejecutadas y culminadas en el año con acta de recepcion conforme |
-| Tipo | Misional |
-| Justificacion | Medir la eficiencia de ejecucion de obras de proyectos de inversion publica culminadas con acta de recepcion conforme ejecutadas en el año, ampliando la Infraestructura de Servicios en el ambito del Gobierno Regional Huanuco |
-| Responsable de medicion | Sub Gerencia de Obras y Supervision |
-| Responsable de la accion | Gerencia Regional de Infraestructura |
-| Formula | `(NOC/NOP) x 100` |
-| NOC | Numero de obras culminadas con acta de recepcion en el año |
-| NOP | Numero de obras programados para ejecutar en el año |
-| Especificacion | Considera obras nuevas, de continuidad, saldos de obra y otras, aprobadas mediante acta de recepcion |
-| Sentido / unidad / frecuencia | Ascendente / porcentaje / anual |
-| Fuente de datos | Control y seguimiento de la programacion de la SGOS; consulta amigable del SIAF de la ejecucion del gasto; evaluaciones del POI; actas de recepcion conforme |
-| Ubicacion precisa | Pagina PDF 6; pagina impresa 125 |
-
-| Año | 2024 | 2025 | 2026 | 2027 | 2028 |
-|---|---:|---:|---:|---:|---:|
-| Valor | 32.23% | 40.50% | 47.93% | 56.20% | 64.46% |
-
-### S4-IND-3 Proyectos cerrados
-
-| Campo | Transcripcion observada |
-|---|---|
-| Producto | Formato N°9. cierre de la inversion |
-| Nombre | Porcentaje de proyectos de inversion publica cerrados en el año |
-| Tipo | Misional |
-| Justificacion | Medir la eficiencia del cierre de proyectos de inversion programados en el año, para ampliar y mejorar la Infraestructura de Servicios en el ambito del Gobierno Regional Huanuco |
-| Responsable de medicion | Sub Gerencia de Liquidacion |
-| Responsable de la accion | Gerencia Regional de Infraestructura |
-| Formula | `(N/D) x 100` |
-| N | Numero de proyectos de inversion a cerrar en el año |
-| D | Numero de proyectos de inversion programados para cerrar en el año |
-| Especificacion | Para el cierre se consideran la liquidacion de cada componente del proyecto —expediente tecnico, ejecucion, supervision, gestion administrativa y mobiliarios—, el pago de saldos a favor y la transferencia |
-| Sentido / unidad / frecuencia | Ascendente / porcentaje / anual |
-| Fuente de datos | Control y seguimiento de la programacion de la SGL; consulta amigable del SIAF; evaluacion del POI; resoluciones de liquidacion de todos los componentes; tramite de cierre en Invierte.pe |
-| Ubicacion precisa | Pagina PDF 7; pagina impresa 126 |
-
-| Año | 2024 | 2025 | 2026 | 2027 | 2028 |
-|---|---:|---:|---:|---:|---:|
-| Valor | 48% | 55% | 63% | 71% | 82% |
-
-## Discrepancias y controles pendientes
-
-| Hallazgo observado | Tratamiento |
-|---|---|
-| El encabezado de la pagina impresa 120 dice `S4. Gestion de la inversion`, mientras el campo nombre dice `S4. Gestion de las inversiones`. | Se usa el nombre del campo estructurado y se conserva la discrepancia para revision de fidelidad. |
-| El proceso S4 figura como tipo `Apoyo`, pero las tres fichas califican sus indicadores como `Misional`. | No se armoniza sin decision institucional. |
-| La denominacion del proceso usa `IOARR`, mientras varios productos dicen `IOAAR`. | Se conservan ambos textos tal como aparecen; requiere correccion o confirmacion humana. |
-| La relacion S4.3 a S4.4 usa `Informacion tecnico y financiero para liquidacion ET` como salida de S4.3, `Informacion tecnico y financiero de la inversion` como entrada de S4.4 y una tercera formulacion en el diagrama de la pagina impresa 123. | La vista PlantUML conserva las dos formulaciones de la tabla en sus notas y usa en la flecha central la formulacion del diagrama; no se unifican sin decision institucional. |
-| El diagrama usa algunos prefijos `PA` para procesos que la ficha identifica como `S`. | La traduccion estructurada usa los codigos de la ficha y conserva el hallazgo; no se modifica el original. |
-| La seccion de indicadores de la pagina impresa 122 enumera solo S4-IND-1, pero las paginas siguientes contienen S4-IND-1, S4-IND-2 y S4-IND-3. | Se registran los tres y se mantiene el hallazgo. |
-| Los campos Elaborado por, Revisado por y Aprobado por aparecen sin nombres visibles. | EVIDENCIA-INSUFICIENTE para atribuir autoria, revision o aprobacion. |
-| La fuente no muestra en estas paginas el acto aprobatorio ni una fecha de vigencia. | La aprobacion fue confirmada por el equipo; permanece EVIDENCIA-INSUFICIENTE para identificar el acto y su fecha. |
-
-## Limites para el modelamiento
-
-- Esta nota representa la arquitectura institucional aprobada de S4; no es el AS-IS operativo detallado y validado con especialistas.
-- No se han inferido actividades internas de S4.3, responsables adicionales, compuertas, eventos, plazos, reglas contractuales ni requisitos BIM.
-- La primera descomposicion de S4.3 debe incorporar la propuesta del equipo como una nota de analisis separada y contrastarla con evidencia y normas antes de promoverla a linea base.
-- Cuando se modele el flujo operativo, el BPMN 2.0 XML sera la fuente maestra; cualquier SVG, PDF, Mermaid o Canvas sera una vista derivada. La vista PlantUML de esta nota sigue siendo una traduccion logica de la ficha aprobada, no un BPMN formal.
+La situacion se registra como `EVIDENCIA-INSUFICIENTE` en el [sustento de S4](s4-sustento.md).
 
 ## Relaciones
 
-- [Mapa de procesos Nivel 0](mapa-procesos-nivel-0.md)
-- [Inventario de procesos](inventario-procesos.md)
-- [Metodologia de modelamiento](../00-gobernanza/metodologia-modelamiento.md)
-- [Modelamiento de niveles siguientes](../03-modelamiento/README.md)
+- [Portada de S4](README.md)
+- [Fichas de indicador de S4](s4-fichas-indicador.md)
+- [Sustento de S4](s4-sustento.md)
+- [Inventario de productos y procesos](../mapa-de-procesos-institucional/inventario-productos-procesos.md)
+- [Mapa de procesos Nivel 0](../mapa-de-procesos-institucional/mapa-procesos-nivel-0.md)

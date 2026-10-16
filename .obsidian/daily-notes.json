@@ -1,5 +1,5 @@
 {
-  "folder": "06-coordinacion/diario",
+  "folder": "04-coordinacion/diario",
   "format": "YYYY/MM/YYYY-MM-DD",
-  "template": "04-recursos-reutilizables/plantillas/obsidian/diario"
+  "template": "00-gobernanza/plantillas/obsidian/diario"
 }

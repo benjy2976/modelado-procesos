@@ -69,19 +69,18 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 ## Estructura
 
-- [Gobernanza](00-gobernanza/README.md): reglas, metodo, decisiones y plan de trabajo.
+- [Gobernanza](00-gobernanza/README.md): reglas, metodo, decisiones, plantillas y plan de trabajo.
 - [Referencias](01-referencias/README.md): fuentes externas e institucionales; los originales son inmutables.
-- [Arquitectura de procesos](02-arquitectura-procesos/README.md): mapas aprobados e inventario de procesos.
-- [Modelamiento](03-modelamiento/README.md): trabajo vigente organizado por proceso y tipo de artefacto.
-- [Recursos reutilizables](04-recursos-reutilizables/README.md): plantillas, glosarios, actores, controles y componentes comunes.
-- [Herramientas](05-herramientas/README.md): utilidades de catalogacion, OCR, BPMN y trazabilidad.
-- [Coordinacion](06-coordinacion/README.md): reuniones, diario, Canvas y Bases transversales.
+- [Procesos](02-procesos/README.md): mapa institucional y procesos jerarquizados por codigo NT, cada uno con su ficha, indicadores, diagrama y sustento.
+- [Conocimiento](03-conocimiento/README.md): reglas normativas curadas, eventos de revision y catalogos comunes.
+- [Coordinacion](04-coordinacion/README.md): reuniones, diario, Canvas y Bases transversales.
+- [Herramientas](05-herramientas/README.md): utilidades de catalogacion, OCR, PlantUML, BPMN y trazabilidad.
 - [Bandeja de entrada](90-bandeja-entrada/README.md): archivos recibidos pendientes de clasificacion.
 - [Temporal](99-temporal/README.md): salidas transitorias que no deben versionarse.
 
 ## Fuentes maestras
 
-- Conocimiento y fichas: Markdown con metadatos YAML.
+- Conocimiento y fichas: Markdown con metadatos YAML; las fichas de proceso siguen los anexos de la NT 002-2025-PCM-SGP y son la fuente de sus PDF.
 - Datos tabulares: CSV o XLSX segun el uso.
 - Diagramas: BPMN 2.0 XML (`.bpmn`).
 - Intercambio BIM: formatos abiertos cuando sean aplicables, especialmente IFC y BCF.
@@ -89,7 +88,7 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 
 ## Conocimiento normativo y apoyo de IA
 
-La IA puede extraer, proponer, relacionar y revisar, pero no validar conocimiento normativo. Cada regla confiable debe vincularse con un original, hash, ubicacion precisa, vigencia y evento de validacion humana. Las reglas YAML son la fuente maestra; `04-recursos-reutilizables/conocimiento/catalogo-reglas.csv` es una vista regenerable.
+La IA puede extraer, proponer, relacionar y revisar, pero no validar conocimiento normativo. Cada regla confiable debe vincularse con un original, hash, ubicacion precisa, vigencia y evento de validacion humana. Las reglas YAML son la fuente maestra; `03-conocimiento/catalogo-reglas.csv` es una vista regenerable.
 
 Cada tarea de IA usa un paquete de contexto limitado. No se carga la biblioteca completa ni se aceptan afirmaciones normativas basadas en memoria general del modelo. El equipo validara las reglas mediante el flujo definido en `00-gobernanza/protocolo-conocimiento-confiable.md` y, progresivamente, mediante la aplicacion requerida en `05-herramientas/validador-conocimiento/README.md`.
 

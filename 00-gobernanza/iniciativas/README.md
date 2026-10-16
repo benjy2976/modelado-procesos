@@ -15,7 +15,7 @@ Este registro concentra las iniciativas que cambian herramientas, metodos, fuent
 
 | ID | Iniciativa | Estado | Siguiente hito |
 |---|---|---|---|
-| INI-001 | [Modelamiento hibrido PlantUML y BPMN](iniciativa-modelamiento-hibrido.md) | APROBADA | Implementar el piloto local PlantUML y actualizar la vista de interacciones de S4 |
+| INI-001 | [Modelamiento hibrido PlantUML y BPMN](iniciativa-modelamiento-hibrido.md) | APROBADA | Registrar la conformidad de fidelidad de la vista PlantUML de S4 (Fase 1 implementada) |
 
 ## Relaciones
 

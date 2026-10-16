@@ -30,7 +30,7 @@
     {
       "id": "conocimiento",
       "type": "file",
-      "file": "04-recursos-reutilizables/conocimiento/README.md",
+      "file": "03-conocimiento/README.md",
       "x": 940,
       "y": 0,
       "width": 400,
@@ -48,7 +48,7 @@
     {
       "id": "modelamiento",
       "type": "file",
-      "file": "03-modelamiento/README.md",
+      "file": "02-procesos/README.md",
       "x": 1420,
       "y": 40,
       "width": 420,

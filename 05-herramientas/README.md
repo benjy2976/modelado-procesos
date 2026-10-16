@@ -32,7 +32,7 @@ Las especificaciones son `extractor-documental/README.md` y `validador-conocimie
 - [Iniciativa del gestor de modelos](../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md)
 - [Estandar de artefactos de modelamiento](../00-gobernanza/estandar-artefactos-modelamiento.md)
 - [Referencias y catalogos](../01-referencias/README.md)
-- [Conocimiento estructurado](../04-recursos-reutilizables/conocimiento/README.md)
+- [Conocimiento estructurado](../03-conocimiento/README.md)
 
 ## Biblioteca publica reproducible
 

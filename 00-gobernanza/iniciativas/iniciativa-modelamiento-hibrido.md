@@ -208,6 +208,8 @@ La web se construira despues de estabilizar la CLI y debe permitir:
 | RF-10 | Comparar versiones por elementos e IDs, ademas del diff textual. |
 | RF-11 | Ejecutar controles previos a revision y release. |
 | RF-12 | Procesar por lote todos los modelos registrados. |
+| RF-13 | Exportar fichas de producto y proceso, fichas de indicador y procedimientos a PDF con la maquetacion de los anexos de la NT 002-2025-PCM-SGP, incluido el diagrama referenciado (`DEC-017`). |
+| RF-14 | Rechazar cambios a documentos con `estado_institucional: APROBADO` que no sigan el circuito del archivo `-propuesta` (`DEC-017`). |
 
 ## 10. Requisitos no funcionales
 
@@ -352,7 +354,7 @@ Estas referencias sustentan la seleccion tecnica, no validan el contenido de nin
 
 La implementacion tecnica de la Fase 1 esta completada: PlantUML 1.2026.8 y su artefacto Windows x64 estan fijados por hash, existe una plantilla de carriles, el comando local genera y comprueba SVG y la vista institucional S4 fue traducida. La aceptacion de la fase permanece pendiente hasta que el equipo revise su fidelidad contra la ficha aprobada. La vista Mermaid se conserva como control comparativo hasta esa conformidad. El mapa de procesos Nivel 0 no se convierte y permanece como representacion conceptual lineal en Markdown/Mermaid.
 
-El siguiente hito es registrar la conformidad o las correcciones de la traduccion S4. Despues se recibira la propuesta de descomposicion de S4.3 y se preparara su paquete de contexto para iniciar el modelamiento operativo.
+El siguiente hito es registrar la conformidad o las correcciones de la traduccion S4. Despues se elaborara el diagrama de S4.3 junto con su ficha, conforme a la estructura de `DEC-017`. La exportacion de fichas a PDF segun los anexos de la NT y el control de inmutabilidad de documentos aprobados se incorporan como capacidades de las fases 2 y 6.
 
 ## 16. Relaciones
 
@@ -360,5 +362,5 @@ El siguiente hito es registrar la conformidad o las correcciones de la traduccio
 - [Estandar de artefactos para el modelamiento hibrido](../estandar-artefactos-modelamiento.md)
 - [Registro de decisiones](../registro-decisiones.md)
 - [Metodologia de modelamiento](../metodologia-modelamiento.md)
-- [S4.3 Ejecucion de la inversion](../../03-modelamiento/procesos/s4-3-ejecucion-inversion/README.md)
+- [S4.3 Ejecucion de la inversion](../../02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/README.md)
 - [Herramientas](../../05-herramientas/README.md)

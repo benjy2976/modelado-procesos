@@ -40,8 +40,9 @@ tags:
 
 ## Fase 4 - Preparacion del piloto
 
-- Estado al 2026-10-16: piloto PlantUML implementado tecnicamente; pendiente la conformidad humana de la traduccion S4 y la propuesta de descomposicion de S4.3.
-- Recibir la propuesta de descomposicion del equipo.
+- Estado al 2026-10-16: piloto PlantUML implementado tecnicamente y estructura centrada en procesos implementada (`DEC-017`); pendiente la conformidad humana de la traduccion S4 y los insumos para la ficha de S4.3.
+- Recibir los levantamientos del equipo y el documento interno para elaborar fichas.
+- Elaborar la ficha de producto y proceso de S4.3 y su descomposicion en procesos Nivel 2.
 - Contrastar propuesta, normativa y evidencia institucional.
 - Seleccionar modalidad o caso piloto.
 - Revisar la vista PlantUML de interacciones S4 ya generada; el mapa institucional Nivel 0 conserva su representacion conceptual Markdown/Mermaid.

@@ -35,7 +35,7 @@ La excepcion aplica solo al mapa global Nivel 0 que organiza macroprocesos. No s
 ## 1. Principios obligatorios
 
 1. Un mismo aspecto del modelo no puede tener dos fuentes maestras editables simultaneamente.
-2. Markdown conserva narrativa, evidencia, reglas, decisiones y relaciones.
+2. Markdown conserva las fichas NT, el sustento, las reglas, las decisiones y las relaciones.
 3. PlantUML conserva el modelo logico mientras el artefacto se encuentre en etapa conceptual.
 4. BPMN 2.0 XML conserva la semantica y disposicion del modelo formal.
 5. SVG, PDF, PNG, resumenes y reportes se generan; no se editan manualmente.
@@ -70,32 +70,41 @@ Solo un modelo formal validado puede formar parte de una linea base BPMN. Las vi
 
 ## 3. Contrato de archivos
 
-Para el AS-IS de S4.3 se adopta como patron:
+Cada proceso tiene su carpeta dentro de `02-procesos`, anidada bajo la de su proceso padre y nombrada con su codigo NT (`DEC-017`). Todos sus archivos empiezan por el codigo del proceso. Para S4.3 el patron es:
 
 ```text
-03-modelamiento/procesos/s4-3-ejecucion-inversion/
-|-- 01-levantamiento/
-|   `-- s4-3-ejecucion-inversion-as-is-narrativa.md
-|-- 02-modelos/as-is/
-|   |-- s4-3-ejecucion-inversion-as-is-modelo.yaml
-|   |-- s4-3-ejecucion-inversion-as-is-logico.puml
-|   |-- s4-3-ejecucion-inversion-as-is-logico.svg
-|   |-- s4-3-ejecucion-inversion-as-is.bpmn
-|   |-- s4-3-ejecucion-inversion-as-is.svg
-|   |-- s4-3-ejecucion-inversion-as-is-resumen-generado.md
-|   `-- s4-3-ejecucion-inversion-as-is-manifest.json
-`-- 05-validacion/
-    |-- s4-3-ejecucion-inversion-as-is-validacion.json
-    `-- s4-3-ejecucion-inversion-as-is-validacion.md
+02-procesos/s4-gestion-de-las-inversiones/s4-3-ejecucion-inversion/
+|-- README.md                                   portada
+|-- s4-3-ficha-producto-proceso.md              Anexo 2; fuente del PDF
+|-- s4-3-fichas-indicador.md                    Anexo 4; fuente del PDF
+|-- s4-3-sustento.md                            fuentes, evidencias, historial; no se exporta
+|-- s4-3-diagrama-proceso-modelo.yaml           configuracion del diagrama
+|-- s4-3-diagrama-proceso-logico.puml           etapa logica
+|-- s4-3-diagrama-proceso-logico.svg
+|-- s4-3-diagrama-proceso.bpmn                  etapa formal
+|-- s4-3-diagrama-proceso.svg
+|-- s4-3-diagrama-proceso-resumen-generado.md
+|-- s4-3-diagrama-proceso-manifest.json
+|-- s4-3-diagrama-proceso-validacion.json
+|-- s4-3-diagrama-proceso-validacion.md
+`-- s4-3-n-<nombre>/                            subproceso Nivel 2, mismo patron
 ```
 
-El TO-BE aplica el mismo patron en `02-modelos/to-be` y sustituye `as-is` por `to-be`.
+En el ultimo nivel se agregan, solo si el proceso cumple algun criterio del numeral 6.1.3 d de la NT, `<codigo>-procedimiento.md` (Anexo 7) y su diagrama de flujo `<codigo>-procedimiento-diagrama.bpmn` con su `.svg` (Anexo 8).
+
+Una variacion de un documento aprobado se plantea en un unico archivo `<codigo>-<documento>-propuesta.md`, con la propiedad `modifica`. Al aprobarse, su contenido reemplaza al documento vigente en un solo commit y el archivo `-propuesta` se elimina.
+
+El TO-BE aplica el mismo patron en `02-procesos/to-be/`, con la misma jerarquia y el sufijo `-to-be` en cada archivo. En esta etapa esta pendiente.
 
 ## 4. Funcion y autoridad de cada archivo
 
 | Artefacto | Funcion | Autoridad | Modificacion |
 |---|---|---|---|
-| `*-narrativa.md` | Alcance, evidencia, reglas, entradas, salidas y explicacion | Fuente maestra textual | Personas o IA, con revision aplicable |
+| `*-ficha-producto-proceso.md` | Campos del Anexo 2 en orden fijo; referencia el SVG del diagrama | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
+| `*-fichas-indicador.md` | Campos del Anexo 4 por indicador | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
+| `*-procedimiento.md` | Campos del Anexo 7 | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
+| `*-sustento.md` | Fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias, BIM e historial de revision | Fuente maestra de trazabilidad | Personas o IA; el historial de conformidades solo personas |
+| `*-propuesta.md` | Variacion de un documento aprobado | Propuesta; no reemplaza al vigente hasta su aprobacion | Personas o IA, con el circuito de revision aplicable |
 | `*-modelo.yaml` | Declaracion de rutas, clase, estado y opciones de construccion | Configuracion del modelo | Personas o comando de inicializacion controlado |
 | `*-logico.puml` | Flujo logico con carriles | Fuente conceptual temporal | Personas o IA antes de formalizar |
 | `*-logico.svg` | Vista del PlantUML | Derivado | Solo generador |
@@ -105,7 +114,7 @@ El TO-BE aplica el mismo patron en `02-modelos/to-be` y sustituye `as-is` por `t
 | `*-manifest.json` | Versiones del generador y hashes de entradas/salidas | Evidencia tecnica derivada | Solo generador |
 | `*-validacion.json` | Hallazgos estructurados | Derivado tecnico | Solo validador |
 | `*-validacion.md` | Informe para revision humana | Derivado consultable | Solo validador |
-| `*.pdf` | Emision o artefacto de release | Derivado de publicacion | Solo generador de release |
+| `*.pdf` | Exportacion de ficha, fichas de indicador o procedimiento, y artefactos de release | Derivado de publicacion | Solo generador |
 
 Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o metadato compatible con su formato.
 
@@ -116,7 +125,7 @@ Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o me
 - `*-logico.puml` es editable.
 - `*-logico.svg` se genera desde PlantUML.
 - No es obligatorio que exista un `.bpmn`.
-- Las limitaciones semanticas se documentan en la narrativa.
+- Las limitaciones semanticas se documentan en el sustento del proceso.
 
 ### 5.2 Formalizacion
 
@@ -202,7 +211,7 @@ La IA no debe recibir imagenes para cambios ordinarios ni editar en paralelo BPM
 Antes de revision:
 
 - se ejecutan `build`, `check` y `validate`;
-- la narrativa y la vista deben referirse al mismo modelo;
+- la ficha, el sustento y la vista deben referirse al mismo modelo;
 - AS-IS, analisis y TO-BE permanecen separados;
 - los hallazgos abiertos son visibles.
 
@@ -210,7 +219,7 @@ Antes de una release:
 
 - BPMN XML es la fuente maestra del modelo formal;
 - SVG y PDF son reproducibles;
-- las aprobaciones humanas estan registradas;
+- las conformidades de cada nivel de revision estan registradas en el historial del sustento;
 - las reglas normativas utilizadas cumplen el protocolo de conocimiento confiable;
 - el manifiesto de release identifica maestros y derivados.
 
@@ -220,4 +229,5 @@ Antes de una release:
 - [Metodologia de modelamiento](metodologia-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
-- [Modelamiento](../03-modelamiento/README.md)
+- [Procesos](../02-procesos/README.md)
+- [Plantillas de procesos](plantillas/README.md)

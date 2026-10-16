@@ -1,11 +1,13 @@
 ---
 id: AP-MAPA-NIVEL-0
 tipo: nota-conocimiento
-area: arquitectura-procesos
+area: mapa-de-procesos-institucional
 estado_documento: VIGENTE
 clase_conocimiento: REFERENCIA
 estado_institucional: APROBADO
 confirmacion_estado: equipo-proyecto-2026-10-16
+documento_nt: mapa
+anexo_nt: 5
 proceso: []
 fecha_creacion: 2026-10-15
 fecha_actualizacion: 2026-10-16
@@ -16,6 +18,8 @@ tags:
 ---
 
 # Mapa de procesos Nivel 0
+
+[Inicio](../../00-inicio.md) · [Procesos](../README.md) · [Mapa de procesos institucional](README.md)
 
 Esta nota transcribe el mapa institucional Nivel 0 aprobado para que pueda consultarse sin abrir el PDF. Registra cuatro procesos estrategicos, cuatro misionales y ocho procesos codificados `S`; la ficha aprobada de S4 clasifica S4 Gestion de las inversiones como proceso de apoyo. Sus codigos, denominaciones y relacion global son regla de arquitectura para este proyecto mientras no se reciba una version institucional posterior. La discrepancia de rotulo del grupo `S` se conserva en los limites de uso.
 
@@ -33,7 +37,7 @@ Esta nota transcribe el mapa institucional Nivel 0 aprobado para que pueda consu
 | Fecha de consulta | 2026-10-15 |
 | Vigencia | Aprobado y adoptado como linea base vigente del proyecto por confirmacion del equipo; acto y fecha formal no visibles en el PDF |
 | SHA-256 | `4918B636122C9AF3825B159EF89B75C26FE6189FA908EDBB162ECAE046FF374F` |
-| Original inmutable | [mapa-procesos-grh-nivel-0.pdf](../01-referencias/01-institucionales-grh/originales/mapa-procesos-grh-nivel-0.pdf) |
+| Original inmutable | [mapa-procesos-grh-nivel-0.pdf](../../01-referencias/01-institucionales-grh/originales/mapa-procesos-grh-nivel-0.pdf) |
 
 ## Entradas y resultado global
 
@@ -69,7 +73,7 @@ El mapa rotula visualmente este grupo como `PROCESOS MISIONALES`, aunque utiliza
 | S1 | Gestion del recurso humano |
 | S2 | Gestion contable y financiera |
 | S3 | Gestion de bienes y servicios |
-| S4 | [Gestion de las inversiones](s4-gestion-de-las-inversiones.md) |
+| S4 | [Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md) |
 | S5 | Gestion de transformacion digital |
 | S6 | Gestion de asuntos legales |
 | S7 | Gestion de archivo |
@@ -104,6 +108,6 @@ flowchart LR
 
 ## Relaciones
 
-- [Inventario de procesos](inventario-procesos.md)
-- [S4 Gestion de las inversiones](s4-gestion-de-las-inversiones.md)
-- [Arquitectura de procesos](README.md)
+- [Inventario de productos y procesos](inventario-productos-procesos.md)
+- [S4 Gestion de las inversiones](../s4-gestion-de-las-inversiones/README.md)
+- [Mapa de procesos institucional](README.md)

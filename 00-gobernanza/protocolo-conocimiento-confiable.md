@@ -45,7 +45,7 @@ Solo una persona autorizada puede establecer `VALIDADO`. La aplicacion y los age
 
 ## Contenido minimo de una regla
 
-Cada regla se basa en `04-recursos-reutilizables/plantillas/regla-normativa.yaml` e incluye:
+Cada regla se basa en `00-gobernanza/plantillas/conocimiento/regla-normativa.yaml` e incluye:
 
 1. Identificador estable.
 2. Enunciado atomico y tipo: obligacion, prohibicion, permiso, condicion, definicion o recomendacion.
@@ -84,7 +84,7 @@ Toda regla vinculada cambia a `REVALIDACION-REQUERIDA` cuando ocurra al menos un
 
 ## Segregacion y auditoria
 
-Cuando sea viable, quien valida no debe ser la unica persona que propuso la regla. Cada aprobacion, observacion, retiro o revalidacion genera un evento basado en `04-recursos-reutilizables/plantillas/evento-revision.yaml`. Los eventos no se reescriben; una rectificacion se registra como un evento nuevo.
+Cuando sea viable, quien valida no debe ser la unica persona que propuso la regla. Cada aprobacion, observacion, retiro o revalidacion genera un evento basado en `00-gobernanza/plantillas/conocimiento/evento-revision.yaml`. Los eventos no se reescriben; una rectificacion se registra como un evento nuevo.
 
 ## Uso en modelos
 

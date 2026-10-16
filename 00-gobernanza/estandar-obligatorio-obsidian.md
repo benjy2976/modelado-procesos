@@ -81,6 +81,24 @@ clase_conocimiento: NO-APLICA
 - `clase_conocimiento`: `NORMATIVO`, `OBSERVADO`, `REFERENCIA`, `INFERENCIA`, `PROPUESTA`, `DECISION` o `NO-APLICA`.
 - `confidencialidad`: `PUBLICO`, `INTERNO` o `RESTRINGIDO`.
 
+### 3.3 Propiedades de los documentos de proceso
+
+Los documentos de cada proceso en `02-procesos` agregan, segun corresponda (`DEC-017`):
+
+| Propiedad | Valores | Uso |
+|---|---|---|
+| `codigo_proceso` | Codigo NT, por ejemplo `S4.3` | Todos los documentos y portadas del proceso |
+| `nivel_proceso` | `0`, `1`, `2`... | Todos los documentos y portadas del proceso |
+| `tipo_proceso` | `MISIONAL`, `ESTRATEGICO` o `APOYO` | Documentos NT |
+| `proceso_padre` | Codigo NT del proceso padre o `null` | Documentos NT |
+| `documento_nt` | `inventario`, `mapa`, `ficha-producto-proceso`, `ficha-indicador` o `procedimiento` | Documentos NT |
+| `anexo_nt` | Numero de anexo de la NT | Documentos NT |
+| `estado_institucional` | `PROPUESTA` o `APROBADO` | Documentos NT |
+| `nivel_revision` | `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA`, `APROBACION` o `null` si esta aprobado | Documentos NT en propuesta |
+| `modifica` | Archivo aprobado que se busca variar o `null` | Archivos `-propuesta` |
+
+`estado_institucional` y `nivel_revision` describen el circuito institucional del documento y no sustituyen a `estado_documento`. Solo una persona, con evidencia registrada en el sustento, puede cambiar el nivel de revision o marcar `APROBADO`.
+
 `estado_documento` describe la madurez editorial de la nota y NO DEBE confundirse con `validacion.estado` de una regla normativa. Una nota `VIGENTE` no convierte una regla en `VALIDADO`.
 
 Las fechas usan ISO `YYYY-MM-DD`. `responsable` registra rol o identificador institucional autorizado, nunca datos personales innecesarios. Si la confidencialidad es `RESTRINGIDO`, el repositorio solo conserva una referencia segura y no el contenido sensible.
@@ -131,9 +149,11 @@ La jerarquia y las relaciones se detallan en [Arquitectura de informacion y enla
 
 ## 8. Plantillas
 
-Las notas repetibles DEBEN originarse en las plantillas de `04-recursos-reutilizables/plantillas/obsidian/`.
+Las notas repetibles DEBEN originarse en las plantillas de `00-gobernanza/plantillas/`, indexadas en su [mapa de plantillas](plantillas/README.md). Obsidian las ofrece desde esa carpeta.
 
-Plantillas iniciales:
+Los documentos de cada proceso usan las plantillas `nt-002/` (ficha de producto y proceso, fichas de indicador y procedimiento) y `procesos/` (portada y sustento), conforme al [estandar de artefactos](estandar-artefactos-modelamiento.md).
+
+Plantillas de notas en `obsidian/`:
 
 - `nota-conocimiento.md` para conocimiento no cubierto por un esquema YAML especializado.
 - `reunion.md` para sesiones de levantamiento, revision o decision.
@@ -146,7 +166,7 @@ Modificar una plantilla requiere revisar las notas futuras que dependen de ella.
 
 ## 9. Reuniones
 
-Las reuniones se registran bajo `06-coordinacion/reuniones/<anio>/` mediante la plantilla obligatoria.
+Las reuniones se registran bajo `04-coordinacion/reuniones/<anio>/` mediante la plantilla obligatoria.
 
 El acta DEBE contener:
 
@@ -164,7 +184,7 @@ No se almacenan grabaciones, transcripciones con datos personales ni expedientes
 
 ## 10. Notas diarias y captura rapida
 
-Las notas diarias se guardan en `06-coordinacion/diario/YYYY/MM/` y usan la plantilla `diario.md`.
+Las notas diarias se guardan en `04-coordinacion/diario/YYYY/MM/` y usan la plantilla `diario.md`.
 
 - Sirven para captura temporal, bitacora y tareas personales del proyecto.
 - No constituyen evidencia validada ni reemplazan actas, decisiones, reglas o productos.
@@ -195,7 +215,7 @@ Canvas PUEDE usarse para:
 
 Reglas obligatorias:
 
-1. Los Canvas se guardan junto al proceso correspondiente o en `06-coordinacion/canvas/` si son transversales.
+1. Los Canvas se guardan junto al proceso correspondiente o en `04-coordinacion/canvas/` si son transversales.
 2. Se versiona el archivo `.canvas`, que utiliza el formato abierto JSON Canvas.
 3. Una tarjeta de texto con conocimiento durable DEBE convertirse en nota Markdown y enlazarse desde el Canvas.
 4. Las conexiones importantes DEBEN tener etiqueta semantica.
@@ -207,7 +227,7 @@ Reglas obligatorias:
 
 Bases PUEDE utilizarse para catalogos, tableros y consultas sobre propiedades.
 
-1. Los archivos `.base` son vistas versionables y se guardan en el area a la que sirven o en `06-coordinacion/bases/` si son transversales.
+1. Los archivos `.base` son vistas versionables y se guardan en el area a la que sirven o en `04-coordinacion/bases/` si son transversales.
 2. Una Base NO DEBE ser la unica ubicacion de un dato; consulta propiedades de archivos fuente.
 3. Los filtros y formulas deben usar propiedades del vocabulario aprobado.
 4. Toda Base compartida debe explicar su objetivo, alcance y criterio de inclusion en el mapa de contenido que la enlaza.

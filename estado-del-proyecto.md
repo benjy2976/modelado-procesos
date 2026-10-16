@@ -10,9 +10,9 @@ confidencialidad: INTERNO
 # Estado del proyecto
 
 - Fecha de actualizacion: 2026-10-16
-- Fase: piloto PlantUML implementado; traduccion S4 lista para revision humana de fidelidad
+- Fase: estructura centrada en procesos implementada (`DEC-017`); traduccion S4 lista para revision humana de fidelidad; S4.3 a la espera de insumos para elaborar su ficha
 - Ambito inicial: S4.3 Ejecucion de la inversion
-- Estado del modelamiento: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; traduccion S4 en Markdown/PlantUML/SVG completada tecnicamente y pendiente de conformidad humana; aun falta recibir la propuesta de descomposicion de S4.3
+- Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 no tiene ficha propia en las fuentes recibidas y debe elaborarse; TO-BE pendiente para una etapa posterior
 - Estado BIM: aprendizaje y adopcion progresiva; la informacion se organizara con rutas estables y trazabilidad Git, sin declarar el repositorio como CDE institucional
 - Descargas: lote base oficial de 219 archivos completado y evaluado tecnicamente
 - Git: estrategia hibrida configurada; repositorio inicial publicado en remoto, recursos publicos regenerables fuera de Git y LFS reservado para binarios no reproducibles
@@ -45,8 +45,8 @@ confidencialidad: INTERNO
 - Excepcion expresa del mapa institucional Nivel 0, que permanece como representacion conceptual lineal en Markdown/Mermaid.
 - Adopcion expresa del mapa Nivel 0 y la ficha S4 como lineas base institucionales oficiales y aprobadas, manteniendo pendiente la identificacion del acto y la fecha formal no visibles en los PDF.
 - Piloto PlantUML local y reproducible: version fijada, ejecutable nativo Windows verificado, plantilla de carriles, comando de renderizado/comprobacion y vista S4 generada.
-- Propuesta documentada, pero no implementada, para simplificar la estructura y centrar la navegacion humana en cada proceso.
+- Estructura centrada en procesos conforme a la NT 002-2025-PCM-SGP aprobada (`DEC-017`) e implementada: procesos jerarquizados por codigo en `02-procesos`, documentos y plantillas segun los Anexos 2, 4 y 7, niveles de revision en metadatos, sustento por proceso y arbol TO-BE reservado.
 
 ## Siguiente hito
 
-Revisar con el equipo la fidelidad de la traduccion Markdown/PlantUML de S4 contra la ficha aprobada y registrar la conformidad o correcciones. En paralelo, decidir si se adopta o ajusta la propuesta de estructura intuitiva. Despues se incorporara la propuesta de descomposicion de S4.3 y comenzara el modelamiento operativo.
+Revisar con el equipo la fidelidad de la ficha, las fichas de indicador y el diagrama de S4 contra el PDF aprobado y registrar la conformidad en su sustento. En paralelo, recibir los levantamientos del equipo y el documento interno para elaborar fichas, registrarlos en el sustento de S4.3 y elaborar la ficha de producto y proceso de S4.3.

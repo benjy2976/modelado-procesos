@@ -44,5 +44,5 @@ Cada recurso debe registrarse en `00-catalogo/catalogo-documental.csv`. Si requi
 ## Relaciones
 
 - Se rige por el [Manual operativo del conocimiento](../00-gobernanza/manual-operativo-del-conocimiento.md).
-- Alimenta [Conocimiento estructurado](../04-recursos-reutilizables/conocimiento/README.md).
+- Alimenta [Conocimiento estructurado](../03-conocimiento/README.md).
 - Se automatiza mediante [Herramientas](../05-herramientas/README.md).

@@ -35,7 +35,7 @@ Una tarea local y reversible puede documentarse en su artefacto de trabajo. Cuan
 
 Las iniciativas transversales se registran en `00-gobernanza/iniciativas/` y se enlazan desde su [mapa de contenido](iniciativas/README.md). Una iniciativa especifica de un area puede mantener sus entregables en esa area, pero su ficha y estado deben aparecer en el registro central.
 
-Cada iniciativa usa un identificador estable `INI-NNN` y la [plantilla de iniciativa](../04-recursos-reutilizables/plantillas/obsidian/iniciativa.md).
+Cada iniciativa usa un identificador estable `INI-NNN` y la [plantilla de iniciativa](plantillas/obsidian/iniciativa.md).
 
 ## 3. Estados de una iniciativa
 

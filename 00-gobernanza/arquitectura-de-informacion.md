@@ -26,19 +26,20 @@ Mantener una boveda navegable para personas y agentes sin duplicar archivos ni d
 - `00-inicio.md` es la entrada a la boveda.
 - Cada carpeta principal tiene un `README.md` que funciona como mapa de contenido.
 - Un subproceso o subarea con varios artefactos mantiene su propio `README.md`.
+- En `02-procesos` la jerarquia de carpetas reproduce la de procesos de la NT 002-2025-PCM-SGP: cada proceso es una carpeta nombrada con su codigo, anidada en la de su proceso padre, y su `README.md` es la portada del proceso (`DEC-017`).
 - Los documentos no se mueven para representar estados; Git conserva el historial.
 
 ## Tipos de relacion
 
 | Relacion | Cuando se usa | Ejemplo |
 |---|---|---|
-| Padre-hijo | Pertenencia a un area o proceso | Modelamiento -> S4.3 |
+| Padre-hijo | Pertenencia a un area o proceso | S4 -> S4.3 |
 | Se rige por | Un artefacto debe cumplir un protocolo | Regla -> protocolo de conocimiento |
 | Se sustenta en | Una afirmacion usa evidencia o norma | Actividad -> regla validada |
 | Produce o transforma | Una etapa genera otro artefacto | Original -> extraccion |
 | Implementa | Una herramienta automatiza una regla del metodo | Extractor -> protocolo documental |
 | Valida | Una revision controla un producto | Evento de revision -> regla |
-| Relacionado | Conexion util que no implica dependencia | BIM -> modelamiento S4.3 |
+| Relacionado | Conexion util que no implica dependencia | Biblioteca BIM -> sustento de S4.3 |
 
 No se crea un enlace solo para aumentar conexiones en el grafo. El texto que rodea al enlace debe explicar su significado.
 
@@ -78,5 +79,5 @@ obsidian orphans
 obsidian deadends
 ```
 
-Los resultados se revisan por alcance: originales y binarios pueden no participar del grafo, pero todo Markdown de gobierno, conocimiento o modelamiento debe estar conectado a su mapa de contenido.
+Los resultados se revisan por alcance: originales y binarios pueden no participar del grafo, pero todo Markdown de gobierno, conocimiento o procesos debe estar conectado a su mapa de contenido.
 

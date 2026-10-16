@@ -17,7 +17,7 @@ Generar una cache Markdown reproducible para busqueda, recuperacion de contexto 
 
 - Entrada: documento identificado en `01-referencias/00-catalogo/registro-descargas.csv` o `catalogo-documental.csv`.
 - Salida local: `01-referencias/09-derivados-texto/cache/<id-documento>/<sha256-corto>.md`.
-- Metadatos: plantilla `04-recursos-reutilizables/plantillas/texto-extraido.md`.
+- Metadatos: plantilla `00-gobernanza/plantillas/conocimiento/texto-extraido.md`.
 - Fuente de verdad: el original cuyo SHA-256 aparece en el encabezado.
 
 La cache completa no se versiona. Se regenera desde los originales restaurados. Las correcciones intelectuales, reglas y citas seleccionadas se conservan en el area de conocimiento versionada.
@@ -43,7 +43,7 @@ La cache completa no se versiona. Se regenera desde los originales restaurados. 
 
 El estado se refiere a fidelidad de extraccion, no a vigencia ni interpretacion juridica.
 
-La extraccion es una etapa del [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md) y alimenta [Conocimiento estructurado](../../04-recursos-reutilizables/conocimiento/README.md).
+La extraccion es una etapa del [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md) y alimenta [Conocimiento estructurado](../../03-conocimiento/README.md).
 
 ## Criterios de aceptacion
 

@@ -25,7 +25,8 @@ Esta area define como se delimita, documenta, valida, versiona y publica el trab
 - [Manual operativo del conocimiento](manual-operativo-del-conocimiento.md)
 - [Metodologia de modelamiento](metodologia-modelamiento.md)
 - [Estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md)
-- [Propuesta de estructura intuitiva centrada en procesos](propuesta-estructura-intuitiva.md)
+- [Estructura centrada en procesos (aprobada, DEC-017)](propuesta-estructura-intuitiva.md)
+- [Plantillas](plantillas/README.md)
 - [Protocolo de conocimiento confiable](protocolo-conocimiento-confiable.md)
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md)
 
@@ -40,7 +41,7 @@ Esta area define como se delimita, documenta, valida, versiona y publica el trab
 ## Relaciones principales
 
 - Las fuentes se administran en [Referencias](../01-referencias/README.md).
-- El conocimiento validado se conserva en [Conocimiento estructurado](../04-recursos-reutilizables/conocimiento/README.md).
-- El metodo se aplica en [Modelamiento](../03-modelamiento/README.md).
+- El conocimiento validado se conserva en [Conocimiento estructurado](../03-conocimiento/README.md).
+- El metodo se aplica en [Procesos](../02-procesos/README.md).
 - La automatizacion se implementa en [Herramientas](../05-herramientas/README.md).
 

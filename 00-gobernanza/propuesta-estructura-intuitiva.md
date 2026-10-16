@@ -2,8 +2,8 @@
 id: GOV-PROP-ESTRUCTURA-INTUITIVA
 tipo: propuesta
 area: gobernanza
-estado_documento: BORRADOR
-clase_conocimiento: PROPUESTA
+estado_documento: VIGENTE
+clase_conocimiento: DECISION
 proceso:
   - S4
   - S4.3
@@ -19,9 +19,9 @@ tags:
 
 # Propuesta de estructura intuitiva centrada en procesos
 
-Version 3 del borrador. Organiza el repositorio para que cada proceso se lea como lo pide la Norma Tecnica de gestion por procesos: por niveles jerarquizados en carpetas, con codigo y con su juego de documentos. La ficha de producto y proceso es el documento central y la fuente de los PDF que se aprobaran.
+Version 3, aprobada por el equipo del proyecto el 2026-10-16 y registrada como `DEC-017`. Organiza el repositorio para que cada proceso se lea como lo pide la Norma Tecnica de gestion por procesos: por niveles jerarquizados en carpetas, con codigo y con su juego de documentos. La ficha de producto y proceso es el documento central y la fuente de los PDF que se aprobaran.
 
-No autoriza movimientos. La estructura actual permanece vigente hasta la aprobacion general de esta propuesta y una migracion controlada.
+La migracion se ejecuto el 2026-10-16. En la seccion 8, la columna "Ruta actual" corresponde a la estructura anterior y se conserva como registro de la correspondencia aplicada.
 
 ## 1. Criterios acordados
 
@@ -174,7 +174,7 @@ Cada nivel concluye con una conformidad distinta, otorgada por personas o instan
 | `OPINION-TECNICA` | Revision tecnica conforme a la NT | Sub Gerencia de Modernizacion y Transformacion Digital | Opinion tecnica documentada | Revisado por | NT 6.1.4, Tabla 1; Anexo 2 |
 | `APROBACION` | Decision final sobre el documento | Dueno del proceso | Aprobacion documentada | Aprobado por | NT 6.1.4, Tabla 1; Anexo 2 |
 
-La denominacion de la Sub Gerencia proviene de la transcripcion del [mapa de procesos Nivel 0](../02-arquitectura-procesos/mapa-procesos-nivel-0.md). Su funcion como unidad responsable de la opinion tecnica fue indicada por el equipo del proyecto el 2026-10-16 y debe sustentarse con el documento de organizacion vigente cuando se disponga de el.
+La denominacion de la Sub Gerencia proviene de la transcripcion del [mapa de procesos Nivel 0](../02-procesos/mapa-de-procesos-institucional/mapa-procesos-nivel-0.md). Su funcion como unidad responsable de la opinion tecnica fue indicada por el equipo del proyecto el 2026-10-16 y debe sustentarse con el documento de organizacion vigente cuando se disponga de el.
 
 Una observacion en cualquier nivel devuelve el documento a `ELABORACION`. El dueno de cada proceso se toma de su ficha o de la ficha del proceso padre aprobada; si no puede determinarse, se registra `EVIDENCIA-INSUFICIENTE`.
 
@@ -250,17 +250,17 @@ Criterio de aceptacion: una persona sin conocer la arquitectura del repositorio 
 
 | Tema | Situacion |
 |---|---|
-| Jerarquia de procesos en carpetas por codigo | Acordado; sujeto a aprobacion general |
-| Sin carpetas de etapas de trabajo | Acordado; sujeto a aprobacion general |
-| Ficha conforme al Anexo 2 como fuente del PDF | Acordado; sujeto a aprobacion general |
-| Fichas de indicador en archivo propio, incluida S4 | Acordado; sujeto a aprobacion general |
-| Archivo de sustento por proceso | Acordado; sujeto a aprobacion general |
-| Arbol TO-BE separado y pendiente | Acordado; sujeto a aprobacion general |
-| Renumeracion de conocimiento (`03`) y coordinacion (`04`) | Acordado; sujeto a aprobacion general |
-| Niveles de revision y responsables de cada conformidad | Acordado; sujeto a aprobacion general |
-| Circuito de archivos `-propuesta` para variar documentos aprobados | Acordado; sujeto a aprobacion general |
-| Criterios BIM dentro de la plantilla de sustento | Acordado; sujeto a aprobacion general |
-| Aprobacion general de esta propuesta | Pendiente |
+| Jerarquia de procesos en carpetas por codigo | Aprobado |
+| Sin carpetas de etapas de trabajo | Aprobado |
+| Ficha conforme al Anexo 2 como fuente del PDF | Aprobado |
+| Fichas de indicador en archivo propio, incluida S4 | Aprobado |
+| Archivo de sustento por proceso | Aprobado |
+| Arbol TO-BE separado y pendiente | Aprobado |
+| Renumeracion de conocimiento (`03`) y coordinacion (`04`) | Aprobado |
+| Niveles de revision y responsables de cada conformidad | Aprobado |
+| Circuito de archivos `-propuesta` para variar documentos aprobados | Aprobado |
+| Criterios BIM dentro de la plantilla de sustento | Aprobado |
+| Aprobacion general de esta propuesta | Aprobada el 2026-10-16 (`DEC-017`) |
 
 ## Relaciones
 
@@ -268,5 +268,5 @@ Criterio de aceptacion: una persona sin conocer la arquitectura del repositorio 
 - [Estandar obligatorio de Obsidian](estandar-obligatorio-obsidian.md)
 - [Estandar de artefactos para el modelamiento hibrido](estandar-artefactos-modelamiento.md)
 - [Protocolo de versionado y releases](protocolo-versionado-y-releases.md)
-- [Arquitectura de procesos actual](../02-arquitectura-procesos/README.md)
-- [Modelamiento actual](../03-modelamiento/README.md)
+- [Registro de decisiones](registro-decisiones.md)
+- [Procesos](../02-procesos/README.md)

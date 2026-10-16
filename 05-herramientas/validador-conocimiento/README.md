@@ -17,9 +17,9 @@ Hasta disponer del MVP, el mismo flujo se ejecuta mediante YAML, eventos de revi
 
 ## Fuente de datos
 
-- Fuente maestra: `04-recursos-reutilizables/conocimiento/reglas/*.yaml`.
-- Auditoria: `04-recursos-reutilizables/conocimiento/revisiones/*.yaml`.
-- Vista regenerable: `04-recursos-reutilizables/conocimiento/catalogo-reglas.csv`.
+- Fuente maestra: `03-conocimiento/reglas/*.yaml`.
+- Auditoria: `03-conocimiento/revisiones/*.yaml`.
+- Vista regenerable: `03-conocimiento/catalogo-reglas.csv`.
 - Evidencia: originales identificados en el catalogo documental, nunca copiados dentro de la aplicacion.
 
 La aplicacion debe serializar las escrituras para evitar conflictos y producir cambios legibles por Git. No debe introducir una segunda fuente maestra oculta en una base de datos.
@@ -103,4 +103,4 @@ La seleccion de framework, autenticacion y despliegue se decidira al iniciar la 
 
 - [Manual operativo del conocimiento](../../00-gobernanza/manual-operativo-del-conocimiento.md)
 - [Protocolo de conocimiento confiable](../../00-gobernanza/protocolo-conocimiento-confiable.md)
-- [Conocimiento estructurado](../../04-recursos-reutilizables/conocimiento/README.md)
+- [Conocimiento estructurado](../../03-conocimiento/README.md)

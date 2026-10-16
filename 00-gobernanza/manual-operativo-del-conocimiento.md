@@ -17,7 +17,7 @@ Complementa, sin reemplazar, los siguientes documentos:
 
 - [Protocolo de conocimiento confiable](protocolo-conocimiento-confiable.md): estados y controles de las reglas normativas.
 - [Protocolo de trabajo con IA](protocolo-trabajo-con-ia.md): limites y forma de participacion de la IA.
-- [Metodologia de modelamiento](metodologia-modelamiento.md): secuencia para AS-IS, analisis y TO-BE.
+- [Metodologia de modelamiento](metodologia-modelamiento.md): secuencia para documentar cada proceso, su circuito de revision y la etapa TO-BE.
 - [Versionado y releases](protocolo-versionado-y-releases.md): revision, aprobacion y publicacion con Git.
 
 Cuando exista contradiccion, prevalecen las fuentes oficiales, las decisiones aprobadas y los protocolos especificos aplicables.
@@ -118,7 +118,7 @@ Los siguientes son roles del flujo, no cargos organicos. Una persona puede desem
 6. Distinguir texto citado, parafrasis e interpretacion.
 7. Si falta sustento, registrar `EVIDENCIA-INSUFICIENTE` y la accion necesaria.
 
-Las reglas normativas usan `04-recursos-reutilizables/plantillas/regla-normativa.yaml`. Hasta disponer de plantillas especificas para las otras clases, estas se documentan en el artefacto de analisis con su clase visible, evidencia y estado de revision.
+Las reglas normativas usan `00-gobernanza/plantillas/conocimiento/regla-normativa.yaml`. Hasta disponer de plantillas especificas para las otras clases, estas se documentan en el artefacto de analisis con su clase visible, evidencia y estado de revision.
 
 **Puerta F3 - Propuesta revisable:** campos obligatorios completos, fuente localizable, afirmacion atomica y estado inicial correcto (`BORRADOR-IA` o `BORRADOR-HUMANO`).
 
@@ -143,8 +143,8 @@ La validacion de un aspecto no valida los demas. Por ejemplo, una cita correcta 
 
 ### 6.5 Publicar en la base de conocimiento
 
-1. Guardar las reglas en `04-recursos-reutilizables/conocimiento/reglas/`.
-2. Registrar cada revision humana en `04-recursos-reutilizables/conocimiento/revisiones/`; los eventos no se reescriben.
+1. Guardar las reglas en `03-conocimiento/reglas/`.
+2. Registrar cada revision humana en `03-conocimiento/revisiones/`; los eventos no se reescriben.
 3. Regenerar `catalogo-reglas.csv`; no editarlo manualmente.
 4. Relacionar reemplazos, dependencias, procesos y actividades BPMN.
 5. Confirmar que el commit conserva cambios legibles y no incluye originales publicos regenerables.
@@ -153,7 +153,7 @@ El catalogo es una vista de consulta. Los YAML y eventos son la fuente maestra d
 
 ### 6.6 Preparar el paquete de contexto
 
-Antes de una tarea de analisis o modelamiento se crea un paquete basado en `04-recursos-reutilizables/plantillas/paquete-contexto.yaml`.
+Antes de una tarea de analisis o modelamiento se crea un paquete basado en `00-gobernanza/plantillas/conocimiento/paquete-contexto.yaml`.
 
 El paquete incluye solo:
 

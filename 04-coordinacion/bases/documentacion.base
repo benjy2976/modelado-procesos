@@ -20,7 +20,7 @@ views:
     name: Documentacion
     filters:
       not:
-        - 'file.inFolder("04-recursos-reutilizables/plantillas/obsidian")'
+        - 'file.inFolder("00-gobernanza/plantillas")'
     order:
       - file.path
       - tipo
@@ -32,7 +32,7 @@ views:
     name: Plantillas
     filters:
       and:
-        - 'file.inFolder("04-recursos-reutilizables/plantillas/obsidian")'
+        - 'file.inFolder("00-gobernanza/plantillas")'
     order:
       - file.path
       - tipo

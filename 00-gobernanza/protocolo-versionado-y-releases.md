@@ -26,9 +26,11 @@ Este repositorio apoya la gestion de informacion BIM, pero no se declara por si 
 | Situacion | Mecanismo | Regla |
 |---|---|---|
 | Trabajo en curso | Arbol de trabajo y commits | El archivo conserva una ruta y un nombre estables. |
+| Documento de proceso en circuito de revision | Propiedades `estado_institucional: PROPUESTA` y `nivel_revision` | Avanza por `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA` y `APROBACION`; cada conformidad se registra en el sustento del proceso. |
 | Revision o coordinacion | Rama y solicitud de cambio; opcionalmente pre-release `-rc.N` | Debe indicar alcance, proposito, revisores y observaciones pendientes. |
 | Linea base publicada | Tag anotado y release | Requiere evidencia de revision y aprobacion, manifiesto y artefactos derivados. |
 | Historico o reemplazado | Release anterior e historial Git | Es inmutable; la release sucesora indica a cual reemplaza. |
+| Variacion de un documento aprobado | Unico archivo `<codigo>-<documento>-propuesta.md` con la propiedad `modifica` | El documento aprobado no se edita; al aprobarse la variacion, su contenido lo reemplaza en un solo commit, se elimina el archivo `-propuesta` y se crea un nuevo tag. |
 
 ## Versiones
 
@@ -37,7 +39,7 @@ Este repositorio apoya la gestion de informacion BIM, pero no se declara por si 
 - `1.x`: cambios compatibles que no alteran sustancialmente alcance, flujo o producto.
 - `2.0.0`: cambio sustancial de alcance, flujo o producto.
 
-Ejemplos: `s4.3-as-is-v0.9.0-rc.1`, `s4.3-as-is-v1.0.0` y `s4.3-to-be-v1.0.0`.
+Ejemplos: `s4.3-v0.9.0-rc.1`, `s4.3-v1.0.0` y `s4.3-to-be-v1.0.0`.
 
 ## Contenido minimo de una release
 
@@ -47,7 +49,7 @@ Ejemplos: `s4.3-as-is-v0.9.0-rc.1`, `s4.3-as-is-v1.0.0` y `s4.3-to-be-v1.0.0`.
 4. Fecha y evidencia de aprobacion.
 5. Fuentes maestras incluidas y derivados emitidos.
 6. Decisiones abiertas, limitaciones y relacion con la version reemplazada.
-7. Manifiesto basado en `04-recursos-reutilizables/plantillas/manifiesto-release.yaml`.
+7. Manifiesto basado en `00-gobernanza/plantillas/conocimiento/manifiesto-release.yaml`.
 8. Identificadores y revisiones de las reglas validadas que sustentan afirmaciones normativas.
 
 ## Publicacion
@@ -57,8 +59,8 @@ Antes de crear una release de un modelo formal se valida que BPMN 2.0 XML sea la
 Ejemplo local, solo despues de contar con aprobacion registrada:
 
 ```powershell
-git tag -a s4.3-as-is-v1.0.0 -m "Linea base aprobada del AS-IS de S4.3"
-git push origin s4.3-as-is-v1.0.0
+git tag -a s4.3-v1.0.0 -m "Linea base aprobada de los documentos de S4.3"
+git push origin s4.3-v1.0.0
 ```
 
 La creacion de la release en GitHub, GitLab u otra forja se realiza a partir de ese tag. No debe publicarse solo porque los archivos esten completos tecnicamente.
