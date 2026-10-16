@@ -1,0 +1,39 @@
+id: AP-S4-3-EJECUCION-INVERSION-DIAGRAMA
+tipo_modelo: modelo-logico
+etapa: logica
+codigo_proceso: S4.3
+estado_institucional: PROPUESTA
+nivel_revision: ELABORACION
+autoridad:
+  insumo_equipo: S4-3-insumo-propuesta-descomposicion-equipo.png
+  vista_logica: S4-3-diagrama-proceso-logico.puml
+  ficha: S4-3-ficha-producto-proceso.md
+  sustento: S4-3-sustento.md
+fuente:
+  ficha_aprobada_s4: ../S4-ficha-producto-proceso.md
+  reglas_borrador_ia:
+    - REG-INV-EJEC-001
+    - REG-INV-EJEC-002
+    - REG-INV-EJEC-003
+    - REG-INV-EJEC-004
+    - REG-INV-EJEC-005
+    - REG-INV-EJEC-006
+    - REG-INV-EJEC-007
+    - REG-CON-OBRA-001
+    - REG-CON-OBRA-002
+    - REG-CON-OBRA-003
+    - REG-CON-OBRA-004
+    - REG-CON-BYS-001
+    - REG-CGR-AD-001
+    - REG-CGR-AD-002
+artefactos:
+  fuente_plantuml: S4-3-diagrama-proceso-logico.puml
+  derivado_svg: S4-3-diagrama-proceso-logico.svg
+  motor: ../../../05-herramientas/gestor-modelos/plantuml.lock.json
+semantica:
+  alcance: Descomposicion de S4.3 en S4.3.1 Procura, S4.3.2 Ejecucion y S4.3.3 Recepcion, con sus intercambios observados.
+  marcas: OBS observado en la ficha aprobada de S4; EQ definido por el equipo; PROP propuesta de modelamiento.
+  interpretacion_flechas: Secuencia logica entre subprocesos; no es flujo BPMN.
+revision:
+  estado: PENDIENTE-REVISION-EQUIPO
+  criterio: Confirmar alcance, compuertas, nombres y frontera con S4.2 y S4.4 contra el sustento y las reglas citadas.

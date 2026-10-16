@@ -1,0 +1,98 @@
+@startuml
+' FUENTE EDITABLE - modelo logico de S4.3 en etapa de elaboracion (PROPUESTA).
+' Base: propuesta de descomposicion del equipo (2026-10-16), respuestas del equipo y
+' reglas BORRADOR-IA registradas en 03-conocimiento/reglas. Sustento: S4-3-sustento.md.
+' Marcas: [OBS] observado en la ficha aprobada de S4; [EQ] definido por el equipo;
+' [PROP] propuesta de modelamiento pendiente de revision. No es BPMN.
+title S4.3 Ejecución de la inversión - modelo lógico (propuesta en elaboración)
+caption Vista lógica PlantUML para revisión del equipo; no es BPMN ni define responsables internos
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam activity {
+  BackgroundColor #EEF3FF
+  BorderColor #006B8F
+  FontColor #172B4D
+}
+skinparam ArrowColor #44546A
+skinparam noteBorderColor #7F8C8D
+skinparam noteFontColor #172B4D
+
+|S4.3 Ejecución de la inversión|
+start
+note left #E7EED8
+  <b>Entradas [OBS]</b>
+  * S4.2: Expediente técnico, documento
+    equivalente aprobado y/o EETT
+  * Gobiernos Nacional, Regional y Local:
+    Convenios (condición del proyecto [EQ])
+end note
+:Inversión con expediente técnico o
+documento equivalente aprobado;
+
+if (C1 ¿Diseño y construcción con contrato
+vigente desde S4.2? [EQ]) then (No)
+  :<b>S4.3.1 Procura</b>
+  Planificación de la ejecución a cargo de la entidad [EQ]
+  Contratación, preparación por administración directa
+  u Obras por Impuestos [EQ]
+  Condiciones previas al inicio [PROP];
+  note right #F9D7B5
+    <b>Intercambios [OBS]</b>
+    * Salida a S3.1: Designación de personal y/o
+      requerimiento de contratación de consultoría
+      de obra/bienes y servicios
+    * Entrada de S3.2: Servicio contratado / bien
+      adquirido / consultoría y obra contratada
+  end note
+else (Sí)
+endif
+
+-> Acta de inicio de obra o equivalente [EQ];
+
+:<b>S4.3.2 Ejecución</b>
+Ejecución física y financiera [PROP]
+Registro previo de modificaciones, vigilancia
+del avance y seguimiento mensual [PROP];
+note right #F9D7B5
+  <b>Salidas [OBS]</b>
+  * S2.1 Gestión Contable: Expediente para pagos
+  * MEF / INFOBRAS: Reporte de inversiones ejecutadas
+end note
+
+-> Obra o prestación concluida, o contrato resuelto [EQ];
+
+:<b>S4.3.3 Recepción</b>
+Recepción de obra, conformidad de bienes y servicios,
+o constatación física e inventario si el contrato
+fue resuelto [PROP];
+
+if (C2 ¿Contrato resuelto con saldo
+por ejecutar? [EQ]) then (Sí)
+  fork
+    :Informe de estado situacional del
+    Proyecto/programa o IOARR por saldo
+    de obra hacia S4.2 [OBS];
+    note right
+      El saldo vuelve a S4.2 para elaborar
+      el expediente de saldo y reinicia el ciclo [EQ]
+    end note
+  fork again
+    :Información técnico y financiero
+    para liquidación ET hacia S4.4 [OBS];
+  end fork
+  stop
+else (No)
+  :Información técnico y financiero
+  para liquidación ET hacia S4.4 [OBS];
+  stop
+endif
+
+legend bottom
+  Alcance [EQ]: todas las inversiones (proyectos, programas e IOARR), no solo obras.
+  Modalidades [EQ]: contrata, administración directa y Obras por Impuestos.
+  La liquidación ocurre en S4.4 [EQ]. Fuentes y observaciones: S4-3-sustento.md.
+endlegend
+@enduml

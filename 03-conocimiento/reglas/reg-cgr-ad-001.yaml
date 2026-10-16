@@ -1,0 +1,74 @@
+esquema: regla-normativa-v1
+id_regla: REG-CGR-AD-001
+titulo: Fases de la ejecucion de obras por administracion directa
+dominio: control-gubernamental
+tipo_regla: DEFINICION
+enunciado: La ejecucion de obras por administracion directa requiere expediente tecnico aprobado y actualizado,
+  y consta de las fases de aprobacion de la ejecucion, preparacion, ejecucion fisica y culminacion y liquidacion;
+  luego la obra se transfiere.
+actor: entidad
+accion: null
+objeto: obra por administracion directa
+condiciones:
+- expediente tecnico aprobado y actualizado
+- modelado BIM 3D cuando corresponda
+excepciones: []
+plazo: null
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3
+  - S4.4
+  etapas: []
+  modalidades:
+  - administracion-directa
+  tipologias: []
+  aplica_si: []
+  no_aplica_si: []
+fuente:
+  id_documento: CTRL-001
+  archivo_original: 01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf
+  sha256: 006FDB364E2CE3594FC2C11DE2F5ADD901B4ACF389A958AB78E6ED4ABD61CA9E
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/5623613/4984570-directiva-n-017-2023-cg-gmpl.pdf?v=1703890234
+  fecha_consulta: '2026-10-16'
+  articulo: Numeral 6.6
+  numeral: '6.6'
+  pagina_pdf: '7'
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: Para iniciar el proceso de ejecución de obras por administración directa , se debe contar previamente
+    con el expediente técnico de obra aprobado, actualizado y contar con el modelado BIM 3D libre de colisiones,
+    cuando corresponda. El proceso de ejecución de obras por administración directa consta de las fases de i) aprobación
+    de la ejecución; ii) preparación, iii) ejecución física; y, iv) culminación y liquidación; culminada y liquidada
+    la obra, esta debe ser transferida internamente (a otra unidad orgánica de la entidad que ejecutó la obra) o
+    externamente (a otra entidad diferente de la que ejecutó la obra), la cual estará a cargo de su operación y
+    mantenimiento.
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- Directiva aprobada por RC 432-2023-CG (29-12-2023); confirmar modificatorias posteriores.
+- Cita extraida automaticamente de la capa de texto del PDF con espacios normalizados; puede conservar cortes de
+  palabra del original.

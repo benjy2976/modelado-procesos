@@ -1,0 +1,85 @@
+esquema: regla-normativa-v1
+id_regla: REG-CON-OBRA-003
+titulo: Recepcion de obra
+dominio: contrataciones
+tipo_regla: PROCEDIMIENTO
+enunciado: Culminada la obra, el contratista solicita la recepcion en el cuaderno de incidencias; el supervisor
+  emite el certificado de conformidad tecnica en cinco dias; la entidad designa un comite de recepcion que verifica
+  in situ y suscribe el acta de recepcion o emite un pliego de observaciones.
+actor: contratista, supervisor y comite de recepcion
+accion: recepcionar
+objeto: obra culminada
+condiciones:
+- obra culminada
+excepciones: []
+plazo: 5 dias para el certificado; 15 dias para la verificacion del comite
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3
+  etapas: []
+  modalidades:
+  - contrata
+  tipologias: []
+  aplica_si: []
+  no_aplica_si: []
+fuente:
+  id_documento: CON-001
+  archivo_original: 01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf
+  sha256: 0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/7594705/6444155-reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf?v=1787002595
+  fecha_consulta: '2026-10-16'
+  articulo: Articulo 212
+  numeral: 212.1-212.4
+  pagina_pdf: 119-120
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: 212.1. Culminada la ejecución de la obra el contratista solicita al supervisor la recepción de la
+    obra a través de una anotación en el cuaderno de incidencias. El supervisor corrobora el estricto cumplimiento
+    de lo establecido en el expediente técnico y la s modificaciones aprobadas por la entidad contratante. En un
+    plazo de cinco días contabilizados desde el día siguiente de efectuada la anotación y de encontrarse conforme,
+    el supervisor remite a la entidad contratante el certificado de conformidad técnica. De no constatar la culminación
+    de la obra anota en el cuaderno de incidencias dicha circunstancia en el mismo plazo. 212.2. Dentro de los cinco
+    días hábiles siguientes de remitido el certificado de conformidad técnica, la entidad contratante designa un
+    comité de recepción conformado por representantes de la entidad contratante de las carreras de ingeniería o
+    arquitectura y/o expertos contratados para ese fin. El supervisor no forma parte del comité. El Colegio de Ingenieros,
+    el Colegio de Arquitectos o el representante del Órgano de Control Institucional de la entidad contratante no
+    forma parte del comité, pero puede estar presente en la recepción de la obra. 212.3. En un plazo no mayor de
+    quince días desde remitido el certificado de conformidad técnica, el comité de recepción de obra verifica in
+    situ el cumplimiento contractual, así como el correcto funcionamiento u operatividad de la edificación o infraestruc
+    tura culminada y equipos, en caso corresponda. De ser el caso dispone las pruebas para corroborar el cumplimiento
+    de las especificaciones técnicas y/o las pruebas operativas que sean necesarias, siempre que estén dentro del
+    alcance del contrato. 212.4. Culminada la verificación y de no existir observaciones, el contratista, el supervisor
+    y el comité de recepción suscriben el acta de recepción de obra. De existir observaciones, el comité de recepción
+    emite un pliego de observaciones y no recibe la obra, comunicando dicha situación al contratista y a la entidad
+    contratante.
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- Texto consolidado con modificaciones hasta el 09-01-2026; las modificaciones del DS 001-2026-EF entran en vigor
+  con la Resolucion Directoral que modifica las bases estandar; confirmar si ya rigen.
+- Cita extraida automaticamente de la capa de texto del PDF con espacios normalizados; puede conservar cortes de
+  palabra del original.

@@ -49,9 +49,9 @@ Entradas y productos de S4.3 tal como figuran en la ficha aprobada de S4 (pagina
 
 | Documento | Archivo | Estado |
 |---|---|---|
-| Ficha de producto y proceso | `S4-3-ficha-producto-proceso.md` | `PENDIENTE`: no existe en las fuentes recibidas; debe elaborarse |
+| Ficha de producto y proceso | [S4-3-ficha-producto-proceso.md](S4-3-ficha-producto-proceso.md) | `PROPUESTA` en `ELABORACION`: primer borrador; dueno y objetivo pendientes |
 | Fichas de indicador | `S4-3-fichas-indicador.md` | `PENDIENTE` |
-| Diagrama del proceso | `S4-3-diagrama-proceso-logico.puml` y luego `S4-3-diagrama-proceso.bpmn` | `PENDIENTE` |
+| Diagrama del proceso | [S4-3-diagrama-proceso-logico.puml](S4-3-diagrama-proceso-logico.puml) y su [SVG](S4-3-diagrama-proceso-logico.svg); luego `S4-3-diagrama-proceso.bpmn` | `PROPUESTA` en `ELABORACION`: modelo logico |
 | Sustento | [S4-3-sustento.md](S4-3-sustento.md) | Vigente |
 | Procedimiento | - | Se determinara al aprobar la descomposicion: solo aplica en el ultimo nivel |
 
@@ -60,6 +60,9 @@ Entradas y productos de S4.3 tal como figuran en la ficha aprobada de S4 (pagina
 Aun no definidos. Cada subproceso tendra su carpeta `S4-3-n-<nombre>/` cuando se apruebe la descomposicion de S4.3.
 
 ## Pendientes
+
+- Responder las preguntas P7 a P10 del [sustento](S4-3-sustento.md) y revisar el modelo logico y la ficha borrador.
+- Incorporar fuentes de Obras por Impuestos y del Sistema Nacional de Abastecimiento a la biblioteca.
 
 - Recibir los levantamientos del equipo y el documento interno para elaborar fichas; se registraran como insumos en el sustento.
 - Elaborar la ficha de producto y proceso de S4.3 conforme al Anexo 2.

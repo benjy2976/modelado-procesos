@@ -34,6 +34,15 @@ El lote descargado constituye una biblioteca base para modelar la ejecucion de i
 - Directivas y bases especiales para obras paralizadas, emergencias, reconstruccion, convenios u Obras por Impuestos, solo si la modalidad entra en alcance.
 - Opiniones, pronunciamientos y precedentes del OECE o Contraloria asociados a controversias concretas; se incorporaran por necesidad, no de forma masiva.
 
+## Recursos requeridos por el alcance de S4.3 (2026-10-16)
+
+`DEC-020` incluye en S4.3 todas las inversiones y las modalidades de contrata, administracion directa y Obras por Impuestos. Faltan en la biblioteca:
+
+- Ley 29230 de Obras por Impuestos, su reglamento y disposiciones vigentes.
+- Normativa del Sistema Nacional de Abastecimiento aplicable a la recepcion de bienes.
+
+Hasta incorporarlas, las afirmaciones sobre esos temas se registran como `EVIDENCIA-INSUFICIENTE`.
+
 ## Alertas de mantenimiento
 
 - El Reglamento de Invierte.pe vigente descargado es el DS 140-2026-EF, publicado el 18-07-2026. Los documentos anteriores se conservan como antecedentes y no deben tratarse como texto vigente sin revision.

@@ -1,0 +1,72 @@
+esquema: regla-normativa-v1
+id_regla: REG-CGR-AD-002
+titulo: Culminacion de obra por administracion directa
+dominio: control-gubernamental
+tipo_regla: PROCEDIMIENTO
+enunciado: En la culminacion, el residente anota el hecho en el cuaderno de obra; el inspector o supervisor corrobora
+  en cinco dias calendario y, de estar conforme, la unidad responsable designa en cinco dias el Comite de Culminacion
+  y Liquidacion.
+actor: residente, inspector o supervisor, unidad organica responsable
+accion: anotar, corroborar y designar comite
+objeto: obra culminada
+condiciones: []
+excepciones: []
+plazo: 5 dias calendario cada paso
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3
+  - S4.4
+  etapas: []
+  modalidades:
+  - administracion-directa
+  tipologias: []
+  aplica_si: []
+  no_aplica_si: []
+fuente:
+  id_documento: CTRL-001
+  archivo_original: 01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf
+  sha256: 006FDB364E2CE3594FC2C11DE2F5ADD901B4ACF389A958AB78E6ED4ABD61CA9E
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/5623613/4984570-directiva-n-017-2023-cg-gmpl.pdf?v=1703890234
+  fecha_consulta: '2026-10-16'
+  articulo: Numeral 7.4
+  numeral: '7.4'
+  pagina_pdf: 19-20
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: En la fecha de la culminación de la ejecución de la obra, el residente de obra anota el hecho en
+    el cuaderno de obra y solicita al inspector o supervisor de obra para que en un plazo no mayor de cinco (5)
+    días calendario siguientes a la anotación señalada, corrobore el cumplimiento de lo establecido en el expediente
+    técnico y las modiﬁ caciones aprobadas. De encontrarlo conforme, se anota en el cuaderno de obra y comunica
+    formalmente a la Unidad Orgánica responsable, de acuerdo con las funciones designadas por la entidad, para que
+    en un plazo de cinco (5) días calendario siguientes designe al Comité de Culminación y Liquidación de la ejecución
+    de la obra.
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- Directiva aprobada por RC 432-2023-CG (29-12-2023); confirmar modificatorias posteriores.
+- Cita extraida automaticamente de la capa de texto del PDF con espacios normalizados; puede conservar cortes de
+  palabra del original.
