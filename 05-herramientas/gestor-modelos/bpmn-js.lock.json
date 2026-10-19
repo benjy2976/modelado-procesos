@@ -1,0 +1,12 @@
+{
+  "version": "17.11.1",
+  "consulted_at": "2026-10-19",
+  "license": "MIT con clausula de marca de agua de bpmn.io (https://unpkg.com/bpmn-js@17.11.1/LICENSE)",
+  "artifacts": {
+    "navigated_viewer": {
+      "url": "https://unpkg.com/bpmn-js@17.11.1/dist/bpmn-navigated-viewer.production.min.js",
+      "sha256": "119a38feec2f28123e3c8270d7f2dd483afb0844b59d778461e8134c04b6a0f3",
+      "cache_path": "99-temporal/herramientas/bpmn-js/bpmn-navigated-viewer-17.11.1.production.min.js"
+    }
+  }
+}

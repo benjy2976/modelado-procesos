@@ -40,3 +40,6 @@
 *.nwc filter=lfs diff=lfs merge=lfs -text
 *.dwg filter=lfs diff=lfs merge=lfs -text
 *.dxf filter=lfs diff=lfs merge=lfs -text
+
+# Esquemas oficiales BPMN 2.0 de la OMG: se conservan byte a byte para que coincidan con sus hashes (DEC-025)
+05-herramientas/gestor-modelos/xsd_bpmn20/*.xsd -text

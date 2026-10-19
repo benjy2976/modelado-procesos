@@ -35,7 +35,7 @@ Los enlaces de esta tabla son referencias oficiales del proyecto o sus mantenedo
 | [pdfplumber](https://pypi.org/project/pdfplumber/) | 0.11.10 | Extraer texto y tablas con posicion para contrastarlos con la pagina original. |
 | [PyYAML](https://pypi.org/project/PyYAML/) | 6.0.3 | Leer reglas, metadatos y paquetes de contexto usando `safe_load`. |
 | [jsonschema](https://pypi.org/project/jsonschema/) | 4.26.0 | Comprobar estructura de reglas y eventos; no validar su contenido juridico. |
-| [lxml](https://pypi.org/project/lxml/) | 6.1.3 | Procesar XML BPMN y, cuando se incorporen esquemas oficiales, comprobar XSD. La prueba actual solo comprueba lectura XML. |
+| [lxml](https://pypi.org/project/lxml/) | 6.1.3 | Procesar XML BPMN y comprobarlo contra los esquemas oficiales de la OMG en la cadena BPMN (`DEC-025`). La prueba del verificador comprueba lectura XML. |
 | [openpyxl](https://pypi.org/project/openpyxl/) | 3.1.5 | Leer y generar matrices XLSX. No calcula formulas como Excel. |
 | [python-docx](https://pypi.org/project/python-docx/) | 1.2.0 | Producir borradores Word a partir de conocimiento trazable. |
 | [ReportLab](https://pypi.org/project/reportlab/) | 5.0.1 | Generar reportes PDF derivados de datos y fuentes editables. |
@@ -43,6 +43,8 @@ Los enlaces de esta tabla son referencias oficiales del proyecto o sus mantenedo
 | [RapidFuzz](https://pypi.org/project/RapidFuzz/) | 3.14.6 | Sugerir coincidencias entre titulos, actores y terminos; requiere revision humana. |
 | [pytest](https://docs.pytest.org/en/stable/) | 9.1.1 | Probar futuros extractores y validadores con casos controlados. |
 | [Ruff](https://docs.astral.sh/ruff/) | 0.17.1 | Detectar errores comunes en scripts y mantener formato consistente. |
+
+La cadena BPMN (`DEC-025`) necesita ademas Microsoft Edge o Google Chrome, que viene instalado en Windows 10 y 11, para generar las vistas SVG y PNG sin ventana; `verificar_entorno.py` informa una advertencia si no lo encuentra. bpmn-js no se instala con pip: se descarga una vez desde la URL fijada en `05-herramientas/gestor-modelos/bpmn-js.lock.json`, se comprueba por SHA-256 y se guarda en `99-temporal/herramientas/bpmn-js/`. Detalle en el [gestor local de modelos](gestor-modelos/00-gestor-modelos.md).
 
 PDFMiner y PDFium llegan como dependencias de pdfplumber; no hace falta instalar Poppler para la comprobacion incluida. No se han instalado plugins de comunidad de Obsidian ni servicios de nube. Las operaciones de comprobacion usan datos sinteticos y memoria local, sin enviar documentos a servicios externos. Instalar o actualizar paquetes si requiere conexion al indice de paquetes.
 

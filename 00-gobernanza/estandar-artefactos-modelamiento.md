@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-10-19
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -17,7 +17,7 @@ tags:
 
 # Estandar de artefactos para el modelamiento hibrido
 
-Este estandar adopta un flujo hibrido: PlantUML permite construir y revisar modelos logicos durante el levantamiento; BPMN 2.0 XML es la fuente maestra desde la formalizacion; SVG, PDF, resumenes y reportes son derivados automaticos. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
+Este estandar adopta un flujo hibrido: durante el levantamiento, el modelo logico se construye en una tabla Markdown que genera BPMN (cadena BPMN, `DEC-025`) o, para vistas conceptuales que no son BPMN, en PlantUML; BPMN 2.0 XML es la fuente maestra desde la formalizacion; SVG, PNG, PDF, resumenes y reportes son derivados automaticos. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
 
 ## 0. Excepcion para el mapa de procesos Nivel 0
 
@@ -36,7 +36,7 @@ La excepcion aplica solo al mapa global Nivel 0 que organiza macroprocesos. No s
 
 1. Un mismo aspecto del modelo no puede tener dos fuentes maestras editables simultaneamente.
 2. Markdown conserva las fichas NT, el sustento, las reglas, las decisiones y las relaciones.
-3. PlantUML conserva el modelo logico mientras el artefacto se encuentre en etapa conceptual.
+3. La tabla del diagrama (`*-diagrama-proceso-tabla.md`) o, en su caso, PlantUML conserva el modelo logico mientras el artefacto se encuentre en etapa conceptual; un mismo diagrama usa solo una de las dos fuentes.
 4. BPMN 2.0 XML conserva la semantica y disposicion del modelo formal.
 5. SVG, PDF, PNG, resumenes y reportes se generan; no se editan manualmente.
 6. AS-IS y TO-BE mantienen archivos y rutas separadas.
@@ -53,7 +53,7 @@ Representa un mapa o diagrama recibido como evidencia institucional. Puede usar 
 
 ### 2.2 Modelo logico
 
-Representa responsabilidades, actividades, decisiones y transferencias en una forma comprensible para especialistas e IA. Su fuente editable es `.puml` y su vista es `.svg`.
+Representa responsabilidades, actividades, decisiones y transferencias en una forma comprensible para especialistas e IA. Para los diagramas de proceso, su fuente editable es `*-diagrama-proceso-tabla.md`, que genera un `.bpmn` validado y sus vistas `.svg` y `.png` (seccion 7.1). Para vistas conceptuales que no son BPMN, su fuente es `.puml` y su vista `.svg`.
 
 Un modelo logico:
 
@@ -79,10 +79,12 @@ Cada proceso tiene su carpeta dentro de `02-procesos`, anidada bajo la de su pro
 |-- S4-3-fichas-indicador.md                    Anexo 4; fuente del PDF
 |-- S4-3-sustento.md                            fuentes, evidencias, historial; no se exporta
 |-- S4-3-diagrama-proceso-modelo.yaml           configuracion del diagrama
-|-- S4-3-diagrama-proceso-logico.puml           etapa logica
+|-- S4-3-diagrama-proceso-tabla.md             etapa logica: fuente del diagrama (DEC-025)
+|-- S4-3-diagrama-proceso-logico.puml           vista conceptual no BPMN, si se requiere
 |-- S4-3-diagrama-proceso-logico.svg
-|-- S4-3-diagrama-proceso.bpmn                  etapa formal
-|-- S4-3-diagrama-proceso.svg
+|-- S4-3-diagrama-proceso.bpmn                  generado en la etapa logica; maestro en la formal
+|-- S4-3-diagrama-proceso.svg                   vista para Obsidian
+|-- S4-3-diagrama-proceso.png                   vista para documentos
 |-- S4-3-diagrama-proceso-resumen-generado.md
 |-- S4-3-diagrama-proceso-manifest.json
 |-- S4-3-diagrama-proceso-validacion.json
@@ -106,10 +108,12 @@ El TO-BE aplica el mismo patron en `02-procesos/to-be/`, con la misma jerarquia 
 | `*-sustento.md` | Fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias, BIM e historial de revision | Fuente maestra de trazabilidad | Personas o IA; el historial de conformidades solo personas |
 | `*-propuesta.md` | Variacion de un documento aprobado | Propuesta; no reemplaza al vigente hasta su aprobacion | Personas o IA, con el circuito de revision aplicable |
 | `*-modelo.yaml` | Declaracion de rutas, clase, estado y opciones de construccion | Configuracion del modelo | Personas o comando de inicializacion controlado |
-| `*-logico.puml` | Flujo logico con carriles | Fuente conceptual temporal | Personas o IA antes de formalizar |
+| `*-diagrama-proceso-tabla.md` | Pools, carriles, elementos, flujos, mensajes, clase y fuente de cada elemento | Fuente del diagrama en la etapa logica; antecedente en la formal | Personas o IA antes de formalizar |
+| `*-logico.puml` | Vista conceptual no BPMN o modelo logico iniciado en PlantUML | Fuente conceptual temporal | Personas o IA antes de formalizar |
 | `*-logico.svg` | Vista del PlantUML | Derivado | Solo generador |
-| `*.bpmn` | Semantica y disposicion BPMN | Fuente maestra formal | Editor BPMN o aplicacion controlada |
-| `*.svg` | Vista del BPMN para Obsidian y revision | Derivado versionado | Solo generador |
+| `*.bpmn` | Semantica y disposicion BPMN | Derivado de la tabla en la etapa logica; fuente maestra en la formal | `tabla_a_bpmn.py` en la etapa logica; editor BPMN o aplicacion controlada en la formal |
+| `*.svg` | Vista del BPMN para Obsidian y revision | Derivado versionado | Solo generador (`renderizar_bpmn.py`) |
+| `*.png` | Vista del BPMN para documentos e impresion | Derivado versionado | Solo generador (`renderizar_bpmn.py`) |
 | `*-resumen-generado.md` | Carriles, actividades, eventos, flujos y objetos extraidos | Derivado consultable | Solo generador |
 | `*-manifest.json` | Versiones del generador y hashes de entradas/salidas | Evidencia tecnica derivada | Solo generador |
 | `*-validacion.json` | Hallazgos estructurados | Derivado tecnico | Solo validador |
@@ -118,26 +122,25 @@ El TO-BE aplica el mismo patron en `02-procesos/to-be/`, con la misma jerarquia 
 
 Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o metadato compatible con su formato.
 
-## 5. Transicion de PlantUML a BPMN
+## 5. Transicion del modelo logico a BPMN
 
 ### 5.1 Etapa logica
 
-- `*-logico.puml` es editable.
-- `*-logico.svg` se genera desde PlantUML.
-- No es obligatorio que exista un `.bpmn`.
+- `*-diagrama-proceso-tabla.md` es editable; el `.bpmn`, el `.svg` y el `.png` se generan desde ella y no se editan.
+- Si el modelo logico se lleva en PlantUML, `*-logico.puml` es editable y `*-logico.svg` se genera desde el.
 - Las limitaciones semanticas se documentan en el sustento del proceso.
 
 ### 5.2 Formalizacion
 
 - El equipo contrasta el modelo logico con evidencia, reglas y entrevistas.
-- Se construye el `.bpmn` con identificadores estables.
+- Se construye el `.bpmn` con identificadores estables: desde la tabla, el generado se adopta tal cual; desde PlantUML, se construye la tabla equivalente.
 - La equivalencia se revisa; no se presupone conversion automatica completa.
 - Se registra cualquier decision que altere alcance, responsables o convenciones.
 
 ### 5.3 Etapa formal
 
 - El `.bpmn` es el unico maestro del diagrama.
-- El `.puml` se conserva como antecedente de la etapa conceptual o se regenera como resumen; no se sigue editando manualmente.
+- La tabla y, en su caso, el `.puml` se conservan como antecedentes de la etapa conceptual; no se siguen editando.
 - Toda modificacion formal parte del BPMN o de una operacion aplicada por la herramienta al BPMN.
 - Se regeneran SVG, resumen, manifiesto y validaciones.
 
@@ -172,7 +175,19 @@ Regla adoptada en `DEC-024` para modelos logicos y formales:
 6. Un cambio de ubicacion visual modifica el BPMN DI y regenera el SVG; nunca se corrige directamente el SVG.
 7. El modelo debe poder abrirse fuera de la futura aplicacion mediante una herramienta BPMN compatible.
 
+### 7.1 Cadena BPMN
+
+Regla adoptada en `DEC-025`:
+
+1. La tabla se redacta con la [plantilla de diagrama en tabla](plantillas/modelamiento/diagrama-proceso-tabla.md); cada elemento declara su clase (observado, normativo, equipo o propuesta) y su fuente.
+2. `tabla_a_bpmn.py` genera el `.bpmn`; antes de versionarlo, los controles D1 (esquema OMG), D2 (referencias), D3 (bloqueos) y D4 (trazado) no deben presentar hallazgos, o estos quedan explicados en el sustento.
+3. El `.svg` y el `.png` se generan solo con `renderizar_bpmn.py`, con bpmn-js fijado por version y hash. La paleta de estilo Bizagi se aplica solo a los derivados.
+4. La copia para Bizagi y la vista HTML son productos de trabajo: no se versionan. Bizagi se usa solo para ajustes manuales; un `.bpmn` ajustado alli vuelve al repositorio validado y renderizado con las mismas herramientas.
+5. PlantUML se mantiene para vistas conceptuales que no son BPMN, como la vista general de S4.3.2. Despues del piloto con S4.3.2.5 Consulta se evaluara si se retira para los diagramas de proceso.
+
 ## 8. Automatizacion requerida
+
+Comandos vigentes en `05-herramientas/gestor-modelos/`: `renderizar_plantuml.py`, `tabla_a_bpmn.py` (con `_validar_bpmn.py`, `_revisar_trazado.py` y `_bpmn_a_bizagi.py`) y `renderizar_bpmn.py`. Uso en el [gestor local de modelos](../05-herramientas/gestor-modelos/00-gestor-modelos.md).
 
 El futuro gestor debe ofrecer como minimo:
 

@@ -3,7 +3,7 @@ tipo: estado-proyecto
 area: proyecto
 estado_documento: VIGENTE
 clase_conocimiento: OBSERVADO
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-10-19
 confidencialidad: INTERNO
 tags:
   - tema/gobernanza
@@ -11,7 +11,7 @@ tags:
 
 # Estado del proyecto
 
-- Fecha de actualizacion: 2026-10-16
+- Fecha de actualizacion: 2026-10-19
 - Fase: estructura centrada en procesos implementada (`DEC-017`); traduccion S4 lista para revision humana de fidelidad; S4.3 descompuesto en tres subprocesos de nivel 2 propuestos (`DEC-023`, `DEC-024`), con S4.3.2 Ejecucion en modelamiento
 - Ambito inicial: S4.3 Ejecucion de la inversion
 - Estado de los procesos: mapa Nivel 0 y ficha S4 confirmados como lineas base institucionales aprobadas; la nota S4 se dividio en ficha de producto y proceso, fichas de indicador y sustento, pendientes de conformidad humana de fidelidad; S4.3 delimitado (`DEC-020`) con modelo logico y ficha borrador en `ELABORACION` a partir de la propuesta del equipo; carpetas de S4.3.1, S4.3.2 y S4.3.3 creadas; S4.3.2 con modelo logico de subprocesos de evento y sustento en `ELABORACION`; 10 guias de lectura de fuentes y 28 reglas `BORRADOR-IA` pendientes de validacion humana; TO-BE pendiente para una etapa posterior
@@ -21,6 +21,7 @@ tags:
 - Obsidian: boveda independiente operativa mediante CLI; notas indice `00-<nombre>.md` en lugar de `README.md`, navegacion `Sube a:` hacia el indice inmediato y grupos de color comunes del grafo (`DEC-018`); entrada `00-GESTION-POR-PROCESOS-GRH.md`, mayusculas en tres niveles, etiquetas controladas `tema/` y `proceso/`, nodos de referencia, actores e interacciones enlazadas para la vista del modelo de procesos (`DEC-019`); estandar obligatorio de autoria, mapas, propiedades, plantillas, reuniones, Canvas y Bases definidos; estado visual excluido de Git
 - Conocimiento: manual operativo y protocolo obligatorio definidos; catalogo, plantillas y requisitos del validador web preparados; implementacion pendiente
 - Reproducibilidad: dependencias fijadas, auditor automatizado aprobado, `origin` sincronizado y cuatro objetos LFS recuperados e integros; falta validar la clonacion completa desde otro equipo
+- Modelamiento: cadena BPMN adoptada (`DEC-025`): tabla Markdown, BPMN validado (esquema OMG, referencias, bloqueos y trazado), copia para Bizagi y vistas SVG y PNG con bpmn-js fijado; PlantUML se mantiene para vistas conceptuales; piloto previsto con S4.3.2.5 Consulta
 - Entorno ampliado: politica abierta desde Python estable 3.11; `.venv` local operativo con CPython 3.14.7 x64, dependencias universales con hashes y controles de instalacion y funcionamiento; guia propuesta en [Herramientas](05-herramientas/guia-entorno.md)
 
 ## Completado

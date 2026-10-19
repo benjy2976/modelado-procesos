@@ -33,3 +33,6 @@ __pycache__/
 
 # Documento aportado localmente que aun no tiene una fuente reproducible
 !/01-referencias/02-gestion-por-procesos/originales/bpmn-2-manual-referencia-guia-practica.pdf
+
+# Salidas de prueba de tabla_a_bpmn.py (DEC-025)
+/05-herramientas/gestor-modelos/salida/

@@ -16,14 +16,14 @@ Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 1. Catalogador y verificador de hashes.
 2. Detector de texto y calidad OCR.
 3. Extractor de texto con referencia de pagina.
-4. Validador BPMN 2.0.
+4. Validador BPMN 2.0: esquema OMG, referencias, bloqueos y trazado (`_validar_bpmn.py`, `_revisar_trazado.py`; `DEC-025`).
 5. Generador de matrices de trazabilidad.
 6. Generador de paquetes de publicacion.
 7. Extractor PDF a Markdown con marcadores de pagina y hash de origen.
 8. Generador y validador del catalogo de reglas.
 9. Aplicacion web interna para revision especializada del conocimiento.
 10. Auditor de reproducibilidad del repositorio y la cache documental.
-11. Gestor local de modelos PlantUML/BPMN, derivados, validaciones e intercambio compacto con IA.
+11. Gestor local de modelos PlantUML/BPMN, derivados, validaciones e intercambio compacto con IA. Vigentes: renderizado PlantUML y cadena BPMN de tabla a BPMN, SVG y PNG (`tabla_a_bpmn.py`, `renderizar_bpmn.py`; `DEC-025`).
 12. Configurador local del grafo de Obsidian con los grupos de color y vistas comunes (`configurar_grafo_obsidian.py`).
 13. Gestor del vocabulario de etiquetas: revisar, aplicar, renombrar y listar (`gestionar_etiquetas.py`).
 

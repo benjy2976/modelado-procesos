@@ -110,6 +110,17 @@ def main() -> int:
     else:
         errors.append("Git no encontrado. Instalarlo y abrir una terminal nueva.")
 
+    # Cadena BPMN (DEC-025): Edge o Chrome sin ventana para generar las vistas SVG y PNG
+    try:
+        sys.path.insert(0, str(ROOT / "05-herramientas" / "gestor-modelos"))
+        from renderizar_bpmn import navegador
+
+        native["navegador-bpmn"] = navegador()
+    except Exception as exc:  # noqa: BLE001 -- solo afecta a las vistas BPMN; se informa como advertencia
+        warnings.append(
+            f"Cadena BPMN: {exc} Sin navegador no se generan las vistas SVG y PNG de BPMN."
+        )
+
     report = {
         "python": sys.version.split()[0],
         "plataforma": sys.platform,

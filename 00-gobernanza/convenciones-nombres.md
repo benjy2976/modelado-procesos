@@ -29,7 +29,7 @@ Las mayusculas marcan tres niveles visuales (`DEC-019`); fuera de ellos todo nom
 | Nivel | Regla | Ejemplos |
 |---|---|---|
 | 1. Entrada y areas | Nota indice completa en mayusculas | `00-GESTION-POR-PROCESOS-GRH.md`, `00-PROCESOS.md`, `00-GOBERNANZA.md` |
-| 2. Procesos | Codigo NT en mayusculas, con guion en lugar de punto; el resto en minusculas | Carpetas `S4-gestion-de-las-inversiones/`, `S4-3-ejecucion-inversion/`; indice `00-S4-3-ejecucion-inversion.md`; documentos `S4-3-ficha-producto-proceso.md`, `S4-3-fichas-indicador.md`, `S4-3-sustento.md`, `S4-3-diagrama-proceso.bpmn` |
+| 2. Procesos | Codigo NT en mayusculas, con guion en lugar de punto; el resto en minusculas | Carpetas `S4-gestion-de-las-inversiones/`, `S4-3-ejecucion-inversion/`; indice `00-S4-3-ejecucion-inversion.md`; documentos `S4-3-ficha-producto-proceso.md`, `S4-3-fichas-indicador.md`, `S4-3-sustento.md`, `S4-3-diagrama-proceso-tabla.md`, `S4-3-diagrama-proceso.bpmn`, `.svg` y `.png` |
 | 3. Contenido | Minusculas | `registro-decisiones.md`, `00-bases.md` |
 
 - Las carpetas de area conservan su nombre en minusculas (`02-procesos/`); solo su nota indice va en mayusculas.
