@@ -25,9 +25,13 @@ REGISTRY_FIELDS = [
 
 def fetch(url: str, retries: int = 3) -> tuple[bytes, str, dict[str, str]]:
     last_error: Exception | None = None
+    parsed = urllib.parse.urlparse(url)
+    # El MEF devuelve una pagina HTML de bloqueo para sus XLSX con el agente
+    # identificador del catalogador. La cabecera generica entrega el archivo.
+    user_agent = "Mozilla/5.0" if parsed.hostname == "mef.gob.pe" and parsed.path.lower().endswith(".xlsx") else USER_AGENT
     for attempt in range(retries):
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            request = urllib.request.Request(url, headers={"User-Agent": user_agent})
             with urllib.request.urlopen(request, timeout=90) as response:
                 headers = {
                     "tipo_contenido": response.headers.get("Content-Type", ""),
