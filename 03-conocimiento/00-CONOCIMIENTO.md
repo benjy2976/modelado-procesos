@@ -18,6 +18,7 @@ Esta area contiene conocimiento reutilizable por varios procesos: reglas normati
 ## Guias de lectura de fuentes
 
 - [Guias de lectura de fuentes](fuentes/00-fuentes.md): que contiene cada fuente consultada, donde esta cada tema y sus alertas de vigencia.
+- [Manual BPMN: galeria de diagramas](manual-bpmn/00-manual-bpmn.md): estructura planteada para transcribir los diagramas del manual BPMN; aun sin desarrollar.
 
 ## Reglas normativas
 

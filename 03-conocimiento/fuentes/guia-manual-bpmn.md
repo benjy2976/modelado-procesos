@@ -62,3 +62,7 @@ Manual de Freund, Rucker y Hitpass (4.a edicion en espanol, 2014). Es una **refe
 | Subproceso de evento sin interrupcion: se dispara cada vez que ocurre el evento mientras el proceso contenedor sigue activo | Sec. 2.8.6, p. 96-97 |
 | Bucles e instancias multiples para repeticiones con condicion conocida | Sec. 2.7.2, p. 79-81 |
 | Pool con instancias multiples para participantes que pueden ser uno o muchos | Sec. 2.9.5, p. 107 |
+
+## Galeria de diagramas
+
+La transcripcion de las figuras del manual con la cadena BPMN esta planteada en [Manual BPMN: galeria de diagramas](../manual-bpmn/00-manual-bpmn.md). La paleta del proyecto, con la pagina del manual de cada simbolo, esta en el [estandar de artefactos](../../00-gobernanza/estandar-artefactos-modelamiento.md), seccion 7.3.

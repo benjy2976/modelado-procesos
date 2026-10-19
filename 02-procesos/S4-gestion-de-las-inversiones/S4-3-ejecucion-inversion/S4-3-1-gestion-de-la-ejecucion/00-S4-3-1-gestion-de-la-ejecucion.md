@@ -28,11 +28,13 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 | Documento | Archivo | Estado |
 |---|---|---|
-| Ficha de producto y proceso | `S4-3-1-ficha-producto-proceso.md` | `PENDIENTE` |
-| Diagrama del proceso | `S4-3-1-diagrama-proceso-tabla.md`, que genera `S4-3-1-diagrama-proceso.bpmn`, `.svg` y `.png` | `PENDIENTE` |
-| Sustento | `S4-3-1-sustento.md` | `PENDIENTE` |
+| Ficha de producto y proceso | [S4-3-1-ficha-producto-proceso.md](S4-3-1-ficha-producto-proceso.md) | `PROPUESTA` en `ELABORACION` |
+| Diagrama del proceso | Fuente [S4-3-1-diagrama-proceso-tabla.md](S4-3-1-diagrama-proceso-tabla.md); genera [S4-3-1-diagrama-proceso.bpmn](S4-3-1-diagrama-proceso.bpmn), su [SVG](S4-3-1-diagrama-proceso.svg), su [PNG](S4-3-1-diagrama-proceso.png) y su [vista interactiva](S4-3-1-diagrama-proceso.html), que se abre en el navegador (`DEC-026`) | `PROPUESTA` en `ELABORACION`: etapa logica |
+| Sustento | [S4-3-1-sustento.md](S4-3-1-sustento.md) | Vigente |
 
 ## Relaciones
 
-- Recibe de [S4.3.2 Ejecucion](../S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) valorizaciones, requerimientos y modificaciones aprobadas.
+- Recibe de S4.2 el expediente tecnico aprobado y le envia el informe de estado situacional por saldo de obra; envia a S4.4 la informacion para la liquidacion.
+- Envia a [S4.3.2 Ejecucion](../S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) las condiciones de inicio, y recibe de ella valorizaciones, requerimientos y modificaciones.
 - Recibe de [S4.3.3 Recepcion](../S4-3-3-recepcion/00-S4-3-3-recepcion.md) la recepcion o constatacion concluida.
+- Requiere a S3.1 y recibe de S3.2 lo contratado o adquirido; tramita a S2.1 el expediente para pagos (`PROPUESTA`) y reporta a MEF / INFOBRAS.

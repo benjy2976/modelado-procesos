@@ -458,6 +458,19 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             recibe[b] += 1
             mcp.append(dict(k=k, a=a, b=b, nom=nom, nodo=a, pool=b))
     lado = {p: ('arriba' if envia[p] >= recibe[p] and envia[p] else 'abajo') for p in cerrados}
+    # un pool que recibe va arriba si su linea bajaria a traves de la zona de subprocesos de evento de su carril
+    # desde un nodo intermedio del flujo; los eventos de fin conservan el lado inferior, porque las ramas de
+    # excepcion alineadas bajo su actividad ocupan el camino hacia arriba y el trazado rodea la zona por el margen
+    fin_sev = {}
+    for i, (r, c) in celda.items():
+        k = (nodos[i]['pool'], nodos[i]['carril'])
+        fin_sev[k] = max(fin_sev.get(k, 0), x0 + (c + 1) * CELDA + 20)
+    for m in mcp:
+        n = nodos[m['nodo']]
+        if lado[m['pool']] == 'abajo' and m['nodo'] in principal and TIPOS[n['tipo']][0] != 'endEvent' \
+                and cx[m['nodo']] < fin_sev.get(
+                (n['pool'], n['carril']), 0):
+            lado[m['pool']] = 'arriba'
     for m in mcp:
         m['lado'] = lado[m['pool']]
 

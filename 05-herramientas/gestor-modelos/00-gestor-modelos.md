@@ -99,7 +99,7 @@ Los subprocesos de evento son sin interrupcion y se dibujan expandidos, con su e
 
 ### Trazado
 
-Columnas por orden del flujo; una fila por rama de cada compuerta dentro del carril; flujos en angulo recto que esquivan cajas, etiquetas, anotaciones y grupos ajenos; puertos de mensaje repartidos; pools externos cerrados en bandas, los que envian arriba y los que reciben abajo, junto al elemento con el que se comunican; etiquetas dimensionadas segun su texto. El control D4 informa cualquier superposicion restante.
+Columnas por orden del flujo; una fila por rama de cada compuerta dentro del carril; flujos en angulo recto que esquivan cajas, etiquetas, anotaciones y grupos ajenos; puertos de mensaje repartidos; pools externos cerrados en bandas, los que envian arriba y los que reciben abajo, junto al elemento con el que se comunican (un pool que recibe va arriba si su mensaje sale de un nodo intermedio situado sobre la zona de subprocesos de evento); etiquetas dimensionadas segun su texto. El control D4 informa cualquier superposicion restante.
 
 ### Vistas SVG y PNG
 
