@@ -44,6 +44,8 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 | `construir_modelos.py` | Construye o comprueba todos los diagramas en modelamiento: BPMN, SVG, PNG y vista interactiva HTML, con una pagina indice en `99-temporal/modelos/` |
 | `tabla_a_bpmn.py` | Lee la tabla o lista, calcula el trazado, genera el `.bpmn`, lo valida, produce la copia para Bizagi y una vista HTML local |
 | `_validar_bpmn.py` | D1 esquema oficial de la OMG, D2 referencias, D3 bloqueos y elementos inalcanzables (juego de tokens) |
+| `_revisar_notacion.py` | D5: paleta del proyecto (estandar, seccion 7.3) y buenas practicas del manual BPMN |
+| `catalogo/` | [Catalogo de simbolos](catalogo/catalogo-simbolos-diagrama-proceso-tabla.md): todos los simbolos de la paleta, prueba de regresion |
 | `_revisar_trazado.py` | D4: flujos que atraviesan elementos, etiquetas o grupos ajenos, flujos superpuestos, mensajes que cruzan pools ajenos, etiquetas montadas |
 | `_bpmn_a_bizagi.py` | Copia en el dialecto que importa Bizagi Modeler; agrega el proceso vacio que Bizagi exige en los pools cerrados |
 | `renderizar_bpmn.py` | SVG, PNG y vista interactiva HTML con bpmn-js en Edge o Chrome sin ventana; colores de estilo Bizagi solo en los derivados |
@@ -91,9 +93,9 @@ Pasos individuales, para un modelo:
 
 La fuente se redacta con la [plantilla de diagrama en tabla](../../00-gobernanza/plantillas/modelamiento/diagrama-proceso-tabla.md): tablas `## Pools`, `## Elementos` y `## Mensajes`. Las columnas adicionales, como `Clase` y `Fuente`, no se dibujan y sostienen la trazabilidad. Tambien se admite el formato de lista (`## Pool: X`, `### Carril`, `- ID (tipo) Nombre -> siguientes`).
 
-Tipos admitidos: inicio, inicio-mensaje, inicio-temporizador, inicio-condicional, tarea, tarea-usuario, tarea-manual, tarea-servicio, subproceso, compuerta, compuerta-paralela, compuerta-inclusiva, temporizador, condicional, mensaje-recepcion, mensaje-envio, fin, fin-mensaje, fin-terminal, subproceso-evento-mensaje, subproceso-evento-temporizador y subproceso-evento-condicional.
+Tipos admitidos: los de la paleta del proyecto, listados con su pagina del manual en la seccion 7.3 del [estandar de artefactos](../../00-gobernanza/estandar-artefactos-modelamiento.md) (`DEC-027`). Columnas opcionales: `Marcador` en actividades; `Adjunto` e `Interrumpe` en eventos de borde (a lo sumo dos por actividad, a los costados del marcador; la rama de excepcion baja recta bajo el evento); `Disparador` en subprocesos de evento; `Anotacion` y `Grupo` en cualquier elemento. Flujo por defecto: `T-3 [No] (por defecto)` en `Siguiente`.
 
-Los subprocesos de evento son sin interrupcion y se dibujan contraidos en una zona bajo el flujo principal de su carril. No llevan `Siguiente`; admiten las columnas `Disparador` (lo que los activa, que se anota como "Se activa: ..."), `Anotacion` (texto al costado) y `Grupo` (marco que reune varios). Los identificadores del BPMN se derivan del nombre del archivo y del ID de cada elemento, de modo que cambiar el titulo no los altera.
+Los subprocesos de evento son sin interrupcion y se dibujan expandidos, con su evento de inicio y el icono del disparador (manual, fig. 2.90, p. 97), en una zona bajo el flujo principal de su carril. No llevan `Siguiente`; admiten las columnas `Disparador` (lo que los activa, que se anota como "Se activa: ..."), `Anotacion` (texto al costado) y `Grupo` (marco que reune varios). Los identificadores del BPMN se derivan del nombre del archivo y del ID de cada elemento, de modo que cambiar el titulo no los altera.
 
 ### Trazado
 
@@ -113,8 +115,9 @@ La copia `bizagi/<nombre>_bizagi.bpmn` se importa en Bizagi Modeler (Archivo > I
 
 ### Limites
 
-- No genera todavia eventos de borde, eventos de senal, compuertas basadas en eventos ni subprocesos de evento con interrupcion; se documentan en el sustento hasta que se incorporen.
-- Las anotaciones y los grupos solo se dibujan en subprocesos de evento; en otros elementos se guardan como documentacion.
+- Los simbolos previstos para la segunda fase (seccion 7.3 del estandar) aun no se generan; el control D5 los rechaza.
+- Un grupo reune elementos del flujo o subprocesos de evento, no ambos; la herramienta avisa si un elemento ajeno queda dentro del marco.
+- Los documentos de una actividad con eventos de borde pueden superponerse a ellos; el control D4 lo informa.
 - Un nombre de carril no puede contener ";".
 - En la etapa formal, el `.bpmn` pasa a ser la fuente maestra y la tabla queda como antecedente (estandar de artefactos, seccion 5).
 

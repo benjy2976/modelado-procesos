@@ -58,7 +58,7 @@ En Linux o macOS se usa `.venv/bin/python` en lugar de `.\.venv\Scripts\python.e
 ## Lectura inicial
 
 1. [Estado del proyecto](estado-del-proyecto.md)
-2. [Instrucciones para agentes](AGENTS.md)
+2. [Instrucciones para agentes](AGENTS.md) (Claude las carga mediante [CLAUDE.md](CLAUDE.md))
 3. [Alcance](00-gobernanza/alcance.md)
 4. [Manual operativo del conocimiento](00-gobernanza/manual-operativo-del-conocimiento.md)
 5. [Estandar obligatorio de Obsidian](00-gobernanza/estandar-obligatorio-obsidian.md)

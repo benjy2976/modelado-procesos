@@ -36,7 +36,9 @@ TRABAJO = REPO_ROOT / "99-temporal" / "modelos"
 
 
 def tablas() -> list[Path]:
-    return sorted((REPO_ROOT / "02-procesos").rglob("*-diagrama-proceso-tabla.md"))
+    """Diagramas de proceso en modelamiento y el catalogo de simbolos de la paleta (prueba de regresion, DEC-027)."""
+    return sorted([*(REPO_ROOT / "02-procesos").rglob("*-diagrama-proceso-tabla.md"),
+                   *(AQUI / "catalogo").glob("*-diagrama-proceso-tabla.md")])
 
 
 def hallazgos(informe: str) -> list[str]:
@@ -45,7 +47,8 @@ def hallazgos(informe: str) -> list[str]:
     for linea in informe.splitlines():
         texto = linea.strip()
         if ("INVÁLIDO" in texto or "CON HALLAZGOS" in texto or texto.startswith(("BLOQUEO", "ELEMENTOS SIN LLEGADA"))
-                or re.search(r"D2 referencias: \d+ problema", texto) or re.search(r"D4 trazado .*: \d+ hallazgo", texto)):
+                or re.search(r"D2 referencias: \d+ problema", texto) or re.search(r"D4 trazado .*: \d+ hallazgo", texto)
+                or re.search(r"D5 notacion .*: \d+ hallazgo", texto)):
             malos.append(texto)
     return malos
 

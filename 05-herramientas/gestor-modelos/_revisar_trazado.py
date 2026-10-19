@@ -140,9 +140,17 @@ def revisar(ruta):
             if hi - lo > 4:
                 h['T2'].append(f'"{nom(a["s"])}" -> "{nom(a["t"])}" y "{nom(b["s"])}" -> "{nom(b["t"])}" '
                                f'comparten {hi - lo:.0f} px')
+    def relacionados(i, j):
+        """Un elemento dentro de su subproceso, o un evento de borde y su actividad, se tocan por diseño."""
+        if i not in el or j not in el:
+            return False
+        a, b = el[i], el[j]
+        return (a.getparent() is b or b.getparent() is a or a.get('attachedToRef') == j
+                or b.get('attachedToRef') == i)
+
     for k, (i, c, txt) in enumerate(etiquetas):
         for j, fc in formas.items():
-            if j != i and inter(c, fc) > 20:
+            if j != i and not relacionados(i, j) and inter(c, fc) > 20:
                 h['T4'].append(f'etiqueta "{txt}" sobre "{nom(j)}"')
         for i2, c2, t2 in etiquetas[k + 1:]:
             if inter(c, c2) > 20:
@@ -158,7 +166,7 @@ def revisar(ruta):
     ids = list(formas)
     for x in range(len(ids)):
         for y in range(x + 1, len(ids)):
-            if inter(formas[ids[x]], formas[ids[y]]) > 4:
+            if not relacionados(ids[x], ids[y]) and inter(formas[ids[x]], formas[ids[y]]) > 4:
                 h['T5'].append(f'"{nom(ids[x])}" y "{nom(ids[y])}" se superponen')
     return h
 

@@ -10,8 +10,8 @@ Entrada: un .md en uno de dos formatos, que se detecta solo:
 - lista: "## Pool: X", "### Carril", "- ID (tipo) Nombre → siguientes" y subviñetas.
 Salida, en la carpeta indicada:
 - <nombre>.bpmn: BPMN 2.0 estándar con pools, carriles, nodos, flujos, mensajes, datos y coordenadas calculadas.
-- validacion.txt: informe de `_validar_bpmn.py` (esquema OMG, referencias, bloqueos) y de `_revisar_trazado.py`
-  (superposiciones del dibujo).
+- validacion.txt: informe de `_validar_bpmn.py` (D1-D3: esquema OMG, referencias, bloqueos), `_revisar_trazado.py`
+  (D4: superposiciones del dibujo) y `_revisar_notacion.py` (D5: paleta del proyecto y buenas practicas del manual).
 - bizagi/<nombre>_bizagi.bpmn: copia en el dialecto de Bizagi (`_bpmn_a_bizagi.py`), para importar en Bizagi Modeler.
 - <nombre>_visor.html: vista rápida en el navegador, con bpmn-js local fijado (`renderizar_bpmn.py`) y colores de
   estilo Bizagi; sin la copia local, usa bpmn-js desde internet.
@@ -48,6 +48,7 @@ TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, a
     'inicio-mensaje': ('startEvent', 'message', 36, 36),
     'inicio-temporizador': ('startEvent', 'timer', 36, 36),
     'inicio-condicional': ('startEvent', 'conditional', 36, 36),
+    'inicio-senal': ('startEvent', 'signal', 36, 36),
     'tarea': ('task', None, 100, 80),
     'tarea-usuario': ('userTask', None, 100, 80),
     'tarea-manual': ('manualTask', None, 100, 80),
@@ -56,24 +57,45 @@ TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, a
     'compuerta': ('exclusiveGateway', None, 50, 50),
     'compuerta-paralela': ('parallelGateway', None, 50, 50),
     'compuerta-inclusiva': ('inclusiveGateway', None, 50, 50),
+    'compuerta-eventos': ('eventBasedGateway', None, 50, 50),
     'temporizador': ('intermediateCatchEvent', 'timer', 36, 36),
     'mensaje-recepcion': ('intermediateCatchEvent', 'message', 36, 36),
     'mensaje-envio': ('intermediateThrowEvent', 'message', 36, 36),
     'condicional': ('intermediateCatchEvent', 'conditional', 36, 36),
+    'senal-recepcion': ('intermediateCatchEvent', 'signal', 36, 36),
+    'senal-envio': ('intermediateThrowEvent', 'signal', 36, 36),
+    'escalacion-envio': ('intermediateThrowEvent', 'escalation', 36, 36),
+    'hito': ('intermediateThrowEvent', None, 36, 36),
     'fin': ('endEvent', None, 36, 36),
     'fin-mensaje': ('endEvent', 'message', 36, 36),
     'fin-terminal': ('endEvent', 'terminate', 36, 36),
+    'fin-senal': ('endEvent', 'signal', 36, 36),
+    'fin-escalacion': ('endEvent', 'escalation', 36, 36),
+    'fin-error': ('endEvent', 'error', 36, 36),
+    # eventos de borde: columna Adjunto (actividad) e Interrumpe (Sí por defecto)
+    'borde-temporizador': ('boundaryEvent', 'timer', 36, 36),
+    'borde-mensaje': ('boundaryEvent', 'message', 36, 36),
+    'borde-condicional': ('boundaryEvent', 'conditional', 36, 36),
+    'borde-senal': ('boundaryEvent', 'signal', 36, 36),
+    'borde-escalacion': ('boundaryEvent', 'escalation', 36, 36),
+    'borde-error': ('boundaryEvent', 'error', 36, 36),
     # subprocesos de evento sin interrupción, contraídos, fuera del flujo principal (DEC-024)
     'subproceso-evento-mensaje': ('subProcess', 'message', 120, 90),
     'subproceso-evento-temporizador': ('subProcess', 'timer', 120, 90),
     'subproceso-evento-condicional': ('subProcess', 'conditional', 120, 90),
 }
 ACTIVIDAD = ('task', 'userTask', 'manualTask', 'serviceTask', 'callActivity', 'subProcess')
+MARCADORES = {  # columna Marcador de las actividades (manual BPMN, sec. 2.7.2, p. 79-81)
+    'multiple-paralelo': '<bpmn:multiInstanceLoopCharacteristics isSequential="false" />',
+    'multiple-secuencial': '<bpmn:multiInstanceLoopCharacteristics isSequential="true" />',
+    'bucle': '<bpmn:standardLoopCharacteristics />',
+}
 
 # Geometría (px). FILA: alto de cada fila de un carril; NODO_Y: centro del nodo dentro de la fila.
 POOL_X, CAB, COL, FILA, NODO_Y, GAP_POOL = 20, 50, 170, 230, 80, 40
 SLOT, NIVEL, MARGEN_FAN, SEP_POOL = 150, 12, 16, 30
-CELDA, FILA_SEV = 360, 180  # zona de subprocesos de evento: caja, anotación y un pasillo de 20 px entre celdas
+CELDA, FILA_SEV = 420, 200  # zona de subprocesos de evento: marco expandido, anotación y pasillo de 20 px
+AVISOS_TRAZADO = []  # avisos que detecta el trazado (por ejemplo, un elemento ajeno dentro de un grupo)
 FILA_BAJA = 160  # fila sin objetos de datos; las filas con documentos usan FILA
 LARGO_BIZAGI = {'evento': 40, 'compuerta': 40, 'mensaje': 50}  # Bizagi recorta etiquetas más largas
 
@@ -175,36 +197,58 @@ def leer(ruta):
         if tipo not in TIPOS:
             errores.append(f'{i}: tipo "{tipo}" no reconocido (válidos: {", ".join(TIPOS)})')
             continue
-        sig = []
+        sig, defecto = [], ''
         for parte in [p.strip() for p in f.get('siguiente', '').split(';') if p.strip()]:
-            mm = re.match(r'^(\S+)\s*(?:\[(.*)\])?$', parte)
+            mm = re.match(r'^(\S+)\s*(?:\[(.*?)\])?\s*(\(por defecto\))?$', parte, re.IGNORECASE)
             sig.append((mm.group(1), (mm.group(2) or '').strip()) if mm else (parte, ''))
+            if mm and mm.group(3):
+                defecto = mm.group(1)
         docs = []
         for parte in [p.strip() for p in f.get('documentos', '').split(';') if p.strip()]:
             mm = re.match(r'^(entra|sale|almac[eé]n)\s*:\s*(.+)$', parte, re.IGNORECASE)
             clase = (mm.group(1).lower().replace('é', 'e') if mm else 'sale')
             docs.append((clase, (mm.group(2) if mm else parte).strip()))
         sev = TIPOS[tipo][0] == 'subProcess'
+        borde = TIPOS[tipo][0] == 'boundaryEvent'
+        adjunto = f.get('adjunto', '').strip()
+        interrumpe = (f.get('interrumpe', '') or 'Sí').strip().lower() not in ('no', 'false')
+        marcador = f.get('marcador', '').strip().lower()
+        if borde and not adjunto:
+            errores.append(f'{i}: un evento de borde necesita la columna Adjunto con el ID de su actividad')
+        if tipo == 'borde-error' and not interrumpe:
+            errores.append(f'{i}: un evento de error en el borde siempre interrumpe la actividad')
+        if marcador and marcador not in MARCADORES:
+            errores.append(f'{i}: marcador "{marcador}" no reconocido (válidos: {", ".join(MARCADORES)})')
+        elif marcador and TIPOS[tipo][0] not in ACTIVIDAD:
+            errores.append(f'{i}: solo las actividades llevan marcador')
+        if defecto and TIPOS[tipo][0] not in ('exclusiveGateway', 'inclusiveGateway', *ACTIVIDAD):
+            errores.append(f'{i}: solo una compuerta exclusiva o inclusiva, o una actividad, tiene flujo por defecto')
         if sev and sig:
             errores.append(f'{i}: un subproceso de evento no lleva "Siguiente"; se activa por su disparador')
         if sev and docs:
             avisos.append(f'{i}: los documentos de un subproceso de evento no se dibujan')
             docs = []
         doc = f.get('plazo', '') or f.get('nota', '')
-        extra = [f.get(k, '') for k in ('disparador', 'anotacion', 'grupo')]
-        if not sev and any(extra):
-            avisos.append(f'{i}: Disparador, Anotacion y Grupo solo se dibujan en subprocesos de evento; '
-                          'se guardan como documentación')
-            doc = '; '.join(x for x in [doc, *extra] if x)
+        disparador = f.get('disparador', '').strip()
+        if disparador and not sev:
+            avisos.append(f'{i}: Disparador solo se dibuja en subprocesos de evento; se guarda como documentación')
+            doc = '; '.join(x for x in [doc, disparador] if x)
         nodos[i] = dict(id=i, tipo=tipo, pool=pool, carril=carril, nombre=f.get('nombre', ''), sig=sig, docs=docs,
-                        doc=doc, disparador=extra[0] if sev else '', anotacion=extra[1] if sev else '',
-                        grupo=extra[2] if sev else '')
+                        doc=doc, disparador=disparador if sev else '', anotacion=f.get('anotacion', '').strip(),
+                        grupo=f.get('grupo', '').strip(), adjunto=adjunto, interrumpe=interrumpe,
+                        marcador=marcador, defecto=defecto)
         if pool not in orden_pools:
             orden_pools.append(pool)
         carriles.setdefault(pool, [])
         if carril not in carriles[pool]:
             carriles[pool].append(carril)
     for n in nodos.values():
+        if n['adjunto']:
+            h = nodos.get(n['adjunto'])
+            if h is None or TIPOS[h['tipo']][0] not in ACTIVIDAD or TIPOS[h['tipo']][0] == 'subProcess':
+                errores.append(f'{n["id"]}: Adjunto debe ser el ID de una tarea o subproceso del flujo')
+            else:
+                n['pool'], n['carril'] = h['pool'], h['carril']  # el evento de borde va en el carril de su actividad
         for d, _ in n['sig']:
             if d not in nodos:
                 errores.append(f'{n["id"]}: "Siguiente" apunta a {d}, que no existe')
@@ -285,15 +329,33 @@ def rangos(nodos, mensajes):
     return rango, retorno
 
 
-def filas(nodos, rango, retorno):
+def filas(nodos, rango, retorno, bordes=None):
     """Fila de cada nodo dentro de su carril: la primera salida de un nodo conserva su fila y cada salida adicional
     (rama de una compuerta) toma la fila siguiente; en una unión se toma la menor; si la celda está ocupada, se baja."""
+    bordes = bordes or {}
     idx = {i: k for k, i in enumerate(nodos)}
     adelante = lambda i, d: (i, d) not in retorno and rango[d] > rango[i]
     mismo = lambda i, d: (nodos[i]['pool'], nodos[i]['carril']) == (nodos[d]['pool'], nodos[d]['carril'])
-    fila, ocupado, salida = {}, set(), {}
-    for i in sorted(nodos, key=lambda i: (rango[i], idx[i])):
+    fila, ocupado, salida, ramas = {}, set(), {}, {}
+    tras_borde = {d for b in bordes for d, _ in nodos[b]['sig'] if rango.get(d) == rango[b]}
+    for i in sorted(nodos, key=lambda i: (rango[i], 2 if i in tras_borde else int(i in bordes), idx[i])):
         n = nodos[i]
+        clave = (n['pool'], n['carril'])
+        if i in bordes:
+            # un evento de borde va sobre su actividad; cada rama de excepcion toma una fila propia por debajo y se
+            # reserva el pasillo vertical en la columna de la actividad
+            fila[i] = fila[bordes[i]]
+            col = (*clave, rango[i])
+            for d, _ in n['sig']:
+                if mismo(i, d) and (i, d) not in retorno:
+                    r = max(fila[i] + 1, ramas.get(col, 0))
+                    while (*clave, r, rango[i]) in ocupado:
+                        r += 1
+                    salida[(i, d)] = r
+                    ramas[col] = r + 1
+                    for rr in range(fila[i] + 1, r):
+                        ocupado.add((*clave, rr, rango[i]))
+            continue
         deseadas = [f for (p, d), f in salida.items() if d == i]
         f = min(deseadas) if deseadas else 0
         while (n['pool'], n['carril'], f, rango[i]) in ocupado:
@@ -305,6 +367,8 @@ def filas(nodos, rango, retorno):
             if adelante(i, d) and mismo(i, d):
                 salida[(i, d)] = f + extra
                 extra += 1
+        for rr in range(f + 1, f + extra):  # pasillo vertical bajo una compuerta que bifurca
+            ocupado.add((*clave, rr, rango[i]))
     return fila
 
 
@@ -335,8 +399,22 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     """Calcula toda la geometría. Devuelve formas, etiquetas, aristas y datos de carriles y pools."""
     sev = [i for i, n in nodos.items() if TIPOS[n['tipo']][0] == 'subProcess']
     principal = {i: n for i, n in nodos.items() if i not in sev}
-    rango, retorno = rangos(principal, mensajes)
-    fila = filas(principal, rango, retorno) if principal else {}
+    bordes = {i: n['adjunto'] for i, n in principal.items() if TIPOS[n['tipo']][0] == 'boundaryEvent'}
+    para_rango = {i: dict(n, sig=[*n['sig'], *[(b, '') for b, h in bordes.items() if h == i]])
+                  for i, n in principal.items()}
+    rango, retorno = rangos(para_rango, mensajes)
+    predecesores = {}
+    for i, n in principal.items():
+        for d, _ in n['sig']:
+            predecesores.setdefault(d, []).append(i)
+    alineado = {}  # destino de una rama de excepcion -> evento de borde sobre el que se alinea
+    for b, h in bordes.items():
+        rango[b] = rango[h]
+        for d, _ in principal[b]['sig']:
+            if predecesores.get(d) == [b]:
+                rango[d] = rango[h]
+                alineado[d] = b
+    fila = filas(principal, rango, retorno, bordes) if principal else {}
     abiertos = [p for p in orden_pools if carriles[p]]
     cerrados = [p for p in orden_pools if not carriles[p]]
     ncol = max(rango.values()) + 1 if rango else 1
@@ -367,7 +445,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                 r, c = r + 1, 0
         filas_sev[k] = r + 1 if c else r
     for i, (r, c) in celda.items():
-        cx[i] = x0 + c * CELDA + 70
+        cx[i] = x0 + c * CELDA + 110
 
     # --- mensajes con pools cerrados: lado de cada pool (los que envían, arriba; los que reciben, abajo)
     envia, recibe = {p: 0 for p in cerrados}, {p: 0 for p in cerrados}
@@ -401,7 +479,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             ini, fin = c - w_nom / 2, c + w_nom / 2
         if ini < POOL_X:
             ini, fin = POOL_X, fin + POOL_X - ini
-        info[p] = dict(ini=ini, fin=fin, slots=slots, ms=ms, h=max(80, min(140, len(p) * 3.2)), lado=lado[p])
+        info[p] = dict(ini=ini, fin=fin, slots=slots, ms=ms, h=60, lado=lado[p])  # banda delgada (manual, p. 106-107)
 
     def bandas(ld):
         """Ubica los pools de un lado en filas de banda. Un pool puede correrse hacia un costado (con sus puntos de
@@ -476,10 +554,28 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         k = (n['pool'], n['carril'])
         filas_carril[k] = max(filas_carril.get(k, 1), fila[i] + 1)
     alto_sev = {k: FILA_SEV * v + 20 for k, v in filas_sev.items()}
+    def alto_texto(texto, ancho):
+        return sum(caja_texto(x, ancho_max=ancho, ancho_min=ancho)[1] for x in texto.split('\n'))
+
+    def bajo_nodo(i):
+        """Alto ocupado bajo el centro del nodo por su etiqueta o sus documentos."""
+        n = principal[i]
+        et, _, _, h = TIPOS[n['tipo']]
+        if n['docs']:
+            return h / 2 + 16 + 38 + 34
+        if et in ACTIVIDAD or et.endswith('Gateway') or not n['nombre']:
+            return h / 2
+        return h / 2 + 3 + caja_texto(n['nombre'], ancho_max=120)[1]
+
     alto_fila = {}
     for i, n in principal.items():
         k = (n['pool'], n['carril'], fila[i])
-        alto_fila[k] = max(alto_fila.get(k, FILA_BAJA), FILA if n['docs'] else FILA_BAJA)
+        req = FILA if n['docs'] else FILA_BAJA
+        if i in bordes:
+            req = max(req, NODO_Y + 40 + 22 + caja_texto(n['nombre'], ancho_max=80)[1] + 16)
+        elif n['anotacion']:
+            req = max(req, NODO_Y + bajo_nodo(i) + 12 + alto_texto(n['anotacion'], 140) + 20)
+        alto_fila[k] = max(alto_fila.get(k, FILA_BAJA), req)
 
     def y_fila(p, c, r):
         """Desplazamiento vertical de la fila r dentro del carril: suma de los altos de las filas anteriores."""
@@ -503,23 +599,40 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         cy = geo_carril[(n['pool'], n['carril'])][1] + y_fila(n['pool'], n['carril'], fila[i]) + NODO_Y
         caja[i] = (cx[i] - w / 2, cy - h / 2, w, h)
     centro = lambda i: (caja[i][0] + caja[i][2] / 2, caja[i][1] + caja[i][3] / 2)
+    por_actividad, lado_borde = {}, {}
+    for b, h in bordes.items():
+        k = por_actividad.get(h, 0)
+        por_actividad[h] = k + 1
+        if k == 2:
+            AVISOS_TRAZADO.append(f'{h}: mas de dos eventos de borde en una actividad; pueden superponerse')
+        hx, hy, hw, hh = caja[h]
+        lado_borde[b] = 'izquierda' if k % 2 else 'derecha'
+        bcx = hx + hw / 2 + (1 if k % 2 == 0 else -1) * (36 + 34 * (k // 2))
+        caja[b] = (bcx - 18, hy + hh - 18, 36, 36)
+    for d, b in alineado.items():
+        dx, dy, dw, dh = caja[d]
+        caja[d] = (caja[b][0] + 18 - dw / 2, dy, dw, dh)
 
     def zona_top(i):
         k = (nodos[i]['pool'], nodos[i]['carril'])
         return geo_carril[k][1] + y_fila(*k, filas_carril.get(k, 0)) + 10 + celda[i][0] * FILA_SEV
 
-    anotaciones, grupos = {}, {}
+    anotaciones, grupos, inicio_sev = {}, {}, {}
     for i in sev:
+        # subproceso de evento expandido: marco punteado con su nombre y, dentro, el evento de inicio con el ícono del
+        # disparador (manual BPMN, sec. 2.8.6, fig. 2.90, p. 97); su detalle se modela en su propio diagrama
         n = nodos[i]
         top = zona_top(i)
-        caja[i] = (cx[i] - 60, top + 34, 120, 90)
-        partes = [f'Se activa: {n["disparador"]}' if n['disparador'] else '', n['anotacion']]
-        texto = '\n'.join(x for x in partes if x)
-        if texto:
-            ancho_a = CELDA - 170
-            alto_a = sum(caja_texto(x, ancho_max=ancho_a, ancho_min=ancho_a)[1] for x in texto.split('\n'))
-            anotaciones[i] = dict(texto=texto, caja=(cx[i] + 70, top + 34, ancho_a,
-                                                      max(40, min(alto_a, FILA_SEV - 44))))
+        left = cx[i] - 110
+        caja[i] = (left + 10, top + 30, 200, 130)
+        w_e, h_e = caja_texto(n['disparador'], ancho_max=130) if n['disparador'] else (0, 0)
+        inicio_sev[i] = dict(caja=(left + 60, top + 66, 36, 36),
+                             etq=(left + 78 - w_e / 2, top + 105, w_e, h_e) if n['disparador'] else None)
+        if n['anotacion']:
+            ancho_a = CELDA - 240
+            anotaciones[i] = dict(texto=n['anotacion'], asoc=[(left + 210, top + 50), (left + 220, top + 50)],
+                                  caja=(left + 220, top + 30, ancho_a,
+                                        max(40, min(alto_texto(n['anotacion'], ancho_a), FILA_SEV - 44))))
         if n['grupo']:
             grupos.setdefault((n['pool'], n['carril'], n['grupo']), []).append(i)
     geo_grupo = {}
@@ -549,20 +662,63 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             else:
                 d['pts'] = [(dxc, by + bh), (dxc, by + bh + 16)]
             datos.append(d)
+    for i, n in principal.items():
+        if not n['anotacion']:
+            continue
+        if i in bordes:
+            AVISOS_TRAZADO.append(f'{i}: la anotación de un evento de borde no se dibuja; se guarda como documentación')
+            n['doc'] = '; '.join(x for x in [n['doc'], n['anotacion']] if x)
+            continue
+        bx, by, bw, bh = caja[i]
+        cxn = bx + bw / 2
+        ay = caja[i][1] + caja[i][3] / 2 + bajo_nodo(i) + 12
+        asoc = ([(cxn - 45, by + bh), (cxn - 45, ay)] if TIPOS[n['tipo']][0] in ACTIVIDAD
+                else [(bx + 8, by + bh - 6), (cxn - 50, ay)])
+        anotaciones[i] = dict(texto=n['anotacion'], asoc=asoc,
+                              caja=(cxn - 70, ay, 140, max(30, alto_texto(n['anotacion'], 140))))
     obstaculos = dict(caja)
     for d in datos:
         obstaculos[('dato', d['nodo'], d['k'])] = d['caja']
     for i, a in anotaciones.items():
         obstaculos[('ann', i)] = a['caja']
-    # los marcos de grupo tampoco se atraviesan, salvo por los flujos de sus propios miembros
-    marcos = [(G['caja'], set(grupos[k])) for k, G in geo_grupo.items()]
     for i, n in nodos.items():  # zona prevista de la etiqueta de eventos (abajo) y compuertas (arriba)
         et = TIPOS[n['tipo']][0]
         if et not in ACTIVIDAD and n['nombre']:
             bx, by, bw, bh = caja[i]
             w, h = caja_texto(n['nombre'], ancho_max=120)
+            if et == 'boundaryEvent':
+                w, h = caja_texto(n['nombre'], ancho_max=80)
+                xe = bx + bw / 2 + 6 if lado_borde[i] == 'derecha' else bx + bw / 2 - 6 - w
+                obstaculos[('etq', i)] = (xe, by + bh + 2, w, h)
+                continue
             yb = by - h - 3 if et.endswith('Gateway') else by + bh + 3
             obstaculos[('etq', i)] = (bx + bw / 2 - w / 2, yb, w, h)
+    # grupos de elementos del flujo principal: marco que envuelve a sus miembros con sus etiquetas y anotaciones
+    generales = {}
+    for i, n in principal.items():
+        if n['grupo']:
+            generales.setdefault((n['pool'], n['carril'], n['grupo']), []).append(i)
+    for k, ids in generales.items():
+        if k in geo_grupo:
+            AVISOS_TRAZADO.append(f'grupo "{k[2]}": no puede reunir subprocesos de evento y elementos del flujo')
+            continue
+        cajas = [caja[i] for i in ids] + [obstaculos[('etq', i)] for i in ids if ('etq', i) in obstaculos]
+        cajas += [anotaciones[i]['caja'] for i in ids if i in anotaciones]
+        cajas += [d['caja'] for d in datos if d['nodo'] in ids] + [d['etq'] for d in datos if d['nodo'] in ids]
+        x1 = min(c[0] for c in cajas) - 14
+        y1 = min(c[1] for c in cajas) - 26
+        x2 = max(c[0] + c[2] for c in cajas) + 14
+        y2 = max(c[1] + c[3] for c in cajas) + 12
+        geo_grupo[k] = dict(caja=(x1, y1, x2 - x1, y2 - y1), nombre=k[2], pool=k[0],
+                            etq=(x1 + 8, y1 + 4, min(x2 - x1 - 16, 320), 18))
+        grupos[k] = ids
+        for j in principal:
+            if j not in ids and j not in bordes:
+                jx, jy, jw, jh = caja[j]
+                if x1 < jx + jw / 2 < x2 and y1 < jy + jh / 2 < y2:
+                    AVISOS_TRAZADO.append(f'grupo "{k[2]}": el elemento {j} queda dentro del marco sin ser miembro')
+    # los marcos de grupo tampoco se atraviesan, salvo por los flujos de sus propios miembros
+    marcos = [(G['caja'], set(grupos[k])) for k, G in geo_grupo.items()]
 
     def libre(pts, excluir=()):
         for p, q in zip(pts, pts[1:]):
@@ -575,6 +731,19 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                 if not miembros & set(excluir) and cruza(p, q, b, -3):
                     return False
         return True
+
+    def costo(pts, excluir=()):
+        c = 0
+        for p, q in zip(pts, pts[1:]):
+            for k, b in obstaculos.items():
+                if k in excluir or (isinstance(k, tuple) and k[1] in excluir):
+                    continue
+                if cruza(p, q, b, -8 if k in caja else -3):
+                    c += 10 if k in caja else 1
+            for b, miembros in marcos:
+                if not miembros & set(excluir) and cruza(p, q, b, -3):
+                    c += 1
+        return c
 
     def fila_top(i):
         return geo_carril[(nodos[i]['pool'], nodos[i]['carril'])][1] + y_fila(nodos[i]['pool'], nodos[i]['carril'],
@@ -593,13 +762,14 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         for d, cond in n['sig']:
             flujos.append((gid('flujo', i, d), i, d, cond))
     es_comp = lambda i: TIPOS[nodos[i]['tipo']][0].endswith('Gateway')
+    sale_vertical = lambda i: es_comp(i) or i in bordes
     for fid, a, b, cond in flujos:
         ax, ay, aw, ah = caja[a]
         bx, by, bw, bh = caja[b]
         (acx, acy), (bcx, bcy) = centro(a), centro(b)
         exc = (a, b)
         cand = []
-        if (a, b) in retorno or rango[b] <= rango[a]:
+        if ((a, b) in retorno or rango[b] <= rango[a]) and alineado.get(b) != a:
             yc = canal(('retorno', min(fila_top(a), fila_top(b))), min(ay, by) - 16)
             if es_comp(a):
                 cand.append([(acx, ay), (acx, yc), (bcx, yc), (bcx, by)])
@@ -613,7 +783,9 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                          (bx, bcy)])
         else:
             abajo = bcy > acy
-            if es_comp(a):
+            if abs(acx - bcx) < 1 and abajo:
+                cand.append([(acx, ay + ah), (bcx, by)])
+            if sale_vertical(a):
                 ya = ay + ah if abajo else ay
                 cand.append([(acx, ya), (acx, bcy), (bx, bcy)])
             if es_comp(b):
@@ -623,7 +795,8 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             cand.append([(ax + aw, acy), (xm, acy), (xm, bcy), (bx, bcy)])
             xm = canal(('v', round(ax + aw + 18)), ax + aw + 18)
             cand.append([(ax + aw, acy), (xm, acy), (xm, bcy), (bx, bcy)])
-        rutas[fid] = next((c for c in cand if libre(c, exc)), cand[0])
+        libres = [c for c in cand if libre(c, exc)]
+        rutas[fid] = libres[0] if libres else min(cand, key=lambda c: costo(c, exc))
 
     # --- mensajes nodo <-> pool cerrado
     lado_y = {'arriba': y_abierto, 'abajo': y_fin_abierto}
@@ -742,6 +915,10 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         if not n['nombre']:
             continue
         w, h = caja_texto(n['nombre'], ancho_max=120)
+        if i in bordes:
+            w, h = caja_texto(n['nombre'], ancho_max=80)
+            etq_n[i] = (bx + bw / 2 + 6 if lado_borde[i] == 'derecha' else bx + bw / 2 - 6 - w, by + bh + 2, w, h)
+            continue
         preferido = ['arriba', 'abajo'] if et.endswith('Gateway') else ['abajo', 'arriba']
         libres = [s for s in preferido if s not in lados_usados[i]]
         lado_e = libres[0] if libres else 'derecha'
@@ -766,7 +943,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         else:
             etq_f[fid] = (p[0] + 5, p[1] - h - 2, w, h)
 
-    return dict(anotaciones=anotaciones, geo_grupo=geo_grupo, sev=sev,
+    return dict(anotaciones=anotaciones, geo_grupo=geo_grupo, sev=sev, bordes=bordes, inicio_sev=inicio_sev,
                 rango=rango, retorno=retorno, caja=caja, datos=datos, flujos=flujos, rutas=rutas,
                 rutas_msg=rutas_msg, etq_n=etq_n, etq_f=etq_f, etq_m=etq_m, geo_pool=geo_pool,
                 geo_carril=geo_carril, geo_cerrado=geo_cerrado, abiertos=abiertos, cerrados=cerrados)
@@ -873,19 +1050,30 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                              f'</bpmn:dataOutputAssociation>')
                 aristas.append(f'<bpmndi:BPMNEdge id="{aid}_di" bpmnElement="{aid}">{wp(d["pts"])}</bpmndi:BPMNEdge>')
             hijos += asoc
+            if n['marcador']:
+                hijos += MARCADORES[n['marcador']]
+            atributos = ''
+            if n['defecto']:
+                atributos += f' default="{fids[gid("flujo", i, n["defecto"])]}"'
+            if et == 'boundaryEvent':
+                atributos += (f' attachedToRef="{nid[n["adjunto"]]}" '
+                              f'cancelActivity="{"true" if n["interrumpe"] else "false"}"')
             if et == 'subProcess':
-                # subproceso de evento contraído: su evento de inicio sin interrupción lleva el disparador
+                # subproceso de evento expandido: su evento de inicio sin interrupción lleva el disparador
                 cond = escape(n['disparador'] or n['nombre'])
                 hijos += (f'<bpmn:startEvent id="{nid[i]}_ini" name={quoteattr(n["disparador"])} '
                           f'isInterrupting="false">{definicion(defn, nid[i] + "_ini", cond)}</bpmn:startEvent>')
                 cuerpo.append(f'<bpmn:subProcess id="{nid[i]}" name={quoteattr(n["nombre"])} triggeredByEvent="true">'
                               f'{hijos}</bpmn:subProcess>')
+                ini = T['inicio_sev'][i]
+                formas.append(f'<bpmndi:BPMNShape id="{nid[i]}_ini_di" bpmnElement="{nid[i]}_ini">'
+                              f'{bounds(*ini["caja"])}{etiqueta(ini["etq"])}</bpmndi:BPMNShape>')
             else:
                 if defn:
                     hijos += definicion(defn, nid[i], escape(n['nombre']))
-                cuerpo.append(f'<bpmn:{et} id="{nid[i]}" name={quoteattr(n["nombre"])}>{hijos}</bpmn:{et}>')
+                cuerpo.append(f'<bpmn:{et} id="{nid[i]}" name={quoteattr(n["nombre"])}{atributos}>{hijos}</bpmn:{et}>')
             extra = ' isMarkerVisible="true"' if et == 'exclusiveGateway' else (
-                ' isExpanded="false"' if et in ('callActivity', 'subProcess') else '')
+                ' isExpanded="false"' if et == 'callActivity' else (' isExpanded="true"' if et == 'subProcess' else ''))
             formas.append(f'<bpmndi:BPMNShape id="{nid[i]}_di" bpmnElement="{nid[i]}"{extra}>{bounds(*caja[i])}'
                           f'{etiqueta(T["etq_n"].get(i))}</bpmndi:BPMNShape>')
         for fid0, a, b, cond in T['flujos']:
@@ -905,9 +1093,7 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
             artefactos.append(f'<bpmn:association id="{sid}" sourceRef="{nid[i]}" targetRef="{aid}" '
                               'associationDirection="None" />')
             formas.append(f'<bpmndi:BPMNShape id="{aid}_di" bpmnElement="{aid}">{bounds(*a["caja"])}</bpmndi:BPMNShape>')
-            bx, by, bw, _ = caja[i]
-            aristas.append(f'<bpmndi:BPMNEdge id="{sid}_di" bpmnElement="{sid}">'
-                           f'{wp([(bx + bw, by + 20), (a["caja"][0], by + 20)])}</bpmndi:BPMNEdge>')
+            aristas.append(f'<bpmndi:BPMNEdge id="{sid}_di" bpmnElement="{sid}">{wp(a["asoc"])}</bpmndi:BPMNEdge>')
         for (pg, _, g), G in T['geo_grupo'].items():
             if pg != p:
                 continue
@@ -929,7 +1115,7 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
             'xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" '
             'xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
             f'id="Defs_{did}" targetNamespace="http://bpmn.tabla/{did}" exporter="_tabla_a_bpmn.py" '
-            'exporterVersion="2.1">'
+            'exporterVersion="3.0">'
             + ''.join(raiz)
             + f'<bpmn:collaboration id="Collab_{did}">{"".join(coll)}</bpmn:collaboration>'
             + procesos
@@ -990,8 +1176,11 @@ def main():
     destino = os.path.join(salida, base + '.bpmn')
     with open(destino, 'w', encoding='utf-8', newline='\n') as f:
         f.write(generar(nombre, nodos, orden_pools, carriles, mensajes, os.path.basename(ruta)))
+    for a in AVISOS_TRAZADO:
+        print('AVISO: ' + a)
+    avisos += AVISOS_TRAZADO
     print(f'BPMN: {destino} ({len(nodos)} elementos, {len(orden_pools)} pools, {len(mensajes)} mensajes)')
-    informe = ejecutar('_validar_bpmn.py', destino) + '\n' + ejecutar('_revisar_trazado.py', destino)
+    informe = '\n'.join(ejecutar(s, destino) for s in ('_validar_bpmn.py', '_revisar_trazado.py', '_revisar_notacion.py'))
     if avisos:
         informe += '\nAvisos de la entrada:\n' + '\n'.join('    ' + a for a in avisos)
     with open(os.path.join(salida, 'validacion.txt'), 'w', encoding='utf-8') as f:

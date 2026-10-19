@@ -67,6 +67,7 @@ temas_por_ruta:
 excluir:
   - 00-gobernanza/plantillas/
   - AGENTS.md
+  - CLAUDE.md
   - README.md
 renombres:
   proceso/s4-3: proceso/s4/s4-3

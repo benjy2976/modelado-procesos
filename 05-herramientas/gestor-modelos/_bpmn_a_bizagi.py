@@ -28,7 +28,7 @@ GUID = re.compile(r"^_?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]
 ACTIVIDADES = {"task", "userTask", "manualTask", "serviceTask", "callActivity", "subProcess", "sendTask",
                "receiveTask", "scriptTask", "businessRuleTask"}
 REF_ATTR = ("sourceRef", "targetRef", "processRef", "bpmnElement", "dataStoreRef", "dataObjectRef",
-            "labelStyle", "attachedToRef", "calledElement", "messageRef", "default")
+            "labelStyle", "attachedToRef", "calledElement", "messageRef", "default", "categoryValueRef")
 REF_TEXT = ("flowNodeRef", "incoming", "outgoing", "sourceRef", "targetRef", "dataInputRefs", "dataOutputRefs")
 
 

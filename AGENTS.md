@@ -23,7 +23,10 @@
 - Para usar una regla como sustento normativo de una linea base debe cumplir `00-gobernanza/protocolo-conocimiento-confiable.md`.
 - Distinguir expresamente evidencia observada, exigencia normativa, inferencia y propuesta.
 - Si las fuentes autorizadas son insuficientes, registrar `EVIDENCIA-INSUFICIENTE` en vez de completar el vacio.
-- BPMN 2.0 XML es la fuente maestra de los modelos formales; SVG y PDF son derivados. Se exceptua unicamente el mapa institucional de procesos Nivel 0, que es una representacion conceptual lineal de macroprocesos y puede mantenerse en Markdown/Mermaid sin BPMN ni carriles.
+- BPMN 2.0 XML es la fuente maestra de los modelos formales; SVG, PNG, HTML y PDF son derivados. Se exceptua unicamente el mapa institucional de procesos Nivel 0, que es una representacion conceptual lineal de macroprocesos y puede mantenerse en Markdown/Mermaid sin BPMN ni carriles.
+- Todo flujo de proceso en modelamiento, de cualquier nivel, se diagrama con la cadena BPMN (`DEC-025`, `DEC-026`): fuente `<codigo>-diagrama-proceso-tabla.md` y derivados generados con `05-herramientas/gestor-modelos/construir_modelos.py`. PlantUML solo se usa para vistas que no son flujos de proceso.
+- Los diagramas usan exclusivamente la notacion BPMN 2.0 y los simbolos de la paleta del proyecto (`00-gobernanza/estandar-artefactos-modelamiento.md`, seccion 7.3; `DEC-027`), con el significado y la forma que establece el manual BPMN (`LOC-004`). Nunca se propone, dibuja ni describe un grafico, simbolo o convencion fuera de esa paleta; si algo no puede representarse con ella, se registra en el sustento y se consulta al equipo.
+- Antes de proponer un commit que modifique diagramas o herramientas de modelamiento, ejecutar `05-herramientas/gestor-modelos/construir_modelos.py --check` y resolver o justificar en el sustento todo hallazgo de los controles D1 a D5.
 - Usar nombres estables. El historial se conserva con Git, no agregando `final`, `final2` o fechas al nombre de cada borrador.
 - No duplicar ni mover archivos entre carpetas de estado. El trabajo vigente permanece en su ruta estable y las lineas base se gestionan segun `00-gobernanza/protocolo-versionado-y-releases.md`.
 - Para PDF, medir primero si posee texto; aplicar OCR solo a una copia derivada.

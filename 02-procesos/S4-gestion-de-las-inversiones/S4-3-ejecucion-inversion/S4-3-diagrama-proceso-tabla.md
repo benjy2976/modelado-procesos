@@ -31,6 +31,7 @@ Notas que no se dibujan:
 - Diseno y construccion (`EQ`): S4.3.1 no contrata la obra; el contrato proviene de S4.2.
 - Carriles por unidad de organizacion: `EVIDENCIA-INSUFICIENTE`; el carril consigna el responsable de la ficha S4.
 - "Condiciones de inicio cumplidas" es un evento condicional: la rama de ejecucion espera a que S4.3.1 las cumpla (`DEC-024`).
+- S4.3.2 y S4.3.3 llevan el marcador de instancias multiples paralelas: una instancia por contrato o frente de ejecucion y una por ejecucion concluida o resuelta (`PROP`; manual BPMN, sec. 2.7.2, p. 79-81).
 
 ## Pools
 
@@ -40,20 +41,20 @@ Notas que no se dibujan:
 
 ## Elementos
 
-| ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Clase | Fuente |
-|---|---|---|---|---|---|---|---|---|---|
-| E-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | inicio-mensaje | Expediente técnico aprobado recibido | G-1 | | Entrada desde S4.2 | OBS | Ficha S4, p. impresas 120-121 |
-| G-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela | | S-1; E-2 | | | PROP | DEC-024 |
-| S-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.1 Gestión de la ejecución | G-2 | | Una instancia por inversión, activa durante toda S4.3; planifica, contrata y provee, mantiene el equipo de gestión y hace el seguimiento | PROP | DEC-023 |
-| E-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | condicional | Condiciones de inicio cumplidas | T-1 | | Las cumple S4.3.1 | PROP | DEC-024; REG-CON-OBRA-002 |
-| T-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | tarea | Suscribir acta de inicio de obra o equivalente | S-2 | sale: Acta de inicio | | EQ | REG-CON-OBRA-002; Directiva 017-2023-CG, num. 7.3.1 |
-| S-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.2 Ejecución | S-3 | | Una instancia por contrato o frente de ejecución; ejecución física y financiera | PROP | DEC-023 |
-| S-3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.3 Recepción | G-2 | | Una instancia por ejecución concluida o resuelta; recepción de obra, conformidad de bienes y servicios, o constatación física e inventario | PROP | DEC-023; REG-CON-OBRA-003; REG-CON-OBRA-004 |
-| G-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela | | G-3 | | | PROP | DEC-024 |
-| G-3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta | ¿Contrato resuelto con saldo por ejecutar? | G-4 [Sí]; F-2 [No] | | | EQ | Insumo del equipo |
-| G-4 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela | | F-1; F-2 | | | EQ | Insumo del equipo |
-| F-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin-mensaje | Estado situacional por saldo enviado | | | | OBS | Ficha S4, p. impresas 120-121 |
-| F-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin-mensaje | Información para liquidación enviada | | | | OBS | Ficha S4, p. impresas 120-121 |
+| ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Marcador | Clase | Fuente |
+|---|---|---|---|---|---|---|---|---|---|---|
+| E-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | inicio-mensaje | Expediente técnico aprobado recibido | G-1 |  | Entrada desde S4.2 |  | OBS | Ficha S4, p. impresas 120-121 |
+| G-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela |  | S-1; E-2 |  |  |  | PROP | DEC-024 |
+| S-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.1 Gestión de la ejecución | G-2 |  | Una instancia por inversión, activa durante toda S4.3; planifica, contrata y provee, mantiene el equipo de gestión y hace el seguimiento |  | PROP | DEC-023 |
+| E-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | condicional | Condiciones de inicio cumplidas | T-1 |  | Las cumple S4.3.1 |  | PROP | DEC-024; REG-CON-OBRA-002 |
+| T-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | tarea | Suscribir acta de inicio de obra o equivalente | S-2 | sale: Acta de inicio |  |  | EQ | REG-CON-OBRA-002; Directiva 017-2023-CG, num. 7.3.1 |
+| S-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.2 Ejecución | S-3 |  | Una instancia por contrato o frente de ejecución; ejecución física y financiera | multiple-paralelo | PROP | DEC-023 |
+| S-3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.3 Recepción | G-2 |  | Una instancia por ejecución concluida o resuelta; recepción de obra, conformidad de bienes y servicios, o constatación física e inventario | multiple-paralelo | PROP | DEC-023; REG-CON-OBRA-003; REG-CON-OBRA-004 |
+| G-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela |  | G-3 |  |  |  | PROP | DEC-024 |
+| G-3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta | ¿Contrato resuelto con saldo por ejecutar? | G-4 [Sí]; F-2 [No] |  |  |  | EQ | Insumo del equipo |
+| G-4 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | compuerta-paralela |  | F-1; F-2 |  |  |  | EQ | Insumo del equipo |
+| F-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin-mensaje | Estado situacional por saldo enviado |  |  |  |  | OBS | Ficha S4, p. impresas 120-121 |
+| F-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin-mensaje | Información para liquidación enviada |  |  |  |  | OBS | Ficha S4, p. impresas 120-121 |
 
 ## Mensajes
 

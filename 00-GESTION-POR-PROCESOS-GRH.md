@@ -20,6 +20,7 @@ Punto de entrada a la boveda de gestion por procesos del Gobierno Regional de Hu
 - [README y puesta en marcha](README.md)
 - [Glosario](glosario.md)
 - [Instrucciones para agentes](AGENTS.md)
+- [Instrucciones para Claude](CLAUDE.md): importa `AGENTS.md`
 
 ## Empezar por el proceso
 

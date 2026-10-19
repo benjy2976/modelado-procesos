@@ -205,6 +205,33 @@ Regla adoptada en `DEC-026`: la cadena BPMN se usa siempre que el contenido sea 
 
 En el repositorio se versionan la tabla, el `.bpmn`, el `.svg` (Obsidian y fichas), el `.png` (documentos) y el `.html` (vista interactiva, enlazada desde la nota indice del proceso).
 
+### 7.3 Paleta BPMN del proyecto
+
+Regla adoptada en `DEC-027`. Los diagramas usan exclusivamente BPMN 2.0 y los simbolos de esta paleta, con la forma y el significado del manual BPMN (`LOC-004`; paginas del PDF). No se propone ni se dibuja ningun simbolo, grafico o convencion fuera de ella. La herramienta solo acepta los tipos de la columna "Tipo en la tabla" y el control D5 (`_revisar_notacion.py`) rechaza cualquier otro elemento. El [catalogo de simbolos](../05-herramientas/gestor-modelos/catalogo/catalogo-simbolos-diagrama-proceso-tabla.md) muestra cada simbolo y se regenera como prueba de regresion.
+
+| Simbolo | Tipo en la tabla | Manual | Uso en el proyecto |
+|---|---|---|---|
+| Evento de inicio indefinido, de mensaje, de tiempo, condicional, de senal | `inicio`, `inicio-mensaje`, `inicio-temporizador`, `inicio-condicional`, `inicio-senal` | 2.2, 2.6; p. 33-64 | Suceso que inicia el proceso |
+| Evento intermedio de captura de mensaje, tiempo, condicional, senal | `mensaje-recepcion`, `temporizador`, `condicional`, `senal-recepcion` | 2.6.2-2.6.6; p. 58-64 | Espera de un suceso |
+| Evento intermedio de envio de mensaje, senal, escalacion; hito | `mensaje-envio`, `senal-envio`, `escalacion-envio`, `hito` | 2.6; p. 58-73; hito: p. 151 | Aviso a otros y marca de hitos de gestion |
+| Evento de fin indefinido, de mensaje, terminal, de senal, de escalacion, de error | `fin`, `fin-mensaje`, `fin-terminal`, `fin-senal`, `fin-escalacion`, `fin-error` | 2.6.7 y otros; p. 62-73 | Estados de termino |
+| Eventos de borde de tiempo, mensaje, condicional, senal, escalacion (con o sin interrupcion) y de error (con interrupcion) | `borde-temporizador`, `borde-mensaje`, `borde-condicional`, `borde-senal`, `borde-escalacion`, `borde-error` | 2.8.3; p. 90 | Plazos, excepciones y terminaciones anticipadas; columnas `Adjunto` e `Interrumpe` |
+| Tarea, de usuario, manual, de servicio | `tarea`, `tarea-usuario`, `tarea-manual`, `tarea-servicio` | 2.2, 2.7.1; p. 33, 77-79 | Actividades |
+| Subproceso de llamada (borde grueso) | `subproceso` | 2.7.3, 2.8.2; p. 83-88 | Proceso de otro nivel con su propio diagrama |
+| Subproceso de evento sin interrupcion, expandido con su disparador | `subproceso-evento-mensaje`, `subproceso-evento-temporizador`, `subproceso-evento-condicional` | 2.8.6; p. 96-98, fig. 2.90 | Sucesos que ocurren mientras el proceso esta activo (`DEC-024`) |
+| Marcadores de instancias multiples (paralela y secuencial) y de bucle | Columna `Marcador`: `multiple-paralelo`, `multiple-secuencial`, `bucle` | 2.7.2; p. 79-81 | Una instancia por contrato, frente o caso |
+| Compuerta exclusiva, paralela, inclusiva y basada en eventos | `compuerta`, `compuerta-paralela`, `compuerta-inclusiva`, `compuerta-eventos` | 2.3, 2.6.14; p. 35-44, 74 | La inclusiva se evita en el nivel descriptivo (p. 148-149) |
+| Flujo por defecto | `ID [rotulo] (por defecto)` en `Siguiente` | 2.3.4; p. 44 | Ruta normal de una decision |
+| Pool con carriles, pool cerrado, flujo de mensaje | Tablas `Pools` y `Mensajes` | 2.5, 2.9; p. 50, 99-107 | Roles del proceso y participantes externos |
+| Objeto de datos de entrada o salida, almacen de datos | Columna `Documentos` | 2.10; p. 108 | Documentos y sistemas |
+| Anotacion y grupo | Columnas `Anotacion` y `Grupo` | 2.11.1; p. 110; uso: p. 152 | Explicaciones y agrupaciones de lectura |
+
+Previstos para una segunda fase, aun fuera de la paleta: subproceso de evento con interrupcion, subproceso embebido, pool de instancias multiples, entrada y salida de datos del proceso, coleccion de datos, tarea de regla de negocio, compuerta basada en eventos paralela, transaccion, compensacion y eventos multiples. Su incorporacion requiere actualizar esta tabla y la herramienta.
+
+No se usan: compuerta compleja (p. 45; "por ningun motivo" en el nivel descriptivo, p. 148), tareas de envio y recepcion (tecnicas, p. 79), eventos de conexion (tecnicos, p. 66), flujos condicionales que salen de una actividad (fig. 3.8, p. 149), y diagramas de coreografia y conversacion (2.12, p. 113; el Anexo 3 de la NT pide orquestacion).
+
+Buenas practicas que el control D5 verifica: compuerta exclusiva o inclusiva con pregunta y salidas rotuladas (p. 36); ramas paralelas sin condicion (p. 38); compuerta basada en eventos con eventos de captura como destino (p. 74); todo proceso con inicio y fin (p. 35); eventos de borde sobre actividades y de error con interrupcion (p. 90); subproceso de evento con un unico disparador (p. 96-98); actividades con nombre.
+
 ## 8. Automatizacion requerida
 
 Comandos vigentes en `05-herramientas/gestor-modelos/`: `construir_modelos.py` (construccion y comprobacion de todos los diagramas BPMN), `tabla_a_bpmn.py` (con `_validar_bpmn.py`, `_revisar_trazado.py` y `_bpmn_a_bizagi.py`), `renderizar_bpmn.py` y `renderizar_plantuml.py`. Uso en el [gestor local de modelos](../05-herramientas/gestor-modelos/00-gestor-modelos.md).
