@@ -44,7 +44,7 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 | `construir_modelos.py` | Construye o comprueba todos los diagramas en modelamiento: BPMN, SVG, PNG y vista interactiva HTML, con una pagina indice en `99-temporal/modelos/` |
 | `tabla_a_bpmn.py` | Lee la tabla o lista, calcula el trazado, genera el `.bpmn`, lo valida, produce la copia para Bizagi y una vista HTML local |
 | `_validar_bpmn.py` | D1 esquema oficial de la OMG, D2 referencias, D3 bloqueos y elementos inalcanzables (juego de tokens) |
-| `_revisar_trazado.py` | D4: flujos que atraviesan elementos o etiquetas, flujos superpuestos, mensajes que cruzan pools ajenos, etiquetas montadas |
+| `_revisar_trazado.py` | D4: flujos que atraviesan elementos, etiquetas o grupos ajenos, flujos superpuestos, mensajes que cruzan pools ajenos, etiquetas montadas |
 | `_bpmn_a_bizagi.py` | Copia en el dialecto que importa Bizagi Modeler; agrega el proceso vacio que Bizagi exige en los pools cerrados |
 | `renderizar_bpmn.py` | SVG, PNG y vista interactiva HTML con bpmn-js en Edge o Chrome sin ventana; colores de estilo Bizagi solo en los derivados |
 | `bpmn-js.lock.json` | Version, URL, SHA-256 y ubicacion de bpmn-js |
@@ -97,7 +97,7 @@ Los subprocesos de evento son sin interrupcion y se dibujan contraidos en una zo
 
 ### Trazado
 
-Columnas por orden del flujo; una fila por rama de cada compuerta dentro del carril; flujos en angulo recto que esquivan cajas y etiquetas; puertos de mensaje repartidos; pools externos cerrados en bandas, los que envian arriba y los que reciben abajo, junto al elemento con el que se comunican; etiquetas dimensionadas segun su texto. El control D4 informa cualquier superposicion restante.
+Columnas por orden del flujo; una fila por rama de cada compuerta dentro del carril; flujos en angulo recto que esquivan cajas, etiquetas, anotaciones y grupos ajenos; puertos de mensaje repartidos; pools externos cerrados en bandas, los que envian arriba y los que reciben abajo, junto al elemento con el que se comunican; etiquetas dimensionadas segun su texto. El control D4 informa cualquier superposicion restante.
 
 ### Vistas SVG y PNG
 

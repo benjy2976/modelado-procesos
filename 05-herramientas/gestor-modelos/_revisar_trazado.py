@@ -8,7 +8,8 @@ Controles:
 - T3 flujos de mensaje que atraviesan un pool que no es su origen ni su destino;
 - T4 etiquetas que se montan sobre elementos u otras etiquetas;
 - T5 elementos que se superponen entre sí;
-- T6 flujos que cruzan una etiqueta ajena.
+- T6 flujos que cruzan una etiqueta ajena;
+- T7 flujos que atraviesan un grupo sin nacer ni terminar en el.
 Funciona con cualquier BPMN con diagrama, incluidos los exportados desde Bizagi. Requiere lxml.
 """
 import glob
@@ -64,7 +65,7 @@ def revisar(ruta):
         for e in pr.iter():
             if isinstance(e.tag, str) and e.get('id'):
                 dueno[e.get('id')] = proc_part.get(pr.get('id'))
-    formas, etiquetas, pools = {}, [], {}
+    formas, etiquetas, pools, grupos = {}, [], {}, {}
     for s in raiz.iter(BDI + 'BPMNShape'):
         i = s.get('bpmnElement')
         c = caja(s)
@@ -73,7 +74,9 @@ def revisar(ruta):
         t = ln(el[i])
         if t == 'participant':
             pools[i] = c
-        elif t not in CONTENEDORES and t != 'group':
+        elif t == 'group':
+            grupos[i] = c
+        elif t not in CONTENEDORES:
             formas[i] = c
         lab = s.find(BDI + 'BPMNLabel')
         if lab is not None and caja(lab) and t not in ACT and t not in CONTENEDORES:
@@ -95,7 +98,17 @@ def revisar(ruta):
         lab = e.find(BDI + 'BPMNLabel')
         if lab is not None and caja(lab) and f.get('name'):
             etiquetas.append((i, caja(lab), f.get('name')[:45]))
-    h = {k: [] for k in ('T1', 'T2', 'T3', 'T4', 'T5', 'T6')}
+    h = {k: [] for k in ('T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7')}
+    nombre_grupo = lambda i: (el.get(el[i].get('categoryValueRef') or '', el[i]).get('value') or nom(i))[:45]
+    dentro = lambda punto, c: c[0] <= punto[0] <= c[0] + c[2] and c[1] <= punto[1] <= c[1] + c[3]
+    for a in aristas:
+        if a['tipo'] not in ('sequenceFlow', 'messageFlow') or not a['pts']:
+            continue
+        for i, c in grupos.items():
+            if dentro(a['pts'][0], c) or dentro(a['pts'][-1], c):
+                continue  # el flujo nace o termina dentro del grupo
+            if any(cruza(p, q, c, 2) for p, q in zip(a['pts'], a['pts'][1:])):
+                h['T7'].append(f'{a["tipo"]} "{nom(a["s"])}" -> "{nom(a["t"])}" atraviesa el grupo "{nombre_grupo(i)}"')
     for a in aristas:
         if a['tipo'] not in ('sequenceFlow', 'messageFlow'):
             continue
@@ -154,7 +167,7 @@ ACT = ('task', 'userTask', 'manualTask', 'serviceTask', 'sendTask', 'receiveTask
        'businessRuleTask', 'callActivity', 'subProcess')
 TITULOS = {'T1': 'flujos que atraviesan elementos', 'T2': 'flujos superpuestos',
            'T3': 'mensajes que atraviesan pools ajenos', 'T4': 'etiquetas montadas', 'T5': 'elementos superpuestos',
-           'T6': 'flujos que cruzan etiquetas'}
+           'T6': 'flujos que cruzan etiquetas', 'T7': 'flujos que atraviesan grupos ajenos'}
 
 if __name__ == '__main__':
     archivos = []

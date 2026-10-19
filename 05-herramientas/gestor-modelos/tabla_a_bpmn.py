@@ -554,6 +554,8 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         obstaculos[('dato', d['nodo'], d['k'])] = d['caja']
     for i, a in anotaciones.items():
         obstaculos[('ann', i)] = a['caja']
+    # los marcos de grupo tampoco se atraviesan, salvo por los flujos de sus propios miembros
+    marcos = [(G['caja'], set(grupos[k])) for k, G in geo_grupo.items()]
     for i, n in nodos.items():  # zona prevista de la etiqueta de eventos (abajo) y compuertas (arriba)
         et = TIPOS[n['tipo']][0]
         if et not in ACTIVIDAD and n['nombre']:
@@ -568,6 +570,9 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                 if k in excluir or (isinstance(k, tuple) and k[1] in excluir):
                     continue
                 if cruza(p, q, b, -8 if k in caja else -3):
+                    return False
+            for b, miembros in marcos:
+                if not miembros & set(excluir) and cruza(p, q, b, -3):
                     return False
         return True
 
