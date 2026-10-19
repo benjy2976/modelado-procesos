@@ -35,7 +35,7 @@ flowchart TD
 | Portada (nota indice) | `00-<carpeta>.md`, por ejemplo `00-S4-3-ejecucion-inversion.md` | - |
 | Ficha de producto y proceso | `<codigo>-ficha-producto-proceso.md` | Numeral 6.1.3 a; Anexo 2 |
 | Fichas de indicador | `<codigo>-fichas-indicador.md` | Numeral 6.1.3 b; Anexo 4 |
-| Diagrama del proceso | `<codigo>-diagrama-proceso-logico.puml` o `<codigo>-diagrama-proceso.bpmn`, con su `.svg` derivado | Anexo 3 |
+| Diagrama del proceso | `<codigo>-diagrama-proceso-tabla.md`, que genera `<codigo>-diagrama-proceso.bpmn`, `.svg`, `.png` y la vista interactiva `.html` (`DEC-026`) | Anexo 3 |
 | Procedimiento | `<codigo>-procedimiento.md`, solo en el ultimo nivel y si cumple los criterios | Numeral 6.1.3 d; Anexos 7 y 8 |
 | Sustento | `<codigo>-sustento.md`: fuentes, evidencias, discrepancias e historial de revision; no se exporta | Control del proyecto |
 | Variacion de un documento aprobado | `<codigo>-<documento>-propuesta.md` | Control del proyecto |

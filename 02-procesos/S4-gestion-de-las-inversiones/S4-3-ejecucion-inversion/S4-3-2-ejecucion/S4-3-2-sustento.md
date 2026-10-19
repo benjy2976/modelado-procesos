@@ -176,10 +176,11 @@ Figuras candidatas, no dibujadas hasta que el equipo confirme si se modelan (`PR
 |---|---|---|
 | 2026-10-16 | Creacion: insumo del equipo, evaluacion, catalogo de eventos y modelo logico | Equipo del proyecto con asistencia de IA |
 | 2026-10-16 | Modelo logico reducido al nivel 2 (subprocesos de evento contraidos); detalle trasladado al esbozo de actividades para el nivel 3 | Equipo del proyecto con asistencia de IA |
+| 2026-10-19 | Diagrama migrado de PlantUML a la cadena BPMN (`DEC-026`): subprocesos de evento sin interrupcion contraidos con su disparador, grupos y anotaciones; lo que cada subproceso envia a S4.3.1 pasa a su anotacion y se dibujara como mensaje en su diagrama de nivel 3 | Equipo del proyecto con asistencia de IA |
 
 ## Relaciones
 
-- [Modelo logico de S4.3.2](S4-3-2-diagrama-proceso-logico.puml) y su [SVG](S4-3-2-diagrama-proceso-logico.svg)
+- [Diagrama de S4.3.2](S4-3-2-diagrama-proceso.svg), generado desde [su tabla](S4-3-2-diagrama-proceso-tabla.md)
 - [Sustento de S4.3](../S4-3-sustento.md)
 - [Guia del manual BPMN](../../../../03-conocimiento/fuentes/guia-manual-bpmn.md)
 - [Guia del TUO de la Ley 31589](../../../../03-conocimiento/fuentes/guia-ley-31589-obras-paralizadas.md)

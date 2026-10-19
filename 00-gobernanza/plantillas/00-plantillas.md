@@ -27,7 +27,7 @@ Plantillas obligatorias del proyecto. Obsidian las ofrece desde esta carpeta med
 ## Modelamiento
 
 - [Diagrama de proceso en tabla](modelamiento/diagrama-proceso-tabla.md): fuente del diagrama BPMN en la etapa logica (`DEC-025`).
-- [Modelo logico PlantUML con carriles](modelamiento/modelo-logico-carriles.puml): vistas conceptuales que no son BPMN.
+- [Modelo logico PlantUML con carriles](modelamiento/modelo-logico-carriles.puml): solo vistas que no son flujos de proceso (`DEC-026`).
 
 ## Conocimiento y publicacion
 

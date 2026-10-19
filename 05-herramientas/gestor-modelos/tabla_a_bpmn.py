@@ -47,6 +47,7 @@ TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, a
     'inicio': ('startEvent', None, 36, 36),
     'inicio-mensaje': ('startEvent', 'message', 36, 36),
     'inicio-temporizador': ('startEvent', 'timer', 36, 36),
+    'inicio-condicional': ('startEvent', 'conditional', 36, 36),
     'tarea': ('task', None, 100, 80),
     'tarea-usuario': ('userTask', None, 100, 80),
     'tarea-manual': ('manualTask', None, 100, 80),
@@ -58,15 +59,22 @@ TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, a
     'temporizador': ('intermediateCatchEvent', 'timer', 36, 36),
     'mensaje-recepcion': ('intermediateCatchEvent', 'message', 36, 36),
     'mensaje-envio': ('intermediateThrowEvent', 'message', 36, 36),
+    'condicional': ('intermediateCatchEvent', 'conditional', 36, 36),
     'fin': ('endEvent', None, 36, 36),
     'fin-mensaje': ('endEvent', 'message', 36, 36),
     'fin-terminal': ('endEvent', 'terminate', 36, 36),
+    # subprocesos de evento sin interrupción, contraídos, fuera del flujo principal (DEC-024)
+    'subproceso-evento-mensaje': ('subProcess', 'message', 120, 90),
+    'subproceso-evento-temporizador': ('subProcess', 'timer', 120, 90),
+    'subproceso-evento-condicional': ('subProcess', 'conditional', 120, 90),
 }
-ACTIVIDAD = ('task', 'userTask', 'manualTask', 'serviceTask', 'callActivity')
+ACTIVIDAD = ('task', 'userTask', 'manualTask', 'serviceTask', 'callActivity', 'subProcess')
 
 # Geometría (px). FILA: alto de cada fila de un carril; NODO_Y: centro del nodo dentro de la fila.
 POOL_X, CAB, COL, FILA, NODO_Y, GAP_POOL = 20, 50, 170, 230, 80, 40
 SLOT, NIVEL, MARGEN_FAN, SEP_POOL = 150, 12, 16, 30
+CELDA, FILA_SEV = 360, 180  # zona de subprocesos de evento: caja, anotación y un pasillo de 20 px entre celdas
+FILA_BAJA = 160  # fila sin objetos de datos; las filas con documentos usan FILA
 LARGO_BIZAGI = {'evento': 40, 'compuerta': 40, 'mensaje': 50}  # Bizagi recorta etiquetas más largas
 
 
@@ -176,8 +184,21 @@ def leer(ruta):
             mm = re.match(r'^(entra|sale|almac[eé]n)\s*:\s*(.+)$', parte, re.IGNORECASE)
             clase = (mm.group(1).lower().replace('é', 'e') if mm else 'sale')
             docs.append((clase, (mm.group(2) if mm else parte).strip()))
+        sev = TIPOS[tipo][0] == 'subProcess'
+        if sev and sig:
+            errores.append(f'{i}: un subproceso de evento no lleva "Siguiente"; se activa por su disparador')
+        if sev and docs:
+            avisos.append(f'{i}: los documentos de un subproceso de evento no se dibujan')
+            docs = []
+        doc = f.get('plazo', '') or f.get('nota', '')
+        extra = [f.get(k, '') for k in ('disparador', 'anotacion', 'grupo')]
+        if not sev and any(extra):
+            avisos.append(f'{i}: Disparador, Anotacion y Grupo solo se dibujan en subprocesos de evento; '
+                          'se guardan como documentación')
+            doc = '; '.join(x for x in [doc, *extra] if x)
         nodos[i] = dict(id=i, tipo=tipo, pool=pool, carril=carril, nombre=f.get('nombre', ''), sig=sig, docs=docs,
-                        doc=f.get('plazo', '') or f.get('nota', ''))
+                        doc=doc, disparador=extra[0] if sev else '', anotacion=extra[1] if sev else '',
+                        grupo=extra[2] if sev else '')
         if pool not in orden_pools:
             orden_pools.append(pool)
         carriles.setdefault(pool, [])
@@ -189,6 +210,8 @@ def leer(ruta):
                 errores.append(f'{n["id"]}: "Siguiente" apunta a {d}, que no existe')
             elif nodos[d]['pool'] != n['pool']:
                 errores.append(f'{n["id"]} -> {d}: un flujo de secuencia no cruza pools; use un mensaje')
+            elif TIPOS[nodos[d]['tipo']][0] == 'subProcess':
+                errores.append(f'{n["id"]} -> {d}: un subproceso de evento no recibe flujos de secuencia')
     pools_tabla = {f.get('pool', ''): f for f in pools_filas}
     for p, f in pools_tabla.items():
         if p and p not in orden_pools:
@@ -310,13 +333,41 @@ def cruza(p, q, caja, m=2):
 
 def trazar(nodos, orden_pools, carriles, mensajes):
     """Calcula toda la geometría. Devuelve formas, etiquetas, aristas y datos de carriles y pools."""
-    rango, retorno = rangos(nodos, mensajes)
-    fila = filas(nodos, rango, retorno)
+    sev = [i for i, n in nodos.items() if TIPOS[n['tipo']][0] == 'subProcess']
+    principal = {i: n for i, n in nodos.items() if i not in sev}
+    rango, retorno = rangos(principal, mensajes)
+    fila = filas(principal, rango, retorno) if principal else {}
     abiertos = [p for p in orden_pools if carriles[p]]
     cerrados = [p for p in orden_pools if not carriles[p]]
-    ncol = max(rango.values()) + 1
+    ncol = max(rango.values()) + 1 if rango else 1
     x0 = POOL_X + CAB + 40
-    cx = {i: x0 + rango[i] * COL + 50 for i in nodos}
+    cx = {i: x0 + rango[i] * COL + 50 for i in principal}
+
+    # --- zona de subprocesos de evento: grilla bajo el flujo principal de cada carril; cada grupo ocupa celdas
+    # contiguas de una misma fila si cabe
+    ncel = max(3, int(ncol * COL // CELDA))
+    celda, filas_sev = {}, {}
+    por_carril = {}
+    for i in sev:
+        por_carril.setdefault((nodos[i]['pool'], nodos[i]['carril']), []).append(i)
+    for k, ids in por_carril.items():
+        bloques = {}
+        for i in ids:
+            bloques.setdefault(nodos[i]['grupo'] or f'_{i}', []).append(i)
+        r = c = 0
+        for miembros in bloques.values():
+            if c and c + min(len(miembros), ncel) > ncel:
+                r, c = r + 1, 0
+            for i in miembros:
+                if c >= ncel:
+                    r, c = r + 1, 0
+                celda[i] = (r, c)
+                c += 1
+            if len(miembros) > ncel:
+                r, c = r + 1, 0
+        filas_sev[k] = r + 1 if c else r
+    for i, (r, c) in celda.items():
+        cx[i] = x0 + c * CELDA + 70
 
     # --- mensajes con pools cerrados: lado de cada pool (los que envían, arriba; los que reciben, abajo)
     envia, recibe = {p: 0 for p in cerrados}, {p: 0 for p in cerrados}
@@ -421,15 +472,25 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     # --- pools abiertos, carriles y nodos
     y_abierto = 20 + alto_arriba
     filas_carril = {}
-    for i, n in nodos.items():
+    for i, n in principal.items():
         k = (n['pool'], n['carril'])
         filas_carril[k] = max(filas_carril.get(k, 1), fila[i] + 1)
-    ancho = max([CAB + 40 + ncol * COL + 40] + [info[p]['fin'] + 20 - POOL_X for p in cerrados])
+    alto_sev = {k: FILA_SEV * v + 20 for k, v in filas_sev.items()}
+    alto_fila = {}
+    for i, n in principal.items():
+        k = (n['pool'], n['carril'], fila[i])
+        alto_fila[k] = max(alto_fila.get(k, FILA_BAJA), FILA if n['docs'] else FILA_BAJA)
+
+    def y_fila(p, c, r):
+        """Desplazamiento vertical de la fila r dentro del carril: suma de los altos de las filas anteriores."""
+        return sum(alto_fila.get((p, c, rr), FILA_BAJA) for rr in range(r))
+    ancho = max([CAB + 40 + ncol * COL + 40, CAB + 40 + ncel * CELDA + 20 if sev else 0]
+                + [info[p]['fin'] + 20 - POOL_X for p in cerrados])
     geo_pool, geo_carril, y = {}, {}, y_abierto
     for p in abiertos:
         y_ini = y
         for c in carriles[p]:
-            alto = filas_carril.get((p, c), 1) * FILA
+            alto = y_fila(p, c, filas_carril.get((p, c), 0 if (p, c) in alto_sev else 1)) + alto_sev.get((p, c), 0)
             geo_carril[(p, c)] = (POOL_X + CAB, y, ancho - CAB, alto)
             y += alto
         geo_pool[p] = (POOL_X, y_ini, ancho, y - y_ini)
@@ -437,11 +498,38 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     y_fin_abierto = y - GAP_POOL
 
     caja = {}
-    for i, n in nodos.items():
+    for i, n in principal.items():
         _, _, w, h = TIPOS[n['tipo']]
-        cy = geo_carril[(n['pool'], n['carril'])][1] + fila[i] * FILA + NODO_Y
+        cy = geo_carril[(n['pool'], n['carril'])][1] + y_fila(n['pool'], n['carril'], fila[i]) + NODO_Y
         caja[i] = (cx[i] - w / 2, cy - h / 2, w, h)
     centro = lambda i: (caja[i][0] + caja[i][2] / 2, caja[i][1] + caja[i][3] / 2)
+
+    def zona_top(i):
+        k = (nodos[i]['pool'], nodos[i]['carril'])
+        return geo_carril[k][1] + y_fila(*k, filas_carril.get(k, 0)) + 10 + celda[i][0] * FILA_SEV
+
+    anotaciones, grupos = {}, {}
+    for i in sev:
+        n = nodos[i]
+        top = zona_top(i)
+        caja[i] = (cx[i] - 60, top + 34, 120, 90)
+        partes = [f'Se activa: {n["disparador"]}' if n['disparador'] else '', n['anotacion']]
+        texto = '\n'.join(x for x in partes if x)
+        if texto:
+            ancho_a = CELDA - 170
+            alto_a = sum(caja_texto(x, ancho_max=ancho_a, ancho_min=ancho_a)[1] for x in texto.split('\n'))
+            anotaciones[i] = dict(texto=texto, caja=(cx[i] + 70, top + 34, ancho_a,
+                                                      max(40, min(alto_a, FILA_SEV - 44))))
+        if n['grupo']:
+            grupos.setdefault((n['pool'], n['carril'], n['grupo']), []).append(i)
+    geo_grupo = {}
+    for (p, c, g), ids in grupos.items():
+        x1 = min(caja[i][0] for i in ids) - 8
+        x2 = max(caja[i][0] for i in ids) + CELDA - 32
+        y1 = min(zona_top(i) for i in ids) + 2
+        y2 = max(zona_top(i) for i in ids) + FILA_SEV - 12
+        geo_grupo[(p, c, g)] = dict(caja=(x1, y1, x2 - x1, y2 - y1), nombre=g, pool=p,
+                                    etq=(x1 + 8, y1 + 5, min(x2 - x1 - 16, 320), 18))
 
     # --- objetos de datos y almacenes: centrados bajo la actividad
     datos = []
@@ -464,6 +552,8 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     obstaculos = dict(caja)
     for d in datos:
         obstaculos[('dato', d['nodo'], d['k'])] = d['caja']
+    for i, a in anotaciones.items():
+        obstaculos[('ann', i)] = a['caja']
     for i, n in nodos.items():  # zona prevista de la etiqueta de eventos (abajo) y compuertas (arriba)
         et = TIPOS[n['tipo']][0]
         if et not in ACTIVIDAD and n['nombre']:
@@ -482,7 +572,8 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         return True
 
     def fila_top(i):
-        return geo_carril[(nodos[i]['pool'], nodos[i]['carril'])][1] + fila[i] * FILA
+        return geo_carril[(nodos[i]['pool'], nodos[i]['carril'])][1] + y_fila(nodos[i]['pool'], nodos[i]['carril'],
+                                                                                    fila[i])
 
     canales = {}  # uso de canales verticales y horizontales, para separar líneas paralelas
 
@@ -541,7 +632,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         for k, m in enumerate(ms):
             m['px'] = bx + bw * (k + 1) / (len(ms) + 1) if es_act else bx + bw / 2 + (k - (len(ms) - 1) / 2) * 12
             m['py'] = by if ld == 'arriba' else by + bh
-    huecos = [x0 + c * COL + 135 for c in range(-1, ncol)]
+    huecos = [x0 + c * COL + 135 for c in range(-1, ncol)] + [x0 + c * CELDA + CELDA - 11 for c in range(-1, ncel)]
     niveles = {'arriba': 0, 'abajo': 0}
     rutas_msg, etq_m = {}, {}
     for m in sorted(mcp, key=lambda m: (m['lado'], m['slot'])):
@@ -664,17 +755,31 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         p, q = rutas[fid][0], rutas[fid][1]
         w, h = caja_texto(cond, px=6, ancho_max=90, ancho_min=18)
         if abs(p[0] - q[0]) < 0.5:
-            etq_f[fid] = (p[0] + 5, p[1] + (4 if q[1] > p[1] else -h - 4), w, h)
+            # salida vertical de compuerta: la etiqueta va junto al tramo horizontal de su rama
+            etq_f[fid] = (q[0] + 6, q[1] - h - 2, w, h) if len(rutas[fid]) > 2 else (
+                p[0] + 5, p[1] + (4 if q[1] > p[1] else -h - 4), w, h)
         else:
             etq_f[fid] = (p[0] + 5, p[1] - h - 2, w, h)
 
-    return dict(rango=rango, retorno=retorno, caja=caja, datos=datos, flujos=flujos, rutas=rutas,
+    return dict(anotaciones=anotaciones, geo_grupo=geo_grupo, sev=sev,
+                rango=rango, retorno=retorno, caja=caja, datos=datos, flujos=flujos, rutas=rutas,
                 rutas_msg=rutas_msg, etq_n=etq_n, etq_f=etq_f, etq_m=etq_m, geo_pool=geo_pool,
                 geo_carril=geo_carril, geo_cerrado=geo_cerrado, abiertos=abiertos, cerrados=cerrados)
 
 
+def definicion(defn, base, condicion=''):
+    """Definición de evento BPMN; la condicional exige una expresión, que aquí es el texto de la condición."""
+    if defn == 'conditional':
+        return (f'<bpmn:conditionalEventDefinition id="{base}_def"><bpmn:condition xsi:type="bpmn:tFormalExpression">'
+                f'{condicion}</bpmn:condition></bpmn:conditionalEventDefinition>')
+    return f'<bpmn:{defn}EventDefinition id="{base}_def" />'
+
+
 def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
     T = trazar(nodos, orden_pools, carriles, mensajes)
+    # los identificadores se derivan del nombre del archivo (contiene el código del proceso) y del ID de cada
+    # elemento, no del título: cambiar el título no cambia los identificadores (estándar de artefactos, regla 7.4)
+    semilla = os.path.splitext(origen)[0] if origen else nombre
     caja, rutas = T['caja'], T['rutas']
 
     def bounds(x, yy, w, h):
@@ -686,15 +791,15 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
     def etiqueta(b):
         return f'<bpmndi:BPMNLabel>{bounds(*b)}</bpmndi:BPMNLabel>' if b else ''
 
-    pid = {p: gid(nombre, 'pool', p) for p in orden_pools}
-    prc = {p: gid(nombre, 'proc', p) for p in orden_pools}
-    nid = {i: gid(nombre, 'nodo', i) for i in nodos}
+    pid = {p: gid(semilla, 'pool', p) for p in orden_pools}
+    prc = {p: gid(semilla, 'proc', p) for p in orden_pools}
+    nid = {i: gid(semilla, 'nodo', i) for i in nodos}
     raiz, coll, procs, formas, aristas = [], [], {p: [] for p in orden_pools}, [], []
     entradas = {i: [] for i in nodos}
     salidas = {i: [] for i in nodos}
     fids = {}
     for fid0, a, b, cond in T['flujos']:
-        fid = gid(nombre, 'flujo', a, b)
+        fid = gid(semilla, 'flujo', a, b)
         fids[fid0] = fid
         salidas[a].append(fid)
         entradas[b].append(fid)
@@ -707,13 +812,14 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                       f'{bounds(*g)}</bpmndi:BPMNShape>')
     for k, m in sorted(T['rutas_msg'].items()):
         a, b, nom = m['a'], m['b'], m['nom']
-        mid = gid(nombre, 'msj', a, b, str(k))
+        mid = gid(semilla, 'msj', a, b, str(k))
         src = nid.get(a, pid.get(a))
         tgt = nid.get(b, pid.get(b))
         coll.append(f'<bpmn:messageFlow id="{mid}" name={quoteattr(nom)} sourceRef="{src}" targetRef="{tgt}" />')
         aristas.append(f'<bpmndi:BPMNEdge id="{mid}_di" bpmnElement="{mid}">{wp(m["pts"])}'
                        f'{etiqueta(T["etq_m"].get(k))}</bpmndi:BPMNEdge>')
     almacenes = {}
+    categorias = []
     datos_por_nodo = {}
     for d in T['datos']:
         datos_por_nodo.setdefault(d['nodo'], []).append(d)
@@ -723,7 +829,7 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
         for c in carriles[p]:
             refs = ''.join(f'<bpmn:flowNodeRef>{nid[i]}</bpmn:flowNodeRef>' for i, n in nodos.items()
                            if n['pool'] == p and n['carril'] == c)
-            lid = gid(nombre, 'carril', p, c)
+            lid = gid(semilla, 'carril', p, c)
             lanes.append(f'<bpmn:lane id="{lid}" name={quoteattr(c)}>{refs}</bpmn:lane>')
             formas.append(f'<bpmndi:BPMNShape id="{lid}_di" bpmnElement="{lid}" isHorizontal="true">'
                           f'{bounds(*T["geo_carril"][(p, c)])}</bpmndi:BPMNShape>')
@@ -740,11 +846,11 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                 hijos += f'<bpmn:property id="{nid[i]}_ph" name="__targetRef_placeholder" />'
             for d in ds:
                 k, clase, dnom = d['k'], d['clase'], d['nombre']
-                did = gid(nombre, 'dato', i, str(k))
-                aid = gid(nombre, 'asoc', i, str(k))
+                did = gid(semilla, 'dato', i, str(k))
+                aid = gid(semilla, 'asoc', i, str(k))
                 if clase == 'almacen':
                     if dnom not in almacenes:
-                        almacenes[dnom] = gid(nombre, 'almacen', dnom)
+                        almacenes[dnom] = gid(semilla, 'almacen', dnom)
                         raiz.append(f'<bpmn:dataStore id="{almacenes[dnom]}" name={quoteattr(dnom)} />')
                     artefactos.append(f'<bpmn:dataStoreReference id="{did}" name={quoteattr(dnom)} '
                                       f'dataStoreRef="{almacenes[dnom]}" />')
@@ -762,11 +868,19 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                              f'</bpmn:dataOutputAssociation>')
                 aristas.append(f'<bpmndi:BPMNEdge id="{aid}_di" bpmnElement="{aid}">{wp(d["pts"])}</bpmndi:BPMNEdge>')
             hijos += asoc
-            if defn:
-                hijos += f'<bpmn:{defn}EventDefinition id="{nid[i]}_def" />'
-            cuerpo.append(f'<bpmn:{et} id="{nid[i]}" name={quoteattr(n["nombre"])}>{hijos}</bpmn:{et}>')
+            if et == 'subProcess':
+                # subproceso de evento contraído: su evento de inicio sin interrupción lleva el disparador
+                cond = escape(n['disparador'] or n['nombre'])
+                hijos += (f'<bpmn:startEvent id="{nid[i]}_ini" name={quoteattr(n["disparador"])} '
+                          f'isInterrupting="false">{definicion(defn, nid[i] + "_ini", cond)}</bpmn:startEvent>')
+                cuerpo.append(f'<bpmn:subProcess id="{nid[i]}" name={quoteattr(n["nombre"])} triggeredByEvent="true">'
+                              f'{hijos}</bpmn:subProcess>')
+            else:
+                if defn:
+                    hijos += definicion(defn, nid[i], escape(n['nombre']))
+                cuerpo.append(f'<bpmn:{et} id="{nid[i]}" name={quoteattr(n["nombre"])}>{hijos}</bpmn:{et}>')
             extra = ' isMarkerVisible="true"' if et == 'exclusiveGateway' else (
-                ' isExpanded="false"' if et == 'callActivity' else '')
+                ' isExpanded="false"' if et in ('callActivity', 'subProcess') else '')
             formas.append(f'<bpmndi:BPMNShape id="{nid[i]}_di" bpmnElement="{nid[i]}"{extra}>{bounds(*caja[i])}'
                           f'{etiqueta(T["etq_n"].get(i))}</bpmndi:BPMNShape>')
         for fid0, a, b, cond in T['flujos']:
@@ -777,8 +891,30 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                           f'targetRef="{nid[b]}" />')
             aristas.append(f'<bpmndi:BPMNEdge id="{fid}_di" bpmnElement="{fid}">{wp(rutas[fid0])}'
                            f'{etiqueta(T["etq_f"].get(fid0))}</bpmndi:BPMNEdge>')
+        for i, a in T['anotaciones'].items():
+            if nodos[i]['pool'] != p:
+                continue
+            aid, sid = gid(semilla, 'anotacion', i), gid(semilla, 'asocnota', i)
+            artefactos.append(f'<bpmn:textAnnotation id="{aid}"><bpmn:text>{escape(a["texto"])}</bpmn:text>'
+                              f'</bpmn:textAnnotation>')
+            artefactos.append(f'<bpmn:association id="{sid}" sourceRef="{nid[i]}" targetRef="{aid}" '
+                              'associationDirection="None" />')
+            formas.append(f'<bpmndi:BPMNShape id="{aid}_di" bpmnElement="{aid}">{bounds(*a["caja"])}</bpmndi:BPMNShape>')
+            bx, by, bw, _ = caja[i]
+            aristas.append(f'<bpmndi:BPMNEdge id="{sid}_di" bpmnElement="{sid}">'
+                           f'{wp([(bx + bw, by + 20), (a["caja"][0], by + 20)])}</bpmndi:BPMNEdge>')
+        for (pg, _, g), G in T['geo_grupo'].items():
+            if pg != p:
+                continue
+            gid_g, cv = gid(semilla, 'grupo', pg, g), gid(semilla, 'categoria', pg, g)
+            categorias.append(f'<bpmn:categoryValue id="{cv}" value={quoteattr(g)} />')
+            artefactos.append(f'<bpmn:group id="{gid_g}" categoryValueRef="{cv}" />')
+            formas.append(f'<bpmndi:BPMNShape id="{gid_g}_di" bpmnElement="{gid_g}">{bounds(*G["caja"])}'
+                          f'{etiqueta(G["etq"])}</bpmndi:BPMNShape>')
         cuerpo.extend(artefactos)
-    did = gid(nombre, 'defs')[1:9]
+    did = gid(semilla, 'defs')[1:9]
+    if categorias:
+        raiz.append(f'<bpmn:category id="Cat_{did}">{"".join(categorias)}</bpmn:category>')
     procesos = ''.join(f'<bpmn:process id="{prc[p]}" name={quoteattr(p)} isExecutable="false">{"".join(procs[p])}'
                        f'</bpmn:process>' for p in T['abiertos'])
     aviso = (f'<!-- GENERADO con tabla_a_bpmn.py desde {escape(origen).replace('--', '-')}. En la etapa formal este BPMN pasa a ser la '
@@ -786,9 +922,9 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
     return ('<?xml version="1.0" encoding="UTF-8"?>\n' + aviso +
             '<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" '
             'xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" '
-            'xmlns:di="http://www.omg.org/spec/DD/20100524/DI" '
+            'xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
             f'id="Defs_{did}" targetNamespace="http://bpmn.tabla/{did}" exporter="_tabla_a_bpmn.py" '
-            'exporterVersion="2.0">'
+            'exporterVersion="2.1">'
             + ''.join(raiz)
             + f'<bpmn:collaboration id="Collab_{did}">{"".join(coll)}</bpmn:collaboration>'
             + procesos
@@ -804,7 +940,7 @@ VISOR = """<!doctype html>
 <link rel="stylesheet" href="https://unpkg.com/bpmn-js@17.11.1/dist/assets/bpmn-js.css">
 <link rel="stylesheet" href="https://unpkg.com/bpmn-js@17.11.1/dist/assets/bpmn-font/css/bpmn.css">
 <style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
-header{padding:8px 12px;border-bottom:1px solid #ddd}</style></head>
+header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
 <body><header>__T__ · vista generada por _tabla_a_bpmn.py (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
 <script src="https://unpkg.com/bpmn-js@17.11.1/dist/bpmn-navigated-viewer.production.min.js"></script>
 <script>const xml = __X__; const v = new BpmnJS({container: '#c'});
@@ -819,28 +955,10 @@ def visor_html(nombre, xml):
     try:
         sys.path.insert(0, AQUI)
         import renderizar_bpmn
-        js = renderizar_bpmn.biblioteca().read_text(encoding='utf-8')
-        contenido = renderizar_bpmn.colorear(xml.encode('utf-8'))
-        return (VISOR_LOCAL.replace('__T__', escape(nombre)).replace('__JS__', js)
-                .replace('__X__', __import__('json').dumps(contenido)))
+        return renderizar_bpmn.pagina_visor(nombre, xml)
     except Exception as error:
         print(f'Vista rápida en línea (sin bpmn-js local: {error})')
         return VISOR.replace('__T__', escape(nombre)).replace('__X__', __import__('json').dumps(xml))
-
-
-VISOR_LOCAL = """<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>__T__</title>
-<style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
-header{padding:8px 12px;border-bottom:1px solid #ddd}</style></head>
-<body><header>__T__ · vista generada por tabla_a_bpmn.py con bpmn-js local (rueda: zoom; arrastrar: mover)</header>
-<div id="c"></div>
-<script>__JS__</script>
-<script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.length; v.get('canvas').zoom('fit-viewport'); })
- .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
-</body></html>
-"""
 
 
 def ejecutar(script, *args):

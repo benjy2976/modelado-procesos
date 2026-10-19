@@ -29,7 +29,7 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 | Documento | Archivo | Estado |
 |---|---|---|
 | Ficha de producto y proceso | `S4-3-2-ficha-producto-proceso.md` | `PENDIENTE` |
-| Diagrama del proceso | [S4-3-2-diagrama-proceso-logico.puml](S4-3-2-diagrama-proceso-logico.puml) y su [SVG](S4-3-2-diagrama-proceso-logico.svg); luego `S4-3-2-diagrama-proceso.bpmn` | `PROPUESTA` en `ELABORACION`: modelo logico |
+| Diagrama del proceso | Fuente [S4-3-2-diagrama-proceso-tabla.md](S4-3-2-diagrama-proceso-tabla.md); genera [S4-3-2-diagrama-proceso.bpmn](S4-3-2-diagrama-proceso.bpmn), su [SVG](S4-3-2-diagrama-proceso.svg), su [PNG](S4-3-2-diagrama-proceso.png) y su [vista interactiva](S4-3-2-diagrama-proceso.html), que se abre en el navegador (`DEC-026`) | `PROPUESTA` en `ELABORACION`: etapa logica |
 | Sustento | [S4-3-2-sustento.md](S4-3-2-sustento.md) | Vigente |
 | Insumo del equipo | [S4-3-2-insumo-modelo-ejecucion-equipo.png](S4-3-2-insumo-modelo-ejecucion-equipo.png) | `PROPUESTA` del equipo, evaluada en el sustento |
 

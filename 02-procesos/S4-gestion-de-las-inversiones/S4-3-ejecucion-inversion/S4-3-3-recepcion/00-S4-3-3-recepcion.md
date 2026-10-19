@@ -29,7 +29,7 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 | Documento | Archivo | Estado |
 |---|---|---|
 | Ficha de producto y proceso | `S4-3-3-ficha-producto-proceso.md` | `PENDIENTE` |
-| Diagrama del proceso | `S4-3-3-diagrama-proceso-logico.puml` | `PENDIENTE` |
+| Diagrama del proceso | `S4-3-3-diagrama-proceso-tabla.md`, que genera `S4-3-3-diagrama-proceso.bpmn`, `.svg` y `.png` | `PENDIENTE` |
 | Sustento | `S4-3-3-sustento.md` | `PENDIENTE` |
 
 ## Relaciones

@@ -73,7 +73,7 @@ def revisar(ruta):
         t = ln(el[i])
         if t == 'participant':
             pools[i] = c
-        elif t not in CONTENEDORES and t not in ('group', 'textAnnotation'):
+        elif t not in CONTENEDORES and t != 'group':
             formas[i] = c
         lab = s.find(BDI + 'BPMNLabel')
         if lab is not None and caja(lab) and t not in ACT and t not in CONTENEDORES:

@@ -251,6 +251,10 @@ Criterios de separacion propuestos (`PROPUESTA`, pendientes de validacion del eq
 
 Representacion en el nivel 1: un solo proceso S4.3 con su carril de rol (Anexo 3), S4.3.1 en una rama paralela que permanece activa, y S4.3.2 y S4.3.3 en otra rama que espera el evento "condiciones de inicio cumplidas". El detalle de eventos, subprocesos de evento y temporizadores corresponde al diagrama de nivel 2 de cada subproceso. Que las valorizaciones y el expediente para pagos se gestionen desde S4.3.1 es una `PROPUESTA` por confirmar.
 
+### Diagrama en BPMN
+
+El 2026-10-19 el modelo logico paso de PlantUML a la cadena BPMN (`DEC-025`, `DEC-026`): la fuente es [S4-3-diagrama-proceso-tabla.md](S4-3-diagrama-proceso-tabla.md), con la clase y la fuente de cada elemento, y genera el BPMN, el SVG que muestra la ficha y el PNG. El contenido es el mismo del modelo PlantUML, que queda en el historial de Git. Cambios de representacion: "Condiciones de inicio cumplidas" pasa a evento condicional; los productos y entradas observados en la ficha S4 se dibujan como mensajes con pools cerrados, con su texto literal.
+
 ### Situacion de las observaciones
 
 | N | Situacion |

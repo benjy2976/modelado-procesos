@@ -43,3 +43,6 @@
 
 # Esquemas oficiales BPMN 2.0 de la OMG: se conservan byte a byte para que coincidan con sus hashes (DEC-025)
 05-herramientas/gestor-modelos/xsd_bpmn20/*.xsd -text
+
+# Biblioteca bpmn-js versionada: se conserva byte a byte para que coincida con su hash (DEC-026)
+05-herramientas/gestor-modelos/vendor/* -text

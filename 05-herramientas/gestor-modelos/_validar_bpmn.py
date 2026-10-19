@@ -85,7 +85,11 @@ def proceso_simple(p):
     q = copy.deepcopy(p)
     for e in list(q):
         if ln(e) in ('laneSet', 'dataObject', 'dataObjectReference', 'dataStoreReference', 'textAnnotation',
-                     'association'):
+                     'association', 'group'):
+            q.remove(e)
+        elif ln(e) == 'subProcess' and e.get('triggeredByEvent') == 'true':
+            # un subproceso de evento se activa por su disparador mientras el proceso está activo: no forma parte
+            # del recorrido del flujo principal
             q.remove(e)
     for e in q.iter():
         if isinstance(e.tag, str):

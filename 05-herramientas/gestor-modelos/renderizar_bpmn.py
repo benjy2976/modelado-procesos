@@ -23,7 +23,7 @@ from pathlib import Path
 from lxml import etree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from renderizar_plantuml import REPO_ROOT, download_verified
+from renderizar_plantuml import REPO_ROOT, download_verified, sha256
 
 LOCK_PATH = Path(__file__).with_name("bpmn-js.lock.json")
 BDI = "http://www.omg.org/spec/BPMN/20100524/DI"
@@ -65,6 +65,50 @@ v.importXML(__X__).then(() => v.saveSVG()).then(r => { document.getElementById('
  .catch(e => { document.getElementById('svg').textContent = 'ERROR ' + e; });</script></body></html>"""
 
 
+VISOR = """<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__T__</title>
+<style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
+header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
+<body><header>__T__ · vista local con bpmn-js (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
+<script>__JS__</script>
+<script>const xml = __X__; const v = new BpmnJS({container: '#c'});
+v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.length; v.get('canvas').zoom('fit-viewport'); })
+ .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
+</body></html>
+"""
+
+
+VISOR_ENLAZADO = """<!doctype html>
+<!-- GENERADO - NO EDITAR. Fuente: __F__; bpmn-js fijado por el proyecto. -->
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__T__</title>
+<style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
+header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
+<body><header>__T__ · vista interactiva (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
+<script src="__JS__"></script>
+<script>const xml = __X__; const v = new BpmnJS({container: '#c'});
+v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.length; v.get('canvas').zoom('fit-viewport'); })
+ .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
+</body></html>
+"""
+
+
+def pagina_visor_enlazada(nombre: str, bpmn: Path, destino: Path) -> str:
+    """Vista interactiva versionable: lleva solo el diagrama y enlaza la copia versionada de bpmn-js por ruta
+    relativa, de modo que funciona sin internet desde que se clona el repositorio."""
+    js = os.path.relpath(biblioteca(), destino.parent).replace(os.sep, "/")
+    pagina = VISOR_ENLAZADO.replace("__T__", html.escape(nombre)).replace("__F__", html.escape(bpmn.name))
+    pagina = pagina.replace("__X__", json.dumps(colorear(bpmn.read_bytes())))
+    return pagina.replace("__JS__", html.escape(js))
+
+
+def pagina_visor(nombre: str, xml: str) -> str:
+    """Vista HTML autonoma: bpmn-js local fijado, colores de estilo Bizagi, zoom y desplazamiento."""
+    pagina = VISOR.replace("__T__", html.escape(nombre)).replace("__X__", json.dumps(colorear(xml.encode("utf-8"))))
+    return pagina.replace("__JS__", biblioteca().read_text(encoding="utf-8"))
+
+
 def load_lock() -> dict[str, object]:
     data = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
     if not {"version", "artifacts"} <= set(data):
@@ -73,8 +117,13 @@ def load_lock() -> dict[str, object]:
 
 
 def biblioteca() -> Path:
-    """Ruta local de bpmn-js, descargada y verificada si hace falta."""
+    """Ruta de bpmn-js: la copia versionada en vendor/ (verificada por hash) o, si falta, la del cache descargado."""
     artifact = load_lock()["artifacts"]["navigated_viewer"]
+    versionada = REPO_ROOT / artifact.get("vendor_path", "")
+    if artifact.get("vendor_path") and versionada.is_file():
+        if sha256(versionada) != artifact["sha256"].lower():
+            raise RuntimeError(f"La copia versionada de bpmn-js no coincide con el hash fijado: {versionada}")
+        return versionada
     return download_verified(artifact["url"], REPO_ROOT / artifact["cache_path"], artifact["sha256"])
 
 
@@ -192,6 +241,8 @@ def main() -> int:
     parser.add_argument("source", type=Path, help="Archivo .bpmn de entrada")
     parser.add_argument("--output", type=Path, required=True, help="Archivo SVG de salida")
     parser.add_argument("--png", type=Path, help="Archivo PNG de salida (opcional)")
+    parser.add_argument("--html", type=Path, help="Vista interactiva HTML de salida (opcional)")
+    parser.add_argument("--titulo", default="", help="Titulo de la vista interactiva (por defecto, el del archivo)")
     parser.add_argument("--escala", type=int, default=2, help="Escala del PNG (por defecto 2)")
     parser.add_argument("--sin-color", action="store_true", help="Sin la paleta de estilo Bizagi")
     parser.add_argument("--check", action="store_true",
@@ -220,6 +271,11 @@ def main() -> int:
         if args.png:
             render_png(svg, args.png.resolve(), args.escala)
             print(f"GENERADO: {args.png.resolve()}")
+        if args.html:
+            destino = args.html.resolve()
+            pagina = pagina_visor_enlazada(args.titulo or source.stem, source, destino)
+            escribir(destino, pagina.encode("utf-8"))
+            print(f"GENERADO: {destino}")
         return 0
     except (OSError, RuntimeError, urllib.error.URLError, etree.XMLSyntaxError) as error:
         print(f"ERROR: {error}", file=sys.stderr)

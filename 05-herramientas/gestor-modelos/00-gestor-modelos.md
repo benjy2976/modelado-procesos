@@ -18,8 +18,8 @@ aliases:
 
 Este directorio implementa la [iniciativa de modelamiento hibrido](../../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md) con dos cadenas locales, sin servicios externos al renderizar:
 
-- **PlantUML**, para vistas conceptuales que no son BPMN y modelos logicos ya iniciados en `.puml`.
-- **Cadena BPMN** (`DEC-025`), para los diagramas de proceso: tabla en Markdown, BPMN 2.0 generado y validado, y vistas SVG y PNG producidas con bpmn-js.
+- **Cadena BPMN** (`DEC-025`, `DEC-026`), para todo flujo de proceso en modelamiento: tabla en Markdown, BPMN 2.0 generado y validado, y vistas SVG, PNG y HTML producidas con bpmn-js.
+- **PlantUML**, solo para vistas que no son flujos de proceso y para diagramas aprobados ya transcritos (estandar de artefactos, seccion 7.2).
 
 Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga aprobacion humana.
 
@@ -41,17 +41,31 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 
 | Archivo | Funcion |
 |---|---|
+| `construir_modelos.py` | Construye o comprueba todos los diagramas en modelamiento: BPMN, SVG, PNG y vista interactiva HTML, con una pagina indice en `99-temporal/modelos/` |
 | `tabla_a_bpmn.py` | Lee la tabla o lista, calcula el trazado, genera el `.bpmn`, lo valida, produce la copia para Bizagi y una vista HTML local |
 | `_validar_bpmn.py` | D1 esquema oficial de la OMG, D2 referencias, D3 bloqueos y elementos inalcanzables (juego de tokens) |
 | `_revisar_trazado.py` | D4: flujos que atraviesan elementos o etiquetas, flujos superpuestos, mensajes que cruzan pools ajenos, etiquetas montadas |
 | `_bpmn_a_bizagi.py` | Copia en el dialecto que importa Bizagi Modeler; agrega el proceso vacio que Bizagi exige en los pools cerrados |
-| `renderizar_bpmn.py` | SVG y PNG con bpmn-js en Edge o Chrome sin ventana; colores de estilo Bizagi solo en los derivados |
-| `bpmn-js.lock.json` | Version, URL y SHA-256 de bpmn-js |
+| `renderizar_bpmn.py` | SVG, PNG y vista interactiva HTML con bpmn-js en Edge o Chrome sin ventana; colores de estilo Bizagi solo en los derivados |
+| `bpmn-js.lock.json` | Version, URL, SHA-256 y ubicacion de bpmn-js |
+| `vendor/` | Copia versionada de bpmn-js 17.11.1 y su licencia; la usan las vistas interactivas y el renderizador |
 | `xsd_bpmn20/` | Esquemas oficiales BPMN 2.0 de la OMG |
 
 ### Uso
 
 Desde la raiz del repositorio:
+
+```powershell
+# Construir todos los diagramas en modelamiento: BPMN, SVG, PNG, vista interactiva e indice
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py
+
+# Comprobar, sin escribir, que todos los BPMN, SVG y HTML versionados estan al dia
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --check
+```
+
+`construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
+
+Pasos individuales, para un modelo:
 
 ```powershell
 # 1. Generar y validar el BPMN desde la tabla
@@ -62,7 +76,8 @@ Desde la raiz del repositorio:
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_bpmn.py `
   02-procesos\...\<codigo>-diagrama-proceso.bpmn `
   --output 02-procesos\...\<codigo>-diagrama-proceso.svg `
-  --png 02-procesos\...\<codigo>-diagrama-proceso.png
+  --png 02-procesos\...\<codigo>-diagrama-proceso.png `
+  --html 02-procesos\...\<codigo>-diagrama-proceso.html --titulo "<codigo> <nombre>"
 
 # 3. Comprobar que el SVG versionado esta al dia, sin sobrescribirlo
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_bpmn.py `
@@ -76,7 +91,9 @@ Desde la raiz del repositorio:
 
 La fuente se redacta con la [plantilla de diagrama en tabla](../../00-gobernanza/plantillas/modelamiento/diagrama-proceso-tabla.md): tablas `## Pools`, `## Elementos` y `## Mensajes`. Las columnas adicionales, como `Clase` y `Fuente`, no se dibujan y sostienen la trazabilidad. Tambien se admite el formato de lista (`## Pool: X`, `### Carril`, `- ID (tipo) Nombre -> siguientes`).
 
-Tipos admitidos: inicio, inicio-mensaje, inicio-temporizador, tarea, tarea-usuario, tarea-manual, tarea-servicio, subproceso, compuerta, compuerta-paralela, compuerta-inclusiva, temporizador, mensaje-recepcion, mensaje-envio, fin, fin-mensaje y fin-terminal.
+Tipos admitidos: inicio, inicio-mensaje, inicio-temporizador, inicio-condicional, tarea, tarea-usuario, tarea-manual, tarea-servicio, subproceso, compuerta, compuerta-paralela, compuerta-inclusiva, temporizador, condicional, mensaje-recepcion, mensaje-envio, fin, fin-mensaje, fin-terminal, subproceso-evento-mensaje, subproceso-evento-temporizador y subproceso-evento-condicional.
+
+Los subprocesos de evento son sin interrupcion y se dibujan contraidos en una zona bajo el flujo principal de su carril. No llevan `Siguiente`; admiten las columnas `Disparador` (lo que los activa, que se anota como "Se activa: ..."), `Anotacion` (texto al costado) y `Grupo` (marco que reune varios). Los identificadores del BPMN se derivan del nombre del archivo y del ID de cada elemento, de modo que cambiar el titulo no los altera.
 
 ### Trazado
 
@@ -86,7 +103,9 @@ Columnas por orden del flujo; una fila por rama de cada compuerta dentro del car
 
 `renderizar_bpmn.py` carga el BPMN en bpmn-js (`bpmn-navigated-viewer` 17.11.1) dentro de Edge o Chrome sin ventana, con un perfil temporal propio, y obtiene el SVG mediante la exportacion oficial de bpmn-js. El PNG es una captura de ese SVG (escala 2 por defecto). Los colores de estilo Bizagi y las etiquetas en negro se aplican a una copia en memoria: el `.bpmn` fuente no cambia. El SVG lleva la marca `GENERADO - NO EDITAR` y numera las flechas en orden fijo, de modo que la misma entrada produce los mismos bytes en el mismo equipo. La ubicacion del texto depende de las fuentes instaladas: `--check` debe ejecutarse en el entorno de referencia del proyecto.
 
-La licencia de bpmn-js (MIT con clausula de marca de agua) exige no retirar ni alterar la marca de agua de bpmn.io en aplicaciones o sitios. El proyecto no modifica la biblioteca; la vista HTML la conserva.
+La vista interactiva lleva solo el diagrama coloreado y enlaza `vendor/bpmn-navigated-viewer-17.11.1.production.min.js` por ruta relativa: pesa unos 30 KB, funciona sin internet desde que se clona el repositorio y se abre con doble clic o desde el enlace de la nota indice (Obsidian la abre en el navegador). `renderizar_bpmn.py` usa la copia de `vendor/` si coincide con el hash del archivo de bloqueo; si falta, descarga la de la URL fijada al cache.
+
+La licencia de bpmn-js (`vendor/LICENSE-bpmn-js.txt`, MIT con clausula de marca de agua) exige no retirar ni alterar la marca de agua de bpmn.io en aplicaciones o sitios. El proyecto no modifica la biblioteca y la vista interactiva conserva la marca; solo oculta el boton para entrar a los subprocesos contraidos, cuyo interior esta vacio en ese nivel.
 
 ### Bizagi
 
@@ -94,7 +113,8 @@ La copia `bizagi/<nombre>_bizagi.bpmn` se importa en Bizagi Modeler (Archivo > I
 
 ### Limites
 
-- No genera todavia subprocesos de evento, eventos de borde, eventos de senal o condicionales ni anotaciones; se documentan en el sustento hasta que se incorporen.
+- No genera todavia eventos de borde, eventos de senal, compuertas basadas en eventos ni subprocesos de evento con interrupcion; se documentan en el sustento hasta que se incorporen.
+- Las anotaciones y los grupos solo se dibujan en subprocesos de evento; en otros elementos se guardan como documentacion.
 - Un nombre de carril no puede contener ";".
 - En la etapa formal, el `.bpmn` pasa a ser la fuente maestra y la tabla queda como antecedente (estandar de artefactos, seccion 5).
 

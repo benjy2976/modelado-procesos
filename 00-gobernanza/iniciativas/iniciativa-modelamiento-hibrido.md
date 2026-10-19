@@ -282,7 +282,7 @@ Entregables:
 
 Criterio de aceptacion: el BPMN abre en una herramienta compatible, todos los derivados corresponden a su hash y ninguna perdida semantica queda oculta.
 
-Avance al 2026-10-19 (`DEC-025`): cadena BPMN operativa en el [gestor local de modelos](../../05-herramientas/gestor-modelos/00-gestor-modelos.md), con validador estructural, control de trazado y SVG y PNG generados; probada con el modelo de S4.3 en Bizagi y en bpmn-js. Pendientes de la fase: resumen Markdown generado, comparacion con el modelo logico y BPMN piloto de S4.3.2.5 Consulta.
+Avance al 2026-10-19 (`DEC-025`): cadena BPMN operativa en el [gestor local de modelos](../../05-herramientas/gestor-modelos/00-gestor-modelos.md), con validador estructural, control de trazado y SVG y PNG generados; probada con el modelo de S4.3 en Bizagi y en bpmn-js. Con `DEC-026` se migraron S4.3 y S4.3.2 y se agrego `construir_modelos.py`. Pendientes de la fase: resumen Markdown generado y camino de vuelta desde Bizagi.
 
 ### Fase 4 - Intercambio con IA
 

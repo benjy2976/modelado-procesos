@@ -51,7 +51,7 @@ Entradas y productos de S4.3 tal como figuran en la ficha aprobada de S4 (pagina
 |---|---|---|
 | Ficha de producto y proceso | [S4-3-ficha-producto-proceso.md](S4-3-ficha-producto-proceso.md) | `PROPUESTA` en `ELABORACION`: primer borrador; dueno y objetivo pendientes |
 | Fichas de indicador | `S4-3-fichas-indicador.md` | `PENDIENTE` |
-| Diagrama del proceso | [S4-3-diagrama-proceso-logico.puml](S4-3-diagrama-proceso-logico.puml) y su [SVG](S4-3-diagrama-proceso-logico.svg); luego `S4-3-diagrama-proceso.bpmn` | `PROPUESTA` en `ELABORACION`: modelo logico |
+| Diagrama del proceso | Fuente [S4-3-diagrama-proceso-tabla.md](S4-3-diagrama-proceso-tabla.md); genera [S4-3-diagrama-proceso.bpmn](S4-3-diagrama-proceso.bpmn), su [SVG](S4-3-diagrama-proceso.svg), su [PNG](S4-3-diagrama-proceso.png) y su [vista interactiva](S4-3-diagrama-proceso.html), que se abre en el navegador (`DEC-026`) | `PROPUESTA` en `ELABORACION`: etapa logica |
 | Sustento | [S4-3-sustento.md](S4-3-sustento.md) | Vigente |
 | Procedimiento | - | Se determinara al aprobar la descomposicion: solo aplica en el ultimo nivel |
 
