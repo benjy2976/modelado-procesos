@@ -13,7 +13,7 @@ tags:
 
 Sube a: [Gestion por procesos del GRH](../00-GESTION-POR-PROCESOS-GRH.md)
 
-Esta area reune la documentacion de cada proceso tal como la organiza la Norma Tecnica de gestion por procesos (NT 002-2025-PCM-SGP): por niveles, con codigo y con su juego de documentos. El alcance actual es **S4.3 Ejecucion de la inversion**.
+Esta area reune la documentacion de cada proceso tal como la organiza la Norma Tecnica de gestion por procesos (NT 002-2025-PCM-SGP): por niveles, con codigo y con su juego de documentos. El alcance inicial es **S4.3 Ejecucion de la inversion**. La rama **S1.4 Administracion de las personas** agrupa ahora los modelos PAD en trabajo, pendientes de codigo y delimitacion del proceso hijo.
 
 ## Como leer el arbol
 
@@ -58,6 +58,8 @@ Las reglas completas estan en el [estandar de artefactos](../00-gobernanza/estan
 ## Contenido
 
 - [Mapa de procesos institucional](mapa-de-procesos-institucional/00-mapa-de-procesos-institucional.md): mapa Nivel 0 e inventario de productos y procesos.
+- [S1 Gestion del recurso humano](S1-gestion-del-recurso-humano/00-S1-gestion-del-recurso-humano.md): nodo de referencia de Nivel 0.
+  - [S1.4 Administracion de las personas](S1-gestion-del-recurso-humano/S1-4-administracion-de-las-personas/00-S1-4-administracion-de-las-personas.md): proceso Nivel 1 que contiene el producto disciplinario; aloja modelos PAD en trabajo.
 - [S4 Gestion de las inversiones](S4-gestion-de-las-inversiones/00-S4-gestion-de-las-inversiones.md): proceso Nivel 0 aprobado.
   - [S4.3 Ejecucion de la inversion](S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/00-S4-3-ejecucion-inversion.md): alcance actual del proyecto.
 - [S2 Gestion contable y financiera](S2-gestion-contable-y-financiera/00-S2-gestion-contable-y-financiera.md): nodo de referencia, contraparte de S4.3 mediante S2.1.

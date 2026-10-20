@@ -63,9 +63,13 @@ Desde la raiz del repositorio:
 
 # Comprobar, sin escribir, que todos los BPMN, SVG y HTML versionados estan al dia
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --check
+
+# Construir o comprobar una tabla concreta de trabajo, incluso antes de ubicarla en 02-procesos
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --tabla ruta\<id>-diagrama-proceso-tabla.md
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --tabla ruta\<id>-diagrama-proceso-tabla.md --check
 ```
 
-`construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
+`construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. `--tabla` permite indicar una o mas tablas concretas de trabajo del repositorio, sin alterar el conjunto del control global. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
 
 Pasos individuales, para un modelo:
 

@@ -9,9 +9,10 @@ Busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md` y, para cada uno:
 Ademas deja en `99-temporal/modelos/` la copia para Bizagi y el informe de validacion de cada modelo, y una pagina
 `index.html` que enlaza las vistas interactivas. Esos productos de trabajo no se versionan.
 
-Uso: python construir_modelos.py [--check] [--forzar]
+Uso: python construir_modelos.py [--check] [--forzar] [--tabla ruta]
   --check   no escribe: comprueba que cada BPMN, SVG y HTML versionado coincide con lo que se generaria.
   --forzar  actualiza el BPMN aunque la validacion tenga hallazgos (deben explicarse en el sustento).
+  --tabla   construye o comprueba solo la tabla indicada; admite tablas de trabajo fuera de 02-procesos.
 """
 
 from __future__ import annotations
@@ -75,9 +76,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Construye o comprueba los diagramas BPMN en modelamiento.")
     parser.add_argument("--check", action="store_true", help="Solo comprueba; no escribe en el repositorio.")
     parser.add_argument("--forzar", action="store_true", help="Adopta el BPMN aunque la validacion tenga hallazgos.")
+    parser.add_argument("--tabla", action="append", type=Path,
+                        help="Tabla concreta de trabajo; repetible. Sin esta opcion usa todos los procesos.")
     args = parser.parse_args()
 
-    encontradas = tablas()
+    encontradas = [p.resolve() for p in args.tabla] if args.tabla else tablas()
+    for tabla in encontradas:
+        if (not tabla.is_file() or not tabla.name.endswith("-diagrama-proceso-tabla.md")
+                or not tabla.is_relative_to(REPO_ROOT)):
+            parser.error(f"--tabla debe indicar una tabla del repositorio: {tabla}")
     if not encontradas:
         print("No hay tablas de diagrama en 02-procesos.")
         return 0
@@ -103,7 +110,8 @@ def main() -> int:
                         errores += 1
                         continue
                     pagina = renderizar_bpmn.pagina_visor_enlazada(titulo(tabla), bpmn, vista).encode("utf-8")
-                    if not vista.exists() or vista.read_bytes() != pagina:
+                    # Git puede materializar HTML con CRLF en Windows; el contenido generado es el mismo.
+                    if not vista.exists() or vista.read_bytes().replace(b"\r\n", b"\n") != pagina:
                         print(f"DESACTUALIZADO: {vista.relative_to(REPO_ROOT)}")
                         errores += 1
                         continue

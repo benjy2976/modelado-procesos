@@ -13,11 +13,12 @@ tags:
 
 Sube a: [Procesos](../00-PROCESOS.md)
 
-Corresponde al nivel 0 de la entidad. Segun la NT 002-2025-PCM-SGP (numeral 6.1.3 c y Anexo 6), el mapa de procesos institucional se compone del diagrama del mapa de procesos y del inventario de productos y procesos. Aqui se conservan sus transcripciones trazables; los originales permanecen en `01-referencias`.
+Reune el mapa Nivel 0 y las ramas del Nivel 1 necesarias para el modelamiento. Segun la NT 002-2025-PCM-SGP (numeral 6.1.3 c y Anexo 6), el mapa de procesos institucional se compone del diagrama del mapa de procesos y del inventario de productos y procesos. Aqui se conservan transcripciones trazables; los originales permanecen en `01-referencias`.
 
 ## Contenido
 
 - [Mapa de procesos Nivel 0](mapa-procesos-nivel-0.md): representacion conceptual de macroprocesos (excepcion `DEC-015`).
+- [S1 en el mapa institucional Nivel 1](mapa-procesos-nivel-1-s1.md): rama S1 y ubicacion de los productos disciplinarios en S1.4.
 - [Inventario de productos y procesos](inventario-productos-procesos.md): formato del Anexo 1, limitado a las ramas en alcance.
 
 ## Relaciones
