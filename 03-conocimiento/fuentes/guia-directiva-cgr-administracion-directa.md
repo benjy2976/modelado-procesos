@@ -7,7 +7,7 @@ clase_conocimiento: NORMATIVO
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-02
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 aliases:
@@ -63,4 +63,4 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 ## Alertas
 
 - En administracion directa la culminacion y la liquidacion forman una sola fase a cargo del mismo comite; en contrata, la recepcion y la liquidacion son actos distintos. La frontera entre S4.3 y S4.4 puede diferir segun la modalidad.
-- La preparacion (num. 7.2) y la provision durante la obra (num. 7.3.3) corresponden, en administracion directa, a S4.3.1 Gestion de la ejecucion (`DEC-023`).
+- La preparacion (num. 7.2) y la provision durante la obra (num. 7.3.3) se ubicaron en la propuesta anterior S4.3.1 Gestion de la ejecucion (`DEC-023`). Tras `DEC-028`, su ubicacion detallada queda pendiente de analizar; la exigencia de la fuente no cambia.

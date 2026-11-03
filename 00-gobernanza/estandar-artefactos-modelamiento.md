@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-19
+fecha_actualizacion: 2026-11-03
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -167,7 +167,7 @@ Regla adoptada en `DEC-024` para modelos logicos y formales:
 3. Con participantes externos o procesos con su propio control, la relacion se representa con flujos de mensaje entre pools.
 4. No se usan bucles para mantener vivo un proceso. Los sucesos que llegan mientras el proceso esta activo se modelan con subprocesos de evento sin interrupcion en el diagrama de detalle.
 5. Se declara la instancia de cada subproceso (por ejemplo, una por inversion o una por contrato) y se marca la instancia multiple cuando corresponda.
-6. En la cadena BPMN, lo que llega mientras un proceso esta activo se dibuja con eventos condicionales o de mensaje y con subprocesos de evento sin interrupcion contraidos. En una vista PlantUML, los eventos recibidos se dibujan como actividades de color `#FFF2CC` y los envios se indican en notas.
+6. En la cadena BPMN, lo que llega mientras un proceso esta activo se dibuja con eventos condicionales o de mensaje y con subprocesos de evento sin interrupcion contraidos. Cada uno conserva un unico evento de inicio en el BPMN y muestra obligatoriamente en la esquina superior izquierda el icono BPMN de su disparador; el aro discontinuo identifica que no interrumpe el proceso contenedor. La anotacion puede ampliar el nombre del disparador, pero no sustituye el icono. En una vista PlantUML, los eventos recibidos se dibujan como actividades de color `#FFF2CC` y los envios se indican en notas.
 
 ## 7. Reglas para BPMN
 
@@ -198,7 +198,7 @@ Regla adoptada en `DEC-026`: la cadena BPMN se usa siempre que el contenido sea 
 |---|---|
 | Diagrama de cualquier proceso en modelamiento, de cualquier nivel, que se muestra en su ficha (Anexos 2 y 3) | Cadena BPMN: tabla, `.bpmn`, `.svg`, `.png` y vista HTML |
 | Diagrama de flujo del procedimiento (Anexo 8) | Cadena BPMN |
-| Subprocesos de evento y sus detalles de nivel 3 | Cadena BPMN |
+| Subprocesos de evento y su detalle operativo; nivel 3 solo cuando la desagregacion se adopta expresamente | Cadena BPMN |
 | Diagramas aprobados ya transcritos en PlantUML, como S4 | Se conservan; pasan a BPMN cuando se revise el documento aprobado |
 | Vistas que no son flujos: mapas de relaciones, estructuras, arboles de decision, arquitectura de informacion | PlantUML |
 | Mapa institucional Nivel 0 | Markdown y Mermaid (seccion 0) |
@@ -218,7 +218,7 @@ Regla adoptada en `DEC-027`. Los diagramas usan exclusivamente BPMN 2.0 y los si
 | Eventos de borde de tiempo, mensaje, condicional, senal, escalacion (con o sin interrupcion) y de error (con interrupcion) | `borde-temporizador`, `borde-mensaje`, `borde-condicional`, `borde-senal`, `borde-escalacion`, `borde-error` | 2.8.3; p. 90 | Plazos, excepciones y terminaciones anticipadas; columnas `Adjunto` e `Interrumpe` |
 | Tarea, de usuario, manual, de servicio | `tarea`, `tarea-usuario`, `tarea-manual`, `tarea-servicio` | 2.2, 2.7.1; p. 33, 77-79 | Actividades |
 | Subproceso de llamada (borde grueso) | `subproceso` | 2.7.3, 2.8.2; p. 83-88 | Proceso de otro nivel con su propio diagrama |
-| Subproceso de evento sin interrupcion, expandido con su disparador | `subproceso-evento-mensaje`, `subproceso-evento-temporizador`, `subproceso-evento-condicional` | 2.8.6; p. 96-98, fig. 2.90 | Sucesos que ocurren mientras el proceso esta activo (`DEC-024`) |
+| Subproceso de evento sin interrupcion, contraido con marcador `+`, aro discontinuo e icono del disparador en la esquina superior izquierda | `subproceso-evento-mensaje`, `subproceso-evento-temporizador`, `subproceso-evento-condicional` | 2.8.6; p. 96-98, fig. 2.91 | Sucesos que ocurren mientras el proceso esta activo (`DEC-024`, `DEC-031`) |
 | Marcadores de instancias multiples (paralela y secuencial) y de bucle | Columna `Marcador`: `multiple-paralelo`, `multiple-secuencial`, `bucle` | 2.7.2; p. 79-81 | Una instancia por contrato, frente o caso |
 | Compuerta exclusiva, paralela, inclusiva y basada en eventos | `compuerta`, `compuerta-paralela`, `compuerta-inclusiva`, `compuerta-eventos` | 2.3, 2.6.14; p. 35-44, 74 | La inclusiva se evita en el nivel descriptivo (p. 148-149) |
 | Flujo por defecto | `ID [rotulo] (por defecto)` en `Siguiente` | 2.3.4; p. 44 | Ruta normal de una decision |

@@ -18,7 +18,9 @@ tags:
 
 Sube a: [S4.3 Ejecucion de la inversion](../00-S4-3-ejecucion-inversion.md)
 
-Subproceso de nivel 2 propuesto en `DEC-023`: una instancia por contrato o frente de ejecucion. Inicia cuando S4.3.1 entrega las condiciones de inicio y termina con la obra culminada o con el contrato resuelto o declarado nulo. Los sucesos que ocurren en cualquier momento de la ejecucion (valorizaciones, consultas, adicionales, ampliaciones, suspensiones, paralizaciones) se modelan como subprocesos de evento sin interrupcion (`DEC-024`). En este nivel aparecen contraidos [+]; cada uno se detallara en su propio diagrama de nivel 3, con los codigos propuestos en el sustento.
+Modelo de trabajo actualizado por el equipo (`DEC-030`, `DEC-031`): una instancia de larga duracion permanece activa hasta la culminacion de la obra o hasta una terminacion por resolucion o nulidad. Durante esa instancia pueden activarse repetidas veces y en paralelo tres bloques operativos de eventos: Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo. Se muestran contraidos, con su disparador, y no constituyen todavia procesos formales de nivel 3.
+
+El modelo anterior y el respaldo integral inmediatamente previo al reemplazo se conservan en `99-temporal/modelos/comparacion-s4-3-2/`. La evaluacion BPMN, el detalle de los eventos agrupados y los pendientes estan en el [sustento](S4-3-2-sustento.md).
 
 ## Ubicacion
 
@@ -29,12 +31,12 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 | Documento | Archivo | Estado |
 |---|---|---|
 | Ficha de producto y proceso | `S4-3-2-ficha-producto-proceso.md` | `PENDIENTE` |
-| Diagrama del proceso | Fuente [S4-3-2-diagrama-proceso-tabla.md](S4-3-2-diagrama-proceso-tabla.md); genera [S4-3-2-diagrama-proceso.bpmn](S4-3-2-diagrama-proceso.bpmn), su [SVG](S4-3-2-diagrama-proceso.svg), su [PNG](S4-3-2-diagrama-proceso.png) y su [vista interactiva](S4-3-2-diagrama-proceso.html), que se abre en el navegador (`DEC-026`) | `PROPUESTA` en `ELABORACION`: etapa logica |
+| Diagrama del proceso | Fuente [S4-3-2-diagrama-proceso-tabla.md](S4-3-2-diagrama-proceso-tabla.md); genera [S4-3-2-diagrama-proceso.bpmn](S4-3-2-diagrama-proceso.bpmn), su [SVG](S4-3-2-diagrama-proceso.svg), su [PNG](S4-3-2-diagrama-proceso.png) y su [vista interactiva](S4-3-2-diagrama-proceso.html) | `PROPUESTA` en `ELABORACION`: tres bloques de eventos concurrentes |
 | Sustento | [S4-3-2-sustento.md](S4-3-2-sustento.md) | Vigente |
 | Insumo del equipo | [S4-3-2-insumo-modelo-ejecucion-equipo.png](S4-3-2-insumo-modelo-ejecucion-equipo.png) | `PROPUESTA` del equipo, evaluada en el sustento |
 
 ## Relaciones
 
-- Recibe de [S4.3.1 Gestion de la ejecucion](../S4-3-1-gestion-de-la-ejecucion/00-S4-3-1-gestion-de-la-ejecucion.md) las condiciones de inicio, y le envia valorizaciones, requerimientos y modificaciones.
+- Recibe de [S4.3.1 Inicio de ejecucion](../S4-3-1-inicio-de-ejecucion/00-S4-3-1-inicio-de-ejecucion.md) el acta de inicio de obra.
 - Envia a [S4.3.3 Recepcion](../S4-3-3-recepcion/00-S4-3-3-recepcion.md) la obra culminada o el contrato resuelto o nulo.
 - [Estandar de artefactos, seccion 6.1](../../../../00-gobernanza/estandar-artefactos-modelamiento.md)

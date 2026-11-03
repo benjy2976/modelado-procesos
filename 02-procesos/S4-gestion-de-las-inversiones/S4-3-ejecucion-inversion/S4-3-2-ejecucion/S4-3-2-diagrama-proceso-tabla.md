@@ -9,7 +9,7 @@ nivel_proceso: 2
 proceso:
   - S4.3.2
 fecha_creacion: 2026-10-19
-fecha_actualizacion: 2026-10-19
+fecha_actualizacion: 2026-11-03
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -19,21 +19,22 @@ tags:
 
 # S4.3.2 Ejecución
 
-<!-- Fuente editable del diagrama en la etapa logica (DEC-025, DEC-026). Genera S4-3-2-diagrama-proceso.bpmn, .svg y .png con 05-herramientas/gestor-modelos/construir_modelos.py. Reemplaza al modelo logico PlantUML, que queda en el historial de Git. -->
+<!-- Fuente editable del diagrama en la etapa logica (DEC-025, DEC-026). Genera S4-3-2-diagrama-proceso.bpmn, .svg, .png y .html con 05-herramientas/gestor-modelos/construir_modelos.py. -->
 
 Sube a: [S4.3.2 Ejecucion](00-S4-3-2-ejecucion.md)
 
-Vista de nivel 2: el flujo principal muestra la vida de la ejecucion y sus mensajes con S4.3.1 y S4.3.3; cada figura es un subproceso de evento sin interrupcion, contraido, con su disparador, que se detallara en su propio diagrama de nivel 3 (`DEC-024`). Los grupos son una ayuda de lectura, no procesos. Clase de cada elemento: `NORM` normativa citada en el sustento, `EQ` equipo, `PROP` propuesta. Catalogo de eventos y fuentes en el [sustento de S4.3.2](S4-3-2-sustento.md).
+Vista de nivel 2 actualizada por el equipo (`DEC-030`, `DEC-031`): una instancia de Ejecucion permanece activa hasta la obra culminada, la resolucion o la nulidad. Mientras esta activa atiende, de forma repetible y concurrente, tres bloques de eventos: Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo. Clase de cada elemento: `NORM` normativa citada en el sustento, `EQ` equipo, `PROP` propuesta. El catalogo detallado de eventos se conserva en el [sustento de S4.3.2](S4-3-2-sustento.md) y en el respaldo temporal.
 
 Notas que no se dibujan:
 
-- Alcance (`EQ`): contrata y administracion directa en un solo diagrama, con diferencias anotadas en cada subproceso (`PROP`).
+- Alcance (`EQ`): contrata y administracion directa se mantienen provisionalmente en un solo diagrama; sus diferencias se detallaran dentro de cada bloque.
 - Roles normativos en un solo carril; carriles por unidad de organizacion: `EVIDENCIA-INSUFICIENTE`.
+- La actividad "Ejecutar la obra conforme al expediente tecnico" representa el alcance de larga duracion. No lleva marcador de bucle porque no reinicia secuencialmente el subproceso completo.
+- Los tres subprocesos de evento son no interruptivos: pueden iniciarse varias veces y coexistir mientras la ejecucion principal siga activa. No llevan flujo de secuencia; pertenecen al alcance de S4.3.2 y cada uno conserva su propio disparador.
+- Control periodico agrupa la valorizacion y otros controles recurrentes; Consultas de obra agrupa las consultas; Gestionar modificaciones de alcance o plazo agrupa adicionales, reducciones, mayores metrados, suspensiones, ampliaciones y paralizaciones. El agrupamiento es `EQ`; el detalle permanece en el sustento.
+- Los tres son bloques operativos del BPMN, no procesos formales de nivel 3. Solo se desagregaran si el analisis confirma objetivo, entrada, producto, responsable e instancia propios.
+- La resolucion y la nulidad son eventos de borde condicionales que interrumpen "Ejecutar la obra"; la obra culminada es su salida normal. La conformidad tecnica se reserva para analizarla dentro de S4.3.3 Recepcion.
 - Toda modificacion se registra en el Banco de Inversiones antes de ejecutarse (`REG-INV-EJEC-004`).
-- La resolucion y la nulidad son eventos de borde condicionales que interrumpen "Ejecutar la obra" (manual BPMN, sec. 2.8.3, p. 90); la obra culminada es la salida normal de la actividad. Reemplazan la compuerta "¿Como termina la ejecucion?" del modelo del equipo (`DEC-027`).
-- Lo que cada subproceso de evento envia a S4.3.1 figura en su anotacion; los flujos de mensaje se dibujaran en su diagrama de nivel 3.
-- Codigos S4.3.2.1 y S4.3.2.2 tomados del modelo del equipo; los demas son propuestos y estan por confirmar.
-- Figuras candidatas no dibujadas: intensificacion del programa, actualizacion del programa, monitoreo y control, intervencion economica y reajustes.
 
 ## Pools
 
@@ -45,28 +46,22 @@ Notas que no se dibujan:
 
 | ID | Pool | Carril | Tipo | Nombre | Siguiente | Adjunto | Interrumpe | Documentos | Plazo | Disparador | Anotacion | Grupo | Clase | Fuente |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| E-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | inicio-mensaje | Condiciones de inicio cumplidas | T-1 |  |  |  | Una instancia por contrato o frente de ejecución |  |  |  | PROP | DEC-023; DEC-024 |
-| T-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | tarea | Suscribir el acta de inicio de obra o equivalente | T-2 |  |  |  |  |  |  |  | EQ | REG-CON-OBRA-002 |
-| T-2 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | tarea | Ejecutar la obra conforme al expediente técnico | F-1 |  |  |  | Conforme al programa de ejecución; registrar ocurrencias en el cuaderno de obra (contratista o residente) |  |  |  | NORM | Reglamento de la Ley 32069, art. 188; Directiva 017-2023-CG, num. 7.3.2 |
+| E-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | inicio-mensaje | Acta de inicio de obra recibida | T-1 |  |  |  | Una instancia de larga duración; unidad exacta pendiente de confirmar |  |  |  | EQ | Propuesta del equipo, 2026-11-02; DEC-030 |
+| T-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | tarea | Ejecutar la obra conforme al expediente técnico | F-1 |  |  |  | Permanece activa hasta la culminación, resolución o nulidad; registra ocurrencias en el cuaderno de obra |  |  |  | EQ | Propuesta del equipo, 2026-11-02; Reglamento de la Ley 32069, art. 188; Directiva 017-2023-CG, num. 7.3.2 |
 | F-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | fin-mensaje | Obra culminada |  |  |  |  |  |  |  |  | NORM | REG-CON-OBRA-003; REG-CGR-AD-002 |
-| B-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | borde-condicional | Contrato resuelto | F-2 | T-2 | Sí |  | Interrumpe la ejecución |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
-| B-2 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | borde-condicional | Contrato declarado nulo | F-3 | T-2 | Sí |  | Interrumpe la ejecución |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
+| B-1 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | borde-condicional | Contrato resuelto | F-2 | T-1 | Sí |  | Interrumpe la ejecución |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
+| B-2 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | borde-condicional | Contrato declarado nulo | F-3 | T-1 | Sí |  | Interrumpe la ejecución |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
 | F-2 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | fin-mensaje | Ejecución terminada por resolución |  |  |  |  |  |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
 | F-3 | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | fin-mensaje | Ejecución terminada por nulidad |  |  |  |  |  |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
-| V | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-temporizador | S4.3.2.1 Valorización |  |  |  |  | Código del equipo | Cierre de cada mes | Envía a S4.3.1: valorización aprobada para el expediente de pago | Control periódico | EQ | Reglamento, art. 210.1; Directiva 017-2023-CG, num. 7.3.4 |
-| CO | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-mensaje | S4.3.2.5 Consulta de obra |  |  |  |  | Código propuesto | Consulta anotada en el cuaderno de obra | Puede originar S4.3.2.4 Ampliación de plazo | Atienden incidencias | PROP | Reglamento, art. 190; Directiva 017-2023-CG, num. 7.3.7 b |
-| AD | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.2 Adicional de obra con deductivo vinculado |  |  |  |  | Código del equipo | Prestación indispensable no prevista | Envía a S4.3.1: modificación aprobada | Modifican alcance y costo | EQ | REG-CON-ADIC-002; Reglamento, arts. 194 y 196; num. 7.3.6 |
-| RD | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.7 Reducción de prestaciones |  |  |  |  | Código propuesto | Prestación que deja de ser necesaria | Envía a S4.3.1: modificación aprobada | Modifican alcance y costo | PROP | REG-CON-ADIC-001 |
-| MM | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.8 Mayores metrados |  |  |  |  | Código propuesto | Mayor metrado en contrato a precios unitarios | "Menores metrados": EVIDENCIA-INSUFICIENTE. Envía a S4.3.1: mayor metrado autorizado | Modifican alcance y costo | PROP | Reglamento, art. 197; num. 7.3.6 |
-| SU | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.3 Suspensión de plazo |  |  |  |  | Código propuesto | Causa que impide continuar | Administración directa: EVIDENCIA-INSUFICIENTE. Envía a S4.3.1: suspensión y reinicio del plazo | Modifican el plazo | PROP | Reglamento, arts. 107 y 202 |
-| AM | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.4 Ampliación de plazo |  |  |  |  | Código propuesto | Causal que afecta la ruta crítica | Envía a S4.3.1: plazo modificado | Modifican el plazo | PROP | Reglamento, arts. 198, 200 y 201; num. 7.3.7 |
-| PA | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | S4.3.2.6 Paralización de obra |  |  |  |  | Código propuesto | Supuesto de paralización | Puede derivar en la resolución del contrato. Envía a S4.3.1: paralización y reinicio | Modifican el plazo | PROP | REG-CGR-AD-005; REG-CON-PARAL-001; Ley 31589, art. 5.2 |
+| CP | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-temporizador | Control periódico |  |  |  |  | Bloque operativo agrupado por el equipo | Cierre de cada mes | Incluye valorización y controles periódicos; el detalle se desarrollará posteriormente | Eventos activos | EQ | Propuesta del equipo, 2026-11-02; Reglamento, art. 210.1; Directiva 017-2023-CG, num. 7.3.4 |
+| CO | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-mensaje | Consultas de obra |  |  |  |  | Bloque operativo agrupado por el equipo | Consulta anotada en el cuaderno de obra | Puede originar una modificación de alcance o plazo | Eventos activos | EQ | Propuesta del equipo, 2026-11-02; Reglamento, art. 190; Directiva 017-2023-CG, num. 7.3.7 b |
+| MP | S4.3.2 Ejecución | Contratista o residente, supervisor o inspector y entidad | subproceso-evento-condicional | Gestionar modificaciones de alcance o plazo |  |  |  |  | Bloque operativo agrupado por el equipo | Causal de modificación de alcance o plazo | Incluye adicional con deductivo vinculado, reducción, mayores metrados, suspensión, ampliación y paralización | Eventos activos | EQ | Propuesta del equipo, 2026-11-02; catalogo de eventos del sustento |
 
 ## Mensajes
 
 | Desde | Hacia | Nombre | Clase |
 |---|---|---|---|
-| S4.3.1 Gestión de la ejecución | E-1 | Condiciones de inicio cumplidas | PROP |
+| S4.3.1 Inicio de ejecución | E-1 | Acta de inicio de obra | EQ |
 | F-1 | S4.3.3 Recepción | Obra culminada para recepción | PROP |
 | F-2 | S4.3.3 Recepción | Contrato resuelto para constatación e inventario | PROP |
 | F-3 | S4.3.3 Recepción | Contrato nulo: tratamiento por definir | PROP |

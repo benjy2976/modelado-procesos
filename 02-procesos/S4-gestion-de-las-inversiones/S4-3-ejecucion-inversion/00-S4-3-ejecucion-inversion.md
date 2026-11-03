@@ -57,17 +57,19 @@ Entradas y productos de S4.3 tal como figuran en la ficha aprobada de S4 (pagina
 
 ## Subprocesos Nivel 2
 
-Propuestos en `DEC-023` y `DEC-024`, pendientes de aprobar con la descomposicion de S4.3:
+Propuesta de trabajo actualizada en `DEC-028` y organizada documentalmente en `DEC-029`; permanece pendiente de revision y no constituye aprobacion:
 
 | Codigo | Subproceso | Instancia | Estado |
 |---|---|---|---|
-| S4.3.1 | [Gestion de la ejecucion](S4-3-1-gestion-de-la-ejecucion/00-S4-3-1-gestion-de-la-ejecucion.md) | Una por inversion, transversal | Sin documentos |
-| S4.3.2 | [Ejecucion](S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) | Una por contrato o frente | Modelo logico y sustento en `ELABORACION` |
+| S4.3.1 | [Inicio de ejecucion](S4-3-1-inicio-de-ejecucion/00-S4-3-1-inicio-de-ejecucion.md) | Por definir en el analisis de detalle | Carpeta preparada; sin modelo vigente hasta recibir el detalle del equipo |
+| S4.3.2 | [Ejecucion](S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) | Instancia de larga duracion hasta la culminacion, resolucion o nulidad; unidad exacta pendiente | Modelo logico actualizado con tres bloques de eventos concurrentes (`DEC-030`); antecedentes respaldados |
 | S4.3.3 | [Recepcion](S4-3-3-recepcion/00-S4-3-3-recepcion.md) | Una por ejecucion concluida o resuelta | Sin documentos |
 
 ## Pendientes
 
 - Responder las preguntas P7 a P10 del [sustento](S4-3-sustento.md) y revisar el modelo logico y la ficha borrador.
+- Recibir y analizar el detalle de Inicio de ejecucion y decidir su instancia y alcance sin atribuir aprobacion.
+- Confirmar la unidad de instancia y detallar los tres bloques concurrentes de S4.3.2; desarrollar posteriormente S4.3.3 Recepcion.
 - Incorporar fuentes de Obras por Impuestos y del Sistema Nacional de Abastecimiento a la biblioteca.
 
 - Recibir los levantamientos del equipo y el documento interno para elaborar fichas; se registraran como insumos en el sustento.

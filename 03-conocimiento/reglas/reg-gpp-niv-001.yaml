@@ -1,0 +1,76 @@
+esquema: regla-normativa-v1
+id_regla: REG-GPP-NIV-001
+titulo: Determinacion de procesos de nivel 1 hasta el ultimo nivel
+dominio: gestion-por-procesos
+tipo_regla: PERMISO
+enunciado: >-
+  A partir de los procesos de nivel 0, los dueños de procesos pueden determinar los procesos de nivel 1 hasta el
+  ultimo nivel y deben documentar los procesos determinados mediante sus fichas de producto y proceso y sus
+  respectivas fichas de indicador.
+actor: dueños de procesos
+accion: determinar y documentar
+objeto: procesos de nivel 1 hasta el ultimo nivel
+condiciones:
+  - partir de procesos de nivel 0 previamente determinados
+  - seguir las actividades y pasos de la Norma Tecnica 002-2025-PCM-SGP
+excepciones: []
+plazo: null
+evidencias_requeridas:
+  - ficha de producto y proceso
+  - ficha de indicador de producto o proceso
+aplicabilidad:
+  procesos:
+    - S4.3
+  etapas:
+    - determinacion de procesos
+  modalidades: []
+  tipologias: []
+  aplica_si:
+    - se propone desagregar un proceso de nivel 0 o superior
+  no_aplica_si: []
+fuente:
+  id_documento: PROC-001
+  archivo_original: 01-referencias/02-gestion-por-procesos/originales/nt-002-2025-pcm-sgp/norma-tecnica-n-002-2025-pcm-sgp-f-f.pdf
+  sha256: 16225C398C24D45B601EFEEF20C9E456EF81F0217BBB0A35E8A41BF2F4B60254
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/7676821/6501954-norma-tecnica-n-002-2025-pcm-sgp-f-f.pdf?v=1740411544
+  fecha_consulta: '2026-11-03'
+  articulo: Numeral 6.1.2
+  numeral: Paso 3
+  pagina_pdf: '11'
+  pagina_impresa: '11'
+  anexo_tabla: null
+  texto_citado: >-
+    A partir de los procesos nivel 0, los dueños de procesos pueden determinar los procesos nivel 1 hasta el ultimo
+    nivel, elaborando y aprobando las Fichas de producto y proceso y sus respectivas Fichas de indicador de producto
+    o proceso, siguiendo las mismas actividades y pasos establecidos en la presente norma tecnica.
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: REVISADO-PARCIAL
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: true
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas:
+    - REG-GPP-DOC-001
+  actividades_bpmn:
+    - S4.3:desagregacion
+observaciones:
+  - La norma no establece una equivalencia automatica entre un simbolo de subproceso BPMN y un nivel formal de proceso.
+  - Vigencia juridica y modificatorias posteriores pendientes de confirmacion humana.
+

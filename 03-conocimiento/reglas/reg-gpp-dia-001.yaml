@@ -1,0 +1,75 @@
+esquema: regla-normativa-v1
+id_regla: REG-GPP-DIA-001
+titulo: Contenido representado en el diagrama del proceso
+dominio: gestion-por-procesos
+tipo_regla: OBLIGACION
+enunciado: >-
+  El diagrama del proceso debe representar la secuencia logica e interaccion de sus actividades, los roles que
+  intervienen, los elementos de entrada, los productos y las personas que reciben esos productos.
+actor: dueño del proceso
+accion: representar
+objeto: actividades y elementos del proceso en el diagrama del proceso
+condiciones:
+  - elaboracion de la ficha de producto y proceso
+excepciones: []
+plazo: null
+evidencias_requeridas:
+  - diagrama del proceso incluido en la ficha de producto y proceso
+aplicabilidad:
+  procesos:
+    - S4.3
+  etapas:
+    - documentacion de procesos
+  modalidades: []
+  tipologias: []
+  aplica_si:
+    - se elabora o actualiza una ficha de producto y proceso
+  no_aplica_si: []
+fuente:
+  id_documento: PROC-001
+  archivo_original: 01-referencias/02-gestion-por-procesos/originales/nt-002-2025-pcm-sgp/norma-tecnica-n-002-2025-pcm-sgp-f-f.pdf
+  sha256: 16225C398C24D45B601EFEEF20C9E456EF81F0217BBB0A35E8A41BF2F4B60254
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/7676821/6501954-norma-tecnica-n-002-2025-pcm-sgp-f-f.pdf?v=1740411544
+  fecha_consulta: '2026-11-03'
+  articulo: Numeral 6.1.3
+  numeral: Literal a
+  pagina_pdf: '12'
+  pagina_impresa: '12'
+  anexo_tabla: null
+  texto_citado: >-
+    Las actividades del proceso y su interaccion son representadas en un diagrama del proceso, en el cual se grafica
+    su secuencia logica e interaccion, los roles que intervienen, los elementos de entrada, los productos y las
+    personas que reciben los productos.
+  archivo_extraccion: null
+  sha256_extraccion: null
+  estado_calidad_extraccion: REVISADO-PARCIAL
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: null
+  modificatorias_revisadas: []
+procedencia:
+  origen: IA
+  extraccion_revisada: true
+  paquete_contexto: null
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas:
+    - REG-GPP-DIA-002
+    - REG-GPP-DIA-003
+  actividades_bpmn:
+    - S4.3:diagrama-proceso
+    - S4.3.2:diagrama-proceso
+observaciones:
+  - La regla define contenido funcional del diagrama, no una notacion grafica especifica.
+  - Vigencia juridica y modificatorias posteriores pendientes de confirmacion humana.
+

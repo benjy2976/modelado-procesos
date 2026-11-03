@@ -31,6 +31,7 @@ Cada guia resume una fuente consultada para que una persona o un agente sepa que
 | [Directivas OECE del Cuaderno de Incidencias y valorizaciones](guia-directivas-oece-cdi-valorizaciones.md) | Directivas 017-2025 y 018-2025-OECE-CD | Normativa | Rol Monitor de la entidad |
 | [Instructivo del Formato 08-A](guia-instructivo-formato-08-a.md) | MEF, Directiva 001-2019-EF/63.01 | Referencia | Costo y tareas de la gestion del proyecto |
 | [Norma G.050 del RNE](guia-rne-g050-seguridad-construccion.md) | DS 010-2009-VIVIENDA | Normativa | Equipo de proteccion en obra |
+| [Especificacion BPMN 2.0.2](guia-especificacion-bpmn-2-0-2.md) | Object Management Group | Referencia tecnica primaria | Semantica y notacion formal BPMN |
 | [Manual BPMN 2.0](guia-manual-bpmn.md) | Freund, Rucker y Hitpass, 4.a edicion 2014 | Referencia tecnica | Buenas practicas de notacion |
 
 ## Como se mantienen

@@ -9,7 +9,8 @@ Controles:
 - T4 etiquetas que se montan sobre elementos u otras etiquetas;
 - T5 elementos que se superponen entre sí;
 - T6 flujos que cruzan una etiqueta ajena;
-- T7 flujos que atraviesan un grupo sin nacer ni terminar en el.
+- T7 flujos de secuencia que atraviesan un grupo sin nacer ni terminar en el. Los flujos de mensaje pueden cruzar
+  el marco de un grupo, que es un artefacto de lectura sin semantica de contencion.
 Funciona con cualquier BPMN con diagrama, incluidos los exportados desde Bizagi. Requiere lxml.
 """
 import glob
@@ -102,7 +103,7 @@ def revisar(ruta):
     nombre_grupo = lambda i: (el.get(el[i].get('categoryValueRef') or '', el[i]).get('value') or nom(i))[:45]
     dentro = lambda punto, c: c[0] <= punto[0] <= c[0] + c[2] and c[1] <= punto[1] <= c[1] + c[3]
     for a in aristas:
-        if a['tipo'] not in ('sequenceFlow', 'messageFlow') or not a['pts']:
+        if a['tipo'] != 'sequenceFlow' or not a['pts']:
             continue
         for i, c in grupos.items():
             if dentro(a['pts'][0], c) or dentro(a['pts'][-1], c):
@@ -175,7 +176,7 @@ ACT = ('task', 'userTask', 'manualTask', 'serviceTask', 'sendTask', 'receiveTask
        'businessRuleTask', 'callActivity', 'subProcess')
 TITULOS = {'T1': 'flujos que atraviesan elementos', 'T2': 'flujos superpuestos',
            'T3': 'mensajes que atraviesan pools ajenos', 'T4': 'etiquetas montadas', 'T5': 'elementos superpuestos',
-           'T6': 'flujos que cruzan etiquetas', 'T7': 'flujos que atraviesan grupos ajenos'}
+           'T6': 'flujos que cruzan etiquetas', 'T7': 'flujos de secuencia que atraviesan grupos ajenos'}
 
 if __name__ == '__main__':
     archivos = []

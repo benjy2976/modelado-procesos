@@ -48,16 +48,16 @@ Norma que regula como las entidades identifican, documentan, aprueban, evaluan y
 
 | Tema | Lo que establece (parafrasis) | Ubicacion | Regla |
 |---|---|---|---|
-| Niveles | El nivel 0 (macroproceso) se desagrega en nivel 1, 2 hasta n; los duenos determinan los niveles 1 en adelante | Glosario p. 22; num. 6.1.2 paso 3, p. 11 | - |
+| Niveles | El nivel 0 (macroproceso) se desagrega en nivel 1, 2 hasta n; los duenos determinan los niveles 1 en adelante | Glosario p. 22; num. 6.1.2 paso 3, p. 11 | `REG-GPP-NIV-001` |
 | Codigo | Letra M, E o S mas numeracion por nivel (M1, M1.2, M1.2.4) | Anexo 1, p. 25 | - |
 | Documentos | Ficha de producto y proceso con diagrama, ficha de indicador, mapa de procesos y procedimiento | Num. 6.1.3, p. 11 | - |
 | Procedimiento | Solo en procesos de ultimo nivel, maximo uno por proceso y solo si cumple algun criterio | Num. 6.1.3 d, p. 13 | `REG-GPP-DOC-001` |
-| Diagrama | Representa secuencia, roles, entradas, productos y receptores; se recomienda BPMN | Num. 6.1.3 a y nota 8, p. 12 | - |
-| Modelo del diagrama | Un proceso con carriles por rol en orden jerarquico, inicio con elemento de entrada, actividades en infinitivo, divergencias y convergencias, subprocesos cuyas entradas y salidas interactuan con el proceso, registros y producto antes del fin | Anexo 3, p. 27 | - |
+| Diagrama | Representa secuencia, roles, entradas, productos y receptores; se recomienda BPMN | Num. 6.1.3 a y nota 8, p. 12 | `REG-GPP-DIA-001`, `REG-GPP-DIA-002` |
+| Modelo del diagrama | Un proceso con carriles por rol en orden jerarquico, inicio con elemento de entrada, actividades en infinitivo, divergencias y convergencias, subprocesos cuyas entradas y salidas interactuan con el proceso, registros y producto antes del fin | Anexo 3, p. 27 | `REG-GPP-DIA-003` |
 | Aprobacion | Elabora y aprueba el dueno del proceso, con opinion tecnica de la unidad de gestion por procesos | Num. 6.1.4, Tabla 1, p. 14 | - |
 | Actividad y tarea | La actividad agrupa tareas; la tarea es el nivel mas desagregado y se describe en el procedimiento | Glosario, p. 21-23 | - |
 
 ## Alertas
 
 - La NT no fija un numero de niveles: la descomposicion termina donde el dueno determina el ultimo nivel.
-- Un subproceso BPMN de un diagrama de nivel 1 corresponde a un proceso de nivel 2 con su propia ficha.
+- La NT no establece una equivalencia automatica entre un simbolo de subproceso BPMN y un proceso formal de nivel inferior. Esa relacion es la inferencia `INF-GPP-BPMN-001`, pendiente de validacion metodologica.

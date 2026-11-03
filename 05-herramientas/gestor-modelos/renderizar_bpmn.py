@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from renderizar_plantuml import REPO_ROOT, download_verified, sha256
 
 LOCK_PATH = Path(__file__).with_name("bpmn-js.lock.json")
+BPMN = "http://www.omg.org/spec/BPMN/20100524/MODEL"
 BDI = "http://www.omg.org/spec/BPMN/20100524/DI"
 COLOR = "http://www.omg.org/spec/BPMN/non-normative/color/1.0"
 ESTILO = {  # tipo BPMN -> (relleno, borde), aproximado a la paleta de Bizagi Modeler
@@ -58,11 +59,84 @@ NAVEGADORES = (
     os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe"),
 )
 PAGINA = """<!doctype html><html><head><meta charset="utf-8"></head><body><pre id="svg"></pre>
-<script>__JS__</script>
+<script>__JS__</script>__EVENT_MARKERS__
 <script>const c = document.createElement('div'); c.style.cssText = 'width:3000px;height:2000px';
 document.body.appendChild(c); const v = new BpmnJS({container: c});
-v.importXML(__X__).then(() => v.saveSVG()).then(r => { document.getElementById('svg').textContent = r.svg; })
+v.importXML(__X__).then(() => { __APPLY_EVENT_MARKERS__return v.saveSVG(); })
+ .then(r => { document.getElementById('svg').textContent = r.svg; })
  .catch(e => { document.getElementById('svg').textContent = 'ERROR ' + e; });</script></body></html>"""
+
+
+# bpmn-js 17 conserva correctamente la semantica de un subproceso de evento contraido, pero no dibuja en su
+# esquina superior izquierda el evento que lo dispara. La figura 2.91 del manual BPMN exige ese marcador visual.
+# Este posprocesador usa exclusivamente los glifos BPMN de mensaje, temporizador y condicion; no modifica el XML.
+MARCADORES_SUBPROCESO_EVENTO = r"""
+function crearSvg(nombre, atributos) {
+  const nodo = document.createElementNS('http://www.w3.org/2000/svg', nombre);
+  Object.entries(atributos || {}).forEach(([k, v]) => nodo.setAttribute(k, v));
+  return nodo;
+}
+function trazoSvg(d, color, ancho) {
+  return crearSvg('path', {
+    d: d, fill: 'none', stroke: color, 'stroke-width': ancho || '1.5',
+    'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+  });
+}
+function marcarSubprocesosEvento(visor) {
+  const registro = visor.get('elementRegistry');
+  registro.filter(elemento => {
+    const bo = elemento.businessObject;
+    return bo && bo.$type === 'bpmn:SubProcess' && bo.triggeredByEvent &&
+      elemento.di && elemento.di.isExpanded === false;
+  }).forEach(elemento => {
+    const bo = elemento.businessObject;
+    const inicio = (bo.flowElements || []).find(e => e.$type === 'bpmn:StartEvent');
+    const definicion = inicio && (inicio.eventDefinitions || [])[0];
+    const gfx = registro.getGraphics(elemento);
+    const visual = gfx && gfx.querySelector('.djs-visual');
+    if (!inicio || !definicion || !visual || visual.querySelector('[data-marker="event-subprocess-trigger"]')) return;
+
+    const rectangulo = visual.querySelector('rect');
+    const color = (rectangulo && (rectangulo.style.stroke || rectangulo.getAttribute('stroke'))) || '#03689A';
+    const relleno = (rectangulo && (rectangulo.style.fill || rectangulo.getAttribute('fill'))) || '#FFFFFF';
+    const grupo = crearSvg('g', {
+      transform: 'translate(8 8) scale(0.62)',
+      'data-marker': 'event-subprocess-trigger',
+      'pointer-events': 'none'
+    });
+    grupo.appendChild(crearSvg('circle', {
+      cx: '18', cy: '18', r: '16', fill: relleno, stroke: color, 'stroke-width': '2',
+      'stroke-dasharray': inicio.isInterrupting === false ? '4 3' : 'none'
+    }));
+
+    if (definicion.$type === 'bpmn:MessageEventDefinition') {
+      grupo.appendChild(trazoSvg(
+        'M8.5 11.3 L8.5 23.9 L27.4 23.9 L27.4 11.3 Z M8.5 11.3 L18 16.7 L27.4 11.3', color, '1.5'
+      ));
+    } else if (definicion.$type === 'bpmn:TimerEventDefinition') {
+      grupo.appendChild(crearSvg('circle', {
+        cx: '18', cy: '18', r: '10.5', fill: 'none', stroke: color, 'stroke-width': '1.7'
+      }));
+      grupo.appendChild(trazoSvg('M18 18 L20.25 10.5 M18 18 L23.25 19.5', color, '1.7'));
+      for (let angulo = 0; angulo < 360; angulo += 30) {
+        grupo.appendChild(crearSvg('path', {
+          d: 'M18 25.5 L18 27.5', transform: `rotate(${angulo} 18 18)`, fill: 'none',
+          stroke: color, 'stroke-width': '1', 'stroke-linecap': 'round'
+        }));
+      }
+    } else if (definicion.$type === 'bpmn:ConditionalEventDefinition') {
+      grupo.appendChild(trazoSvg(
+        'M10.5 8.5 L25 8.5 L25 26.5 L10.5 26.5 Z ' +
+        'M12.5 11.5 L23 11.5 M12.5 14.5 L23 14.5 M12.5 17.5 L23 17.5 ' +
+        'M12.5 20.5 L23 20.5 M12.5 23.5 L23 23.5', color, '1.2'
+      ));
+    } else {
+      return;
+    }
+    visual.appendChild(grupo);
+  });
+}
+"""
 
 
 VISOR = """<!doctype html>
@@ -71,9 +145,10 @@ VISOR = """<!doctype html>
 <style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
 header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
 <body><header>__T__ · vista local con bpmn-js (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
-<script>__JS__</script>
+<script>__JS__</script>__EVENT_MARKERS__
 <script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.length; v.get('canvas').zoom('fit-viewport'); })
+v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS__window.listo = true; window.avisos = r.warnings.length;
+  v.get('canvas').zoom('fit-viewport'); })
  .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
 </body></html>
 """
@@ -86,9 +161,10 @@ VISOR_ENLAZADO = """<!doctype html>
 <style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
 header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
 <body><header>__T__ · vista interactiva (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
-<script src="__JS__"></script>
+<script src="__JS__"></script>__EVENT_MARKERS__
 <script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.length; v.get('canvas').zoom('fit-viewport'); })
+v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS__window.listo = true; window.avisos = r.warnings.length;
+  v.get('canvas').zoom('fit-viewport'); })
  .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
 </body></html>
 """
@@ -97,15 +173,25 @@ v.importXML(xml).then(r => { window.listo = true; window.avisos = r.warnings.len
 def pagina_visor_enlazada(nombre: str, bpmn: Path, destino: Path) -> str:
     """Vista interactiva versionable: lleva solo el diagrama y enlaza la copia versionada de bpmn-js por ruta
     relativa, de modo que funciona sin internet desde que se clona el repositorio."""
+    datos = bpmn.read_bytes()
+    usa_marcadores = subprocesos_evento_contraidos(datos) > 0
     js = os.path.relpath(biblioteca(), destino.parent).replace(os.sep, "/")
     pagina = VISOR_ENLAZADO.replace("__T__", html.escape(nombre)).replace("__F__", html.escape(bpmn.name))
-    pagina = pagina.replace("__X__", json.dumps(colorear(bpmn.read_bytes())))
+    pagina = pagina.replace("__X__", json.dumps(colorear(datos)))
+    pagina = pagina.replace(
+        "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if usa_marcadores else ""
+    ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if usa_marcadores else "")
     return pagina.replace("__JS__", html.escape(js))
 
 
 def pagina_visor(nombre: str, xml: str) -> str:
     """Vista HTML autonoma: bpmn-js local fijado, colores de estilo Bizagi, zoom y desplazamiento."""
-    pagina = VISOR.replace("__T__", html.escape(nombre)).replace("__X__", json.dumps(colorear(xml.encode("utf-8"))))
+    datos = xml.encode("utf-8")
+    usa_marcadores = subprocesos_evento_contraidos(datos) > 0
+    pagina = VISOR.replace("__T__", html.escape(nombre)).replace("__X__", json.dumps(colorear(datos)))
+    pagina = pagina.replace(
+        "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if usa_marcadores else ""
+    ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if usa_marcadores else "")
     return pagina.replace("__JS__", biblioteca().read_text(encoding="utf-8"))
 
 
@@ -159,6 +245,19 @@ def colorear(xml: bytes) -> str:
     return etree.tostring(raiz, encoding="unicode")
 
 
+def subprocesos_evento_contraidos(xml: bytes) -> int:
+    """Cuenta los subprocesos de evento cuya representacion DI exige el marcador del evento de inicio."""
+    raiz = etree.fromstring(xml)
+    formas = {
+        forma.get("bpmnElement"): forma.get("isExpanded")
+        for forma in raiz.iter(f"{{{BDI}}}BPMNShape")
+    }
+    return sum(
+        1 for subproceso in raiz.iter(f"{{{BPMN}}}subProcess")
+        if subproceso.get("triggeredByEvent") == "true" and formas.get(subproceso.get("id")) == "false"
+    )
+
+
 def ejecutar(argumentos: list[str], timeout: int = 60) -> subprocess.CompletedProcess:
     """Navegador sin ventana con perfil temporal; un reintento si se demora."""
     ultimo = None
@@ -180,10 +279,14 @@ def ejecutar(argumentos: list[str], timeout: int = 60) -> subprocess.CompletedPr
 
 def render_svg(source: Path, color: bool = True) -> bytes:
     xml = source.read_bytes()
+    esperados = subprocesos_evento_contraidos(xml)
     contenido = colorear(xml) if color else xml.decode("utf-8")
     pagina = PAGINA.replace("__JS__", biblioteca().read_text(encoding="utf-8")).replace(
         "__X__", json.dumps(contenido)
     )
+    pagina = pagina.replace(
+        "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if esperados else ""
+    ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if esperados else "")
     with tempfile.TemporaryDirectory() as tmp:
         ruta = Path(tmp) / "render.html"
         ruta.write_text(pagina, encoding="utf-8")
@@ -192,6 +295,11 @@ def render_svg(source: Path, color: bool = True) -> bytes:
     svg = html.unescape(encontrado.group(1)) if encontrado else ""
     if "<svg" not in svg[:400]:
         raise RuntimeError(f"bpmn-js no produjo un SVG para {source}: {svg[:300] or resultado.stderr[-400:]}")
+    dibujados = svg.count('data-marker="event-subprocess-trigger"')
+    if dibujados != esperados:
+        raise RuntimeError(
+            f"Marcadores de subproceso de evento incompletos en {source}: {dibujados} de {esperados}."
+        )
     orden: dict[str, str] = {}
     for marcador in re.findall(r'id="(marker-[0-9a-z]+)"', svg):  # bpmn-js numera las flechas al azar
         orden.setdefault(marcador, f"marker-{len(orden) + 1}")

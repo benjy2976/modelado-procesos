@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-02
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -66,7 +66,7 @@ Las columnas de entradas y de productos se leen por separado: una misma fila no 
 
 ![Diagrama de S4.3](S4-3-diagrama-proceso.svg)
 
-Procesos de nivel 2 propuestos: S4.3.1 Gestion de la ejecucion, transversal a toda S4.3, que entrega contratos y condiciones de inicio a S4.3.2 Ejecucion; y S4.3.3 Recepcion.
+Procesos de nivel 2 propuestos en el diagrama actualizado (`DEC-028`): S4.3.1 Inicio de ejecucion, S4.3.2 Ejecucion y S4.3.3 Recepcion, representados en secuencia. S4.3.1 recibe el expediente tecnico o documento equivalente desde S4.2 y el contrato de ejecucion de inversion desde S3.2 Contratacion de bienes y servicios (Adquisiciones). La denominacion, el alcance y el detalle de los tres subprocesos permanecen pendientes de analisis y revision humana.
 
 ## Riesgos
 

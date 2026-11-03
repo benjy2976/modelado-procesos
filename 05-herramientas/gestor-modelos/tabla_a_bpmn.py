@@ -79,10 +79,10 @@ TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, a
     'borde-senal': ('boundaryEvent', 'signal', 36, 36),
     'borde-escalacion': ('boundaryEvent', 'escalation', 36, 36),
     'borde-error': ('boundaryEvent', 'error', 36, 36),
-    # subprocesos de evento sin interrupción, contraídos, fuera del flujo principal (DEC-024)
-    'subproceso-evento-mensaje': ('subProcess', 'message', 120, 90),
-    'subproceso-evento-temporizador': ('subProcess', 'timer', 120, 90),
-    'subproceso-evento-condicional': ('subProcess', 'conditional', 120, 90),
+    # subprocesos de evento sin interrupción, contraídos, fuera del flujo principal (DEC-024, DEC-031)
+    'subproceso-evento-mensaje': ('subProcess', 'message', 180, 90),
+    'subproceso-evento-temporizador': ('subProcess', 'timer', 180, 90),
+    'subproceso-evento-condicional': ('subProcess', 'conditional', 180, 90),
 }
 ACTIVIDAD = ('task', 'userTask', 'manualTask', 'serviceTask', 'callActivity', 'subProcess')
 MARCADORES = {  # columna Marcador de las actividades (manual BPMN, sec. 2.7.2, p. 79-81)
@@ -94,7 +94,7 @@ MARCADORES = {  # columna Marcador de las actividades (manual BPMN, sec. 2.7.2, 
 # Geometría (px). FILA: alto de cada fila de un carril; NODO_Y: centro del nodo dentro de la fila.
 POOL_X, CAB, COL, FILA, NODO_Y, GAP_POOL = 20, 50, 170, 230, 80, 40
 SLOT, NIVEL, MARGEN_FAN, SEP_POOL = 150, 12, 16, 30
-CELDA, FILA_SEV = 420, 200  # zona de subprocesos de evento: marco expandido, anotación y pasillo de 20 px
+CELDA, FILA_SEV = 420, 160  # zona de subprocesos de evento contraídos, anotación y pasillo de 20 px
 AVISOS_TRAZADO = []  # avisos que detecta el trazado (por ejemplo, un elemento ajeno dentro de un grupo)
 FILA_BAJA = 160  # fila sin objetos de datos; las filas con documentos usan FILA
 LARGO_BIZAGI = {'evento': 40, 'compuerta': 40, 'mensaje': 50}  # Bizagi recorta etiquetas más largas
@@ -632,20 +632,20 @@ def trazar(nodos, orden_pools, carriles, mensajes):
 
     anotaciones, grupos, inicio_sev = {}, {}, {}
     for i in sev:
-        # subproceso de evento expandido: marco punteado con su nombre y, dentro, el evento de inicio con el ícono del
-        # disparador (manual BPMN, sec. 2.8.6, fig. 2.90, p. 97); su detalle se modela en su propio diagrama
+        # Subproceso de evento contraído: el (+) remite a su detalle y el tipo del único evento de inicio conserva
+        # el disparador en la semántica BPMN. La anotación lo hace legible aun si el visor no muestra el icono del
+        # evento en la esquina del subproceso (manual BPMN, sec. 2.8.6, fig. 2.91, p. 97).
         n = nodos[i]
         top = zona_top(i)
         left = cx[i] - 110
-        caja[i] = (left + 10, top + 30, 200, 130)
-        w_e, h_e = caja_texto(n['disparador'], ancho_max=130) if n['disparador'] else (0, 0)
-        inicio_sev[i] = dict(caja=(left + 60, top + 66, 36, 36),
-                             etq=(left + 78 - w_e / 2, top + 105, w_e, h_e) if n['disparador'] else None)
-        if n['anotacion']:
+        caja[i] = (left + 10, top + 30, 180, 90)
+        texto_anotacion = '\n'.join(x for x in (
+            f'Disparador: {n["disparador"]}' if n['disparador'] else '', n['anotacion']) if x)
+        if texto_anotacion:
             ancho_a = CELDA - 240
-            anotaciones[i] = dict(texto=n['anotacion'], asoc=[(left + 210, top + 50), (left + 220, top + 50)],
+            anotaciones[i] = dict(texto=texto_anotacion, asoc=[(left + 190, top + 50), (left + 220, top + 50)],
                                   caja=(left + 220, top + 30, ancho_a,
-                                        max(40, min(alto_texto(n['anotacion'], ancho_a), FILA_SEV - 44))))
+                                        max(40, min(alto_texto(texto_anotacion, ancho_a), FILA_SEV - 34))))
         if n['grupo']:
             grupos.setdefault((n['pool'], n['carril'], n['grupo']), []).append(i)
     geo_grupo = {}
@@ -733,16 +733,17 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     # los marcos de grupo tampoco se atraviesan, salvo por los flujos de sus propios miembros
     marcos = [(G['caja'], set(grupos[k])) for k, G in geo_grupo.items()]
 
-    def libre(pts, excluir=()):
+    def libre(pts, excluir=(), omitir_marcos=False):
         for p, q in zip(pts, pts[1:]):
             for k, b in obstaculos.items():
                 if k in excluir or (isinstance(k, tuple) and k[1] in excluir):
                     continue
                 if cruza(p, q, b, -8 if k in caja else -3):
                     return False
-            for b, miembros in marcos:
-                if not miembros & set(excluir) and cruza(p, q, b, -3):
-                    return False
+            if not omitir_marcos:
+                for b, miembros in marcos:
+                    if not miembros & set(excluir) and cruza(p, q, b, -3):
+                        return False
         return True
 
     def costo(pts, excluir=()):
@@ -832,11 +833,14 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         borde = lado_y[ld]
         px, py = m['px'], m['py']
         pts = [(px, py)]
-        if not libre([(px, py), (px, borde)], (i,)):
+        # Los grupos son artefactos de lectura sin semantica de contencion: un flujo de mensaje puede atravesar su
+        # marco, aunque nunca debe cruzar los nodos o anotaciones que contiene.
+        if not libre([(px, py), (px, borde)], (i,), omitir_marcos=True):
             yj = py + signo * 9
             for gx0 in sorted(huecos, key=lambda g: abs(g - px)):
                 gx = canal(('v', round(gx0)), gx0)
-                if libre([(px, yj), (gx, yj)], (i,)) and libre([(gx, yj), (gx, borde)], (i,)):
+                if (libre([(px, yj), (gx, yj)], (i,), omitir_marcos=True)
+                        and libre([(gx, yj), (gx, borde)], (i,), omitir_marcos=True)):
                     pts += [(px, yj), (gx, yj)]
                     break
         I = info[m['pool']]
@@ -1072,21 +1076,18 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
                 atributos += (f' attachedToRef="{nid[n["adjunto"]]}" '
                               f'cancelActivity="{"true" if n["interrumpe"] else "false"}"')
             if et == 'subProcess':
-                # subproceso de evento expandido: su evento de inicio sin interrupción lleva el disparador
+                # El evento de inicio conserva la semántica del disparador, aunque el subproceso se muestre contraído.
                 cond = escape(n['disparador'] or n['nombre'])
                 hijos += (f'<bpmn:startEvent id="{nid[i]}_ini" name={quoteattr(n["disparador"])} '
                           f'isInterrupting="false">{definicion(defn, nid[i] + "_ini", cond)}</bpmn:startEvent>')
                 cuerpo.append(f'<bpmn:subProcess id="{nid[i]}" name={quoteattr(n["nombre"])} triggeredByEvent="true">'
                               f'{hijos}</bpmn:subProcess>')
-                ini = T['inicio_sev'][i]
-                formas.append(f'<bpmndi:BPMNShape id="{nid[i]}_ini_di" bpmnElement="{nid[i]}_ini">'
-                              f'{bounds(*ini["caja"])}{etiqueta(ini["etq"])}</bpmndi:BPMNShape>')
             else:
                 if defn:
                     hijos += definicion(defn, nid[i], escape(n['nombre']))
                 cuerpo.append(f'<bpmn:{et} id="{nid[i]}" name={quoteattr(n["nombre"])}{atributos}>{hijos}</bpmn:{et}>')
             extra = ' isMarkerVisible="true"' if et == 'exclusiveGateway' else (
-                ' isExpanded="false"' if et == 'callActivity' else (' isExpanded="true"' if et == 'subProcess' else ''))
+                ' isExpanded="false"' if et in ('callActivity', 'subProcess') else '')
             formas.append(f'<bpmndi:BPMNShape id="{nid[i]}_di" bpmnElement="{nid[i]}"{extra}>{bounds(*caja[i])}'
                           f'{etiqueta(T["etq_n"].get(i))}</bpmndi:BPMNShape>')
         for fid0, a, b, cond in T['flujos']:

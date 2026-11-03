@@ -9,7 +9,7 @@ nivel_proceso: 1
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-02
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -61,6 +61,7 @@ Clase: `OBSERVADO` en la fuente institucional aprobada. Se transcriben tal como 
 | Insumo | Fecha | Clase | Autor | Archivo |
 |---|---|---|---|---|
 | Propuesta de descomposicion de S4.3 en tres subprocesos (diagrama BPMN) | 2026-10-16 | `PROPUESTA` | Equipo del proyecto | [S4-3-insumo-propuesta-descomposicion-equipo.png](S4-3-insumo-propuesta-descomposicion-equipo.png) |
+| Propuesta revisada: secuencia Inicio de ejecucion -> Ejecucion -> Recepcion y entrada del contrato desde Adquisiciones | 2026-11-02 | `PROPUESTA` | Equipo del proyecto | Instruccion e imagen compartidas durante la sesion de trabajo; reflejadas en [S4-3-diagrama-proceso-tabla.md](S4-3-diagrama-proceso-tabla.md) |
 
 Pendientes de recibir:
 
@@ -221,7 +222,7 @@ Contraste (`INFERENCIA`):
 | Administracion directa | La provision continua de bienes, servicios y personal de obra pasa a S4.3.1 y reemplaza lo decidido para la provision dentro de S4.3.2 | `REG-CGR-AD-003`, `REG-CGR-AD-004` |
 | Componentes del Formato 08 | Una misma gestion contrata con cargo a distintos rubros (obra, supervision, gestion del proyecto); la separacion de componentes es presupuestal, no de proceso | `DEC-022`; Instructivo del Formato 08-A, p. 19 |
 
-Resultado: S4.3 se descompone en S4.3.1 Gestion de la ejecucion (transversal), S4.3.2 Ejecucion y S4.3.3 Recepcion. Los apartados anteriores sobre procura y sobre el subproceso S4.3.4 se conservan como antecedente.
+Resultado historico de `DEC-023`: S4.3 se descomponia en S4.3.1 Gestion de la ejecucion (transversal), S4.3.2 Ejecucion y S4.3.3 Recepcion. Esta configuracion fue reemplazada en el diagrama de nivel 1 por `DEC-028`; el apartado se conserva como antecedente junto con los anteriores sobre procura y S4.3.4.
 
 ### Diseno de subprocesos concurrentes
 
@@ -238,7 +239,7 @@ Fundamento (`REFERENCIA` y `NORMATIVO` citado):
 | Para atender sucesos que llegan mientras el proceso sigue activo se usa un subproceso de evento sin interrupcion, que puede repetirse; no un bucle | Manual BPMN, sec. 2.8.6, p. 96-97; sec. 2.7.2, p. 79-81 |
 | Cuando un participante tiene varias instancias se marca como instancia multiple | Manual BPMN, sec. 2.9.5, p. 107 |
 
-Criterios de separacion propuestos (`PROPUESTA`, pendientes de validacion del equipo):
+Criterios de separacion de la propuesta anterior (`PROPUESTA`, conservados como antecedente para la comparacion):
 
 | | S4.3.1 Gestion de la ejecucion | S4.3.2 Ejecucion | S4.3.3 Recepcion |
 |---|---|---|---|
@@ -249,17 +250,33 @@ Criterios de separacion propuestos (`PROPUESTA`, pendientes de validacion del eq
 | Termina con | Todas las ejecuciones recibidas o constatadas | Obra o prestacion concluida, o contrato resuelto | Acta de recepcion o constatacion |
 | Envia | Condiciones de inicio; contratos, bienes, insumos y personal | Requerimientos, valorizaciones y avance | Recepcion o constatacion concluida |
 
-Representacion en el nivel 1: un solo proceso S4.3 con su carril de rol (Anexo 3), S4.3.1 en una rama paralela que permanece activa, y S4.3.2 y S4.3.3 en otra rama que espera el evento "condiciones de inicio cumplidas". El detalle de eventos, subprocesos de evento y temporizadores corresponde al diagrama de nivel 2 de cada subproceso. Que las valorizaciones y el expediente para pagos se gestionen desde S4.3.1 es una `PROPUESTA` por confirmar.
+Representacion anterior en el nivel 1: un solo proceso S4.3 con su carril de rol (Anexo 3), S4.3.1 en una rama paralela que permanece activa, y S4.3.2 y S4.3.3 en otra rama que espera el evento "condiciones de inicio cumplidas". `DEC-028` sustituyo esta representacion por la secuencia Inicio de ejecucion -> Ejecucion -> Recepcion. El detalle de eventos, subprocesos de evento y temporizadores sigue correspondiendo al diagrama de nivel 2 de cada subproceso.
 
 ### Diagrama en BPMN
 
 El 2026-10-19 el modelo logico paso de PlantUML a la cadena BPMN (`DEC-025`, `DEC-026`): la fuente es [S4-3-diagrama-proceso-tabla.md](S4-3-diagrama-proceso-tabla.md), con la clase y la fuente de cada elemento, y genera el BPMN, el SVG que muestra la ficha y el PNG. El contenido es el mismo del modelo PlantUML, que queda en el historial de Git. Cambios de representacion: "Condiciones de inicio cumplidas" pasa a evento condicional; S4.3.2 y S4.3.3 llevan el marcador de instancias multiples (una instancia por contrato o frente, y por ejecucion concluida o resuelta; `DEC-027`); los productos y entradas observados en la ficha S4 se dibujan como mensajes con pools cerrados, con su texto literal.
 
+### Reemplazo de la propuesta de nivel 1 del 2026-11-02
+
+Por instruccion del equipo (`DEC-028`), el diagrama de S4.3 en elaboracion reemplaza la representacion paralela anterior por la secuencia propuesta: Inicio -> S4.3.1 Inicio de ejecucion -> S4.3.2 Ejecucion -> S4.3.3 Recepcion -> Fin. La entrada de S4.2 se mantiene como "Expediente tecnico o documento equivalente" y se agrega desde S3.2 Contratacion de bienes y servicios (Adquisiciones) la entrada "Contrato de ejecucion de inversion". S4.3.3 envia a S4.4 la informacion tecnica y financiera para liquidacion.
+
+Clasificacion y limites:
+
+- `OBSERVADO`: la ficha aprobada de S4 registra la interaccion desde S3.2 con el texto amplio "Servicio contratado / bien adquirido / consultoria y obra contratada".
+- `PROPUESTA DEL EQUIPO`: el diagrama especializa esa entrada como "Contrato de ejecucion de inversion" y renombra S4.3.1 como "Inicio de ejecucion".
+- `INFERENCIA DE MODELAMIENTO`: se omite la compuerta anterior al fin porque, al tener una entrada y una salida sin condicion, no expresa una decision ni una convergencia BPMN.
+- `PENDIENTE`: analizar el detalle de Inicio de ejecucion con el BPMN exportado de Bizagi; recibir el nuevo diagrama de Ejecucion; desarrollar Recepcion posteriormente; alinear despues los artefactos de S4.3.1 que conservan la propuesta anterior.
+- El reemplazo actualiza una propuesta en `ELABORACION`; no constituye aprobacion, validacion normativa ni conformidad de ningun nivel de revision.
+
+El 2026-11-02 se reorganizaron las carpetas de trabajo (`DEC-029`): S4.3.1 se renombro como Inicio de ejecucion y quedo sin artefactos de detalle, salvo su nota indice; la propuesta anterior de Gestion de la ejecucion se traslado a `99-temporal/modelos/comparacion-s4-3-1/`. Antes de evaluar el nuevo boceto de S4.3.2 se creo una copia exacta en `99-temporal/modelos/comparacion-s4-3-2/`; la ruta activa de Ejecucion conserva provisionalmente sus artefactos para la comparacion logica y no representa todavia el reemplazo.
+
+Posteriormente, `DEC-030` reemplazo el modelo logico activo de S4.3.2 por una instancia de larga duracion con tres bloques de eventos concurrentes: Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo. El respaldo integral previo permanece en la misma carpeta temporal. El cambio es una propuesta en `ELABORACION`, no una aprobacion.
+
 ### Situacion de las observaciones
 
 | N | Situacion |
 |---|---|
-| O1 | Incorporada: intercambios de la ficha S4 en el modelo logico |
+| O1 | Parcial: el diagrama revisado muestra S4.2, S3.2 y S4.4; los demas intercambios observados de la ficha S4 permanecen en el sustento y requieren ubicacion en los detalles de nivel 2 |
 | O2 | Resuelta por P1 |
 | O3 | Resuelta por P2 y P3; queda la supervision en diseno y construccion |
 | O4 | Incorporada: S4.3.3 cubre constatacion por resolucion; saldo hacia S4.2 |
@@ -267,7 +284,7 @@ El 2026-10-19 el modelo logico paso de PlantUML a la cadena BPMN (`DEC-025`, `DE
 | O6 | Resuelta en parte por P5; queda la planificacion previa al expediente |
 | O7 | Incorporada como contenido propuesto de S4.3.2 |
 | O8 | Se aplicara al formalizar en BPMN |
-| O9 | El modelo logico usa la redaccion literal de la ficha S4 |
+| O9 | Reabierta: el equipo propone "Contrato de ejecucion de inversion" y "Informacion tecnico y financiera de liquidacion de la inversion"; deben conciliarse con la redaccion literal de la ficha S4 antes de una linea base |
 
 ### Preguntas abiertas tras las respuestas
 
@@ -285,7 +302,7 @@ El 2026-10-19 el modelo logico paso de PlantUML a la cadena BPMN (`DEC-025`, `DE
 | Nombre | S4.3 Ejecucion de la inversion | `OBSERVADO` | Ficha S4, p. 120-121 |
 | Tipo de proceso | Apoyo | `INFERENCIA` | Tipo de S4 en su ficha aprobada y codigo `S` (NT 002-2025-PCM-SGP, Anexo 1) |
 | Entradas y productos | Texto literal de las filas de S4.3 | `OBSERVADO` | Ficha S4, p. 120-121 |
-| Subprocesos | S4.3.1 Gestion de la ejecucion (transversal), S4.3.2 Ejecucion, S4.3.3 Recepcion | `PROPUESTA` | Propuesta del equipo, respuestas P1-P14 y `DEC-023` |
+| Subprocesos | S4.3.1 Inicio de ejecucion, S4.3.2 Ejecucion, S4.3.3 Recepcion, en secuencia en el nivel 1 | `PROPUESTA` | Propuesta revisada del equipo y `DEC-028`; detalle pendiente de analisis |
 | Dueno, objetivo y objetivo estrategico | Pendientes | `EVIDENCIA-INSUFICIENTE` | P10 |
 
 ## Informacion BIM

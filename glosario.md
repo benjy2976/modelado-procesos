@@ -6,7 +6,7 @@ estado_documento: VIGENTE
 clase_conocimiento: REFERENCIA
 proceso: []
 fecha_creacion: 2026-10-14
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-02
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -41,9 +41,9 @@ tags:
 | Paleta BPMN del proyecto | Conjunto de simbolos BPMN 2.0 permitidos en los diagramas, con su pagina del manual BPMN; esta en la seccion 7.3 del estandar de artefactos y el control D5 la verifica (`DEC-027`). | No |
 | Cadena BPMN | Flujo de trabajo de los diagramas de proceso: tabla Markdown como fuente en la etapa logica, BPMN 2.0 generado y validado, copia para Bizagi y vistas SVG y PNG generadas con bpmn-js (`DEC-025`). | No |
 | Nota indice | Nota `00-<nombre>.md` que funciona como mapa de contenido y portada de su carpeta; el prefijo `00-` se reserva para ellas y para `00-GESTION-POR-PROCESOS-GRH.md` (`DEC-018`). | No |
-| Gestion del proyecto | Rubro del costo de inversion que comprende el planeamiento, organizacion, direccion y control de la ejecucion; se estima con recursos humanos, materiales, intangibles y servicios exclusivos de la ejecucion (Instructivo del Formato 08-A del MEF, p. 19). En el GORE se usa solo durante la ejecucion (S4.3); el expediente tecnico y la liquidacion tienen sus propios componentes (`DEC-022`). En el proyecto se modela en S4.3.1 Gestion de la ejecucion (`DEC-023`). | No |
+| Gestion del proyecto | Rubro del costo de inversion que comprende el planeamiento, organizacion, direccion y control de la ejecucion; se estima con recursos humanos, materiales, intangibles y servicios exclusivos de la ejecucion (Instructivo del Formato 08-A del MEF, p. 19). En el GORE se usa solo durante la ejecucion (S4.3); el expediente tecnico y la liquidacion tienen sus propios componentes (`DEC-022`). `DEC-023` la ubico en la propuesta anterior de S4.3.1 Gestion de la ejecucion; tras `DEC-028`, su ubicacion detallada queda pendiente de analizar dentro de la nueva descomposicion. | No |
 | Monitor | Rol de la entidad para el monitoreo y seguimiento de contratos de obra y consultoria de obra en el Cuaderno de Incidencias y el SEACE (Directivas 017-2025 y 018-2025-OECE-CD). | No |
-| Procura | Termino usado en la propuesta inicial del equipo para la planificacion y contratacion previas al inicio de obra. Desde `DEC-023` se integra en S4.3.1 Gestion de la ejecucion. No es un termino de la normativa consultada. | No |
+| Procura | Termino usado en la propuesta inicial del equipo para la planificacion y contratacion previas al inicio de obra. `DEC-023` lo integro en la anterior S4.3.1 Gestion de la ejecucion; la propuesta fue reemplazada en el nivel 1 por `DEC-028` y su ubicacion queda pendiente. No es un termino de la normativa consultada. | No |
 | Nodo de referencia | Nota indice de un proceso relacionado que esta fuera del alcance del proyecto; solo lo identifica para representar las relaciones del modelo de procesos (`alcance_proyecto: REFERENCIA`, `DEC-019`). | No |
 | Vocabulario de etiquetas | Lista controlada de etiquetas `tema/` y reglas de derivacion de `proceso/`, mantenida en `00-gobernanza/vocabulario-etiquetas.yaml` (`DEC-019`). | No |
 | Sustento | Archivo de cada proceso que registra fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias e historial de revision; no se exporta (`DEC-017`). | No |

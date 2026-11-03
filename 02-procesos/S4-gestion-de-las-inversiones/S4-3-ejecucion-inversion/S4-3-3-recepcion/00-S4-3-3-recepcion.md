@@ -35,5 +35,5 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 ## Relaciones
 
 - Recibe de [S4.3.2 Ejecucion](../S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) la obra culminada o el contrato resuelto o declarado nulo.
-- Envia a [S4.3.1 Gestion de la ejecucion](../S4-3-1-gestion-de-la-ejecucion/00-S4-3-1-gestion-de-la-ejecucion.md) la recepcion o constatacion concluida.
+- La salida y sus destinatarios se definiran al desarrollar este subproceso; el diagrama principal propone informacion tecnica y financiera hacia S4.4.
 - Reglas: `REG-CON-OBRA-003`, `REG-CON-OBRA-004`, `REG-CON-BYS-001`, `REG-CGR-AD-002`.

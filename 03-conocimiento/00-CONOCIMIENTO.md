@@ -19,6 +19,7 @@ Esta area contiene conocimiento reutilizable por varios procesos: reglas normati
 
 - [Guias de lectura de fuentes](fuentes/00-fuentes.md): que contiene cada fuente consultada, donde esta cada tema y sus alertas de vigencia.
 - [Manual BPMN: galeria de diagramas](manual-bpmn/00-manual-bpmn.md): estructura planteada para transcribir los diagramas del manual BPMN; aun sin desarrollar.
+- [Conocimientos propuestos sobre subprocesos de evento](manual-bpmn/cap-2-notacion/2-8-subprocesos/conocimientos-propuestos-subprocesos-evento.md): paquete atomico y trazable para validacion metodologica, normativa y operativa.
 
 ## Reglas normativas
 
@@ -26,7 +27,7 @@ Esta area contiene conocimiento reutilizable por varios procesos: reglas normati
 - [Eventos de revision](revisiones/00-revisiones-conocimiento.md): `revisiones/*.yaml`, eventos inmutables de propuesta, observacion, validacion, retiro o revalidacion.
 - `catalogo-reglas.csv`: indice generado desde los YAML para busqueda, control y consumo por la aplicacion web.
 
-Estado al 2026-10-16: 24 reglas en `BORRADOR-IA` sobre la fase de Ejecucion (Invierte.pe), la ejecucion contractual de obras y el rol Monitor (Ley 32069 y directivas del OECE), la administracion directa (Contraloria), la seguridad en obra (RNE G.050) y los procedimientos (NT 002-2025-PCM-SGP). Ninguna esta validada.
+Estado al 2026-11-03: 32 reglas en `BORRADOR-IA` sobre la fase de Ejecucion (Invierte.pe), la ejecucion contractual de obras y el rol Monitor (Ley 32069 y directivas del OECE), la administracion directa (Contraloria), la seguridad en obra (RNE G.050) y la determinacion y documentacion de procesos (NT 002-2025-PCM-SGP). Ninguna esta validada.
 
 El catalogo CSV no se edita manualmente una vez que exista el generador. Si existe diferencia, prevalecen los YAML y sus eventos de revision.
 
