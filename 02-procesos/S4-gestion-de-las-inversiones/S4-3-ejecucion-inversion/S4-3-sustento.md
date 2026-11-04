@@ -272,6 +272,8 @@ El 2026-11-02 se reorganizaron las carpetas de trabajo (`DEC-029`): S4.3.1 se re
 
 Posteriormente, `DEC-030` reemplazo el modelo logico activo de S4.3.2 por una instancia de larga duracion con tres bloques de eventos concurrentes: Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo. El respaldo integral previo permanece en la misma carpeta temporal. El cambio es una propuesta en `ELABORACION`, no una aprobacion.
 
+`DEC-032` adopta esos bloques, una vez delimitados, como S4.3.2.1 Control periodico de la ejecucion, S4.3.2.2 Atencion de consultas de obra y S4.3.2.3 Gestion de modificaciones de alcance o plazo. La actividad "Ejecutar la obra conforme al expediente tecnico" permanece dentro de S4.3.2 sin codigo de proceso propio, y las variantes de modificacion quedan sin codigos de nivel 4.
+
 ### Situacion de las observaciones
 
 | N | Situacion |

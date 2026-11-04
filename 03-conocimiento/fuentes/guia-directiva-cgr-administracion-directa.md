@@ -7,7 +7,7 @@ clase_conocimiento: NORMATIVO
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-02
+fecha_actualizacion: 2026-11-04
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 aliases:
@@ -30,7 +30,7 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 | Catalogo | `CTRL-001` |
 | Original | [directiva-n-017-2023-cg-gmpl.pdf](../../01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf) (52 paginas, con texto) |
 | SHA-256 | `006FDB364E2CE3594FC2C11DE2F5ADD901B4ACF389A958AB78E6ED4ABD61CA9E` |
-| Fecha de consulta | 2026-10-16 |
+| Fecha de consulta | 2026-10-16; roles y modificaciones contrastados el 2026-11-04 |
 | Vigencia | Aprobada por RC 432-2023-CG (29-12-2023); modificatorias posteriores por confirmar |
 
 ## Mapa de lectura
@@ -52,7 +52,10 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 |---|---|---|---|
 | Fases | Aprobacion de la ejecucion, preparacion, ejecucion fisica, y culminacion y liquidacion; luego transferencia interna o externa | Num. 6.6, p. 7 | `REG-CGR-AD-001` |
 | Requisito previo | Expediente aprobado y actualizado, y modelado BIM 3D sin colisiones cuando corresponda | Num. 6.6, p. 7 | `REG-CGR-AD-001` |
+| Residente de obra | Es personal clave de obra y tiene funciones de conduccion tecnica, registro y sustento durante la ejecucion | Num. 6.8.2, p. 9 | Regla propuesta pendiente de catalogacion y validacion |
+| Inspector o supervisor | La obra cuenta con inspector designado o supervisor contratado; ambos cumplen el rol de control previsto por la directiva y no actuan simultaneamente | Num. 6.8.3, pp. 9-10 | Regla propuesta pendiente de catalogacion y validacion |
 | Inicio del plazo | En entidades del SNPMGI, el plazo corre cuando se cumplen las condiciones de ese sistema; fuera de el, la directiva lista condiciones propias | Num. 7.3.1, p. 15 | - |
+| Cuaderno de obra | El residente y el inspector o supervisor gestionan y mantienen los registros del cuaderno; este sustenta ocurrencias, modificaciones y paralizaciones | Nums. 7.3.2, 7.3.6-7.3.7, pp. 15 y 17-18 | Regla propuesta pendiente de catalogacion y validacion |
 | Plan de Abastecimiento de Obra | El residente lo elabora para todo el plazo segun los calendarios del expediente y emite al menos el 80% de los requerimientos en siete dias | Num. 7.2.3, p. 14 | `REG-CGR-AD-003` |
 | Adquisiciones previas al inicio | Sesenta dias para adquirir lo necesario para al menos los primeros treinta dias de obra; nada fuera del plan | Num. 7.2.4, p. 14 | `REG-CGR-AD-004` |
 | Provision durante la obra | Almacen de obra y provision de bienes y servicios segun calendario, con control patrimonial y financiero | Num. 7.3.3, p. 15-16 | - |
@@ -64,3 +67,4 @@ Directiva de la Contraloria General que regula las obras ejecutadas por la propi
 
 - En administracion directa la culminacion y la liquidacion forman una sola fase a cargo del mismo comite; en contrata, la recepcion y la liquidacion son actos distintos. La frontera entre S4.3 y S4.4 puede diferir segun la modalidad.
 - La preparacion (num. 7.2) y la provision durante la obra (num. 7.3.3) se ubicaron en la propuesta anterior S4.3.1 Gestion de la ejecucion (`DEC-023`). Tras `DEC-028`, su ubicacion detallada queda pendiente de analizar; la exigencia de la fuente no cambia.
+- El residente prepara el Plan de Abastecimiento y los requerimientos, y el inspector o supervisor ejerce la validacion prevista por la directiva. Cuando una modificacion aprobada cambia las necesidades de bienes o servicios, esa actuacion se trata como interfaz posterior con abastecimiento; no forma parte de la decision sobre la modificacion salvo que el equipo amplie expresamente el limite del proceso.

@@ -98,6 +98,24 @@ CELDA, FILA_SEV = 420, 160  # zona de subprocesos de evento contraídos, anotaci
 AVISOS_TRAZADO = []  # avisos que detecta el trazado (por ejemplo, un elemento ajeno dentro de un grupo)
 FILA_BAJA = 160  # fila sin objetos de datos; las filas con documentos usan FILA
 LARGO_BIZAGI = {'evento': 40, 'compuerta': 40, 'mensaje': 50}  # Bizagi recorta etiquetas más largas
+PERFILES_TRAZADO = {
+    # El perfil normal conserva la geometría histórica. El equilibrado es optativo: alinea los extremos de los
+    # mensajes en una misma etapa visual y reduce espacios sin cambiar la semántica ni el tamaño de los símbolos.
+    'normal': dict(col=COL, gap_col=0, fila=FILA, fila_baja=FILA_BAJA, nodo_y=NODO_Y,
+                   gap_pool=GAP_POOL, celda=CELDA, fila_sev=FILA_SEV, peso_mensaje=1),
+    'equilibrado': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
+                       gap_pool=28, celda=360, fila_sev=145, peso_mensaje=0),
+    # Piloto: conserva la cronologia inducida por los mensajes, comprime las columnas inactivas por participante y
+    # pliega las secuencias largas en tramos serpentinos. El cambio de sentido ocurre solamente al bajar de tramo.
+    'zigzag-controlado': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
+                             gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
+                             columnas_tramo=16),
+    # Variante para modelos con muchas ramas: conserva el pliegue, pero deja un tramo mas largo para evitar
+    # que las convergencias de alternativas se superpongan al cambiar de sentido.
+    'zigzag-amplio': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
+                         gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
+                         columnas_tramo=28, compactar_filas_carril=True),
+}
 
 
 def gid(*partes):
@@ -173,6 +191,10 @@ def leer(ruta):
         md = f.read()
     m = re.search(r'^#\s+(.+)$', md, re.MULTILINE)
     nombre = m.group(1).strip() if m else os.path.splitext(os.path.basename(ruta))[0]
+    mp = re.search(r'^perfil_trazado:\s*([\w-]+)\s*$', md, re.MULTILINE | re.IGNORECASE)
+    perfil = (mp.group(1).lower() if mp else 'normal')
+    if perfil not in PERFILES_TRAZADO:
+        sys.exit(f'Perfil de trazado "{perfil}" no reconocido (válidos: {", ".join(PERFILES_TRAZADO)})')
     elems = tabla(md, 'Elementos')
     if elems:
         formato, pools_filas, msg_filas = 'tabla', tabla(md, 'Pools'), tabla(md, 'Mensajes')
@@ -292,27 +314,31 @@ def leer(ruta):
                           f'{LARGO_BIZAGI["mensaje"]}')
     if errores:
         sys.exit('Errores en la tabla:\n- ' + '\n- '.join(errores))
-    return nombre, nodos, orden_pools, carriles, mensajes, avisos
+    return nombre, nodos, orden_pools, carriles, mensajes, avisos, perfil
 
 
-def rangos(nodos, mensajes):
-    """Columna de cada nodo: camino más largo desde los inicios, sin los flujos de retorno (ciclos)."""
-    ady = {i: [d for d, _ in n['sig']] for i, n in nodos.items()}
+def rangos(nodos, mensajes, peso_mensaje=1):
+    """Columna de cada nodo: camino más largo desde los inicios, sin los flujos de retorno (ciclos).
+
+    Un mensaje puede pesar cero para alinear visualmente emisor y receptor. Esto no altera el flujo BPMN: solo evita
+    que cada cambio de participante consuma una columna adicional en modelos colaborativos extensos.
+    """
+    ady = {i: [(d, 1) for d, _ in n['sig']] for i, n in nodos.items()}
     for a, b, _ in mensajes:
         if a in nodos and b in nodos:
-            ady[a].append(b)
+            ady[a].append((b, peso_mensaje))
     retorno, estado = set(), {}
 
     def dfs(u):
         estado[u] = 1
-        for v in ady[u]:
+        for v, _ in ady[u]:
             if estado.get(v) == 1:
                 retorno.add((u, v))
             elif v not in estado:
                 dfs(v)
         estado[u] = 2
 
-    entradas = {v for vs in ady.values() for v in vs}
+    entradas = {v for vs in ady.values() for v, _ in vs}
     for i in [i for i in nodos if i not in entradas] + list(nodos):
         if i not in estado:
             dfs(i)
@@ -320,9 +346,9 @@ def rangos(nodos, mensajes):
     for _ in range(len(nodos)):
         cambio = False
         for u, vs in ady.items():
-            for v in vs:
-                if (u, v) not in retorno and rango[v] < rango[u] + 1:
-                    rango[v] = rango[u] + 1
+            for v, peso in vs:
+                if (u, v) not in retorno and rango[v] < rango[u] + peso:
+                    rango[v] = rango[u] + peso
                     cambio = True
         if not cambio:
             break
@@ -395,14 +421,26 @@ def cruza(p, q, caja, m=2):
     return True
 
 
-def trazar(nodos, orden_pools, carriles, mensajes):
+def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     """Calcula toda la geometría. Devuelve formas, etiquetas, aristas y datos de carriles y pools."""
+    P = PERFILES_TRAZADO[perfil]
+    fila_docs, fila_baja, nodo_y = P['fila'], P['fila_baja'], P['nodo_y']
+    gap_pool, celda_ancho, fila_sev = P['gap_pool'], P['celda'], P['fila_sev']
     sev = [i for i, n in nodos.items() if TIPOS[n['tipo']][0] == 'subProcess']
     principal = {i: n for i, n in nodos.items() if i not in sev}
     bordes = {i: n['adjunto'] for i, n in principal.items() if TIPOS[n['tipo']][0] == 'boundaryEvent'}
     para_rango = {i: dict(n, sig=[*n['sig'], *[(b, '') for b, h in bordes.items() if h == i]])
                   for i, n in principal.items()}
-    rango, retorno = rangos(para_rango, mensajes)
+    rango, retorno = rangos(para_rango, mensajes, P['peso_mensaje'])
+    if P.get('local_por_pool'):
+        # La posicion horizontal no es un reloj comun entre participantes. Se conserva el orden relativo que
+        # inducen secuencias y mensajes, pero se eliminan, pool por pool, las columnas donde ese participante esta
+        # inactivo. Asi los retornos se leen por el flujo de mensaje, sin estirar todos los pools.
+        for p in orden_pools:
+            ids = [i for i, n in principal.items() if n['pool'] == p]
+            usados = {r: k for k, r in enumerate(sorted({rango[i] for i in ids}))}
+            for i in ids:
+                rango[i] = usados[rango[i]]
     predecesores = {}
     for i, n in principal.items():
         for d, _ in n['sig']:
@@ -417,13 +455,73 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     fila = filas(principal, rango, retorno, bordes) if principal else {}
     abiertos = [p for p in orden_pools if carriles[p]]
     cerrados = [p for p in orden_pools if not carriles[p]]
-    ncol = max(rango.values()) + 1 if rango else 1
+    # En el piloto serpentino, cada pool se pliega de manera independiente. Las filas que ya separan ramas se
+    # conservan dentro de cada tramo; asi, plegar la secuencia no superpone una rama con el tramo siguiente.
+    fase = {i: 0 for i in principal}
+    col_visual = dict(rango)
+    if P.get('columnas_tramo'):
+        limite = P['columnas_tramo']
+        for p in abiertos:
+            ids = [i for i, n in principal.items() if n['pool'] == p]
+            bloque = max([fila[i] for i in ids] + [0]) + 1
+            for i in ids:
+                fase[i], resto = divmod(rango[i], limite)
+                col_visual[i] = resto if fase[i] % 2 == 0 else limite - 1 - resto
+                fila[i] += fase[i] * bloque
+        if P.get('compactar_filas_carril'):
+            # Un pliegue asigna bloques de filas por fase a todo el pool. En pools con muchos carriles esto deja
+            # filas vacias en los carriles que solo participan en algunas fases. Se comprimen esas filas por
+            # carril, conservando su orden y manteniendo separadas las celdas realmente ocupadas.
+            por_carril = {}
+            for i, n in principal.items():
+                por_carril.setdefault((n['pool'], n['carril']), []).append(i)
+            for ids in por_carril.values():
+                usadas = {r: k for k, r in enumerate(sorted({fila[i] for i in ids}))}
+                for i in ids:
+                    fila[i] = usadas[fila[i]]
+    ncol = max(col_visual.values()) + 1 if col_visual else 1
     x0 = POOL_X + CAB + 40
-    cx = {i: x0 + rango[i] * COL + 50 for i in principal}
+    if perfil == 'normal':
+        x_col = {r: x0 + r * COL + 50 for r in range(ncol)}
+        ancho_col = {r: 100 for r in range(ncol)}
+        ancho_flujo = ncol * COL
+        x_col_pool = {p: x_col for p in abiertos}
+        ancho_col_pool = {p: ancho_col for p in abiertos}
+    else:
+        # Las actividades conservan su tamaño. Para eventos y compuertas se reserva también el ancho de su etiqueta.
+        x_col_pool, ancho_col_pool = {}, {}
+        ambitos = abiertos if P.get('local_por_pool') else [None]
+        for p in ambitos:
+            ids = [i for i, n in principal.items() if p is None or n['pool'] == p]
+            nc = max([col_visual[i] for i in ids] + [0]) + 1
+            anchos = {}
+            for r in range(nc):
+                candidatos = []
+                for i in ids:
+                    if col_visual[i] != r:
+                        continue
+                    et, _, w, _ = TIPOS[principal[i]['tipo']]
+                    if et not in ACTIVIDAD and principal[i]['nombre']:
+                        w = max(w, caja_texto(principal[i]['nombre'], ancho_max=120)[0])
+                    candidatos.append(w)
+                anchos[r] = max(candidatos or [100])
+            cols = {0: x0 + anchos[0] / 2}
+            for r in range(1, nc):
+                cols[r] = cols[r - 1] + anchos[r - 1] / 2 + P['gap_col'] + anchos[r] / 2
+            clave = p if p is not None else '__global__'
+            x_col_pool[clave], ancho_col_pool[clave] = cols, anchos
+        if not P.get('local_por_pool'):
+            x_col_pool = {p: x_col_pool['__global__'] for p in abiertos}
+            ancho_col_pool = {p: ancho_col_pool['__global__'] for p in abiertos}
+        x_col = max(x_col_pool.values(), key=lambda c: max(c))
+        ancho_col = ancho_col_pool[next(p for p in abiertos if x_col_pool[p] is x_col)]
+        ancho_flujo = max(cols[max(cols)] + ancho_col_pool[p][max(cols)] / 2 - x0
+                           for p, cols in x_col_pool.items())
+    cx = {i: x_col_pool[principal[i]['pool']][col_visual[i]] for i in principal}
 
     # --- zona de subprocesos de evento: grilla bajo el flujo principal de cada carril; cada grupo ocupa celdas
     # contiguas de una misma fila si cabe
-    ncel = max(3, int(ncol * COL // CELDA))
+    ncel = max(3, int(ancho_flujo // celda_ancho))
     celda, filas_sev = {}, {}
     por_carril = {}
     for i in sev:
@@ -445,7 +543,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                 r, c = r + 1, 0
         filas_sev[k] = r + 1 if c else r
     for i, (r, c) in celda.items():
-        cx[i] = x0 + c * CELDA + 110
+        cx[i] = x0 + c * celda_ancho + 110
 
     # --- mensajes con pools cerrados: lado de cada pool (los que envían, arriba; los que reciben, abajo)
     envia, recibe = {p: 0 for p in cerrados}, {p: 0 for p in cerrados}
@@ -464,7 +562,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     fin_sev = {}
     for i, (r, c) in celda.items():
         k = (nodos[i]['pool'], nodos[i]['carril'])
-        fin_sev[k] = max(fin_sev.get(k, 0), x0 + (c + 1) * CELDA + 20)
+        fin_sev[k] = max(fin_sev.get(k, 0), x0 + (c + 1) * celda_ancho + 20)
     for m in mcp:
         n = nodos[m['nodo']]
         if lado[m['pool']] == 'abajo' and m['nodo'] in principal and TIPOS[n['tipo']][0] != 'endEvent' \
@@ -566,7 +664,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     for i, n in principal.items():
         k = (n['pool'], n['carril'])
         filas_carril[k] = max(filas_carril.get(k, 1), fila[i] + 1)
-    alto_sev = {k: FILA_SEV * v + 20 for k, v in filas_sev.items()}
+    alto_sev = {k: fila_sev * v + 20 for k, v in filas_sev.items()}
     def alto_texto(texto, ancho):
         return sum(caja_texto(x, ancho_max=ancho, ancho_min=ancho)[1] for x in texto.split('\n'))
 
@@ -583,33 +681,41 @@ def trazar(nodos, orden_pools, carriles, mensajes):
     alto_fila = {}
     for i, n in principal.items():
         k = (n['pool'], n['carril'], fila[i])
-        req = FILA if n['docs'] else FILA_BAJA
+        req = fila_docs if n['docs'] else fila_baja
         if i in bordes:
-            req = max(req, NODO_Y + 40 + 22 + caja_texto(n['nombre'], ancho_max=80)[1] + 16)
+            req = max(req, nodo_y + 40 + 22 + caja_texto(n['nombre'], ancho_max=80)[1] + 16)
         elif n['anotacion']:
-            req = max(req, NODO_Y + bajo_nodo(i) + 12 + alto_texto(n['anotacion'], 140) + 20)
-        alto_fila[k] = max(alto_fila.get(k, FILA_BAJA), req)
+            req = max(req, nodo_y + bajo_nodo(i) + 12 + alto_texto(n['anotacion'], 140) + 20)
+        alto_fila[k] = max(alto_fila.get(k, fila_baja), req)
 
     def y_fila(p, c, r):
         """Desplazamiento vertical de la fila r dentro del carril: suma de los altos de las filas anteriores."""
-        return sum(alto_fila.get((p, c, rr), FILA_BAJA) for rr in range(r))
-    ancho = max([CAB + 40 + ncol * COL + 40, CAB + 40 + ncel * CELDA + 20 if sev else 0]
+        return sum(alto_fila.get((p, c, rr), fila_baja) for rr in range(r))
+    ancho_por_pool = {}
+    for p in abiertos:
+        cols, anchos = x_col_pool[p], ancho_col_pool[p]
+        ultimo = max(cols)
+        ancho_por_pool[p] = (CAB + 40 + ncol * COL + 40 if perfil == 'normal'
+                             else cols[ultimo] + anchos[ultimo] / 2 + 80 - POOL_X)
+    ancho_principal = max(ancho_por_pool.values(), default=CAB + 200)
+    ancho = max([ancho_principal, CAB + 40 + ncel * celda_ancho + 20 if sev else 0]
                 + [info[p]['fin'] + 20 - POOL_X for p in cerrados])
     geo_pool, geo_carril, y = {}, {}, y_abierto
     for p in abiertos:
         y_ini = y
         for c in carriles[p]:
             alto = y_fila(p, c, filas_carril.get((p, c), 0 if (p, c) in alto_sev else 1)) + alto_sev.get((p, c), 0)
-            geo_carril[(p, c)] = (POOL_X + CAB, y, ancho - CAB, alto)
+            ancho_p = ancho_por_pool[p] if P.get('local_por_pool') else ancho
+            geo_carril[(p, c)] = (POOL_X + CAB, y, ancho_p - CAB, alto)
             y += alto
-        geo_pool[p] = (POOL_X, y_ini, ancho, y - y_ini)
-        y += GAP_POOL
-    y_fin_abierto = y - GAP_POOL
+        geo_pool[p] = (POOL_X, y_ini, ancho_por_pool[p] if P.get('local_por_pool') else ancho, y - y_ini)
+        y += gap_pool
+    y_fin_abierto = y - gap_pool
 
     caja = {}
     for i, n in principal.items():
         _, _, w, h = TIPOS[n['tipo']]
-        cy = geo_carril[(n['pool'], n['carril'])][1] + y_fila(n['pool'], n['carril'], fila[i]) + NODO_Y
+        cy = geo_carril[(n['pool'], n['carril'])][1] + y_fila(n['pool'], n['carril'], fila[i]) + nodo_y
         caja[i] = (cx[i] - w / 2, cy - h / 2, w, h)
     centro = lambda i: (caja[i][0] + caja[i][2] / 2, caja[i][1] + caja[i][3] / 2)
     por_actividad, lado_borde = {}, {}
@@ -628,7 +734,7 @@ def trazar(nodos, orden_pools, carriles, mensajes):
 
     def zona_top(i):
         k = (nodos[i]['pool'], nodos[i]['carril'])
-        return geo_carril[k][1] + y_fila(*k, filas_carril.get(k, 0)) + 10 + celda[i][0] * FILA_SEV
+        return geo_carril[k][1] + y_fila(*k, filas_carril.get(k, 0)) + 10 + celda[i][0] * fila_sev
 
     anotaciones, grupos, inicio_sev = {}, {}, {}
     for i in sev:
@@ -642,18 +748,18 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         texto_anotacion = '\n'.join(x for x in (
             f'Disparador: {n["disparador"]}' if n['disparador'] else '', n['anotacion']) if x)
         if texto_anotacion:
-            ancho_a = CELDA - 240
+            ancho_a = celda_ancho - 240
             anotaciones[i] = dict(texto=texto_anotacion, asoc=[(left + 190, top + 50), (left + 220, top + 50)],
                                   caja=(left + 220, top + 30, ancho_a,
-                                        max(40, min(alto_texto(texto_anotacion, ancho_a), FILA_SEV - 34))))
+                                        max(40, min(alto_texto(texto_anotacion, ancho_a), fila_sev - 34))))
         if n['grupo']:
             grupos.setdefault((n['pool'], n['carril'], n['grupo']), []).append(i)
     geo_grupo = {}
     for (p, c, g), ids in grupos.items():
         x1 = min(caja[i][0] for i in ids) - 8
-        x2 = max(caja[i][0] for i in ids) + CELDA - 32
+        x2 = max(caja[i][0] for i in ids) + celda_ancho - 32
         y1 = min(zona_top(i) for i in ids) + 2
-        y2 = max(zona_top(i) for i in ids) + FILA_SEV - 12
+        y2 = max(zona_top(i) for i in ids) + fila_sev - 12
         geo_grupo[(p, c, g)] = dict(caja=(x1, y1, x2 - x1, y2 - y1), nombre=g, pool=p,
                                     etq=(x1 + 8, y1 + 5, min(x2 - x1 - 16, 320), 18))
 
@@ -783,7 +889,14 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         (acx, acy), (bcx, bcy) = centro(a), centro(b)
         exc = (a, b)
         cand = []
-        if ((a, b) in retorno or rango[b] <= rango[a]) and alineado.get(b) != a:
+        if abs(acy - bcy) < 0.5 and bcx < acx and (a, b) not in retorno:
+            # Tramo impar del trazado serpentino: la lectura continua de derecha a izquierda dentro de la misma
+            # banda. Se usan los lados enfrentados de los nodos, sin convertirlo semanticamente en un retorno.
+            cand.append([(ax, acy), (bx + bw, bcy)])
+            yc = canal(('h', round(fila_top(a))), fila_top(a) + 10)
+            cand.append([(ax, acy), (ax - 14, acy), (ax - 14, yc), (bx + bw + 14, yc),
+                         (bx + bw + 14, bcy), (bx + bw, bcy)])
+        elif ((a, b) in retorno or rango[b] <= rango[a]) and alineado.get(b) != a:
             yc = canal(('retorno', min(fila_top(a), fila_top(b))), min(ay, by) - 16)
             if es_comp(a):
                 cand.append([(acx, ay), (acx, yc), (bcx, yc), (bcx, by)])
@@ -797,6 +910,11 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                          (bx, bcy)])
         else:
             abajo = bcy > acy
+            if bcx < acx:
+                xm = canal(('v', round(min(ax, bx) - 18)), min(ax, bx) - 18)
+                cand.append([(ax, acy), (xm, acy), (xm, bcy), (bx + bw, bcy)])
+                xm = canal(('v', round(bx + bw + 18)), bx + bw + 18)
+                cand.append([(ax, acy), (xm, acy), (xm, bcy), (bx + bw, bcy)])
             if abs(acx - bcx) < 1 and abajo:
                 cand.append([(acx, ay + ah), (bcx, by)])
             if sale_vertical(a):
@@ -804,6 +922,21 @@ def trazar(nodos, orden_pools, carriles, mensajes):
                 cand.append([(acx, ya), (acx, bcy), (bx, bcy)])
             if es_comp(b):
                 yb = by if abajo else by + bh
+                ya = ay + ah if abajo else ay
+                if fase.get(b, 0) > fase.get(a, 0):
+                    pasillo_b = yb - 18 if abajo else yb + 18
+                    canal_b = bx - 18
+                    salida_a = ax + aw if bcx > acx + .5 else ax
+                    if abs(bcx - acx) < .5:
+                        y_salida = ay + ah if abajo else ay
+                        pasillo_a = y_salida + 18 if abajo else y_salida - 18
+                        cand.append([(acx, y_salida), (acx, pasillo_a), (canal_b, pasillo_a),
+                                     (canal_b, pasillo_b), (bcx, pasillo_b), (bcx, yb)])
+                    cand.append([(salida_a, acy), (canal_b, acy), (canal_b, pasillo_b),
+                                 (bcx, pasillo_b), (bcx, yb)])
+                    cand.append([(acx, ya), (acx, pasillo_b), (bcx, pasillo_b), (bcx, yb)])
+                if perfil != 'normal':
+                    cand.append([(acx, ya), (bcx, ya), (bcx, yb)])
                 cand.append([(ax + aw, acy), (bcx, acy), (bcx, yb)])
             xm = canal(('v', round(bx - 18)), bx - 18)
             cand.append([(ax + aw, acy), (xm, acy), (xm, bcy), (bx, bcy)])
@@ -824,7 +957,14 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         for k, m in enumerate(ms):
             m['px'] = bx + bw * (k + 1) / (len(ms) + 1) if es_act else bx + bw / 2 + (k - (len(ms) - 1) / 2) * 12
             m['py'] = by if ld == 'arriba' else by + bh
-    huecos = [x0 + c * COL + 135 for c in range(-1, ncol)] + [x0 + c * CELDA + CELDA - 11 for c in range(-1, ncel)]
+    if perfil == 'normal':
+        huecos_flujo = [x0 + c * COL + 135 for c in range(-1, ncol)]
+    else:
+        huecos_flujo = [x_col[0] - ancho_col[0] / 2 - P['gap_col'] / 2]
+        huecos_flujo += [(x_col[r] + ancho_col[r] / 2 + x_col[r + 1] - ancho_col[r + 1] / 2) / 2
+                         for r in range(ncol - 1)]
+        huecos_flujo += [x_col[ncol - 1] + ancho_col[ncol - 1] / 2 + P['gap_col'] / 2]
+    huecos = huecos_flujo + [x0 + c * celda_ancho + celda_ancho - 11 for c in range(-1, ncel)]
     niveles = {'arriba': 0, 'abajo': 0}
     rutas_msg, etq_m = {}, {}
     for m in sorted(mcp, key=lambda m: (m['lado'], m['slot'])):
@@ -885,16 +1025,86 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             etq_m[k] = (m['slot'] + 5, zy + (zh - h) / 2, w, h)
 
     # --- mensajes nodo <-> nodo (entre pools abiertos) y pool <-> pool
+    def solapa_obstaculo(rect, omitir=()):
+        """Indica si una etiqueta rectangular invade una forma o una etiqueta ya reservada."""
+        x, y, w, h = rect
+        for k, (ox, oy, ow, oh) in obstaculos.items():
+            if k in omitir or (isinstance(k, tuple) and len(k) > 1 and k[1] in omitir):
+                continue
+            if x < ox + ow + 2 and ox < x + w + 2 and y < oy + oh + 2 and oy < y + h + 2:
+                return True
+        return False
+
+    pares_mensaje = {}
+    for k, (a, b, _) in enumerate(mensajes):
+        if a in nodos and b in nodos and nodos[a]['pool'] != nodos[b]['pool']:
+            pa, pb = nodos[a]['pool'], nodos[b]['pool']
+            clave = tuple(sorted((pa, pb), key=lambda p: geo_pool[p][1]))
+            pares_mensaje.setdefault(clave, []).append(k)
+
+    def canales_pool(p):
+        """Canales verticales libres entre columnas y junto a los bordes utiles del pool."""
+        cols, anchos = x_col_pool[p], ancho_col_pool[p]
+        rs = sorted(cols)
+        huecos_p = [POOL_X + CAB + 14]
+        huecos_p += [(cols[a] + anchos[a] / 2 + cols[b] - anchos[b] / 2) / 2
+                     for a, b in zip(rs, rs[1:])]
+        huecos_p.append(geo_pool[p][0] + geo_pool[p][2] - 14)
+        return huecos_p
+
+    def salida_de_pool(i, arriba):
+        """Lleva un mensaje desde un nodo hasta el borde de su pool sin atravesar otros elementos."""
+        p = nodos[i]['pool']
+        bx, by, bw, bh = caja[i]
+        x = bx + bw / 2
+        y_nodo = by if arriba else by + bh
+        y_borde = geo_pool[p][1] if arriba else geo_pool[p][1] + geo_pool[p][3]
+        directo = [(x, y_nodo), (x, y_borde)]
+        if libre(directo, (i,), omitir_marcos=True):
+            return directo
+        signo = -1 if arriba else 1
+        yj = y_nodo + signo * 10
+        for gx0 in sorted(canales_pool(p), key=lambda g: abs(g - x)):
+            gx = canal(('mensaje-pool', p, round(gx0)), gx0)
+            candidato = [(x, y_nodo), (x, yj), (gx, yj), (gx, y_borde)]
+            if libre(candidato, (i,), omitir_marcos=True):
+                return candidato
+        # El revisor D4 mostrara el conflicto si ni siquiera el canal exterior resulta libre.
+        gx = canales_pool(p)[0]
+        return [(x, y_nodo), (x, yj), (gx, yj), (gx, y_borde)]
+
     for k, (a, b, nom) in enumerate(mensajes):
         if k in rutas_msg:
             continue
         if a in nodos and b in nodos:
             (sxc, syc), (txc, tyc) = centro(a), centro(b)
             abajo = tyc > syc
-            ys = caja[a][1] + caja[a][3] if abajo else caja[a][1]
-            yt = caja[b][1] if abajo else caja[b][1] + caja[b][3]
-            ym = (ys + yt) / 2
-            pts = [(sxc, ys), (sxc, ym), (txc, ym), (txc, yt)] if abs(sxc - txc) > 0.5 else [(sxc, ys), (txc, yt)]
+            if perfil == 'normal':
+                ys = caja[a][1] + caja[a][3] if abajo else caja[a][1]
+                yt = caja[b][1] if abajo else caja[b][1] + caja[b][3]
+                ym = (ys + yt) / 2
+                pts = ([(sxc, ys), (sxc, ym), (txc, ym), (txc, yt)] if abs(sxc - txc) > 0.5
+                       else [(sxc, ys), (txc, yt)])
+            else:
+                salida_a = salida_de_pool(a, arriba=not abajo)
+                salida_b = salida_de_pool(b, arriba=abajo)
+                sx, ys = salida_a[-1]
+                tx, yt = salida_b[-1]
+                pa, pb = nodos[a]['pool'], nodos[b]['pool']
+                clave = tuple(sorted((pa, pb), key=lambda p: geo_pool[p][1]))
+                niveles_par = pares_mensaje.get(clave, [k])
+                superior, inferior = clave
+                techo = geo_pool[superior][1] + geo_pool[superior][3]
+                piso = geo_pool[inferior][1]
+                # Cada conversacion ocupa su propia linea horizontal en el espacio entre pools. Esto hace visible el
+                # zigzag sin mezclar los mensajes de ida y vuelta.
+                if piso - techo >= 36:
+                    ym = techo + (niveles_par.index(k) + 1) * (piso - techo) / (len(niveles_par) + 1)
+                else:
+                    ym = (ys + yt) / 2
+                puente = [(sx, ym), (tx, ym)] if abs(sx - tx) > 0.5 else [(sx, ym)]
+                pts = salida_a + puente + list(reversed(salida_b))
+                pts = [p for j, p in enumerate(pts) if j == 0 or p != pts[j - 1]]
         else:
             ga = caja.get(a) or geo_pool.get(a) or geo_cerrado.get(a)
             gb = caja.get(b) or geo_pool.get(b) or geo_cerrado.get(b)
@@ -903,7 +1113,17 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         rutas_msg[k] = dict(k=k, a=a, b=b, nom=nom, pts=pts)
         if nom:
             w, h = caja_texto(nom, ancho_max=SLOT - 15, alto_linea=13)
-            etq_m[k] = (pts[1][0] + 5, (pts[1][1] + pts[-2][1]) / 2 - h / 2, w, h)
+            if perfil == 'normal':
+                etq_m[k] = (pts[1][0] + 5, (pts[1][1] + pts[-2][1]) / 2 - h / 2, w, h)
+            else:
+                horizontales = [(p, q) for p, q in zip(pts, pts[1:]) if abs(p[1] - q[1]) < .5]
+                hp, hq = (max(horizontales, key=lambda pq: abs(pq[1][0] - pq[0][0]))
+                          if horizontales else (pts[0], pts[-1]))
+                cxm = (hp[0] + hq[0]) / 2
+                candidatas = [(cxm - w / 2, hp[1] - h - 3, w, h), (cxm - w / 2, hp[1] + 3, w, h),
+                              (min(hp[0], hq[0]) + 5, hp[1] - h - 3, w, h),
+                              (max(hp[0], hq[0]) - w - 5, hp[1] + 3, w, h)]
+                etq_m[k] = next((r for r in candidatas if not solapa_obstaculo(r, (a, b))), candidatas[0])
 
     # --- etiquetas de nodos: del lado libre de conexiones
     lados_usados = {i: set() for i in nodos}
@@ -923,6 +1143,19 @@ def trazar(nodos, orden_pools, carriles, mensajes):
         if m['b'] in nodos:
             marcar(m['b'], m['pts'][-1])
     etq_n = {}
+    segmentos = [pq for pts in [*rutas.values(), *[m['pts'] for m in rutas_msg.values()]]
+                 for pq in zip(pts, pts[1:])]
+    etiquetas_colocadas = []
+
+    def etiqueta_libre(rect, i):
+        if solapa_obstaculo(rect, (i,)):
+            return False
+        x, y, w, h = rect
+        if any(x < ox + ow + 2 and ox < x + w + 2 and y < oy + oh + 2 and oy < y + h + 2
+               for ox, oy, ow, oh in etiquetas_colocadas):
+            return False
+        return not any(cruza(p, q, rect, -2) for p, q in segmentos)
+
     for i, n in nodos.items():
         bx, by, bw, bh = caja[i]
         et = TIPOS[n['tipo']][0]
@@ -937,14 +1170,25 @@ def trazar(nodos, orden_pools, carriles, mensajes):
             etq_n[i] = (bx + bw / 2 + 6 if lado_borde[i] == 'derecha' else bx + bw / 2 - 6 - w, by + bh + 2, w, h)
             continue
         preferido = ['arriba', 'abajo'] if et.endswith('Gateway') else ['abajo', 'arriba']
-        libres = [s for s in preferido if s not in lados_usados[i]]
-        lado_e = libres[0] if libres else 'derecha'
-        if lado_e == 'arriba':
-            etq_n[i] = (bx + bw / 2 - w / 2, by - h - 3, w, h)
-        elif lado_e == 'abajo':
-            etq_n[i] = (bx + bw / 2 - w / 2, by + bh + 3, w, h)
+        candidatos = {
+            'arriba': (bx + bw / 2 - w / 2, by - h - 3, w, h),
+            'abajo': (bx + bw / 2 - w / 2, by + bh + 3, w, h),
+            'izquierda': (bx - w - 4, by + bh / 2 - h / 2, w, h),
+            'derecha': (bx + bw + 4, by + bh / 2 - h / 2, w, h),
+        }
+        if perfil != 'normal':
+            orden_lados = [*preferido, 'izquierda', 'derecha']
+            lado_e = next((s for s in orden_lados if s not in lados_usados[i]
+                           and etiqueta_libre(candidatos[s], i)), None)
+            if lado_e is None:
+                lado_e = next((s for s in orden_lados if etiqueta_libre(candidatos[s], i)), 'derecha')
         else:
-            etq_n[i] = (bx + bw + 4, by - h, w, h)
+            libres = [s for s in preferido if s not in lados_usados[i]]
+            lado_e = libres[0] if libres else 'derecha'
+        # El perfil normal conserva tambien la posicion historica de la etiqueta lateral.
+        etq_n[i] = ((bx + bw + 4, by - h, w, h) if perfil == 'normal' and lado_e == 'derecha'
+                    else candidatos[lado_e])
+        etiquetas_colocadas.append(etq_n[i])
 
     # --- etiquetas de condiciones en flujos
     etq_f = {}
@@ -974,8 +1218,8 @@ def definicion(defn, base, condicion=''):
     return f'<bpmn:{defn}EventDefinition id="{base}_def" />'
 
 
-def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
-    T = trazar(nodos, orden_pools, carriles, mensajes)
+def generar(nombre, nodos, orden_pools, carriles, mensajes, origen='', perfil='normal'):
+    T = trazar(nodos, orden_pools, carriles, mensajes, perfil)
     # los identificadores se derivan del nombre del archivo (contiene el código del proceso) y del ID de cada
     # elemento, no del título: cambiar el título no cambia los identificadores (estándar de artefactos, regla 7.4)
     semilla = os.path.splitext(origen)[0] if origen else nombre
@@ -1122,7 +1366,8 @@ def generar(nombre, nodos, orden_pools, carriles, mensajes, origen=''):
         raiz.append(f'<bpmn:category id="Cat_{did}">{"".join(categorias)}</bpmn:category>')
     procesos = ''.join(f'<bpmn:process id="{prc[p]}" name={quoteattr(p)} isExecutable="false">{"".join(procs[p])}'
                        f'</bpmn:process>' for p in T['abiertos'])
-    aviso = (f'<!-- GENERADO con tabla_a_bpmn.py desde {escape(origen).replace('--', '-')}. En la etapa formal este BPMN pasa a ser la '
+    origen_xml = escape(origen).replace('--', '-') if origen else ''
+    aviso = (f'<!-- GENERADO con tabla_a_bpmn.py desde {origen_xml}. En la etapa formal este BPMN pasa a ser la '
              'fuente maestra y se edita directamente. -->\n') if origen else ''
     return ('<?xml version="1.0" encoding="UTF-8"?>\n' + aviso +
             '<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" '
@@ -1184,16 +1429,17 @@ def main():
     base = re.sub(r'[^\w\-]+', '_', os.path.splitext(os.path.basename(ruta))[0]).strip('_')
     salida = args[1] if len(args) == 2 else os.path.join(AQUI, 'salida', base)
     os.makedirs(salida, exist_ok=True)
-    nombre, nodos, orden_pools, carriles, mensajes, avisos = leer(ruta)
+    nombre, nodos, orden_pools, carriles, mensajes, avisos, perfil = leer(ruta)
     for a in avisos:
         print('AVISO: ' + a)
     destino = os.path.join(salida, base + '.bpmn')
     with open(destino, 'w', encoding='utf-8', newline='\n') as f:
-        f.write(generar(nombre, nodos, orden_pools, carriles, mensajes, os.path.basename(ruta)))
+        f.write(generar(nombre, nodos, orden_pools, carriles, mensajes, os.path.basename(ruta), perfil))
     for a in AVISOS_TRAZADO:
         print('AVISO: ' + a)
     avisos += AVISOS_TRAZADO
-    print(f'BPMN: {destino} ({len(nodos)} elementos, {len(orden_pools)} pools, {len(mensajes)} mensajes)')
+    print(f'BPMN: {destino} ({len(nodos)} elementos, {len(orden_pools)} pools, {len(mensajes)} mensajes; '
+          f'perfil {perfil})')
     informe = '\n'.join(ejecutar(s, destino) for s in ('_validar_bpmn.py', '_revisar_trazado.py', '_revisar_notacion.py'))
     if avisos:
         informe += '\nAvisos de la entrada:\n' + '\n'.join('    ' + a for a in avisos)

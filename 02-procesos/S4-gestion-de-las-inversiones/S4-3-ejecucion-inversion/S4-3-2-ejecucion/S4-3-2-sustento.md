@@ -71,7 +71,7 @@ Clase `INFERENCIA`, con base en el manual BPMN (`REFERENCIA`) y la NT 002-2025-P
 | E2 | El evento de temporizador "Esperar evento" no espera eventos: espera una fecha o un plazo | Su significado BPMN es distinto del que se quiere representar | Manual BPMN, sec. 2.6.3, p. 60-61 |
 | E3 | La compuerta paralela recibe el regreso del "no" y luego una inclusiva elige ramas | Una compuerta paralela de union espera todas sus entradas; la inclusiva decide por condiciones sobre datos, no por el suceso que llego | Manual BPMN, sec. 2.3.2 y 2.3.3, p. 38-43 |
 | E4 | Los mensajes llegan a una tarea generica "recepcionar evento" | Se pierde que suceso llego y quien lo envio; cada suceso debe tener su propio disparador (mensaje, tiempo o condicion) | Manual BPMN, sec. 2.6.2, p. 58; sec. 2.6.3, p. 60; sec. 2.6.5, p. 63 |
-| E5 | Pools separados para contratista y supervisor | Es valido en BPMN, pero la NT pide un proceso con carriles por rol; ademas, en administracion directa no hay contratista sino residente | NT, Anexo 3, p. 27 |
+| E5 | Pools denominados por modalidad o por la organizacion contratista, en lugar de representar los roles de campo | Confunde la modalidad de ejecucion con los actores que intervienen en obra. El modelo vigente representa al residente y al supervisor o inspector como roles funcionales comunes; el regimen se clasifica dentro del tramite de la entidad | NT, Anexo 3, p. 27; `DEC-037` |
 | E6 | Adicional y adicional deductivo vinculante en ramas separadas | Segun la aclaracion del equipo y la Ley, son una sola accion | `REG-CON-ADIC-002` |
 | E7 | La conformidad tecnica se evalua dentro de la ejecucion | La conformidad y la recepcion corresponden a S4.3.3; la ejecucion termina con la obra culminada | `REG-CON-OBRA-003`; `DEC-023` |
 | E8 | "Mayores y menores metrados" | El reglamento regula los mayores metrados (art. 197); no se encontro la figura de menores metrados | `EVIDENCIA-INSUFICIENTE` |
@@ -94,26 +94,28 @@ Forma recomendada para la comparacion (`PROPUESTA`):
 - Usar la salida normal para la obra culminada y eventos de borde interruptivos para resolucion y nulidad. Debe confirmarse si la "conformidad tecnica" pertenece a S4.3.3 Recepcion en lugar de terminar S4.3.2.
 - Modelar valorizacion y control periodico como subprocesos de evento no interruptivos con temporizador; consultas como subprocesos de evento no interruptivos por mensaje; y modificaciones de alcance o plazo como subprocesos de evento no interruptivos por mensaje o condicion, segun el hecho que realmente los active.
 - Cada subproceso de evento puede iniciarse repetidas veces y coexistir con los demas mientras el alcance padre siga activo. Por ello no se necesita un bucle grafico de regreso ni un evento "fin de dormir".
-- Un bloque solo se convertira en proceso de nivel 3 si el analisis confirma objetivo, entrada, producto, responsable e instancia propios. Hasta entonces es un bloque operativo de S4.3.2 y su detalle se conserva como antecedente, no como desagregacion adoptada.
+- Un bloque solo se convertiria en proceso de nivel 3 si el analisis confirmaba objetivo, entrada, producto, responsable e instancia propios. Esta condicion metodologica condujo posteriormente a la decision `DEC-032`; el texto se conserva como antecedente del analisis.
 - Reservar el marcador de bucle para un ciclo verdaderamente secuencial y repetible. Si existen varios contratos o frentes simultaneos, evaluar un marcador de instancias multiples, no un bucle estandar; la eleccion queda pendiente de confirmar la unidad de instancia.
 
 La copia exacta del modelo anterior se encuentra en `99-temporal/modelos/comparacion-s4-3-2/modelo-provisional-anterior/`. Ademas, `respaldo-integral-antes-del-reemplazo/` conserva por SHA-256 toda la carpeta activa inmediatamente anterior al cambio.
 
 ### Aplicacion en el modelo agrupado
 
-Por instruccion del equipo, `DEC-030` aplica la recomendacion con tres bloques operativos pendientes de detalle. `DEC-031` precisa que el simbolo BPMN no decide por si mismo la desagregacion institucional: los bloques no constituyen procesos formales de nivel 3 mientras no se demuestre que tienen objetivo, entrada, producto, responsable e instancia propios.
+Por instruccion del equipo, `DEC-030` aplico la recomendacion con tres bloques operativos pendientes de detalle. `DEC-031` preciso que el simbolo BPMN no decide por si mismo la desagregacion institucional. Tras identificar disparador, instancia, producto y cierre diferenciables, `DEC-032` adopta los tres bloques como procesos formales de nivel 3, sin convertir automaticamente sus variantes internas en nivel 4.
 
 | Bloque | Tipo BPMN en S4.3.2 | Contenido agrupado |
 |---|---|---|
-| Control periodico | Subproceso de evento no interruptivo por temporizador | Valorizacion y controles recurrentes; el cierre de cada mes se conserva como disparador provisional |
-| Consultas de obra | Subproceso de evento no interruptivo por mensaje | Consultas anotadas en el cuaderno de obra; pueden originar una modificacion de alcance o plazo |
-| Gestionar modificaciones de alcance o plazo | Subproceso de evento no interruptivo condicional | Adicional con deductivo vinculado, reduccion, mayores metrados, suspension, ampliacion y paralizacion |
+| S4.3.2.1 Control periodico de la ejecucion | Subproceso de evento no interruptivo por temporizador | Nucleo inicial: valorizacion; otros controles recurrentes pendientes de evidencia |
+| S4.3.2.2 Atencion de consultas de obra | Subproceso de evento no interruptivo por mensaje | Consultas anotadas en el cuaderno de obra; pueden originar una instancia de S4.3.2.3 |
+| S4.3.2.3 Gestion de modificaciones de alcance o plazo | Subproceso de evento no interruptivo condicional | Adicional con deductivo vinculado, reduccion, mayores metrados, suspension, ampliacion y paralizacion como variantes internas |
+
+En el detalle de S4.3.2.3, `DEC-037` modela al residente y al supervisor o inspector como roles funcionales comunes a contrata y administracion directa. La modalidad se clasifica al ingresar el expediente al GORE y selecciona la regla aplicable; no crea actores de obra distintos. `DEC-038` separa la validacion de necesidad, el control de alcance original, la elaboracion, la revision tecnica institucional competente e independiente, los controles complementarios, la consolidacion y la decision; el monitor conserva una funcion de gestion del expediente y no sustituye al especialista.
 
 El flujo principal recibe el acta de inicio de obra y mantiene activa la tarea "Ejecutar la obra conforme al expediente tecnico". La obra culminada es la salida normal; la resolucion y la nulidad interrumpen la tarea mediante eventos de borde. No se usa marcador de bucle porque no se reinicia el proceso completo: los eventos se repiten dentro de una misma instancia activa. La conformidad tecnica queda para analizarse en S4.3.3 Recepcion.
 
 Los tres subprocesos de evento se muestran contraidos con marcador `+`, agrupados dentro del alcance de S4.3.2 y sin flujo de secuencia. El evento de inicio de cada uno permanece en el BPMN y se representa en la esquina superior izquierda mediante el icono oficial de temporizador, mensaje o condicion; su aro discontinuo indica que no interrumpe el proceso contenedor. El disparador se repite en una anotacion solo como ayuda de lectura. Esta representacion aplica la figura 2.91 del manual BPMN (p. 97) y mantiene el detalle fuera del diagrama padre S4.3, conforme al principio de reduccion de complejidad de las paginas 84-85.
 
-Los criterios reutilizables se estructuraron en el [paquete de conocimientos propuestos sobre subprocesos de evento](../../../../03-conocimiento/manual-bpmn/cap-2-notacion/2-8-subprocesos/conocimientos-propuestos-subprocesos-evento.md). Sus unidades `REF-BPMN-*` e `INF-GPP-BPMN-001`, asi como las reglas `REG-GPP-NIV-001` y `REG-GPP-DIA-001` a `003`, permanecen en `BORRADOR-IA` hasta la validacion humana correspondiente; `DEC-031` solo gobierna su aplicacion provisional dentro del proyecto.
+Los criterios reutilizables se estructuraron en el [paquete de conocimientos propuestos sobre subprocesos de evento](../../../../03-conocimiento/manual-bpmn/cap-2-notacion/2-8-subprocesos/conocimientos-propuestos-subprocesos-evento.md). Sus unidades `REF-BPMN-*` e `INF-GPP-BPMN-001`, asi como las reglas `REG-GPP-NIV-001` y `REG-GPP-DIA-001` a `003`, permanecen en `BORRADOR-IA` hasta la validacion humana correspondiente. `DEC-031` gobierna la notacion aplicada y `DEC-032` registra la decision institucional de desagregacion dentro del proyecto.
 
 ### Propuesta anterior conservada como antecedente
 
@@ -125,11 +127,11 @@ Clase `PROPUESTA`, conforme a `DEC-024` y al estandar de artefactos, seccion 6.1
 4. La ejecucion termina por obra culminada, por resolucion del contrato o por nulidad. En el BPMN formal, la resolucion y la nulidad pueden modelarse como eventos de borde con interrupcion sobre la ejecucion, o el termino como compuerta basada en eventos (manual BPMN, sec. 2.6.14, p. 74).
 5. Un solo diagrama para contrata y administracion directa, con las diferencias anotadas por modalidad, porque las figuras son parecidas segun la aclaracion del equipo. Queda por confirmar si se prefiere un diagrama por modalidad.
 6. Roles normativos (contratista o residente, supervisor o inspector, entidad) indicados en cada actividad. En el BPMN formal seran carriles; su correspondencia con unidades de organizacion del GRH es `EVIDENCIA-INSUFICIENTE`.
-7. Separacion por niveles (antecedente del 2026-10-16, no adoptado): se planteo modelar cada figura en un diagrama de nivel 3. `DEC-031` suspende esa desagregacion hasta comprobar los elementos que justifican un proceso independiente.
+7. Separacion por niveles (antecedente del 2026-10-16): se planteo modelar cada figura en un diagrama de nivel 3. `DEC-031` suspendio esa desagregacion hasta comprobar sus elementos; `DEC-032` adopta una nueva agrupacion de tres procesos, no los ocho codigos de este antecedente.
 
 ### Codigos del antecedente no adoptados
 
-Los codigos S4.3.2.1 y S4.3.2.2 figuran en el modelo del equipo (`OBSERVADO` en el insumo). Los demas fueron propuestas de trabajo. Se conservan para la comparacion logica, pero no se adoptan ni originan carpetas de nivel 3 por ahora.
+Los codigos S4.3.2.1 y S4.3.2.2 figuran en el modelo inicial del equipo (`OBSERVADO` en el insumo). Los demas fueron propuestas de trabajo. Se conservan para la comparacion logica, pero `DEC-032` reemplaza su significado mediante tres procesos agrupadores y una tabla de concordancia.
 
 | Codigo | Subproceso de evento | Disparador | Origen del codigo |
 |---|---|---|---|
@@ -142,9 +144,17 @@ Los codigos S4.3.2.1 y S4.3.2.2 figuran en el modelo del equipo (`OBSERVADO` en 
 | S4.3.2.7 | Reduccion de prestaciones | Prestacion que deja de ser necesaria | `PROPUESTA` |
 | S4.3.2.8 | Mayores metrados | Mayor metrado en contrato a precios unitarios | `PROPUESTA` |
 
+Concordancia adoptada mediante `DEC-032`:
+
+| Contenido anterior | Ubicacion vigente |
+|---|---|
+| S4.3.2.1 Valorizacion | Nucleo inicial de S4.3.2.1 Control periodico de la ejecucion |
+| S4.3.2.5 Consulta de obra | S4.3.2.2 Atencion de consultas de obra |
+| S4.3.2.2, .3, .4, .6, .7 y .8 | Variantes internas `MOD-*` de S4.3.2.3 Gestion de modificaciones de alcance o plazo |
+
 ### Esbozo operativo conservado para el detalle
 
-Insumo para detallar los tres bloques dentro de S4.3.2, clase `PROPUESTA` construida sobre las fuentes del catalogo de eventos (`NORMATIVO` citado). No constituye procesos de nivel 3 ni reemplaza el levantamiento con el equipo.
+Insumo historico utilizado para iniciar el detalle de los tres procesos de nivel 3, clase `PROPUESTA` construida sobre las fuentes del catalogo de eventos (`NORMATIVO` citado). No reemplaza el levantamiento ni la validacion con el equipo.
 
 | Codigo | Actividades esbozadas (rol) | Envia | Base |
 |---|---|---|---|
@@ -207,7 +217,7 @@ Figuras candidatas, no dibujadas hasta que el equipo confirme si se modelan (`PR
 1. La instancia viva de S4.3.2 corresponde a una inversion, a cada contrato o a cada frente de ejecucion?
 2. Se mantiene un solo diagrama para contrata y administracion directa, con diferencias internas, o se separa por modalidad?
 3. Que controles, ademas de la valorizacion, integran Control periodico y con que periodicidad?
-4. Cuales son las entradas, salidas, responsables y condiciones de cierre de cada uno de los tres bloques, y alguno cumple los criterios para ser un proceso independiente?
+4. Confirmar con el equipo las entradas, salidas, responsables y condiciones de cierre propuestas para los tres procesos adoptados por `DEC-032`.
 5. Se confirma que la conformidad tecnica se trata exclusivamente en S4.3.3 Recepcion?
 
 ## Historial de revision
@@ -220,6 +230,9 @@ Figuras candidatas, no dibujadas hasta que el equipo confirme si se modelan (`PR
 | 2026-10-19 | Diagrama migrado de PlantUML a la cadena BPMN (`DEC-026`): subprocesos de evento sin interrupcion contraidos con su disparador, grupos y anotaciones; lo que cada subproceso envia a S4.3.1 pasa a su anotacion y se dibujara como mensaje en su diagrama de nivel 3 | Equipo del proyecto con asistencia de IA |
 | 2026-11-02 | Modelo reemplazado por la propuesta agrupada en Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo; respaldo integral verificado antes del reemplazo (`DEC-030`) | Equipo del proyecto con asistencia de IA |
 | 2026-11-03 | Subprocesos de evento contraidos, agrupados y con icono BPMN visible para cada disparador; la anotacion queda como ayuda complementaria. Los tres bloques quedan como detalle operativo y no como procesos formales de nivel 3 (`DEC-031`) | Equipo del proyecto con asistencia de IA |
+| 2026-11-03 | Adopcion de S4.3.2.1, S4.3.2.2 y S4.3.2.3 como procesos de nivel 3; la actividad principal de ejecucion conserva solo su identificador BPMN y las variantes de modificacion quedan sin codigos de nivel 4 (`DEC-032`) | Equipo del proyecto con asistencia de IA |
+| 2026-11-04 | Residente y supervisor o inspector se unifican como roles comunes en el detalle de S4.3.2.3; el regimen pasa a ser criterio interno de clasificacion (`DEC-037`) | Equipo del proyecto con asistencia de IA |
+| 2026-11-04 | El detalle de S4.3.2.3 segrega elaboracion, revision tecnica, control contractual y de costos, consolidacion y decision; el monitor queda limitado a la gestion del expediente (`DEC-038`) | Equipo del proyecto con asistencia de IA |
 
 ## Relaciones
 

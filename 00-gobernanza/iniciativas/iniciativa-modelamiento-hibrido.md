@@ -9,7 +9,7 @@ proceso:
   - S4
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-04
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -283,6 +283,14 @@ Entregables:
 Criterio de aceptacion: el BPMN abre en una herramienta compatible, todos los derivados corresponden a su hash y ninguna perdida semantica queda oculta.
 
 Avance al 2026-10-19 (`DEC-025`): cadena BPMN operativa en el [gestor local de modelos](../../05-herramientas/gestor-modelos/00-gestor-modelos.md), con validador estructural, control de trazado y SVG y PNG generados; probada con el modelo de S4.3 en Bizagi y en bpmn-js. Con `DEC-026` se migraron S4.3 y S4.3.2 y se agrego `construir_modelos.py`. Pendientes de la fase: resumen Markdown generado y camino de vuelta desde Bizagi.
+
+Piloto de legibilidad al 2026-11-03 (`DEC-034`): S4.3.2.2 utiliza de forma optativa el perfil de trazado equilibrado. La prueba alinea los intercambios entre participantes, adapta el ancho de las columnas al contenido y reduce espaciados verticales sin reducir los simbolos. El perfil normal permanece como predeterminado mientras el equipo revisa el resultado visual del piloto.
+
+Iteracion del piloto al 2026-11-04 (`DEC-035`): la apreciacion visual considero insuficiente la compactacion del perfil equilibrado. S4.3.2.2 prueba ahora `zigzag-controlado`, que comprime las etapas por participante, pliega a partir de 16 columnas y separa los mensajes en corredores entre pools. El SVG reduce su ancho de 5226 a 2568 px y su area en 42,9 %, a cambio de aumentar su altura de 2514 a 2923 px. D1-D5 no registran hallazgos; no se generaliza el perfil mientras no se valore el piloto.
+
+Extension controlada al 2026-11-04 (`DEC-036`): S4.3.2.3 prueba `zigzag-amplio`, con el mismo algoritmo y tramos de 28 columnas. El tramo corto no es apto para este modelo porque sus ocho variantes y convergencias producen cruces o un crecimiento vertical desproporcionado. La seleccion del perfil se mantiene por modelo, exige D1-D5 sin hallazgos y no altera el perfil predeterminado.
+
+Refinamiento del perfil amplio al 2026-11-04 (`DEC-039`): en cada carril se eliminan las filas reservadas para fases serpentinas en las que ese carril no contiene elementos. La altura de S4.3.2.3 disminuye 26,4 % sin alterar la semantica ni afectar `normal` o `zigzag-controlado`. El modelo conserva dos advertencias D4 de etiquetas superpuestas, registradas en su sustento y pendientes de ajuste del BPMN-DI.
 
 ### Fase 4 - Intercambio con IA
 

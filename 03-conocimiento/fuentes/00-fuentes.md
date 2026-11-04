@@ -33,6 +33,7 @@ Cada guia resume una fuente consultada para que una persona o un agente sepa que
 | [Norma G.050 del RNE](guia-rne-g050-seguridad-construccion.md) | DS 010-2009-VIVIENDA | Normativa | Equipo de proteccion en obra |
 | [Especificacion BPMN 2.0.2](guia-especificacion-bpmn-2-0-2.md) | Object Management Group | Referencia tecnica primaria | Semantica y notacion formal BPMN |
 | [Manual BPMN 2.0](guia-manual-bpmn.md) | Freund, Rucker y Hitpass, 4.a edicion 2014 | Referencia tecnica | Buenas practicas de notacion |
+| [ROF del Gobierno Regional Huanuco 2023](guia-rof-grh-2023.md) | Ordenanza Regional N.° 013-2023-GRH-CR y ROF aprobado | Normativa institucional | Competencias de SGE y SGGOS en la ejecucion de obras |
 
 ## Como se mantienen
 

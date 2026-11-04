@@ -6,6 +6,9 @@ estado_documento: BORRADOR
 clase_conocimiento: PROPUESTA
 codigo_proceso: pendiente
 nivel_proceso: pendiente
+# Opcional: `equilibrado` compacta columnas; `zigzag-controlado` pliega a 16 y `zigzag-amplio` a 28.
+# Si se omite, se usa `normal`. Los perfiles experimentales requieren D1-D5 e inspeccion visual.
+# perfil_trazado: equilibrado
 proceso: []
 fecha_creacion: "{{date:YYYY-MM-DD}}"
 fecha_actualizacion: "{{date:YYYY-MM-DD}}"
