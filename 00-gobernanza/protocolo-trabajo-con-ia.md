@@ -6,7 +6,7 @@ estado_documento: VIGENTE
 clase_conocimiento: DECISION
 proceso: []
 fecha_creacion: 2026-10-15
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -33,6 +33,8 @@ Toda tarea asistida por IA debe poder reconstruirse a partir de fuentes identifi
 8. Una practica observada no se presenta como obligatoria sin fuente normativa.
 9. Las salidas deben conservar identificadores estables y referencias precisas.
 10. No se remiten datos personales, credenciales ni expedientes sensibles a servicios externos.
+11. En modelamiento, la IA trabaja por defecto con las fuentes textuales activas y no con BPMN XML, SVG, PNG o HTML generados (`DEC-040`). Generar y mantener derivados actualizados no equivale a incorporarlos al contexto.
+12. La inspeccion visual se reserva para fuentes no transcritas, fallos que no puedan resolverse con el informe textual, tareas de disposicion o una solicitud expresa.
 
 ## Funciones de apoyo
 
@@ -57,9 +59,26 @@ Cada tarea debe declarar un archivo basado en `00-gobernanza/plantillas/conocimi
 - evidencia AS-IS seleccionada;
 - restricciones y preguntas abiertas;
 - archivos que pueden modificarse;
+- fase de trabajo y fuentes textuales activas;
+- derivados excluidos del contexto y necesidad de revision visual;
+- autorizacion o prohibicion de modificar herramientas;
 - criterio de cierre.
 
 No se carga la biblioteca completa. Si durante el trabajo aparece una dependencia no incluida, se registra como pregunta o solicitud de contexto.
+
+En una tarea conceptual de modelamiento, el paquete excluye por defecto `*.bpmn`, `*.svg`, `*.png` y `*.html`. La tabla y el sustento son las fuentes ordinarias; los comandos locales pueden actualizar los derivados por lote y devolver a la IA solo su estado y los hallazgos D1-D5 accionables. La misma tabla no se edita mientras su generacion se encuentre en curso.
+
+## Ciclo conceptual por lotes
+
+1. Modificar la tabla y el sustento con el contexto autorizado.
+2. Cerrar un lote conceptual coherente antes de generar.
+3. Ejecutar `construir_modelos.py --tabla <ruta>` y conservar los derivados actualizados.
+4. Atender mediante texto los hallazgos estructurales o de notacion; no abrir automaticamente el grafico.
+5. Repetir el ciclo conceptual las veces necesarias.
+6. Abrir el HTML o SVG cuando el contenido este suficientemente estable y la tarea ingrese expresamente a revision visual.
+7. Ejecutar el control global al cierre o cuando se modifiquen herramientas de modelamiento.
+
+La revision visual no atribuye conformidad ni aprobacion y no reabre por si sola el contenido conceptual. Si revela una ambiguedad real, esta se registra y vuelve al ciclo conceptual.
 
 ## Contrato minimo de una solicitud
 

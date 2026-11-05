@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-14
-fecha_actualizacion: 2026-10-16
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -27,19 +27,22 @@ Secuencia de trabajo para documentar cada proceso con la estructura de `DEC-017`
 5. Construir el paquete de contexto autorizado para la tarea.
 6. Levantar el proceso mediante entrevistas y recorrido de casos; registrar cada dato en el sustento como observado, normativo, referencia, inferencia o propuesta.
 7. Elaborar la ficha de producto y proceso con los campos del Anexo 2.
-8. Construir el diagrama del proceso: modelo logico PlantUML durante el levantamiento y BPMN 2.0 formal al consolidarse.
-9. Determinar los procesos del nivel siguiente y repetir los pasos 6 a 8 en la carpeta de cada uno hasta el ultimo nivel.
-10. Definir las fichas de indicador (Anexo 4) y, en el ultimo nivel, riesgos, registros y procedimiento cuando cumpla los criterios del numeral 6.1.3 d.
-11. Ejecutar revision independiente de trazabilidad y consistencia.
+8. Iterar conceptualmente el flujo en `*-diagrama-proceso-tabla.md` y registrar en el sustento fuentes, clases de afirmacion, discrepancias y preguntas. No se requiere inspeccionar los derivados durante estas iteraciones (`DEC-040`).
+9. Al cerrar cada lote conceptual coherente, ejecutar la generacion focalizada de la tabla afectada. Resolver los hallazgos D1-D5 mediante el informe textual y mantener BPMN, SVG, PNG y HTML sincronizados sin incorporarlos al contexto ordinario de la IA.
+10. Cuando el contenido tenga estabilidad suficiente, realizar la revision visual del HTML o SVG, ajustar exclusivamente la disposicion que corresponda y volver a generar los derivados. Esta puerta no constituye conformidad, validacion normativa ni aprobacion institucional.
+11. Formalizar el modelo conforme al [estandar de artefactos](estandar-artefactos-modelamiento.md): el BPMN pasa a ser maestro solo en la etapa formal y la tabla queda como antecedente.
+12. Determinar los procesos del nivel siguiente y repetir los pasos 6 a 11 en la carpeta de cada uno hasta el ultimo nivel.
+13. Definir las fichas de indicador (Anexo 4) y, en el ultimo nivel, riesgos, registros y procedimiento cuando cumpla los criterios del numeral 6.1.3 d.
+14. Ejecutar revision independiente de trazabilidad y consistencia.
 
 ## Circuito de revision
 
-12. Llevar cada documento por los niveles `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA` y `APROBACION`, registrando cada conformidad en el historial del sustento. Una observacion devuelve el documento a `ELABORACION`.
-13. Al aprobarse, marcar `APROBADO`, publicar la linea base mediante tag y exportar los PDF derivados.
+15. Llevar cada documento por los niveles `ELABORACION`, `REVISION-EQUIPO`, `OPINION-TECNICA` y `APROBACION`, registrando cada conformidad en el historial del sustento. Una observacion devuelve el documento a `ELABORACION`.
+16. Al aprobarse, marcar `APROBADO`, publicar la linea base mediante tag y exportar los PDF derivados.
 
 ## Etapa posterior
 
-14. Analizar tiempos, problemas, riesgos, controles, cumplimiento e intercambios de informacion, y disenar el TO-BE en `02-procesos/to-be/`. Esta etapa esta pendiente y requiere decision expresa para iniciarse.
+17. Analizar tiempos, problemas, riesgos, controles, cumplimiento e intercambios de informacion, y disenar el TO-BE en `02-procesos/to-be/`. Esta etapa esta pendiente y requiere decision expresa para iniciarse.
 
 ## Capas complementarias
 

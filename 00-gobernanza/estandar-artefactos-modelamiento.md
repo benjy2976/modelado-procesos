@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-03
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -17,7 +17,7 @@ tags:
 
 # Estandar de artefactos para el modelamiento hibrido
 
-Este estandar adopta un flujo hibrido: durante el levantamiento, todo flujo de proceso se construye en una tabla Markdown que genera BPMN (cadena BPMN, `DEC-025`, `DEC-026`); PlantUML se reserva para vistas que no son flujos de proceso; BPMN 2.0 XML es la fuente maestra desde la formalizacion; SVG, PNG, PDF, resumenes y reportes son derivados automaticos. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
+Este estandar adopta un flujo hibrido: durante el levantamiento, todo flujo de proceso se construye en una tabla Markdown que genera BPMN (cadena BPMN, `DEC-025`, `DEC-026`); PlantUML se reserva para vistas que no son flujos de proceso; BPMN 2.0 XML es la fuente maestra desde la formalizacion; SVG, PNG, PDF, resumenes y reportes son derivados automaticos. El trabajo asistido por IA separa las iteraciones conceptuales, la sincronizacion automatica y la revision visual (`DEC-040`): mantener derivados actualizados no obliga a incorporarlos al contexto. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
 
 ## 0. Excepcion para el mapa de procesos Nivel 0
 
@@ -44,6 +44,7 @@ La excepcion aplica solo al mapa global Nivel 0 que organiza macroprocesos. No s
 8. La generacion debe ser local, reproducible, determinista y verificable mediante hashes.
 9. Una herramienta puede validar estructura, pero no otorgar aprobacion humana ni validar conocimiento normativo.
 10. Git conserva el historial; los estados no se representan mediante copias o carpetas paralelas.
+11. La IA usa por defecto las fuentes textuales activas; BPMN XML y derivados graficos se consultan solo para una finalidad tecnica o visual declarada.
 
 ## 2. Clases de representacion
 
@@ -61,6 +62,8 @@ Un modelo logico:
 - debe distinguir observado, inferido y propuesto en su nota asociada;
 - no se publica como BPMN ni sustituye la validacion del proceso;
 - deja de ser fuente editable cuando el modelo se formaliza en BPMN.
+
+La generacion focalizada puede mantener el BPMN y sus vistas sincronizados durante las iteraciones logicas. Es una operacion determinista de la herramienta y no convierte esos derivados en fuentes de razonamiento ni exige revisarlos visualmente en cada ciclo.
 
 ### 2.3 Modelo formal
 
@@ -130,15 +133,30 @@ Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o me
 - `*-diagrama-proceso-tabla.md` es editable; el `.bpmn`, el `.svg` y el `.png` se generan desde ella y no se editan.
 - Los modelos logicos iniciados en PlantUML se migran a la tabla; el `.puml` se retira y queda en el historial de Git (`DEC-026`).
 - Las limitaciones semanticas se documentan en el sustento del proceso.
+- La IA itera por lotes sobre la tabla y el sustento con el paquete de contexto autorizado. En tareas ordinarias no carga ni busca contenido en el BPMN XML, SVG, PNG o HTML generado (`DEC-040`).
 
-### 5.2 Formalizacion
+### 5.2 Sincronizacion por lote
+
+- Al cerrar un lote conceptual coherente se ejecuta `construir_modelos.py --tabla <ruta>` para el modelo afectado.
+- La herramienta actualiza BPMN, SVG, PNG y HTML y devuelve solo el estado y los hallazgos D1-D5 accionables al contexto de la IA.
+- La misma tabla no se edita mientras su generacion esta en curso. La construccion global se reserva para el cierre o para cambios en las herramientas.
+- Un fallo se resuelve primero desde la tabla, el sustento y el informe textual; la inspeccion grafica no es el mecanismo ordinario de depuracion semantica.
+
+### 5.3 Revision visual
+
+- Cuando el contenido tenga estabilidad suficiente, el equipo o la IA abre el HTML o SVG para revisar densidad, recorridos, cruces, etiquetas y legibilidad.
+- La revision visual tambien procede cuando una fuente no ha sido transcrita, un fallo no puede resolverse con el informe textual o el usuario la solicita expresamente.
+- Los ajustes de disposicion no cambian por si solos la semantica. Si la vista revela una ambiguedad real, esta se registra y vuelve a la etapa logica.
+- Esta puerta no constituye conformidad, validacion normativa ni aprobacion institucional.
+
+### 5.4 Formalizacion
 
 - El equipo contrasta el modelo logico con evidencia, reglas y entrevistas.
 - Se construye el `.bpmn` con identificadores estables: desde la tabla, el generado se adopta tal cual; desde PlantUML, se construye la tabla equivalente.
 - La equivalencia se revisa; no se presupone conversion automatica completa.
 - Se registra cualquier decision que altere alcance, responsables o convenciones.
 
-### 5.3 Etapa formal
+### 5.5 Etapa formal
 
 - El `.bpmn` es el unico maestro del diagrama.
 - La tabla y, en su caso, el `.puml` se conservan como antecedentes de la etapa conceptual; no se siguen editando.
@@ -269,7 +287,9 @@ El gestor calcula hashes, identifica dependencias y regenera solo las salidas af
 
 `export-ai` genera en `99-temporal/` una representacion compacta de carriles, actividades, eventos, flujos, reglas y pendientes. La IA propone operaciones estructuradas; `apply` valida y aplica esas operaciones al maestro correspondiente y despues regenera los derivados.
 
-La IA no debe recibir imagenes para cambios ordinarios ni editar en paralelo BPMN, SVG y Markdown generado.
+La IA no debe recibir imagenes para cambios ordinarios ni editar en paralelo BPMN, SVG y Markdown generado. El paquete de contexto declara la fase, las fuentes textuales activas, los derivados excluidos, la necesidad de revision visual y si se autoriza modificar herramientas.
+
+La generacion local de derivados no consume razonamiento de IA. Puede ejecutarse despues de cada lote conceptual, pero el resultado que vuelve al contexto se limita a `OK`, `GENERADO`, `NO ADOPTADO` o `ERROR` y a los hallazgos D1-D5 accionables. No se cargan los archivos completos para confirmar lo que ya comprobo el comando.
 
 ## 9. Generacion determinista
 

@@ -9,7 +9,7 @@ proceso:
   - S4
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-04
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -20,7 +20,7 @@ tags:
 
 # INI-001 Modelamiento hibrido PlantUML y BPMN
 
-La iniciativa implementara un camino inmediato de modelamiento logico con PlantUML y una solucion definitiva basada en BPMN 2.0 XML, derivados automaticos y una aplicacion local. El objetivo es que personas e IA modifiquen una sola fuente y que SVG, Markdown generado, validaciones y emisiones se mantengan sincronizados sin edicion archivo por archivo.
+La iniciativa implementa una fuente textual para el modelamiento logico, una solucion formal basada en BPMN 2.0 XML, derivados automaticos y una aplicacion local. El objetivo es que personas e IA modifiquen una sola fuente por etapa y que SVG, Markdown generado, validaciones y emisiones se mantengan sincronizados sin edicion archivo por archivo. Desde `DEC-025` y `DEC-026`, todo flujo de proceso usa la tabla Markdown de la cadena BPMN; PlantUML queda para vistas que no son flujos.
 
 ## 1. Problema y oportunidad
 
@@ -88,8 +88,9 @@ No se atribuyen funciones institucionales nuevas mediante esta lista.
 7. La interfaz web reutilizara el mismo nucleo; no mantendra reglas exclusivas.
 8. La IA propondra operaciones estructuradas y no editara manualmente todos los derivados.
 9. El mapa institucional de procesos Nivel 0 queda exceptuado del flujo hibrido por no ser un modelo operativo BPMN.
+10. La IA iterara por lotes sobre la tabla y el sustento; la generacion focalizada mantendra los derivados actualizados sin cargarlos en el contexto, y la revision visual se realizara en una puerta expresa (`DEC-040`).
 
-Estas decisiones se formalizan en `DEC-012`, `DEC-013`, `DEC-014` y `DEC-015` del [registro de decisiones](../registro-decisiones.md).
+Estas decisiones se formalizan en `DEC-012`, `DEC-013`, `DEC-014`, `DEC-015`, `DEC-025`, `DEC-026` y `DEC-040` del [registro de decisiones](../registro-decisiones.md).
 
 ## 6. Contrato de artefactos
 
@@ -99,12 +100,17 @@ El flujo general es:
 
 ```text
 Etapa logica
-narrativa.md + modelo-logico.puml
-                    -> modelo-logico.svg
+tabla.md + sustento.md
+        -> iteraciones conceptuales por lotes
+        -> BPMN, SVG, PNG y HTML sincronizados sin inspeccion obligatoria
+
+Revision visual
+HTML o SVG sincronizado
+        -> revision expresa de disposicion y legibilidad
 
 Formalizacion
-narrativa contrastada + modelo-logico.puml
-                    -> revision humana -> modelo.bpmn
+tabla y sustento contrastados + BPMN generado
+                    -> revision humana -> BPMN maestro
 
 Etapa formal
 modelo.bpmn
@@ -120,14 +126,16 @@ modelo.bpmn
 
 | Necesidad | Fuente que cambia | Salidas automaticas |
 |---|---|---|
-| Incorporar evidencia o alcance | Narrativa Markdown | Paquete de contexto |
-| Ajustar flujo conceptual | PlantUML logico | SVG logico |
+| Incorporar evidencia, alcance o fundamento | Sustento Markdown | Paquete de contexto |
+| Ajustar flujo conceptual en etapa logica | Tabla Markdown | BPMN, SVG, PNG y HTML focalizados |
 | Agregar o cambiar semantica BPMN | BPMN XML | SVG, resumen, manifiesto y validaciones |
 | Cambiar disposicion visual formal | BPMN DI dentro del XML | SVG BPMN |
 | Aplicar propuesta de IA | Operaciones YAML temporales aplicadas al maestro | Todos los derivados afectados |
 | Emitir linea base | Tag y release sobre maestros aprobados | Manifiesto y derivados de publicacion |
 
 Nunca se modifica una imagen para corregir el modelo.
+
+La generacion automatica y la revision visual son operaciones diferentes. Un derivado puede mantenerse actualizado durante el trabajo conceptual sin ser abierto ni incorporado al contexto de IA. El control global se reserva para el cierre o para cambios en las herramientas.
 
 ## 8. Arquitectura prevista
 

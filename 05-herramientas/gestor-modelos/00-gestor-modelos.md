@@ -4,7 +4,7 @@ area: herramientas
 estado_documento: VIGENTE
 clase_conocimiento: DECISION
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-04
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -70,6 +70,19 @@ Desde la raiz del repositorio:
 ```
 
 `construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. `--tabla` permite indicar una o mas tablas concretas de trabajo del repositorio, sin alterar el conjunto del control global. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
+
+### Ciclo conceptual por lotes
+
+Con `DEC-040`, la generacion y la revision visual se tratan como operaciones distintas:
+
+1. La IA modifica la tabla y el sustento con el paquete de contexto autorizado.
+2. Al cerrar un lote conceptual coherente se ejecuta `construir_modelos.py --tabla <ruta>` para mantener actualizados BPMN, SVG, PNG y HTML.
+3. Al contexto vuelven solo el estado de la construccion y los hallazgos D1-D5 accionables. Los archivos generados no se abren ni se buscan para cambios ordinarios.
+4. La misma tabla no se edita mientras esa generacion esta en curso.
+5. El HTML o SVG se inspecciona cuando el contenido entra expresamente a revision visual, cuando una fuente no esta transcrita o cuando un fallo no puede resolverse con el informe textual.
+6. `construir_modelos.py --check` sin `--tabla` se reserva para el cierre o para cambios en las herramientas.
+
+El comando es local y determinista: ejecutar Python y bpmn-js no consume razonamiento de IA. No se implementa un observador permanente ni edicion concurrente del mismo modelo; si esa necesidad aparece, antes se incorporaran hashes de origen y descarte de resultados obsoletos.
 
 Pasos individuales, para un modelo:
 

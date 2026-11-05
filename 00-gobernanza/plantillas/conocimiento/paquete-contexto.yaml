@@ -5,17 +5,32 @@ objetivo: pendiente
 producto_esperado: pendiente
 proceso: pendiente
 modalidad: POR-DEFINIR
+fase_trabajo: conceptual
 limites:
   inicio: pendiente
   fin: pendiente
   exclusiones: []
 contexto_autorizado: []
+fuentes_textuales_activas: []
 reglas_validadas: []
 fuentes_pendientes_autorizadas: []
 evidencias_as_is: []
 modelo_vigente: null
 glosario_aplicable: []
 archivos_modificables: []
+generacion_derivados:
+  modo: focalizada-por-lote
+  mantener_actualizados: true
+artefactos_excluidos_del_contexto:
+  - "*.bpmn"
+  - "*.svg"
+  - "*.png"
+  - "*.html"
+revision_visual:
+  requerida_en_esta_tarea: false
+  motivo: null
+modificacion_herramientas:
+  autorizada: false
 restricciones:
   - No usar conocimiento general para afirmaciones normativas.
   - Registrar EVIDENCIA-INSUFICIENTE cuando las fuentes no sostengan una conclusion.
