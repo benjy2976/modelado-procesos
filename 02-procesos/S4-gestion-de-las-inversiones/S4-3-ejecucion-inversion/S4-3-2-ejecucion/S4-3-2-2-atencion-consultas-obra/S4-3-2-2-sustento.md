@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-04
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -34,22 +34,22 @@ Sube a: [S4.3.2.2 Atencion de consultas de obra](00-S4-3-2-2-atencion-consultas-
 
 ## Delimitacion aplicada
 
-El Bizagi de Consultas contiene tambien suspension y aprobacion de adicionales o reducciones. Esas ramas no forman parte del producto "consulta absuelta": se utilizan como insumo de S4.3.2.3. Este proceso termina al notificar la respuesta y, cuando corresponda, al comunicar la solicitud o causal de modificacion.
+El Bizagi de Consultas contiene tambien suspension y aprobacion de adicionales o reducciones. Esas ramas no forman parte del producto "consulta absuelta": se utilizan como insumo de S4.3.2.3 a S4.3.2.6, segun la figura. Este proceso termina al notificar la respuesta y, cuando corresponda, al comunicar la solicitud o causal.
 
 ## Elementos registrados
 
 | Elemento | Contenido | Clase | Fuente |
 |---|---|---|---|
-| Disparador | Consulta anotada en el cuaderno de obra | `NORMATIVO` citado | Reglamento, art. 190 |
+| Disparador | Consulta registrada en el Cuaderno de Incidencias | `NORMATIVO` citado | Reglamento, art. 190; terminologia institucional DEC-041 |
 | Instancia | Una por consulta | `DECISION` | DEC-032 |
-| Participantes | Contratista o residente, supervisor o inspector, SGGOS, SGE y proyectista cuando corresponda | `OBSERVADO` y `NORMATIVO` citado | Bizagi; Reglamento, art. 190; ROF, arts. 95-98 |
+| Participantes | Ejecutor de obra por contrata, supervision contratada, GORE Huanuco y proyectista cuando corresponda | `OBSERVADO` y `NORMATIVO` citado | Bizagi; Reglamento, art. 190; ROF, arts. 95-98; DEC-042 |
 | Responsable de la absolucion tecnica en el GORE Huanuco | Sub Gerencia de Estudios (SGE) | `NORMATIVO-INSTITUCIONAL` propuesto | ROF, art. 96, lit. i |
 | Seguimiento y canalizacion institucional | Sub Gerencia de Gestion de Obras y Supervision (SGGOS) | `NORMATIVO-INSTITUCIONAL` propuesto e `INFERENCIA` de modelamiento | ROF, arts. 97-98; el circuito documental exacto requiere evidencia operativa |
 | Elaboracion del sustento de la respuesta | Especialistas de la SGE elaboran el informe tecnico de absolucion | `OBSERVADO` y `DECISION` | Descripcion del equipo; DEC-033 |
 | Firma de la respuesta | El Subgerente de Estudios revisa y firma siempre la respuesta a la consulta | `OBSERVADO` y `DECISION` | Descripcion del equipo; DEC-033 |
 | Consulta originada por la supervision | Puede elevarse sin consulta previa del contratista | `OBSERVADO` | Descripcion del equipo; caso excepcional |
 | Producto principal | Consulta absuelta y notificada | `PROPUESTA` | Analisis del flujo observado |
-| Producto alterno | Respuesta y causal comunicadas a S4.3.2.3 | `PROPUESTA` | DEC-032 |
+| Producto alterno | Respuesta y causal comunicadas a S4.3.2.3, .4, .5 o .6 | `PROPUESTA` | DEC-041 |
 
 ## Vacios de evidencia
 
@@ -65,7 +65,7 @@ El Bizagi de Consultas contiene tambien suspension y aprobacion de adicionales o
 | Hallazgo | Tratamiento |
 |---|---|
 | El Bizagi no tiene evento de inicio general y contiene enlaces sin pareja | No se copia el XML; se adopta como inicio el mensaje de consulta anotada y se reconstruye el flujo |
-| El Bizagi mezcla consulta con suspension y adicional | Se separan mediante el limite entre S4.3.2.2 y S4.3.2.3 |
+| El Bizagi mezcla consulta con suspension y adicional | Se separan mediante los limites entre S4.3.2.2 y S4.3.2.3 a S4.3.2.6 |
 | El Bizagi representa a la entidad sin distinguir sus unidades internas | El rediseño debe separar al menos SGGOS y SGE: SGGOS recibe, sigue y canaliza; SGE analiza y absuelve tecnicamente conforme al ROF |
 
 ## Criterio para el rediseño institucional
@@ -77,6 +77,8 @@ La SGGOS conserva un papel diferenciado de control, seguimiento, recepcion y can
 `DEC-033` cierra el vacio operativo de autoria y firma: los especialistas de la SGE elaboran el informe tecnico y el Subgerente de Estudios revisa y firma siempre la respuesta. Esta precision proviene del equipo y no se presenta como una exigencia extraida del ROF. La OACGD registra la entrada y canaliza la notificacion; la denominacion y serie exactas de los documentos permanecen pendientes.
 
 El diagrama base representa supervision contratada como participante externo. Si la obra cuenta con inspector, este pertenece a la entidad y sus actividades deben reubicarse en el pool del GORE Huanuco; no se lo representa como un participante externo equivalente al supervisor.
+
+`DEC-042` precisa ademas que el pool Ejecutor de obra por contrata contiene al residente y a su equipo especialista como carriles internos, no como participantes independientes. El pool Supervision contratada representa solo al supervisor externo. La variante de administracion directa y el circuito con inspector de la entidad siguen como `EVIDENCIA-INSUFICIENTE` hasta levantar el flujo institucional correspondiente.
 
 Fuente de lectura: [Guia del ROF del Gobierno Regional Huanuco 2023](../../../../../03-conocimiento/fuentes/guia-rof-grh-2023.md).
 
@@ -104,9 +106,13 @@ El nuevo derivado mide 2568 x 2923 px en SVG. Frente al perfil equilibrado reduc
 | Rediseño institucional S4.3.2.2 | `ELABORACION` | 2026-11-03 | Pools, carriles, opinion del proyectista, informe tecnico y firma incorporados; pendiente revision | Equipo del proyecto con asistencia de IA | DEC-033; ROF, arts. 95-98; Reglamento, art. 190 |
 | Piloto de visualizacion equilibrada | `ELABORACION` | 2026-11-03 | Geometria compactada; D1-D5 sin hallazgos; pendiente apreciacion visual | Equipo del proyecto con asistencia de IA | DEC-034; informe de validacion del gestor |
 | Piloto de visualizacion zigzag controlado | `ELABORACION` | 2026-11-04 | Geometria replegada a 16 columnas; D1-D5 sin hallazgos; pendiente apreciacion visual | Equipo del proyecto con asistencia de IA | DEC-035; informe de validacion del gestor |
+| Precision de participantes | `ELABORACION` | 2026-11-05 | Ejecutor de obra por contrata confirmado como participante que contiene residente y especialistas; variante con inspector permanece pendiente | Equipo del proyecto con asistencia de IA | `DEC-042` |
 
 ## Relaciones
 
-- [S4.3.2.3 Gestion de modificaciones](../S4-3-2-3-gestion-modificaciones-alcance-plazo/00-S4-3-2-3-gestion-modificaciones-alcance-plazo.md)
+- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-modificaciones-alcance/00-S4-3-2-3-gestion-modificaciones-alcance.md)
+- [S4.3.2.4 Gestion de ampliaciones de plazo](../S4-3-2-4-gestion-ampliaciones-plazo/00-S4-3-2-4-gestion-ampliaciones-plazo.md)
+- [S4.3.2.5 Formalizacion de suspensiones de plazo](../S4-3-2-5-formalizacion-suspensiones-plazo/00-S4-3-2-5-formalizacion-suspensiones-plazo.md)
+- [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 

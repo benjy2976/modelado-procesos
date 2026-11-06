@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-03
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -24,9 +24,9 @@ tags:
   - proceso/s4/s4-3/s4-3-2/s4-3-2-3
 ---
 
-# S4.3.2.3 Gestion de modificaciones de alcance o plazo - Fichas de indicador
+# S4.3.2.3 Gestion de modificaciones de alcance - Fichas de indicador
 
-Sube a: [S4.3.2.3 Gestion de modificaciones de alcance o plazo](00-S4-3-2-3-gestion-modificaciones-alcance-plazo.md)
+Sube a: [S4.3.2.3 Gestion de modificaciones de alcance](00-S4-3-2-3-gestion-modificaciones-alcance.md)
 
 No se propone una formula de indicador hasta confirmar productos, plazos por variante, dueno, registros disponibles y meta. Estado: `EVIDENCIA-INSUFICIENTE`.
 
@@ -35,4 +35,3 @@ No se propone una formula de indicador hasta confirmar productos, plazos por var
 | Elaborado por | Revisado por | Aprobado por |
 |---|---|---|
 | PENDIENTE | PENDIENTE | PENDIENTE |
-

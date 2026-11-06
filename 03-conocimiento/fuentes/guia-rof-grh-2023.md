@@ -7,8 +7,11 @@ clase_conocimiento: NORMATIVO
 proceso:
   - S4.3.2.2
   - S4.3.2.3
+  - S4.3.2.4
+  - S4.3.2.5
+  - S4.3.2.6
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-04
+fecha_actualizacion: 2026-11-05
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 aliases:
@@ -65,14 +68,14 @@ El pool del Gobierno Regional Huanuco se desagrega en carriles para la Oficina d
 
 El contratista, la supervision contratada y el proyectista se representan como participantes separados porque conservan control propio sobre sus actividades y se comunican con la entidad mediante mensajes. El inspector, cuando sustituye a una supervision contratada, pertenece a la entidad y requiere una variante del modelo; no debe representarse como pool externo.
 
-## Aplicacion propuesta a S4.3.2.3
+## Aplicacion propuesta a S4.3.2.3 a S4.3.2.6
 
 - OACGD recibe, registra, deriva y notifica; no evalua el fondo tecnico de una modificacion.
-- SGGOS es la unidad candidata para articular y seguir el expediente por su competencia de control y seguimiento de obras. La secuencia concreta y el rol del monitor o coordinador son una inferencia basada tambien en el Bizagi observado y requieren validacion operativa.
+- SGGOS es la unidad candidata para articular y seguir los expedientes por su competencia de control y seguimiento de obras. La secuencia concreta y el rol de SGGOS — Coordinador de obra son una inferencia basada tambien en el Bizagi observado y requieren validacion operativa.
 - SGE interviene cuando la figura exige opinion del organo responsable de los expedientes tecnicos. Los articulos 95-96 permiten identificar a SGE como ese organo en el GORE, pero no hacen obligatoria su participacion en toda modificacion.
 - Presupuesto y GRAJ intervienen solo cuando la figura y el contenido del expediente requieren disponibilidad presupuestal u opinion o revision legal. El ROF distribuye competencias; no establece por si solo una secuencia universal.
-- GRI puede integrar y elevar el expediente en la propuesta, pero debe confirmarse quien remite formalmente a la Contraloria y quien suscribe cada acto.
-- El ROF no sustituye la resolucion o acto de delegacion vigente. Por ello, el diagrama mantiene el carril generico "Autoridad competente segun figura y umbral" y registra la firma como `EVIDENCIA-INSUFICIENTE`.
+- Debe confirmarse quien remite formalmente a la Contraloria cuando corresponde y quien prepara cada acto.
+- El ROF no sustituye la resolucion o acto de delegacion vigente. Por ello, los diagramas mantienen el carril estable "Titular de la competencia o autoridad delegada" y registran la firma concreta como `EVIDENCIA-INSUFICIENTE`.
 
 ## Alertas
 

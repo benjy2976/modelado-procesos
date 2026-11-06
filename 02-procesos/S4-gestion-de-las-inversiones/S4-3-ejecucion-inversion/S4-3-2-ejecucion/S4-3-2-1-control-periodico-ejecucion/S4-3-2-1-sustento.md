@@ -34,6 +34,8 @@ Sube a: [S4.3.2.1 Control periodico de la ejecucion](00-S4-3-2-1-control-periodi
 
 El Bizagi de Ejecucion mezcla adelantos, compatibilidad del expediente tecnico, valorizaciones y una salida hacia recepcion. Para este proceso solo se utiliza el circuito recurrente de valorizacion. Los adelantos y la compatibilidad se analizaran en S4.3.1; la recepcion corresponde a S4.3.3.
 
+`DEC-042` distingue pertenencia y responsabilidad: el residente actua dentro del Ejecutor de obra; el control corresponde alternativamente al supervisor contratado o al inspector de la entidad. Como este modelo inicial usa un solo proceso con carriles, las etiquetas compuestas expresan esas responsabilidades sin afirmar que todos pertenezcan a una misma organizacion. La unidad institucional que recibe la valorizacion permanece como `EVIDENCIA-INSUFICIENTE`.
+
 ## Elementos registrados
 
 | Elemento | Contenido | Clase | Fuente |
@@ -70,6 +72,7 @@ El Bizagi de Ejecucion mezcla adelantos, compatibilidad del expediente tecnico, 
 | Documento | Nivel | Fecha | Resultado | Rol o unidad | Evidencia |
 |---|---|---|---|---|---|
 | Juego inicial S4.3.2.1 | `ELABORACION` | 2026-11-03 | Propuesta creada; pendiente revision | Equipo del proyecto con asistencia de IA | DEC-032; exportacion Bizagi |
+| Precision de participantes | `ELABORACION` | 2026-11-05 | Residente ubicado en Ejecutor de obra y control de obra expresado como responsabilidad alternativa | Equipo del proyecto con asistencia de IA | `DEC-042` |
 
 ## Relaciones
 

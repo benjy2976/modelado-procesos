@@ -26,20 +26,20 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 ## Que hace
 
-Atiende una consulta originada por el contratista o, excepcionalmente, por la supervision. La supervision la absuelve cuando no modifica el expediente tecnico; en los demas casos, la OACGD la recibe, la SGGOS efectua el seguimiento y la canalizacion, los especialistas de la SGE elaboran el informe tecnico y el Subgerente de Estudios firma la respuesta. Cuando corresponde se solicita opinion al proyectista, sin que la falta de opinion impida la absolucion institucional. La causal se deriva a S4.3.2.3 si se identifica una modificacion de alcance o plazo.
+Atiende una consulta originada por el contratista o, excepcionalmente, por la supervision. La supervision la absuelve cuando no modifica el expediente tecnico; en los demas casos, la OACGD la recibe, la SGGOS efectua el seguimiento y la canalizacion, los especialistas de la SGE elaboran el informe tecnico y el Subgerente de Estudios firma la respuesta. Cuando corresponde se solicita opinion al proyectista, sin que la falta de opinion impida la absolucion institucional. La causal se deriva a S4.3.2.3, .4, .5 o .6, segun corresponda.
 
 ## Interacciones
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
-| Recibe | Contratista o residente | Consulta anotada en el cuaderno de obra |
+| Recibe | Ejecutor de obra por contrata, mediante el residente | Consulta registrada en el Cuaderno de Incidencias |
 | Recibe | Supervisor de obra | Consulta originada por la supervision o consulta del contratista elevada con opinion tecnica |
 | Canaliza | SGGOS | Consulta y antecedentes para su atencion tecnica |
 | Elabora | Especialistas de la SGE | Informe tecnico de absolucion y proyecto de respuesta |
 | Firma | Subgerente de Estudios | Respuesta institucional a la consulta |
 | Solicita | Proyectista, cuando corresponda | Opinion tecnica sobre el expediente tecnico |
-| Envia | Contratista o residente | Consulta absuelta y notificada |
-| Envia | S4.3.2.3 Gestion de modificaciones | Respuesta que origina una solicitud o causal de modificacion |
+| Envia | Ejecutor de obra por contrata | Consulta absuelta y notificada |
+| Envia | S4.3.2.3 a S4.3.2.6 | Respuesta que origina una solicitud o causal de alcance, ampliacion, suspension o paralizacion/reinicio |
 
 ## Documentos del proceso
 
@@ -63,7 +63,10 @@ No se han adoptado procesos de nivel 4.
 
 ## Relaciones
 
-- [S4.3.2.3 Gestion de modificaciones](../S4-3-2-3-gestion-modificaciones-alcance-plazo/00-S4-3-2-3-gestion-modificaciones-alcance-plazo.md)
+- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-modificaciones-alcance/00-S4-3-2-3-gestion-modificaciones-alcance.md)
+- [S4.3.2.4 Gestion de ampliaciones de plazo](../S4-3-2-4-gestion-ampliaciones-plazo/00-S4-3-2-4-gestion-ampliaciones-plazo.md)
+- [S4.3.2.5 Formalizacion de suspensiones de plazo](../S4-3-2-5-formalizacion-suspensiones-plazo/00-S4-3-2-5-formalizacion-suspensiones-plazo.md)
+- [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 - [Modelo Bizagi de Consultas](../../../../../99-temporal/modelos/sggos-2026-11-02-bpmn/consultas-bizagi.bpmn)
 

@@ -245,7 +245,7 @@ Criterios de separacion de la propuesta anterior (`PROPUESTA`, conservados como 
 |---|---|---|---|
 | Instancia | Una por inversion | Una por contrato o frente de ejecucion | Una por ejecucion concluida o resuelta |
 | Objeto | La inversion y sus recursos | La intervencion fisica | El resultado de cada ejecucion |
-| Actor principal | Entidad: equipo de gestion y monitor | Contratista o residente, con supervisor o inspector | Comite de recepcion o de culminacion |
+| Actor principal | Entidad: equipo de gestion y monitor | Ejecutor de obra, con control de obra y gestion institucional | Comite de recepcion o de culminacion |
 | Inicia con | Expediente tecnico aprobado | Condiciones de inicio cumplidas y acta de inicio | Obra o prestacion concluida, o contrato resuelto |
 | Termina con | Todas las ejecuciones recibidas o constatadas | Obra o prestacion concluida, o contrato resuelto | Acta de recepcion o constatacion |
 | Envia | Condiciones de inicio; contratos, bienes, insumos y personal | Requerimientos, valorizaciones y avance | Recepcion o constatacion concluida |
@@ -270,9 +270,9 @@ Clasificacion y limites:
 
 El 2026-11-02 se reorganizaron las carpetas de trabajo (`DEC-029`): S4.3.1 se renombro como Inicio de ejecucion y quedo sin artefactos de detalle, salvo su nota indice; la propuesta anterior de Gestion de la ejecucion se traslado a `99-temporal/modelos/comparacion-s4-3-1/`. Antes de evaluar el nuevo boceto de S4.3.2 se creo una copia exacta en `99-temporal/modelos/comparacion-s4-3-2/`; la ruta activa de Ejecucion conserva provisionalmente sus artefactos para la comparacion logica y no representa todavia el reemplazo.
 
-Posteriormente, `DEC-030` reemplazo el modelo logico activo de S4.3.2 por una instancia de larga duracion con tres bloques de eventos concurrentes: Control periodico, Consultas de obra y Gestionar modificaciones de alcance o plazo. El respaldo integral previo permanece en la misma carpeta temporal. El cambio es una propuesta en `ELABORACION`, no una aprobacion.
+Posteriormente, `DEC-030` reemplazo el modelo logico activo de S4.3.2 por una instancia de larga duracion con tres bloques iniciales de eventos concurrentes. El respaldo integral previo permanece en la misma carpeta temporal. El cambio es una propuesta en `ELABORACION`, no una aprobacion.
 
-`DEC-032` adopta esos bloques, una vez delimitados, como S4.3.2.1 Control periodico de la ejecucion, S4.3.2.2 Atencion de consultas de obra y S4.3.2.3 Gestion de modificaciones de alcance o plazo. La actividad "Ejecutar la obra conforme al expediente tecnico" permanece dentro de S4.3.2 sin codigo de proceso propio, y las variantes de modificacion quedan sin codigos de nivel 4.
+`DEC-032` adopto esos bloques como los tres primeros procesos. `DEC-041` mantiene S4.3.2.1 y S4.3.2.2, limita S4.3.2.3 a Gestion de modificaciones de alcance y crea como hijos directos S4.3.2.4 Gestion de ampliaciones de plazo, S4.3.2.5 Formalizacion de suspensiones de plazo y S4.3.2.6 Gestion de paralizacion y reinicio. La actividad "Ejecutar la obra conforme al expediente tecnico" permanece dentro de S4.3.2 sin codigo propio; adicional, reduccion o deductivo y mayores cantidades siguen como variantes internas de S4.3.2.3 sin nivel 4.
 
 ### Situacion de las observaciones
 

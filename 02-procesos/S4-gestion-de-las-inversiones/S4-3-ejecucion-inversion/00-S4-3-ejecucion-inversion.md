@@ -62,14 +62,14 @@ Propuesta de trabajo actualizada en `DEC-028` y organizada documentalmente en `D
 | Codigo | Subproceso | Instancia | Estado |
 |---|---|---|---|
 | S4.3.1 | [Inicio de ejecucion](S4-3-1-inicio-de-ejecucion/00-S4-3-1-inicio-de-ejecucion.md) | Por definir en el analisis de detalle | Carpeta preparada; sin modelo vigente hasta recibir el detalle del equipo |
-| S4.3.2 | [Ejecucion](S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) | Instancia de larga duracion hasta la culminacion, resolucion o nulidad; unidad exacta pendiente | Modelo logico actualizado con tres bloques de eventos concurrentes (`DEC-030`); antecedentes respaldados |
+| S4.3.2 | [Ejecucion](S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) | Instancia de larga duracion hasta la culminacion, resolucion o nulidad; unidad exacta pendiente | Modelo logico con seis hijos directos activados por eventos, repetibles y concurrentes (`DEC-041`); antecedentes respaldados |
 | S4.3.3 | [Recepcion](S4-3-3-recepcion/00-S4-3-3-recepcion.md) | Una por ejecucion concluida o resuelta | Sin documentos |
 
 ## Pendientes
 
 - Responder las preguntas P7 a P10 del [sustento](S4-3-sustento.md) y revisar el modelo logico y la ficha borrador.
 - Recibir y analizar el detalle de Inicio de ejecucion y decidir su instancia y alcance sin atribuir aprobacion.
-- Confirmar la unidad de instancia y detallar los tres bloques concurrentes de S4.3.2; desarrollar posteriormente S4.3.3 Recepcion.
+- Confirmar la unidad de instancia y validar los seis procesos concurrentes de S4.3.2; desarrollar posteriormente S4.3.3 Recepcion.
 - Incorporar fuentes de Obras por Impuestos y del Sistema Nacional de Abastecimiento a la biblioteca.
 
 - Recibir los levantamientos del equipo y el documento interno para elaborar fichas; se registraran como insumos en el sustento.
