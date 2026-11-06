@@ -6,10 +6,11 @@ estado_documento: BORRADOR
 clase_conocimiento: PROPUESTA
 codigo_proceso: S4.3.2.5
 nivel_proceso: 3
+perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.5
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:

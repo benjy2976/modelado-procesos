@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.1
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-03
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -79,3 +79,13 @@ El Bizagi de Ejecucion mezcla adelantos, compatibilidad del expediente tecnico, 
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 - [Paquete de conocimientos sobre subprocesos de evento](../../../../../03-conocimiento/manual-bpmn/cap-2-notacion/2-8-subprocesos/conocimientos-propuestos-subprocesos-evento.md)
 
+
+## Cambio de perfil de trazado ? 2026-11-06
+
+Por indicacion del usuario se adopta `zigzag-controlado` para este subproceso. El cambio afecta la disposicion grafica; conserva actividades, participantes, secuencias y mensajes. Los registros anteriores de geometria corresponden a sus respectivas generaciones. Se regeneran los derivados mediante la tabla; no se realiza revision visual ni se atribuye conformidad institucional.
+
+Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4 sin superposiciones.
+
+## Mejora del perfil zigzag-controlado ? 2026-11-06
+
+Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 sin hallazgos.

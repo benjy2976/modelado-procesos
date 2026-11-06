@@ -51,3 +51,7 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 - Recibe de [S4.3.1 Inicio de ejecucion](../S4-3-1-inicio-de-ejecucion/00-S4-3-1-inicio-de-ejecucion.md) el acta de inicio de obra.
 - Envia a [S4.3.3 Recepcion](../S4-3-3-recepcion/00-S4-3-3-recepcion.md) la obra culminada o el contrato resuelto o nulo.
 - [Estandar de artefactos, seccion 6.1](../../../../00-gobernanza/estandar-artefactos-modelamiento.md)
+
+## Criterio de trazado ? 2026-11-06
+
+Por indicacion del usuario, los seis subprocesos usan `perfil_trazado: zigzag-controlado`; los futuros trabajos dentro de esta carpeta mantendran ese perfil. El diagrama padre S4.3.2 no se redibuja en este lote; el perfil se aplicara cuando se retome su trazado. Los resultados de generacion y pendientes geometricos se registran en el sustento de cada subproceso.

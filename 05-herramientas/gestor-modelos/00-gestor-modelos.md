@@ -4,7 +4,7 @@ area: herramientas
 estado_documento: VIGENTE
 clase_conocimiento: DECISION
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -121,6 +121,10 @@ Columnas por orden del flujo; una fila por rama de cada compuerta dentro del car
 La fuente tabular admite el campo opcional `perfil_trazado: equilibrado`. Este perfil conserva el tamaño de los simbolos, pero alinea en una misma etapa visual los extremos de cada flujo de mensaje entre pools, calcula la separacion horizontal segun el ancho real de cada columna y reduce moderadamente filas y separaciones entre pools. El perfil `normal` sigue siendo el valor predeterminado y conserva la geometria anterior. El perfil equilibrado debe aplicarse primero como piloto y solo se adopta para un modelo cuando D1-D5 no presentan hallazgos y la inspeccion visual confirma que las etiquetas siguen siendo legibles (`DEC-034`).
 
 El perfil experimental `zigzag-controlado` agrega un pliegue serpentino a las secuencias extensas (`DEC-035`). Primero elimina por pool las etapas en las que el participante no actua; si aun supera 16 columnas, baja a un nuevo tramo y alterna el sentido horizontal. Las ramas conservan filas propias dentro de cada tramo, los pools pueden tener anchos diferentes y los mensajes de ida y vuelta usan corredores separados entre participantes. El cambio es exclusivamente BPMN-DI. Se aplica solo cuando la fuente lo declara y, como los demas perfiles no predeterminados, exige D1-D5 sin hallazgos e inspeccion visual humana antes de extenderse.
+
+La mejora del 2026-11-06, solicitada a partir de S4.3.2.5, se limita a `zigzag-controlado`: compacta a la izquierda los componentes conectados por secuencias dentro de cada pool, conserva sus distancias internas y reserva una columna entre circuitos que comparten carril. Los mensajes no imponen un reloj horizontal comun. El enrutador compara corredores entre pools, penaliza invasiones de participantes intermedios, tramos compartidos y cruces, elimina rodeos colineales y ubica las etiquetas considerando formas y rutas ya trazadas. Es una heuristica: D4 y la revision visual siguen siendo necesarios; no garantiza eliminar todo cruce de cualquier modelo.
+
+Regresion reproducible: `.venv/Scripts/python.exe -m unittest discover -s 05-herramientas/gestor-modelos -p test_zigzag.py`. Las pruebas verifican semantica BPMN sin cambios, determinismo, limite de hallazgos D4 en los seis subprocesos de S4.3.2 y compactacion del piloto sin aumentar su altura. En la comparacion contra el generador previo, `normal`, `equilibrado` y `zigzag-amplio` producen XML identico para esos seis modelos.
 
 `zigzag-amplio` aplica el mismo algoritmo con tramos de 28 columnas (`DEC-036`). Se reserva para modelos con muchas alternativas y convergencias, en los que el pliegue de 16 columnas produce cruces o un crecimiento vertical desproporcionado. En pools con numerosos carriles comprime, dentro de cada carril, las filas de fase que no contienen ningun elemento; conserva el orden y la separacion de todas las celdas ocupadas (`DEC-039`). No sustituye al perfil corto: la fuente elige el menor tramo que supere D1-D5 y conserve una lectura visual razonable.
 

@@ -109,7 +109,7 @@ PERFILES_TRAZADO = {
     # pliega las secuencias largas en tramos serpentinos. El cambio de sentido ocurre solamente al bajar de tramo.
     'zigzag-controlado': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
                              gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
-                             columnas_tramo=16),
+                             columnas_tramo=16, compactar_componentes=True, optimizar_mensajes=True),
     # Variante para modelos con muchas ramas: conserva el pliegue, pero deja un tramo mas largo para evitar
     # que las convergencias de alternativas se superpongan al cambiar de sentido.
     'zigzag-amplio': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
@@ -355,6 +355,94 @@ def rangos(nodos, mensajes, peso_mensaje=1):
     return rango, retorno
 
 
+def compactar_componentes(nodos, rango):
+    """Traslada circuitos independientes a la izquierda sin invadir los intervalos ocupados en sus carriles.
+
+    Los mensajes no unen componentes: expresan comunicacion, no una columna temporal compartida.
+    Cada componente conserva sus distancias internas. El enrutador resuelve despues los pasos entre carriles.
+    """
+    vecinos = {i: set() for i in nodos}
+    for i, n in nodos.items():
+        destinos = [d for d, _ in n['sig']]
+        if n.get('adjunto'):
+            destinos.append(n['adjunto'])
+        for d in destinos:
+            if d in nodos and nodos[d]['pool'] == n['pool']:
+                vecinos[i].add(d)
+                vecinos[d].add(i)
+    vistos, componentes = set(), []
+    for i in nodos:
+        if i in vistos:
+            continue
+        pendientes, miembros = [i], set()
+        while pendientes:
+            j = pendientes.pop()
+            if j in miembros:
+                continue
+            miembros.add(j)
+            pendientes.extend(vecinos[j] - miembros)
+        vistos.update(miembros)
+        componentes.append(miembros)
+    ocupado = {}
+    orden = {i: k for k, i in enumerate(nodos)}
+    for ids in sorted(componentes, key=lambda ids: (min(rango[i] for i in ids), min(orden[i] for i in ids))):
+        p = nodos[min(ids, key=orden.get)]['pool']
+        minimo = min(rango[i] for i in ids)
+        intervalos = {}
+        def reservar(c, a, b):
+            lo, hi = intervalos.get(c, (a, b))
+            intervalos[c] = (min(lo, a), max(hi, b))
+        for i in ids:
+            reservar(nodos[i]['carril'], rango[i] - minimo, rango[i] - minimo)
+        desplazamiento = 0
+        # Una columna libre separa circuitos: aloja los giros verticales de sus secuencias.
+        while any(not (hi + desplazamiento + 1 < a or b + 1 < lo + desplazamiento)
+                  for c, (lo, hi) in intervalos.items() for a, b in ocupado.get((p, c), [])):
+            desplazamiento += 1
+        # Nunca ensanchar un modelo que ya dispone de una posicion mas compacta.
+        desplazamiento = min(desplazamiento, minimo)
+        for i in ids:
+            rango[i] += desplazamiento - minimo
+        for c, (lo, hi) in intervalos.items():
+            ocupado.setdefault((p, c), []).append((lo + desplazamiento, hi + desplazamiento))
+
+
+def simplificar_ruta(pts):
+    """Quita puntos repetidos y rodeos colineales de una ruta ortogonal."""
+    salida = []
+    for punto in pts:
+        if salida and punto == salida[-1]:
+            continue
+        while len(salida) >= 2 and (
+            salida[-2][0] == salida[-1][0] == punto[0]
+            or salida[-2][1] == salida[-1][1] == punto[1]
+        ):
+            salida.pop()
+        if not salida or punto != salida[-1]:
+            salida.append(punto)
+    return salida
+
+
+def conflictos_rutas(pts, otras):
+    """Cuenta tramos compartidos y cruces interiores; los contactos de extremos no son cruces."""
+    solapes, cruces = 0, 0
+    for p, q in zip(pts, pts[1:]):
+        for ruta in otras:
+            for r, s in zip(ruta, ruta[1:]):
+                vertical = p[0] == q[0]
+                otra_vertical = r[0] == s[0]
+                if vertical == otra_vertical:
+                    eje, largo = (0, 1) if vertical else (1, 0)
+                    if abs(p[eje] - r[eje]) < 4:
+                        solapes += max(0, min(max(p[largo], q[largo]), max(r[largo], s[largo]))
+                                       - max(min(p[largo], q[largo]), min(r[largo], s[largo])))
+                else:
+                    v, w, a, b = (p, q, r, s) if vertical else (r, s, p, q)
+                    cruces += int(min(a[0], b[0]) < v[0] < max(a[0], b[0])
+                                  and min(v[1], w[1]) < a[1] < max(v[1], w[1]))
+    return solapes, cruces
+
+
 def filas(nodos, rango, retorno, bordes=None):
     """Fila de cada nodo dentro de su carril: la primera salida de un nodo conserva su fila y cada salida adicional
     (rama de una compuerta) toma la fila siguiente; en una unión se toma la menor; si la celda está ocupada, se baja."""
@@ -441,6 +529,8 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
             usados = {r: k for k, r in enumerate(sorted({rango[i] for i in ids}))}
             for i in ids:
                 rango[i] = usados[rango[i]]
+    if P.get('compactar_componentes'):
+        compactar_componentes(principal, rango)
     predecesores = {}
     for i, n in principal.items():
         for d, _ in n['sig']:
@@ -1105,6 +1195,38 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 puente = [(sx, ym), (tx, ym)] if abs(sx - tx) > 0.5 else [(sx, ym)]
                 pts = salida_a + puente + list(reversed(salida_b))
                 pts = [p for j, p in enumerate(pts) if j == 0 or p != pts[j - 1]]
+                if P.get('optimizar_mensajes'):
+                    # Buscar canales en todos los huecos entre los extremos, no en el interior de un pool
+                    # intermedio. Comparar contra los mensajes ya trazados evita compartir segmentos.
+                    candidatos = [simplificar_ruta(pts)]
+                    pools_ordenados = sorted(geo_pool, key=lambda p: geo_pool[p][1])
+                    niveles = []
+                    for ps, pi in zip(pools_ordenados, pools_ordenados[1:]):
+                        y0 = geo_pool[ps][1] + geo_pool[ps][3]
+                        y1 = geo_pool[pi][1]
+                        if techo <= y0 < y1 <= piso:
+                            niveles.extend(y0 + (y1 - y0) * f for f in (.25, .5, .75))
+                    for nivel in niveles:
+                        candidatos.append(simplificar_ruta(salida_a + [(sx, nivel), (tx, nivel)]
+                                                           + list(reversed(salida_b))))
+                    # Para pools no adyacentes, rodear los participantes intermedios por su borde derecho.
+                    intermedios = [p for p in pools_ordenados if techo <= geo_pool[p][1] < piso]
+                    if intermedios:
+                        derecha = max(geo_pool[p][0] + geo_pool[p][2] for p in intermedios) + 24
+                        ya = ys + (24 if abajo else -24)
+                        yb = yt + (-24 if abajo else 24)
+                        for extra in (0, 16, 32):
+                            gx = derecha + extra
+                            candidatos.append(simplificar_ruta(salida_a + [(sx, ya), (gx, ya), (gx, yb),
+                                                                           (tx, yb)] + list(reversed(salida_b))))
+                    otras = [m['pts'] for m in rutas_msg.values()]
+                    def costo_mensaje(ruta):
+                        invasiones = sum(cruza(u, v, rect, 0) for p, rect in geo_pool.items()
+                                         if p not in (pa, pb) for u, v in zip(ruta, ruta[1:]))
+                        solapes, cruces = conflictos_rutas(ruta, otras)
+                        largo = sum(abs(u[0] - v[0]) + abs(u[1] - v[1]) for u, v in zip(ruta, ruta[1:]))
+                        return (invasiones, costo(ruta, (a, b)), solapes, cruces, largo, len(ruta))
+                    pts = min(candidatos, key=costo_mensaje)
         else:
             ga = caja.get(a) or geo_pool.get(a) or geo_cerrado.get(a)
             gb = caja.get(b) or geo_pool.get(b) or geo_cerrado.get(b)
@@ -1123,7 +1245,27 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 candidatas = [(cxm - w / 2, hp[1] - h - 3, w, h), (cxm - w / 2, hp[1] + 3, w, h),
                               (min(hp[0], hq[0]) + 5, hp[1] - h - 3, w, h),
                               (max(hp[0], hq[0]) - w - 5, hp[1] + 3, w, h)]
-                etq_m[k] = next((r for r in candidatas if not solapa_obstaculo(r, (a, b))), candidatas[0])
+                if P.get('optimizar_mensajes'):
+                    # Una etiqueta no debe tapar un mensaje anterior ni quedar en su cruce perpendicular.
+                    for u, v in horizontales:
+                        for f in (.2, .4, .6, .8):
+                            xc = u[0] + (v[0] - u[0]) * f
+                            candidatas.extend([(xc - w / 2, u[1] - h - 3, w, h),
+                                               (xc - w / 2, u[1] + 3, w, h)])
+                    for u, v in zip(pts, pts[1:]):
+                        if u[0] == v[0]:
+                            for f in (.25, .5, .75):
+                                yc = u[1] + (v[1] - u[1]) * f
+                                candidatas.extend([(u[0] + 5, yc - h / 2, w, h),
+                                                   (u[0] - w - 5, yc - h / 2, w, h)])
+                    def costo_etiqueta(rect):
+                        todas = [*rutas.values(), *[m['pts'] for m in rutas_msg.values()]]
+                        cruces = sum(cruza(u, v, rect, 0) for r in todas for u, v in zip(r, r[1:]))
+                        return (solapa_obstaculo(rect), cruces)
+                    etq_m[k] = min(candidatas, key=costo_etiqueta)
+                    obstaculos[('etq_m', k)] = etq_m[k]
+                else:
+                    etq_m[k] = next((r for r in candidatas if not solapa_obstaculo(r, (a, b))), candidatas[0])
 
     # --- etiquetas de nodos: del lado libre de conexiones
     lados_usados = {i: set() for i in nodos}

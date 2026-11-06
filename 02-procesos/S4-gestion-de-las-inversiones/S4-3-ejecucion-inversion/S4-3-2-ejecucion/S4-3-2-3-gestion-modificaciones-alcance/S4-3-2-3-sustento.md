@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -108,3 +108,13 @@ El modelo realineado vuelve al perfil predeterminado porque la reduccion a varia
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 - [Guia del Reglamento de la Ley 32069](../../../../../03-conocimiento/fuentes/guia-reglamento-ley-32069.md)
 - [Guia del ROF del Gobierno Regional Huanuco](../../../../../03-conocimiento/fuentes/guia-rof-grh-2023.md)
+
+## Cambio de perfil de trazado ? 2026-11-06
+
+Por indicacion del usuario se adopta `zigzag-controlado` para este subproceso. El cambio afecta la disposicion grafica; conserva actividades, participantes, secuencias y mensajes. Los registros anteriores de geometria corresponden a sus respectivas generaciones. Se regeneran los derivados mediante la tabla; no se realiza revision visual ni se atribuye conformidad institucional.
+
+Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4 registra 18 hallazgos geometricos (superposiciones de flujos y etiquetas y cruces de flujos con etiquetas). Se adopta el derivado de trabajo con `--forzar` para aplicar el perfil solicitado, sin cambiar el contenido del proceso. Estos hallazgos quedan pendientes de ajuste de disposicion y revision visual antes de una linea base; la exportacion no implica que el trazado este libre de defectos.
+
+## Mejora del perfil zigzag-controlado ? 2026-11-06
+
+Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 conserva 18 hallazgos, del mismo tipo que los documentados en la generacion anterior; se mantiene la adopcion como derivado de trabajo con `--forzar`, con ajuste geometrico y revision visual pendientes.

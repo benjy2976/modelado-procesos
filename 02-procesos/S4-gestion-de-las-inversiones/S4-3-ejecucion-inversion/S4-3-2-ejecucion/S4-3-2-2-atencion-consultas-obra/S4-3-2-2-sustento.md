@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -116,3 +116,7 @@ El nuevo derivado mide 2568 x 2923 px en SVG. Frente al perfil equilibrado reduc
 - [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 
+
+## Mejora del perfil zigzag-controlado ? 2026-11-06
+
+Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 sin hallazgos.

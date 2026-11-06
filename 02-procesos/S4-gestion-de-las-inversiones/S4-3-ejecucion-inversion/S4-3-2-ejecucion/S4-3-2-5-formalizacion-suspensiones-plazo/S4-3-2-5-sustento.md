@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.5
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -76,3 +76,17 @@ La generacion focalizada del 2026-11-05 deja D1, D2, D3 y D5 sin hallazgos. D4 r
 
 - [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
+
+## Cambio de perfil de trazado ? 2026-11-06
+
+Por indicacion del usuario se adopta `zigzag-controlado` para este subproceso. El cambio afecta la disposicion grafica; conserva actividades, participantes, secuencias y mensajes. Los registros anteriores de geometria corresponden a sus respectivas generaciones. Se regeneran los derivados mediante la tabla; no se realiza revision visual ni se atribuye conformidad institucional.
+
+Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4 sin superposiciones.
+
+## Mejora del perfil zigzag-controlado ? 2026-11-06
+
+Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 sin hallazgos.
+
+Paquete de esta tarea: fase de ajuste visual del perfil; fuentes activas: tabla y sustento del proceso, imagen anotada del usuario y codigo del generador. La modificacion del perfil fue solicitada expresamente; se inspecciona el PNG del piloto al estabilizar el contenido, sin cargar los derivados de los demas procesos.
+
+Evidencia geometrica calculada: el inicio E-E1 pasa de x=922 a x=464 (458 unidades a la izquierda); el ancho del pool principal baja de 2620 a 2182 (16,7 %), conservando 965 de altura. Los mensajes no comparten segmentos entre si. La inspeccion visual de IA confirma la compactacion y la separacion de los corredores; no representa conformidad humana ni aprobacion institucional.

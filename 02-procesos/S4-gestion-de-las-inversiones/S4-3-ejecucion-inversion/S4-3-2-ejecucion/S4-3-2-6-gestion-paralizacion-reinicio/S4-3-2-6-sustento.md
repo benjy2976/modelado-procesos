@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.6
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-06
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -79,3 +79,13 @@ La generacion focalizada del 2026-11-05 deja D1, D2, D3 y D5 sin hallazgos. D4 c
 
 - [S4.3.2.5 Formalizacion de suspensiones de plazo](../S4-3-2-5-formalizacion-suspensiones-plazo/00-S4-3-2-5-formalizacion-suspensiones-plazo.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
+
+## Cambio de perfil de trazado ? 2026-11-06
+
+Por indicacion del usuario se adopta `zigzag-controlado` para este subproceso. El cambio afecta la disposicion grafica; conserva actividades, participantes, secuencias y mensajes. Los registros anteriores de geometria corresponden a sus respectivas generaciones. Se regeneran los derivados mediante la tabla; no se realiza revision visual ni se atribuye conformidad institucional.
+
+Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4 registra 6 hallazgos geometricos (superposiciones de flujos y etiquetas y un cruce de flujo con etiqueta). Se adopta el derivado de trabajo con `--forzar` para aplicar el perfil solicitado, sin cambiar el contenido del proceso. Estos hallazgos quedan pendientes de ajuste de disposicion y revision visual antes de una linea base; la exportacion no implica que el trazado este libre de defectos.
+
+## Mejora del perfil zigzag-controlado ? 2026-11-06
+
+Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 conserva 6 hallazgos, del mismo tipo que los documentados en la generacion anterior; se mantiene la adopcion como derivado de trabajo con `--forzar`, con ajuste geometrico y revision visual pendientes.
