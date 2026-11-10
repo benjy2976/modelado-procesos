@@ -9,7 +9,7 @@ nivel_proceso: 2
 proceso:
   - S4.3.2
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -113,6 +113,8 @@ Por instruccion del equipo, `DEC-030` aplico la recomendacion inicial con tres b
 | S4.3.2.6 Gestion de paralizacion y reinicio | Subproceso de evento no interruptivo condicional | Paralizacion y reinicio, en instancias separadas y con tratamiento por regimen |
 
 En los detalles, `DEC-037` mantiene al residente y al responsable del control de obra como roles funcionales comunes, mientras el regimen selecciona la regla aplicable. `DEC-042` precisa su pertenencia: el residente y el contratista o representante legal forman parte del Ejecutor de obra; supervisor contratado e inspector de la entidad son alternativas funcionales, no una misma organizacion. `DEC-038` conserva la segregacion entre necesidad, elaboracion, revision tecnica, controles complementarios, consolidacion y decision. `DEC-041` denomina al rol de gestion **SGGOS — Coordinador de obra**: puede clasificar inicialmente alcance original, causal y figura cuando no se necesita juicio tecnico especializado, pero no sustituye al especialista competente. El carril estable de decision es **Titular de la competencia o autoridad delegada**.
+
+`DEC-043` y la [seccion 7.4 del estandar](../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) fijan para los seis hijos la convencion de titulos y el uso de `almacen: SGD` en registros o derivaciones internos observados. La precision de pertenencia de `DEC-042` permanece: un nombre funcional unificado para supervisor o inspector no los convierte en una organizacion. El diagrama padre muestra subprocesos, sin registro o derivacion interna detallada que justifique dibujar el SGD en ese nivel.
 
 ### Definicion institucional de Cuaderno de Incidencias
 

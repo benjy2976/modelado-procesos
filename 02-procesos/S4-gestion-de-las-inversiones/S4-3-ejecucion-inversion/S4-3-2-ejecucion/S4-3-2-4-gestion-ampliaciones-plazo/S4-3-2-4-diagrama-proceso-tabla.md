@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.4
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -24,38 +24,41 @@ Sube a: [S4.3.2.4 Gestion de ampliaciones de plazo](00-S4-3-2-4-gestion-ampliaci
 
 Modelo inicial extraido de la variante `MOD-PLA-AMP` del anterior S4.3.2.3. La instancia es una por solicitud o causal de ampliacion. Cuaderno de Incidencias es la denominacion institucional uniforme; las fuentes de administracion directa pueden usar cuaderno de obra.
 
-Ejecutor de obra agrupa al residente y los demas roles del ejecutor cuando intervengan. Control de obra es una abstraccion funcional ejercida alternativamente por supervisor contratado o inspector de la entidad, segun modalidad; no supone concurrencia ni identidad organizacional (`DEC-042`).
+Esta revision representa al Contratista y al Supervisor o inspector de obra segun la modalidad. El segundo nombre es una alternativa funcional: el supervisor contratado y el inspector de la entidad no actuan simultaneamente ni pertenecen a la misma organizacion. Los registros y derivaciones internas del Gobierno Regional se realizan mediante el Sistema de Gestion Documental (SGD), representado como almacen de datos BPMN; su uso no implica una decision automatica.
 
 ## Pools
 
 | Pool | Carriles |
 |---|---|
-| Ejecutor de obra | Residente de obra |
-| Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad |
-| Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental; SGGOS — Coordinador de obra; Especialista competente; SGGOS — Control contractual y costos; Titular de la competencia o autoridad delegada |
+| Contratista | Contratista |
+| Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad |
+| Gobierno Regional Huanuco | OACGD — Registro documentario; SGGOS — Coordinador de obra; SGGOS — Subgerente de Gestion de Obras y Supervision; GRI — Gerente Regional de Infraestructura; GRAJ — Asesoria Juridica; Autoridad competente para resolver |
 
 ## Elementos
 
 | ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Clase | Fuente |
 |---|---|---|---|---|---|---|---|---|---|
-| R-E1 | Ejecutor de obra | Residente de obra | inicio-condicional | Causal de ampliacion identificada | R-T1 |  |  | NORM | Reglamento, arts. 198 y 200; Directiva 017-2023-CG, num. 7.3.7 |
-| R-T1 | Ejecutor de obra | Residente de obra | tarea-usuario | Registrar y sustentar la causal en el Cuaderno de Incidencias | R-F1 | sale: Solicitud y sustento |  | NORM | Reglamento, art. 200.1 a; Directiva 017-2023-CG, num. 7.3.7 |
-| R-F1 | Ejecutor de obra | Residente de obra | fin-mensaje | Solicitud de ampliacion remitida |  |  |  | NORM | Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7 |
-| S-E1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | inicio-mensaje | Solicitud de ampliacion recibida | S-T1 | entra: Solicitud y sustento |  | NORM | Reglamento, art. 200.1 b; Directiva 017-2023-CG, num. 7.3.7 |
-| S-T1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | tarea | Evaluar la causal y emitir opinion | S-F1 | sale: Opinion del responsable del control de obra |  | NORM | Reglamento, arts. 198 y 200.1 b; Directiva 017-2023-CG, num. 7.3.7 |
-| S-F1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | fin-mensaje | Solicitud y opinion remitidas al GORE |  |  |  | NORM | Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7 |
-| E-E1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | inicio-mensaje | Expediente de ampliacion recibido | E-T1 | entra: Solicitud y opinion |  | EQ | ROF, art. 20; DEC-041 |
-| E-T1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | tarea-usuario | Registrar y derivar a la SGGOS | E-T2 | sale: Registro y derivacion |  | NORM | ROF, art. 20 |
-| E-T2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad y clasificar regimen y causal | E-G1 | entra: Expediente de ampliacion |  | EQ | ROF, arts. 97-98; DEC-041 |
-| E-G1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Requiere evaluacion tecnica especializada? | E-T3 [Si]; E-T4 [No] (por defecto) |  |  | EQ | El coordinador no sustituye al especialista; DEC-041 |
-| E-T3 | Gobierno Regional Huanuco | Especialista competente | tarea | Evaluar causal y afectacion de la ruta critica | E-T4 | sale: Evaluacion especializada |  | NORM | Reglamento, arts. 198 y 200; Directiva 017-2023-CG, num. 7.3.7 |
-| E-T4 | Gobierno Regional Huanuco | SGGOS — Control contractual y costos | tarea | Revisar procedimiento y efectos contractuales | E-T5 | sale: Control contractual |  | EQ | Reglamento, arts. 198, 200 y 201; ROF, arts. 97-98 |
-| E-T5 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar y elevar el expediente | E-T6 | sale: Expediente consolidado |  | PROP | DEC-041; no sustituye opiniones especializadas |
-| E-T6 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Resolver la solicitud de ampliacion | E-G4 | entra: Expediente consolidado; sale: Pronunciamiento |  | NORM | Reglamento, art. 200; Directiva 017-2023-CG, num. 7.3.7 |
-| E-G4 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T7 [Si] (por defecto); E-F2 [No] |  |  | PROP | Rutas de decision |
-| E-T7 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 | sale: Plazo y cronograma actualizados cuando corresponda |  | NORM | Reglamento, art. 198.4; Directiva 017-2023-CG, num. 7.3.7 |
-| E-F1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Ampliacion de plazo comunicada |  |  |  | PROP | Producto propuesto |
-| E-F2 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Decision no favorable comunicada |  |  |  | PROP | Producto alterno |
+| R-E1 | Contratista | Contratista | inicio-condicional | Causal de ampliacion identificada | R-T1 |  |  | NORM | Reglamento, arts. 198 y 200; Directiva 017-2023-CG, num. 7.3.7 |
+| R-T1 | Contratista | Contratista | tarea-usuario | Registrar causal en Cuaderno y presentar solicitud | R-F1 | sale: Solicitud y sustento |  | NORM | Reglamento, art. 200.1 a; Directiva 017-2023-CG, num. 7.3.7 |
+| R-F1 | Contratista | Contratista | fin-mensaje | Solicitud de ampliacion remitida |  |  |  | NORM | Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7 |
+| S-E1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Solicitud de ampliacion recibida | S-T1 | entra: Solicitud y sustento |  | NORM | Reglamento, art. 200.1 b; Directiva 017-2023-CG, num. 7.3.7 |
+| S-T1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Evaluar la causal y emitir opinion | S-F1 |  |  | NORM | Reglamento, arts. 198 y 200.1 b; Directiva 017-2023-CG, num. 7.3.7 |
+| S-F1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Solicitud y opinion remitidas al GORE |  |  |  | NORM | Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7 |
+| E-E1 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Expediente de ampliacion recibido | E-T1 | entra: Solicitud y opinion |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
+| E-T1 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar expediente y derivar a SGGOS por SGD | E-T2 | sale: Registro y derivacion; almacen: SGD |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
+| E-T2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Evaluar solicitud y sustento de ampliacion | E-T3 | entra: Expediente de ampliacion; sale: Evaluacion del coordinador |  | EQ | Observacion del usuario, 2026-11-10; ROF, arts. 97-98 |
+| E-T3 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Emitir informe y elevar expediente al subgerente por SGD | E-T4 | sale: Informe del coordinador; almacen: SGD |  | EQ | Observacion del usuario, 2026-11-10 |
+| E-T4 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Hacer suyo o emitir informe tecnico de procedencia | E-T5 | entra: Informe del coordinador; sale: Informe tecnico de SGGOS |  | EQ | Observacion del usuario, 2026-11-10; ROF, arts. 97-98 |
+| E-T5 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea-usuario | Elevar informe tecnico y expediente a GRI por SGD | E-T6 | sale: Derivacion a GRI; almacen: SGD |  | EQ | Observacion del usuario, 2026-11-10 |
+| E-T6 | Gobierno Regional Huanuco | GRI — Gerente Regional de Infraestructura | tarea | Evaluar procedencia y hacer suyo o emitir criterio propio | E-T7 | entra: Informe tecnico de SGGOS; sale: Criterio del gerente |  | EQ | Observacion del usuario, 2026-11-10; ROF, arts. 92-93 |
+| E-T7 | Gobierno Regional Huanuco | GRI — Gerente Regional de Infraestructura | tarea-usuario | Remitir expediente con memorandum a GRAJ por SGD | E-T8 | sale: Memorandum y expediente; almacen: SGD |  | EQ | Observacion del usuario, 2026-11-10 |
+| E-T8 | Gobierno Regional Huanuco | GRAJ — Asesoria Juridica | tarea | Emitir opinion legal sobre la ampliacion | E-T8A | entra: Memorandum y expediente; sale: Opinion legal |  | EQ | Aclaraciones del usuario, 2026-11-10; ROF, arts. 44-45 |
+| E-T8A | Gobierno Regional Huanuco | GRAJ — Asesoria Juridica | tarea-usuario | Proyectar resolucion y derivar expediente al decisor por SGD | E-T9 | sale: Proyecto de resolucion y expediente; almacen: SGD |  | EQ | Aclaracion del usuario, 2026-11-10 |
+| E-T9 | Gobierno Regional Huanuco | Autoridad competente para resolver | tarea-usuario | Resolver la solicitud mediante resolucion | E-G1 | entra: Expediente, opinion legal y proyecto de resolucion; sale: Resolucion; almacen: SGD |  | EQ | Aclaracion del usuario, 2026-11-10; Reglamento, art. 200; Directiva 017-2023-CG, num. 7.3.7; autoridad concreta pendiente |
+| E-G1 | Gobierno Regional Huanuco | Autoridad competente para resolver | compuerta | ¿Se aprueba la ampliacion? | E-T10 [Si]; E-F2 [No] |  |  | PROP | Dos resultados posibles de la decision |
+| E-T10 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar plazo y cronograma y registrar decision en SGD | E-F1 | sale: Plazo y cronograma actualizados cuando corresponda; almacen: SGD |  | EQ | Reglamento, art. 198.4; observacion del usuario, 2026-11-10 |
+| E-F1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Resolucion favorable comunicada |  |  |  | PROP | Producto propuesto; aclaracion del usuario, 2026-11-10 |
+| E-F2 | Gobierno Regional Huanuco | Autoridad competente para resolver | fin-mensaje | Resolucion no favorable comunicada |  |  |  | PROP | Producto alterno; aclaracion del usuario, 2026-11-10 |
 
 ## Mensajes
 

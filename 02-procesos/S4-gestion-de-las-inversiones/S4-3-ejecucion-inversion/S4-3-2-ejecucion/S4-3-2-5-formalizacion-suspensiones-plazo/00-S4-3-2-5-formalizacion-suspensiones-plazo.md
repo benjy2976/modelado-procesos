@@ -32,8 +32,8 @@ Gestiona una instancia por causa de suspension contractual o por verificacion de
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
-| Recibe | Ejecutor de obra y control de obra | Causa que impide continuar, registrada y evaluada |
-| Coordina con | Ejecutor de obra, mediante el contratista o su representante legal | Condiciones del acuerdo de suspension contractual |
+| Recibe | Contratista y supervisor o inspector de obra | Causa que impide continuar, registrada y evaluada |
+| Coordina con | Contratista o su representante legal | Condiciones del acuerdo de suspension contractual |
 | Envia | Participantes de la ejecucion | Suspension formalizada o reanudacion del plazo suspendido |
 
 ## Documentos del proceso

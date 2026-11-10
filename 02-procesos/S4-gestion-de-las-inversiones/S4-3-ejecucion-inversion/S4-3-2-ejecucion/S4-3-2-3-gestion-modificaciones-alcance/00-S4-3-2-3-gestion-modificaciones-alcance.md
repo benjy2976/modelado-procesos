@@ -33,7 +33,7 @@ Gestiona una instancia por solicitud, necesidad o causal de modificacion de alca
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
 | Recibe | S4.3.2.2 Atencion de consultas de obra | Respuesta que identifica una posible modificacion de alcance |
-| Recibe | Ejecutor de obra y control de obra | Registro en el Cuaderno de Incidencias, sustento de necesidad e informe tecnico cuando corresponda |
+| Recibe | Ejecutor de obra, segun regimen; supervisor o inspector de obra | Registro en el Cuaderno de Incidencias, sustento de necesidad e informe tecnico cuando corresponda |
 | Solicita a | Equipo elaborador definido en las bases o designado por la OAD, con adscripcion por confirmar | Expediente tecnico de la modificacion cuando la figura lo requiere |
 | Solicita | Contraloria General de la Republica | Autorizacion previa solo cuando la Ley 32069 la exige |
 | Envia | Participantes de la ejecucion | Modificacion aprobada, denegada, declarada improcedente u observada |

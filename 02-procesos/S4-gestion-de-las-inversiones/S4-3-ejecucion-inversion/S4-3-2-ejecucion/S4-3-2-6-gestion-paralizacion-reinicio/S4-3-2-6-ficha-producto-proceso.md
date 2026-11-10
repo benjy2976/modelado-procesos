@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.6
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,8 +52,8 @@ Propuesta: gestionar de manera trazable la paralizacion de una obra y su posteri
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra y control de obra | Causal de paralizacion registrada y validada | Paralizacion formalizada o decision no favorable | Participantes de la ejecucion |
-| Ejecutor de obra; control de obra; especialista competente cuando corresponda | Condiciones de reinicio registradas y verificadas | Reinicio formalizado o decision no favorable | Participantes de la ejecucion |
+| Ejecutor de obra, segun regimen; supervisor o inspector de obra | Causal de paralizacion registrada y validada | Paralizacion formalizada o decision no favorable | Participantes de la ejecucion |
+| Ejecutor de obra, segun regimen; supervisor o inspector de obra; especialista competente cuando corresponda | Condiciones de reinicio registradas y verificadas | Reinicio formalizado o decision no favorable | Participantes de la ejecucion |
 
 ## Actividades del proceso
 

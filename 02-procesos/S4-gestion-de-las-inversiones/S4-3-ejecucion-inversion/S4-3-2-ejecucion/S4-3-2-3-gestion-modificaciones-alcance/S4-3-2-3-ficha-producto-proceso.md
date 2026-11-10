@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,7 +52,7 @@ Propuesta: gestionar de manera trazable las modificaciones de alcance de una obr
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra, control de obra o S4.3.2.2 | Solicitud, necesidad o causal; registro en el Cuaderno de Incidencias; informe y antecedentes tecnicos | Decision sobre la modificacion de alcance, registrada y comunicada | Ejecutor de obra, control de obra y unidades del GORE involucradas |
+| Ejecutor de obra, segun regimen; supervisor o inspector de obra; S4.3.2.2 | Solicitud, necesidad o causal; registro en el Cuaderno de Incidencias; informe y antecedentes tecnicos | Decision sobre la modificacion de alcance, registrada y comunicada | Ejecutor de obra, segun regimen; supervisor o inspector de obra; unidades del GORE involucradas |
 | Equipo elaborador definido en las bases o designado por la OAD, con adscripcion por confirmar | Expediente tecnico desarrollado o subsanado | Solucion tecnica documentada para revision institucional | SGE y SGGOS |
 | Especialistas y controles competentes; Contraloria cuando corresponda | Opinion tecnica independiente, control contractual y de costos, disponibilidad presupuestal, revision legal o autorizacion externa | Expediente integrado para decision | Titular de la competencia o autoridad delegada |
 | Titular de la competencia o autoridad delegada | Pronunciamiento formal | Modificacion aprobada, denegada o declarada improcedente y comunicada | Participantes de la ejecucion y sistemas aplicables |

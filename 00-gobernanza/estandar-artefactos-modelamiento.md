@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -249,6 +249,37 @@ Previstos para una segunda fase, aun fuera de la paleta: subproceso de evento co
 No se usan: compuerta compleja (p. 45; "por ningun motivo" en el nivel descriptivo, p. 148), tareas de envio y recepcion (tecnicas, p. 79), eventos de conexion (tecnicos, p. 66), flujos condicionales que salen de una actividad (fig. 3.8, p. 149), y diagramas de coreografia y conversacion (2.12, p. 113; el Anexo 3 de la NT pide orquestacion).
 
 Buenas practicas que el control D5 verifica: compuerta exclusiva o inclusiva con pregunta y salidas rotuladas (p. 36); ramas paralelas sin condicion (p. 38); compuerta basada en eventos con eventos de captura como destino (p. 74); todo proceso con inicio y fin (p. 35); eventos de borde sobre actividades y de error con interrupcion (p. 90); subproceso de evento con un unico disparador (p. 96-98); actividades con nombre.
+
+### 7.4 Convencion de carriles y SGD en S4.3.2
+
+Convencion de modelamiento del proyecto para S4.3.2, sus seis hijos y las futuras revisiones o variantes dentro de este arbol (`DEC-043`), a partir de la observacion del usuario del 2026-11-10. Ordena etiquetas y notacion; no acredita adscripciones, delegaciones ni configuracion tecnica del SGD. Las responsabilidades y modalidades se sustentan en cada proceso. Los diagramas aprobados fuera de este alcance no se modifican por esta convencion.
+
+1. El pool nombra al participante u organizacion que controla su parte del proceso; el carril nombra al cargo o funcion responsable. La ruta exclusivamente contractual usa el pool `Contratista` y conserva dentro de el al residente, representante o especialistas propios cuando intervienen. Una ruta que unifica contrata y administracion directa usa provisionalmente `Ejecutor de obra, segun regimen`, con la diferencia de organizacion declarada en el sustento. Supervisor contratado e inspector de la entidad son alternativas funcionales, no una sola organizacion ni actores simultaneos. El pool funcional unificado se titula `Supervisor o inspector de obra`, con el carril `Supervisor o inspector de obra, segun modalidad`; la ruta solo de supervision contratada puede usar su participante propio. La asignacion de supervisor o inspector no se infiere exclusivamente del regimen de ejecucion (`DEC-037`). Cuando un modelo no puede expresar la pertenencia con pools separados, el sustento declara la abstraccion y la variante pendiente.
+2. Para un carril interno con unidad acreditada se usa `SIGLA — cargo o funcion`, con raya larga y espacios; cuando no exista sigla acreditada, se usa `nombre de unidad — funcion`. No se mezclan la sigla, el nombre completo y el guion corto para la misma unidad en distintos diagramas. El nombre completo de cada sigla se conserva en el sustento. Si la unidad o delegacion no esta acreditada, se usa un titulo funcional y se registra `EVIDENCIA-INSUFICIENTE`; no se inventa una sigla.
+3. Las etiquetas comunes son `OACGD — Registro documentario`, `SGGOS — Coordinador de obra`, `SGE — Especialistas tecnicos`, `SGE — Subgerente de Estudios` y `GRAJ — Asesoria Juridica`, solo donde esos roles intervienen. Los cargos de SGGOS y GRI especificos de S4.3.2.4 conservan los nombres completos registrados en su sustento. El especialista sin adscripcion confirmada y la autoridad decisoria sin delegacion acreditada conservan titulos funcionales provisionales.
+4. `SGD` significa Sistema de Gestion Documental del Gobierno Regional. En la tabla se representa mediante `almacen: SGD` en la columna `Documentos`, que genera el **almacen de datos BPMN 2.0** de la paleta 7.3. La tarea humana de registrar, derivar o elevar se mantiene en el carril responsable y se denomina `tarea-usuario` cuando la persona interactua con el sistema. La etiqueta de la tarea indica `por SGD` cuando la derivacion interna es parte del flujo.
+5. El almacen expresa persistencia o consulta documental; no sustituye una actividad, un flujo de secuencia, un mensaje entre participantes ni el documento producido (`entra:` o `sale:`). No se dibuja un pool o carril `SGD`, ni se atribuye al sistema una evaluacion, aprobacion, notificacion externa o decision automatica. Se agrega `almacen: SGD` solo a un registro o derivacion interna respaldada por evidencia del proceso; la recepcion o comunicacion externa no se presume realizada en SGD. Las duplicaciones del icono que perjudiquen el trazado pueden omitirse si el uso queda claro en la actividad y el sustento.
+
+Catalogo de titulos vigentes para los modelos logicos de este alcance:
+
+| Titulo | Aplicacion |
+|---|---|
+| Contratista | Pool de rutas exclusivamente por contrata; residente, representante y especialistas propios son sus carriles cuando intervienen |
+| Ejecutor de obra, segun regimen | Pool funcional provisional de rutas que incluyen contrata y administracion directa; la organizacion se precisa en el sustento |
+| Residente de obra; Equipo especialista del ejecutor; Contratista o representante legal del contratista, solo contrata | Carriles del participante ejecutor o contratista, segun las responsabilidades efectivamente modeladas |
+| Supervision contratada | Pool externo de la variante solo con supervisor contratado |
+| Supervisor o inspector de obra / Supervisor o inspector de obra, segun modalidad | Pool y carril funcionales de variantes alternativas; el inspector pertenece a la entidad |
+| Supervisor de obra; Equipo especialista de la supervision | Carriles de la supervision contratada en S4.3.2.2 |
+| Proyectista; Contraloria General de la Republica | Participantes externos presentes solo en los procesos que les envian o reciben mensajes |
+| OACGD — Registro documentario | Registro y derivacion documentaria de la entidad |
+| SGGOS — Coordinador de obra; SGGOS — Control contractual y costos; SGGOS — Subgerente de Gestion de Obras y Supervision | Funciones distintas dentro de SGGOS; se usa solo el carril que interviene |
+| SGE — Especialistas tecnicos; SGE — Subgerente de Estudios; SGE — Coordinacion de revision tecnica; SGE — Especialista tecnico competente | Funciones distintas de SGE, segun el proceso |
+| Subgerencia de Presupuesto Publico — Control presupuestal | Funcion presupuestal de S4.3.2.3; sin sigla presumida |
+| GRAJ — Asesoria Juridica; GRI — Gerente Regional de Infraestructura | Funciones juridica y gerencial cuando intervienen |
+| Especialista competente; Equipo elaborador competente (adscripcion pendiente); Gobierno Regional Huanuco — Unidad responsable pendiente | Titulos provisionales; unidad o adscripcion por acreditar |
+| Titular de la competencia o autoridad delegada; Autoridad competente para resolver | Titulos funcionales de decision segun el acto del proceso; cargo y delegacion por acreditar |
+
+S4.3.2.1 conserva provisionalmente un solo pool de proceso heredado del modelo inicial. Sus carriles combinan participante y rol, con el mismo vocabulario de esta seccion; la separacion en participantes BPMN queda pendiente de contraste y no se cambia solo por una normalizacion de titulos.
 
 ## 8. Automatizacion requerida
 

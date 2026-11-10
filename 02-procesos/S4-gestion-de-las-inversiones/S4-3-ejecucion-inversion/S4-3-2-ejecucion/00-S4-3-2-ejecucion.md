@@ -51,6 +51,7 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 - Recibe de [S4.3.1 Inicio de ejecucion](../S4-3-1-inicio-de-ejecucion/00-S4-3-1-inicio-de-ejecucion.md) el acta de inicio de obra.
 - Envia a [S4.3.3 Recepcion](../S4-3-3-recepcion/00-S4-3-3-recepcion.md) la obra culminada o el contrato resuelto o nulo.
 - [Estandar de artefactos, seccion 6.1](../../../../00-gobernanza/estandar-artefactos-modelamiento.md)
+- [Convencion de carriles y SGD para S4.3.2, seccion 7.4](../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432)
 
 ## Criterio de trazado ? 2026-11-06
 

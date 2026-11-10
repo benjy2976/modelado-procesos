@@ -26,13 +26,13 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 ## Que hace
 
-Gestiona una instancia por causal de paralizacion y otra por solicitud o condicion de reinicio. El ejecutor registra el hecho, el control de obra lo valida mediante supervisor contratado o inspector de la entidad segun modalidad, se clasifica el regimen y la causal, se incorpora evaluacion especializada cuando corresponde y se produce una decision formal comunicada.
+Gestiona una instancia por causal de paralizacion y otra por solicitud o condicion de reinicio. El ejecutor registra el hecho, el supervisor o inspector de obra lo valida mediante supervisor contratado o inspector de la entidad segun modalidad, se clasifica el regimen y la causal, se incorpora evaluacion especializada cuando corresponde y se produce una decision formal comunicada.
 
 ## Interacciones
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
-| Recibe | Ejecutor de obra y control de obra | Causal o condiciones de reinicio registradas, sustentadas y validadas |
+| Recibe | Ejecutor de obra, segun regimen; supervisor o inspector de obra | Causal o condiciones de reinicio registradas, sustentadas y validadas |
 | Envia | Participantes de la ejecucion | Paralizacion formalizada, reinicio formalizado o decision no favorable |
 | Puede derivar | Termino de S4.3.2 | La resolucion del contrato, si corresponde, se trata como terminacion interruptiva del proceso padre |
 

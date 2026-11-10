@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.6
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -24,28 +24,28 @@ Sube a: [S4.3.2.6 Gestion de paralizacion y reinicio](00-S4-3-2-6-gestion-parali
 
 Modelo inicial extraido de la anterior variante agrupada. Una instancia atiende un evento de paralizacion o de reinicio; despues de la validacion comun, los actos y cierres se mantienen separados. No existe una espera indefinida entre ambos eventos.
 
-Ejecutor de obra agrupa al residente y los demas roles del ejecutor cuando intervengan. Control de obra es una abstraccion funcional ejercida alternativamente por supervisor contratado o inspector de la entidad, segun modalidad; no supone concurrencia ni identidad organizacional (`DEC-042`).
+Ejecutor de obra, segun regimen agrupa al residente y los demas roles del ejecutor cuando intervengan. Supervisor o inspector de obra es una abstraccion funcional ejercida alternativamente por supervisor contratado o inspector de la entidad, segun modalidad; no supone concurrencia ni identidad organizacional (`DEC-042`).
 
 ## Pools
 
 | Pool | Carriles |
 |---|---|
-| Ejecutor de obra | Residente de obra |
-| Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad |
-| Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental; SGGOS — Coordinador de obra; Especialista competente; Titular de la competencia o autoridad delegada |
+| Ejecutor de obra, segun regimen | Residente de obra |
+| Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad |
+| Gobierno Regional Huanuco | OACGD — Registro documentario; SGGOS — Coordinador de obra; Especialista competente; Titular de la competencia o autoridad delegada |
 
 ## Elementos
 
 | ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Clase | Fuente |
 |---|---|---|---|---|---|---|---|---|---|
-| R-E1 | Ejecutor de obra | Residente de obra | inicio-condicional | Evento de paralizacion o reinicio identificado | R-T1 |  |  | NORM | Ley 31589, art. 2; Directiva 017-2023-CG, num. 7.3.7 |
-| R-T1 | Ejecutor de obra | Residente de obra | tarea-usuario | Registrar y sustentar el evento en el Cuaderno de Incidencias | R-F1 | sale: Causal de paralizacion o solicitud de reinicio |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Reglamento, art. 188.3 cuando corresponda |
-| R-F1 | Ejecutor de obra | Residente de obra | fin-mensaje | Evento y sustento remitidos |  |  |  | PROP | Aplicacion operativa de las fuentes citadas |
-| S-E1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | inicio-mensaje | Evento y sustento recibidos | S-T1 | entra: Causal o solicitud |  | NORM | Directiva 017-2023-CG, num. 7.3.7 |
-| S-T1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | tarea | Validar la causal o las condiciones de reinicio | S-F1 | sale: Validacion y opinion |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Ley 31589, art. 5.2 en su ambito |
-| S-F1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | fin-mensaje | Evento validado y remitido |  |  |  | PROP | Circuito propuesto sobre las fuentes citadas |
-| E-E1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | inicio-mensaje | Expediente recibido | E-T1 | entra: Evento, sustento y opinion |  | EQ | ROF, art. 20; DEC-041 |
-| E-T1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | tarea-usuario | Registrar y derivar a la SGGOS | E-T2 | sale: Registro y derivacion |  | NORM | ROF, art. 20 |
+| R-E1 | Ejecutor de obra, segun regimen | Residente de obra | inicio-condicional | Evento de paralizacion o reinicio identificado | R-T1 |  |  | NORM | Ley 31589, art. 2; Directiva 017-2023-CG, num. 7.3.7 |
+| R-T1 | Ejecutor de obra, segun regimen | Residente de obra | tarea-usuario | Registrar y sustentar el evento en el Cuaderno de Incidencias | R-F1 | sale: Causal de paralizacion o solicitud de reinicio |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Reglamento, art. 188.3 cuando corresponda |
+| R-F1 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Evento y sustento remitidos |  |  |  | PROP | Aplicacion operativa de las fuentes citadas |
+| S-E1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Evento y sustento recibidos | S-T1 | entra: Causal o solicitud |  | NORM | Directiva 017-2023-CG, num. 7.3.7 |
+| S-T1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Validar la causal o las condiciones de reinicio | S-F1 | sale: Validacion y opinion |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Ley 31589, art. 5.2 en su ambito |
+| S-F1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Evento validado y remitido |  |  |  | PROP | Circuito propuesto sobre las fuentes citadas |
+| E-E1 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Expediente recibido | E-T1 | entra: Evento, sustento y opinion |  | EQ | ROF, art. 20; DEC-041 |
+| E-T1 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar y derivar a SGGOS por SGD | E-T2 | sale: Registro y derivacion; almacen: SGD |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
 | E-T2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad y clasificar regimen y evento | E-G1 | entra: Expediente |  | EQ | ROF, arts. 97-98; DEC-041 |
 | E-G1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Requiere evaluacion tecnica especializada? | E-T3 [Si]; E-G2 [No] (por defecto) |  |  | EQ | El coordinador no sustituye al especialista; DEC-041 |
 | E-T3 | Gobierno Regional Huanuco | Especialista competente | tarea | Evaluar causal o condiciones tecnicas | E-G2 | sale: Evaluacion especializada |  | PROP | Alcance exacto pendiente por regimen |

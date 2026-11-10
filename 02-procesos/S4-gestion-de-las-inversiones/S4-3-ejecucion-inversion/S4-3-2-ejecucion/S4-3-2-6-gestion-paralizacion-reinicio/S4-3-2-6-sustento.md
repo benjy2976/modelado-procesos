@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.6
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -89,3 +89,9 @@ Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4
 ## Mejora del perfil zigzag-controlado ? 2026-11-06
 
 Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 conserva 6 hallazgos, del mismo tipo que los documentados en la generacion anterior; se mantiene la adopcion como derivado de trabajo con `--forzar`, con ajuste geometrico y revision visual pendientes.
+
+## Convencion de carriles y SGD
+
+Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool funcional antes titulado Control de obra se muestra como Supervisor o inspector de obra, segun modalidad; no se presume una misma organizacion. OACGD usa la etiqueta uniforme. El registro y la derivacion inicial a SGGOS se modelan con tarea de usuario y `almacen: SGD`. Otras actividades de consolidacion no se declaran derivaciones por SGD sin evidencia de su tramite. El pool Ejecutor de obra, segun regimen es una abstraccion provisional mientras se contrasta la organizacion por modalidad.
+
+La generacion focalizada de esta normalizacion deja D1, D2, D3 y D5 sin hallazgos. D4 registra 6 hallazgos geometricos (un tramo compartido, etiquetas montadas y un cruce con etiqueta) en las rutas de paralizacion y reinicio; no afectan las referencias ni la terminacion. Se adoptaron BPMN, SVG, PNG y HTML de trabajo con `--forzar`, con revision visual y ajuste de disposicion pendientes antes de una linea base. No se atribuye conformidad institucional.

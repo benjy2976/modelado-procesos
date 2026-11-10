@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,9 +52,9 @@ Propuesta: absolver y comunicar oportunamente las consultas formuladas durante l
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra por contrata, mediante el residente y su equipo especialista cuando corresponda | Consulta registrada en el Cuaderno de Incidencias, antecedentes e informe tecnico cuando corresponda | Consulta absuelta y comunicada | Ejecutor de obra por contrata; supervision contratada |
-| Supervision contratada, mediante el supervisor de obra | Consulta elevada y opinion tecnica; o consulta originada por la supervision | Respuesta institucional firmada por el Subgerente de Estudios | Supervision contratada; ejecutor de obra por contrata |
-| Proyectista, cuando corresponda | Opinion tecnica | Informe tecnico de absolucion y respuesta sustentada | Supervision contratada; ejecutor de obra por contrata |
+| Contratista, mediante el residente y su equipo especialista cuando corresponda | Consulta registrada en el Cuaderno de Incidencias, antecedentes e informe tecnico cuando corresponda | Consulta absuelta y comunicada | Contratista; supervision contratada |
+| Supervision contratada, mediante el supervisor de obra | Consulta elevada y opinion tecnica; o consulta originada por la supervision | Respuesta institucional firmada por el Subgerente de Estudios | Supervision contratada; contratista |
+| Proyectista, cuando corresponda | Opinion tecnica | Informe tecnico de absolucion y respuesta sustentada | Supervision contratada; contratista |
 | SGE | Respuesta que identifica una modificacion | Causal y antecedentes comunicados | S4.3.2.3 a S4.3.2.6, segun corresponda |
 
 ## Actividades del proceso

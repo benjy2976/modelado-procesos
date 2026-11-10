@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -118,3 +118,9 @@ Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4
 ## Mejora del perfil zigzag-controlado ? 2026-11-06
 
 Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 conserva 18 hallazgos, del mismo tipo que los documentados en la generacion anterior; se mantiene la adopcion como derivado de trabajo con `--forzar`, con ajuste geometrico y revision visual pendientes.
+
+## Convencion de carriles y SGD
+
+Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool funcional antes titulado Control de obra se muestra como Supervisor o inspector de obra, segun modalidad, sin afirmar identidad organizacional ni concurrencia. OACGD y GRAJ usan las etiquetas uniformes. El registro y la derivacion inicial a SGGOS se modelan con tarea de usuario y `almacen: SGD`. No se presume el medio de las comunicaciones externas ni de otros registros. El pool Ejecutor de obra, segun regimen es una abstraccion provisional de las rutas de contrata y administracion directa.
+
+La generacion focalizada de esta normalizacion deja D1, D2, D3 y D5 sin hallazgos. D4 registra 18 hallazgos geometricos en el circuito de autorizacion y convergencia (flujos compartidos, etiquetas montadas y cruces con etiquetas); no afectan las referencias ni la terminacion. Se adoptaron BPMN, SVG, PNG y HTML de trabajo con `--forzar`, con revision visual y ajuste de disposicion pendientes antes de una linea base. No se atribuye conformidad institucional.

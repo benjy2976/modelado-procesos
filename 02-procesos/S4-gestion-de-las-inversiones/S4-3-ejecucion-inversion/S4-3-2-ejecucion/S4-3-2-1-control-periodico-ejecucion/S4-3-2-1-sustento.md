@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.1
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -89,3 +89,9 @@ Resultado de los controles de esta generacion: D1, D2, D3 y D5 sin hallazgos. D4
 ## Mejora del perfil zigzag-controlado ? 2026-11-06
 
 Por solicitud del usuario se aplica la mejora general del perfil: compactacion de circuitos independientes y seleccion de corredores de mensajes con control de interferencias. Se conserva la semantica BPMN; no cambian actividades, responsables ni relaciones del proceso. D1, D2, D3 y D5 sin hallazgos. D4 sin hallazgos.
+
+## Convencion de carriles y SGD
+
+Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. En este modelo preliminar de un solo pool, los carriles identifican por nombre la responsabilidad del residente, del supervisor o inspector y de la unidad institucional aun no acreditada. La derivacion interna del informe para tramite de pago se expresa como tarea de usuario y `almacen: SGD`. La adscripcion de la unidad receptora sigue con `EVIDENCIA-INSUFICIENTE`; el uso de SGD no identifica al destinatario del pago. El titulo Ejecutor de obra, segun regimen conserva la diferencia entre contrata y administracion directa sin atribuir un contratista a esta ultima.
+
+La generacion focalizada de esta normalizacion deja D1-D5 sin hallazgos. Se regeneraron BPMN, SVG, PNG y HTML. No se ha realizado revision visual ni se atribuye conformidad institucional.

@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -29,7 +29,7 @@ Notas que no se dibujan:
 - La instancia es una por solicitud, necesidad o causal de modificacion de alcance.
 - `MOD-ALC-*` identifica variantes internas de modelamiento, no codigos de nivel 4.
 - Cuaderno de Incidencias es la denominacion institucional uniforme adoptada para este modelo, incluso en administracion directa; las fuentes de esa modalidad pueden denominarlo cuaderno de obra.
-- Ejecutor de obra agrupa al residente y, cuando una actividad contractual lo exige, al contratista o su representante legal. Control de obra es una abstraccion funcional ejercida alternativamente por supervisor contratado o inspector de la entidad; no los convierte en una misma organizacion ni supone que concurran.
+- Ejecutor de obra, segun regimen agrupa al residente y, cuando una actividad contractual lo exige, al contratista o su representante legal. Supervisor o inspector de obra es una abstraccion funcional ejercida alternativamente por supervisor contratado o inspector de la entidad; no los convierte en una misma organizacion ni supone que concurran.
 - Elaboracion del expediente tecnico conserva un pool funcional mientras no se confirme si el equipo elaborador pertenece al ejecutor, al GORE o a un tercero. Esa adscripcion es `EVIDENCIA-INSUFICIENTE`; el pool no atribuye independencia juridica.
 - SGGOS — Coordinador de obra puede verificar integridad y realizar la clasificacion inicial del alcance original, la causal y la figura cuando no se requiere juicio tecnico especializado.
 - Cuando la materia excede su competencia, interviene el especialista competente. El coordinador no sustituye la revision tecnica de especialidad, el control contractual y de costos ni la decision formal.
@@ -40,34 +40,34 @@ Notas que no se dibujan:
 
 | Pool | Carriles |
 |---|---|
-| Ejecutor de obra | Residente de obra |
-| Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad |
-| Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental; SGGOS — Coordinador de obra; SGGOS — Control contractual y costos; SGE — Coordinacion de revision tecnica; SGE — Especialista tecnico competente; Subgerencia de Presupuesto Publico; Gerencia Regional de Asesoria Juridica; Titular de la competencia o autoridad delegada |
-| Elaboracion del expediente tecnico | Equipo elaborador competente; adscripcion pendiente de confirmar |
+| Ejecutor de obra, segun regimen | Residente de obra |
+| Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad |
+| Gobierno Regional Huanuco | OACGD — Registro documentario; SGGOS — Coordinador de obra; SGGOS — Control contractual y costos; SGE — Coordinacion de revision tecnica; SGE — Especialista tecnico competente; Subgerencia de Presupuesto Publico — Control presupuestal; GRAJ — Asesoria Juridica; Titular de la competencia o autoridad delegada |
+| Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) |
 | Contraloria General de la Republica |  |
 
 ## Elementos
 
 | ID | Pool | Carril | Tipo | Nombre | Siguiente | Adjunto | Interrumpe | Documentos | Plazo | Disparador | Anotacion | Clase | Fuente |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| R-E1 | Ejecutor de obra | Residente de obra | inicio-condicional | Necesidad de modificar el alcance identificada | R-T1 |  |  |  |  |  |  | NORM | Reglamento, arts. 194 y 197; Directiva 017-2023-CG, num. 7.3.6 |
-| R-T1 | Ejecutor de obra | Residente de obra | tarea-usuario | Registrar y sustentar la necesidad en el Cuaderno de Incidencias | R-F1 |  |  | sale: Registro y sustento de necesidad |  |  |  | NORM | Reglamento, arts. 188.3, 194.2 a y 197.1; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6 |
-| R-F1 | Ejecutor de obra | Residente de obra | fin-mensaje | Sustento remitido |  |  |  |  |  |  |  | NORM | Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6 |
-| S-E1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | inicio-mensaje | Sustento del residente recibido | S-G1 |  |  | entra: Registro y sustento de necesidad |  |  |  | NORM | Reglamento, arts. 186.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
-| S-E2 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | inicio-condicional | Necesidad identificada por el control de obra | S-T0 |  |  |  |  |  |  | EQ | Precision operativa del equipo; Reglamento, arts. 186-188 |
-| S-T0 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | tarea-usuario | Registrar la necesidad en el Cuaderno de Incidencias | S-G1 |  |  | sale: Registro de necesidad |  |  |  | EQ | Precision operativa del equipo; Reglamento, art. 188.3; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6 |
-| S-G1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | compuerta |  | S-T1 |  |  |  |  |  |  | PROP | Convergencia de origenes |
-| S-T1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | tarea | Evaluar la necesidad y el riesgo para la ejecucion | S-G2 |  |  |  |  |  |  | NORM | Reglamento, arts. 187.1, 194.2 b y 197.1; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
-| S-G2 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | compuerta | ¿Ratifica la necesidad? | S-F1 [Si]; S-F2 [No] |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 b; Directiva 017-2023-CG, num. 7.3.6 |
-| S-F1 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | fin-mensaje | Necesidad ratificada y remitida |  |  |  | sale: Informe de necesidad |  |  |  | NORM | Reglamento, art. 194.2; Directiva 017-2023-CG, num. 7.3.6 |
-| S-F2 | Control de obra | Supervisor contratado o inspector de la entidad, segun modalidad | fin | Necesidad no ratificada |  |  |  |  |  |  |  | PROP | Cierre propuesto para el control inicial |
-| E-E1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | inicio-mensaje | Expediente recibido | E-T1 |  |  | entra: Informe de necesidad |  |  |  | EQ | ROF, art. 20; DEC-037 |
-| E-T1 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | tarea-usuario | Registrar y derivar a la SGGOS | E-T2 |  |  | sale: Registro y derivacion |  |  |  | NORM | ROF, art. 20 |
+| R-E1 | Ejecutor de obra, segun regimen | Residente de obra | inicio-condicional | Necesidad de modificar el alcance identificada | R-T1 |  |  |  |  |  |  | NORM | Reglamento, arts. 194 y 197; Directiva 017-2023-CG, num. 7.3.6 |
+| R-T1 | Ejecutor de obra, segun regimen | Residente de obra | tarea-usuario | Registrar y sustentar la necesidad en el Cuaderno de Incidencias | R-F1 |  |  | sale: Registro y sustento de necesidad |  |  |  | NORM | Reglamento, arts. 188.3, 194.2 a y 197.1; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6 |
+| R-F1 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Sustento remitido |  |  |  |  |  |  |  | NORM | Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6 |
+| S-E1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Sustento del residente recibido | S-G1 |  |  | entra: Registro y sustento de necesidad |  |  |  | NORM | Reglamento, arts. 186.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
+| S-E2 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-condicional | Necesidad identificada por el control de obra | S-T0 |  |  |  |  |  |  | EQ | Precision operativa del equipo; Reglamento, arts. 186-188 |
+| S-T0 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea-usuario | Registrar la necesidad en el Cuaderno de Incidencias | S-G1 |  |  | sale: Registro de necesidad |  |  |  | EQ | Precision operativa del equipo; Reglamento, art. 188.3; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6 |
+| S-G1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta |  | S-T1 |  |  |  |  |  |  | PROP | Convergencia de origenes |
+| S-T1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Evaluar la necesidad y el riesgo para la ejecucion | S-G2 |  |  |  |  |  |  | NORM | Reglamento, arts. 187.1, 194.2 b y 197.1; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
+| S-G2 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta | ¿Ratifica la necesidad? | S-F1 [Si]; S-F2 [No] |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 b; Directiva 017-2023-CG, num. 7.3.6 |
+| S-F1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Necesidad ratificada y remitida |  |  |  | sale: Informe de necesidad |  |  |  | NORM | Reglamento, art. 194.2; Directiva 017-2023-CG, num. 7.3.6 |
+| S-F2 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin | Necesidad no ratificada |  |  |  |  |  |  |  | PROP | Cierre propuesto para el control inicial |
+| E-E1 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Expediente recibido | E-T1 |  |  | entra: Informe de necesidad |  |  |  | EQ | ROF, art. 20; DEC-037 |
+| E-T1 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar y derivar a SGGOS por SGD | E-T2 |  |  | sale: Registro y derivacion; almacen: SGD |  |  |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
 | E-T2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad y clasificar regimen y modalidad | E-T3 |  |  | entra: Expediente |  |  |  | EQ | ROF, arts. 97-98; DEC-041 |
 | E-T3 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Clasificar alcance original, causal y figura inicial | E-G0 |  |  |  |  |  | Si requiere juicio tecnico especializado, deriva al especialista competente | EQ | Precision del equipo registrada en DEC-041 |
 | E-G0 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Corresponde una modificacion de alcance? | E-G2 [Si]; E-T15 [No] |  |  |  |  |  |  | PROP | Separa obligacion original, valorizacion y modificacion potencial |
-| E-T15 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | tarea-usuario | Comunicar que no corresponde una modificacion de alcance | E-F3 |  |  | sale: Comunicacion |  |  |  | PROP | Resultado de clasificacion inicial; DEC-041 |
-| E-F3 | Gobierno Regional Huanuco | Oficina de Atencion al Ciudadano y Gestion Documental | fin-mensaje | Caso clasificado fuera del proceso |  |  |  |  |  |  |  | PROP | Puede corresponder exigir cumplimiento, valorizar o derivar a otro proceso |
+| E-T15 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Comunicar que no corresponde una modificacion de alcance | E-F3 |  |  | sale: Comunicacion |  |  |  | PROP | Resultado de clasificacion inicial; DEC-041 |
+| E-F3 | Gobierno Regional Huanuco | OACGD — Registro documentario | fin-mensaje | Caso clasificado fuera del proceso |  |  |  |  |  |  |  | PROP | Puede corresponder exigir cumplimiento, valorizar o derivar a otro proceso |
 | E-G2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Que figura de alcance corresponde? | MOD-ALC-ADI [Adicional]; MOD-ALC-RED [Reduccion o deductivo]; MOD-ALC-MAY [Mayores cantidades] |  |  |  |  |  |  | NORM | Ley 32069, arts. 63-64; Reglamento, arts. 109 y 194-197; Directiva 017-2023-CG, num. 7.3.6 |
 | MOD-ALC-ADI | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Clasificar adicional o modificacion tecnica | E-G4 |  |  |  |  |  |  | EQ | Ley 32069, arts. 64.2-64.4; Reglamento, arts. 194-196; Directiva 017-2023-CG, num. 7.3.6 |
 | MOD-ALC-RED | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Clasificar reduccion o deductivo | E-G4 |  |  |  |  |  |  | EQ | Reglamento, art. 109; Directiva 017-2023-CG, num. 7.3.6 |
@@ -83,8 +83,8 @@ Notas que no se dibujan:
 | E-F2A | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | fin-mensaje | Observaciones tecnicas comunicadas |  |  |  |  |  |  |  | PROP | Producto alterno; canal documentario por confirmar |
 | E-G5 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta-inclusiva | ¿Que controles requiere? | E-TC [C]; E-T6 [P]; E-T7 [J]; E-G5C (por defecto) |  |  |  |  |  |  | EQ | Controles combinables segun regimen, figura, impacto y riesgo; DEC-038 |
 | E-TC | Gobierno Regional Huanuco | SGGOS — Control contractual y costos | tarea | Revisar metrados, precios, acumulados y consistencia contractual | E-G5C |  |  | sale: Control contractual y de costos |  |  |  | EQ | Ley 32069, arts. 63-64; Reglamento, arts. 109 y 194-197; ROF, arts. 97-98 |
-| E-T6 | Gobierno Regional Huanuco | Subgerencia de Presupuesto Publico | tarea | Emitir certificacion o prevision cuando corresponda | E-G5C |  |  | sale: Control presupuestal |  |  |  | EQ | ROF, art. 51; Directiva 017-2023-CG, num. 7.3.6 |
-| E-T7 | Gobierno Regional Huanuco | Gerencia Regional de Asesoria Juridica | tarea | Emitir opinion o revisar el acto cuando corresponda | E-G5C |  |  | sale: Control juridico |  |  |  | EQ | ROF, arts. 44-45; Directiva 017-2023-CG, num. 7.3.6 |
+| E-T6 | Gobierno Regional Huanuco | Subgerencia de Presupuesto Publico — Control presupuestal | tarea | Emitir certificacion o prevision cuando corresponda | E-G5C |  |  | sale: Control presupuestal |  |  |  | EQ | ROF, art. 51; Directiva 017-2023-CG, num. 7.3.6 |
+| E-T7 | Gobierno Regional Huanuco | GRAJ — Asesoria Juridica | tarea | Emitir opinion o revisar el acto cuando corresponda | E-G5C |  |  | sale: Control juridico |  |  |  | EQ | ROF, arts. 44-45; Directiva 017-2023-CG, num. 7.3.6 |
 | E-G5C | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta-inclusiva |  | E-T17 |  |  |  |  |  |  | PROP | Convergencia de controles activados |
 | E-T17 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar controles, responsables y discrepancias resueltas | E-G8 |  |  | sale: Expediente consolidado |  |  |  | PROP | Matriz de control propuesta en DEC-038; no sustituye opiniones especializadas |
 | E-G8 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Requiere autorizacion de Contraloria? | E-T8 [Si]; E-T10 [No] (por defecto) |  |  |  |  |  |  | NORM | Ley 32069, arts. 64.3 b y 64.4 |
@@ -97,9 +97,9 @@ Notas que no se dibujan:
 | E-T11 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 |  |  | sale: Registros y comunicacion |  |  |  | NORM | Directiva General de Invierte.pe, art. 33.2; ROF, art. 98 j-k; Reglamento, arts. 109.3 y 194.3; Directiva 017-2023-CG, num. 7.3.6 |
 | E-F1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Modificacion de alcance comunicada |  |  |  |  |  |  |  | PROP | Producto propuesto; canal formal por confirmar |
 | E-F2C | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Decision no favorable comunicada |  |  |  |  |  |  |  | PROP | Producto alterno |
-| X-E1 | Elaboracion del expediente tecnico | Equipo elaborador competente; adscripcion pendiente de confirmar | inicio-mensaje | Elaboracion o subsanacion solicitada | X-T1 |  |  | entra: Solicitud de elaboracion |  |  |  | NORM | Reglamento, art. 194.2 c-d; Directiva 017-2023-CG, num. 7.3.6 |
-| X-T1 | Elaboracion del expediente tecnico | Equipo elaborador competente; adscripcion pendiente de confirmar | tarea-usuario | Elaborar o subsanar el expediente tecnico | X-F1 |  |  | sale: Expediente tecnico |  |  |  | NORM | Reglamento, arts. 194.2 c-e y 196; Directiva 017-2023-CG, num. 7.3.6 |
-| X-F1 | Elaboracion del expediente tecnico | Equipo elaborador competente; adscripcion pendiente de confirmar | fin-mensaje | Expediente tecnico presentado |  |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6 |
+| X-E1 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | inicio-mensaje | Elaboracion o subsanacion solicitada | X-T1 |  |  | entra: Solicitud de elaboracion |  |  |  | NORM | Reglamento, art. 194.2 c-d; Directiva 017-2023-CG, num. 7.3.6 |
+| X-T1 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | tarea-usuario | Elaborar o subsanar el expediente tecnico | X-F1 |  |  | sale: Expediente tecnico |  |  |  | NORM | Reglamento, arts. 194.2 c-e y 196; Directiva 017-2023-CG, num. 7.3.6 |
+| X-F1 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | fin-mensaje | Expediente tecnico presentado |  |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6 |
 
 ## Mensajes
 

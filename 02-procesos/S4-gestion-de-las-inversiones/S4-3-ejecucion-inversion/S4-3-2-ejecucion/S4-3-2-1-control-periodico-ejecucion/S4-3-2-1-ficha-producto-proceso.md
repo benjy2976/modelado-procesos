@@ -52,8 +52,8 @@ Propuesta: verificar periodicamente el avance ejecutado y tramitar la valorizaci
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra, mediante el residente | Metrados, avance ejecutado e informe de valorizacion del periodo | Expediente de valorizacion aprobado para tramite de pago | Proceso responsable del pago, por determinar |
-| Control de obra, mediante supervisor contratado o inspector de la entidad segun modalidad | Revision, conformidad u observaciones | Observaciones comunicadas para subsanacion | Ejecutor de obra |
+| Ejecutor de obra, segun regimen, mediante el residente | Metrados, avance ejecutado e informe de valorizacion del periodo | Expediente de valorizacion aprobado para tramite de pago | Proceso responsable del pago, por determinar |
+| Supervisor o inspector de obra, segun modalidad | Revision, conformidad u observaciones | Observaciones comunicadas para subsanacion | Ejecutor de obra, segun regimen |
 
 ## Actividades del proceso
 

@@ -32,13 +32,13 @@ Atiende una consulta originada por el contratista o, excepcionalmente, por la su
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
-| Recibe | Ejecutor de obra por contrata, mediante el residente | Consulta registrada en el Cuaderno de Incidencias |
+| Recibe | Contratista, mediante el residente | Consulta registrada en el Cuaderno de Incidencias |
 | Recibe | Supervisor de obra | Consulta originada por la supervision o consulta del contratista elevada con opinion tecnica |
 | Canaliza | SGGOS | Consulta y antecedentes para su atencion tecnica |
 | Elabora | Especialistas de la SGE | Informe tecnico de absolucion y proyecto de respuesta |
 | Firma | Subgerente de Estudios | Respuesta institucional a la consulta |
 | Solicita | Proyectista, cuando corresponda | Opinion tecnica sobre el expediente tecnico |
-| Envia | Ejecutor de obra por contrata | Consulta absuelta y notificada |
+| Envia | Contratista | Consulta absuelta y notificada |
 | Envia | S4.3.2.3 a S4.3.2.6 | Respuesta que origina una solicitud o causal de alcance, ampliacion, suspension o paralizacion/reinicio |
 
 ## Documentos del proceso

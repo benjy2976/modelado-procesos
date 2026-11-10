@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.5
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,8 +52,8 @@ Propuesta: formalizar de manera trazable la suspension contractual del plazo y, 
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra, mediante residente y contratista o representante legal; control de obra; entidad | Causa que impide continuar, registro en el Cuaderno de Incidencias, evaluacion y acuerdo de las partes | Suspension de plazo formalizada | Participantes de la ejecucion |
-| Control de obra; especialista competente cuando corresponda | Verificacion del cese de la causa | Reanudacion del plazo suspendido formalizada | Participantes de la ejecucion |
+| Contratista, mediante el residente y su representante legal cuando corresponda; supervisor o inspector de obra; entidad | Causa que impide continuar, registro en el Cuaderno de Incidencias, evaluacion y acuerdo de las partes | Suspension de plazo formalizada | Participantes de la ejecucion |
+| Supervisor o inspector de obra; especialista competente cuando corresponda | Verificacion del cese de la causa | Reanudacion del plazo suspendido formalizada | Participantes de la ejecucion |
 
 ## Actividades del proceso
 

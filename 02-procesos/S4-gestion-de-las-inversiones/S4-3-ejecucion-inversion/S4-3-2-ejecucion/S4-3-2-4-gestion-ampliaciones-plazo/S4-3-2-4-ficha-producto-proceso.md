@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.4
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -42,7 +42,7 @@ Apoyo, pendiente de confirmacion con la arquitectura institucional.
 
 ## Objetivo del proceso
 
-Propuesta: evaluar y resolver de manera trazable las solicitudes o causales de ampliacion de plazo, separando el sustento de campo, la revision especializada, el control contractual, la consolidacion y la decision formal.
+Propuesta: evaluar y resolver mediante resolucion las solicitudes o causales de ampliacion de plazo, separando el sustento del contratista, la opinion del supervisor o inspector, la evaluacion del coordinador, los pronunciamientos de SGGOS y GRI, la opinion legal y el proyecto de resolucion de GRAJ, y la decision de la autoridad competente.
 
 ## Objetivo estrategico
 
@@ -52,8 +52,8 @@ Propuesta: evaluar y resolver de manera trazable las solicitudes o causales de a
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra; control de obra; S4.3.2.2 cuando corresponda | Solicitud o causal, registro en el Cuaderno de Incidencias, sustento y opinion | Ampliacion aprobada o decision no favorable, comunicada | Participantes de la ejecucion y unidades del GORE involucradas |
-| Especialista competente y control contractual | Evaluacion de causal, afectacion de ruta critica y cumplimiento del procedimiento | Expediente consolidado | Titular de la competencia o autoridad delegada |
+| Contratista; supervisor o inspector de obra segun modalidad; S4.3.2.2 cuando corresponda | Solicitud o causal, registro en el Cuaderno de Incidencias, sustento y opinion | Resolucion favorable o no favorable comunicada | Participantes de la ejecucion y unidades del GORE involucradas |
+| Coordinador de obra, subgerente de Gestion de Obras y Supervision, GRI y GRAJ | Evaluacion del coordinador, informe tecnico de SGGOS, criterio de GRI, memorandum, opinion legal y proyecto de resolucion | Expediente evaluado y proyecto de resolucion derivados mediante SGD | Autoridad competente para resolver, pendiente de acreditacion |
 
 ## Actividades del proceso
 
@@ -65,7 +65,7 @@ Propuesta: evaluar y resolver de manera trazable las solicitudes o causales de a
 
 ## Registros
 
-Registro de causal, solicitud, opinion del responsable del control de obra, evaluacion especializada, control contractual, pronunciamiento, cronograma actualizado cuando corresponda y constancia de comunicacion; denominaciones y custodias pendientes.
+Registro de causal, solicitud, opinion del supervisor o inspector, informe del coordinador, informe tecnico de SGGOS, criterio y memorandum de GRI, opinion legal y proyecto de resolucion de GRAJ, resolucion emitida por la autoridad competente, derivaciones en SGD, cronograma actualizado cuando corresponda y constancia de comunicacion; denominaciones documentales y custodias pendientes.
 
 ## Elaborado por, revisado por y aprobado por
 

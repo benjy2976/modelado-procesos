@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.5
 fecha_creacion: 2026-11-05
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-10
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -90,3 +90,9 @@ Por solicitud del usuario se aplica la mejora general del perfil: compactacion d
 Paquete de esta tarea: fase de ajuste visual del perfil; fuentes activas: tabla y sustento del proceso, imagen anotada del usuario y codigo del generador. La modificacion del perfil fue solicitada expresamente; se inspecciona el PNG del piloto al estabilizar el contenido, sin cargar los derivados de los demas procesos.
 
 Evidencia geometrica calculada: el inicio E-E1 pasa de x=922 a x=464 (458 unidades a la izquierda); el ancho del pool principal baja de 2620 a 2182 (16,7 %), conservando 965 de altura. Los mensajes no comparten segmentos entre si. La inspeccion visual de IA confirma la compactacion y la separacion de los corredores; no representa conformidad humana ni aprobacion institucional.
+
+## Convencion de carriles y SGD
+
+Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool funcional antes titulado Control de obra se muestra como Supervisor o inspector de obra, segun modalidad; el inspector de la entidad no se atribuye a la supervision externa. OACGD usa la etiqueta uniforme. El registro inicial y las elevaciones internas del acuerdo y del sustento de reanudacion se modelan como tareas de usuario con `almacen: SGD`. La figura de administracion directa y la delegacion decisoria permanecen con `EVIDENCIA-INSUFICIENTE`. El pool se titula Contratista porque el circuito de suspension contractual es la ruta sustentada; la figura de administracion directa no se agrega por analogia.
+
+La generacion focalizada de esta normalizacion deja D1-D5 sin hallazgos. Se regeneraron BPMN, SVG, PNG y HTML. No se ha realizado revision visual ni se atribuye conformidad institucional.
