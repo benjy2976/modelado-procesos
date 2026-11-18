@@ -36,32 +36,32 @@ Ejecutor de obra, segun regimen agrupa al residente y los demas roles del ejecut
 
 ## Elementos
 
-| ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Clase | Fuente |
-|---|---|---|---|---|---|---|---|---|---|
-| R-E1 | Ejecutor de obra, segun regimen | Residente de obra | inicio-condicional | Evento de paralizacion o reinicio identificado | R-T1 |  |  | NORM | Ley 31589, art. 2; Directiva 017-2023-CG, num. 7.3.7 |
-| R-T1 | Ejecutor de obra, segun regimen | Residente de obra | tarea-usuario | Registrar y sustentar el evento en el Cuaderno de Incidencias | R-F1 | sale: Causal de paralizacion o solicitud de reinicio |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Reglamento, art. 188.3 cuando corresponda |
-| R-F1 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Evento y sustento remitidos |  |  |  | PROP | Aplicacion operativa de las fuentes citadas |
-| S-E1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Evento y sustento recibidos | S-T1 | entra: Causal o solicitud |  | NORM | Directiva 017-2023-CG, num. 7.3.7 |
-| S-T1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Validar la causal o las condiciones de reinicio | S-F1 | sale: Validacion y opinion |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Ley 31589, art. 5.2 en su ambito |
-| S-F1 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Evento validado y remitido |  |  |  | PROP | Circuito propuesto sobre las fuentes citadas |
-| E-E1 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Expediente recibido | E-T1 | entra: Evento, sustento y opinion |  | EQ | ROF, art. 20; DEC-041 |
-| E-T1 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar y derivar a SGGOS por SGD | E-T2 | sale: Registro y derivacion; almacen: SGD |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
-| E-T2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad y clasificar regimen y evento | E-G1 | entra: Expediente |  | EQ | ROF, arts. 97-98; DEC-041 |
-| E-G1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Requiere evaluacion tecnica especializada? | E-T3 [Si]; E-G2 [No] (por defecto) |  |  | EQ | El coordinador no sustituye al especialista; DEC-041 |
-| E-T3 | Gobierno Regional Huanuco | Especialista competente | tarea | Evaluar causal o condiciones tecnicas | E-G2 | sale: Evaluacion especializada |  | PROP | Alcance exacto pendiente por regimen |
-| E-G2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Que se gestiona? | E-T4 [Paralizacion]; E-T7 [Reinicio] |  |  | EQ | Separacion adoptada en DEC-041 |
-| E-T4 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar el expediente de paralizacion | E-T5 | sale: Expediente consolidado |  | PROP | No sustituye opiniones especializadas |
-| E-T5 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Resolver sobre la paralizacion | E-G3 | entra: Expediente consolidado; sale: Pronunciamiento |  | NORM | Ley 31589, art. 5.2; Directiva 017-2023-CG, num. 7.3.7 |
-| E-G3 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T6 [Si] (por defecto); E-F2 [No] |  |  | PROP | Rutas de decision; tratamiento completo por regimen pendiente |
-| E-T6 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 | sale: Registros y comunicacion |  | PROP | Circuito interno pendiente de validacion |
-| E-F1 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Paralizacion formalizada y comunicada |  |  |  | PROP | Producto propuesto |
-| E-F2 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Paralizacion no formalizada comunicada |  |  |  | PROP | Producto alterno |
-| E-T7 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar el sustento de reinicio | E-T8 | sale: Sustento consolidado |  | PROP | No sustituye evaluaciones especializadas |
-| E-T8 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Formalizar el reinicio | E-G4 | entra: Sustento consolidado; sale: Pronunciamiento |  | NORM | Directiva 017-2023-CG, num. 7.3.7; contrata: EVIDENCIA-INSUFICIENTE |
-| E-G4 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T9 [Si] (por defecto); E-F4 [No] |  |  | PROP | Rutas de decision |
-| E-T9 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F3 | sale: Registros y comunicacion |  | PROP | Circuito interno pendiente de validacion |
-| E-F3 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Reinicio formalizado y comunicado |  |  |  | PROP | Producto propuesto |
-| E-F4 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Reinicio no formalizado comunicado |  |  |  | PROP | Producto alterno |
+| ID | Numero | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Clase | Fuente |
+|---|---|---|---|---|---|---|---|---|---|---|
+| R-E1 | 1 | Ejecutor de obra, segun regimen | Residente de obra | inicio-condicional | Evento de paralizacion o reinicio identificado | R-T1 |  |  | NORM | Ley 31589, art. 2; Directiva 017-2023-CG, num. 7.3.7 |
+| R-T1 | 2 | Ejecutor de obra, segun regimen | Residente de obra | tarea-usuario | Registrar y sustentar el evento en el Cuaderno de Incidencias | R-F1 | sale: Causal de paralizacion o solicitud de reinicio |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Reglamento, art. 188.3 cuando corresponda |
+| R-F1 | 3 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Evento y sustento remitidos |  |  |  | PROP | Aplicacion operativa de las fuentes citadas |
+| S-E1 | 4 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Evento y sustento recibidos | S-T1 | entra: Causal o solicitud |  | NORM | Directiva 017-2023-CG, num. 7.3.7 |
+| S-T1 | 5 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Validar la causal o las condiciones de reinicio | S-F1 | sale: Validacion y opinion |  | NORM | Directiva 017-2023-CG, num. 7.3.7; Ley 31589, art. 5.2 en su ambito |
+| S-F1 | 6 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Evento validado y remitido |  |  |  | PROP | Circuito propuesto sobre las fuentes citadas |
+| E-E1 | 7 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Expediente recibido | E-T1 | entra: Evento, sustento y opinion |  | EQ | ROF, art. 20; DEC-041 |
+| E-T1 | 8 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar y derivar a SGGOS por SGD | E-T2 | sale: Registro y derivacion; almacen: SGD |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
+| E-T2 | 9 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad y clasificar regimen y evento | E-G1 | entra: Expediente |  | EQ | ROF, arts. 97-98; DEC-041 |
+| E-G1 | 10 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Requiere evaluacion tecnica especializada? | E-T3 [Si]; E-G2 [No] (por defecto) |  |  | EQ | El coordinador no sustituye al especialista; DEC-041 |
+| E-T3 | 11 | Gobierno Regional Huanuco | Especialista competente | tarea | Evaluar causal o condiciones tecnicas | E-G2 | sale: Evaluacion especializada |  | PROP | Alcance exacto pendiente por regimen |
+| E-G2 | 12 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Que se gestiona? | E-T4 [Paralizacion]; E-T7 [Reinicio] |  |  | EQ | Separacion adoptada en DEC-041 |
+| E-T4 | 13 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar el expediente de paralizacion | E-T5 | sale: Expediente consolidado |  | PROP | No sustituye opiniones especializadas |
+| E-T5 | 14 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Resolver sobre la paralizacion | E-G3 | entra: Expediente consolidado; sale: Pronunciamiento |  | NORM | Ley 31589, art. 5.2; Directiva 017-2023-CG, num. 7.3.7 |
+| E-G3 | 15 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T6 [Si] (por defecto); E-F2 [No] |  |  | PROP | Rutas de decision; tratamiento completo por regimen pendiente |
+| E-T6 | 16 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 | sale: Registros y comunicacion |  | PROP | Circuito interno pendiente de validacion |
+| E-F1 | 17 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Paralizacion formalizada y comunicada |  |  |  | PROP | Producto propuesto |
+| E-F2 | 18 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Paralizacion no formalizada comunicada |  |  |  | PROP | Producto alterno |
+| E-T7 | 19 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar el sustento de reinicio | E-T8 | sale: Sustento consolidado |  | PROP | No sustituye evaluaciones especializadas |
+| E-T8 | 20 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Formalizar el reinicio | E-G4 | entra: Sustento consolidado; sale: Pronunciamiento |  | NORM | Directiva 017-2023-CG, num. 7.3.7; contrata: EVIDENCIA-INSUFICIENTE |
+| E-G4 | 21 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T9 [Si] (por defecto); E-F4 [No] |  |  | PROP | Rutas de decision |
+| E-T9 | 22 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F3 | sale: Registros y comunicacion |  | PROP | Circuito interno pendiente de validacion |
+| E-F3 | 23 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Reinicio formalizado y comunicado |  |  |  | PROP | Producto propuesto |
+| E-F4 | 24 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Reinicio no formalizado comunicado |  |  |  | PROP | Producto alterno |
 
 ## Mensajes
 

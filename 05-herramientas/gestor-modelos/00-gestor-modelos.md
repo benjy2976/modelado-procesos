@@ -4,7 +4,7 @@ area: herramientas
 estado_documento: VIGENTE
 clase_conocimiento: DECISION
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-06
+fecha_actualizacion: 2026-11-17
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -42,6 +42,8 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 | Archivo | Funcion |
 |---|---|
 | `construir_modelos.py` | Construye o comprueba todos los diagramas en modelamiento: BPMN, SVG, PNG y vista interactiva HTML, con una pagina indice en `99-temporal/modelos/` |
+| `modelar.py` | Resuelve un codigo NT a una sola tabla, conserva la numeracion, mide las etapas y omite la construccion si el cache coincide |
+| `numerar_modelos.py` | Asigna el siguiente numero de referencia libre a elementos nuevos, sin renumerar los existentes |
 | `tabla_a_bpmn.py` | Lee la tabla o lista, calcula el trazado, genera el `.bpmn`, lo valida, produce la copia para Bizagi y una vista HTML local |
 | `_validar_bpmn.py` | D1 esquema oficial de la OMG, D2 referencias, D3 bloqueos y elementos inalcanzables (juego de tokens) |
 | `_revisar_notacion.py` | D5: paleta del proyecto (estandar, seccion 7.3) y buenas practicas del manual BPMN |
@@ -58,6 +60,12 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 Desde la raiz del repositorio:
 
 ```powershell
+# Uso rapido en reunion: solo un modelo
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\modelar.py S4.3.2.4
+
+# Comprobacion focalizada sin escribir; --sin-cache fuerza una construccion completa
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\modelar.py S4.3.2.4 --check
+
 # Construir todos los diagramas en modelamiento: BPMN, SVG, PNG, vista interactiva e indice
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py
 
@@ -70,6 +78,8 @@ Desde la raiz del repositorio:
 ```
 
 `construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. `--tabla` permite indicar una o mas tablas concretas de trabajo del repositorio, sin alterar el conjunto del control global. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
+
+Para S4.3 se usa `modelar.py <codigo>` durante la reunion (`DEC-044`). El comando completa la columna `Numero` de la tabla y muestra el numero como texto de referencia en SVG, PNG y HTML. Los numeros existentes no cambian al insertar, mover o renombrar una fila. La primera ejecucion genera los cuatro derivados; las siguientes consultan una huella de la tabla, las herramientas y la biblioteca fijada, y los hashes de los cuatro productos. Si todo coincide, informa `OK CACHE` sin abrir el navegador. El cache se guarda en `99-temporal/modelos/cache-focalizado/` y es regenerable. `--sin-cache` fuerza el ciclo completo; `--check` comprueba el modelo sin escribir. `--forzar` solo se usa para hallazgos D1-D5 ya justificados en el sustento. El comando informa el tiempo de conversion y controles, SVG, PNG y total.
 
 ### Ciclo conceptual por lotes
 
@@ -127,6 +137,8 @@ La mejora del 2026-11-06, solicitada a partir de S4.3.2.5, se limita a `zigzag-c
 Regresion reproducible: `.venv/Scripts/python.exe -m unittest discover -s 05-herramientas/gestor-modelos -p test_zigzag.py`. Las pruebas verifican semantica BPMN sin cambios, determinismo, limite de hallazgos D4 en los seis subprocesos de S4.3.2 y compactacion del piloto sin aumentar su altura. En la comparacion contra el generador previo, `normal`, `equilibrado` y `zigzag-amplio` producen XML identico para esos seis modelos.
 
 `zigzag-amplio` aplica el mismo algoritmo con tramos de 28 columnas (`DEC-036`). Se reserva para modelos con muchas alternativas y convergencias, en los que el pliegue de 16 columnas produce cruces o un crecimiento vertical desproporcionado. En pools con numerosos carriles comprime, dentro de cada carril, las filas de fase que no contienen ningun elemento; conserva el orden y la separacion de todas las celdas ocupadas (`DEC-039`). No sustituye al perfil corto: la fuente elige el menor tramo que supere D1-D5 y conserve una lectura visual razonable.
+
+El perfil optativo `zigzag-corredores` conserva la distribucion de `zigzag-controlado` y agrega busqueda de corredores por los cuatro lados, reserva de etiquetas de documentos y separacion de puertos de mensajes. Se aplica inicialmente solo en S4.3.2.2 por el bloqueo geometrico documentado en su [sustento](../../02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-2-atencion-consultas-obra/S4-3-2-2-sustento.md). Los perfiles anteriores no cambian. D4 y la inspeccion visual siguen siendo necesarios.
 
 ### Vistas SVG y PNG
 

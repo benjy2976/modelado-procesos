@@ -25,6 +25,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from time import perf_counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -82,6 +83,7 @@ def main() -> int:
 
     encontradas = [p.resolve() for p in args.tabla] if args.tabla else tablas()
     for tabla in encontradas:
+        inicio_modelo = perf_counter()
         if (not tabla.is_file() or not tabla.name.endswith("-diagrama-proceso-tabla.md")
                 or not tabla.is_relative_to(REPO_ROOT)):
             parser.error(f"--tabla debe indicar una tabla del repositorio: {tabla}")
@@ -124,7 +126,9 @@ def main() -> int:
                 informe = "Etapa formal: el BPMN versionado es la fuente maestra; no se regenera desde la tabla."
                 estado = "formal"
             else:
+                inicio_etapa = perf_counter()
                 generado, informe = generar(tabla, trabajo)
+                print(f"TIEMPO conversion y D1-D5: {perf_counter() - inicio_etapa:.2f} s")
                 problemas = hallazgos(informe)
                 if problemas and not args.forzar:
                     print(f"NO ADOPTADO: {rel}")
@@ -137,16 +141,21 @@ def main() -> int:
                     renderizar_bpmn.escribir(bpmn, generado.read_bytes())
                     print(f"GENERADO: {bpmn.relative_to(REPO_ROOT)}")
                 estado = "logica" if not problemas else "logica con hallazgos (--forzar)"
+            inicio_etapa = perf_counter()
             contenido = renderizar_bpmn.render_svg(bpmn)
+            print(f"TIEMPO SVG: {perf_counter() - inicio_etapa:.2f} s")
             if not svg.exists() or svg.read_bytes() != contenido or not png.exists():
                 renderizar_bpmn.escribir(svg, contenido)
+                inicio_etapa = perf_counter()
                 renderizar_bpmn.render_png(contenido, png)
+                print(f"TIEMPO PNG: {perf_counter() - inicio_etapa:.2f} s")
                 print(f"GENERADO: {svg.relative_to(REPO_ROOT)} y .png")
             pagina = renderizar_bpmn.pagina_visor_enlazada(titulo(tabla), bpmn, vista).encode("utf-8")
             if not vista.exists() or vista.read_bytes() != pagina:
                 renderizar_bpmn.escribir(vista, pagina)
                 print(f"GENERADO: {vista.relative_to(REPO_ROOT)}")
             filas.append((base, titulo(tabla), estado, informe, vista))
+            print(f"TIEMPO modelo: {perf_counter() - inicio_modelo:.2f} s")
         except (OSError, RuntimeError) as error:
             print(f"ERROR: {rel}: {error}", file=sys.stderr)
             errores += 1

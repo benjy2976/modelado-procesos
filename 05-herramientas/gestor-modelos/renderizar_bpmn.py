@@ -18,6 +18,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.error
+import uuid
 from pathlib import Path
 
 from lxml import etree
@@ -59,10 +60,10 @@ NAVEGADORES = (
     os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe"),
 )
 PAGINA = """<!doctype html><html><head><meta charset="utf-8"></head><body><pre id="svg"></pre>
-<script>__JS__</script>__EVENT_MARKERS__
+<script>__JS__</script>__EVENT_MARKERS____NUMBER_SCRIPT__
 <script>const c = document.createElement('div'); c.style.cssText = 'width:3000px;height:2000px';
 document.body.appendChild(c); const v = new BpmnJS({container: c});
-v.importXML(__X__).then(() => { __APPLY_EVENT_MARKERS__return v.saveSVG(); })
+v.importXML(__X__).then(() => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__return v.saveSVG(); })
  .then(r => { document.getElementById('svg').textContent = r.svg; })
  .catch(e => { document.getElementById('svg').textContent = 'ERROR ' + e; });</script></body></html>"""
 
@@ -138,6 +139,65 @@ function marcarSubprocesosEvento(visor) {
 }
 """
 
+NUMEROS_JS = r"""
+function marcarNumeros(visor, numeros) {
+  const registro = visor.get('elementRegistry');
+  Object.entries(numeros).forEach(([id, numero]) => {
+    const elemento = registro.get(id);
+    const gfx = elemento && registro.getGraphics(elemento);
+    const visual = gfx && gfx.querySelector('.djs-visual');
+    if (!visual) return;
+    const texto = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    texto.setAttribute('x', '4'); texto.setAttribute('y', '12');
+    texto.setAttribute('fill', '#17365d'); texto.setAttribute('font-size', '11');
+    texto.setAttribute('font-weight', 'bold'); texto.setAttribute('pointer-events', 'none');
+    texto.setAttribute('data-numero-referencia', numero);
+    texto.textContent = numero;
+    visual.appendChild(texto);
+  });
+}
+"""
+
+
+def numeros_modelo(bpmn: Path) -> dict[str, str]:
+    """Numeros persistentes de la tabla, vinculados a los IDs BPMN estables."""
+    tabla = bpmn.with_name(bpmn.stem + '-tabla.md')
+    if not tabla.is_file():
+        return {}
+    contenido = tabla.read_text(encoding='utf-8')
+    bloque = re.search(r'^## Elementos\s*$([\s\S]*?)(?=^## |\Z)', contenido, re.MULTILINE)
+    if not bloque:
+        return {}
+    lineas = [linea for linea in bloque.group(1).splitlines() if linea.startswith('|')]
+    if not lineas:
+        return {}
+    columnas = [x.strip().lower() for x in lineas[0].strip('|').split('|')]
+    if 'numero' not in columnas or 'id' not in columnas:
+        return {}
+    ni, ii = columnas.index('numero'), columnas.index('id')
+    semilla = tabla.stem
+    resultado = {}
+    vistos = set()
+    for linea in lineas[2:]:
+        celdas = [x.strip() for x in linea.strip('|').split('|')]
+        if len(celdas) <= max(ni, ii) or not celdas[ni]:
+            continue
+        numero, identificador = celdas[ni], celdas[ii]
+        if not numero.isdecimal() or numero in vistos:
+            raise RuntimeError(f'Numeracion invalida o repetida en {tabla}: {numero}')
+        vistos.add(numero)
+        uid = uuid.uuid5(uuid.UUID('6f1c2a7e-3b0d-4c8e-9a51-2d7f4e8b9c10'),
+                         '|'.join((semilla, 'nodo', identificador)))
+        resultado['_' + str(uid)] = numero
+    return resultado
+
+
+def aplicar_numeros(pagina: str, bpmn: Path | None = None) -> str:
+    numeros = numeros_modelo(bpmn) if bpmn else {}
+    script = f'<script>{NUMEROS_JS}</script>' if numeros else ''
+    llamada = f'marcarNumeros(v, {json.dumps(numeros)}); ' if numeros else ''
+    return pagina.replace('__NUMBER_SCRIPT__', script).replace('__APPLY_NUMBERS__', llamada)
+
 
 VISOR = """<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -145,9 +205,9 @@ VISOR = """<!doctype html>
 <style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
 header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
 <body><header>__T__ · vista local con bpmn-js (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
-<script>__JS__</script>__EVENT_MARKERS__
+<script>__JS__</script>__EVENT_MARKERS____NUMBER_SCRIPT__
 <script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS__window.listo = true; window.avisos = r.warnings.length;
+v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__window.listo = true; window.avisos = r.warnings.length;
   v.get('canvas').zoom('fit-viewport'); })
  .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
 </body></html>
@@ -161,9 +221,9 @@ VISOR_ENLAZADO = """<!doctype html>
 <style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
 header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
 <body><header>__T__ · vista interactiva (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
-<script src="__JS__"></script>__EVENT_MARKERS__
+<script src="__JS__"></script>__EVENT_MARKERS____NUMBER_SCRIPT__
 <script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS__window.listo = true; window.avisos = r.warnings.length;
+v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__window.listo = true; window.avisos = r.warnings.length;
   v.get('canvas').zoom('fit-viewport'); })
  .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
 </body></html>
@@ -181,7 +241,7 @@ def pagina_visor_enlazada(nombre: str, bpmn: Path, destino: Path) -> str:
     pagina = pagina.replace(
         "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if usa_marcadores else ""
     ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if usa_marcadores else "")
-    return pagina.replace("__JS__", html.escape(js))
+    return aplicar_numeros(pagina.replace("__JS__", html.escape(js)), bpmn)
 
 
 def pagina_visor(nombre: str, xml: str) -> str:
@@ -192,7 +252,7 @@ def pagina_visor(nombre: str, xml: str) -> str:
     pagina = pagina.replace(
         "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if usa_marcadores else ""
     ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if usa_marcadores else "")
-    return pagina.replace("__JS__", biblioteca().read_text(encoding="utf-8"))
+    return aplicar_numeros(pagina.replace("__JS__", biblioteca().read_text(encoding="utf-8")))
 
 
 def load_lock() -> dict[str, object]:
@@ -264,7 +324,8 @@ def ejecutar(argumentos: list[str], timeout: int = 60) -> subprocess.CompletedPr
     for _ in range(2):
         with tempfile.TemporaryDirectory() as perfil:
             comando = [
-                navegador(), "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-first-run",
+                navegador(), "--headless=new", "--disable-gpu", "--disable-gpu-sandbox", "--no-sandbox",
+                "--hide-scrollbars", "--no-first-run",
                 "--no-default-browser-check", "--disable-extensions", f"--user-data-dir={perfil}", *argumentos,
             ]
             try:
@@ -287,6 +348,7 @@ def render_svg(source: Path, color: bool = True) -> bytes:
     pagina = pagina.replace(
         "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if esperados else ""
     ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if esperados else "")
+    pagina = aplicar_numeros(pagina, source)
     with tempfile.TemporaryDirectory() as tmp:
         ruta = Path(tmp) / "render.html"
         ruta.write_text(pagina, encoding="utf-8")

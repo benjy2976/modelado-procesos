@@ -116,6 +116,8 @@ PERFILES_TRAZADO = {
                          gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
                          columnas_tramo=28, compactar_filas_carril=True),
 }
+PERFILES_TRAZADO['zigzag-corredores'] = dict(PERFILES_TRAZADO['zigzag-controlado'],
+                                           evitar_interferencias=True)
 
 
 def gid(*partes):
@@ -888,6 +890,8 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     obstaculos = dict(caja)
     for d in datos:
         obstaculos[('dato', d['nodo'], d['k'])] = d['caja']
+        if P.get('evitar_interferencias'):
+            obstaculos[('etq_dato', d['nodo'], d['k'])] = d['etq']
     for i, a in anotaciones.items():
         obstaculos[('ann', i)] = a['caja']
     for i, n in nodos.items():  # zona prevista de la etiqueta de eventos (abajo) y compuertas (arriba)
@@ -932,7 +936,8 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     def libre(pts, excluir=(), omitir_marcos=False):
         for p, q in zip(pts, pts[1:]):
             for k, b in obstaculos.items():
-                if k in excluir or (isinstance(k, tuple) and k[1] in excluir):
+                if k in excluir or (isinstance(k, tuple) and k[1] in excluir
+                                    and (not P.get('evitar_interferencias') or k[0] == 'etq')):
                     continue
                 if cruza(p, q, b, -8 if k in caja else -3):
                     return False
@@ -965,6 +970,14 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
         k = canales.get(clave, 0)
         canales[clave] = k + 1
         return base + paso * ((k + 1) // 2) * (1 if k % 2 else -1) if k else base
+
+    def puertos_rect(rect):
+        x, y, w, h = rect
+        return [par for margen in (14, 22, 38, 54) for par in (
+                ((x, y+h/2), (x-margen, y+h/2)),
+                ((x+w, y+h/2), (x+w+margen, y+h/2)),
+                ((x+w/2, y), (x+w/2, y-margen)),
+                ((x+w/2, y+h), (x+w/2, y+h+margen)))]
 
     # --- flujos de secuencia
     flujos, rutas = [], {}
@@ -1034,6 +1047,32 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
             cand.append([(ax + aw, acy), (xm, acy), (xm, bcy), (bx, bcy)])
         libres = [c for c in cand if libre(c, exc)]
         rutas[fid] = libres[0] if libres else min(cand, key=lambda c: costo(c, exc))
+        if P.get('evitar_interferencias'):
+            # Buscar por los cuatro lados: los extremos tambien son obstaculos,
+            # salvo el segmento corto que conecta cada puerto con su corredor.
+            otras = [r for k, r in rutas.items() if k != fid]
+            alternativas = []
+            for inicio, u in puertos_rect(caja[a]):
+                for fin, v in puertos_rect(caja[b]):
+                    interiores = [[u, (v[0], u[1]), v], [u, (u[0], v[1]), v]]
+                    for xx in sorted({ax-30, ax+aw+30, bx-30, bx+bw+30,
+                                      (u[0]+v[0])/2}):
+                        interiores.append([u, (xx, u[1]), (xx, v[1]), v])
+                    for yy in sorted({ay-30, ay+ah+30, by-30, by+bh+30,
+                                      (u[1]+v[1])/2}):
+                        interiores.append([u, (u[0], yy), (v[0], yy), v])
+                    for interior in interiores:
+                        ruta = simplificar_ruta([inicio, *interior, fin])
+                        if (libre(ruta, exc)
+                            and not any(cruza(p, q, caja[k], -1)
+                                        for p, q in zip(interior, interior[1:]) for k in exc)):
+                            alternativas.append(ruta)
+            if alternativas:
+                def costo_corredor(ruta):
+                    solapes, cruces = conflictos_rutas(ruta, otras)
+                    largo = sum(abs(p[0]-q[0])+abs(p[1]-q[1]) for p,q in zip(ruta,ruta[1:]))
+                    return (solapes, largo + 35 * (len(ruta)-2) + 50 * cruces, len(ruta))
+                rutas[fid] = min(alternativas, key=costo_corredor)
 
     # --- mensajes nodo <-> pool cerrado
     lado_y = {'arriba': y_abierto, 'abajo': y_fin_abierto}
@@ -1150,6 +1189,29 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
         y_nodo = by if arriba else by + bh
         y_borde = geo_pool[p][1] if arriba else geo_pool[p][1] + geo_pool[p][3]
         directo = [(x, y_nodo), (x, y_borde)]
+        if P.get('evitar_interferencias'):
+            candidatos = []
+            salidas = puertos_rect(caja[i])
+            if TIPOS[nodos[i]['tipo']][0] in ACTIVIDAD:
+                salidas += [par for dy in (-16, 16) for par in (
+                    ((bx, by+bh/2+dy), (bx-22, by+bh/2+dy)),
+                    ((bx+bw, by+bh/2+dy), (bx+bw+22, by+bh/2+dy)))]
+            for inicio, u in salidas:
+                for gx in canales_pool(p):
+                    interior = [u, (gx, u[1]), (gx, y_borde)]
+                    ruta = simplificar_ruta([inicio, *interior])
+                    if (libre(ruta, (i,), omitir_marcos=True)
+                        and not any(cruza(v, w, caja[i], -1) for v,w in zip(interior,interior[1:]))):
+                        candidatos.append(ruta)
+            if libre(directo, (i,), omitir_marcos=True):
+                candidatos.append(directo)
+            if candidatos:
+                otras = [*rutas.values(), *[m['pts'] for m in rutas_msg.values()]]
+                def costo_salida(ruta):
+                    solapes, cruces = conflictos_rutas(ruta, otras)
+                    largo = sum(abs(v[0]-w[0])+abs(v[1]-w[1]) for v,w in zip(ruta,ruta[1:]))
+                    return solapes, largo + 35 * len(ruta) + 50 * cruces
+                return min(candidatos, key=costo_salida)
         if libre(directo, (i,), omitir_marcos=True):
             return directo
         signo = -1 if arriba else 1
@@ -1220,6 +1282,8 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                             candidatos.append(simplificar_ruta(salida_a + [(sx, ya), (gx, ya), (gx, yb),
                                                                            (tx, yb)] + list(reversed(salida_b))))
                     otras = [m['pts'] for m in rutas_msg.values()]
+                    if P.get('evitar_interferencias'):
+                        otras += list(rutas.values())
                     def costo_mensaje(ruta):
                         invasiones = sum(cruza(u, v, rect, 0) for p, rect in geo_pool.items()
                                          if p not in (pa, pb) for u, v in zip(ruta, ruta[1:]))
@@ -1330,6 +1394,12 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
         # El perfil normal conserva tambien la posicion historica de la etiqueta lateral.
         etq_n[i] = ((bx + bw + 4, by - h, w, h) if perfil == 'normal' and lado_e == 'derecha'
                     else candidatos[lado_e])
+        if P.get('evitar_interferencias') and not etiqueta_libre(etq_n[i], i):
+            opciones = [(bx+bw/2-w/2+dx, yy, w, h)
+                        for distancia in (4, 16, 30, 46, 64)
+                        for yy in (by-h-distancia, by+bh+distancia)
+                        for dx in (0, -25, 25, -50, 50, -80, 80)]
+            etq_n[i] = next((r for r in opciones if etiqueta_libre(r, i)), etq_n[i])
         etiquetas_colocadas.append(etq_n[i])
 
     # --- etiquetas de condiciones en flujos
@@ -1345,6 +1415,14 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 p[0] + 5, p[1] + (4 if q[1] > p[1] else -h - 4), w, h)
         else:
             etq_f[fid] = (p[0] + 5, p[1] - h - 2, w, h)
+        if P.get('evitar_interferencias'):
+            opciones = [etq_f[fid]]
+            for u, v in zip(rutas[fid], rutas[fid][1:]):
+                mx, my = (u[0]+v[0])/2, (u[1]+v[1])/2
+                opciones.extend([(mx-w/2, my-h-5, w, h), (mx-w/2, my+5, w, h),
+                                 (mx+5, my-h/2, w, h), (mx-w-5, my-h/2, w, h)])
+            etq_f[fid] = next((r for r in opciones if etiqueta_libre(r, None)), etq_f[fid])
+            etiquetas_colocadas.append(etq_f[fid])
 
     return dict(anotaciones=anotaciones, geo_grupo=geo_grupo, sev=sev, bordes=bordes, inicio_sev=inicio_sev,
                 rango=rango, retorno=retorno, caja=caja, datos=datos, flujos=flujos, rutas=rutas,

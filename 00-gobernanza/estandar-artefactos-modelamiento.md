@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-10
+fecha_actualizacion: 2026-11-17
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -280,6 +280,10 @@ Catalogo de titulos vigentes para los modelos logicos de este alcance:
 | Titular de la competencia o autoridad delegada; Autoridad competente para resolver | Titulos funcionales de decision segun el acto del proceso; cargo y delegacion por acreditar |
 
 S4.3.2.1 conserva provisionalmente un solo pool de proceso heredado del modelo inicial. Sus carriles combinan participante y rol, con el mismo vocabulario de esta seccion; la separacion en participantes BPMN queda pendiente de contraste y no se cambia solo por una normalizacion de titulos.
+
+### 7.5 Numeracion de referencia durante el modelamiento
+
+Los diagramas en trabajo de S4.3 muestran un numero de referencia como texto dentro de cada elemento (`DEC-044`). Su fuente es la columna `Numero` de `## Elementos` en la tabla. El numero es unico dentro del modelo y permanece asociado al ID de la fila aunque cambien el nombre o la posicion. Un elemento nuevo recibe el siguiente numero libre; un numero retirado no se reutiliza. Se cita junto al codigo del proceso, por ejemplo `S4.3.2.4, numero 12`. Esta capa de consulta no es un simbolo BPMN, no sustituye el ID tecnico y no cambia la semantica del modelo.
 
 ## 8. Automatizacion requerida
 

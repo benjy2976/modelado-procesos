@@ -42,13 +42,13 @@ Notas que no se dibujan:
 
 ## Elementos
 
-| ID | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Marcador | Clase | Fuente |
-|---|---|---|---|---|---|---|---|---|---|---|
-| E-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | inicio | Inicio | S-1 |  |  |  | PROP | Propuesta del equipo, 2026-11-02 |
-| S-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.1 Inicio de ejecución | S-2 | sale: Acta de inicio de obra | Detalle pendiente de análisis |  | EQ | Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121 |
-| S-2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.2 Ejecución | S-3 | sale: Obra concluida o con contrato resuelto | Instancia de larga duración con seis procesos de eventos concurrentes; unidad exacta pendiente |  | EQ | DEC-030; DEC-041 |
-| S-3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.3 Recepción | F-1 [Obra recepcionada] |  | Detalle pendiente de desarrollo posterior |  | EQ | Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121 |
-| F-1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin | Fin |  |  |  |  | PROP | Propuesta del equipo, 2026-11-02 |
+| ID | Numero | Pool | Carril | Tipo | Nombre | Siguiente | Documentos | Plazo | Marcador | Clase | Fuente |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| E-1 | 1 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | inicio | Inicio | S-1 |  |  |  | PROP | Propuesta del equipo, 2026-11-02 |
+| S-1 | 2 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.1 Inicio de ejecución | S-2 | sale: Acta de inicio de obra | Detalle pendiente de análisis |  | EQ | Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121 |
+| S-2 | 3 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.2 Ejecución | S-3 | sale: Obra concluida o con contrato resuelto | Instancia de larga duración con seis procesos de eventos concurrentes; unidad exacta pendiente |  | EQ | DEC-030; DEC-041 |
+| S-3 | 4 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | subproceso | S4.3.3 Recepción | F-1 [Obra recepcionada] |  | Detalle pendiente de desarrollo posterior |  | EQ | Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121 |
+| F-1 | 5 | S4.3 Ejecución de la inversión | Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH | fin | Fin |  |  |  |  | PROP | Propuesta del equipo, 2026-11-02 |
 
 ## Mensajes
 
