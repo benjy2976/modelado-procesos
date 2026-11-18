@@ -26,13 +26,13 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 ## Que hace
 
-Gestiona una instancia por solicitud, necesidad o causal de modificacion de alcance. Conserva como variantes internas, sin codigos de nivel 4, el adicional o modificacion tecnica, la reduccion o deductivo y los mayores metrados o cantidades. Separa la validacion de la necesidad, la clasificacion inicial, la elaboracion, la revision tecnica institucional independiente, los controles contractuales y presupuestales, la consolidacion y la decision formal.
+Gestiona una instancia por solicitud, necesidad o causal de modificacion de alcance. Conserva como variantes internas, sin codigos de nivel 4, el adicional con o sin deductivo vinculado, la reduccion independiente y los mayores metrados. DEC-046 diferencia sus rutas y conserva como propuesta pendiente su posible separacion en procesos propios. Separa la validacion de la necesidad, la clasificacion inicial, la elaboracion, la revision tecnica institucional independiente, los controles contractuales y presupuestales, la consolidacion y la decision formal.
 
 ## Interacciones
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
-| Recibe | S4.3.2.2 Atencion de consultas de obra | Respuesta que identifica una posible modificacion de alcance |
+| Recibe | S4.3.2.2 Atencion de consultas de obra | Respuesta notificada que sirve de antecedente para anotar la necesidad del adicional; no equivale a aprobarlo |
 | Recibe | Ejecutor de obra, segun regimen; supervisor o inspector de obra | Registro en el Cuaderno de Incidencias, sustento de necesidad e informe tecnico cuando corresponda |
 | Solicita a | Equipo elaborador definido en las bases o designado por la OAD, con adscripcion por confirmar | Expediente tecnico de la modificacion cuando la figura lo requiere |
 | Solicita | Contraloria General de la Republica | Autorizacion previa solo cuando la Ley 32069 la exige |
@@ -53,13 +53,17 @@ Gestiona una instancia por solicitud, necesidad o causal de modificacion de alca
 
 | ID de modelamiento | Variante |
 |---|---|
-| `MOD-ALC-ADI` | Adicional o modificacion tecnica, con regla diferenciada por regimen |
-| `MOD-ALC-RED` | Reduccion o deductivo, con regla diferenciada por regimen |
-| `MOD-ALC-MAY` | Mayores metrados o cantidades, con regla diferenciada por regimen |
+| `MOD-ALC-ADI` | Adicional con o sin deductivo vinculado; detalle ordinario de solo construccion bajo Ley 32069 |
+| `MOD-ALC-RED` | Reduccion independiente; verificar que la reduccion de metas corresponda a esta figura |
+| `MOD-ALC-MAY` | Mayores metrados: autorizacion en obra e interfaz con valorizacion, sin aprobacion previa de ejecucion por entidad |
 
 ## Subprocesos
 
 No se crean procesos de nivel 4. Las tres figuras permanecen como variantes internas conforme a `DEC-041`.
+
+El [sustento del replanteamiento](S4-3-2-3-sustento.md#replanteamiento-del-circuito-de-alcance---2026-11-18) precisa consulta previa, plazos, elaboradores y limites. Las opiniones [D000092](../../../../../03-conocimiento/fuentes/guia-opinion-d000092-2026-oece-dtn.md) y [D000083](../../../../../03-conocimiento/fuentes/guia-opinion-d000083-2026-oece-dtn.md) sustentan el computo y la interfaz. Otros regimenes y supuestos quedan identificados como pendientes, sin trasladarles los plazos del art. 194.
+
+Vista generada: [Diagrama interactivo](S4-3-2-3-diagrama-proceso.html).
 
 ## Pendientes
 

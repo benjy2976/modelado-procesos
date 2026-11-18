@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-10
+fecha_actualizacion: 2026-11-18
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -124,3 +124,86 @@ Por solicitud del usuario se aplica la mejora general del perfil: compactacion d
 Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool funcional antes titulado Control de obra se muestra como Supervisor o inspector de obra, segun modalidad, sin afirmar identidad organizacional ni concurrencia. OACGD y GRAJ usan las etiquetas uniformes. El registro y la derivacion inicial a SGGOS se modelan con tarea de usuario y `almacen: SGD`. No se presume el medio de las comunicaciones externas ni de otros registros. El pool Ejecutor de obra, segun regimen es una abstraccion provisional de las rutas de contrata y administracion directa.
 
 La generacion focalizada de esta normalizacion deja D1, D2, D3 y D5 sin hallazgos. D4 registra 18 hallazgos geometricos en el circuito de autorizacion y convergencia (flujos compartidos, etiquetas montadas y cruces con etiquetas); no afectan las referencias ni la terminacion. Se adoptaron BPMN, SVG, PNG y HTML de trabajo con `--forzar`, con revision visual y ajuste de disposicion pendientes antes de una linea base. No se atribuye conformidad institucional.
+
+## Replanteamiento del circuito de alcance - 2026-11-18
+
+**Resultado propuesto:** se conservan codigo, carpeta y variantes de `DEC-041`, pero se deja de imponer un circuito unico. El adicional incorpora su presupuesto deductivo vinculado; la reduccion independiente tiene su propio control de procedencia; los mayores metrados se autorizan en obra y se enlazan con valorizacion. `DEC-046` registra esta precision. No se crean procesos nuevos ni se presume aceptada su futura separacion.
+
+### Paquete de contexto del lote
+
+- Fase: conceptual. Objetivo: corregir la secuencia consulta-elaboracion-evaluacion-decision y distinguir las figuras.
+- Fuentes textuales activas: indice, ficha, tabla y sustento S4.3.2.3; secciones de interfaz de S4.3.2.2; guia CON-001; articulos 105.3, 109, 190, 194, 196 y 197 del Reglamento y art. 64 de la Ley; decisiones DEC-038, DEC-041 a DEC-044.
+- Evidencia observada: instruccion del usuario del 2026-11-18 sobre consulta previa y plazos; no se aportaron bases ni expediente de un contrato concreto.
+- Glosario: consulta absuelta, encargo de elaboracion, expediente del adicional, opinion de supervision y resolucion aprobatoria son objetos distintos. Deductivo vinculado no se usa como sinonimo de reduccion independiente. Reduccion de metas es una denominacion operativa cuya correspondencia contractual debe acreditarse.
+- Reglas validadas incorporadas: ninguna. Conocimiento normativo en propuesta, pendiente de validacion humana y aplicabilidad contractual.
+- Archivos modificables: juego textual S4.3.2.3, registro de decisiones y estado del proyecto; derivados mediante generacion focalizada.
+- Derivados excluidos del contexto: BPMN XML, SVG, PNG y HTML. Revision visual no requerida en este lote; pendiente al estabilizar contenido. Modificacion de herramientas no autorizada.
+- Limites: detalle ordinario de solo construccion bajo Ley 32069. Otros sistemas, regimen anterior, administracion directa y emergencia conservan su pertenencia al proceso, pero se cierran como ruta pendiente de especificacion; no se les aplican los plazos de este lote por analogia.
+
+### Evidencia y contraste normativo
+
+**EVIDENCIA-OBSERVADA:** el usuario describe la consulta de obra como antecedente para adicional, deductivo y adicional-deductivo vinculante, seguida de autorizacion de elaboracion, 15 dias de elaboracion, 10 de supervision y tramite de aprobacion. Se incorpora la consulta como interfaz operativa con S4.3.2.2; la respuesta y la carta ya modeladas alli se reciben sin volver a tramitar la consulta completa. Confirmar el encargo no supone emitir una segunda autorizacion.
+
+**EXIGENCIA-NORMATIVA propuesta:** el hito inicial de los 15 dias es la anotacion, no una carta posterior. El art. 194 no establece que toda necesidad de adicional deba tener una consulta independiente previa; esa secuencia se conserva como evidencia operativa del usuario y debe compatibilizarse con los plazos. La precision posterior de este lote recibe la respuesta antes de la anotacion y conserva el origen alternativo del art. 194; no impone una consulta a toda necesidad ni reinicia un computo ya iniciado.
+
+Fuentes oficiales consultadas el **2026-11-18**:
+
+| Fuente | Ubicacion precisa | Vigencia y uso |
+|---|---|---|
+| [Ley y Reglamento actualizados, El Peruano](https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=25) | Ley art. 64.2-64.4, PDF p. 28; Reglamento art. 109.1-109.3, p. 95; art. 194.1-194.5, pp. 121-122; art. 197.1-197.4, p. 123 | Edicion oficial actualizada al 21-10-2026. Consulta del texto disponible; aplicabilidad y modificatorias posteriores pendientes de control especializado. Se corroboran plazos, roles y diferencia entre figuras; no se declara regla validada. |
+| [Reglamento consolidado OECE](https://cdn.www.gob.pe/uploads/document/file/9295551/6444155-ref-reglamento-de-la-ley-de-contrataciones-del-estado-con-modificaciones-posteriores-hasta-08-ene-2026-2-v2.pdf?v=1768513235) | Art. 105.3; art. 109, p. 60; arts. 194-197, pp. 108-112; referencia local CON-001 en la guia enlazada | Consolidado al 09-01-2026, contrastado con la edicion de El Peruano. Dias calendario salvo indicacion expresa de habiles. |
+| [DS 001-2026-EF, El Peruano](https://busquedas.elperuano.pe/dispositivo/NL/2474920-3) | Art. 2, modificacion del numeral 194.3; disposicion de vigencia | Modifica publicacion y prohibicion de regularizacion; no sustituye 194.2 d-g. Vigencia desde 14-01-2026 segun compendio OECE ya registrado en la guia CON-001. |
+
+### Condiciones y computo que conserva la tabla
+
+| Tramo | Regla propuesta y condicion | Representacion |
+|---|---|---|
+| Necesidad | Art. 194.1: adicional indispensable por deficiencias del expediente o causas no previsibles no imputables al contratista. Art. 194.2 a-b: anotacion e informe del supervisor en 5 dias desde el dia siguiente de aquella | Control de causal y antecedentes antes de encargar; no basta una carta favorable |
+| Elaborador | Art. 194.2 c: las bases determinan entidad, contratista o supervisor | Se comprueban las bases; no se asigna automaticamente al contratista |
+| Elaboracion | Art. 194.2 d: 15 dias calendario desde el dia siguiente de la anotacion, con necesidad ratificada. El plazo adicional por complejidad, permisos, autorizaciones o sofisticacion tecnica exige otorgamiento de la entidad; no es automatico | Caja 49 muestra plazo e hito; encargo o subsanacion no reinician el computo |
+| Supervision | Art. 194.2 e: 10 dias calendario desde el dia siguiente de la presentacion cuando elaboro el contratista | Rama especifica, cajas 63-65; si elaboro el supervisor, no se impone una revision de su propio expediente por otros 10 dias |
+| Opinion institucional | Art. 194.2 g: opinion del organo competente o del proyectista bajo la condicion temporal prevista, dentro del plazo del literal e | Control institucional concurrente cuando elaboro el contratista; SGE es la propuesta organizativa conservada de DEC-038, sin inventar adscripciones |
+| Decision | Art. 194.2 f: notificacion en 12 dias habiles desde el dia siguiente de recibir opinion del supervisor o expediente elaborado por este, segun corresponda | Plazo total institucional, no 12 dias adicionales por cada revision. Incluye tramitacion y notificacion. Interaccion del computo con autorizacion CGR requiere precision especializada |
+| Elaboracion por entidad | Opinion D000092, 2.9 C y 3.11: presentacion a supervision, opinion y decision de entidad; proyectista cuando corresponde | Ruta incorporada; se precisa el computo de decision. La opinion no explicita en ese apartado un numero autonomo de dias para supervision: precision pendiente |
+
+El modelo representa un caso ordinario. No habilita regularizacion de adicionales; la emergencia del art. 194.4 requiere su ruta especifica. Autoridades, delegaciones, controles presupuestales y participacion legal deben verificarse por caso. Los umbrales de la Ley se comprueban antes de remitir a la autoridad; no se presume que el coordinador puede aprobar.
+
+### Diferencias entre tramites y posible separacion
+
+| Figura | Tratamiento en esta propuesta | ¿Comparte 15 + 10 dias? | Recomendacion de arquitectura |
+|---|---|---|---|
+| Adicional sin deductivo vinculado | Consulta como antecedente operativo, necesidad ratificada, elaboracion, opiniones y decision | Solo bajo las condiciones de 194.2 d-e; no son 25 dias desde la carta | Conservar como nucleo de S4.3.2.3 |
+| Adicional con deductivo vinculado | Un expediente que identifica y sustenta ambas partes y el efecto neto aplicable; verificar vinculo, no solo restar importes | Sigue el tramite del adicional | Mantener junto al adicional; separarlo fragmentaria su evaluacion |
+| Deductivo independiente o reduccion de metas | Determinar si corresponde a reduccion de prestaciones del art. 109. No basta la denominacion; requiere sustento del area usuaria, finalidad preservada, prestaciones no ejecutadas, divisibles y cuantificables, opinion de supervision cuando corresponda, limite del 25 % y oportunidad anterior a recepcion | No se trasladan los plazos del art. 194 | Candidato a proceso propio de reducciones; por ahora rama interna. Efecto sobre plazo se decide en la misma resolucion, art. 109.2 |
+| Mayores metrados | Precios unitarios y supuesto art. 197: solicitud y autorizacion en cuaderno, control de acumulados, ejecucion y sustento para valorizacion; el pago requiere autorizacion de la autoridad de gestion administrativa | No | Es el candidato mas claro a proceso separado, enlazado con valorizaciones/control periodico; no necesita aprobacion previa de ejecucion por la entidad |
+
+**INFERENCIA de modelamiento:** el deductivo vinculado se mantiene unido al adicional porque incide en su presupuesto y umbral (Ley, art. 64.2-64.3). El termino coloquial «adicional deductivo vinculante» no se convierte en un quinto procedimiento autonomo. La vinculacion concreta requiere evidencia tecnica y contractual.
+
+**PROPUESTA pendiente de decision:** separar posteriormente Gestion de adicionales y deductivos vinculados, Gestion de reducciones de prestaciones y Gestion de mayores metrados como hijos directos de S4.3.2, sin nivel 4. No se asignan codigos, no se renombra el padre ni se retiran variantes durante este lote. Antes de adoptar esa arquitectura deben definirse producto, dueno e interfaces, actualizar DEC-041 y regenerar el padre. S4.3.2.2 conservaria su salida de consulta; S4.3.2.1 debe recibir el sustento para valorizacion y distinguir autorizacion de pago; S4.3.2.4 solo interviene ante una solicitud de ampliacion aplicable, no automaticamente por toda modificacion.
+
+### Pendientes de este lote
+
+- Bases, regimen temporal y sistema de entrega del contrato concreto: EVIDENCIA-INSUFICIENTE.
+- Acto de encargo y adscripcion del elaborador: EVIDENCIA-INSUFICIENTE. Ruta de elaboracion por entidad precisada mediante CON-010; plazo numerico de supervision en esa variante pendiente de validacion.
+- Precisar con el equipo si «deductivo» se usa para sustitucion vinculada, reduccion independiente u otro ajuste; no inferir equivalencia.
+- Subsanaciones y efectos sobre computos, autorizacion CGR y controles presupuestales de cada supuesto: pendientes de desarrollo especializado; no se inventan suspensiones ni reinicios de plazo.
+- Desarrollo detallado de administracion directa, otros sistemas y emergencia, y decision de separar procesos: pendientes; el cierre de ruta pendiente no equivale a denegacion.
+- La autorizacion de pago de mayores metrados queda como requisito explicito de la interfaz con valorizacion; no se representa como aprobacion previa de su ejecucion.
+
+### Incorporacion de opiniones OECE y ajuste de entrada
+
+El usuario aporta la Opinion D000092-2026-OECE-DTN y precisa que la respuesta de la consulta precede a la anotacion de necesidad. Se incorpora el PDF oficial como **CON-010**, junto con **CON-011 / Opinion D000083-2026-OECE-DTN**, que fundamenta la independencia entre consultas y adicionales. Consulta: 2026-11-18; archivos, fuentes oficiales, SHA-256, vigencia, paginas y reglas BORRADOR-IA en las [guia D000092](../../../../../03-conocimiento/fuentes/guia-opinion-d000092-2026-oece-dtn.md) y [guia D000083](../../../../../03-conocimiento/fuentes/guia-opinion-d000083-2026-oece-dtn.md). Estas guias amplian el paquete textual del lote; no se cargan derivados del modelo ni se modifican herramientas.
+
+**Cambio aplicado:** S4.3.2.2 entrega su respuesta al ejecutor como antecedente. La caja 2 anota la necesidad especifica del adicional; el dia siguiente inicia los computos de 5 y 15 dias. La anotacion se comunica a supervision y elaborador: el trabajo de elaboracion puede transcurrir mientras se tramita la ratificacion. La caja 76 exige recibir esta antes de presentar el expediente. No se suman 5 dias mas 15 ni se cuentan estos desde la carta de respuesta.
+
+**Precision sobre la expresion del usuario:** «aprobacion de la necesidad como respuesta a la consulta» se registra como respuesta tecnica que motiva iniciar el adicional. No se atribuye a esa respuesta la ratificacion del supervisor del art. 194.2 b ni la aprobacion del expediente mediante resolucion. Tampoco se ordena repetir una anotacion de necesidad ya valida: su fecha original sigue rigiendo. El escenario encadenado consulta-anotacion es aplicable cuando la respuesta revela esa necesidad; la Opinion D000083 no vuelve obligatoria la consulta previa en todos los casos.
+
+**Otros ajustes derivados de CON-010:** se incorpora la ruta de elaboracion por entidad; se prioriza la opinion del proyectista bajo el supuesto temporal y, en defecto, del organo competente, incluido el supuesto inoficioso del numeral 2.8. La opinion institucional corre junto con supervision cuando elabora contratista (2.9 A). La opinion desfavorable se integra para que la entidad resuelva; no se cierra el expediente solo con un informe tecnico. Los deductivos vinculados se consideran en la incidencia neta y las reducciones independientes no se descuentan de ella (2.10 y 3.12-3.13). La notificacion requiere verificar el canal vigente, pues la situacion de SEACE descrita por la opinion es temporal (2.11).
+
+**Trazabilidad de numeracion:** se conservan los numeros anteriores; se retira el fin tecnico 31 porque la opinion no sustituye la decision. Los numeros de pasos intermedios retirados de esta misma iteracion no se reutilizan. No cambia la arquitectura de seis procesos ni se atribuye aprobacion o validacion.
+
+### Control del lote con opiniones OECE
+
+D1, D2, D3 y D5 sin hallazgos: esquema valido, referencias consistentes y escenarios sin bloqueos. D4 informa 80 interferencias geometricas: T1=16, T2=22, T3=3, T4=32 y T6=5; afectan anotaciones, intercambios con elaborador, proyectista y Contraloria y convergencias. Se regeneran los derivados de trabajo con --forzar exclusivamente para mantenerlos sincronizados con la fuente conceptual, no como trazado listo para publicar. El informe reproducible queda en 99-temporal/modelos/S4-3-2-3-diagrama-proceso/validacion.txt. Se requiere ajuste de disposicion y revision visual antes de linea base; no se modificaron herramientas ni se atribuye conformidad.
+
+Comprobacion de cierre 2026-11-18: construir_modelos.py --check correcto para todos los modelos; gestionar_etiquetas.py revisar: 174 notas, 0 problemas. Integridad SHA-256 de CON-010 y CON-011 comprobada; enlaces locales de ambas guias sin roturas; 36 reglas con identificadores unicos. Estos controles no eliminan los hallazgos geometricos D4 ni validan las reglas.
