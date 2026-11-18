@@ -109,7 +109,8 @@ PERFILES_TRAZADO = {
     # pliega las secuencias largas en tramos serpentinos. El cambio de sentido ocurre solamente al bajar de tramo.
     'zigzag-controlado': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
                              gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
-                             columnas_tramo=16, compactar_componentes=True, optimizar_mensajes=True),
+                             columnas_tramo=16, compactar_componentes=True, optimizar_mensajes=True,
+                             compactar_filas_carril=True, recolocar_terminales=True, rutas_seguras=True),
     # Variante para modelos con muchas ramas: conserva el pliegue, pero deja un tramo mas largo para evitar
     # que las convergencias de alternativas se superpongan al cambiar de sentido.
     'zigzag-amplio': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
@@ -117,7 +118,8 @@ PERFILES_TRAZADO = {
                          columnas_tramo=28, compactar_filas_carril=True),
 }
 PERFILES_TRAZADO['zigzag-corredores'] = dict(PERFILES_TRAZADO['zigzag-controlado'],
-                                           evitar_interferencias=True)
+                                           evitar_interferencias=True, compactar_filas_carril=False,
+                                           recolocar_terminales=False, rutas_seguras=False)
 
 
 def gid(*partes):
@@ -511,6 +513,49 @@ def cruza(p, q, caja, m=2):
     return True
 
 
+def ruta_ortogonal_libre(inicio, fin, obstaculos):
+    """Busca en una malla de visibilidad; nunca acepta atravesar un obstaculo.
+
+    Incluye las cajas terminales: solo se permite tocar sus bordes. Devuelve
+    None si los extremos estan encerrados, en vez de elegir una ruta invasiva.
+    """
+    import heapq
+    xs = sorted({inicio[0], fin[0], *[v for x,y,w,h in obstaculos for v in (x-10, x+w+10)]})
+    ys = sorted({inicio[1], fin[1], *[v for x,y,w,h in obstaculos for v in (y-10, y+h+10)]})
+    origen = (xs.index(inicio[0]), ys.index(inicio[1]), -1)
+    destino = (xs.index(fin[0]), ys.index(fin[1]))
+    dist, previo, cache = {origen: 0}, {}, {}
+    cola = [(0, 0, origen)]
+    while cola:
+        _, coste, estado = heapq.heappop(cola)
+        if coste != dist.get(estado):
+            continue
+        ix, iy, direccion = estado
+        if (ix, iy) == destino:
+            camino = []
+            while True:
+                camino.append((xs[estado[0]], ys[estado[1]]))
+                if estado == origen:
+                    return simplificar_ruta(list(reversed(camino)))
+                estado = previo[estado]
+        for jx,jy,d in ((ix-1,iy,0),(ix+1,iy,0),(ix,iy-1,1),(ix,iy+1,1)):
+            if not (0 <= jx < len(xs) and 0 <= jy < len(ys)):
+                continue
+            p, q = (xs[ix],ys[iy]), (xs[jx],ys[jy])
+            clave = tuple(sorted((p,q)))
+            if clave not in cache:
+                cache[clave] = not any(cruza(p,q,r,0) for r in obstaculos)
+            if not cache[clave]:
+                continue
+            nuevo = coste + abs(p[0]-q[0])+abs(p[1]-q[1]) + (24 if direccion not in (-1,d) else 0)
+            siguiente = (jx,jy,d)
+            if nuevo < dist.get(siguiente, float('inf')):
+                dist[siguiente], previo[siguiente] = nuevo, estado
+                heuristica = abs(q[0]-fin[0])+abs(q[1]-fin[1])
+                heapq.heappush(cola,(nuevo+heuristica,nuevo,siguiente))
+    return None
+
+
 def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     """Calcula toda la geometría. Devuelve formas, etiquetas, aristas y datos de carriles y pools."""
     P = PERFILES_TRAZADO[perfil]
@@ -571,6 +616,32 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 usadas = {r: k for k, r in enumerate(sorted({fila[i] for i in ids}))}
                 for i in ids:
                     fila[i] = usadas[fila[i]]
+    if P.get('recolocar_terminales'):
+        # Reubicar una cadena terminal corta completa; nunca un nodo aislado
+        # de una bifurcacion. Solo ocupa huecos anteriores del mismo carril.
+        por_carril = {}
+        for i,n in principal.items():
+            if i not in bordes:
+                por_carril.setdefault((n['pool'],n['carril']), []).append(i)
+        for ids in por_carril.values():
+            ultima = max(fila[i] for i in ids)
+            cadena = sorted((i for i in ids if fila[i] == ultima), key=lambda i:rango[i])
+            if (ultima == 0 or not 2 <= len(cadena) <= 3
+                or not all(fase[i] > 0 for i in cadena)
+                or TIPOS[principal[cadena[-1]]['tipo']][0] != 'endEvent'
+                or any([d for d,_ in principal[a]['sig']] != [b] for a,b in zip(cadena,cadena[1:]))
+                or any(predecesores.get(b) != [a] for a,b in zip(cadena,cadena[1:]))):
+                continue
+            candidatos = []
+            for r in range(ultima):
+                ocupadas = {col_visual[i] for i in ids if fila[i] == r}
+                for c in range(P['columnas_tramo'] - len(cadena) + 1):
+                    if not any(v in ocupadas for v in range(max(0,c-1),c+len(cadena)+1)):
+                        candidatos.append((r,c))
+            if candidatos:
+                r,c = min(candidatos)
+                for k,i in enumerate(cadena):
+                    fila[i], col_visual[i] = r,c+k
     ncol = max(col_visual.values()) + 1 if col_visual else 1
     x0 = POOL_X + CAB + 40
     if perfil == 'normal':
@@ -1331,6 +1402,32 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 else:
                     etq_m[k] = next((r for r in candidatas if not solapa_obstaculo(r, (a, b))), candidatas[0])
 
+    if P.get('rutas_seguras'):
+        # Corregir solo rutas invasivas. La busqueda incluye origen y destino;
+        # no se permite que el tramo interior atraviese su propia actividad.
+        def asegurar(pts, a, b, mensaje=False):
+            omitidos = {bordes[i] for i in (a,b) if i in bordes}
+            def ampliar(rect, margen=4):
+                x,y,w,h = rect
+                return (x-margen,y-margen,w+2*margen,h+2*margen)
+            duros = [rect if i in (a,b) else ampliar(rect) for i,rect in caja.items() if i not in omitidos]
+            if mensaje:
+                propios = {nodos[i]['pool'] if i in nodos else i for i in (a,b)}
+                duros += [rect for p,rect in {**geo_pool,**geo_cerrado}.items() if p not in propios]
+            extras = [ampliar(rect) for k,rect in obstaculos.items() if isinstance(k,tuple)
+                      and k[0] in ('dato','ann')]
+            if not any(cruza(u,v,r,0) for u,v in zip(pts,pts[1:]) for r in duros+extras):
+                return pts
+            for barreras in (duros+extras, duros):
+                nueva = ruta_ortogonal_libre(pts[0],pts[-1],barreras)
+                if nueva is not None:
+                    return nueva
+            raise ValueError(f'No existe corredor libre para {a} -> {b}; revisar disposicion')
+        for fid,a,b,_ in flujos:
+            rutas[fid] = asegurar(rutas[fid],a,b)
+        for k,m in rutas_msg.items():
+            m['pts'] = asegurar(m['pts'],m['a'],m['b'],True)
+
     # --- etiquetas de nodos: del lado libre de conexiones
     lados_usados = {i: set() for i in nodos}
 
@@ -1394,7 +1491,7 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
         # El perfil normal conserva tambien la posicion historica de la etiqueta lateral.
         etq_n[i] = ((bx + bw + 4, by - h, w, h) if perfil == 'normal' and lado_e == 'derecha'
                     else candidatos[lado_e])
-        if P.get('evitar_interferencias') and not etiqueta_libre(etq_n[i], i):
+        if (P.get('evitar_interferencias') or P.get('rutas_seguras')) and not etiqueta_libre(etq_n[i], i):
             opciones = [(bx+bw/2-w/2+dx, yy, w, h)
                         for distancia in (4, 16, 30, 46, 64)
                         for yy in (by-h-distancia, by+bh+distancia)
@@ -1415,7 +1512,7 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 p[0] + 5, p[1] + (4 if q[1] > p[1] else -h - 4), w, h)
         else:
             etq_f[fid] = (p[0] + 5, p[1] - h - 2, w, h)
-        if P.get('evitar_interferencias'):
+        if P.get('evitar_interferencias') or P.get('rutas_seguras'):
             opciones = [etq_f[fid]]
             for u, v in zip(rutas[fid], rutas[fid][1:]):
                 mx, my = (u[0]+v[0])/2, (u[1]+v[1])/2
@@ -1423,6 +1520,23 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                                  (mx+5, my-h/2, w, h), (mx-w-5, my-h/2, w, h)])
             etq_f[fid] = next((r for r in opciones if etiqueta_libre(r, None)), etq_f[fid])
             etiquetas_colocadas.append(etq_f[fid])
+
+    if P.get('rutas_seguras'):
+        # Recolocar los rotulos sobre las rutas definitivas, no sobre las previas.
+        for k,m in rutas_msg.items():
+            if not m['nom']:
+                continue
+            obstaculos.pop(('etq_m',k),None)
+            w,h = caja_texto(m['nom'],ancho_max=SLOT-15,alto_linea=13)
+            opciones = []
+            for u,v in zip(m['pts'],m['pts'][1:]):
+                for fr in (.5,.25,.75):
+                    x,y = u[0]+fr*(v[0]-u[0]),u[1]+fr*(v[1]-u[1])
+                    opciones += [(x-w/2,y-h-5,w,h),(x-w/2,y+5,w,h),
+                                 (x+5,y-h/2,w,h),(x-w-5,y-h/2,w,h)]
+            etq_m[k] = next((r for r in opciones if etiqueta_libre(r,None)), etq_m.get(k,opciones[0]))
+            etiquetas_colocadas.append(etq_m[k])
+            obstaculos[('etq_m',k)] = etq_m[k]
 
     return dict(anotaciones=anotaciones, geo_grupo=geo_grupo, sev=sev, bordes=bordes, inicio_sev=inicio_sev,
                 rango=rango, retorno=retorno, caja=caja, datos=datos, flujos=flujos, rutas=rutas,

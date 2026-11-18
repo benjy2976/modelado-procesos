@@ -67,3 +67,7 @@ Recibir el detalle de S4.3.1 Inicio de ejecucion; confirmar la unidad de instanc
 ## Actualizacion de alcance - 2026-11-18
 
 DEC-047: division iniciada y modelada con S4.3.2.3 Gestion de adicionales y deductivos de obra (tres casos), S4.3.2.7 Gestion de reducciones de prestaciones y S4.3.2.8 Gestion de mayores metrados. El padre presenta ocho hijos de nivel 3. Limite deductivo puro/reduccion pendiente de evidencia; no se atribuye aprobacion institucional. Los nuevos indices y juegos documentales estan enlazados desde S4.3.2.
+
+DEC-048, 2026-11-18: primera mejora de zigzag-controlado, con compactacion de filas por carril manteniendo 16 columnas. S4.3.2.3 reduce 34,2 % la altura del PNG; cinco pruebas correctas, sin aumento de D4. Revision visual general realizada; cruces y enrutamiento pendientes antes de considerar definitivo el perfil.
+
+DEC-049, 2026-11-18: segunda mejora de zigzag-controlado, con corredores que rodean cajas y pools ajenos y recolocacion de cadenas terminales cortas. En S4.3.2.3 las cajas 45-46 suben juntas; D4 baja de 93 a 23, con T1 y T3 en cero. Persisten solapes y etiquetas; no se declara perfil definitivo.

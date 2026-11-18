@@ -230,3 +230,19 @@ D1, D2 y D5 sin hallazgos. D4: 93 hallazgos geometricos (T1=19, T2=27, T3=3, T4=
 
 
 Precision de DEC-047, 2026-11-18: por indicacion expresa del usuario se renombra la carpeta y su nota indice a `S4-3-2-3-gestion-adicionales-deductivos-obra`. Esta precision sustituye la conservacion de la ruta anterior indicada en el lote inicial. Se actualizan los enlaces; el codigo S4.3.2.3 y el contenido del flujo se conservan.
+
+## Compactacion visual - DEC-048
+
+Paquete de contexto: fase de disposicion visual, tabla y sustento S4.3.2.3, generador y pruebas de trazado; BPMN-DI y PNG autorizados para medir y revisar la geometria. Modificacion de herramientas autorizada por el usuario. Se activa compactacion en zigzag-controlado sin cambiar sus 16 columnas. La suma de alturas de pools baja de 7866 a 4966 unidades (36,9 %), sin cambiar cajas ni anchos de carril. La comparacion usa el mismo contenido y distingue el efecto geometrico de la validacion normativa. No se atribuye conformidad institucional.
+
+Resultado de la primera iteracion: PNG de 5624 x 16966 a 5624 x 11166 pixeles (34,2 % menos altura total). Vista general inspeccionada: carriles de una actividad compactados; persisten recorridos largos y cruces, especialmente en controles y mensajes. Cinco pruebas correctas, con comparacion de ocho hijos; D1, D2 y D5 sin hallazgos; D4 conserva 93 hallazgos (19/27/3/29/1/10 por T1-T6), sin aumento; D3 conserva la limitacion ya documentada. Derivados de trabajo sincronizados con --forzar; no es trazado definitivo ni linea base publicable. Etiquetas: 184 notas, cero problemas.
+
+## Corredores y recolocacion de terminales - DEC-049
+
+Trabajo visual solicitado expresamente por el usuario. Se autoriza lectura de geometria BPMN, PNG y modificacion del generador y sus pruebas; se conserva el paquete textual del lote DEC-048. No se cambia la tabla, los responsables, las conexiones ni los numeros.
+
+Las cajas 45 y 46 se recolocan como cadena terminal en una fila superior del mismo carril, sin reglas particulares por ID. Se corrigen rutas invasivas mediante corredores ortogonales; el origen y destino dejan de estar excluidos de la comprobacion interior y los mensajes rodean pools ajenos.
+
+D1, D2 y D5 sin hallazgos; D3 conserva la limitacion del simulador ya documentada. D4 baja de 93 a 23: T1=0, T2=10, T3=0, T4=8, T5=1, T6=4. Los pendientes corresponden a corredores compartidos, etiquetas sobre anotaciones, una superposicion de anotaciones y cuatro cruces de etiquetas. Se adoptan derivados de trabajo con --forzar para sincronizar el modelo; no es linea base publicable. La reduccion de avisos no constituye validacion normativa ni conformidad institucional.
+
+Revision visual de la vista general regenerada realizada: 45-46 aparecen juntas arriba en el carril del coordinador; el tramo 39-44 rodea las actividades en vez de atravesarlas. PNG actual: 5832 x 10578 pixeles frente a 5624 x 11166 de DEC-048; el margen lateral aumenta para alojar corredores externos. Siete pruebas correctas, incluyendo recorrido alrededor de barreras, rechazo de extremos encerrados, ausencia de penetracion de cajas y conservacion semantica de los ocho hijos. Etiquetas: 184 notas, cero problemas.

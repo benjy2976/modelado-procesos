@@ -69,3 +69,7 @@ tags:
 
 
 Precision de DEC-047, 2026-11-18: por indicacion expresa del usuario se renombra la carpeta y su nota indice a `S4-3-2-3-gestion-adicionales-deductivos-obra`. Esta precision sustituye la conservacion de la ruta anterior indicada en el lote inicial. Se actualizan los enlaces; el codigo S4.3.2.3 y el contenido del flujo se conservan.
+
+| DEC-048 | 2026-11-18 | Mejorar zigzag-controlado activando compactacion de filas vacias por carril, conservando 16 columnas por tramo y el calculo de altura de documentos y anotaciones. | Usuario solicita iniciar mejora del perfil actual, sin volver a zigzag-amplio. | Primera iteracion de disposicion; herramientas autorizadas expresamente. Sin cambios semanticos; zigzag-corredores conserva su comportamiento. Perfil aun pendiente de consolidacion visual y solucion de interferencias. | Instruccion del usuario; implementacion de IA |
+
+| DEC-049 | 2026-11-18 | Mejorar zigzag-controlado con corredores ortogonales que evitan cajas, respetan los extremos y rodean pools ajenos en mensajes; recolocar cadenas terminales cortas en huecos anteriores del mismo carril. | Usuario solicita implementar correccion de flechas invasivas y aprovechar espacio superior para cajas 45-46. | Cambios generales sin excepciones por ID; conserva semantica, numeros y 16 columnas. No altera zigzag-corredores. Perfil aun en mejora, con interferencias residuales documentadas. | Instruccion del usuario; implementacion de IA |

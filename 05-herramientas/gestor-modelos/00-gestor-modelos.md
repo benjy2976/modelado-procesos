@@ -198,3 +198,17 @@ La descarga falla si el contenido remoto no coincide con el hash fijado. La sali
 - [Plantilla de modelo logico con carriles](../../00-gobernanza/plantillas/modelamiento/modelo-logico-carriles.puml)
 - [Registro de decisiones](../../00-gobernanza/registro-decisiones.md)
 - [S4 Gestion de las inversiones](../../02-procesos/S4-gestion-de-las-inversiones/S4-ficha-producto-proceso.md)
+
+## Compactacion de carriles en zigzag-controlado
+
+DEC-048, 2026-11-18: el perfil conserva 16 columnas por tramo y elimina las filas vacias de cada carril despues del plegado. Conserva el orden de filas ocupadas y usa el calculo existente de altura para documentos, anotaciones y margenes. No modifica actividades, conexiones, numeros ni dimensiones de las cajas. El ancho comun dentro de cada pool se mantiene. zigzag-corredores conserva su configuracion previa para evitar extender este cambio a otra variante.
+
+La regresion compara los ocho hijos de S4.3.2 con la compactacion desactivada: semantica, determinismo y cantidad de hallazgos D4 por tipo. La compactacion no resuelve los cruces previos ni convierte el perfil en definitivo; la siguiente iteracion debera abordar el enrutamiento.
+
+## Corredores y cadenas terminales - DEC-049
+
+zigzag-controlado reubica cadenas terminales completas de dos o tres nodos, sin bifurcaciones ni entradas adicionales a sus nodos posteriores, en celdas libres de filas superiores del mismo carril. Se reserva una columna de separacion lateral; el calculo de altura sigue incluyendo documentos y anotaciones. La regla no depende del codigo del proceso ni de los numeros 45-46.
+
+Las rutas que invaden cajas se recalculan sobre una malla ortogonal con busqueda A*, penalizando quiebres. Las cajas de origen y destino tambien son obstaculos: solo se permite tocar sus bordes. Los mensajes consideran los pools ajenos como barreras. Primero se intenta evitar tambien documentos y anotaciones; si no existe paso, se conserva la prohibicion de atravesar nodos, dejando los conflictos documentales al control D4. Si tampoco existe paso entre nodos se detiene la generacion con un error, sin adoptar una flecha invasiva. Los eventos de borde exceptuan su actividad anfitriona por su union BPMN. Los rotulos se recolocan despues sobre las conexiones definitivas.
+
+No se garantiza aun ausencia de solapes entre conexiones ni entre anotaciones: permanecen como hallazgos de D4. La prueba de regresion verifica la semantica, determinismo y ausencia de aumento por tipo de hallazgo en los ocho hijos.
