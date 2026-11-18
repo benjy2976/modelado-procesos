@@ -62,6 +62,6 @@ No se han adoptado procesos de nivel 4.
 ## Relaciones
 
 - [S4.3.2.2 Atencion de consultas](../S4-3-2-2-atencion-consultas-obra/00-S4-3-2-2-atencion-consultas-obra.md)
-- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-modificaciones-alcance/00-S4-3-2-3-gestion-modificaciones-alcance.md)
+- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-adicionales-deductivos-obra/00-S4-3-2-3-gestion-adicionales-deductivos-obra.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 

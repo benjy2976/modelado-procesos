@@ -256,3 +256,16 @@ Figuras candidatas, no dibujadas hasta que el equipo confirme si se modelan (`PR
 - [Guia del TUO de la Ley 31589](../../../../03-conocimiento/fuentes/guia-ley-31589-obras-paralizadas.md)
 - [Guia del Reglamento de la Ley 32069](../../../../03-conocimiento/fuentes/guia-reglamento-ley-32069.md)
 - [Guia de la Directiva de administracion directa](../../../../03-conocimiento/fuentes/guia-directiva-cgr-administracion-directa.md)
+
+## Division de modificaciones de alcance - DEC-047
+
+El usuario acepta la separacion el 2026-11-18 y precisa los tres casos de S4.3.2.3. Nombre adoptado para el modelo de trabajo: Gestion de adicionales y deductivos de obra. S4.3.2.7 Gestion de reducciones de prestaciones y S4.3.2.8 Gestion de mayores metrados son nuevos hermanos. El padre pasa de seis a ocho subprocesos de evento no interruptivos, sin secuencia obligatoria ni nivel 4. Se conservan las cajas 1-13; se agregan 14 y 15.
+
+La decision sustituye el alcance arquitectonico de DEC-041 y la separacion pendiente de DEC-046. Los documentos permanecen como PROPUESTA en ELABORACION. La carpeta de S4.3.2.3 conserva su ruta estable por trazabilidad. El deductivo puro no se equipara automaticamente a reduccion: se clasifica una sola vez y, si corresponde art. 109, se remite a S4.3.2.7. Otro tratamiento sigue pendiente de evidencia.
+
+Paquete conceptual: indices, fichas, tablas y sustentos de padre e hijos afectados; Reglamento arts. 109 y 197 y opiniones CON-010 y CON-011. Fuentes y vigencia en los sustentos de cada hijo. Derivados excluidos del contexto, revision visual diferida y herramientas sin modificacion autorizada. No se atribuye validacion normativa ni conformidad institucional.
+
+Control de cierre DEC-047: padre D1-D5 sin hallazgos; comprobacion global --check satisfactoria. Los hallazgos D3/D4 de hijos se detallan en sus sustentos; sincronizacion no equivale a validacion ni conformidad.
+
+
+Precision de DEC-047, 2026-11-18: por indicacion expresa del usuario se renombra la carpeta y su nota indice a `S4-3-2-3-gestion-adicionales-deductivos-obra`. Esta precision sustituye la conservacion de la ruta anterior indicada en el lote inicial. Se actualizan los enlaces; el codigo S4.3.2.3 y el contenido del flujo se conservan.

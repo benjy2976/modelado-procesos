@@ -116,3 +116,7 @@ Por solicitud del usuario se aplica la mejora general del perfil: compactacion d
 Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. En este modelo preliminar de un solo pool, los carriles identifican por nombre la responsabilidad del residente, del supervisor o inspector y de la unidad institucional aun no acreditada. La derivacion interna del informe para tramite de pago se expresa como tarea de usuario y `almacen: SGD`. La adscripcion de la unidad receptora sigue con `EVIDENCIA-INSUFICIENTE`; el uso de SGD no identifica al destinatario del pago. El titulo Ejecutor de obra, segun regimen conserva la diferencia entre contrata y administracion directa sin atribuir un contratista a esta ultima.
 
 La generacion focalizada de esta normalizacion dejo D1-D5 sin hallazgos en su fecha. Se regeneraron BPMN, SVG, PNG y HTML. No se atribuye conformidad institucional.
+
+## Interfaz con mayores metrados - DEC-047
+
+S4.3.2.8 entrega el sustento del periodo y la autorizacion de ejecucion de mayores metrados. Esta ultima no equivale a autorizar el pago: verificar la autorizacion de la autoridad de gestion administrativa conforme al art. 197.2 antes de tramitarlo. El detalle de esta interfaz y la ubicacion documental del control de pago requieren evidencia operativa; no se modifica en este lote la secuencia vigente de valorizacion. Fuente, consulta y vigencia en el [sustento de S4.3.2.8](../S4-3-2-8-gestion-mayores-metrados/S4-3-2-8-sustento.md).

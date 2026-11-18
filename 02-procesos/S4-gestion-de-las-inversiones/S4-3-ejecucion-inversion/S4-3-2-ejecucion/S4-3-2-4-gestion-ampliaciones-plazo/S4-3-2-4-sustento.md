@@ -102,7 +102,7 @@ La generacion focalizada del 2026-11-05 deja D1, D2, D3, D4 y D5 sin hallazgos. 
 
 ## Relaciones
 
-- [Sustento de S4.3.2.3](../S4-3-2-3-gestion-modificaciones-alcance/S4-3-2-3-sustento.md)
+- [Sustento de S4.3.2.3](../S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-sustento.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
 
 ## Cambio de perfil de trazado ? 2026-11-06

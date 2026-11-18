@@ -24,13 +24,13 @@ tags:
   - proceso/s4/s4-3/s4-3-2/s4-3-2-3
 ---
 
-# S4.3.2.3 Gestion de modificaciones de alcance - Ficha de producto y proceso
+# S4.3.2.3 Gestion de adicionales y deductivos de obra - Ficha de producto y proceso
 
-Sube a: [S4.3.2.3 Gestion de modificaciones de alcance](00-S4-3-2-3-gestion-modificaciones-alcance.md)
+Sube a: [S4.3.2.3 Gestion de adicionales y deductivos de obra](00-S4-3-2-3-gestion-adicionales-deductivos-obra.md)
 
 ## Nombre del proceso
 
-S4.3.2.3 Gestion de modificaciones de alcance
+S4.3.2.3 Gestion de adicionales y deductivos de obra
 
 ## Tipo de proceso
 
@@ -42,7 +42,7 @@ Apoyo, pendiente de confirmacion con la arquitectura institucional.
 
 ## Objetivo del proceso
 
-Propuesta: gestionar de manera trazable las modificaciones de alcance de una obra mediante rutas diferenciadas: adicional y deductivo vinculado con antecedente de consulta, elaboracion, evaluacion de supervision cuando corresponda y opinion institucional; reduccion independiente con sustento propio; mayores metrados con autorizacion en obra e interfaz de valorizacion. Los plazos y controles se aplican por figura y regimen segun el sustento, sin convertir la autorizacion de elaboracion en aprobacion de ejecucion.
+Propuesta: gestionar adicionales, deductivos puros y adicionales con deductivos vinculantes mediante clasificacion, sustento y rutas aplicables. El adicional conserva elaboracion, opiniones y decision; el deductivo puro requiere acreditar su naturaleza antes de determinar el procedimiento. Las reducciones de prestaciones y mayores metrados se atienden en S4.3.2.7 y S4.3.2.8.
 
 ## Objetivo estrategico
 
@@ -52,11 +52,10 @@ Propuesta: gestionar de manera trazable las modificaciones de alcance de una obr
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra, segun regimen; supervisor o inspector de obra; S4.3.2.2 | Solicitud, necesidad o causal; registro en el Cuaderno de Incidencias; informe y antecedentes tecnicos | Decision sobre la modificacion de alcance, registrada y comunicada | Ejecutor de obra, segun regimen; supervisor o inspector de obra; unidades del GORE involucradas |
+| Ejecutor de obra, segun regimen; supervisor o inspector de obra; S4.3.2.2 | Solicitud, necesidad o causal; registro en el Cuaderno de Incidencias; informe y antecedentes tecnicos | Decision del adicional o clasificacion documentada del deductivo puro | Ejecutor de obra, segun regimen; supervisor o inspector de obra; unidades del GORE involucradas |
 | Equipo elaborador definido en las bases o designado por la OAD, con adscripcion por confirmar | Expediente tecnico desarrollado o subsanado | Solucion tecnica documentada para revision institucional | SGE y SGGOS |
 | Especialistas y controles competentes; Contraloria cuando corresponda | Opinion tecnica independiente, control contractual y de costos, disponibilidad presupuestal, revision legal o autorizacion externa | Expediente integrado para decision | Titular de la competencia o autoridad delegada |
-| Titular de la competencia o autoridad delegada | Pronunciamiento formal | Adicional o reduccion resueltos y comunicados | Participantes de la ejecucion y sistemas aplicables |
-| Contratista y supervision, en el supuesto del art. 197 | Solicitud, autorizacion en cuaderno y sustento de mayores metrados ejecutados | Autorizacion de ejecucion y sustento para valorizacion; pago sujeto a autorizacion de la autoridad de gestion administrativa | Ejecutor y circuito de valorizacion/control periodico |
+| Titular de la competencia o autoridad delegada | Pronunciamiento formal | Decision del adicional comunicada | Participantes de la ejecucion y sistemas aplicables |
 
 ## Actividades del proceso
 

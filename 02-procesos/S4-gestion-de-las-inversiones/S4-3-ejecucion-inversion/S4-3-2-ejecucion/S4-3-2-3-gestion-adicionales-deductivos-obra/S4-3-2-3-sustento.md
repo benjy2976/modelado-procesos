@@ -17,11 +17,15 @@ tags:
   - proceso/s4/s4-3/s4-3-2/s4-3-2-3
 ---
 
-# S4.3.2.3 Gestion de modificaciones de alcance - Sustento
+# S4.3.2.3 Gestion de adicionales y deductivos de obra - Sustento
 
-Sube a: [S4.3.2.3 Gestion de modificaciones de alcance](00-S4-3-2-3-gestion-modificaciones-alcance.md)
+Sube a: [S4.3.2.3 Gestion de adicionales y deductivos de obra](00-S4-3-2-3-gestion-adicionales-deductivos-obra.md)
 
-## Resultado del realineamiento
+## Alcance vigente
+
+DEC-047 divide este proceso: S4.3.2.3 conserva adicionales, deductivos puros y adicionales con deductivos vinculantes; reducciones y mayores metrados pasan a S4.3.2.7 y S4.3.2.8. La seccion final documenta la division y sus limites. Los apartados DEC-041 y DEC-046 siguientes son antecedentes, no la arquitectura vigente.
+
+## Antecedente del realineamiento DEC-041
 
 `DEC-041` limita este proceso a adicional o modificacion tecnica, reduccion o deductivo y mayores metrados o cantidades. Las variantes de plazo del modelo anterior se trasladan, con su trazabilidad, a S4.3.2.4, S4.3.2.5 y S4.3.2.6. No se crean codigos de nivel 4.
 
@@ -207,3 +211,22 @@ El usuario aporta la Opinion D000092-2026-OECE-DTN y precisa que la respuesta de
 D1, D2, D3 y D5 sin hallazgos: esquema valido, referencias consistentes y escenarios sin bloqueos. D4 informa 80 interferencias geometricas: T1=16, T2=22, T3=3, T4=32 y T6=5; afectan anotaciones, intercambios con elaborador, proyectista y Contraloria y convergencias. Se regeneran los derivados de trabajo con --forzar exclusivamente para mantenerlos sincronizados con la fuente conceptual, no como trazado listo para publicar. El informe reproducible queda en 99-temporal/modelos/S4-3-2-3-diagrama-proceso/validacion.txt. Se requiere ajuste de disposicion y revision visual antes de linea base; no se modificaron herramientas ni se atribuye conformidad.
 
 Comprobacion de cierre 2026-11-18: construir_modelos.py --check correcto para todos los modelos; gestionar_etiquetas.py revisar: 174 notas, 0 problemas. Integridad SHA-256 de CON-010 y CON-011 comprobada; enlaces locales de ambas guias sin roturas; 36 reglas con identificadores unicos. Estos controles no eliminan los hallazgos geometricos D4 ni validan las reglas.
+
+## Division adoptada para el modelo de trabajo - DEC-047
+
+Esta seccion sustituye la recomendacion pendiente de separacion del lote DEC-046. Por instruccion del usuario del 2026-11-18, S4.3.2.3 se denomina Gestion de adicionales y deductivos de obra y comprende tres casos: adicional, deductivo puro y adicional con deductivo vinculante. La ruta estable se conserva; las nuevas carpetas corresponden a procesos hermanos, no a copias de estado.
+
+Reducciones se trasladan a [S4.3.2.7](../S4-3-2-7-gestion-reducciones-prestaciones/00-S4-3-2-7-gestion-reducciones-prestaciones.md); mayores metrados a [S4.3.2.8](../S4-3-2-8-gestion-mayores-metrados/00-S4-3-2-8-gestion-mayores-metrados.md). Los tres aparecen como cajas independientes en S4.3.2. No hay nivel 4 ni cadena obligatoria entre ellos.
+
+**Evidencia observada:** el usuario distingue deductivo puro de reduccion de metas. **EVIDENCIA-INSUFICIENTE:** no se aporto aun el supuesto tecnico-contractual que acredita una ruta autonoma del deductivo puro. **Propuesta:** entrada propia, clasificacion y remision a S4.3.2.7 si es reduccion de prestaciones; de lo contrario el detalle queda pendiente. No se exige ratificacion ni se aplican 15/10 dias del adicional por analogia. La respuesta de consulta puede integrar sus antecedentes; no equivale a un expediente aprobado.
+
+La caja 7 es convergencia exclusiva de dos origenes alternativos (residente y supervision). Se conserva con anotacion aclaratoria; no decide, aprueba ni sincroniza ambos origenes. Ahora conecta directamente con caja 8. Se retiran los numeros 21, 22, 23, 51, 56, 57 y 66-75; no se reutilizan. Las nuevas cajas 82-86 identifican y clasifican los casos de deductivo puro y adicional vinculado. Los nuevos procesos tienen numeracion local propia.
+
+Paquete conceptual: ficha, indice, tabla y sustento de S4.3.2 y .3, nuevos .7/.8, fuentes ya citadas y plantillas NT. Se mantienen limites normativos del lote anterior. Derivados excluidos del contexto, revision visual diferida, herramientas sin cambios. No existen conformidades institucionales nuevas.
+
+## Control tecnico de la division
+
+D1, D2 y D5 sin hallazgos. D4: 93 hallazgos geometricos (T1=19, T2=27, T3=3, T4=29, T5=1, T6=10). D3 reporta acumulacion en seis escenarios. Se comprobo que el grafo combinado de secuencias y mensajes entre nodos es aciclico. El simulador simplificado convierte mensajes en flujos de tokens y consume cada entrada de eventos de recepcion e inclusivas por separado (_validar_bpmn.py, grafo y juego_tokens); no modela la espera correlacionada del mensaje ni la reunion inclusiva. Al restaurar la continuidad de la tabla Mensajes, antes cortada por una linea vacia, estos intercambios pasan a ser evaluados. El aviso de ciclo/acumulacion no prueba un ciclo real; se mantiene como limitacion pendiente de contraste BPMN especializado, sin alterar ni omitir mensajes para silenciarlo. No se modifican herramientas ni se declara D3 conforme. Se adoptan derivados de trabajo con --forzar para sincronizar la propuesta conceptual; no constituyen una linea base lista para publicacion. Revision visual y cierre de hallazgos pendientes. Informe reproducible: 99-temporal/modelos/S4-3-2-3-diagrama-proceso/validacion.txt.
+
+
+Precision de DEC-047, 2026-11-18: por indicacion expresa del usuario se renombra la carpeta y su nota indice a `S4-3-2-3-gestion-adicionales-deductivos-obra`. Esta precision sustituye la conservacion de la ruta anterior indicada en el lote inicial. Se actualizan los enlaces; el codigo S4.3.2.3 y el contenido del flujo se conservan.

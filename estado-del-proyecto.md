@@ -63,3 +63,7 @@ tags:
 ## Siguiente hito
 
 Recibir el detalle de S4.3.1 Inicio de ejecucion; confirmar la unidad de instancia de S4.3.2; revisar con el equipo S4.3.2.1; validar S4.3.2.2 y su variante con inspector; validar los modelos de S4.3.2.3 a S4.3.2.6, en especial duenos, delegaciones, control contractual, especialistas competentes, controles presupuestales y juridicos, actos, registros y diferencias por regimen; decidir la ubicacion de intensificacion, que permanece con `EVIDENCIA-INSUFICIENTE`; desarrollar posteriormente S4.3.3 Recepcion. En paralelo, revisar la fidelidad de la ficha y los intercambios de S4.3 contra las fuentes institucionales, sin atribuir conformidad ni aprobacion.
+
+## Actualizacion de alcance - 2026-11-18
+
+DEC-047: division iniciada y modelada con S4.3.2.3 Gestion de adicionales y deductivos de obra (tres casos), S4.3.2.7 Gestion de reducciones de prestaciones y S4.3.2.8 Gestion de mayores metrados. El padre presenta ocho hijos de nivel 3. Limite deductivo puro/reduccion pendiente de evidencia; no se atribuye aprobacion institucional. Los nuevos indices y juegos documentales estan enlazados desde S4.3.2.

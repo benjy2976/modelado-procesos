@@ -68,7 +68,7 @@ No se han adoptado procesos de nivel 4.
 
 ## Relaciones
 
-- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-modificaciones-alcance/00-S4-3-2-3-gestion-modificaciones-alcance.md)
+- [S4.3.2.3 Gestion de modificaciones de alcance](../S4-3-2-3-gestion-adicionales-deductivos-obra/00-S4-3-2-3-gestion-adicionales-deductivos-obra.md)
 - [S4.3.2.4 Gestion de ampliaciones de plazo](../S4-3-2-4-gestion-ampliaciones-plazo/00-S4-3-2-4-gestion-ampliaciones-plazo.md)
 - [S4.3.2.5 Formalizacion de suspensiones de plazo](../S4-3-2-5-formalizacion-suspensiones-plazo/00-S4-3-2-5-formalizacion-suspensiones-plazo.md)
 - [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)

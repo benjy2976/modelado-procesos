@@ -18,11 +18,11 @@ tags:
   - proceso/s4/s4-3/s4-3-2/s4-3-2-3
 ---
 
-# S4.3.2.3 Gestion de modificaciones de alcance
+# S4.3.2.3 Gestion de adicionales y deductivos de obra
 
-Sube a: [S4.3.2.3 Gestion de modificaciones de alcance](00-S4-3-2-3-gestion-modificaciones-alcance.md)
+Sube a: [S4.3.2.3 Gestion de adicionales y deductivos de obra](00-S4-3-2-3-gestion-adicionales-deductivos-obra.md)
 
-Propuesta replanteada mediante `DEC-046`: adicional con su deductivo vinculado, reduccion independiente y mayores metrados tienen rutas diferenciadas. La consulta S4.3.2.2 es antecedente del circuito operativo de adicionales; no equivale a aprobacion del expediente. Se conserva el alcance de `DEC-041`. Ampliacion, suspension y paralizacion o reinicio se trasladan a S4.3.2.4, S4.3.2.5 y S4.3.2.6.
+Division mediante `DEC-047`: este proceso comprende adicional, deductivo puro y adicional con deductivo vinculante. Reducciones de prestaciones y mayores metrados se desarrollan en S4.3.2.7 y S4.3.2.8. El deductivo puro tiene clasificacion propia; su procedimiento autonomo permanece con EVIDENCIA-INSUFICIENTE.
 
 Notas que no se dibujan:
 
@@ -53,17 +53,19 @@ Notas que no se dibujan:
 | Contraloria General de la Republica |  |
 | S4.3.2.2 Atencion de consultas de obra |  |
 | Proyectista |  |
+| S4.3.2.7 Gestion de reducciones de prestaciones |  |
 
 ## Elementos
+
 | ID | Numero | Pool | Carril | Tipo | Nombre | Siguiente | Adjunto | Interrumpe | Documentos | Plazo | Disparador | Anotacion | Clase | Fuente |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-E1 | 1 | Ejecutor de obra, segun regimen | Residente de obra | inicio-mensaje | Respuesta de consulta recibida | R-T1 |  |  | entra: Respuesta S4.3.2.2 |  |  |  | EQ | Usuario 2026-11-18; Opinion D000083, 2.2.1 y 3.3 |
 | R-T1 | 2 | Ejecutor de obra, segun regimen | Residente de obra | tarea-usuario | Anotar necesidad del adicional en cuaderno | R-F1 |  |  | entra: Respuesta de consulta; sale: Anotacion de necesidad |  |  | Hito del computo de 5 y 15 dias: dia siguiente de esta anotacion; conservar fecha si ya existe | NORM | Reglamento, art. 194.2 a; Opinion D000092, 2.1-2.3 y 3.1-3.3 |
 | R-F1 | 3 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Anotacion y antecedentes remitidos |  |  |  |  |  |  |  | NORM | Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6 |
 | S-E1 | 4 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Sustento del residente recibido | S-G1 |  |  | entra: Registro y sustento de necesidad |  |  |  | NORM | Reglamento, arts. 186.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
 | S-E2 | 5 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-condicional | Necesidad identificada por supervision | S-T0 |  |  |  |  |  | Origen alternativo del art. 194; consulta previa si existe. No duplicar anotacion ya valida | EQ | Precision operativa del equipo; Reglamento, arts. 186-188 |
 | S-T0 | 6 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea-usuario | Registrar la necesidad en el Cuaderno de Incidencias | S-G1 |  |  | sale: Registro de necesidad |  |  | Comunicar anotacion al elaborador definido en bases; inicia computo sin esperar ratificacion | EQ | Precision operativa del equipo; Reglamento, art. 188.3; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6 |
-| S-G1 | 7 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta |  | S-GFIG |  |  |  |  |  |  | PROP | Convergencia de origenes |
+| S-G1 | 7 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta |  | S-T1 |  |  |  |  |  | Convergencia exclusiva: residente o supervision. No aprueba ni espera ambos origenes | PROP | Convergencia de origenes |
 | S-T1 | 8 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Evaluar la necesidad y el riesgo para la ejecucion | S-G2 |  |  |  | Adicional art. 194.2 b: informe en 5 dias calendario desde el dia siguiente de la anotacion |  | No extender este plazo a reducciones ni administracion directa | NORM | Reglamento, arts. 187.1, 194.2 b y 197.1; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6 |
 | S-G2 | 9 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta | ¿Ratifica la necesidad? | S-F1 [Si]; S-F2 [No] |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 b; Directiva 017-2023-CG, num. 7.3.6 |
 | S-F1 | 10 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Necesidad ratificada y remitida |  |  |  | sale: Informe de necesidad |  |  |  | NORM | Reglamento, art. 194.2; Directiva 017-2023-CG, num. 7.3.6 |
@@ -72,14 +74,11 @@ Notas que no se dibujan:
 | E-T1 | 13 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Registrar y derivar a SGGOS por SGD | E-T2 |  |  | sale: Registro y derivacion; almacen: SGD |  |  |  | EQ | ROF, art. 20; observacion del usuario, 2026-11-10 |
 | E-T2 | 14 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Verificar integridad, regimen, sistema de entrega y supuesto | E-GREG |  |  | entra: Expediente |  |  |  | EQ | ROF, arts. 97-98; DEC-041 |
 | E-T3 | 15 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Clasificar alcance original, causal y figura inicial | E-G0 |  |  |  |  |  | Si requiere juicio tecnico especializado, deriva al especialista competente | EQ | Precision del equipo registrada en DEC-041 |
-| E-G0 | 16 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Corresponde una modificacion de alcance? | E-G2 [Si]; E-T15 [No] |  |  |  |  |  |  | PROP | Separa obligacion original, valorizacion y modificacion potencial |
-| E-T15 | 17 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Comunicar que no corresponde una modificacion de alcance | E-F3 |  |  | sale: Comunicacion |  |  |  | PROP | Resultado de clasificacion inicial; DEC-041 |
+| E-G0 | 16 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Corresponde adicional o deductivo de obra? | E-G2 [Si]; E-T15 [No] |  |  |  |  |  |  | PROP | Separa obligacion original, valorizacion y modificacion potencial |
+| E-T15 | 17 | Gobierno Regional Huanuco | OACGD — Registro documentario | tarea-usuario | Comunicar clasificacion y proceso de destino | E-F3 |  |  | sale: Comunicacion |  |  | Reducciones: S4.3.2.7; mayores metrados: S4.3.2.8. No aprueba la figura derivada | PROP | Resultado de clasificacion inicial; DEC-041 |
 | E-F3 | 18 | Gobierno Regional Huanuco | OACGD — Registro documentario | fin-mensaje | Caso clasificado fuera del proceso |  |  |  |  |  |  |  | PROP | Puede corresponder exigir cumplimiento, valorizar o derivar a otro proceso |
-| E-G2 | 19 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Que figura de alcance corresponde? | MOD-ALC-ADI [Adicional con o sin deductivo vinculado]; MOD-ALC-RED [Reduccion independiente]; MOD-ALC-MAY [Mayores metrados] |  |  |  |  |  |  | NORM | Ley 32069, arts. 63-64; Reglamento, arts. 109 y 194-197; Directiva 017-2023-CG, num. 7.3.6 |
-| MOD-ALC-ADI | 20 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Identificar adicional y su deductivo vinculado | E-G4 |  |  |  |  |  |  | EQ | Ley 32069, art. 64.2-64.3; Reglamento, art. 194; DEC-046 |
-| MOD-ALC-RED | 21 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Verificar sustento de reduccion independiente | E-GRED |  |  |  |  |  | Area usuaria: finalidad conservada, prestaciones no ejecutadas, divisibles y cuantificables; opinion del supervisor; limite 25 %; antes de recepcion | EQ | Reglamento, art. 109.1; responsable interno del sustento pendiente |
-| MOD-ALC-MAY | 22 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Derivar solicitud de mayores metrados al control de obra | E-FMAY |  |  |  |  |  |  | PROP | Reglamento, art. 197.1-197.2; no es aprobacion previa de la entidad |
-| E-G4 | 23 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta |  | E-G6 |  |  |  |  |  |  | PROP | Convergencia de variantes |
+| E-G2 | 19 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Que caso corresponde? | MOD-ALC-ADI [Adicional]; E-TVIN [Adicional con deductivo vinculante]; E-TDP [Deductivo puro] |  |  |  |  |  |  | PROP | DEC-047; tres casos solicitados por el usuario |
+| MOD-ALC-ADI | 20 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Identificar adicional sin deductivo vinculado | E-G6 |  |  |  |  |  |  | EQ | Ley 32069, art. 64.2-64.3; Reglamento, art. 194; DEC-046 |
 | E-G6 | 24 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Necesidad ratificada, causal y elaborador acreditados? | E-T4 [Si]; E-FPEND [No] |  |  |  |  |  | Causal indispensable; anotacion e informe; confirmar elaborador segun bases y evitar duplicar el encargo de consultas | PROP | Reglamento, art. 194.1 y 194.2 a-d; bases del contrato |
 | E-T4 | 25 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | mensaje-envio | Comunicar ratificacion al elaborador | E-M2 |  |  | sale: Ratificacion y confirmacion del elaborador |  |  | No reinicia los 15 dias; encargo segun bases y antecedente de consulta | NORM | Opinion D000092, 2.1 nota 4, 2.2 y 3.2 |
 | E-M2 | 26 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | mensaje-recepcion | Expediente del adicional presentado a evaluacion | E-GEL |  |  | entra: Expediente tecnico |  |  |  | NORM | Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6 |
@@ -98,19 +97,16 @@ Notas que no se dibujan:
 | E-M1 | 40 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | mensaje-recepcion | Pronunciamiento de Contraloria recibido | E-G9 |  |  | entra: Pronunciamiento |  |  |  | NORM | Ley 32069, arts. 64.3 b y 64.4 |
 | E-G9 | 41 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Autorizada? | E-T10 [Si]; E-F2B [No] |  |  |  |  |  |  | NORM | Ley 32069, arts. 64.3 b y 64.4 |
 | E-F2B | 42 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | No autorizacion comunicada |  |  |  |  |  |  |  | PROP | Cierre cuando no se obtiene la autorizacion externa exigible |
-| E-T10 | 43 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Emitir y notificar resolucion segun figura | E-G10 |  |  | entra: Expediente consolidado; sale: Pronunciamiento | Art. 194.2 f: 12 dias habiles desde opinion del supervisor o expediente elaborado por este |  | 12 dias habiles del tramite institucional, desde dia siguiente de opinion del supervisor o expediente elaborado por este; no aplica a reduccion | NORM | Reglamento, art. 194.2 f; Opinion D000092, 2.9 y 3.9-3.11 |
+| E-T10 | 43 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Emitir y notificar resolucion del adicional | E-G10 |  |  | entra: Expediente consolidado; sale: Pronunciamiento | Art. 194.2 f: 12 dias habiles desde opinion del supervisor o expediente elaborado por este |  | 12 dias habiles del tramite institucional, desde dia siguiente de opinion del supervisor o expediente elaborado por este; no aplica a reduccion | NORM | Reglamento, art. 194.2 f; Opinion D000092, 2.9 y 3.9-3.11 |
 | E-G10 | 44 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T11 [Si] (por defecto); E-F2C [No] |  |  |  |  |  |  | PROP | Rutas de decision |
 | E-T11 | 45 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 |  |  | sale: Registros y comunicacion |  |  | Verificar canal vigente SEACE/Pladicop o transitorio contractual; no presumir implementacion actual | NORM | Opinion D000092, 2.11 y 3.14-3.15; Reglamento, art. 109.3; registros de inversion aplicables |
-| E-F1 | 46 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Modificacion de alcance comunicada |  |  |  |  |  |  |  | PROP | Producto propuesto; canal formal por confirmar |
+| E-F1 | 46 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Decision del adicional comunicada |  |  |  |  |  |  |  | PROP | Producto propuesto; canal formal por confirmar |
 | E-F2C | 47 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Decision no favorable comunicada |  |  |  |  |  |  |  | PROP | Producto alterno |
 | X-E1 | 48 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | inicio-mensaje | Anotacion y antecedentes recibidos | X-T1 |  |  | entra: Anotacion de necesidad; entra: Respuesta de consulta y bases |  |  |  | NORM | Opinion D000092, 2.1-2.3; propuesta de intercambio con elaborador |
 | X-T1 | 49 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | tarea-usuario | Elaborar expediente del adicional y deductivo vinculado | X-MR |  |  | sale: Expediente tecnico | 15 dias calendario desde el dia siguiente de la anotacion; necesidad ratificada |  | Elaboracion dentro del computo iniciado; presentacion condicionada a ratificacion; plazo adicional solo otorgado con sustento | NORM | Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.7 |
 | X-F1 | 50 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | fin-mensaje | Expediente tecnico presentado |  |  |  |  |  |  |  | NORM | Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6 |
-| E-E2 | 51 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Sustento de reduccion recibido | E-T1 |  |  | entra: Sustento de reduccion independiente |  |  |  | PROP | Reglamento, art. 109; entrada alternativa propuesta |
 | E-GREG | 52 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Ley 32069, solo construccion y caso ordinario? | E-T3 [Si]; E-FPEND [Otro regimen o supuesto] |  |  |  |  |  |  | PROP | DEC-046 |
 | E-FPEND | 53 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin | Caso pendiente de completar sustento o ruta especifica |  |  |  |  |  |  | EVIDENCIA-INSUFICIENTE; no es aprobacion ni denegacion de fondo | PROP | DEC-046 |
-| E-GRED | 56 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Sustento de reduccion completo? | E-G5 [Si]; E-FPEND [No] |  |  |  |  |  |  | PROP | Reglamento, art. 109.1; propuesta de control documental |
-| E-FMAY | 57 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Solicitud derivada sin aprobar ejecucion |  |  |  | sale: Solicitud de mayores metrados |  |  |  | PROP | Reglamento, art. 197.1-197.2 |
 | E-GEL | 58 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Elaborador acreditado segun bases? | E-GPAR [Si]; E-FPEND [No] |  |  |  |  |  | No imponer al supervisor diez dias para revisar su propio expediente | PROP | Opinion D000092, 2.9 A-C y 3.9-3.11 |
 | E-GPAR | 59 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta-inclusiva | ¿Que opiniones corresponden? | E-TSUP [Contratista o entidad]; E-T5A [Siempre: verificar opinion previa] |  |  |  |  |  | Seleccion por elaborador; cuando es contratista, ambas opiniones tienen el mismo plazo | PROP | Opinion D000092, 2.8-2.9 |
 | E-TSUP | 60 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | mensaje-envio | Coordinar presentacion a supervision | E-MSUP |  |  | sale: Expediente presentado |  |  | Presentacion a entidad y supervision cuando elabora contratista; si elabora entidad, remite al supervisor | PROP | Opinion D000092, 2.4 nota 5; 2.9 A y C |
@@ -119,27 +115,22 @@ Notas que no se dibujan:
 | S-E3 | 63 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Expediente para evaluacion recibido | S-T3 |  |  | entra: Expediente presentado |  |  |  | PROP | Opinion D000092, 2.9 A y C |
 | S-T3 | 64 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Evaluar expediente y emitir pronunciamiento | S-F3 |  |  |  | Contratista: 10 dias calendario desde el dia siguiente de presentacion; entidad: plazo correspondiente por precisar |  | No se omite pronunciamiento por elaboracion de entidad | NORM | Reglamento, art. 194.2 e; Opinion D000092, 2.9 A y C |
 | S-F3 | 65 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Opinion de supervision remitida |  |  |  | sale: Opinion de supervision |  |  |  | PROP | Reglamento, art. 194.2 e-f |
-| S-GFIG | 66 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta | ¿Solicitud de mayores metrados del art. 197? | S-TMM [Si]; S-T1 [No] |  |  |  |  |  | Solo precios unitarios y sistemas del art. 197; no generalizar a administracion directa | PROP | DEC-046 |
-| S-EMM | 67 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | inicio-mensaje | Solicitud de mayores metrados derivada | S-TMM |  |  | entra: Solicitud de mayores metrados |  |  |  | PROP | DEC-046 |
-| S-TMM | 68 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea | Verificar mayores metrados, modalidad y acumulados | S-GMM |  |  |  |  |  |  | NORM | Reglamento, art. 197.1 |
-| S-GMM | 69 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | compuerta | ¿Corresponde autorizar mayores metrados? | S-AMM [Si]; S-FNMM [No] |  |  |  |  |  |  | PROP | Reglamento, art. 197.1 y 197.4 |
-| S-AMM | 70 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | tarea-usuario | Autorizar ejecucion en Cuaderno de Incidencias | S-FMM |  |  | sale: Autorizacion de mayores metrados |  |  |  | NORM | Reglamento, art. 197.1 |
-| S-FMM | 71 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin-mensaje | Mayores metrados autorizados para ejecucion |  |  |  |  |  |  | No equivale a autorizacion de pago | PROP | Reglamento, art. 197.1-197.2 |
-| S-FNMM | 72 | Supervisor o inspector de obra | Supervisor o inspector de obra, segun modalidad | fin | Solicitud no autorizada o pendiente de reclasificar |  |  |  |  |  |  | Si supera limite, aplicar art. 197.4; no habilitar ejecucion por esta ruta | PROP | DEC-046 |
-| R-EMM | 73 | Ejecutor de obra, segun regimen | Residente de obra | inicio-mensaje | Autorizacion de mayores metrados recibida | R-TMM |  |  |  |  |  |  | PROP | DEC-046 |
-| R-TMM | 74 | Ejecutor de obra, segun regimen | Residente de obra | tarea | Ejecutar y sustentar mayores metrados del periodo | R-FMM |  |  | sale: Sustento para valorizacion |  |  |  | NORM | Reglamento, art. 197.2 |
-| R-FMM | 75 | Ejecutor de obra, segun regimen | Residente de obra | fin-mensaje | Mayores metrados remitidos a valorizacion |  |  |  |  |  |  | Interfaz con control periodico; el pago requiere autorizacion de la autoridad de gestion administrativa | PROP | Reglamento, arts. 197.2 y 210 |
 | X-MR | 76 | Elaboracion del expediente tecnico | Equipo elaborador competente (adscripcion pendiente) | mensaje-recepcion | Ratificacion comunicada para presentar | X-F1 |  |  | entra: Ratificacion de necesidad |  |  | Condicion de presentacion; no nuevo inicio del computo | PROP | Opinion D000092, 2.1 nota 4, 2.2-2.3 |
 | E-GPRO | 77 | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | compuerta | ¿Corresponde opinion del proyectista? | E-TPRO [Si]; E-GEX [No] |  |  |  |  |  | No mas de un anio desde conformidad del expediente original | PROP | Opinion D000092, 2.8-2.9 |
 | E-TPRO | 78 | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | mensaje-envio | Solicitar opinion al proyectista | E-MPRO |  |  | sale: Expediente del adicional |  |  |  | PROP | Opinion D000092, 2.8-2.9 |
 | E-MPRO | 79 | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | mensaje-recepcion | Opinion del proyectista recibida | E-GJOIN |  |  | entra: Opinion del proyectista |  |  |  | PROP | Opinion D000092, 2.8-2.9 |
 | E-GEX | 80 | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | compuerta | ¿El expediente lo elaboro la entidad? | E-TEX [Si]; E-T5 [No] |  |  |  |  |  |  | PROP | Opinion D000092, 2.8-2.9 |
 | E-TEX | 81 | Gobierno Regional Huanuco | SGE — Coordinacion de revision tecnica | tarea-usuario | Documentar supuesto de opinion inoficiosa | E-GJOIN |  |  |  |  |  | No auto-revisar: supuesto 2.8; conservar supervision. Controles independientes de DEC-038 segun riesgo | PROP | Opinion D000092, 2.8-2.9 |
+| E-EDP | 82 | Gobierno Regional Huanuco | OACGD — Registro documentario | inicio-mensaje | Sustento de deductivo puro recibido | E-T1 |  |  | entra: Sustento y respuesta de consulta cuando exista |  |  |  | PROP | DEC-047 |
+| E-TVIN | 83 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Identificar adicional y deductivo vinculante | E-G6 |  |  |  |  |  | Evaluacion conjunta; acreditar vinculo de sustitucion. No restar reducciones independientes | PROP | DEC-047 |
+| E-TDP | 84 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Precisar naturaleza y sustento del deductivo puro | E-GDP |  |  |  |  |  | EVIDENCIA-INSUFICIENTE sobre ruta autonoma; no aplicar plazos 15 y 10 por analogia | PROP | DEC-047 |
+| E-GDP | 85 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Corresponde reduccion de prestaciones? | E-FRED [Si]; E-FPEND [No o no acreditado] |  |  |  |  |  |  | PROP | DEC-047 |
+| E-FRED | 86 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Caso clasificado para S4.3.2.7 |  |  |  | sale: Sustento y clasificacion; sin decision de fondo |  |  |  | PROP | DEC-047 |
 
 ## Mensajes
 
 | Desde | Hacia | Nombre |
-|---|---|---|
+| --- | --- | --- |
 | R-F1 | S-E1 | Sustento de necesidad |
 | S-F1 | E-E1 | Necesidad ratificada |
 | R-F1 | X-E1 | Anotacion y antecedentes para elaboracion |
@@ -148,11 +139,9 @@ Notas que no se dibujan:
 | X-F1 | E-M2 | Expediente tecnico |
 | E-T8 | Contraloria General de la Republica | Solicitud de autorizacion |
 | Contraloria General de la Republica | E-M1 | Pronunciamiento |
-
 | S4.3.2.2 Atencion de consultas de obra | R-E1 | Respuesta notificada como antecedente |
 | E-TSUP | S-E3 | Expediente presentado para pronunciamiento |
 | S-F3 | E-MSUP | Opinion de supervision |
-| E-FMAY | S-EMM | Solicitud de mayores metrados |
-| S-FMM | R-EMM | Autorizacion de ejecucion de mayores metrados |
 | E-TPRO | Proyectista | Solicitud de opinion previa |
 | Proyectista | E-MPRO | Opinion tecnica |
+| E-FRED | S4.3.2.7 Gestion de reducciones de prestaciones | Sustento reclasificado como reduccion |

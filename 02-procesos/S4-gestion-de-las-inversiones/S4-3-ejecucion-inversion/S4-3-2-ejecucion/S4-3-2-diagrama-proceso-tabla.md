@@ -9,7 +9,7 @@ nivel_proceso: 2
 proceso:
   - S4.3.2
 fecha_creacion: 2026-10-19
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-18
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -23,14 +23,14 @@ tags:
 
 Sube a: [S4.3.2 Ejecucion](00-S4-3-2-ejecucion.md)
 
-Vista de nivel 2 actualizada por `DEC-041`: una instancia de Ejecucion permanece activa hasta la obra culminada, la resolucion o la nulidad. Mientras esta activa atiende seis procesos de nivel 3 activados por eventos, repetibles, concurrentes y no interruptivos.
+Vista de nivel 2 actualizada por `DEC-047`: una instancia de Ejecucion permanece activa hasta la obra culminada, la resolucion o la nulidad. Mientras esta activa atiende ocho procesos de nivel 3 activados por eventos, repetibles, concurrentes y no interruptivos.
 
 Notas que no se dibujan:
 
 - La actividad "Ejecutar la obra conforme al expediente tecnico" representa el alcance de larga duracion y no recibe codigo de proceso ni marcador de bucle.
-- Los seis subprocesos de evento no llevan flujo de secuencia y pueden coexistir mientras la ejecucion principal siga activa.
+- Los ocho subprocesos de evento no llevan flujo de secuencia y pueden coexistir mientras la ejecucion principal siga activa.
 - Los grupos son ayudas de lectura: Control periodico, Atencion de incidencias, Modificaciones de alcance y Modificaciones de plazo.
-- Adicional, reduccion o deductivo y mayores cantidades permanecen dentro de S4.3.2.3 como variantes internas sin nivel 4.
+- S4.3.2.3 comprende adicional, deductivo puro y adicional con deductivo vinculante; S4.3.2.7 gestiona reducciones y S4.3.2.8 mayores metrados. Son hermanos sin nivel 4 ni secuencia obligatoria.
 - Cuaderno de Incidencias es la denominacion institucional uniforme adoptada para los modelos; las fuentes de administracion directa pueden usar cuaderno de obra.
 - El carril del padre es una abstraccion de la ejecucion completa. La pertenencia de residente, contratista o representante legal, supervisor contratado, inspector y unidades del GORE se desarrolla en los procesos hijos conforme a `DEC-042`.
 - La resolucion y la nulidad interrumpen la actividad principal mediante eventos de borde; la obra culminada es su salida normal.
@@ -53,11 +53,13 @@ Notas que no se dibujan:
 | F-2 | 6 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | fin-mensaje | Ejecucion terminada por resolucion |  |  |  |  |  |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
 | F-3 | 7 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | fin-mensaje | Ejecucion terminada por nulidad |  |  |  |  |  |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
 | CP | 8 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-temporizador | S4.3.2.1 Control periodico de la ejecucion |  |  |  |  | Una instancia por periodo de control | Cierre de cada mes | Nucleo inicial: valorizacion | Control periodico | EQ | DEC-032; Reglamento, art. 210.1; Directiva 017-2023-CG, num. 7.3.4 |
-| CO | 9 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-mensaje | S4.3.2.2 Atencion de consultas de obra |  |  |  |  | Una instancia por consulta | Consulta registrada en el Cuaderno de Incidencias | Puede originar una instancia de S4.3.2.3 a S4.3.2.6 | Atencion de incidencias | EQ | DEC-032 y DEC-041; Reglamento, art. 190 |
-| MA | 10 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.3 Gestion de modificaciones de alcance |  |  |  |  | Una instancia por solicitud o causal | Causal de modificacion de alcance | Adicional, reduccion o deductivo y mayores cantidades | Modificaciones de alcance | EQ | DEC-041; Ley 32069, arts. 63-64; Reglamento, arts. 109 y 194-197 |
+| CO | 9 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-mensaje | S4.3.2.2 Atencion de consultas de obra |  |  |  |  | Una instancia por consulta | Consulta registrada en el Cuaderno de Incidencias | Puede originar una instancia de S4.3.2.3 a S4.3.2.8, segun clasificacion | Atencion de incidencias | EQ | DEC-032 y DEC-041; Reglamento, art. 190 |
+| MA | 10 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.3 Gestion de adicionales y deductivos de obra |  |  |  |  | Una instancia por solicitud o causal | Necesidad de adicional o deductivo | Adicional, deductivo puro o adicional con deductivo vinculante | Modificaciones de alcance | EQ | DEC-047; detalle y limites en sustento |
 | AP | 11 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.4 Gestion de ampliaciones de plazo |  |  |  |  | Una instancia por solicitud o causal | Causal de ampliacion de plazo | Requiere evaluar la afectacion aplicable | Modificaciones de plazo | EQ | DEC-041; Reglamento, arts. 198, 200 y 201; Directiva 017-2023-CG, num. 7.3.7 |
 | SP | 12 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.5 Formalizacion de suspensiones de plazo |  |  |  |  | Una instancia por suspension o reanudacion | Causa de suspension o cese de la causa | Suspension contractual; AD con evidencia insuficiente | Modificaciones de plazo | EQ | DEC-041; Reglamento, arts. 107 y 202 |
 | PR | 13 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.6 Gestion de paralizacion y reinicio |  |  |  |  | Una instancia por paralizacion o reinicio | Causal de paralizacion o condiciones de reinicio | Tratamiento diferenciado por regimen | Modificaciones de plazo | EQ | DEC-041; REG-CGR-AD-005; REG-CON-PARAL-001 |
+| RP | 14 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.7 Gestion de reducciones de prestaciones |  |  |  |  | Una instancia por solicitud o causal | Necesidad de reduccion de prestaciones | Ruta y condiciones propias; no aplicar plazos del adicional | Modificaciones de alcance | EQ | DEC-047; detalle y limites en sustento |
+| MM | 15 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.8 Gestion de mayores metrados |  |  |  |  | Una instancia por solicitud o causal | Necesidad de mayores metrados | Ruta y condiciones propias; no aplicar plazos del adicional | Modificaciones de alcance | EQ | DEC-047; detalle y limites en sustento |
 
 ## Mensajes
 

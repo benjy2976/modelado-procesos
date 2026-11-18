@@ -67,6 +67,6 @@ La nota sobre funcionalidades de SEACE describe la situacion a la fecha de la op
 - [REG-CON-ADIC-003: inicio del computo](../reglas/reg-con-adic-003.yaml).
 - [REG-CON-ADIC-004: ratificacion para presentar](../reglas/reg-con-adic-004.yaml).
 - [REG-CON-ADIC-005: demora sin suspension](../reglas/reg-con-adic-005.yaml).
-- [Sustento S4.3.2.3](../../02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-modificaciones-alcance/S4-3-2-3-sustento.md).
+- [Sustento S4.3.2.3](../../02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-sustento.md).
 
 Pendiente: validacion especializada, bases y caso concreto. El enlace de LP aportado por el usuario sirvio para localizar el documento; el sustento se toma del PDF oficial.

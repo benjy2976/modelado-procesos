@@ -1,6 +1,6 @@
 ---
 tipo: mapa-de-contenido
-area: S4-3-2-3-gestion-modificaciones-alcance
+area: S4-3-2-3-gestion-adicionales-deductivos-obra
 estado_documento: VIGENTE
 clase_conocimiento: NO-APLICA
 codigo_proceso: S4.3.2.3
@@ -8,25 +8,25 @@ nivel_proceso: 3
 proceso_padre: S4.3.2
 alcance_proyecto: EN-ALCANCE
 aliases:
-  - S4.3.2.3 Gestion de modificaciones de alcance
+  - S4.3.2.3 Gestion de adicionales y deductivos de obra
 tags:
   - tema/procesos
   - proceso/s4/s4-3/s4-3-2/s4-3-2-3
 ---
 
-# S4.3.2.3 Gestion de modificaciones de alcance
+# S4.3.2.3 Gestion de adicionales y deductivos de obra
 
 Sube a: [S4.3.2 Ejecucion](../00-S4-3-2-ejecucion.md)
 
-Proceso de nivel 3 realineado mediante `DEC-041`. Gestiona exclusivamente modificaciones de alcance; ampliaciones, suspensiones y paralizaciones o reinicios se desarrollan en S4.3.2.4, S4.3.2.5 y S4.3.2.6.
+Proceso de nivel 3 dividido mediante `DEC-047`. Conserva su codigo; carpeta y nota indice actualizadas al nombre vigente; su denominacion vigente es Gestion de adicionales y deductivos de obra.
 
 ## Ubicacion
 
-Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion de la inversion > S4.3.2 Ejecucion > **S4.3.2.3 Gestion de modificaciones de alcance** (Nivel 3).
+Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion de la inversion > S4.3.2 Ejecucion > **S4.3.2.3 Gestion de adicionales y deductivos de obra** (Nivel 3).
 
 ## Que hace
 
-Gestiona una instancia por solicitud, necesidad o causal de modificacion de alcance. Conserva como variantes internas, sin codigos de nivel 4, el adicional con o sin deductivo vinculado, la reduccion independiente y los mayores metrados. DEC-046 diferencia sus rutas y conserva como propuesta pendiente su posible separacion en procesos propios. Separa la validacion de la necesidad, la clasificacion inicial, la elaboracion, la revision tecnica institucional independiente, los controles contractuales y presupuestales, la consolidacion y la decision formal.
+Gestiona adicional, deductivo puro y adicional con deductivo vinculante. Las reducciones de prestaciones y los mayores metrados tienen procesos hermanos propios. El deductivo puro se clasifica antes de determinar su ruta; no se presume que comparte el tramite del adicional.
 
 ## Interacciones
 
@@ -51,17 +51,15 @@ Gestiona una instancia por solicitud, necesidad o causal de modificacion de alca
 
 ## Variantes internas sin codigo de proceso
 
-| ID de modelamiento | Variante |
+| Caso | Tratamiento |
 |---|---|
-| `MOD-ALC-ADI` | Adicional con o sin deductivo vinculado; detalle ordinario de solo construccion bajo Ley 32069 |
-| `MOD-ALC-RED` | Reduccion independiente; verificar que la reduccion de metas corresponda a esta figura |
-| `MOD-ALC-MAY` | Mayores metrados: autorizacion en obra e interfaz con valorizacion, sin aprobacion previa de ejecucion por entidad |
+| Adicional | Necesidad, elaboracion, opiniones y decision segun supuesto aplicable |
+| Deductivo puro | Entrada propia y clasificacion; si es reduccion se deriva a S4.3.2.7; otra ruta requiere evidencia |
+| Adicional con deductivo vinculante | Evaluacion conjunta de ambas partes en el expediente del adicional |
 
 ## Subprocesos
 
-No se crean procesos de nivel 4. Las tres figuras permanecen como variantes internas conforme a `DEC-041`.
-
-El [sustento del replanteamiento](S4-3-2-3-sustento.md#replanteamiento-del-circuito-de-alcance---2026-11-18) precisa consulta previa, plazos, elaboradores y limites. Las opiniones [D000092](../../../../../03-conocimiento/fuentes/guia-opinion-d000092-2026-oece-dtn.md) y [D000083](../../../../../03-conocimiento/fuentes/guia-opinion-d000083-2026-oece-dtn.md) sustentan el computo y la interfaz. Otros regimenes y supuestos quedan identificados como pendientes, sin trasladarles los plazos del art. 194.
+No se crean procesos de nivel 4. La separacion produce dos hermanos: [S4.3.2.7 Reducciones](../S4-3-2-7-gestion-reducciones-prestaciones/00-S4-3-2-7-gestion-reducciones-prestaciones.md) y [S4.3.2.8 Mayores metrados](../S4-3-2-8-gestion-mayores-metrados/00-S4-3-2-8-gestion-mayores-metrados.md).
 
 Vista generada: [Diagrama interactivo](S4-3-2-3-diagrama-proceso.html).
 
