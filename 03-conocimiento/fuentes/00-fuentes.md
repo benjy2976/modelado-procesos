@@ -35,6 +35,9 @@ Cada guia resume una fuente consultada para que una persona o un agente sepa que
 | [Manual BPMN 2.0](guia-manual-bpmn.md) | Freund, Rucker y Hitpass, 4.a edicion 2014 | Referencia tecnica | Buenas practicas de notacion |
 | [ROF del Gobierno Regional Huanuco 2023](guia-rof-grh-2023.md) | Ordenanza Regional N.° 013-2023-GRH-CR y ROF aprobado | Normativa institucional | Competencias de SGE y SGGOS en la ejecucion de obras |
 
+| [Opinion D000092-2026-OECE-DTN](guia-opinion-d000092-2026-oece-dtn.md) | CON-010 | Interpretacion normativa propuesta | Anotacion, computos, elaboradores y deductivos vinculados |
+| [Opinion D000083-2026-OECE-DTN](guia-opinion-d000083-2026-oece-dtn.md) | CON-011 | Interpretacion normativa propuesta | Independencia entre consulta y adicional |
+
 ## Como se mantienen
 
 1. Una guia por documento, con su identificador del catalogo, hash y fecha de consulta.

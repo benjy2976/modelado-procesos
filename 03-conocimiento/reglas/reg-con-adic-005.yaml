@@ -1,0 +1,72 @@
+esquema: regla-normativa-v1
+id_regla: REG-CON-ADIC-005
+titulo: Demora de ratificacion no suspende computo
+dominio: contrataciones
+tipo_regla: CONDICION
+enunciado: La demora de la supervision en emitir el informe de ratificacion no suspende
+  ni afecta el transcurso del plazo de elaboracion y presentacion del expediente.
+actor: Participantes del procedimiento de adicionales
+accion: Aplicar el criterio al supuesto contractual
+objeto: Expediente tecnico del adicional
+condiciones: []
+excepciones: []
+plazo: null
+evidencias_requeridas: []
+aplicabilidad:
+  procesos:
+  - S4.3.2.2
+  - S4.3.2.3
+  etapas:
+  - ejecucion contractual
+  modalidades:
+  - contrata
+  tipologias:
+  - 'obra: solo construccion'
+  aplica_si:
+  - Contrato sujeto a Ley 32069 y art. 194 del Reglamento
+  no_aplica_si:
+  - Administracion directa
+  - Contrato sujeto a otro regimen sin analisis de aplicabilidad
+fuente:
+  id_documento: CON-010
+  archivo_original: 01-referencias/04-contrataciones-publicas/opiniones-oece/opinion-d000092-2026-oece-dtn.pdf
+  sha256: BA387F8733A82F17A84C11BD4DE9957BB22F7DEF91746BB90E8CBD706B71521C
+  url_oficial: https://cdn.www.gob.pe/uploads/document/file/10621119/8596051-opinion-d092-2026-oece-dtn.pdf?v=1789430079
+  fecha_consulta: '2026-11-18'
+  articulo: null
+  numeral: 2.3 y 3.3
+  pagina_pdf: 3;9
+  pagina_impresa: null
+  anexo_tabla: null
+  texto_citado: no suspende ni afecta
+  archivo_extraccion: 01-referencias/09-derivados-texto/cache/CON-010/opinion-d000092-2026-oece-dtn.txt
+  sha256_extraccion: 21915A311164422F14864D3706A659897E01AA8F9D17556B5A38A7259F71F44A
+  estado_calidad_extraccion: SIN-REVISAR
+vigencia:
+  estado: POR-CONFIRMAR
+  fecha_desde: null
+  fecha_hasta: null
+  fuente_verificacion: https://www.gob.pe/institucion/oece/informes-publicaciones/8596051-opinion-n-d000092-2026-oece-dtn
+  modificatorias_revisadas:
+  - DS 001-2026-EF citado por la opinion
+procedencia:
+  origen: IA
+  extraccion_revisada: false
+  paquete_contexto: 'S4.3.2.3: lote conceptual 2026-11-18, sustento'
+validacion:
+  estado: BORRADOR-IA
+  revision: 1
+  proponente_id_institucional: null
+  especialista_asignado_id: null
+  fecha_ultima_revision: null
+  eventos_revision: []
+relaciones:
+  reemplaza_a: null
+  reemplazada_por: null
+  reglas_relacionadas: []
+  actividades_bpmn: []
+observaciones:
+- Parafrasis; texto literal en PDF oficial y extraccion con paginas.
+- Revision IA no equivale a validacion humana.
+- No usar como sustento de linea base hasta cumplir protocolo de conocimiento confiable.
+- Inspeccion focalizada IA realizada; revision formal de extraccion pendiente.

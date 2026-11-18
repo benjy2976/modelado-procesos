@@ -31,6 +31,8 @@ Estado al 2026-11-03: 32 reglas en `BORRADOR-IA` sobre la fase de Ejecucion (Inv
 
 El catalogo CSV no se edita manualmente una vez que exista el generador. Si existe diferencia, prevalecen los YAML y sus eventos de revision.
 
+Incorporacion del 2026-11-18: cuatro reglas adicionales en `BORRADOR-IA` (REG-CON-ADIC-003 a 005 y REG-CON-CONS-001), enlazadas desde las guias de opiniones OECE. No modifican validaciones anteriores.
+
 ### Identificadores
 
 Formato recomendado: `REG-<DOMINIO>-<TEMA>-NNN`, por ejemplo `REG-CON-EJEC-001`. El identificador no cambia cuando se corrige la redaccion. Una regla materialmente distinta recibe otro identificador y relaciona la regla que reemplaza.
