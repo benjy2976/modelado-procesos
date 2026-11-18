@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.1
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-03
+fecha_actualizacion: 2026-11-17
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -42,7 +42,7 @@ Apoyo, pendiente de confirmacion con la arquitectura institucional.
 
 ## Objetivo del proceso
 
-Propuesta: verificar periodicamente el avance ejecutado y tramitar la valorizacion hasta obtener un expediente aprobado o comunicar las observaciones que deban ser subsanadas.
+Propuesta: verificar periodicamente el avance ejecutado y tramitar la valorizacion hacia Administracion para pago o comunicar al contratista las observaciones identificadas.
 
 ## Objetivo estrategico
 
@@ -52,12 +52,15 @@ Propuesta: verificar periodicamente el avance ejecutado y tramitar la valorizaci
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Ejecutor de obra, segun regimen, mediante el residente | Metrados, avance ejecutado e informe de valorizacion del periodo | Expediente de valorizacion aprobado para tramite de pago | Proceso responsable del pago, por determinar |
+| Ejecutor de obra, segun regimen, mediante el residente | Metrados, avance ejecutado e informe de valorizacion del periodo | Valorizacion remitida para tramite de pago | Administracion, mediante la Gerencia Regional de Infraestructura |
 | Supervisor o inspector de obra, segun modalidad | Revision, conformidad u observaciones | Observaciones comunicadas para subsanacion | Ejecutor de obra, segun regimen |
+| Atencion al Ciudadano | Valorizacion recepcionada para tramite regular | Carta de observaciones notificada por el subgerente de SGGOS | Contratista |
 
 ## Actividades del proceso
 
 ![Diagrama de S4.3.2.1](S4-3-2-1-diagrama-proceso.svg)
+
+En la propuesta del tramite regular, Atencion al Ciudadano deriva a SGGOS; el subgerente deriva al monitor de obras, responsable de la revision institucional (caja 7). El monitor verifica los calculos de penalidad, amortizacion, retenciones y demas conceptos que correspondan y los incorpora con el monto propuesto para pagar en su informe (caja 10); prepara tambien el proyecto de informe del subgerente. El subgerente revisa y emite su propio informe de conformidad (caja 14), con el que se eleva la valorizacion a GRI para tramitar el pago si cumple. El monitor prepara el informe de observaciones y proyecto de carta para notificacion directa al contratista si esta observado. La identificacion del dueno del proceso sigue pendiente.
 
 ## Riesgos
 
@@ -65,7 +68,7 @@ Propuesta: verificar periodicamente el avance ejecutado y tramitar la valorizaci
 
 ## Registros
 
-Informe de valorizacion, informe de observaciones e informe para tramite de pago, sujetos a confirmacion de denominacion y custodia.
+Informe de valorizacion, informe del monitor, proyecto de informe del subgerente, informe propio de conformidad del subgerente para tramite de pago, informe de observaciones y carta al contratista, sujetos a confirmacion de denominacion y custodia.
 
 ## Elaborado por, revisado por y aprobado por
 

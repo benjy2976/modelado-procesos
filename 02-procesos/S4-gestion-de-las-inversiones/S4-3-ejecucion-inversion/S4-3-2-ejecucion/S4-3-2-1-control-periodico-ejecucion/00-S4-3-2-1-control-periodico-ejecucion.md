@@ -26,14 +26,15 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 ## Que hace
 
-Verifica periodicamente la informacion de avance, atiende observaciones y produce un expediente de valorizacion aprobado para el tramite que corresponda. Objetivo y alcance pendientes de validacion del dueno del proceso.
+Verifica periodicamente la informacion de avance y tramita la valorizacion hacia Administracion para pago o notifica observaciones al contratista. El monitor de obras de SGGOS realiza la revision institucional descrita por el usuario. Objetivo y alcance pendientes de validacion del dueno del proceso.
 
 ## Interacciones
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
 | Recibe | S4.3.2 Ejecucion | Cierre del periodo y avance ejecutado |
-| Envia | Proceso de pago por determinar | Expediente de valorizacion aprobado para tramite de pago |
+| Envia | Administracion, mediante la Gerencia Regional de Infraestructura | Valorizacion para tramite de pago |
+| Envia | Contratista | Carta de observaciones notificada directamente por el subgerente de SGGOS |
 | Envia | S4.3.3 Recepcion | La ultima valorizacion es una señal observada en Bizagi; su relacion formal con la recepcion esta pendiente de definir |
 
 ## Documentos del proceso
@@ -53,8 +54,8 @@ No se han adoptado procesos de nivel 4. La valorizacion es el nucleo operativo i
 ## Pendientes
 
 - Confirmar que controles distintos de la valorizacion integran este proceso.
-- Confirmar el dueno y las unidades responsables.
-- Identificar el proceso receptor del expediente aprobado para pago.
+- Confirmar el dueno, la adscripcion formal de Atencion al Ciudadano y el cargo que tramita la valorizacion en GRI.
+- Precisar el proceso interno de Administracion que recibe la valorizacion para pago.
 - Definir la relacion entre la ultima valorizacion, la culminacion de obra y S4.3.3 Recepcion.
 
 ## Relaciones
