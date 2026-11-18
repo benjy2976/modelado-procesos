@@ -9,7 +9,7 @@ nivel_proceso: 3
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-10
+fecha_actualizacion: 2026-11-18
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -31,6 +31,7 @@ Sube a: [S4.3.2.2 Atencion de consultas de obra](00-S4-3-2-2-atencion-consultas-
 | ROF del Gobierno Regional Huanuco 2023 | Arts. 95-98; en especial art. 96, lit. i, PDF pp. 47-48 (numeracion impresa pp. 46-47) | `NORMATIVO-INSTITUCIONAL` propuesto; pendiente validacion humana | Competencia de SGE para absolver consultas y de SGGOS para controlar y seguir la ejecucion |
 | Decision del equipo | `DEC-032` | `DECISION` | Codigo, nombre, limites y adopcion como nivel 3 |
 | Decision del equipo | `DEC-033` | `DECISION` y evidencia operativa | Especialistas de la SGE elaboran el informe tecnico; el Subgerente de Estudios firma siempre la respuesta; carriles institucionales del modelo |
+| Precision operativa del usuario | Instruccion recibida el 2026-11-17 sobre intervencion condicional del especialista de supervision, anotacion en el Cuaderno de Incidencias y tramite SGGOS–SGE–SGGOS | `PROPUESTA` operativa, pendiente de contraste institucional | Reordenar las rutas del supervisor y la comunicacion de la respuesta firmada |
 
 ## Delimitacion aplicada
 
@@ -51,12 +52,21 @@ El Bizagi de Consultas contiene tambien suspension y aprobacion de adicionales o
 | Producto principal | Consulta absuelta y notificada | `PROPUESTA` | Analisis del flujo observado |
 | Producto alterno | Respuesta y causal comunicadas a S4.3.2.3, .4, .5 o .6 | `PROPUESTA` | DEC-041 |
 
+## Precision operativa del 2026-11-17
+
+El usuario indico que el supervisor anota en el Cuaderno de Incidencias tanto la absolucion como la elevacion de la consulta a la entidad. Si la materia requiere opinion del especialista de la supervision, este revisa y se pronuncia antes de decidir si el supervisor puede absolver; el supervisor hace suyo ese pronunciamiento. La intervencion del especialista es condicional, no un paso obligatorio de toda consulta.
+
+En el tramo institucional, el subgerente de SGGOS recibe y tramita la consulta a SGE, con intervencion del monitor de obras. Despues de la caja 39, SGE comunica a SGGOS la respuesta firmada; SGGOS prepara la carta dirigida al contratista. La frase del usuario termino en «el monitor proyecta» sin identificar el documento. Como `INFERENCIA` provisional, la tabla asigna al monitor el proyecto de esa carta y al subgerente su emision; ambos pasos quedan pendientes de precision del usuario. El canal de notificacion, la firma concreta de la carta y la remision de la causal a los procesos S4.3.2.3–S4.3.2.6 permanecen por confirmar. La ruta anterior SGE → supervisor → contratista se reemplazo por la comunicacion SGE → SGGOS → contratista en esta propuesta.
+
+La caja 39 y los demas numeros vigentes se conservaron. Las cajas 21 y 22, de la antigua recepcion de respuesta por la supervision, se retiraron sin reutilizar sus numeros. Los elementos nuevos reciben los numeros 48–54. La consulta propia de la supervision conserva su ruta excepcional; la precision actual se concentra en la consulta recibida del ejecutor.
+
 ## Vacios de evidencia
 
 | Vacio | Marca | Fuente o accion necesaria |
 |---|---|---|
 | Nombre, serie documental, custodia y medio exacto de notificacion | `EVIDENCIA-INSUFICIENTE` | Procedimiento documentario o muestra no sensible del tramite real |
 | Criterio exacto para involucrar al proyectista | `EVIDENCIA-INSUFICIENTE` | Fuente contractual, expediente y validacion del equipo |
+| Acto de emision de la carta de SGGOS y responsable concreto de elaborar el adicional | `EVIDENCIA-INSUFICIENTE` | Verificar el circuito de emision y las bases de contratacion aplicables; la instruccion del 2026-11-18 precisa que el monitor prepara la carta |
 | Variante con inspector perteneciente a la entidad | `EVIDENCIA-INSUFICIENTE` | Levantamiento del circuito interno aplicable |
 | Indicador, meta y fuente de datos | `EVIDENCIA-INSUFICIENTE` | Definicion del dueno del proceso |
 
@@ -125,4 +135,49 @@ Por solicitud del usuario se aplica la mejora general del perfil: compactacion d
 
 Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool de contrata se titula Contratista y conserva carriles separados para residente y especialistas; Supervision contratada conserva su pool externo. OACGD, SGGOS y SGE usan el patron unidad y funcion. El registro y las asignaciones o derivaciones internas de la consulta se representan con tareas humanas y `almacen: SGD`. La ruta con inspector de la entidad no se infiere de esta variante y permanece pendiente.
 
-La generacion focalizada de esta normalizacion deja D1-D5 sin hallazgos. Se regeneraron BPMN, SVG, PNG y HTML. No se ha realizado revision visual ni se atribuye conformidad institucional.
+La generacion focalizada de la normalizacion de 2026-11-10 dejo D1-D5 sin hallazgos en esa fecha. No se atribuye conformidad institucional.
+
+En la propuesta del 2026-11-17, D1, D2, D3 y D5 no presentan hallazgos. D4 detecta 15 interferencias geometricas (un flujo que atraviesa una forma, seis tramos superpuestos, cinco etiquetas montadas y dos cruces de flujo con etiquetas); se redujeron desde 17 al acortar rotulos y retirar documentos graficos redundantes. Es un pendiente de disposicion visual, no una conformidad del contenido. La fuente tabular conserva la secuencia; el informe reproducible queda en `99-temporal/modelos/S4-3-2-2-diagrama-proceso/validacion.txt`.
+
+## Aplicacion del articulo 190 - 2026-11-17
+
+**Paquete de contexto del lote conceptual:** S4.3.2.2, variante por contrata con supervision externa. Fuentes textuales activas: indice, ficha, tabla y este sustento; guia local CON-001 y numerales 190.1-190.3 del Reglamento. Glosario: informe tecnico del contratista, opinion tecnica del supervisor y expediente tecnico son objetos distintos. Se preserva la evidencia operativa previa. No hay reglas validadas incorporadas por este lote. BPMN, SVG, PNG y HTML quedan excluidos del contexto; se regeneran al cierre. No corresponde revision visual en esta tarea ni esta autorizada la modificacion de herramientas. Se mantienen codigo, alcance y participantes.
+
+**Exigencia normativa propuesta, pendiente de validacion humana:** el art. 190.1 permite la respuesta directa del supervisor cuando la consulta no implica modificar el expediente tecnico. El art. 190.2 exige que la anotacion del contratista que implique esa modificacion incluya un informe tecnico y dispone su no atencion si falta. El informe del contratista es distinto de la opinion del supervisor prevista para la elevacion en el art. 190.3.
+
+**Fuente oficial y vigencia:** consulta del 2026-11-17 al [texto actualizado de El Peruano](https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=25), Reglamento aprobado por DS 009-2025-EF, art. 190, numerales 190.1, 190.2 y 190.3; referencia local CON-001, pagina PDF 105, identificada en la [guia de lectura](../../../../../03-conocimiento/fuentes/guia-reglamento-ley-32069.md). El numeral 190.1 fue modificado por el [DS 001-2026-EF, articulo 2](https://busquedas.elperuano.pe/dispositivo/NL/2474920-3), vigente desde el 2026-01-14 segun el [compendio del OECE](https://www.gob.pe/institucion/oece/colecciones/45029-ley-n-32069-ley-general-de-contrataciones-publicas-y-su-reglamento). La modificatoria no sustituye el numeral 190.2. Aplicabilidad al contrato concreto y validacion humana pendientes; no se constituye linea base normativa.
+
+**Propuesta de modelamiento:** la caja 2 hace obligatorio preparar el informe si se modifica el expediente. La caja 12 pregunta expresamente por esa modificacion: No permite absolver; Si conduce a la caja 55, que comprueba el informe antes de elevar. Su ausencia termina en la caja 56 sin absolucion. La caja 57 controla el mismo supuesto al revisar antecedentes en SGGOS: solo si es consulta del contratista, modifica el expediente y carece del informe termina en la caja 58 sin atencion; en los demas casos continua el tramite. Esta ubicacion del control en el monitor es una propuesta operativa, no una competencia asignada expresamente por el art. 190.2. Se conservan todos los numeros anteriores.
+
+**Limites y vacios:** la no atencion no equivale a denegacion de fondo ni aprobacion de una modificacion. No se inventan plazo de subsanacion, acto de rechazo ni canal de comunicacion: `EVIDENCIA-INSUFICIENTE`. La consulta propia de la supervision conserva su ruta excepcional y no se confunde con la anotacion del contratista regulada en el numeral 190.2. La especialidad que elabora el informe y la opinion interna de supervision conservan su condicion operativa previa.
+
+**Control del lote del articulo 190:** D1, D2, D3 y D5 sin hallazgos. D4 registra 17 interferencias: T1 (1), T2 (5), T4 (7) y T6 (4). Afectan el ramal de falta de informe del supervisor, etiquetas y mensajes cercanos y el tramo de comunicacion SGE-SGGOS ya observado. Se conservan como pendientes de disposicion visual; no alteran las conexiones verificadas por D2-D3. Se usa `--forzar` exclusivamente para actualizar los derivados del borrador con estos hallazgos documentados, sin modificar herramientas ni atribuir conformidad. Antes de una linea base deben resolverse en revision visual. Detalle reproducible: `99-temporal/modelos/S4-3-2-2-diagrama-proceso/validacion.txt`.
+
+## Informe tecnico de supervision para la entidad
+
+Precision operativa recibida del usuario el 2026-11-17: la consulta requiere el informe del contratista en el supuesto ya delimitado y, para elevarla a la entidad, el supervisor debe emitir ademas su propio informe tecnico con la evaluacion y opinion sobre su viabilidad. Se incorpora como `PROPUESTA` operativa en `ELABORACION`, sin atribuir validacion normativa ni conformidad institucional.
+
+Se mantiene el paquete conceptual del lote anterior, sus fuentes textuales y exclusiones de derivados; no se autoriza modificar herramientas ni se realiza revision visual. La nueva caja 59, S-T8, es obligatoria antes de la elevacion S-T4, tanto para la consulta del contratista que pasa el control del informe como para la consulta propia de la supervision. No depende de que intervenga un especialista. Su pronunciamiento, si existe, alimenta la evaluacion que el supervisor asume y formaliza en su informe. Los numeros anteriores se conservan.
+
+La entidad recibe el informe tecnico de supervision junto con la consulta y el informe del contratista cuando corresponde. El monitor verifica esos antecedentes y SGE los utiliza para evaluar la consulta. Son documentos distintos: el contratista sustenta su consulta; la supervision evalua y emite su opinion tecnica; SGE produce el informe institucional de absolucion.
+
+La denominacion documental y el paso explicito de emision provienen de esta instruccion del usuario. La referencia normativa del art. 190.3 a la opinion tecnica conserva la fuente, fecha de consulta y vigencia documentadas en la seccion anterior; no se le atribuye una exigencia literal adicional. La opinion sobre viabilidad no se modela como aprobacion de una modificacion ni se presume siempre favorable. El tratamiento documental de un informe de supervision omitido permanece como `EVIDENCIA-INSUFICIENTE`; no se extiende automaticamente la consecuencia del art. 190.2 a otro documento.
+
+Control de este lote: D1, D2, D3 y D5 sin hallazgos; D4 registra 14 interferencias geometricas pendientes de revision visual. Se retiraron anotaciones graficas redundantes conservando su contenido en las notas textuales y este sustento. Se regeneran los derivados con `--forzar` bajo la misma justificacion del lote anterior: mantener el borrador sincronizado, sin conformidad visual ni linea base. El detalle actualizado permanece en `99-temporal/modelos/S4-3-2-2-diagrama-proceso/validacion.txt`.
+
+
+## Carta de respuesta y revision del trazado - 2026-11-18
+
+**Paquete de contexto:** fase conceptual y disposicion visual solicitada expresamente por el usuario para S4.3.2.2. Fuentes textuales activas: indice, ficha, tabla y sustento del proceso; estandar de artefactos y documentacion del gestor. Evidencia activa: instruccion del usuario sobre la caja 52 y las flechas. No se incorporan reglas normativas nuevas. Glosario: comunicar quien elabora el adicional no equivale a elaborarlo ni aprobarlo. BPMN, SVG, PNG y HTML del proceso se incluyen solo para comprobar la geometria; los derivados de otros procesos quedan excluidos del contexto. Se mantienen alcance, participantes, IDs, numeros y conexiones.
+
+**Precision operativa del usuario:** el monitor prepara la carta de respuesta al contratista en la caja 52. Si corresponde un adicional, la carta debe comunicar a quien corresponde elaborarlo segun las bases de contratacion. Esta instruccion resuelve la inferencia provisional sobre el documento de salida del monitor registrada el 2026-11-17. Se incorpora como propuesta operativa en `ELABORACION`, sin atribuir aprobacion institucional ni validacion normativa. La firma y el acto de emision siguen pendientes de corroboracion.
+
+**EVIDENCIA-INSUFICIENTE:** no se han aportado las bases del contrato concreto; no se identifica ni presume el elaborador del adicional. Su determinacion requiere consultar esas bases. La elaboracion y tramitacion del adicional permanecen fuera de este proceso de consultas, vinculadas a S4.3.2.3.
+
+**Bloqueo tecnico observado:** antes del ajuste, D4 reporto 14 interferencias con `zigzag-controlado`, 11 con `zigzag-amplio` y 18 con `equilibrado`; todos conservaron un flujo atravesando una forma. El enrutador elegia un candidato con interferencias cuando no encontraba ruta libre y no reservaba las etiquetas de documentos como obstaculos. Esto justifica la intervencion minima en el generador para satisfacer la solicitud de rodear las cajas.
+
+**Propuesta tecnica acotada:** perfil optativo `zigzag-corredores`, basado en `zigzag-controlado`, aplicado solo a este proceso. Compara entradas y salidas por los cuatro lados, reserva documentos y sus etiquetas, penaliza tramos compartidos y separa puertos de mensajes y secuencias. Conserva los perfiles anteriores y la semantica BPMN. No representa una nueva notacion ni una conformidad humana. La generacion focalizada y la revision visual verifican el resultado; el control global comprueba que los demas modelos siguen sincronizados.
+
+**Resultado verificado:** la generacion focalizada del 2026-11-18 termina sin hallazgos D1-D5; D4 informa sin superposiciones. Se inspecciono la imagen generada, incluidos el ramal de falta de informe, la comunicacion de respuesta y la caja 52. Se mantienen posibles cruces perpendiculares entre flujos en una colaboracion con varios carriles; no equivalen a atravesar cajas ni a compartir tramos. Perfil documentado en `DEC-045`; revision humana y aprobacion institucional no atribuidas.
+
+**Comprobaciones de cierre:** cuatro pruebas de regresion del trazado superadas, comprobacion global `construir_modelos.py --check` correcta y 172 notas revisadas por `gestionar_etiquetas.py revisar`, sin problemas. Los hallazgos historicos de otros procesos no se modifican ni se declaran resueltos.

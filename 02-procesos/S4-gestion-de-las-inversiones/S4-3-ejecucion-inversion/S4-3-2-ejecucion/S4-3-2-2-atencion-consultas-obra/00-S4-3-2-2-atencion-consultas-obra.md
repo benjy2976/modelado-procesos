@@ -26,19 +26,21 @@ Mapa de procesos institucional > S4 Gestion de las inversiones > S4.3 Ejecucion 
 
 ## Que hace
 
-Atiende una consulta originada por el contratista o, excepcionalmente, por la supervision. La supervision la absuelve cuando no modifica el expediente tecnico; en los demas casos, la OACGD la recibe, la SGGOS efectua el seguimiento y la canalizacion, los especialistas de la SGE elaboran el informe tecnico y el Subgerente de Estudios firma la respuesta. Cuando corresponde se solicita opinion al proyectista, sin que la falta de opinion impida la absolucion institucional. La causal se deriva a S4.3.2.3, .4, .5 o .6, segun corresponda.
+Atiende una consulta originada por el contratista o, excepcionalmente, por la supervision. Cuando la materia lo requiere, el especialista de la supervision se pronuncia y el supervisor hace suyo ese pronunciamiento antes de absolver o elevar la consulta; ambas decisiones se anotan en el Cuaderno de Incidencias. En la entidad, el subgerente de SGGOS tramita la consulta a SGE con intervencion del monitor de obras. Los especialistas de SGE elaboran el informe tecnico y el Subgerente de Estudios firma la respuesta. Despues de la caja 39, SGE la comunica a SGGOS para que el monitor prepare la carta al contratista; si corresponde un adicional, indica a quien corresponde elaborarlo segun las bases de contratacion. La causal puede dar lugar a S4.3.2.3, .4, .5 o .6, segun corresponda.
+
+El supervisor solo absuelve directamente si la consulta no modifica el expediente tecnico. Si lo modifica, la consulta del contratista debe acompanarse de su informe tecnico; sin este, no se atiende. La elevacion requiere ademas el informe tecnico de supervision, emitido por el supervisor con su evaluacion y opinion sobre la viabilidad de la consulta, conforme a la precision operativa del usuario. Vease la [trazabilidad del articulo 190](S4-3-2-2-sustento.md).
 
 ## Interacciones
 
 | Sentido | Contraparte | Elemento observado |
 |---|---|---|
 | Recibe | Contratista, mediante el residente | Consulta registrada en el Cuaderno de Incidencias |
-| Recibe | Supervisor de obra | Consulta originada por la supervision o consulta del contratista elevada con opinion tecnica |
-| Canaliza | SGGOS | Consulta y antecedentes para su atencion tecnica |
+| Recibe | Supervisor de obra | Consulta originada por la supervision o consulta del contratista elevada con informe tecnico de supervision |
+| Canaliza | SGGOS, mediante el subgerente y el monitor de obras | Consulta y antecedentes para su atencion tecnica |
 | Elabora | Especialistas de la SGE | Informe tecnico de absolucion y proyecto de respuesta |
 | Firma | Subgerente de Estudios | Respuesta institucional a la consulta |
 | Solicita | Proyectista, cuando corresponda | Opinion tecnica sobre el expediente tecnico |
-| Envia | Contratista | Consulta absuelta y notificada |
+| Envia | Contratista | Absolucion anotada por el supervisor o carta de SGGOS con respuesta institucional |
 | Envia | S4.3.2.3 a S4.3.2.6 | Respuesta que origina una solicitud o causal de alcance, ampliacion, suspension o paralizacion/reinicio |
 
 ## Documentos del proceso
@@ -51,6 +53,8 @@ Atiende una consulta originada por el contratista o, excepcionalmente, por la su
 | Sustento | [S4-3-2-2-sustento.md](S4-3-2-2-sustento.md) | Vigente para trazabilidad |
 | Procedimiento | No creado | Pendiente determinar si cumple los criterios del numeral 6.1.3 d de la NT |
 
+Vista para revision: [Diagrama interactivo](S4-3-2-2-diagrama-proceso.html).
+
 ## Subprocesos
 
 No se han adoptado procesos de nivel 4.
@@ -58,6 +62,7 @@ No se han adoptado procesos de nivel 4.
 ## Pendientes
 
 - Confirmar el nombre, serie documental, custodia y medio de notificacion de la respuesta firmada.
+- Confirmar el acto de emision de la carta de SGGOS y consultar las bases aplicables para identificar al elaborador del adicional cuando corresponda.
 - Desarrollar la variante con inspector de obra perteneciente a la entidad.
 - Confirmar los indicadores, metas y fuentes de datos del proceso.
 

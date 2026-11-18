@@ -16,7 +16,7 @@ modifica: null
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-10
+fecha_actualizacion: 2026-11-18
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,10 +52,13 @@ Propuesta: absolver y comunicar oportunamente las consultas formuladas durante l
 
 | Proveedor de elemento de entrada | Elementos de entrada | Producto | Receptor del producto |
 |---|---|---|---|
-| Contratista, mediante el residente y su equipo especialista cuando corresponda | Consulta registrada en el Cuaderno de Incidencias, antecedentes e informe tecnico cuando corresponda | Consulta absuelta y comunicada | Contratista; supervision contratada |
-| Supervision contratada, mediante el supervisor de obra | Consulta elevada y opinion tecnica; o consulta originada por la supervision | Respuesta institucional firmada por el Subgerente de Estudios | Supervision contratada; contratista |
-| Proyectista, cuando corresponda | Opinion tecnica | Informe tecnico de absolucion y respuesta sustentada | Supervision contratada; contratista |
+| Contratista, mediante el residente y su equipo especialista cuando corresponda | Consulta registrada en el Cuaderno de Incidencias, antecedentes e informe tecnico cuando corresponda | Consulta absuelta y anotada por el supervisor solo si no modifica el expediente tecnico | Contratista |
+| Supervision contratada, mediante el supervisor y su especialista cuando se requiere opinion | Consulta elevada, informe tecnico de supervision que contiene su evaluacion y opinion sobre la viabilidad de la consulta e informe tecnico del contratista obligatorio si modifica el expediente tecnico; o consulta originada por la supervision | Respuesta institucional firmada por el Subgerente de Estudios y comunicada a SGGOS | SGGOS |
+| Proyectista, cuando corresponda | Opinion tecnica | Informe tecnico de absolucion y respuesta sustentada | SGGOS, para comunicacion al contratista |
+| SGGOS | Respuesta firmada comunicada por SGE y bases de contratacion aplicables | Carta de respuesta al contratista que, si corresponde un adicional, comunica a quien corresponde elaborarlo segun las bases | Contratista |
 | SGE | Respuesta que identifica una modificacion | Causal y antecedentes comunicados | S4.3.2.3 a S4.3.2.6, segun corresponda |
+
+La consulta del contratista que modifica el expediente tecnico y carece de informe tecnico no se atiende; no constituye una consulta absuelta. Condiciones propuestas a partir de los numerales 190.1 y 190.2, con fuente, vigencia y limites en el [sustento](S4-3-2-2-sustento.md).
 
 ## Actividades del proceso
 
@@ -67,7 +70,9 @@ Propuesta: absolver y comunicar oportunamente las consultas formuladas durante l
 
 ## Registros
 
-Consulta anotada, informe tecnico del contratista cuando corresponda, opinion tecnica del supervisor, opinion del proyectista cuando corresponda, informe tecnico de absolucion de los especialistas de la SGE, respuesta firmada por el Subgerente de Estudios y constancia de notificacion. La denominacion, serie documental y custodia permanecen pendientes de confirmacion.
+Consulta anotada, informe tecnico del contratista cuando corresponda, informe tecnico de supervision que contiene su evaluacion y opinion sobre la viabilidad de la consulta, opinion del proyectista cuando corresponda, informe tecnico de absolucion de los especialistas de la SGE, respuesta firmada por el Subgerente de Estudios y constancia de notificacion. La denominacion, serie documental y custodia permanecen pendientes de confirmacion.
+
+El monitor prepara la carta de SGGOS conforme a la precision operativa del usuario del 2026-11-18. Su acto de emision y el responsable concreto del adicional, a identificar en las bases aplicables, permanecen pendientes de corroboracion; vease el [sustento](S4-3-2-2-sustento.md).
 
 ## Elaborado por, revisado por y aprobado por
 
