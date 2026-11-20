@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -121,6 +122,7 @@ def datos_visor(tabla: Path, html: Path, raiz: Path) -> dict:
                     break
     referencias = tabla.with_name(tabla.name.replace("-diagrama-proceso-tabla.md", "-fuentes-visor.json"))
     fuentes_visor = {}
+    hashes_fuentes: dict[Path, str] = {}
     if referencias.is_file():
         contenido = json.loads(referencias.read_text(encoding="utf-8"))
         if not isinstance(contenido, dict) or not isinstance(contenido.get("elementos"), dict):
@@ -146,6 +148,30 @@ def datos_visor(tabla: Path, html: Path, raiz: Path) -> dict:
                     not isinstance(pagina, int) or pagina < 1 or archivo.suffix.lower() != ".pdf"
                 ):
                     raise ValueError(f"Pagina de fuente invalida: {ruta}")
+                rectangulos = entrada.get("rectangulos", [])
+                huella_registrada = entrada.get("sha256", "")
+                if rectangulos and (
+                    pagina is None
+                    or not isinstance(huella_registrada, str)
+                    or not re.fullmatch(r"[0-9a-fA-F]{64}", huella_registrada)
+                    or not isinstance(rectangulos, list)
+                    or any(
+                        not isinstance(rect, list)
+                        or len(rect) != 4
+                        or any(not isinstance(v, (int, float)) or isinstance(v, bool) for v in rect)
+                        or not (0 <= rect[0] < rect[2] <= 1 and 0 <= rect[1] < rect[3] <= 1)
+                        for rect in rectangulos
+                    )
+                ):
+                    raise ValueError(f"Ancla PDF invalida: {ruta}")
+                estado_ancla = "SIN_COORDENADAS"
+                if rectangulos:
+                    if archivo not in hashes_fuentes:
+                        with archivo.open("rb") as lectura:
+                            hashes_fuentes[archivo] = hashlib.file_digest(lectura, "sha256").hexdigest()
+                    estado_ancla = (
+                        "DISPONIBLE" if hashes_fuentes[archivo] == huella_registrada.lower() else "HASH_DISTINTO"
+                    )
                 fuentes_visor[ref].append(
                     {
                         "ruta": ruta,
@@ -155,6 +181,9 @@ def datos_visor(tabla: Path, html: Path, raiz: Path) -> dict:
                         "ubicacion": str(entrada.get("ubicacion", "")),
                         "consulta": str(entrada.get("consulta", "")),
                         "vigencia": str(entrada.get("vigencia", "")),
+                        "sha256": huella_registrada,
+                        "rectangulos": rectangulos if estado_ancla == "DISPONIBLE" else [],
+                        "estado_ancla": estado_ancla,
                     }
                 )
     return {

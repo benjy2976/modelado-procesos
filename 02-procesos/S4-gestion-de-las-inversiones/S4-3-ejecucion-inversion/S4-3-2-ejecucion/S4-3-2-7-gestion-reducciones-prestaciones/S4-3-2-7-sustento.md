@@ -13,7 +13,7 @@ nivel_revision: ELABORACION
 proceso:
   - S4.3.2.7
 fecha_creacion: 2026-11-18
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-20
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -29,9 +29,35 @@ Registra la separacion de alcance y los limites del modelo de trabajo, sin valid
 
 ## Fuentes utilizadas
 
-[Reglamento, art. 109.1-109.3, PDF p. 95](https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=25). Ruta de reduccion en obra con supervisor; conservar finalidad y verificar limite, oportunidad y efecto sobre plazo. La administracion directa y otros supuestos requieren ruta propia.
+[Reglamento local, art. 109.1-109.3, PDF p. 60](../../../../../01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf). Ruta de reduccion en obra con supervisor; conservar finalidad y verificar limite, oportunidad y efecto sobre plazo. La administracion directa y otros supuestos requieren ruta propia. El archivo local tiene SHA-256 `0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830`.
 
-Consulta oficial: 2026-11-18. Edicion de El Peruano actualizada al 21-10-2026; aplicabilidad al contrato y modificatorias posteriores pendientes de control especializado. Conocimiento normativo propuesto, no VALIDADO.
+Consulta del PDF local: 2026-11-20. El enlace previo señalaba la página 95, que contiene el artículo 176, y no sustenta este proceso. El texto local está consolidado hasta el 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto siguen pendientes de control con la edición oficial actual. Conocimiento normativo propuesto, no `VALIDADO`.
+
+## Piloto de auditoría por elemento — 2026-11-20
+
+Esta prueba se limita a **S4.3.2.7** y al PDF local citado. Se comprobó que la página 60 contiene texto extraíble y se inspeccionó la página renderizada. Los anclajes de T1, T2, T4 y ST guardan rectángulos del pasaje en `S4-3-2-7-fuentes-visor.json`, ligados al hash y a la página. El visor solo proyecta esos rectángulos: no busca palabras al abrir el PDF. Como la vigencia posterior a enero de 2026 no está comprobada, las coincidencias con el texto local no equivalen a sustento normativo definitivo.
+
+| ID | Resultado del contraste | Hallazgo o límite |
+|---|---|---|
+| E1 | `INFERENCIA` | El inicio por recepción de necesidad es una propuesta de flujo; falta identificar originador y medio institucional. |
+| T1 | Cita local localizada; `EVIDENCIA-INSUFICIENTE` sobre vigencia | El art. 109.1 atribuye el sustento al área usuaria y enumera finalidad, prestaciones no ejecutadas/divisibles/cuantificables, oportunidad y límite del 25 %. El carril concreto sigue por confirmar. |
+| G1 | `INFERENCIA` | La compuerta traduce las condiciones del art. 109.1; el cierre por falta de acreditación no es una denegación de fondo. |
+| T2 | `CONTRADICCION` | El modelo solicita siempre opinión. El art. 109.1 d del texto local dice «de corresponder»; falta una condición que evite imponer esta ruta a todos los casos. |
+| M1 | `INFERENCIA` | Recepción de opinión coherente solo cuando se activó T2; no hay fuente para un medio específico. |
+| T3 | `EVIDENCIA-INSUFICIENTE` | Integración y controles internos propuestos; falta unidad responsable y procedimiento. |
+| T4 | Cita local localizada; `EVIDENCIA-INSUFICIENTE` sobre vigencia | El art. 109.1-109.3 menciona resolución de la autoridad, decisión sobre efecto en plazo y publicación en Pladicop. «Notificar» requiere precisar la vía; no se debe inferir otra notificación obligatoria. |
+| G2 | `INFERENCIA` | Separar la decisión favorable o no favorable es lógica de modelamiento, no un texto literal del artículo. |
+| T5 | `EVIDENCIA-INSUFICIENTE` | La actualización de alcance y registros es propuesta operativa; la publicación en Pladicop sí aparece en el art. 109.3 local y debe reflejarse expresamente en la ruta favorable. |
+| F1 | `INFERENCIA` | El cierre por comunicación es propuesto; medio y momento pendientes. |
+| F2 | `INFERENCIA` | El cierre no favorable es propuesto; falta procedimiento institucional de comunicación. |
+| F0 | `INFERENCIA` | Se mantiene como caso pendiente, no denegación de fondo; otras rutas siguen sin acreditar. |
+| SE | `EVIDENCIA-INSUFICIENTE` | El art. 109.1 d menciona supervisor, «de corresponder»; no acredita por sí solo un inspector alternativo para esta opinión. |
+| ST | `CONTRADICCION` parcial | La opinión del supervisor aparece en el texto local, pero el carril «supervisor o inspector» excede esa cita sin otra fuente que sustente al inspector. |
+| SF | `INFERENCIA` | El envío de la opinión es una representación funcional de contar con ella; falta medio y plazo específico. |
+| Mensaje T2→SE | `CONTRADICCION` heredada | El mensaje queda incondicional mientras T2 lo sea; debe depender de la condición «de corresponder». |
+| Mensaje SF→M1 | `INFERENCIA` | Intercambio propuesto solo para la ruta con opinión; no se acredita un canal concreto. |
+
+**Resultado del piloto:** 15 elementos y dos mensajes examinados; cuatro anclajes PDF preparados. La página errónea se corrigió en este sustento. No se ha cambiado la tabla ni se ha declarado conforme el modelo. Antes de modificar las rutas T2/ST y la publicación de T4/T5, se debe comprobar la edición oficial aplicable y el supuesto contractual; las discrepancias permanecen abiertas. El servicio de conversión PDF a searchable/Markdown ofrecido por el usuario aún no está disponible en esta sesión; el piloto usó el texto extraíble del original y su renderización local.
 
 ## Elementos registrados
 

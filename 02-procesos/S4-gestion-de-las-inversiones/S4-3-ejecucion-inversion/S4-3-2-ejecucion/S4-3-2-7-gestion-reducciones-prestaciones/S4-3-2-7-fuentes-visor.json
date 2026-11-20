@@ -1,0 +1,56 @@
+{
+  "elementos": {
+    "T1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 60,
+        "ubicacion": "art. 109.1, encabezado y literales a-c",
+        "fragmento": "Finalidad, prestaciones no ejecutadas, cuantificables y divisibles; oportunidad de la aprobación",
+        "consulta": "2026-11-20",
+        "vigencia": "Texto local verificado visualmente; aplicabilidad y modificatorias posteriores pendientes",
+        "rectangulos": [[0.1413, 0.6306, 0.8628, 0.6461], [0.1413, 0.6441, 0.8628, 0.6597], [0.1413, 0.6578, 0.7097, 0.6734], [0.1413, 0.6852, 0.8273, 0.7007], [0.1413, 0.7125, 0.8627, 0.7281], [0.1413, 0.7261, 0.2351, 0.7416], [0.1413, 0.7534, 0.8628, 0.769], [0.1413, 0.7672, 0.3586, 0.7827]]
+      }
+    ],
+    "T2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 60,
+        "ubicacion": "art. 109.1 d",
+        "fragmento": "Opinión del supervisor, de corresponder",
+        "consulta": "2026-11-20",
+        "vigencia": "Texto local verificado visualmente; aplicabilidad y modificatorias posteriores pendientes",
+        "rectangulos": [[0.1413, 0.7945, 0.8627, 0.8101], [0.1413, 0.8081, 0.2529, 0.8236]]
+      }
+    ],
+    "T4": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 60,
+        "ubicacion": "art. 109.1-109.3",
+        "fragmento": "Resolución de la autoridad, efecto en el plazo y publicación en Pladicop",
+        "consulta": "2026-11-20",
+        "vigencia": "Texto local verificado visualmente; aplicabilidad y modificatorias posteriores pendientes",
+        "rectangulos": [[0.1413, 0.6306, 0.8628, 0.6461], [0.1413, 0.6441, 0.8628, 0.6597], [0.1413, 0.6578, 0.7097, 0.6734], [0.1413, 0.8354, 0.8628, 0.851], [0.1413, 0.8491, 0.4069, 0.8647], [0.1413, 0.8765, 0.8629, 0.892], [0.1413, 0.89, 0.3886, 0.9056]]
+      }
+    ],
+    "ST": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 60,
+        "ubicacion": "art. 109.1 d",
+        "fragmento": "Opinión del supervisor, de corresponder",
+        "consulta": "2026-11-20",
+        "vigencia": "Texto local verificado visualmente; aplicabilidad y modificatorias posteriores pendientes",
+        "rectangulos": [[0.1413, 0.7945, 0.8627, 0.8101], [0.1413, 0.8081, 0.2529, 0.8236]]
+      }
+    ]
+  }
+}

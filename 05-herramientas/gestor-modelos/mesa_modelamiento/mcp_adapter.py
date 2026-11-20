@@ -4,13 +4,17 @@ from __future__ import annotations
 
 from mcp.server import MCPServer
 
+from .documentos import ServicioDocumentos
 from .observaciones import ServicioObservaciones
 from .repositorio import RepositorioProcesos
+from .sesiones import ServicioSesiones
 
 
 def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
     observaciones = ServicioObservaciones(repositorio)
+    documentos = ServicioDocumentos(repositorio)
+    sesiones = ServicioSesiones(repositorio)
     servidor = MCPServer(
         "mesa-modelamiento",
         instructions=(
@@ -47,6 +51,72 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
             revision_esperada=revision_esperada,
             tipo=tipo,
         )
+
+    @servidor.tool()
+    def responder_observacion(codigo: str, identificador: str, texto: str, revision_esperada: str) -> dict:
+        """Añade respuesta a una observación existente sin alterar el modelo."""
+        return observaciones.responder(codigo, identificador, texto, "Agente IA", revision_esperada)
+
+    @servidor.tool()
+    def cambiar_estado_observacion(codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
+        """Abre o resuelve una observación; no aprueba el proceso ni su sustento."""
+        return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, "Agente IA")
+
+    @servidor.tool()
+    def leer_elemento(codigo: str, identificador: str) -> dict:
+        """Lee una caja o flujo por ID, sin inventar fuente ni fundamento."""
+        modelo = repositorio.leer_modelo(codigo)
+        if identificador in modelo["elementos"]:
+            return {
+                "tipo": "elemento",
+                "datos": modelo["elementos"][identificador],
+                "fuentes": modelo["fuentes_visor"].get(modelo["elementos"][identificador]["ref"], []),
+            }
+        if identificador in modelo["flujos"]:
+            return {"tipo": "flujo", "datos": modelo["flujos"][identificador]}
+        from .repositorio import ErrorDominio
+
+        raise ErrorDominio("Elemento no encontrado", 404)
+
+    @servidor.tool()
+    def leer_fuente(codigo: str, referencia: str, indice: int) -> dict:
+        """Lee texto de una fuente registrada y solo la página PDF registrada, sin OCR."""
+        return documentos.leer_fuente(codigo, referencia, indice)
+
+    @servidor.tool()
+    def iniciar_edicion(codigo: str) -> dict:
+        """Captura una instantánea verificable y abre una copia aislada del proceso."""
+        return sesiones.iniciar(codigo)
+
+    @servidor.tool()
+    def leer_sesion(codigo: str, sesion: str) -> dict:
+        """Lee estado, revisiones y preparación de la sesión."""
+        return sesiones.leer(codigo, sesion)
+
+    @servidor.tool()
+    def leer_documento_copia(codigo: str, sesion: str, nombre: str) -> dict:
+        """Lee tabla, sustento o metadatos de fuentes de la copia editable."""
+        return sesiones.contenido(codigo, sesion, nombre)
+
+    @servidor.tool()
+    def editar_documento_copia(codigo: str, sesion: str, nombre: str, texto: str, revision_esperada: str) -> dict:
+        """Edita solo la copia con revisión esperada; no toca originales aprobados."""
+        return sesiones.editar(codigo, sesion, nombre, texto, revision_esperada)
+
+    @servidor.tool()
+    def preparar_cambio(codigo: str, sesion: str) -> dict:
+        """Regenera la copia y devuelve diff y validación D1-D5 para revisar."""
+        return sesiones.preparar(codigo, sesion)
+
+    @servidor.tool()
+    def aplicar_cambio(codigo: str, sesion: str, revision_esperada: int) -> dict:
+        """Integra cambios preparados con control de conflictos y instantánea recuperable."""
+        return sesiones.integrar(codigo, sesion, revision_esperada)
+
+    @servidor.tool()
+    def cerrar_edicion(codigo: str, sesion: str) -> dict:
+        """Cierra sin integrar; conserva la copia y libera el único editor."""
+        return sesiones.cerrar(codigo, sesion)
 
     return servidor
 

@@ -1,0 +1,1930 @@
+{
+  "components": {
+    "schemas": {
+      "ArchivoSesion": {
+        "properties": {
+          "nombre": {
+            "title": "Nombre",
+            "type": "string"
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sha256"
+          }
+        },
+        "required": [
+          "nombre",
+          "sha256"
+        ],
+        "title": "ArchivoSesion",
+        "type": "object"
+      },
+      "CambioEstado": {
+        "properties": {
+          "autor": {
+            "default": "",
+            "title": "Autor",
+            "type": "string"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          }
+        },
+        "required": [
+          "estado",
+          "revision_esperada"
+        ],
+        "title": "CambioEstado",
+        "type": "object"
+      },
+      "DocumentoCopia": {
+        "properties": {
+          "nombre": {
+            "title": "Nombre",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "texto",
+          "revision"
+        ],
+        "title": "DocumentoCopia",
+        "type": "object"
+      },
+      "EdicionCopia": {
+        "properties": {
+          "nombre": {
+            "title": "Nombre",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "revision_sesion": {
+            "title": "Revision Sesion",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "nombre",
+          "revision",
+          "revision_sesion"
+        ],
+        "title": "EdicionCopia",
+        "type": "object"
+      },
+      "EdicionDocumento": {
+        "properties": {
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "maxLength": 2000000,
+            "minLength": 1,
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "texto",
+          "revision_esperada"
+        ],
+        "title": "EdicionDocumento",
+        "type": "object"
+      },
+      "ElementoVista": {
+        "properties": {
+          "anotacion": {
+            "default": "",
+            "title": "Anotacion",
+            "type": "string"
+          },
+          "carril": {
+            "default": "",
+            "title": "Carril",
+            "type": "string"
+          },
+          "clase": {
+            "default": "",
+            "title": "Clase",
+            "type": "string"
+          },
+          "destino": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destino"
+          },
+          "destino_tipo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destino Tipo"
+          },
+          "disparador": {
+            "default": "",
+            "title": "Disparador",
+            "type": "string"
+          },
+          "documentos": {
+            "default": "",
+            "title": "Documentos",
+            "type": "string"
+          },
+          "fuente": {
+            "default": "",
+            "title": "Fuente",
+            "type": "string"
+          },
+          "nombre": {
+            "default": "",
+            "title": "Nombre",
+            "type": "string"
+          },
+          "numero": {
+            "default": "",
+            "title": "Numero",
+            "type": "string"
+          },
+          "plazo": {
+            "default": "",
+            "title": "Plazo",
+            "type": "string"
+          },
+          "pool": {
+            "default": "",
+            "title": "Pool",
+            "type": "string"
+          },
+          "ref": {
+            "title": "Ref",
+            "type": "string"
+          },
+          "tipo": {
+            "default": "",
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref"
+        ],
+        "title": "ElementoVista",
+        "type": "object"
+      },
+      "EventoObservacion": {
+        "properties": {
+          "accion": {
+            "title": "Accion",
+            "type": "string"
+          },
+          "autor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Autor"
+          },
+          "estado": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estado"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          }
+        },
+        "required": [
+          "accion",
+          "fecha"
+        ],
+        "title": "EventoObservacion",
+        "type": "object"
+      },
+      "FuenteVista": {
+        "properties": {
+          "consulta": {
+            "default": "",
+            "title": "Consulta",
+            "type": "string"
+          },
+          "estado_ancla": {
+            "default": "SIN_COORDENADAS",
+            "title": "Estado Ancla",
+            "type": "string"
+          },
+          "fragmento": {
+            "default": "",
+            "title": "Fragmento",
+            "type": "string"
+          },
+          "pagina": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pagina"
+          },
+          "rectangulos": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "title": "Rectangulos",
+            "type": "array"
+          },
+          "ruta": {
+            "title": "Ruta",
+            "type": "string"
+          },
+          "sha256": {
+            "default": "",
+            "title": "Sha256",
+            "type": "string"
+          },
+          "titulo": {
+            "default": "",
+            "title": "Titulo",
+            "type": "string"
+          },
+          "ubicacion": {
+            "default": "",
+            "title": "Ubicacion",
+            "type": "string"
+          },
+          "vigencia": {
+            "default": "",
+            "title": "Vigencia",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ruta"
+        ],
+        "title": "FuenteVista",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "IntegracionSesion": {
+        "properties": {
+          "revision_esperada": {
+            "minimum": 0.0,
+            "title": "Revision Esperada",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision_esperada"
+        ],
+        "title": "IntegracionSesion",
+        "type": "object"
+      },
+      "IntegracionVista": {
+        "properties": {
+          "cambios": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Cambios",
+            "type": "array"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sesion",
+          "codigo",
+          "estado",
+          "cambios"
+        ],
+        "title": "IntegracionVista",
+        "type": "object"
+      },
+      "LecturaFuente": {
+        "properties": {
+          "coincidencia_fragmento": {
+            "title": "Coincidencia Fragmento",
+            "type": "boolean"
+          },
+          "consulta": {
+            "default": "",
+            "title": "Consulta",
+            "type": "string"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "estado_ancla": {
+            "default": "SIN_COORDENADAS",
+            "title": "Estado Ancla",
+            "type": "string"
+          },
+          "fragmento": {
+            "default": "",
+            "title": "Fragmento",
+            "type": "string"
+          },
+          "pagina": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pagina"
+          },
+          "rectangulos": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "title": "Rectangulos",
+            "type": "array"
+          },
+          "ruta": {
+            "title": "Ruta",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "titulo": {
+            "default": "",
+            "title": "Titulo",
+            "type": "string"
+          },
+          "truncado": {
+            "title": "Truncado",
+            "type": "boolean"
+          },
+          "ubicacion": {
+            "default": "",
+            "title": "Ubicacion",
+            "type": "string"
+          },
+          "vigencia": {
+            "default": "",
+            "title": "Vigencia",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ruta",
+          "sha256",
+          "estado",
+          "coincidencia_fragmento",
+          "texto",
+          "truncado"
+        ],
+        "title": "LecturaFuente",
+        "type": "object"
+      },
+      "ListadoObservaciones": {
+        "properties": {
+          "modelo": {
+            "title": "Modelo",
+            "type": "string"
+          },
+          "observaciones": {
+            "items": {
+              "$ref": "#/components/schemas/ObservacionVista"
+            },
+            "title": "Observaciones",
+            "type": "array"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "modelo",
+          "observaciones",
+          "revision"
+        ],
+        "title": "ListadoObservaciones",
+        "type": "object"
+      },
+      "ModeloVista": {
+        "properties": {
+          "bpmn_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bpmn Url"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "elementos": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ElementoVista"
+            },
+            "title": "Elementos",
+            "type": "object"
+          },
+          "flujos": {
+            "additionalProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Flujos",
+            "type": "object"
+          },
+          "fuentes_visor": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/FuenteVista"
+              },
+              "type": "array"
+            },
+            "title": "Fuentes Visor",
+            "type": "object"
+          },
+          "modelo": {
+            "title": "Modelo",
+            "type": "string"
+          },
+          "padre": {
+            "title": "Padre",
+            "type": "string"
+          },
+          "revision_tabla": {
+            "title": "Revision Tabla",
+            "type": "string"
+          },
+          "sustento": {
+            "title": "Sustento",
+            "type": "string"
+          },
+          "tabla": {
+            "title": "Tabla",
+            "type": "string"
+          }
+        },
+        "required": [
+          "codigo",
+          "modelo",
+          "padre",
+          "tabla",
+          "sustento",
+          "elementos",
+          "flujos",
+          "fuentes_visor",
+          "revision_tabla",
+          "bpmn_url"
+        ],
+        "title": "ModeloVista",
+        "type": "object"
+      },
+      "NodoArbol": {
+        "properties": {
+          "bpmn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bpmn"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "hijos": {
+            "items": {
+              "$ref": "#/components/schemas/NodoArbol"
+            },
+            "title": "Hijos",
+            "type": "array"
+          },
+          "indice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Indice"
+          },
+          "nombre": {
+            "title": "Nombre",
+            "type": "string"
+          }
+        },
+        "required": [
+          "codigo",
+          "nombre",
+          "indice",
+          "bpmn",
+          "hijos"
+        ],
+        "title": "NodoArbol",
+        "type": "object"
+      },
+      "NuevaObservacion": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "elemento": {
+            "default": "",
+            "title": "Elemento",
+            "type": "string"
+          },
+          "referencia": {
+            "default": "",
+            "title": "Referencia",
+            "type": "string"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "default": "OBSERVACION",
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "texto",
+          "autor",
+          "revision_esperada"
+        ],
+        "title": "NuevaObservacion",
+        "type": "object"
+      },
+      "NuevaRespuesta": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "texto",
+          "autor",
+          "revision_esperada"
+        ],
+        "title": "NuevaRespuesta",
+        "type": "object"
+      },
+      "ObservacionVista": {
+        "properties": {
+          "actualizada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actualizada"
+          },
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "elemento": {
+            "default": "",
+            "title": "Elemento",
+            "type": "string"
+          },
+          "estado": {
+            "default": "ABIERTA",
+            "title": "Estado",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "historial": {
+            "items": {
+              "$ref": "#/components/schemas/EventoObservacion"
+            },
+            "title": "Historial",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "referencia": {
+            "default": "",
+            "title": "Referencia",
+            "type": "string"
+          },
+          "respuestas": {
+            "items": {
+              "$ref": "#/components/schemas/RespuestaObservacion"
+            },
+            "title": "Respuestas",
+            "type": "array"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "default": "OBSERVACION",
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "texto",
+          "autor",
+          "fecha"
+        ],
+        "title": "ObservacionVista",
+        "type": "object"
+      },
+      "PreparacionSesion": {
+        "properties": {
+          "aplicable": {
+            "title": "Aplicable",
+            "type": "boolean"
+          },
+          "cambios": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Cambios",
+            "type": "array"
+          },
+          "diff": {
+            "title": "Diff",
+            "type": "string"
+          },
+          "revision_sesion": {
+            "title": "Revision Sesion",
+            "type": "integer"
+          },
+          "validacion": {
+            "$ref": "#/components/schemas/ValidacionSesion"
+          }
+        },
+        "required": [
+          "revision_sesion",
+          "cambios",
+          "diff",
+          "validacion",
+          "aplicable"
+        ],
+        "title": "PreparacionSesion",
+        "type": "object"
+      },
+      "RegistroObservacion": {
+        "properties": {
+          "actualizada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actualizada"
+          },
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "elemento": {
+            "default": "",
+            "title": "Elemento",
+            "type": "string"
+          },
+          "estado": {
+            "default": "ABIERTA",
+            "title": "Estado",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "historial": {
+            "items": {
+              "$ref": "#/components/schemas/EventoObservacion"
+            },
+            "title": "Historial",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "referencia": {
+            "default": "",
+            "title": "Referencia",
+            "type": "string"
+          },
+          "respuestas": {
+            "items": {
+              "$ref": "#/components/schemas/RespuestaObservacion"
+            },
+            "title": "Respuestas",
+            "type": "array"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "default": "OBSERVACION",
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "texto",
+          "autor",
+          "fecha",
+          "revision"
+        ],
+        "title": "RegistroObservacion",
+        "type": "object"
+      },
+      "RespuestaObservacion": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "texto",
+          "autor",
+          "fecha"
+        ],
+        "title": "RespuestaObservacion",
+        "type": "object"
+      },
+      "Salud": {
+        "properties": {
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          }
+        },
+        "required": [
+          "estado"
+        ],
+        "title": "Salud",
+        "type": "object"
+      },
+      "SesionVista": {
+        "properties": {
+          "archivos": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ArchivoSesion"
+            },
+            "title": "Archivos",
+            "type": "object"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "creada": {
+            "title": "Creada",
+            "type": "string"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "integrada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Integrada"
+          },
+          "preparacion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreparacionSesion"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sesion",
+          "codigo",
+          "creada",
+          "estado",
+          "archivos",
+          "revision"
+        ],
+        "title": "SesionVista",
+        "type": "object"
+      },
+      "ValidacionSesion": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "integer"
+          },
+          "errores": {
+            "title": "Errores",
+            "type": "string"
+          },
+          "salida": {
+            "title": "Salida",
+            "type": "string"
+          }
+        },
+        "required": [
+          "salida",
+          "errores",
+          "codigo"
+        ],
+        "title": "ValidacionSesion",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Mesa de modelamiento",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/arbol": {
+      "get": {
+        "operationId": "arbol_api_arbol_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NodoArbol"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Arbol"
+      }
+    },
+    "/api/procesos/{codigo}": {
+      "get": {
+        "operationId": "modelo_api_procesos__codigo__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeloVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Modelo"
+      }
+    },
+    "/api/procesos/{codigo}/bpmn": {
+      "get": {
+        "operationId": "bpmn_api_procesos__codigo__bpmn_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Bpmn"
+      }
+    },
+    "/api/procesos/{codigo}/documentos/{tipo}": {
+      "get": {
+        "operationId": "documento_proceso_api_procesos__codigo__documentos__tipo__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "tipo",
+            "required": true,
+            "schema": {
+              "title": "Tipo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Documento Proceso"
+      }
+    },
+    "/api/procesos/{codigo}/fuentes/{ref}/{indice}": {
+      "get": {
+        "operationId": "fuente_api_procesos__codigo__fuentes__ref___indice__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ref",
+            "required": true,
+            "schema": {
+              "title": "Ref",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "indice",
+            "required": true,
+            "schema": {
+              "title": "Indice",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Fuente"
+      }
+    },
+    "/api/procesos/{codigo}/fuentes/{ref}/{indice}/lectura": {
+      "get": {
+        "operationId": "lectura_fuente_api_procesos__codigo__fuentes__ref___indice__lectura_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ref",
+            "required": true,
+            "schema": {
+              "title": "Ref",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "indice",
+            "required": true,
+            "schema": {
+              "title": "Indice",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LecturaFuente"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Lectura Fuente"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones": {
+      "get": {
+        "operationId": "listar_observaciones_api_procesos__codigo__observaciones_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListadoObservaciones"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Listar Observaciones"
+      },
+      "post": {
+        "operationId": "crear_observacion_api_procesos__codigo__observaciones_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevaObservacion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Crear Observacion"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}": {
+      "patch": {
+        "operationId": "cambiar_estado_api_procesos__codigo__observaciones__identificador__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CambioEstado"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cambiar Estado"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}/respuestas": {
+      "post": {
+        "operationId": "responder_observacion_api_procesos__codigo__observaciones__identificador__respuestas_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevaRespuesta"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Responder Observacion"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones": {
+      "post": {
+        "operationId": "iniciar_sesion_api_procesos__codigo__sesiones_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SesionVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Iniciar Sesion"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/activa": {
+      "get": {
+        "operationId": "sesion_activa_api_procesos__codigo__sesiones_activa_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/SesionVista"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Sesion Activa Api Procesos  Codigo  Sesiones Activa Get"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Sesion Activa"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/{identificador}": {
+      "get": {
+        "operationId": "leer_sesion_api_procesos__codigo__sesiones__identificador__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SesionVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Leer Sesion"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/{identificador}/cierre": {
+      "post": {
+        "operationId": "cerrar_sesion_api_procesos__codigo__sesiones__identificador__cierre_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SesionVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cerrar Sesion"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/{identificador}/documentos/{nombre}": {
+      "get": {
+        "operationId": "leer_copia_api_procesos__codigo__sesiones__identificador__documentos__nombre__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "nombre",
+            "required": true,
+            "schema": {
+              "title": "Nombre",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentoCopia"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Leer Copia"
+      },
+      "put": {
+        "operationId": "editar_copia_api_procesos__codigo__sesiones__identificador__documentos__nombre__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "nombre",
+            "required": true,
+            "schema": {
+              "title": "Nombre",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdicionDocumento"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EdicionCopia"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Editar Copia"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/{identificador}/integracion": {
+      "post": {
+        "operationId": "integrar_sesion_api_procesos__codigo__sesiones__identificador__integracion_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntegracionSesion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegracionVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Integrar Sesion"
+      }
+    },
+    "/api/procesos/{codigo}/sesiones/{identificador}/preparacion": {
+      "post": {
+        "operationId": "preparar_sesion_api_procesos__codigo__sesiones__identificador__preparacion_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreparacionSesion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Preparar Sesion"
+      }
+    },
+    "/api/salud": {
+      "get": {
+        "operationId": "salud_api_salud_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Salud"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Salud"
+      }
+    }
+  }
+}

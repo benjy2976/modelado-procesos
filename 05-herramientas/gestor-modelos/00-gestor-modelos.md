@@ -16,7 +16,9 @@ aliases:
 
 # Gestor local de modelos
 
-La arquitectura de la aplicacion Python/Nuxt y sus entregas se describen en el [plan de la mesa de modelamiento](plan-mesa-modelamiento.md).
+La [documentación de la aplicación](docs/00-documentacion-aplicacion.md) describe su arquitectura, contratos, entorno y controles. Este índice conserva el uso del generador vigente y enlaza el [plan de la mesa de modelamiento](plan-mesa-modelamiento.md).
+
+Las [instrucciones locales para agentes](AGENTS.md) delimitan el trabajo sobre esta aplicación.
 
 Este directorio implementa la [iniciativa de modelamiento hibrido](../../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md) con dos cadenas locales, sin servicios externos al renderizar:
 

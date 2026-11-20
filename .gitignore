@@ -36,3 +36,6 @@ __pycache__/
 
 # Salidas de prueba de tabla_a_bpmn.py (DEC-025)
 /05-herramientas/gestor-modelos/salida/
+
+# Sesiones persistentes de edición local; contienen instantáneas recuperables
+/05-herramientas/gestor-modelos/.mesa-sesiones/

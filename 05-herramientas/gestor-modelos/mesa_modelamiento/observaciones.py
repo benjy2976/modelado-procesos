@@ -75,6 +75,13 @@ class ServicioObservaciones:
         if not any(nodo.tag.startswith(BPMN) and nodo.get("id") == elemento for nodo in raiz.iter()):
             raise ErrorDominio("El elemento no existe en el BPMN", 404)
 
+    @staticmethod
+    def _validar_texto_autor(texto: str, autor: str) -> None:
+        if not isinstance(texto, str) or not 1 <= len(texto.strip()) <= 4000:
+            raise ErrorDominio("El texto debe tener entre 1 y 4000 caracteres")
+        if not isinstance(autor, str) or not 1 <= len(autor.strip()) <= 100:
+            raise ErrorDominio("Autor o equipo invalido")
+
     def agregar(
         self,
         codigo: str,
@@ -88,10 +95,7 @@ class ServicioObservaciones:
     ) -> dict:
         if tipo not in {"OBSERVACION", "COMENTARIO"}:
             raise ErrorDominio("Tipo de registro invalido")
-        if not isinstance(texto, str) or not 1 <= len(texto.strip()) <= 4000:
-            raise ErrorDominio("El texto debe tener entre 1 y 4000 caracteres")
-        if not isinstance(autor, str) or not 1 <= len(autor.strip()) <= 100:
-            raise ErrorDominio("Autor o equipo invalido")
+        self._validar_texto_autor(texto, autor)
         if not isinstance(referencia, str) or len(referencia) > 100:
             raise ErrorDominio("Referencia invalida")
         try:
@@ -99,6 +103,7 @@ class ServicioObservaciones:
                 self._comprobar_elemento(codigo, elemento)
                 archivo, datos = self._leer(codigo)
                 self._comprobar_revision(datos, revision_esperada)
+                fecha = datetime.now(timezone.utc).isoformat()
                 registro = {
                     "id": str(uuid.uuid4()),
                     "elemento": elemento,
@@ -107,7 +112,9 @@ class ServicioObservaciones:
                     "autor": autor.strip(),
                     "tipo": tipo,
                     "estado": "ABIERTA",
-                    "fecha": datetime.now(timezone.utc).isoformat(),
+                    "fecha": fecha,
+                    "historial": [{"accion": "CREADA", "fecha": fecha, "autor": autor.strip()}],
+                    "respuestas": [],
                 }
                 datos["observaciones"].append(registro)
                 self._guardar(archivo, datos)
@@ -115,9 +122,8 @@ class ServicioObservaciones:
         except Timeout as exc:
             raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
 
-    def actualizar_estado(self, codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
-        if estado not in {"ABIERTA", "RESUELTA"}:
-            raise ErrorDominio("Estado de observacion invalido")
+    def responder(self, codigo: str, identificador: str, texto: str, autor: str, revision_esperada: str) -> dict:
+        self._validar_texto_autor(texto, autor)
         try:
             with self._bloqueo, self._bloqueo_archivo(codigo):
                 archivo, datos = self._leer(codigo)
@@ -125,8 +131,41 @@ class ServicioObservaciones:
                 registro = next((o for o in datos["observaciones"] if o.get("id") == identificador), None)
                 if registro is None:
                     raise ErrorDominio("Observacion no encontrada", 404)
+                fecha = datetime.now(timezone.utc).isoformat()
+                respuesta = {"id": str(uuid.uuid4()), "texto": texto.strip(), "autor": autor.strip(), "fecha": fecha}
+                registro.setdefault("respuestas", []).append(respuesta)
+                registro.setdefault("historial", []).append(
+                    {"accion": "RESPONDIDA", "fecha": fecha, "autor": autor.strip()}
+                )
+                registro["actualizada"] = fecha
+                self._guardar(archivo, datos)
+                return {**registro, "revision": _revision(datos)}
+        except Timeout as exc:
+            raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
+
+    def actualizar_estado(
+        self, codigo: str, identificador: str, estado: str, revision_esperada: str, autor: str = ""
+    ) -> dict:
+        if estado not in {"ABIERTA", "RESUELTA"}:
+            raise ErrorDominio("Estado de observacion invalido")
+        if not isinstance(autor, str) or len(autor) > 100:
+            raise ErrorDominio("Autor o equipo invalido")
+        try:
+            with self._bloqueo, self._bloqueo_archivo(codigo):
+                archivo, datos = self._leer(codigo)
+                self._comprobar_revision(datos, revision_esperada)
+                registro = next((o for o in datos["observaciones"] if o.get("id") == identificador), None)
+                if registro is None:
+                    raise ErrorDominio("Observacion no encontrada", 404)
+                if registro["estado"] == estado:
+                    return {**registro, "revision": _revision(datos)}
+                fecha = datetime.now(timezone.utc).isoformat()
                 registro["estado"] = estado
-                registro["actualizada"] = datetime.now(timezone.utc).isoformat()
+                registro["actualizada"] = fecha
+                evento = {"accion": "ESTADO_CAMBIADO", "fecha": fecha, "estado": estado}
+                if autor.strip():
+                    evento["autor"] = autor.strip()
+                registro.setdefault("historial", []).append(evento)
                 self._guardar(archivo, datos)
                 return {**registro, "revision": _revision(datos)}
         except Timeout as exc:
