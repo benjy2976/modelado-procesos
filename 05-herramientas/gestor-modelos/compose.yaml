@@ -1,0 +1,40 @@
+name: modelador-procesos
+
+services:
+  api:
+    image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+    working_dir: /workspace/05-herramientas/gestor-modelos
+    command: >-
+      sh -c "uv sync --frozen && exec uv run modelador-procesos api --host 0.0.0.0 --port 8000"
+    environment:
+      PROCESOS_REPO_ROOT: /workspace
+      UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
+      UV_CACHE_DIR: /tmp/uv-cache
+    volumes:
+      - ${PROCESOS_REPO_HOST:-../..}:/workspace
+      - uv-cache:/tmp/uv-cache
+    ports:
+      - "127.0.0.1:${MODELOS_API_PORT:-8766}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/salud', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  mcp:
+    profiles: ["mcp"]
+    image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+    working_dir: /workspace/05-herramientas/gestor-modelos
+    command: >-
+      sh -c "uv sync --frozen && exec uv run modelador-procesos mcp --transporte stdio"
+    environment:
+      PROCESOS_REPO_ROOT: /workspace
+      UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
+      UV_CACHE_DIR: /tmp/uv-cache
+    volumes:
+      - ${PROCESOS_REPO_HOST:-../..}:/workspace
+      - uv-cache:/tmp/uv-cache
+    stdin_open: true
+
+volumes:
+  uv-cache:
