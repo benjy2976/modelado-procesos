@@ -34,7 +34,8 @@ Gestiona adicional, deductivo puro y adicional con deductivo vinculante. Las red
 |---|---|---|
 | Recibe | S4.3.2.2 Atencion de consultas de obra | Respuesta notificada que sirve de antecedente para anotar la necesidad del adicional; no equivale a aprobarlo |
 | Recibe | Ejecutor de obra, segun regimen; supervisor o inspector de obra | Registro en el Cuaderno de Incidencias, sustento de necesidad e informe tecnico cuando corresponda |
-| Solicita a | Equipo elaborador definido en las bases o designado por la OAD, con adscripcion por confirmar | Expediente tecnico de la modificacion cuando la figura lo requiere |
+| Comunica a | Elaborador definido en las bases: entidad contratante, contratista o supervisor | Anotacion de necesidad cuando este no la conoce y ratificacion antes de presentar el expediente; la comunicacion no inicia los 15 dias |
+| Recibe de | Elaborador definido en las bases | Expediente tecnico del adicional, una vez ratificada la necesidad |
 | Solicita | Contraloria General de la Republica | Autorizacion previa solo cuando la Ley 32069 la exige |
 | Envia | Participantes de la ejecucion | Modificacion aprobada, denegada, declarada improcedente u observada |
 | Registra | Banco de Inversiones, INFOBRAS o Pladicop | Actualizacion en el sistema y oportunidad aplicables |
@@ -69,6 +70,7 @@ Vista generada: [Diagrama interactivo](S4-3-2-3-diagrama-proceso.html).
 - Confirmar cuando intervienen SGE, Presupuesto y GRAJ en cada variante.
 - Definir como se obtiene un especialista competente e independiente cuando no existe la especialidad requerida.
 - Identificar la unidad que remite formalmente a la Contraloria y las delegaciones vigentes.
+- Contrastar con las bases y un expediente real quien elabora, como recibe la anotacion y por que canal se comunica la evaluacion tecnica preliminar.
 - Resolver la oportunidad de registro en el Banco de Inversiones frente a mayores metrados autorizados por la supervision.
 
 ## Relaciones
@@ -78,4 +80,3 @@ Vista generada: [Diagrama interactivo](S4-3-2-3-diagrama-proceso.html).
 - [S4.3.2.5 Formalizacion de suspensiones de plazo](../S4-3-2-5-formalizacion-suspensiones-plazo/00-S4-3-2-5-formalizacion-suspensiones-plazo.md)
 - [S4.3.2.6 Gestion de paralizacion y reinicio](../S4-3-2-6-gestion-paralizacion-reinicio/00-S4-3-2-6-gestion-paralizacion-reinicio.md)
 - [Sustento de S4.3.2](../S4-3-2-sustento.md)
-

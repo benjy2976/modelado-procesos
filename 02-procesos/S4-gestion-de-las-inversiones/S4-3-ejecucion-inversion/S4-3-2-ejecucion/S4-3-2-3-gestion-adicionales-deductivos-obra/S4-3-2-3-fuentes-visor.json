@@ -1,0 +1,37 @@
+{
+  "elementos": {
+    "R-T1": [
+      {
+        "titulo": "Opinión D000092-2026-OECE-DTN",
+        "ruta": "01-referencias/04-contrataciones-publicas/opiniones-oece/opinion-d000092-2026-oece-dtn.pdf",
+        "pagina": 2,
+        "ubicacion": "numeral 2.1, art. 194.2 a y d citados",
+        "fragmento": "cuaderno de incidencias",
+        "consulta": "2026-11-18",
+        "vigencia": "Criterio propuesto; aplicabilidad y validación especializada pendientes"
+      }
+    ],
+    "X-T1": [
+      {
+        "titulo": "Opinión D000092-2026-OECE-DTN",
+        "ruta": "01-referencias/04-contrataciones-publicas/opiniones-oece/opinion-d000092-2026-oece-dtn.pdf",
+        "pagina": 2,
+        "ubicacion": "numeral 2.1, art. 194.2 d citado",
+        "fragmento": "quince",
+        "consulta": "2026-11-18",
+        "vigencia": "Criterio propuesto; aplicabilidad y validación especializada pendientes"
+      }
+    ],
+    "S-T3": [
+      {
+        "titulo": "Opinión D000092-2026-OECE-DTN",
+        "ruta": "01-referencias/04-contrataciones-publicas/opiniones-oece/opinion-d000092-2026-oece-dtn.pdf",
+        "pagina": 6,
+        "ubicacion": "numeral 2.9 A-C",
+        "fragmento": "diez (10)",
+        "consulta": "2026-11-18",
+        "vigencia": "Criterio propuesto; aplicabilidad y validación especializada pendientes"
+      }
+    ]
+  }
+}
