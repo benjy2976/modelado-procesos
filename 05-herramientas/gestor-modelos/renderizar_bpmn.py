@@ -215,29 +215,69 @@ v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__window.list
 
 
 VISOR_ENLAZADO = """<!doctype html>
-<!-- GENERADO - NO EDITAR. Fuente: __F__; bpmn-js fijado por el proyecto. -->
+<!-- GENERADO - NO EDITAR. Fuente: __F__; datos del panel: tabla del proceso. -->
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>__T__</title>
-<style>html,body{margin:0;height:100%;font:14px Arial,sans-serif;background:#fff}#c{height:calc(100% - 34px)}
-header{padding:8px 12px;border-bottom:1px solid #ddd}.bjs-drilldown{display:none}</style></head>
-<body><header>__T__ · vista interactiva (rueda: zoom; arrastrar: mover)</header><div id="c"></div>
+<title>__T__</title><link rel="stylesheet" href="__CSS__"></head>
+<body><header><div class="encabezado"><a href="/" id="ir-inicio">Nivel 0</a><button id="abrir-arbol" type="button">Árbol de procesos</button><a id="volver-padre" hidden>&larr; Proceso superior</a><strong>__T__</strong></div>
+<nav aria-label="Controles del diagrama"><button id="alejar" title="Alejar">-</button><button id="ajustar" title="Ajustar">Ajustar</button><button id="acercar" title="Acercar">+</button></nav></header>
+<main><div id="c" aria-label="Diagrama BPMN interactivo"></div><aside aria-label="Detalle y observaciones">
+<div class="seleccion"><button id="ver-diagrama">Diagrama completo</button><h1 id="titulo-seleccion">Diagrama completo</h1><p id="subtitulo-seleccion"></p></div>
+<div class="pestanas"><button id="tab-detalle" class="activa">Detalle y sustento</button><button id="tab-observaciones">Observaciones</button></div>
+<section id="detalle" class="panel-contenido"></section><section id="observaciones" class="panel-contenido" hidden>
+<p id="cuenta-observaciones"></p><div id="lista-observaciones"></div>
+<label for="autor-observacion">Autor o equipo</label><input id="autor-observacion" placeholder="Equipo revisor">
+<label for="texto-observacion">Nueva observaci&oacute;n</label><textarea id="texto-observacion" rows="4" placeholder="Describe el problema o cambio propuesto"></textarea>
+<button id="agregar-observacion">Guardar observaci&oacute;n</button><button id="exportar-observaciones">Exportar abiertas para IA</button><p id="estado-guardado" role="status"></p>
+</section></aside></main>
+<dialog id="dialogo-arbol" aria-label="Árbol de procesos"><button id="cerrar-arbol" type="button">Cerrar</button><h2>Mapa de procesos institucional</h2><nav id="arbol-procesos"></nav></dialog>
+<dialog id="dialogo-fuente" aria-label="Documento de sustento"><button id="cerrar-fuente" type="button">Cerrar</button><strong id="titulo-fuente"></strong><span id="fragmento-fuente"></span><a id="abrir-fuente-externa" target="_blank" rel="noopener">Abrir en otra pestaña</a><iframe id="marco-fuente" title="Documento de sustento"></iframe></dialog>
 <script src="__JS__"></script>__EVENT_MARKERS____NUMBER_SCRIPT__
-<script>const xml = __X__; const v = new BpmnJS({container: '#c'});
-v.importXML(xml).then(r => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__window.listo = true; window.avisos = r.warnings.length;
-  v.get('canvas').zoom('fit-viewport'); })
- .catch(e => { document.body.insertAdjacentHTML('beforeend', '<pre>' + e + '</pre>'); window.listo = true; });</script>
+<script>window.DATOS_REVISION = __META__; const v = new BpmnJS({container: '#c'}); window.visorBpmn = v;
+function colorearVista(xml) {
+  const raiz = new DOMParser().parseFromString(xml, 'application/xml');
+  if (raiz.querySelector('parsererror')) throw Error('El BPMN no contiene XML válido');
+  const estilos = __ESTILOS__, formas = 'http://www.omg.org/spec/BPMN/20100524/DI';
+  const colores = 'http://www.omg.org/spec/BPMN/non-normative/color/1.0';
+  const tipos = new Map([...raiz.querySelectorAll('[id]')].map(e => [e.getAttribute('id'), e.localName]));
+  for (const forma of raiz.getElementsByTagNameNS(formas, 'BPMNShape')) {
+    const estilo = estilos[tipos.get(forma.getAttribute('bpmnElement'))];
+    if (!estilo) continue;
+    forma.setAttributeNS(colores, 'color:background-color', estilo[0]);
+    forma.setAttributeNS(colores, 'color:border-color', estilo[1]);
+    let etiqueta = [...forma.children].find(e => e.namespaceURI === formas && e.localName === 'BPMNLabel');
+    if (!etiqueta) { etiqueta = raiz.createElementNS(formas, 'bpmndi:BPMNLabel'); forma.appendChild(etiqueta); }
+    etiqueta.setAttributeNS(colores, 'color:color', '#000000');
+  }
+  return new XMLSerializer().serializeToString(raiz);
+}
+if (location.protocol === 'file:') {
+  document.getElementById('c').innerHTML = '<p style="padding:24px">Para cargar el BPMN, abre este visor desde el <a href="http://127.0.0.1:8765/">servidor local de revisión</a>.</p>';
+  window.listo = true;
+} else fetch(__BPMN__).then(r => { if (!r.ok) throw Error('No se pudo leer el BPMN: HTTP ' + r.status); return r.text(); })
+.then(xml => v.importXML(colorearVista(xml))).then(r => { __APPLY_EVENT_MARKERS____APPLY_NUMBERS__window.listo = true; window.avisos = r.warnings.length;
+  v.get('canvas').zoom('fit-viewport'); const s = document.createElement('script'); s.src = '__REVJS__'; document.body.appendChild(s); })
+ .catch(e => { document.getElementById('c').textContent = 'Error al abrir el diagrama: ' + e.message; window.listo = true; });</script>
 </body></html>
 """
 
-
 def pagina_visor_enlazada(nombre: str, bpmn: Path, destino: Path) -> str:
-    """Vista interactiva versionable: lleva solo el diagrama y enlaza la copia versionada de bpmn-js por ruta
-    relativa, de modo que funciona sin internet desde que se clona el repositorio."""
+    """Vista versionable: carga el BPMN hermano; no inserta una segunda copia del XML."""
     datos = bpmn.read_bytes()
     usa_marcadores = subprocesos_evento_contraidos(datos) > 0
     js = os.path.relpath(biblioteca(), destino.parent).replace(os.sep, "/")
+    css = os.path.relpath(Path(__file__).with_name("visor_revision.css"), destino.parent).replace(os.sep, "/")
+    revjs = os.path.relpath(Path(__file__).with_name("visor_revision.js"), destino.parent).replace(os.sep, "/")
+    tabla = bpmn.with_name(bpmn.stem + "-tabla.md")
+    if tabla.exists():
+        from visor_datos import datos_visor
+        meta = datos_visor(tabla, destino, Path(__file__).resolve().parents[2])
+    else:
+        meta = {"codigo": "", "modelo": "", "padre": "", "tabla": "", "sustento": "", "elementos": {}, "flujos": {}}
     pagina = VISOR_ENLAZADO.replace("__T__", html.escape(nombre)).replace("__F__", html.escape(bpmn.name))
-    pagina = pagina.replace("__X__", json.dumps(colorear(datos)))
+    pagina = pagina.replace("__BPMN__", json.dumps(os.path.relpath(bpmn, destino.parent).replace(os.sep, "/")))
+    pagina = pagina.replace("__ESTILOS__", json.dumps(ESTILO))
+    pagina = pagina.replace("__META__", json.dumps(meta, ensure_ascii=False).replace("<", "\\u003c"))
+    pagina = pagina.replace("__CSS__", html.escape(css)).replace("__REVJS__", html.escape(revjs))
     pagina = pagina.replace(
         "__EVENT_MARKERS__", f"\n<script>{MARCADORES_SUBPROCESO_EVENTO}</script>" if usa_marcadores else ""
     ).replace("__APPLY_EVENT_MARKERS__", "marcarSubprocesosEvento(v); " if usa_marcadores else "")

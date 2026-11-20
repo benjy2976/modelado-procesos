@@ -1,0 +1,10 @@
+{
+  "version": "15.0.3",
+  "consulted_at": "2026-11-20",
+  "license": "MIT (vendor/markdown-it-LICENSE)",
+  "source_tarball": "https://registry.npmjs.org/markdown-it/-/markdown-it-15.0.3.tgz",
+  "source_sha256": "98a7453983ab0e268c17dbd5260bf7190ba46b4cca912327fc1c1a2578e4b56d",
+  "artifact": "package/dist/browser/markdown-it.umd.min.js",
+  "vendor_path": "05-herramientas/gestor-modelos/vendor/markdown-it.umd.min.js",
+  "sha256": "391f2aa638e75e6c7859d0a5c5650ef0956722a45998f17e05b83bc655778e1e"
+}
