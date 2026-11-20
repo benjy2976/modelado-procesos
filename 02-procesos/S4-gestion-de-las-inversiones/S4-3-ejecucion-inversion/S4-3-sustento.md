@@ -265,7 +265,7 @@ Clasificacion y limites:
 - `OBSERVADO`: la ficha aprobada de S4 registra la interaccion desde S3.2 con el texto amplio "Servicio contratado / bien adquirido / consultoria y obra contratada".
 - `PROPUESTA DEL EQUIPO`: el diagrama especializa esa entrada como "Contrato de ejecucion de inversion" y renombra S4.3.1 como "Inicio de ejecucion".
 - `INFERENCIA DE MODELAMIENTO`: se omite la compuerta anterior al fin porque, al tener una entrada y una salida sin condicion, no expresa una decision ni una convergencia BPMN.
-- `PENDIENTE`: analizar el detalle de Inicio de ejecucion con el BPMN exportado de Bizagi; recibir el nuevo diagrama de Ejecucion; desarrollar Recepcion posteriormente; alinear despues los artefactos de S4.3.1 que conservan la propuesta anterior.
+- `PENDIENTE`: contrastar con la norma y el equipo el detalle de Inicio de ejecucion a partir del BPMN exportado de Bizagi incorporado como insumo en S4.3.1; desarrollar Recepcion posteriormente.
 - El reemplazo actualiza una propuesta en `ELABORACION`; no constituye aprobacion, validacion normativa ni conformidad de ningun nivel de revision.
 
 El 2026-11-02 se reorganizaron las carpetas de trabajo (`DEC-029`): S4.3.1 se renombro como Inicio de ejecucion y quedo sin artefactos de detalle, salvo su nota indice; la propuesta anterior de Gestion de la ejecucion se traslado a `99-temporal/modelos/comparacion-s4-3-1/`. Antes de evaluar el nuevo boceto de S4.3.2 se creo una copia exacta en `99-temporal/modelos/comparacion-s4-3-2/`; la ruta activa de Ejecucion conserva provisionalmente sus artefactos para la comparacion logica y no representa todavia el reemplazo.
