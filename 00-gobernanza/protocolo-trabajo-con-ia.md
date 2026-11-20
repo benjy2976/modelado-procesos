@@ -6,7 +6,7 @@ estado_documento: VIGENTE
 clase_conocimiento: DECISION
 proceso: []
 fecha_creacion: 2026-10-15
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-20
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -75,7 +75,7 @@ En una tarea conceptual de modelamiento, el paquete excluye por defecto `*.bpmn`
 3. Ejecutar `construir_modelos.py --tabla <ruta>` y conservar los derivados actualizados.
 4. Atender mediante texto los hallazgos estructurales o de notacion; no abrir automaticamente el grafico.
 5. Repetir el ciclo conceptual las veces necesarias.
-6. Abrir el HTML o SVG cuando el contenido este suficientemente estable y la tarea ingrese expresamente a revision visual.
+6. Abrir el HTML mediante el servidor HTTP local cuando el contenido este suficientemente estable y la tarea ingrese expresamente a revision visual. SVG y PNG se exportan solo bajo demanda (`DEC-051`).
 7. Ejecutar el control global al cierre o cuando se modifiquen herramientas de modelamiento.
 
 La revision visual no atribuye conformidad ni aprobacion y no reabre por si sola el contenido conceptual. Si revela una ambiguedad real, esta se registra y vuelve al ciclo conceptual.

@@ -7,7 +7,7 @@ clase_conocimiento: DECISION
 proceso:
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-17
+fecha_actualizacion: 2026-11-20
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -17,7 +17,7 @@ tags:
 
 # Estandar de artefactos para el modelamiento hibrido
 
-Este estandar adopta un flujo hibrido: durante el levantamiento, todo flujo de proceso se construye en una tabla Markdown que genera BPMN (cadena BPMN, `DEC-025`, `DEC-026`); PlantUML se reserva para vistas que no son flujos de proceso; BPMN 2.0 XML es la fuente maestra desde la formalizacion; SVG, PNG, PDF, resumenes y reportes son derivados automaticos. El trabajo asistido por IA separa las iteraciones conceptuales, la sincronizacion automatica y la revision visual (`DEC-040`): mantener derivados actualizados no obliga a incorporarlos al contexto. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
+Este estandar adopta un flujo hibrido: durante el levantamiento, todo flujo de proceso se construye en una tabla Markdown que genera BPMN (cadena BPMN, `DEC-025`, `DEC-026`); PlantUML se reserva para vistas que no son flujos de proceso; BPMN 2.0 XML es la fuente maestra desde la formalizacion; HTML es la vista de revision y SVG, PNG, PDF, resumenes y reportes son derivados de exportacion. El trabajo asistido por IA separa las iteraciones conceptuales, la sincronizacion automatica y la revision visual (`DEC-040`, `DEC-051`): mantener BPMN y HTML actualizados no obliga a incorporarlos al contexto. Cada dato se modifica en una sola fuente autorizada. El mapa institucional de procesos Nivel 0 queda exceptuado en los terminos de la seccion siguiente.
 
 ## 0. Excepcion para el mapa de procesos Nivel 0
 
@@ -54,7 +54,7 @@ Representa un mapa o diagrama recibido como evidencia institucional. Puede usar 
 
 ### 2.2 Modelo logico
 
-Representa responsabilidades, actividades, decisiones y transferencias en una forma comprensible para especialistas e IA. Su fuente editable es `*-diagrama-proceso-tabla.md`, que genera un `.bpmn` validado y sus vistas `.svg` y `.png` (seccion 7.1). Las vistas que no son flujos de proceso usan `.puml` y `.svg` (seccion 7.2).
+Representa responsabilidades, actividades, decisiones y transferencias en una forma comprensible para especialistas e IA. Su fuente editable es `*-diagrama-proceso-tabla.md`, que genera un `.bpmn` validado y un visor `.html`; `.svg` y `.png` se exportan cuando se requieren (seccion 7.1). Las vistas que no son flujos de proceso usan `.puml` y `.svg` (seccion 7.2).
 
 Un modelo logico:
 
@@ -105,7 +105,7 @@ El TO-BE aplica el mismo patron en `02-procesos/to-be/`, con la misma jerarquia 
 
 | Artefacto | Funcion | Autoridad | Modificacion |
 |---|---|---|---|
-| `*-ficha-producto-proceso.md` | Campos del Anexo 2 en orden fijo; referencia el SVG del diagrama | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
+| `*-ficha-producto-proceso.md` | Campos del Anexo 2 en orden fijo; referencia el SVG al preparar su publicacion | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
 | `*-fichas-indicador.md` | Campos del Anexo 4 por indicador | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
 | `*-procedimiento.md` | Campos del Anexo 7 | Fuente maestra del documento NT y de su PDF | Personas o IA, con el circuito de revision aplicable |
 | `*-sustento.md` | Fuentes, evidencias, clase de cada afirmacion, vacios, discrepancias, BIM e historial de revision | Fuente maestra de trazabilidad | Personas o IA; el historial de conformidades solo personas |
@@ -115,9 +115,9 @@ El TO-BE aplica el mismo patron en `02-procesos/to-be/`, con la misma jerarquia 
 | `*.puml` | Vista que no es flujo de proceso (seccion 7.2) | Fuente de la vista | Personas o IA |
 | `.svg` de un `.puml` | Vista del PlantUML | Derivado | Solo generador (`renderizar_plantuml.py`) |
 | `*.bpmn` | Semantica y disposicion BPMN | Derivado de la tabla en la etapa logica; fuente maestra en la formal | `tabla_a_bpmn.py` en la etapa logica; editor BPMN o aplicacion controlada en la formal |
-| `*.svg` | Vista del BPMN para Obsidian y revision | Derivado versionado | Solo generador (`renderizar_bpmn.py`) |
-| `*.png` | Vista del BPMN para documentos e impresion | Derivado versionado | Solo generador (`renderizar_bpmn.py`) |
-| `*-diagrama-proceso.html` | Vista interactiva del BPMN (zoom y desplazamiento); enlaza la copia versionada de bpmn-js | Derivado versionado | Solo generador (`construir_modelos.py`) |
+| `*.svg` | Vista del BPMN para Obsidian o publicacion; exportacion bajo demanda | Derivado versionado cuando se publica | Solo generador (`renderizar_bpmn.py`) |
+| `*.png` | Vista del BPMN para documentos e impresion; exportacion bajo demanda | Derivado versionado cuando se publica | Solo generador (`renderizar_bpmn.py`) |
+| `*-diagrama-proceso.html` | Vista interactiva del BPMN; carga el `.bpmn` hermano y enlaza bpmn-js versionado | Derivado versionado | Solo generador (`construir_modelos.py`) |
 | `*-resumen-generado.md` | Carriles, actividades, eventos, flujos y objetos extraidos | Derivado consultable | Solo generador |
 | `*-manifest.json` | Versiones del generador y hashes de entradas/salidas | Evidencia tecnica derivada | Solo generador |
 | `*-validacion.json` | Hallazgos estructurados | Derivado tecnico | Solo validador |
@@ -130,7 +130,7 @@ Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o me
 
 ### 5.1 Etapa logica
 
-- `*-diagrama-proceso-tabla.md` es editable; el `.bpmn`, el `.svg` y el `.png` se generan desde ella y no se editan.
+- `*-diagrama-proceso-tabla.md` es editable; el `.bpmn` se genera desde ella y no se edita. El SVG y el PNG se exportan solo cuando se necesitan.
 - Los modelos logicos iniciados en PlantUML se migran a la tabla; el `.puml` se retira y queda en el historial de Git (`DEC-026`).
 - Las limitaciones semanticas se documentan en el sustento del proceso.
 - La IA itera por lotes sobre la tabla y el sustento con el paquete de contexto autorizado. En tareas ordinarias no carga ni busca contenido en el BPMN XML, SVG, PNG o HTML generado (`DEC-040`).
@@ -138,13 +138,13 @@ Un archivo generado debe indicar `GENERADO - NO EDITAR` mediante comentario o me
 ### 5.2 Sincronizacion por lote
 
 - Al cerrar un lote conceptual coherente se ejecuta `construir_modelos.py --tabla <ruta>` para el modelo afectado.
-- La herramienta actualiza BPMN, SVG, PNG y HTML y devuelve solo el estado y los hallazgos D1-D5 accionables al contexto de la IA.
+- La herramienta actualiza BPMN y HTML y devuelve solo el estado y los hallazgos D1-D5 accionables al contexto de la IA. SVG y PNG se generan con `--exportar-imagenes` para publicacion o entrega.
 - La misma tabla no se edita mientras su generacion esta en curso. La construccion global se reserva para el cierre o para cambios en las herramientas.
 - Un fallo se resuelve primero desde la tabla, el sustento y el informe textual; la inspeccion grafica no es el mecanismo ordinario de depuracion semantica.
 
 ### 5.3 Revision visual
 
-- Cuando el contenido tenga estabilidad suficiente, el equipo o la IA abre el HTML o SVG para revisar densidad, recorridos, cruces, etiquetas y legibilidad.
+- Cuando el contenido tenga estabilidad suficiente, el equipo o la IA abre el HTML para revisar densidad, recorridos, cruces, etiquetas y legibilidad. El visor requiere el servidor local para cargar el BPMN por HTTP.
 - La revision visual tambien procede cuando una fuente no ha sido transcrita, un fallo no puede resolverse con el informe textual o el usuario la solicita expresamente.
 - Los ajustes de disposicion no cambian por si solos la semantica. Si la vista revela una ambiguedad real, esta se registra y vuelve a la etapa logica.
 - Esta puerta no constituye conformidad, validacion normativa ni aprobacion institucional.
@@ -194,7 +194,7 @@ Regla adoptada en `DEC-024` para modelos logicos y formales:
 3. Eventos, tareas, subprocesos, compuertas, flujos de secuencia y mensajes deben usarse conforme a su semantica.
 4. Los elementos mantienen IDs estables aunque cambie su etiqueta.
 5. La informacion grafica BPMN DI se conserva en el mismo XML maestro.
-6. Un cambio de ubicacion visual modifica el BPMN DI y regenera el SVG; nunca se corrige directamente el SVG.
+6. Un cambio de ubicacion visual modifica el BPMN DI; el SVG se regenera en la siguiente exportacion expresa y nunca se corrige directamente.
 7. El modelo debe poder abrirse fuera de la futura aplicacion mediante una herramienta BPMN compatible.
 
 ### 7.1 Cadena BPMN
@@ -203,9 +203,9 @@ Regla adoptada en `DEC-025`:
 
 1. La tabla se redacta con la [plantilla de diagrama en tabla](plantillas/modelamiento/diagrama-proceso-tabla.md); cada elemento declara su clase (observado, normativo, equipo o propuesta) y su fuente.
 2. `tabla_a_bpmn.py` genera el `.bpmn`; antes de versionarlo, los controles D1 (esquema OMG), D2 (referencias), D3 (bloqueos) y D4 (trazado) no deben presentar hallazgos, o estos quedan explicados en el sustento.
-3. El `.svg` y el `.png` se generan solo con `renderizar_bpmn.py`, con bpmn-js fijado por version y hash. La paleta de estilo Bizagi se aplica solo a los derivados.
-4. La vista interactiva `.html` se versiona junto al SVG: lleva solo el diagrama y enlaza por ruta relativa la copia de bpmn-js versionada en `05-herramientas/gestor-modelos/vendor/`, verificada contra el hash del archivo de bloqueo, de modo que funciona sin internet. La copia para Bizagi es un producto de trabajo y no se versiona. Bizagi se usa solo para ajustes manuales; un `.bpmn` ajustado alli vuelve al repositorio validado y renderizado con las mismas herramientas.
-5. `construir_modelos.py` construye o comprueba (`--check`) todos los diagramas en modelamiento: adopta el BPMN solo si la validacion no tiene hallazgos, genera el SVG, el PNG y la vista interactiva, y deja en `99-temporal/modelos/` las copias para Bizagi, los informes y una pagina indice.
+3. El `.svg` y el `.png` se exportan bajo demanda con `--exportar-imagenes`, mediante `renderizar_bpmn.py` y bpmn-js fijado por version y hash. La paleta de estilo Bizagi se aplica solo a las vistas derivadas.
+4. La vista interactiva `.html` se versiona junto al BPMN y carga ese archivo por ruta relativa mediante el servidor local de revision; no contiene una copia del XML. Enlaza la copia de bpmn-js versionada en `05-herramientas/gestor-modelos/vendor/`, verificada contra el hash del archivo de bloqueo. Funciona sin internet, pero la lectura del archivo BPMN requiere HTTP local. La copia para Bizagi es un producto de trabajo y no se versiona. Bizagi se usa solo para ajustes manuales; un `.bpmn` ajustado alli vuelve al repositorio validado y renderizado con las mismas herramientas.
+5. `construir_modelos.py` construye o comprueba (`--check`) todos los diagramas en modelamiento: adopta el BPMN solo si la validacion no tiene hallazgos, actualiza la vista interactiva y deja en `99-temporal/modelos/` las copias para Bizagi, los informes y una pagina indice. SVG y PNG se exportan solo con la opcion expresa.
 6. En la etapa formal, el `.bpmn` versionado deja de llevar la marca de generacion y `construir_modelos.py` lo respeta como fuente maestra.
 
 ### 7.2 Cuando usar cada formato
@@ -214,14 +214,14 @@ Regla adoptada en `DEC-026`: la cadena BPMN se usa siempre que el contenido sea 
 
 | Situacion | Formato |
 |---|---|
-| Diagrama de cualquier proceso en modelamiento, de cualquier nivel, que se muestra en su ficha (Anexos 2 y 3) | Cadena BPMN: tabla, `.bpmn`, `.svg`, `.png` y vista HTML |
+| Diagrama de cualquier proceso en modelamiento, de cualquier nivel, que se muestra en su ficha (Anexos 2 y 3) | Cadena BPMN: tabla, `.bpmn` y vista HTML; SVG/PNG cuando se prepare publicacion |
 | Diagrama de flujo del procedimiento (Anexo 8) | Cadena BPMN |
 | Subprocesos de evento y su detalle operativo; nivel 3 solo cuando la desagregacion se adopta expresamente | Cadena BPMN |
 | Diagramas aprobados ya transcritos en PlantUML, como S4 | Se conservan; pasan a BPMN cuando se revise el documento aprobado |
 | Vistas que no son flujos: mapas de relaciones, estructuras, arboles de decision, arquitectura de informacion | PlantUML |
 | Mapa institucional Nivel 0 | Markdown y Mermaid (seccion 0) |
 
-En el repositorio se versionan la tabla, el `.bpmn`, el `.svg` (Obsidian y fichas), el `.png` (documentos) y el `.html` (vista interactiva, enlazada desde la nota indice del proceso).
+En el repositorio se versionan la tabla, el `.bpmn` y el `.html` (vista interactiva, enlazada desde la nota indice del proceso). El `.svg` (Obsidian y fichas) y el `.png` (documentos) se versionan cuando se exportan para publicacion o entrega; durante el desarrollo no se presupone que esten vigentes.
 
 ### 7.3 Paleta BPMN del proyecto
 

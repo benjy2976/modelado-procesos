@@ -4,7 +4,7 @@ area: herramientas
 estado_documento: VIGENTE
 clase_conocimiento: DECISION
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-17
+fecha_actualizacion: 2026-11-20
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -16,9 +16,11 @@ aliases:
 
 # Gestor local de modelos
 
+La arquitectura de la aplicacion Python/Nuxt y sus entregas se describen en el [plan de la mesa de modelamiento](plan-mesa-modelamiento.md).
+
 Este directorio implementa la [iniciativa de modelamiento hibrido](../../00-gobernanza/iniciativas/iniciativa-modelamiento-hibrido.md) con dos cadenas locales, sin servicios externos al renderizar:
 
-- **Cadena BPMN** (`DEC-025`, `DEC-026`), para todo flujo de proceso en modelamiento: tabla en Markdown, BPMN 2.0 generado y validado, y vistas SVG, PNG y HTML producidas con bpmn-js.
+- **Cadena BPMN** (`DEC-025`, `DEC-026`, `DEC-051`), para todo flujo de proceso en modelamiento: tabla en Markdown, BPMN 2.0 generado y validado, visor HTML y exportaciones SVG/PNG bajo demanda.
 - **PlantUML**, solo para vistas que no son flujos de proceso y para diagramas aprobados ya transcritos (estandar de artefactos, seccion 7.2).
 
 Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga aprobacion humana.
@@ -35,13 +37,14 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 ```text
 <codigo>-diagrama-proceso-tabla.md --tabla_a_bpmn.py--> <codigo>-diagrama-proceso.bpmn
                                                            |-- validacion D1-D3 y trazado D4
-                                                           |-- renderizar_bpmn.py --> .svg (Obsidian) y .png
+                                                           |-- visor HTML --> carga el .bpmn por HTTP local
+                                                           |-- --exportar-imagenes --> .svg y .png
                                                            `-- copia para Bizagi (opcional, edicion manual)
 ```
 
 | Archivo | Funcion |
 |---|---|
-| `construir_modelos.py` | Construye o comprueba todos los diagramas en modelamiento: BPMN, SVG, PNG y vista interactiva HTML, con una pagina indice en `99-temporal/modelos/` |
+| `construir_modelos.py` | Construye o comprueba BPMN y HTML; exporta SVG/PNG por opcion expresa y genera una pagina indice en `99-temporal/modelos/` |
 | `modelar.py` | Resuelve un codigo NT a una sola tabla, conserva la numeracion, mide las etapas y omite la construccion si el cache coincide |
 | `numerar_modelos.py` | Asigna el siguiente numero de referencia libre a elementos nuevos, sin renumerar los existentes |
 | `tabla_a_bpmn.py` | Lee la tabla o lista, calcula el trazado, genera el `.bpmn`, lo valida, produce la copia para Bizagi y una vista HTML local |
@@ -50,8 +53,9 @@ Ninguna herramienta modifica la semantica del modelo por su cuenta ni otorga apr
 | `catalogo/` | [Catalogo de simbolos](catalogo/catalogo-simbolos-diagrama-proceso-tabla.md): todos los simbolos de la paleta, prueba de regresion |
 | `_revisar_trazado.py` | D4: flujos que atraviesan elementos, etiquetas o grupos ajenos, flujos superpuestos, mensajes que cruzan pools ajenos, etiquetas montadas |
 | `_bpmn_a_bizagi.py` | Copia en el dialecto que importa Bizagi Modeler; agrega el proceso vacio que Bizagi exige en los pools cerrados |
-| `renderizar_bpmn.py` | SVG, PNG y vista interactiva HTML con bpmn-js en Edge o Chrome sin ventana; colores de estilo Bizagi solo en los derivados |
+| `renderizar_bpmn.py` | SVG y PNG opcionales con bpmn-js en Edge o Chrome; plantilla HTML que importa el BPMN hermano por HTTP local |
 | `bpmn-js.lock.json` | Version, URL, SHA-256 y ubicacion de bpmn-js |
+| `markdown-it.lock.json` | Version, origen y SHA-256 del motor Markdown local del visor documental |
 | `vendor/` | Copia versionada de bpmn-js 17.11.1 y su licencia; la usan las vistas interactivas y el renderizador |
 | `xsd_bpmn20/` | Esquemas oficiales BPMN 2.0 de la OMG |
 
@@ -66,30 +70,33 @@ Desde la raiz del repositorio:
 # Comprobacion focalizada sin escribir; --sin-cache fuerza una construccion completa
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\modelar.py S4.3.2.4 --check
 
-# Construir todos los diagramas en modelamiento: BPMN, SVG, PNG, vista interactiva e indice
+# Construir todos los diagramas en modelamiento: BPMN, HTML e indice
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py
 
-# Comprobar, sin escribir, que todos los BPMN, SVG y HTML versionados estan al dia
+# Comprobar, sin escribir, que BPMN y HTML estan al dia
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --check
+
+# Exportar SVG y PNG solo cuando se preparen documentos o publicacion
+.\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\modelar.py S4.3.2.1 --exportar-imagenes
 
 # Construir o comprobar una tabla concreta de trabajo, incluso antes de ubicarla en 02-procesos
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --tabla ruta\<id>-diagrama-proceso-tabla.md
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\construir_modelos.py --tabla ruta\<id>-diagrama-proceso-tabla.md --check
 ```
 
-`construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. `--tabla` permite indicar una o mas tablas concretas de trabajo del repositorio, sin alterar el conjunto del control global. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se escribe junto al SVG y se versiona; la nota indice del proceso la enlaza. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan.
+`construir_modelos.py` busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md`. `--tabla` permite indicar una o mas tablas concretas de trabajo del repositorio, sin alterar el conjunto del control global. En la etapa logica regenera `<codigo>-diagrama-proceso.bpmn` solo si la validacion no tiene hallazgos (con `--forzar`, aunque los tenga; deben explicarse en el sustento). En la etapa formal, cuando el `.bpmn` ya no lleva la marca de generacion, lo respeta como fuente maestra. La vista interactiva `<codigo>-diagrama-proceso.html` se versiona junto al BPMN y lo carga como archivo separado. Las copias para Bizagi y los informes quedan en `99-temporal/modelos/`, con `index.html`, y no se versionan. Los SVG y PNG existentes no se actualizan durante el modelamiento ordinario; se comprueban o regeneran solo al solicitar `--exportar-imagenes`.
 
-Para S4.3 se usa `modelar.py <codigo>` durante la reunion (`DEC-044`). El comando completa la columna `Numero` de la tabla y muestra el numero como texto de referencia en SVG, PNG y HTML. Los numeros existentes no cambian al insertar, mover o renombrar una fila. La primera ejecucion genera los cuatro derivados; las siguientes consultan una huella de la tabla, las herramientas y la biblioteca fijada, y los hashes de los cuatro productos. Si todo coincide, informa `OK CACHE` sin abrir el navegador. El cache se guarda en `99-temporal/modelos/cache-focalizado/` y es regenerable. `--sin-cache` fuerza el ciclo completo; `--check` comprueba el modelo sin escribir. `--forzar` solo se usa para hallazgos D1-D5 ya justificados en el sustento. El comando informa el tiempo de conversion y controles, SVG, PNG y total.
+Para S4.3 se usa `modelar.py <codigo>` durante la reunion (`DEC-044`). El comando completa la columna `Numero` de la tabla y muestra el numero como texto de referencia en HTML y, cuando se exportan, SVG y PNG. Los numeros existentes no cambian al insertar, mover o renombrar una fila. El cache comprueba la huella de la tabla y herramientas y los hashes de BPMN y HTML; cuando se pide `--exportar-imagenes`, incluye SVG y PNG. Si todo coincide, informa `OK CACHE` sin abrir el navegador. El cache se guarda en `99-temporal/modelos/cache-focalizado/` y es regenerable. `--sin-cache` fuerza el ciclo completo; `--check` comprueba el modelo sin escribir. `--forzar` solo se usa para hallazgos D1-D5 ya justificados en el sustento.
 
 ### Ciclo conceptual por lotes
 
 Con `DEC-040`, la generacion y la revision visual se tratan como operaciones distintas:
 
 1. La IA modifica la tabla y el sustento con el paquete de contexto autorizado.
-2. Al cerrar un lote conceptual coherente se ejecuta `construir_modelos.py --tabla <ruta>` para mantener actualizados BPMN, SVG, PNG y HTML.
+2. Al cerrar un lote conceptual coherente se ejecuta `construir_modelos.py --tabla <ruta>` para mantener actualizados BPMN y HTML.
 3. Al contexto vuelven solo el estado de la construccion y los hallazgos D1-D5 accionables. Los archivos generados no se abren ni se buscan para cambios ordinarios.
 4. La misma tabla no se edita mientras esa generacion esta en curso.
-5. El HTML o SVG se inspecciona cuando el contenido entra expresamente a revision visual, cuando una fuente no esta transcrita o cuando un fallo no puede resolverse con el informe textual.
+5. El HTML se inspecciona cuando el contenido entra expresamente a revision visual, cuando una fuente no esta transcrita o cuando un fallo no puede resolverse con el informe textual. SVG/PNG quedan para exportacion expresa.
 6. `construir_modelos.py --check` sin `--tabla` se reserva para el cierre o para cambios en las herramientas.
 
 El comando es local y determinista: ejecutar Python y bpmn-js no consume razonamiento de IA. No se implementa un observador permanente ni edicion concurrente del mismo modelo; si esa necesidad aparece, antes se incorporaran hashes de origen y descarte de resultados obsoletos.
@@ -101,12 +108,11 @@ Pasos individuales, para un modelo:
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\tabla_a_bpmn.py `
   02-procesos\...\<codigo>-diagrama-proceso-tabla.md 99-temporal\modelos\<codigo>
 
-# 2. Generar las vistas versionadas
+# 2. Exportar imagenes desde el BPMN vigente, solo cuando se necesiten
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_bpmn.py `
   02-procesos\...\<codigo>-diagrama-proceso.bpmn `
   --output 02-procesos\...\<codigo>-diagrama-proceso.svg `
-  --png 02-procesos\...\<codigo>-diagrama-proceso.png `
-  --html 02-procesos\...\<codigo>-diagrama-proceso.html --titulo "<codigo> <nombre>"
+  --png 02-procesos\...\<codigo>-diagrama-proceso.png
 
 # 3. Comprobar que el SVG versionado esta al dia, sin sobrescribirlo
 .\.venv\Scripts\python.exe 05-herramientas\gestor-modelos\renderizar_bpmn.py `
@@ -114,7 +120,7 @@ Pasos individuales, para un modelo:
   --output 02-procesos\...\<codigo>-diagrama-proceso.svg --check
 ```
 
-`tabla_a_bpmn.py` escribe en la carpeta indicada `<nombre>.bpmn`, `validacion.txt`, `bizagi/<nombre>_bizagi.bpmn` y `<nombre>_visor.html`. El `.bpmn` que se versiona en la carpeta del proceso se copia desde ahi con el nombre `<codigo>-diagrama-proceso.bpmn`, una vez que la validacion no presenta hallazgos o estos quedan explicados en el sustento. Sin carpeta de salida, los resultados van a `salida/`, que Git ignora.
+`tabla_a_bpmn.py` escribe en la carpeta indicada `<nombre>.bpmn`, `validacion.txt` y `bizagi/<nombre>_bizagi.bpmn`. Solo `--visor-autonomo` crea `<nombre>_visor.html` con XML incrustado para consulta aislada; no forma parte del ciclo normal. El `.bpmn` que se versiona en la carpeta del proceso se copia desde ahi con el nombre `<codigo>-diagrama-proceso.bpmn`, una vez que la validacion no presenta hallazgos o estos quedan explicados en el sustento. Sin carpeta de salida, los resultados van a `salida/`, que Git ignora.
 
 ### Entrada
 
@@ -131,6 +137,12 @@ Columnas por orden del flujo; una fila por rama de cada compuerta dentro del car
 La fuente tabular admite el campo opcional `perfil_trazado: equilibrado`. Este perfil conserva el tamaño de los simbolos, pero alinea en una misma etapa visual los extremos de cada flujo de mensaje entre pools, calcula la separacion horizontal segun el ancho real de cada columna y reduce moderadamente filas y separaciones entre pools. El perfil `normal` sigue siendo el valor predeterminado y conserva la geometria anterior. El perfil equilibrado debe aplicarse primero como piloto y solo se adopta para un modelo cuando D1-D5 no presentan hallazgos y la inspeccion visual confirma que las etiquetas siguen siendo legibles (`DEC-034`).
 
 El perfil experimental `zigzag-controlado` agrega un pliegue serpentino a las secuencias extensas (`DEC-035`). Primero elimina por pool las etapas en las que el participante no actua; si aun supera 16 columnas, baja a un nuevo tramo y alterna el sentido horizontal. Las ramas conservan filas propias dentro de cada tramo, los pools pueden tener anchos diferentes y los mensajes de ida y vuelta usan corredores separados entre participantes. El cambio es exclusivamente BPMN-DI. Se aplica solo cuando la fuente lo declara y, como los demas perfiles no predeterminados, exige D1-D5 sin hallazgos e inspeccion visual humana antes de extenderse.
+
+En convergencias con retornos desde filas inferiores del mismo carril, el perfil prueba entradas distribuidas por el borde inferior de la actividad y corredores separados; conserva la ruta previa si los obstaculos no permiten esa distribucion. La busqueda de posiciones de las etiquetas de condicion tambien prueba puntos adicionales de cada tramo para separar rotulos de ramas cercanas. Este ajuste de disposicion no cambia la secuencia BPMN y requiere comprobar D4 y el PNG del modelo afectado.
+
+En `zigzag-controlado`, una compuerta que continua hacia otra situada bastante mas abajo y a la izquierda puede salir por su puerto izquierdo y entrar por arriba a la destinataria, siempre que el corredor este libre. Cuando la secuencia de un evento de mensaje baja junto a su propio flujo punteado y una anotacion impide el descenso directo, el trazado abre primero a la derecha, rodea la anotacion y usa un corredor vertical separado. Estas reglas afectan solo BPMN-DI; D4 y la inspeccion visual comprueban el resultado.
+
+Si una compuerta basada en eventos abre tres o cuatro esperas del mismo carril y todas convergen en una misma verificacion o compuerta exclusiva, el perfil prueba colocarlas en una fila horizontal de columnas libres. Cuando existe compuerta de convergencia, la situa al final de esa fila. Solo cambia coordenadas; la compuerta, si se necesita para simplificar retornos, debe constar expresamente en la tabla fuente. Se conserva la distribucion vertical cuando faltan celdas libres.
 
 La mejora del 2026-11-06, solicitada a partir de S4.3.2.5, se limita a `zigzag-controlado`: compacta a la izquierda los componentes conectados por secuencias dentro de cada pool, conserva sus distancias internas y reserva una columna entre circuitos que comparten carril. Los mensajes no imponen un reloj horizontal comun. El enrutador compara corredores entre pools, penaliza invasiones de participantes intermedios, tramos compartidos y cruces, elimina rodeos colineales y ubica las etiquetas considerando formas y rutas ya trazadas. Es una heuristica: D4 y la revision visual siguen siendo necesarios; no garantiza eliminar todo cruce de cualquier modelo.
 
@@ -191,7 +203,35 @@ En Windows x64 se usa la [distribucion nativa oficial de PlantUML 1.2026.8](http
 
 La descarga falla si el contenido remoto no coincide con el hash fijado. La salida se escribe de forma atomica y `--check` devuelve un codigo distinto de cero cuando falta o difiere el SVG.
 
+## Visor de revisión y observaciones
+
+Cada `*-diagrama-proceso.html` generado muestra el BPMN a la izquierda y un panel de detalle a la derecha (debajo en pantallas estrechas). El panel deriva ID, nombre, responsable, documentos, plazo, anotación, clase y fuente de la tabla maestra. Al seleccionar una caja o una flecha muestra su información; el enlace al proceso superior aparece cuando existe su HTML. La rueda acerca o aleja alrededor del puntero; el arrastre mueve el lienzo. Los enlaces a la tabla y al sustento permiten consultar la explicación completa.
+
+El HTML carga el `.bpmn` hermano; el navegador exige servir ambos por HTTP local. Para consultar el diagrama y registrar observaciones, desde la raíz del repositorio ejecutar:
+
+```powershell
+python 05-herramientas/gestor-modelos/servidor_revision.py
+```
+
+Abrir `http://127.0.0.1:8765/`: la portada enumera los procesos con HTML disponible. La API local crea un archivo `<codigo>-observaciones.json` junto al modelo al guardar la primera observación. Cada registro conserva el ID BPMN del elemento, una referencia legible, el texto, autor o equipo, fecha y estado `ABIERTA` o `RESUELTA`. La observación del diagrama completo usa ID vacío. El botón **Exportar abiertas para IA** descarga un JSON que incluye las observaciones abiertas y los datos actuales de sus elementos. Resolver una observación solo indica seguimiento editorial; no equivale a validación normativa ni aprobación institucional.
+
+La tabla y el sustento siguen siendo las fuentes de las afirmaciones del proceso. El JSON de observaciones no modifica el BPMN ni se borra al regenerar HTML, SVG o PNG. Si cambia un ID BPMN, la observación permanece y requiere reconciliación manual antes de aplicar correcciones. El servidor escucha únicamente en `127.0.0.1`; cerrar con `Ctrl+C`.
+
 ## Relaciones
+
+La portada del servidor comienza en el mapa institucional Nivel 0 y presenta el arbol de carpetas de procesos. En cada visor, **Arbol de procesos** permite saltar entre diagramas; cuando un nivel no tiene BPMN, su enlace conduce a la nota indice. El enlace al padre usa su HTML si existe y, en caso contrario, su indice.
+
+Las cajas BPMN de tipo subproceso con codigo de hijo (por ejemplo, `S4.3.2.2`) muestran **Abrir diagrama del proceso interior** en el panel. Cualquier clic en la caja, incluido el marcador `+`, solo la selecciona y muestra su detalle. La navegacion al hijo requiere activar expresamente el enlace del panel derecho; si el hijo aun no tiene HTML, el enlace abre su nota indice. Este enlace entre modelos no anade un flujo de secuencia BPMN.
+
+El visor oculta la flecha diagonal externa que agrega bpmn-js a los subprocesos contraidos: ese control intenta abrir contenido BPMN interno y puede mostrar un lienzo vacio cuando el proceso hijo esta en otro archivo.
+
+El panel muestra la fuente textual registrada en la tabla y avisa si falta su ubicacion precisa. Para habilitar **Abrir documento** por caja, crear junto a la tabla un archivo opcional `<codigo>-fuentes-visor.json` con rutas relativas al repositorio. Ejemplo de estructura, sin atribuir estas ubicaciones a un caso real:
+
+```json
+{"elementos":{"ID-DE-TABLA":[{"titulo":"Fuente documental","ruta":"01-referencias/ruta/documento.pdf","pagina":2,"ubicacion":"numeral 2.1","fragmento":"termino de busqueda","consulta":"2026-11-18","vigencia":"aplicabilidad pendiente"}]}}
+```
+
+`pagina` es la pagina fisica del PDF (base 1), no la numeracion impresa. `ubicacion` identifica numeral o apartado; `consulta` y `vigencia` muestran el estado de la referencia. El visor abre el PDF en esa pagina y transmite `fragmento` al buscador nativo del navegador; el termino tambien aparece encima del documento. El resaltado dentro del PDF depende del visor instalado. Las fuentes Markdown, incluida la tabla y el sustento, se renderizan localmente con `markdown-it` 15.0.3, con HTML de origen deshabilitado: se muestran encabezados, tablas, listas, citas, enlaces e indice de secciones; el frontmatter se pliega como metadatos y el primer fragmento coincidente se resalta. TXT y HTML locales se muestran como texto escapado. Los `.md` se abren en el mismo modal, sin descargarse; fuera del servidor el visor documental no esta disponible. Las rutas de anclas solo admiten archivos locales bajo `01-referencias/` o `03-conocimiento/`; para la tabla y el sustento se admiten notas Markdown bajo `02-procesos/`. Si no se registra el ancla, el visor no presume pagina ni pasaje. Los metadatos son enlaces de lectura, no sustituyen la tabla, el sustento ni la validacion de reglas.
 
 - [Estandar de artefactos de modelamiento](../../00-gobernanza/estandar-artefactos-modelamiento.md)
 - [Plantilla de diagrama en tabla](../../00-gobernanza/plantillas/modelamiento/diagrama-proceso-tabla.md)
@@ -212,3 +252,5 @@ zigzag-controlado reubica cadenas terminales completas de dos o tres nodos, sin 
 Las rutas que invaden cajas se recalculan sobre una malla ortogonal con busqueda A*, penalizando quiebres. Las cajas de origen y destino tambien son obstaculos: solo se permite tocar sus bordes. Los mensajes consideran los pools ajenos como barreras. Primero se intenta evitar tambien documentos y anotaciones; si no existe paso, se conserva la prohibicion de atravesar nodos, dejando los conflictos documentales al control D4. Si tampoco existe paso entre nodos se detiene la generacion con un error, sin adoptar una flecha invasiva. Los eventos de borde exceptuan su actividad anfitriona por su union BPMN. Los rotulos se recolocan despues sobre las conexiones definitivas.
 
 No se garantiza aun ausencia de solapes entre conexiones ni entre anotaciones: permanecen como hallazgos de D4. La prueba de regresion verifica la semantica, determinismo y ausencia de aumento por tipo de hallazgo en los ocho hijos.
+
+Cuando `zigzag-controlado` encuentra un fin BPMN que recibe tres o mas rutas del mismo pool, emite un aviso para revisar si los motivos deben terminar en fines distintos. Un fin compartido por excepciones situadas en varios tramos puede forzar corredores superpuestos aunque el enrutador evite atravesar cajas. El perfil no cambia la topologia del proceso ni crea finales por su cuenta; la separacion, cuando proceda, se hace en la tabla maestra y se fundamenta en el sustento.

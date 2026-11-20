@@ -3,7 +3,7 @@ tipo: estado-proyecto
 area: proyecto
 estado_documento: VIGENTE
 clase_conocimiento: OBSERVADO
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-20
 confidencialidad: INTERNO
 tags:
   - tema/gobernanza
@@ -71,3 +71,19 @@ DEC-047: division iniciada y modelada con S4.3.2.3 Gestion de adicionales y dedu
 DEC-048, 2026-11-18: primera mejora de zigzag-controlado, con compactacion de filas por carril manteniendo 16 columnas. S4.3.2.3 reduce 34,2 % la altura del PNG; cinco pruebas correctas, sin aumento de D4. Revision visual general realizada; cruces y enrutamiento pendientes antes de considerar definitivo el perfil.
 
 DEC-049, 2026-11-18: segunda mejora de zigzag-controlado, con corredores que rodean cajas y pools ajenos y recolocacion de cadenas terminales cortas. En S4.3.2.3 las cajas 45-46 suben juntas; D4 baja de 93 a 23, con T1 y T3 en cero. Persisten solapes y etiquetas; no se declara perfil definitivo.
+
+S4.3.1, 2026-11-18: el BPMN de Bizagi «Inicio de ejecucion contractual - SOLO CONSTRUCCION» se copio integro como insumo observado. Tiene esquema BPMN valido, pero 33 nodos sin referencias semanticas de carril y hallazgos de terminacion. El primer contraste con el Reglamento de la Ley 32069 (arts. 176 y 186) identifico condiciones omitidas y una ruta de contratacion de equipo complementario sin respaldo como requisito legal de inicio. Se creo la tabla logica para solo construccion y se generaron BPMN, SVG, PNG y HTML con D1-D5 sin hallazgos; el PNG se reviso visualmente. Siguen pendientes la ficha, la validacion humana, la adscripcion operativa, las bases y las otras modalidades. No hay linea base aprobada.
+
+S4.3.1, ajuste institucional del 2026-11-18: el ROF (arts. 20, 25, 29-30, 92-94 y 97-98) y la precision del usuario permiten identificar GORE Huanuco como entidad contratante de la ruta principal, GRA/OACGD como funciones contractuales y documentarias, GRI/SGGOS como gestion de obra y coordinador como integrante de SGGOS. La tabla ahora representa remision, registro, notificacion, derivacion y designacion antes de la recepcion por el coordinador. La secuencia exacta sigue como propuesta pendiente de cotejo con expediente y SGD; otras oficinas y ejecutoras requieren variante. Derivados regenerados con D1-D5 sin hallazgos; sin conformidad ni aprobacion.
+
+S4.3.1, mejora visual del 2026-11-18: el perfil `zigzag-controlado` distribuye por el borde inferior dos retornos a la caja 3 y conserva el tercero por arriba; las etiquetas de ramas cercanas prueban mas posiciones. El contenido BPMN no cambia. Las aclaraciones redundantes bajo las cajas 3 y 6 permanecen en la tabla y el sustento. El PNG fue revisado; D1-D5 de S4.3.1 y el `--check` global no informan nuevos problemas de vigencia. S4.3.2.3 conserva sus 23 hallazgos D4 y la limitacion D3 documentada; S4.3.2.6 reduce D4 de dos a uno. Son derivados de trabajo, no lineas base.
+
+S4.3.1, segunda mejora visual del 2026-11-18: cuatro eventos condicionales (25-28) se distribuyen horizontalmente y confluyen en la nueva compuerta exclusiva 30 antes de regresar a la verificacion de documentos (caja 6). El perfil prueba esa distribucion solo para alternativas de la misma compuerta basadas en eventos con carril y destino comunes. El PNG reduce 28,7 % su altura respecto de la vista anterior; D1-D5 sin hallazgos en S4.3.1. La convergencia no acredita por si misma el inicio del plazo y permanece en propuesta.
+
+S4.3.2.3, 2026-11-19: el sustento recibido por SGGOS pasa por recepcion y derivacion del subgerente antes de la caja 14. Se explicita la asuncion del encargo de elaboracion ya comunicado con la respuesta a la consulta, sin reiniciar los 15 dias. La caja 52 separa la ruta sin emergencia del art. 194.4; la autorizacion de Contraloria del art. 64.3 b se ubica tras expediente y opiniones, antes de la resolucion, y no se confunde con opinion previa a su presentacion. D1, D2 y D5 sin nuevos hallazgos; D4 permanece en 23 y D3 en limitacion documentada. Generacion focalizada y `--check` global correctos; ocho pruebas de perfil correctas. Propuesta pendiente de cotejo institucional y juridico, en particular el computo del plazo de resolucion cuando interviene Contraloria.
+
+S4.3.2.3, nuevo lote del 2026-11-19: caja 17 asignada al subgerente SGGOS; pool funcional de elaboracion identifica entidad, contratista o supervisor segun bases, una alternativa por caso. El computo de 15 dias parte de la anotacion, no de consulta, carta o ratificacion. El subgerente comunica la anotacion si el elaborador no la conoce y comunica la evaluacion tecnica preliminar sin sustituir la resolucion. Las entradas alternativas 48 y 97 evitan duplicar el inicio de elaboracion. Las salidas excepcionales de las cajas 24, 58 y 85 terminan en fines locales 94-96 para despejar la zona de la antigua caja 53. `zigzag-controlado` ya se aplicaba y ahora advierte futuros fines con tres o mas rutas. PNG inspeccionado; D4 baja de 23 a 19, D3 pendiente por limitacion del simulador, D1/D2/D5 sin hallazgos. Bases, destinatarios y canales concretos pendientes de contraste institucional.
+
+## Visor y exportaciones - 2026-11-20
+
+DEC-051: la construccion ordinaria actualiza BPMN y HTML. El HTML carga el `.bpmn` hermano mediante el servidor HTTP local y conserva el panel de revision; ya no incrusta el XML. SVG y PNG se exportan solo con `--exportar-imagenes`, incluso desde `modelar.py`; las imagenes existentes se conservan y pueden quedar desactualizadas durante el desarrollo. La comprobacion normal controla BPMN y HTML; la opcion de imagenes comprueba tambien SVG y PNG. El visor autonomo con XML incrustado queda como opcion excepcional del conversor.

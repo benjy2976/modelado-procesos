@@ -9,7 +9,7 @@ proceso:
   - S4
   - S4.3
 fecha_creacion: 2026-10-16
-fecha_actualizacion: 2026-11-05
+fecha_actualizacion: 2026-11-20
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -90,7 +90,7 @@ No se atribuyen funciones institucionales nuevas mediante esta lista.
 9. El mapa institucional de procesos Nivel 0 queda exceptuado del flujo hibrido por no ser un modelo operativo BPMN.
 10. La IA iterara por lotes sobre la tabla y el sustento; la generacion focalizada mantendra los derivados actualizados sin cargarlos en el contexto, y la revision visual se realizara en una puerta expresa (`DEC-040`).
 
-Estas decisiones se formalizan en `DEC-012`, `DEC-013`, `DEC-014`, `DEC-015`, `DEC-025`, `DEC-026` y `DEC-040` del [registro de decisiones](../registro-decisiones.md).
+Estas decisiones se formalizan en `DEC-012`, `DEC-013`, `DEC-014`, `DEC-015`, `DEC-025`, `DEC-026`, `DEC-040` y `DEC-051` del [registro de decisiones](../registro-decisiones.md).
 
 ## 6. Contrato de artefactos
 
@@ -102,10 +102,10 @@ El flujo general es:
 Etapa logica
 tabla.md + sustento.md
         -> iteraciones conceptuales por lotes
-        -> BPMN, SVG, PNG y HTML sincronizados sin inspeccion obligatoria
+        -> BPMN y HTML sincronizados sin inspeccion obligatoria
 
 Revision visual
-HTML o SVG sincronizado
+HTML que carga el BPMN por HTTP local
         -> revision expresa de disposicion y legibilidad
 
 Formalizacion
@@ -127,7 +127,7 @@ modelo.bpmn
 | Necesidad | Fuente que cambia | Salidas automaticas |
 |---|---|---|
 | Incorporar evidencia, alcance o fundamento | Sustento Markdown | Paquete de contexto |
-| Ajustar flujo conceptual en etapa logica | Tabla Markdown | BPMN, SVG, PNG y HTML focalizados |
+| Ajustar flujo conceptual en etapa logica | Tabla Markdown | BPMN y HTML focalizados; SVG/PNG por solicitud expresa |
 | Agregar o cambiar semantica BPMN | BPMN XML | SVG, resumen, manifiesto y validaciones |
 | Cambiar disposicion visual formal | BPMN DI dentro del XML | SVG BPMN |
 | Aplicar propuesta de IA | Operaciones YAML temporales aplicadas al maestro | Todos los derivados afectados |
