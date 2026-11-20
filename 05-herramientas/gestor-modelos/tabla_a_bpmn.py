@@ -1,7 +1,7 @@
 """Genera un BPMN 2.0 con diagrama a partir de una descripción de procesos en Markdown, lo valida y produce la
 copia que importa Bizagi Modeler. Herramienta genérica: no depende de este proyecto.
 
-Uso: python tabla_a_bpmn.py <entrada.md> [carpeta_salida] [--sin-bizagi] [--sin-visor]
+Uso: python tabla_a_bpmn.py <entrada.md> [carpeta_salida] [--sin-bizagi] [--visor-autonomo]
 Sin carpeta de salida, se usa salida/<nombre de la entrada>/ dentro de la carpeta de esta herramienta.
 
 Entrada: un .md en uno de dos formatos, que se detecta solo:
@@ -13,8 +13,8 @@ Salida, en la carpeta indicada:
 - validacion.txt: informe de `_validar_bpmn.py` (D1-D3: esquema OMG, referencias, bloqueos), `_revisar_trazado.py`
   (D4: superposiciones del dibujo) y `_revisar_notacion.py` (D5: paleta del proyecto y buenas practicas del manual).
 - bizagi/<nombre>_bizagi.bpmn: copia en el dialecto de Bizagi (`_bpmn_a_bizagi.py`), para importar en Bizagi Modeler.
-- <nombre>_visor.html: vista rápida en el navegador, con bpmn-js local fijado (`renderizar_bpmn.py`) y colores de
-  estilo Bizagi; sin la copia local, usa bpmn-js desde internet.
+- <nombre>_visor.html: vista autónoma opcional con `--visor-autonomo`; incrusta una copia del XML solo para
+  traslado o consulta aislada, fuera del ciclo ordinario del repositorio.
 Las imágenes SVG y PNG se generan aparte con `renderizar_bpmn.py`.
 Trazado (versión 2.0): columnas por orden del flujo; una fila por rama de cada compuerta dentro del carril; flujos
 ortogonales que esquivan las cajas; puertos de mensaje repartidos; pools externos cerrados en bandas, los que envían
@@ -26,8 +26,9 @@ import os
 import re
 import subprocess
 import sys
-import uuid
 from xml.sax.saxutils import escape, quoteattr
+
+from mesa_modelamiento.identificadores import gid
 
 sys.stdout.reconfigure(encoding='utf-8')
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -40,8 +41,6 @@ def auxiliar(nombre):
             return os.path.join(d, nombre)
     sys.exit(f'No se encontró {nombre} ni en {AQUI} ni en la carpeta superior.')
 
-
-NS_UUID = uuid.UUID('6f1c2a7e-3b0d-4c8e-9a51-2d7f4e8b9c10')
 
 TIPOS = {  # tipo en la tabla -> (etiqueta BPMN, definición de evento, ancho, alto)
     'inicio': ('startEvent', None, 36, 36),
@@ -110,7 +109,8 @@ PERFILES_TRAZADO = {
     'zigzag-controlado': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
                              gap_pool=96, celda=360, fila_sev=145, peso_mensaje=1, local_por_pool=True,
                              columnas_tramo=16, compactar_componentes=True, optimizar_mensajes=True,
-                             compactar_filas_carril=True, recolocar_terminales=True, rutas_seguras=True),
+                             compactar_filas_carril=True, recolocar_terminales=True, rutas_seguras=True,
+                             distribuir_esperas_horizontal=True),
     # Variante para modelos con muchas ramas: conserva el pliegue, pero deja un tramo mas largo para evitar
     # que las convergencias de alternativas se superpongan al cambiar de sentido.
     'zigzag-amplio': dict(col=COL, gap_col=46, fila=205, fila_baja=145, nodo_y=68,
@@ -120,10 +120,6 @@ PERFILES_TRAZADO = {
 PERFILES_TRAZADO['zigzag-corredores'] = dict(PERFILES_TRAZADO['zigzag-controlado'],
                                            evitar_interferencias=True, compactar_filas_carril=False,
                                            recolocar_terminales=False, rutas_seguras=False)
-
-
-def gid(*partes):
-    return '_' + str(uuid.uuid5(NS_UUID, '|'.join(partes)))
 
 
 def tabla(md, titulo):
@@ -558,6 +554,7 @@ def ruta_ortogonal_libre(inicio, fin, obstaculos):
 
 def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     """Calcula toda la geometría. Devuelve formas, etiquetas, aristas y datos de carriles y pools."""
+    AVISOS_TRAZADO.clear()
     P = PERFILES_TRAZADO[perfil]
     fila_docs, fila_baja, nodo_y = P['fila'], P['fila_baja'], P['nodo_y']
     gap_pool, celda_ancho, fila_sev = P['gap_pool'], P['celda'], P['fila_sev']
@@ -582,6 +579,18 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     for i, n in principal.items():
         for d, _ in n['sig']:
             predecesores.setdefault(d, []).append(i)
+    if perfil == 'zigzag-controlado':
+        # Un fin comun de varias excepciones separadas por pliegues obliga a
+        # dibujar retornos que ninguna geometria puede explicar por si sola.
+        # Advertirlo permite distinguir un limite del trazado de una decision
+        # de modelamiento: cada motivo puede tener su propio fin BPMN.
+        for destino, fuentes in predecesores.items():
+            if (len(fuentes) >= 3
+                and TIPOS[principal[destino]['tipo']][0] == 'endEvent'
+                and len({principal[f]['pool'] for f in fuentes}) == 1):
+                AVISOS_TRAZADO.append(
+                    f'{destino}: fin compartido por {len(fuentes)} rutas; '
+                    'revisar si corresponde distinguir sus motivos con fines BPMN propios')
     alineado = {}  # destino de una rama de excepcion -> evento de borde sobre el que se alinea
     for b, h in bordes.items():
         rango[b] = rango[h]
@@ -642,6 +651,49 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 r,c = min(candidatos)
                 for k,i in enumerate(cadena):
                     fila[i], col_visual[i] = r,c+k
+    if P.get('distribuir_esperas_horizontal'):
+        # Alternativas de espera que vuelven a una misma verificacion pueden ocupar
+        # columnas libres de una sola fila, en vez de alargar el carril una fila
+        # por evento. Solo se aplica cuando el espacio entre la verificacion y la
+        # compuerta alcanza para todo el grupo y ninguna celda esta ocupada.
+        receptores = {'intermediateCatchEvent'}
+        for g, nodo in principal.items():
+            if TIPOS[nodo['tipo']][0] != 'eventBasedGateway':
+                continue
+            destinos = [d for d, _ in nodo['sig']]
+            if not 3 <= len(destinos) <= 4:
+                continue
+            if any(TIPOS[principal[d]['tipo']][0] not in receptores
+                   or (principal[d]['pool'], principal[d]['carril']) != (nodo['pool'], nodo['carril'])
+                   or len(principal[d]['sig']) != 1 for d in destinos):
+                continue
+            retornos = {principal[d]['sig'][0][0] for d in destinos}
+            if len(retornos) != 1:
+                continue
+            destino_comun = next(iter(retornos))
+            ancla = destino_comun
+            confluencia = (TIPOS[principal[destino_comun]['tipo']][0] == 'exclusiveGateway'
+                           and len(principal[destino_comun]['sig']) == 1)
+            if confluencia:
+                ancla = principal[destino_comun]['sig'][0][0]
+            primera_columna = col_visual[g] - len(destinos)
+            if primera_columna <= col_visual[ancla]:
+                continue
+            nueva_fila = min(fila[d] for d in destinos)
+            celdas = {(fila[i], col_visual[i]) for i, n in principal.items()
+                      if i not in destinos and (not confluencia or i != destino_comun)
+                      and (n['pool'], n['carril']) == (nodo['pool'], nodo['carril'])}
+            posiciones = [(nueva_fila, primera_columna + k)
+                          for k in range(len(destinos))]
+            if any(pos in celdas for pos in posiciones):
+                continue
+            if confluencia and (nueva_fila, col_visual[g] + 1) in celdas:
+                continue
+            for d, (nueva_fila_d, nueva_columna_d) in zip(destinos, posiciones):
+                fila[d], col_visual[d], fase[d] = nueva_fila_d, nueva_columna_d, fase[g]
+            if confluencia:
+                fila[destino_comun], col_visual[destino_comun], fase[destino_comun] = (
+                    nueva_fila, col_visual[g] + 1, fase[g])
     ncol = max(col_visual.values()) + 1 if col_visual else 1
     x0 = POOL_X + CAB + 40
     if perfil == 'normal':
@@ -1055,6 +1107,16 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
     for i, n in nodos.items():
         for d, cond in n['sig']:
             flujos.append((gid('flujo', i, d), i, d, cond))
+    retornos_desde_abajo = {}
+    if P.get('compactar_filas_carril'):
+        for _, a, b, _ in flujos:
+            if (caja[a][1] > caja[b][1] + caja[b][3] + 8
+                    and caja[a][0] > caja[b][0]
+                    and nodos[a]['pool'] == nodos[b]['pool']
+                    and nodos[a]['carril'] == nodos[b]['carril']):
+                retornos_desde_abajo.setdefault(b, []).append(a)
+        for destinos in retornos_desde_abajo.values():
+            destinos.sort(key=lambda i: (caja[i][0], caja[i][1], i))
     es_comp = lambda i: TIPOS[nodos[i]['tipo']][0].endswith('Gateway')
     sale_vertical = lambda i: es_comp(i) or i in bordes
     for fid, a, b, cond in flujos:
@@ -1063,6 +1125,20 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
         (acx, acy), (bcx, bcy) = centro(a), centro(b)
         exc = (a, b)
         cand = []
+        rutas_inferiores = []
+        entrada_inferior = a in retornos_desde_abajo.get(b, [])
+        # Una convergencia que continua hacia una compuerta situada abajo y a la izquierda
+        # se lee mejor si sale por la izquierda y entra por arriba. Evita que un giro
+        # serpentino fuerce el puerto derecho del origen y el extremo izquierdo del destino.
+        ruta_compuertas_izquierda = None
+        if (perfil == 'zigzag-controlado' and es_comp(a) and es_comp(b)
+                and bcx < acx - 40 and by > ay + ah + 80):
+            corredor_x = ax - 50
+            corredor_y = by - 45
+            propuesta = [(ax, acy), (corredor_x, acy), (corredor_x, corredor_y),
+                         (bcx, corredor_y), (bcx, by)]
+            if libre(propuesta, exc):
+                ruta_compuertas_izquierda = propuesta
         if abs(acy - bcy) < 0.5 and bcx < acx and (a, b) not in retorno:
             # Tramo impar del trazado serpentino: la lectura continua de derecha a izquierda dentro de la misma
             # banda. Se usan los lados enfrentados de los nodos, sin convertirlo semanticamente en un retorno.
@@ -1070,7 +1146,22 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
             yc = canal(('h', round(fila_top(a))), fila_top(a) + 10)
             cand.append([(ax, acy), (ax - 14, acy), (ax - 14, yc), (bx + bw + 14, yc),
                          (bx + bw + 14, bcy), (bx + bw, bcy)])
-        elif ((a, b) in retorno or rango[b] <= rango[a]) and alineado.get(b) != a:
+        elif (entrada_inferior or (a, b) in retorno or rango[b] <= rango[a]) and alineado.get(b) != a:
+            # Si varias condiciones reanudan una actividad desde una fila inferior,
+            # repartir sus entradas por el lado de abajo. El corredor superior queda
+            # disponible para otros retornos y no concentra todas las flechas en el
+            # borde alto del carril. La prueba de obstaculos decide si cabe la ruta.
+            inferiores = retornos_desde_abajo.get(b, [])
+            if entrada_inferior:
+                indice = inferiores.index(a)
+                puerto_x = bx + bw * (indice + 1) / (len(inferiores) + 1)
+                for separacion in (28, 44, 60, 76, 92, 108):
+                    corredor_y = by + bh + separacion
+                    if corredor_y < ay - 8:
+                        ruta_inferior = [(acx, ay), (acx, corredor_y),
+                                         (puerto_x, corredor_y), (puerto_x, by + bh)]
+                        cand.append(ruta_inferior)
+                        rutas_inferiores.append(ruta_inferior)
             yc = canal(('retorno', min(fila_top(a), fila_top(b))), min(ay, by) - 16)
             if es_comp(a):
                 cand.append([(acx, ay), (acx, yc), (bcx, yc), (bcx, by)])
@@ -1117,7 +1208,17 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
             xm = canal(('v', round(ax + aw + 18)), ax + aw + 18)
             cand.append([(ax + aw, acy), (xm, acy), (xm, bcy), (bx, bcy)])
         libres = [c for c in cand if libre(c, exc)]
+        if entrada_inferior and libres:
+            inferiores_libres = [c for c in libres if c in rutas_inferiores]
+            if inferiores_libres:
+                otras_rutas = list(rutas.values())
+                libres = sorted(inferiores_libres, key=lambda c: (
+                    conflictos_rutas(c, otras_rutas)[0],
+                    conflictos_rutas(c, otras_rutas)[1],
+                    sum(abs(p[0]-q[0])+abs(p[1]-q[1]) for p, q in zip(c, c[1:]))))
         rutas[fid] = libres[0] if libres else min(cand, key=lambda c: costo(c, exc))
+        if ruta_compuertas_izquierda is not None:
+            rutas[fid] = ruta_compuertas_izquierda
         if P.get('evitar_interferencias'):
             # Buscar por los cuatro lados: los extremos tambien son obstaculos,
             # salvo el segmento corto que conecta cada puerto con su corredor.
@@ -1144,6 +1245,8 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                     largo = sum(abs(p[0]-q[0])+abs(p[1]-q[1]) for p,q in zip(ruta,ruta[1:]))
                     return (solapes, largo + 35 * (len(ruta)-2) + 50 * cruces, len(ruta))
                 rutas[fid] = min(alternativas, key=costo_corredor)
+                if ruta_compuertas_izquierda is not None:
+                    rutas[fid] = ruta_compuertas_izquierda
 
     # --- mensajes nodo <-> pool cerrado
     lado_y = {'arriba': y_abierto, 'abajo': y_fin_abierto}
@@ -1402,6 +1505,39 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 else:
                     etq_m[k] = next((r for r in candidatas if not solapa_obstaculo(r, (a, b))), candidatas[0])
 
+    if perfil == 'zigzag-controlado':
+        # Cuando un evento emite un mensaje hacia abajo, su secuencia puede plegarse
+        # junto al trazo punteado. Abrir primero a la derecha y usar un corredor
+        # paralelo separado mantiene identificables ambas conexiones.
+        for fid, a, b, _ in flujos:
+            if nodos[a]['tipo'] != 'mensaje-envio':
+                continue
+            ruta = rutas[fid]
+            if len(ruta) < 4 or a not in anotaciones:
+                continue
+            vertical_ruta = next(((u, v) for u, v in zip(ruta, ruta[1:])
+                                  if u[0] == v[0] and v[1] - u[1] > 200), None)
+            if vertical_ruta is None:
+                continue
+            verticales_mensaje = [u[0] for m in rutas_msg.values() if m['a'] == a
+                                  for u, v in zip(m['pts'], m['pts'][1:])
+                                  if u[0] == v[0] and abs(v[1] - u[1]) > 200]
+            if not verticales_mensaje:
+                continue
+            x_mensaje = min(verticales_mensaje, key=lambda x: abs(vertical_ruta[0][0] - x))
+            nx, ny, nw, nh = anotaciones[a]['caja']
+            if not (nx - 8 <= vertical_ruta[0][0] <= nx + nw + 8
+                    and ny <= vertical_ruta[1][1] and nh > 0):
+                continue
+            x_nuevo = min(ruta[0][0] - 50, x_mensaje + 50)
+            x_exterior = ruta[0][0] + 40
+            x_exterior = max(x_exterior, nx + nw + 18)
+            y_giro = max(vertical_ruta[0][1] + 20, ny + nh + 18)
+            propuesta = [(ruta[0][0], ruta[0][1]), (x_exterior, ruta[0][1]),
+                         (x_exterior, y_giro), (x_nuevo, y_giro),
+                         (x_nuevo, ruta[-1][1]), ruta[-1]]
+            rutas[fid] = propuesta
+
     if P.get('rutas_seguras'):
         # Corregir solo rutas invasivas. La busqueda incluye origen y destino;
         # no se permite que el tramo interior atraviese su propia actividad.
@@ -1493,9 +1629,9 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                     else candidatos[lado_e])
         if (P.get('evitar_interferencias') or P.get('rutas_seguras')) and not etiqueta_libre(etq_n[i], i):
             opciones = [(bx+bw/2-w/2+dx, yy, w, h)
-                        for distancia in (4, 16, 30, 46, 64)
+                        for distancia in (4, 16, 30, 46, 64, 82, 106)
                         for yy in (by-h-distancia, by+bh+distancia)
-                        for dx in (0, -25, 25, -50, 50, -80, 80)]
+                        for dx in (0, -25, 25, -50, 50, -80, 80, -110, 110)]
             etq_n[i] = next((r for r in opciones if etiqueta_libre(r, i)), etq_n[i])
         etiquetas_colocadas.append(etq_n[i])
 
@@ -1518,6 +1654,17 @@ def trazar(nodos, orden_pools, carriles, mensajes, perfil='normal'):
                 mx, my = (u[0]+v[0])/2, (u[1]+v[1])/2
                 opciones.extend([(mx-w/2, my-h-5, w, h), (mx-w/2, my+5, w, h),
                                  (mx+5, my-h/2, w, h), (mx-w-5, my-h/2, w, h)])
+                if P.get('compactar_filas_carril'):
+                    for fr in (.25, .75):
+                        fx = u[0] + fr * (v[0] - u[0])
+                        fy = u[1] + fr * (v[1] - u[1])
+                        for margen in (8, 16, 28):
+                            if abs(u[1] - v[1]) < .5:
+                                opciones.extend([(fx-w/2, fy-h-margen, w, h),
+                                                 (fx-w/2, fy+margen, w, h)])
+                            else:
+                                opciones.extend([(fx+margen, fy-h/2, w, h),
+                                                 (fx-w-margen, fy-h/2, w, h)])
             etq_f[fid] = next((r for r in opciones if etiqueta_libre(r, None)), etq_f[fid])
             etiquetas_colocadas.append(etq_f[fid])
 
@@ -1782,7 +1929,7 @@ def main():
     print('Validación:\n' + informe.strip())
     if '--sin-bizagi' not in sys.argv:
         print('Copia para Bizagi: ' + ejecutar('_bpmn_a_bizagi.py', destino, os.path.join(salida, 'bizagi')))
-    if '--sin-visor' not in sys.argv:
+    if '--visor-autonomo' in sys.argv:
         with open(destino, encoding='utf-8') as f:
             xml = f.read()
         html = visor_html(nombre, xml)

@@ -4,13 +4,13 @@ Busca `02-procesos/**/<codigo>-diagrama-proceso-tabla.md` y, para cada uno:
 - en la etapa logica (el `.bpmn` versionado lleva la marca de tabla_a_bpmn.py o aun no existe), genera el BPMN desde
   la tabla, lo valida (D1-D4) y, si no hay hallazgos, actualiza `<codigo>-diagrama-proceso.bpmn`;
 - en la etapa formal (el `.bpmn` ya no lleva la marca), respeta el BPMN como fuente maestra y no lo regenera;
-- genera `<codigo>-diagrama-proceso.svg`, `.png` y la vista interactiva `.html` con renderizar_bpmn.py; la vista
-  enlaza la copia versionada de bpmn-js en vendor/ y funciona sin internet.
+- genera la vista interactiva `.html`, que carga el `.bpmn` hermano y enlaza bpmn-js en vendor/;
+- genera `.svg` y `.png` solo cuando se solicita `--exportar-imagenes`.
 Ademas deja en `99-temporal/modelos/` la copia para Bizagi y el informe de validacion de cada modelo, y una pagina
 `index.html` que enlaza las vistas interactivas. Esos productos de trabajo no se versionan.
 
-Uso: python construir_modelos.py [--check] [--forzar] [--tabla ruta]
-  --check   no escribe: comprueba que cada BPMN, SVG y HTML versionado coincide con lo que se generaria.
+Uso: python construir_modelos.py [--check] [--forzar] [--tabla ruta] [--exportar-imagenes]
+  --check   no escribe: comprueba BPMN y HTML; con --exportar-imagenes comprueba tambien SVG y PNG.
   --forzar  actualiza el BPMN aunque la validacion tenga hallazgos (deben explicarse en el sustento).
   --tabla   construye o comprueba solo la tabla indicada; admite tablas de trabajo fuera de 02-procesos.
 """
@@ -77,6 +77,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Construye o comprueba los diagramas BPMN en modelamiento.")
     parser.add_argument("--check", action="store_true", help="Solo comprueba; no escribe en el repositorio.")
     parser.add_argument("--forzar", action="store_true", help="Adopta el BPMN aunque la validacion tenga hallazgos.")
+    parser.add_argument("--exportar-imagenes", action="store_true",
+                        help="Genera o comprueba SVG y PNG cuando se necesitan para publicacion.")
     parser.add_argument("--tabla", action="append", type=Path,
                         help="Tabla concreta de trabajo; repetible. Sin esta opcion usa todos los procesos.")
     args = parser.parse_args()
@@ -107,10 +109,22 @@ def main() -> int:
                             print(f"DESACTUALIZADO: {bpmn.relative_to(REPO_ROOT)}")
                             errores += 1
                             continue
-                    if not svg.exists() or renderizar_bpmn.render_svg(bpmn) != svg.read_bytes():
-                        print(f"DESACTUALIZADO: {svg.relative_to(REPO_ROOT)}")
-                        errores += 1
-                        continue
+                    if args.exportar_imagenes:
+                        imagen_svg = renderizar_bpmn.render_svg(bpmn)
+                        if not svg.exists() or imagen_svg != svg.read_bytes():
+                            print(f"DESACTUALIZADO: {svg.relative_to(REPO_ROOT)}")
+                            errores += 1
+                            continue
+                        if not png.exists():
+                            print(f"DESACTUALIZADO: {png.relative_to(REPO_ROOT)}")
+                            errores += 1
+                            continue
+                        png_comprobacion = Path(tmp) / "comprobacion.png"
+                        renderizar_bpmn.render_png(imagen_svg, png_comprobacion)
+                        if png_comprobacion.read_bytes() != png.read_bytes():
+                            print(f"DESACTUALIZADO: {png.relative_to(REPO_ROOT)}")
+                            errores += 1
+                            continue
                     pagina = renderizar_bpmn.pagina_visor_enlazada(titulo(tabla), bpmn, vista).encode("utf-8")
                     # Git puede materializar HTML con CRLF en Windows; el contenido generado es el mismo.
                     if not vista.exists() or vista.read_bytes().replace(b"\r\n", b"\n") != pagina:
@@ -141,15 +155,16 @@ def main() -> int:
                     renderizar_bpmn.escribir(bpmn, generado.read_bytes())
                     print(f"GENERADO: {bpmn.relative_to(REPO_ROOT)}")
                 estado = "logica" if not problemas else "logica con hallazgos (--forzar)"
-            inicio_etapa = perf_counter()
-            contenido = renderizar_bpmn.render_svg(bpmn)
-            print(f"TIEMPO SVG: {perf_counter() - inicio_etapa:.2f} s")
-            if not svg.exists() or svg.read_bytes() != contenido or not png.exists():
-                renderizar_bpmn.escribir(svg, contenido)
+            if args.exportar_imagenes:
                 inicio_etapa = perf_counter()
-                renderizar_bpmn.render_png(contenido, png)
-                print(f"TIEMPO PNG: {perf_counter() - inicio_etapa:.2f} s")
-                print(f"GENERADO: {svg.relative_to(REPO_ROOT)} y .png")
+                contenido = renderizar_bpmn.render_svg(bpmn)
+                print(f"TIEMPO SVG: {perf_counter() - inicio_etapa:.2f} s")
+                if not svg.exists() or svg.read_bytes() != contenido or not png.exists():
+                    renderizar_bpmn.escribir(svg, contenido)
+                    inicio_etapa = perf_counter()
+                    renderizar_bpmn.render_png(contenido, png)
+                    print(f"TIEMPO PNG: {perf_counter() - inicio_etapa:.2f} s")
+                    print(f"GENERADO: {svg.relative_to(REPO_ROOT)} y .png")
             pagina = renderizar_bpmn.pagina_visor_enlazada(titulo(tabla), bpmn, vista).encode("utf-8")
             if not vista.exists() or vista.read_bytes() != pagina:
                 renderizar_bpmn.escribir(vista, pagina)

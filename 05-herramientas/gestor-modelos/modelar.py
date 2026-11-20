@@ -35,24 +35,27 @@ def huella(tabla: Path) -> str:
     return digest.hexdigest()
 
 
-def productos(tabla: Path) -> list[Path]:
+def productos(tabla: Path, imagenes: bool = False) -> list[Path]:
     base = tabla.name.removesuffix('-tabla.md')
-    return [tabla.with_name(base + sufijo) for sufijo in ('.bpmn', '.svg', '.png', '.html')]
+    sufijos = ('.bpmn', '.html', '.svg', '.png') if imagenes else ('.bpmn', '.html')
+    return [tabla.with_name(base + sufijo) for sufijo in sufijos]
 
 
-def estado(tabla: Path, firma: str) -> dict:
+def estado(tabla: Path, firma: str, imagenes: bool = False) -> dict:
     return {'firma': firma, 'productos': {str(p.relative_to(REPO_ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-                                           for p in productos(tabla)}}
+                                           for p in productos(tabla, imagenes)}}
 
 
-def vigente(tabla: Path, guardado: dict, firma: str) -> bool:
+def vigente(tabla: Path, guardado: dict, firma: str, imagenes: bool = False) -> bool:
     if guardado.get('firma') != firma:
         return False
-    for ruta, hash_esperado in guardado.get('productos', {}).items():
-        p = REPO_ROOT / ruta
+    hashes = guardado.get('productos', {})
+    for p in productos(tabla, imagenes):
+        ruta = str(p.relative_to(REPO_ROOT))
+        hash_esperado = hashes.get(ruta)
         if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest() != hash_esperado:
             return False
-    return len(guardado.get('productos', {})) == 4
+    return True
 
 
 def main() -> int:
@@ -61,6 +64,7 @@ def main() -> int:
     parser.add_argument('--sin-cache', action='store_true')
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--forzar', action='store_true', help='Adopta hallazgos ya justificados en el sustento')
+    parser.add_argument('--exportar-imagenes', action='store_true', help='Genera SVG y PNG para publicacion')
     args = parser.parse_args()
     inicio = perf_counter()
     try:
@@ -72,7 +76,7 @@ def main() -> int:
         CACHE.mkdir(parents=True, exist_ok=True)
         archivo = CACHE / (tabla.stem + '.json')
         guardado = json.loads(archivo.read_text(encoding='utf-8')) if archivo.is_file() else {}
-        if not args.check and not args.sin_cache and vigente(tabla, guardado, firma):
+        if not args.check and not args.sin_cache and vigente(tabla, guardado, firma, args.exportar_imagenes):
             print(f'OK CACHE: {args.codigo} ({perf_counter() - inicio:.2f} s)')
             return 0
         comando = [sys.executable, str(AQUI / 'construir_modelos.py'), '--tabla', str(tabla)]
@@ -80,11 +84,13 @@ def main() -> int:
             comando.append('--check')
         if args.forzar:
             comando.append('--forzar')
+        if args.exportar_imagenes:
+            comando.append('--exportar-imagenes')
         resultado = subprocess.run(comando, cwd=REPO_ROOT, check=False)
         if resultado.returncode:
             return resultado.returncode
         if not args.check:
-            archivo.write_text(json.dumps(estado(tabla, firma), indent=2) + '\n', encoding='utf-8')
+            archivo.write_text(json.dumps(estado(tabla, firma, args.exportar_imagenes), indent=2) + '\n', encoding='utf-8')
         print(f'Tiempo total {args.codigo}: {perf_counter() - inicio:.2f} s')
         return 0
     except (OSError, ValueError, json.JSONDecodeError) as error:
