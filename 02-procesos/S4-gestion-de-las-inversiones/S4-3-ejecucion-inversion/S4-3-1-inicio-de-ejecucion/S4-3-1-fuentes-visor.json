@@ -1,0 +1,995 @@
+{
+  "elementos": {
+    "E1": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 16,
+        "ubicacion": "ROF art. 25 d)",
+        "fragmento": "Suscribir contratos y/o convenios relacionados a la adquisición de bienes, contratación de servicios, ejecución de obras",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1629,
+            0.1094,
+            0.8886,
+            0.1206
+          ],
+          [
+            0.1625,
+            0.1266,
+            0.4245,
+            0.138
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T0A": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 14,
+        "ubicacion": "ROF art. 20",
+        "fragmento": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1625,
+            0.5596,
+            0.885,
+            0.5717
+          ],
+          [
+            0.1625,
+            0.5779,
+            0.3229,
+            0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 16,
+        "ubicacion": "ROF art. 25 d)",
+        "fragmento": "Suscribir contratos y/o convenios relacionados a la adquisición de bienes, contratación de servicios, ejecución de obras",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1629,
+            0.1094,
+            0.8886,
+            0.1206
+          ],
+          [
+            0.1625,
+            0.1266,
+            0.4245,
+            0.138
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T0B": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 14,
+        "ubicacion": "ROF art. 20",
+        "fragmento": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1625,
+            0.5596,
+            0.885,
+            0.5717
+          ],
+          [
+            0.1625,
+            0.5779,
+            0.3229,
+            0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T0C": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 46,
+        "ubicacion": "ROF art. 93 c) (funciones de la GRI; arts. 92-94 regulan la GRI)",
+        "fragmento": "Monitorear la ejecución de los proyectos de inversión",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1605,
+            0.5491,
+            0.6084,
+            0.5609
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 47,
+        "ubicacion": "ROF art. 97 (SGGOS)",
+        "fragmento": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.3859,
+            0.7476,
+            0.8863,
+            0.7593
+          ],
+          [
+            0.1258,
+            0.7659,
+            0.3426,
+            0.7767
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T0D": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 47,
+        "ubicacion": "ROF art. 97 (SGGOS)",
+        "fragmento": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.3859,
+            0.7476,
+            0.8863,
+            0.7593
+          ],
+          [
+            0.1258,
+            0.7659,
+            0.3426,
+            0.7767
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 b)",
+        "fragmento": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.7834,
+            0.856,
+            0.7952
+          ],
+          [
+            0.143,
+            0.7971,
+            0.2175,
+            0.8089
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 30,
+        "ubicacion": "Ley art. 62.5",
+        "fragmento": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supe…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1886,
+            0.3592,
+            0.8578,
+            0.3713
+          ],
+          [
+            0.1433,
+            0.3734,
+            0.7488,
+            0.3856
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "G1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 b)",
+        "fragmento": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.7834,
+            0.856,
+            0.7952
+          ],
+          [
+            0.143,
+            0.7971,
+            0.2175,
+            0.8089
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 101,
+        "ubicacion": "art. 186.4",
+        "fragmento": "puede designarse un inspector o un equipo de inspectores",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4281,
+            0.308,
+            0.8564,
+            0.3198
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "G3": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 101,
+        "ubicacion": "art. 186.4",
+        "fragmento": "puede designarse un inspector o un equipo de inspectores",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4281,
+            0.308,
+            0.8564,
+            0.3198
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 30,
+        "ubicacion": "Ley art. 62.5",
+        "fragmento": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supe…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1886,
+            0.3592,
+            0.8578,
+            0.3713
+          ],
+          [
+            0.1433,
+            0.3734,
+            0.7488,
+            0.3856
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 b)",
+        "fragmento": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.7834,
+            0.856,
+            0.7952
+          ],
+          [
+            0.143,
+            0.7971,
+            0.2175,
+            0.8089
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 95,
+        "ubicacion": "art. 176.7",
+        "fragmento": "Por acuerdo entre las partes, se puede diferir la fecha de inicio de plazo de ejecución",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1943,
+            0.6958,
+            0.8291,
+            0.7077
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C1B": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 b)",
+        "fragmento": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.7834,
+            0.856,
+            0.7952
+          ],
+          [
+            0.143,
+            0.7971,
+            0.2175,
+            0.8089
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C2": [
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 30,
+        "ubicacion": "Ley art. 62.5",
+        "fragmento": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supe…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1886,
+            0.3592,
+            0.8578,
+            0.3713
+          ],
+          [
+            0.1433,
+            0.3734,
+            0.7488,
+            0.3856
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 101,
+        "ubicacion": "art. 186.4",
+        "fragmento": "puede designarse un inspector o un equipo de inspectores",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4281,
+            0.308,
+            0.8564,
+            0.3198
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T3": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 b)",
+        "fragmento": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.7834,
+            0.856,
+            0.7952
+          ],
+          [
+            0.143,
+            0.7971,
+            0.2175,
+            0.8089
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T8": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 101,
+        "ubicacion": "art. 186.4",
+        "fragmento": "puede designarse un inspector o un equipo de inspectores",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4281,
+            0.308,
+            0.8564,
+            0.3198
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 30,
+        "ubicacion": "Ley art. 62.5",
+        "fragmento": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supe…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1886,
+            0.3592,
+            0.8578,
+            0.3713
+          ],
+          [
+            0.1433,
+            0.3734,
+            0.7488,
+            0.3856
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "GE1": [
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 30,
+        "ubicacion": "Ley art. 62.5",
+        "fragmento": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supe…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1886,
+            0.3592,
+            0.8578,
+            0.3713
+          ],
+          [
+            0.1433,
+            0.3734,
+            0.7488,
+            0.3856
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 101,
+        "ubicacion": "art. 186.4",
+        "fragmento": "puede designarse un inspector o un equipo de inspectores",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4281,
+            0.308,
+            0.8564,
+            0.3198
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T4": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 a)",
+        "fragmento": "Entrega de la actualización del expediente técnico o de la documentación técnica necesaria",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1635,
+            0.7286,
+            0.8563,
+            0.7405
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T5": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 c)",
+        "fragmento": "Entrega del adelanto directo, en caso este haya sido solicitado por el contratista",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1647,
+            0.8243,
+            0.8003,
+            0.8361
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 d)",
+        "fragmento": "La suscripción del contrato tripartito para la conformación de la JPRD, de corresponder",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1625,
+            0.879,
+            0.8144,
+            0.8909
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 97,
+        "ubicacion": "art. 179.2",
+        "fragmento": "La entidad contratante entrega el adelanto directo al contratista en un plazo máximo de siete días",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1951,
+            0.226,
+            0.8562,
+            0.2378
+          ],
+          [
+            0.143,
+            0.2397,
+            0.2146,
+            0.2515
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T6": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 e)",
+        "fragmento": "la entrega total o parcial del terreno o lugar donde se ejecuta la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.6777,
+            0.9062,
+            0.8564,
+            0.9181
+          ],
+          [
+            0.143,
+            0.9199,
+            0.4721,
+            0.9318
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "G2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T9": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 94,
+        "ubicacion": "art. 176.4",
+        "fragmento": "en un plazo máximo de diez días de requerido por el contratista, no cumple con las condiciones de inicio del plazo de ejecución",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.3826,
+            0.6222,
+            0.8562,
+            0.634
+          ],
+          [
+            0.143,
+            0.6358,
+            0.6215,
+            0.6477
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 95,
+        "ubicacion": "art. 176.7",
+        "fragmento": "Por acuerdo entre las partes, se puede diferir la fecha de inicio de plazo de ejecución",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1943,
+            0.6958,
+            0.8291,
+            0.7077
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "GE2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C3": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 a)",
+        "fragmento": "Entrega de la actualización del expediente técnico o de la documentación técnica necesaria",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1635,
+            0.7286,
+            0.8563,
+            0.7405
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C4": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 c)",
+        "fragmento": "Entrega del adelanto directo, en caso este haya sido solicitado por el contratista",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1647,
+            0.8243,
+            0.8003,
+            0.8361
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C5": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 d)",
+        "fragmento": "La suscripción del contrato tripartito para la conformación de la JPRD, de corresponder",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1625,
+            0.879,
+            0.8144,
+            0.8909
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "C6": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1 e)",
+        "fragmento": "la entrega total o parcial del terreno o lugar donde se ejecuta la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.6777,
+            0.9062,
+            0.8564,
+            0.9181
+          ],
+          [
+            0.143,
+            0.9199,
+            0.4721,
+            0.9318
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "G4": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T7": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 94,
+        "ubicacion": "art. 176.3 (texto vigente)",
+        "fragmento": "lo cual no debe superar los veintidós días desde la suscripción del contrato",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.143,
+            0.5924,
+            0.7597,
+            0.6066
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ]
+  }
+}

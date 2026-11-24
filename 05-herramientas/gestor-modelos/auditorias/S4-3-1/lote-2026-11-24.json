@@ -1,0 +1,502 @@
+[
+ {
+  "elemento": "E1",
+  "aspecto": "actor",
+  "afirmacion": "El proceso inicia con el contrato de obra suscrito por la GRA.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-25",
+    "cita": "Suscribir contratos y/o convenios relacionados a la adquisición de bienes, contratación de servicios, ejecución de obras",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El ROF asigna a la GRA la suscripción de contratos de obras."
+ },
+ {
+  "elemento": "T0A",
+  "aspecto": "secuencia",
+  "afirmacion": "La GRA remite el contrato para su registro documentario.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Ruta operativa propuesta; falta cotejo con un expediente y con el SGD."
+ },
+ {
+  "elemento": "T0B",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra el contrato y lo notifica a la GRI.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El art. 20 asigna a la OACGD registrar y derivar documentos; la notificación a la GRI en particular es la secuencia propuesta."
+ },
+ {
+  "elemento": "T0C",
+  "aspecto": "accion",
+  "afirmacion": "La GRI deriva el contrato a la SGGOS.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-89-parte2",
+    "cita": "Monitorear la ejecución de los proyectos de inversión",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "La GRI monitorea la ejecución y la SGGOS depende de ella y controla las obras; la derivación concreta es inferida."
+ },
+ {
+  "elemento": "T0D",
+  "aspecto": "accion",
+  "afirmacion": "La SGGOS designa un coordinador de obra.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Práctica informada por el usuario (DEC-042); el ROF no menciona la figura del coordinador ni el instrumento de designación."
+ },
+ {
+  "elemento": "T0E",
+  "aspecto": "accion",
+  "afirmacion": "La SGGOS notifica la designación y remite el contrato al coordinador.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo sin fuente documental."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "accion",
+  "afirmacion": "La entidad revisa e inicia las gestiones para cumplir las condiciones de inicio.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.3",
+    "cita": "lo cual no debe superar los veintidós días desde la suscripción del contrato",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 176.3 hace responsable a la entidad de iniciar esas gestiones; el actor coordinador es inferencia institucional."
+ },
+ {
+  "elemento": "T2",
+  "aspecto": "condicion",
+  "afirmacion": "Se verifica si hay supervisión contratada o inspección habilitada.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-62.5",
+    "cita": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supervisión",
+    "ambito": "supervisión de la ejecución contractual (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La comunicación de quién supervisa es condición de inicio (176.1 b) y la Ley permite el inspector temporal (62.5)."
+ },
+ {
+  "elemento": "G1",
+  "aspecto": "decision",
+  "afirmacion": "Se distingue si existe supervisor contratado.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.4",
+    "cita": "puede designarse un inspector o un equipo de inspectores",
+    "ambito": "supervisión de obras: inspector temporal mientras se contrata al supervisor",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Sin supervisor contratado no puede comunicarse quién supervisa salvo con inspector temporal."
+ },
+ {
+  "elemento": "G3",
+  "aspecto": "decision",
+  "afirmacion": "Sin supervisor se evalúa si procede la inspección temporal.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.4",
+    "cita": "puede designarse un inspector o un equipo de inspectores",
+    "ambito": "supervisión de obras: inspector temporal mientras se contrata al supervisor",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-62.5",
+    "cita": "Para iniciar la ejecución de una obra que requiera supervisión, puede designarse un inspector de obra o un equipo de inspectores en tanto se contrata la supervisión",
+    "ambito": "supervisión de la ejecución contractual (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Procede si está convocado el procedimiento para contratar al supervisor (186.4, texto vigente con equipo de inspectores y jefe)."
+ },
+ {
+  "elemento": "T8",
+  "aspecto": "accion",
+  "afirmacion": "La SGGOS gestiona la designación de un inspector.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.4",
+    "cita": "puede designarse un inspector o un equipo de inspectores",
+    "ambito": "supervisión de obras: inspector temporal mientras se contrata al supervisor",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El inspector es servidor de la entidad expresamente asignado; el actor concreto es inferencia institucional."
+ },
+ {
+  "elemento": "GE1",
+  "aspecto": "decision",
+  "afirmacion": "Se espera lo que ocurra primero: supervisor contratado o inspector designado.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Patrón de compuerta basada en eventos propuesto por el usuario (2026-11-18)."
+ },
+ {
+  "elemento": "C1B",
+  "aspecto": "existencia",
+  "afirmacion": "El supervisor contratado habilita la verificación.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Evento de espera propuesto."
+ },
+ {
+  "elemento": "C1",
+  "aspecto": "existencia",
+  "afirmacion": "El supervisor contratado habilita la verificación (rama sin inspector).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Dos eventos con el mismo nombre en ramas distintas (C1 y C1B); conviene distinguirlos."
+ },
+ {
+  "elemento": "C2",
+  "aspecto": "existencia",
+  "afirmacion": "La designación del inspector habilita la verificación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.4",
+    "cita": "puede designarse un inspector o un equipo de inspectores",
+    "ambito": "supervisión de obras: inspector temporal mientras se contrata al supervisor",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "186.4."
+ },
+ {
+  "elemento": "T3",
+  "aspecto": "accion",
+  "afirmacion": "Se comunica al contratista quién supervisa la obra.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el 176.1 b)."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "condicion",
+  "afirmacion": "Se verifica la entrega de la documentación técnica actualizada.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Entrega de la actualización del expediente técnico o de la documentación técnica necesaria",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 a), solo si hubo modificaciones con ocasión de la selección."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "condicion",
+  "afirmacion": "Se verifica la entrega del adelanto directo y la suscripción del contrato de la JPRD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Entrega del adelanto directo, en caso este haya sido solicitado por el contratista",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "La suscripción del contrato tripartito para la conformación de la JPRD, de corresponder",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-179.2",
+    "cita": "La entidad contratante entrega el adelanto directo al contratista en un plazo máximo de siete días",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 c) y d). El plazo de siete días para entregar el adelanto (179.2) no figura en el modelo."
+ },
+ {
+  "elemento": "T6",
+  "aspecto": "condicion",
+  "afirmacion": "Se verifica la entrega total o parcial del terreno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "la entrega total o parcial del terreno o lugar donde se ejecuta la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 e), para solo construcción."
+ },
+ {
+  "elemento": "G2",
+  "aspecto": "decision",
+  "afirmacion": "El inicio procede cuando se cumplen todas las condiciones.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«Rige desde que la entidad contratante cumpla con las siguientes condiciones»."
+ },
+ {
+  "elemento": "T9",
+  "aspecto": "accion",
+  "afirmacion": "Si faltan condiciones, se coordinan los requisitos pendientes.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.4",
+    "cita": "en un plazo máximo de diez días de requerido por el contratista, no cumple con las condiciones de inicio del plazo de ejecución",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.7",
+    "cita": "Por acuerdo entre las partes, se puede diferir la fecha de inicio de plazo de ejecución",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El modelo no representa las consecuencias del 176.4 (requerimiento del contratista, resarcimiento, resolución) ni el diferimiento por acuerdo del 176.7-176.9, aunque los cita."
+ },
+ {
+  "elemento": "GE2",
+  "aspecto": "decision",
+  "afirmacion": "Se espera la acreditación de cada requisito pendiente.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Disposición BPMN propuesta."
+ },
+ {
+  "elemento": "C3",
+  "aspecto": "existencia",
+  "afirmacion": "Se acredita la documentación técnica actualizada.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Entrega de la actualización del expediente técnico o de la documentación técnica necesaria",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 a)."
+ },
+ {
+  "elemento": "C4",
+  "aspecto": "existencia",
+  "afirmacion": "Se acredita la entrega del adelanto directo.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "Entrega del adelanto directo, en caso este haya sido solicitado por el contratista",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 c)."
+ },
+ {
+  "elemento": "C5",
+  "aspecto": "existencia",
+  "afirmacion": "Se acredita la suscripción del contrato de la JPRD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "La suscripción del contrato tripartito para la conformación de la JPRD, de corresponder",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 d)."
+ },
+ {
+  "elemento": "C6",
+  "aspecto": "existencia",
+  "afirmacion": "Se acredita la entrega del terreno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "la entrega total o parcial del terreno o lugar donde se ejecuta la obra",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "176.1 e)."
+ },
+ {
+  "elemento": "G4",
+  "aspecto": "secuencia",
+  "afirmacion": "Cada requisito acreditado vuelve a la verificación.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Disposición BPMN propuesta."
+ },
+ {
+  "elemento": "T7",
+  "aspecto": "documento",
+  "afirmacion": "Se comunica el cumplimiento de las condiciones de inicio, sin acta.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.9",
+    "cita": "Este acuerdo puede formalizarse mediante la suscripción de un acta por ambas partes que se publica en la Pladicop",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "analogia"
+   }
+  ],
+  "razonamiento": "Práctica institucional informada por el usuario el 2026-11-24: en contrata, el GORE formaliza con un acta de inicio el cumplimiento de las condiciones. T7 no la representa. El Reglamento prevé actas, publicadas en la Pladicop, para diferir y reiniciar el inicio (176.9)."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El proceso termina con el inicio del plazo comunicado.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio del plazo de ejecución de obras bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "S4.3 declara como salida el acta de inicio y S4.3.2 espera recibirla; F1 no la envía (candidato de interfaz)."
+ },
+ {
+  "elemento": "C:Gobierno Regional Huanuco/SGGOS — Subgerente de Gestion de Obras y Supervision",
+  "aspecto": "actor",
+  "afirmacion": "La SGGOS conduce el inicio de la ejecución.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El ROF la hace responsable del control y seguimiento de la ejecución de obras."
+ }
+]

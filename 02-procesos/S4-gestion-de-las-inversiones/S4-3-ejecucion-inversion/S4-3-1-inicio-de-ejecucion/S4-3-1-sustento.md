@@ -131,3 +131,23 @@ Fase logica conceptual con revision visual expresamente solicitada. Fuentes text
 
 - Se ubica bajo [S4.3 Ejecucion de la inversion](../00-S4-3-ejecucion-inversion.md).
 - Entregara a [S4.3.2 Ejecucion](../S4-3-2-ejecucion/00-S4-3-2-ejecucion.md) el hito que se defina en el modelamiento posterior.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../05-herramientas/gestor-modelos/auditorias/S4-3-1/informe.md)): 30 afirmaciones (17 `SUSTENTADA`, 13 `INFERENCIA`, sin contradicciones) y 15 obligaciones de los arts. 176, 179 y 186.4 del Reglamento, la Ley art. 62.5 y el ROF (arts. 20, 25, 93 y 97). Hay 6 obligaciones no representadas. Se crearon 41 anclas del visor calculadas desde el texto en `S4-3-1-fuentes-visor.json`. Son propuestas de IA, sin validación ni conformidad.
+
+- **Condiciones del art. 176.1 a)-e):** todas representadas (T2-T6, C3-C6), así como la ruta del inspector temporal (Ley 62.5; Reglamento 186.4, texto vigente).
+- **No representado:**
+  - el plazo para iniciar las gestiones del 176.1: **22 días** desde la suscripción del contrato según el texto vigente del 176.3 (20 en el original);
+  - las consecuencias del 176.4 cuando, requerida por el contratista, la entidad no cumple en 10 días: resarcimiento de hasta 0,05 % diario con tope del 3 %, o resolución;
+  - el **diferimiento del inicio por acuerdo** (176.7), con suspensión del adelanto (176.8) y su formalización mediante acta de diferimiento y acta de reinicio publicadas en la Pladicop (176.9);
+  - el plazo de 7 días para entregar el adelanto directo (179.2).
+- **Acta de inicio:** práctica institucional en contrata que formaliza el cumplimiento de las condiciones (OBSERVADO, informado por el usuario el 2026-11-24). T7 comunica el cumplimiento sin acta, y F1 no la envía a S4.3.2, que la espera. Es un candidato de interfaz.
+- **Ruta documental inicial** (GRA, OACGD, GRI, SGGOS, de E1 a T0E): coherente con las funciones del ROF, pero la secuencia concreta sigue siendo inferencia hasta cotejarla con un expediente y con el SGD. La designación del coordinador no figura en el ROF.
+- **C1 y C1B** tienen el mismo nombre («Supervisor contratado») en ramas distintas; conviene distinguirlos.
+- **Propuestas no aplicadas:**
+  - T7 como «Suscribir acta de inicio» y F1 enviándola a S4.3.2;
+  - anotar el plazo de 22 días en T1;
+  - una ruta de diferimiento por acuerdo con sus actas;
+  - una anotación sobre el requerimiento del contratista y sus consecuencias.
+

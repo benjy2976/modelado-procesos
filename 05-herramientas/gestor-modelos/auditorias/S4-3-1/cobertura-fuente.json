@@ -1,0 +1,321 @@
+{
+  "codigo": "S4.3.1",
+  "revision_tabla": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
+  "fecha": "2026-11-24T23:54:43+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "Entrega de la actualización del expediente técnico o de la documentación técnica necesaria",
+      "obligacion": "a) Documentación técnica actualizada, si cambió en la selección",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T4",
+        "C3"
+      ],
+      "razonamiento": "Verificación y acreditación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "Comunicación al contratista en la que se identifique aquél que está a cargo de la supervisión de la obra",
+      "obligacion": "b) Comunicar al contratista quién supervisa",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T2",
+        "T3"
+      ],
+      "razonamiento": "Verificación y comunicación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "Entrega del adelanto directo, en caso este haya sido solicitado por el contratista",
+      "obligacion": "c) Adelanto directo entregado, si se solicitó",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5",
+        "C4"
+      ],
+      "razonamiento": "Verificación y acreditación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "La suscripción del contrato tripartito para la conformación de la JPRD, de corresponder",
+      "obligacion": "d) Contrato tripartito de la JPRD, de corresponder",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5",
+        "C5"
+      ],
+      "razonamiento": "Verificación y acreditación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "la entrega total o parcial del terreno o lugar donde se ejecuta la obra",
+      "obligacion": "e) Entrega total o parcial del terreno",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T6",
+        "C6"
+      ],
+      "razonamiento": "Verificación y acreditación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 94,
+        "hasta": 94,
+        "paginas": [
+          94
+        ]
+      },
+      "cita": "lo cual no debe superar los veintidós días desde la suscripción del contrato",
+      "obligacion": "La entidad inicia las gestiones en no más de 22 días desde la suscripción",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "El modelo no registra el plazo (vigente tras el D.S. 001-2026-EF; 20 días en el texto original)."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 94,
+        "hasta": 95,
+        "paginas": [
+          94,
+          95
+        ]
+      },
+      "cita": "en un plazo máximo de diez días de requerido por el contratista, no cumple con las condiciones de inicio del plazo de ejecución",
+      "obligacion": "Si no cumple en 10 días del requerimiento, el contratista puede pedir resarcimiento o resolver",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "T9 lo cita, pero no hay requerimiento del contratista ni consecuencias."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.7",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 95,
+        "hasta": 95,
+        "paginas": [
+          95
+        ]
+      },
+      "cita": "Por acuerdo entre las partes, se puede diferir la fecha de inicio de plazo de ejecución",
+      "obligacion": "Diferimiento del inicio por acuerdo (estacionalidad, errores del expediente, imposibilidad b o d)",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay ruta de diferimiento."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.8",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 95,
+        "hasta": 95,
+        "paginas": [
+          95
+        ]
+      },
+      "cita": "se suspende la solicitud y entrega de este, reanudándose quince días antes de la nueva fecha de inicio",
+      "obligacion": "Al diferir se suspende la entrega del adelanto y se reanuda 15 días antes",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Depende de la ruta de diferimiento."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.9",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 96,
+        "hasta": 96,
+        "paginas": [
+          96
+        ]
+      },
+      "cita": "Este acuerdo puede formalizarse mediante la suscripción de un acta por ambas partes que se publica en la Pladicop",
+      "obligacion": "Acta de diferimiento y acta de reinicio publicadas en la Pladicop",
+      "aspecto": "documento",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Depende de la ruta de diferimiento."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-179.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 97,
+        "hasta": 97,
+        "paginas": [
+          97
+        ]
+      },
+      "cita": "La entidad contratante entrega el adelanto directo al contratista en un plazo máximo de siete días",
+      "obligacion": "Entrega del adelanto directo en 7 días desde la garantía",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "T5 verifica el adelanto sin el plazo."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-186.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 101,
+        "hasta": 101,
+        "paginas": [
+          101
+        ]
+      },
+      "cita": "puede designarse un inspector o un equipo de inspectores",
+      "obligacion": "Inspector temporal mientras se contrata al supervisor",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "G3",
+        "T8",
+        "C2"
+      ],
+      "razonamiento": "Ruta del inspector."
+    },
+    {
+      "fragmento": "71778d14cc60b83b-af2c6749:art-25",
+      "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+      "sha256": "71778D14CC60B83B798B607CD63B26B897BFB81CD87D8BE856848A7BCC47D8DA",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 15,
+        "hasta": 16,
+        "paginas": [
+          15,
+          16
+        ]
+      },
+      "cita": "Suscribir contratos y/o convenios relacionados a la adquisición de bienes, contratación de servicios, ejecución de obras",
+      "obligacion": "La GRA suscribe contratos de obras",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E1"
+      ],
+      "razonamiento": "Inicio en el carril de la GRA."
+    },
+    {
+      "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+      "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+      "sha256": "71778D14CC60B83B798B607CD63B26B897BFB81CD87D8BE856848A7BCC47D8DA",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 14,
+        "hasta": 14,
+        "paginas": [
+          14
+        ]
+      },
+      "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+      "obligacion": "La OACGD registra y deriva documentos",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T0B"
+      ],
+      "razonamiento": "Carril de la OACGD."
+    },
+    {
+      "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+      "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+      "sha256": "71778D14CC60B83B798B607CD63B26B897BFB81CD87D8BE856848A7BCC47D8DA",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 47,
+        "hasta": 49,
+        "paginas": [
+          47,
+          48,
+          49
+        ]
+      },
+      "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+      "obligacion": "La SGGOS controla y sigue la ejecución de obras",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "C:Gobierno Regional Huanuco/SGGOS — Subgerente de Gestion de Obras y Supervision"
+      ],
+      "razonamiento": "Carriles de la SGGOS."
+    }
+  ]
+}

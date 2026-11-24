@@ -16,7 +16,7 @@ from .fuentes_segmentacion import segmentar_office, segmentar_pdf
 
 SEGMENTOS = BASE / "segmentos"
 MANIFIESTO_SEGMENTOS = BASE / "segmentacion.json"
-VERSION = "segmentacion-v4"
+VERSION = "segmentacion-v5"
 FALLAS = {"CACHE-FALTANTE", "ORIGINAL-CAMBIO", "PAGINACION-DISTINTA", "CACHE-ALTERADA", "MARCADORES-DISTINTOS"}
 UMBRAL_COBERTURA = 0.98
 

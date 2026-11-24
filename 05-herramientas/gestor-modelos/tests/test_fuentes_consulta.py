@@ -92,6 +92,9 @@ def test_pdf_por_articulo_cruza_paginas_y_omite_cabeceras() -> None:
 def test_pdf_reconoce_variantes_de_encabezado_de_articulo() -> None:
     texto = _pagina(1, "Artículo 1.- Objeto de la norma.", "Texto.", "Artículo 2. - El empleador cumple.")
     texto += _pagina(2, "Artículo 3°.- Ámbito.", "Según el Artículo 2 de la Ley citada.")
+    rof, _ = segmentar_pdf(_pagina(1, "Artículo 20”. Oficina de Atención", "Texto.", "ARTÍCULO 21.- FUNCIONES", "Más.",
+                                   "Artículo 22”. Gerencia", "Fin."))  # fmt: skip
+    assert [f["articulo"] for f in rof if f["estructura"] != "PREAMBULO"] == ["20", "21", "22"]
     entradas, _ = segmentar_pdf(
         _pagina(1, "CAPÍTULO IX ANEXOS 29", "Artículo 1.- Objeto", "Artículo 2.- Alcance")
         + _pagina(2, "Artículo 1.- Objeto de la norma.", "Texto del objeto.")

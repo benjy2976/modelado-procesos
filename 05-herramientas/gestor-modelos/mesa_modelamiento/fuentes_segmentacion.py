@@ -11,7 +11,7 @@ import re
 from collections import Counter
 
 # El título debe empezar en mayúscula: «Artículo 5 de la Ley...» al inicio de una línea es una cita, no un encabezado.
-ARTICULO = re.compile(r"\s*Art[íi]culo\s+(\d+(?:-[A-Z])?)[\s.°º:-]*($|[A-ZÁÉÍÓÚÑ¿\"“(].*$)")
+ARTICULO = re.compile(r"\s*(?:Art[íi]culo|ART[ÍI]CULO)\s+(\d+(?:-[A-Z])?)[\s.°º:\-–—”“\"'’´`]*($|[A-ZÁÉÍÓÚÑ¿\"“(].*$)")
 ENCABEZADO = re.compile(
     r"\s*(LIBRO|T[ÍI]TULO|CAP[ÍI]TULO|SUBCAP[ÍI]TULO|SECCI[ÓO]N|SUBSECCI[ÓO]N)\s+([IVXLC\d]+|[ÚU]NIC[OA])\b"
 )
