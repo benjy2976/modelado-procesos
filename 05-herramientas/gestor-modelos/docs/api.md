@@ -9,7 +9,7 @@ tags:
 
 # Contrato HTTP local
 
-La API FastAPI de `mesa_modelamiento/api.py` expone consultas, observaciones y sesiones de edición recuperables. Es un contrato de desarrollo sin autenticación ni acceso remoto habilitado.
+La API FastAPI de `mesa_modelamiento/api.py` expone consultas, observaciones y sesiones de edición recuperables. Es un contrato de desarrollo sin autenticación. El puerto de la API se publica solo en `127.0.0.1`; el acceso remoto solo se admite a través del frontend detrás de un proxy inverso con control de acceso, según [Entorno](entorno.md).
 
 Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 

@@ -3,22 +3,26 @@ name: modelador-procesos
 services:
   frontend:
     image: node:24-bookworm-slim
+    restart: unless-stopped
     working_dir: /workspace/05-herramientas/gestor-modelos/frontend
     command: >-
-      sh -c "npm ci && exec npm run dev -- --host 0.0.0.0 --port 3000"
+      sh -c "npm ci && npm run build && exec node .output/server/index.mjs"
     environment:
       NUXT_API_TARGET: http://api:8000
+      HOST: 0.0.0.0
+      PORT: "3000"
     volumes:
       - ${PROCESOS_REPO_HOST:-../..}:/workspace
       - frontend-node-modules:/workspace/05-herramientas/gestor-modelos/frontend/node_modules
     ports:
-      - "127.0.0.1:${MODELOS_UI_PORT:-8767}:3000"
+      - "${MODELOS_UI_BIND:-127.0.0.1}:${MODELOS_UI_PORT:-8767}:3000"
     depends_on:
       api:
         condition: service_healthy
 
   api:
     image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+    restart: unless-stopped
     working_dir: /workspace/05-herramientas/gestor-modelos
     command: >-
       sh -c "uv sync --frozen && exec uv run modelador-procesos api --host 0.0.0.0 --port 8000"
