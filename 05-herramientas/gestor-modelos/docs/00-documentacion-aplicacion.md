@@ -24,6 +24,9 @@ Esta carpeta describe la aplicación alojada en `05-herramientas/gestor-modelos/
 | ¿Qué puede hacer hoy un agente? | [MCP](mcp.md) |
 | ¿Cómo se edita e integra una copia recuperable? | [Sesiones de edición](sesiones-edicion.md) |
 | ¿Cómo se audita el sustento de S4.3 y se atiende cada observación? | [Metodología de auditoría y observaciones](metodologia-auditoria-y-observaciones.md) |
+| ¿Qué pasos, herramientas y verificaciones requiere la corrida documental? | [Plan de corrida documental y auditoría](plan-corrida-documental-y-auditoria.md) |
+| ¿Qué produjo la preparación de la biblioteca PDF? | [Informe de preparación PDF](informe-preparacion-biblioteca-pdf.md) |
+| ¿Cómo se traslada el trabajo local, PDF y caché OCR a otro equipo? | [Traslado entre equipos](traslado-entre-equipos.md) |
 | ¿Qué falta para abrir la revisión por áreas usuarias? | [Ruta hacia la revisión por áreas usuarias](ruta-revision-areas-usuarias.md) |
 | ¿Qué instrucciones de IA y skills están disponibles? | [Guía de IA](guia_IA.md) |
 | ¿Qué estándar portable se adoptó? | [Memoria viva](memoria-viva/00-memoria-viva.md) y [plantilla de contexto](context-template.md) |

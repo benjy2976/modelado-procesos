@@ -18,6 +18,25 @@ def _argumentos() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="modelador-procesos")
     grupos = parser.add_subparsers(dest="grupo", required=True)
     grupos.add_parser("arbol", help="Leer el arbol institucional")
+    fuentes = grupos.add_parser("fuentes", help="Preparar la biblioteca PDF para consulta y cotejo")
+    tareas_fuentes = fuentes.add_subparsers(dest="operacion", required=True)
+    tareas_fuentes.add_parser("inventariar")
+    diagnosticar = tareas_fuentes.add_parser("diagnosticar-texto")
+    diagnosticar.add_argument("--max-documentos", type=int)
+    tareas_fuentes.add_parser("planificar-extraccion")
+    prioridad = tareas_fuentes.add_parser("priorizar")
+    prioridad.add_argument("--proceso", required=True)
+    extraer = tareas_fuentes.add_parser("extraer")
+    extraer.add_argument("--metodo", choices=["nativo", "ocr"], required=True)
+    extraer.add_argument("--max-documentos", type=int)
+    extraer.add_argument("--permitir-id-sin-url", action="append", default=[])
+    tareas_fuentes.add_parser("evaluar-extraccion")
+    tareas_fuentes.add_parser("resolver-colisiones-cache")
+    tareas_fuentes.add_parser("aislar-paginas-ocr")
+    cotejo = tareas_fuentes.add_parser("preparar-cotejo")
+    cotejo.add_argument("--id", required=True)
+    cotejo.add_argument("--pagina", required=True, type=int)
+    cotejo.add_argument("--archivo", help="Ruta relativa registrada para distinguir IDs repetidos")
     proceso = grupos.add_parser("proceso", help="Leer un modelo por codigo")
     proceso.add_argument("codigo")
     fuente = grupos.add_parser("fuente", help="Leer una fuente registrada y su página")
@@ -84,6 +103,26 @@ def ejecutar(args: argparse.Namespace) -> object:
             print("El contrato OpenAPI está desfasado; ejecute 'modelador-procesos contrato'.", file=sys.stderr)
         return 0 if vigente else 1
     repositorio = RepositorioProcesos.desde_entorno()
+    if args.grupo == "fuentes":
+        from . import fuentes_extraccion as extraccion
+        from . import fuentes_preparacion as preparacion
+
+        operaciones = {
+            "inventariar": lambda: preparacion.inventariar(repositorio.raiz),
+            "diagnosticar-texto": lambda: preparacion.diagnosticar_texto(repositorio.raiz, args.max_documentos),
+            "planificar-extraccion": lambda: preparacion.planificar_extraccion(repositorio.raiz),
+            "priorizar": lambda: preparacion.priorizar(repositorio.raiz, args.proceso),
+            "extraer": lambda: (
+                extraccion.extraer_nativo(repositorio.raiz, args.max_documentos)
+                if args.metodo == "nativo"
+                else extraccion.extraer_ocr(repositorio.raiz, args.max_documentos, args.permitir_id_sin_url)
+            ),
+            "evaluar-extraccion": lambda: extraccion.evaluar_extraccion(repositorio.raiz),
+            "resolver-colisiones-cache": lambda: extraccion.resolver_colisiones_cache(repositorio.raiz),
+            "aislar-paginas-ocr": lambda: extraccion.aislar_paginas_ocr(repositorio.raiz),
+            "preparar-cotejo": lambda: extraccion.preparar_cotejo(repositorio.raiz, args.id, args.pagina, args.archivo),
+        }
+        return operaciones[args.operacion]()
     observaciones = ServicioObservaciones(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)

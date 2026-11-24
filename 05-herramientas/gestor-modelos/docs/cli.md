@@ -15,11 +15,25 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 
 ## Comandos
 
+La preparación documental de las fases 1 y 2 usa `fuentes inventariar`, `fuentes diagnosticar-texto [--max-documentos N]`, `fuentes planificar-extraccion`, `fuentes priorizar --proceso S4.3.2`, `fuentes extraer --metodo nativo|ocr [--max-documentos N]`, `fuentes evaluar-extraccion` y `fuentes preparar-cotejo --id <ID> --pagina N [--archivo <ruta-registrada>]`. `--archivo` distingue un ID usado por varios PDF. `fuentes resolver-colisiones-cache` separa derivados históricos que compartían ID y hash pese a corresponder a rutas distintas; `fuentes aislar-paginas-ocr` reconstruye páginas OCR intermedias en una carpeta propia por PDF. Ninguno cambia los originales.
+
+Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-derivados-texto/cache/`, excluida de Git. El umbral inicial de 80 caracteres por página decide si se intenta OCR; no acredita fidelidad ni vigencia. OCR requiere `OCR_MCP_KEY` en el entorno local y procesa copias derivadas de PDF con URL pública HTTPS registrada y hash coincidente. Para un documento sin URL cuya procedencia se haya revisado, `fuentes extraer --metodo ocr --permitir-id-sin-url <ID>` habilita solo ese ID; el argumento puede repetirse. Los demás quedan pendientes. El PDF original no se altera.
+
 | Comando | Resultado |
 |---|---|
 | `arbol` | Árbol institucional en JSON |
 | `proceso S4.3.2.3` | Datos y revisión de un proceso en JSON |
 | `fuente <codigo> <referencia> <indice>` | Texto acotado de la fuente y página registrada, con hash y estado |
+| `fuentes` | Grupo de preparación documental; requiere una operación |
+| `fuentes inventariar` | Reconciliación de PDF, catálogo, hashes y duplicados |
+| `fuentes diagnosticar-texto [--max-documentos N]` | Medición de texto nativo por página |
+| `fuentes planificar-extraccion` | Cola de extracción nativa y OCR selectivo |
+| `fuentes priorizar --proceso <codigo>` | Prioridad provisional según citas en tablas y sustentos |
+| `fuentes extraer --metodo nativo\|ocr [--max-documentos N]` | Markdown paginado o OCR sobre copias derivadas |
+| `fuentes evaluar-extraccion` | Integridad, paginación y señales de cotejo |
+| `fuentes preparar-cotejo --id <ID> --pagina N [--archivo <ruta-registrada>]` | Vista local de original y texto |
+| `fuentes resolver-colisiones-cache` | Separa derivados históricos con procedencia diferente |
+| `fuentes aislar-paginas-ocr` | Aísla páginas OCR intermedias de cada PDF |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ...` | Respuesta e historial con nueva revisión |

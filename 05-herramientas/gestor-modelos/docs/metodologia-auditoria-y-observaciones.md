@@ -6,7 +6,7 @@ estado_documento: BORRADOR
 clase_conocimiento: PROPUESTA
 proceso: []
 fecha_creacion: 2026-11-20
-fecha_actualizacion: 2026-11-20
+fecha_actualizacion: 2026-11-24
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -61,6 +61,20 @@ La corrida preparatoria produce un **manifiesto reanudable**, no citas automáti
 4. Comprobar en una muestra de páginas, y siempre en las páginas finalmente citadas, texto, numeración y orden de lectura contra el original. Solo entonces iniciar o continuar la auditoría de afirmaciones. Los rectángulos de resaltado se seleccionan en el original; no se infieren del Markdown OCR.
 
 La medición global puede hacerse en una sola corrida; la conversión se ejecuta por lotes de fuentes pertinentes y se amplía conforme avanza la auditoría. Así se evita procesar normas que no intervienen en S4.3 o regenerar documentos que ya son buscables.
+
+### Consulta acotada de la biblioteca: propuesta para la corrida
+
+La biblioteca completa no entra en el contexto de un agente. La extracción paginada alimentará un índice local regenerable; el original, su catálogo y las citas cotejadas conservarán sus funciones separadas. Cada unidad recuperable conservará el ID y SHA-256 del documento, la página PDF, el artículo/numeral y sus encabezados superiores cuando se reconozcan con fiabilidad, el método de extracción y una referencia estable al fragmento. Un artículo que cruza páginas puede formar una unidad lógica con varias ubicaciones; un bloque que mezcle obligaciones distintas se divide sin perder el vínculo con su artículo. El índice no se versiona como fuente de conocimiento.
+
+La propuesta de búsqueda tiene tres capas progresivas:
+
+1. **Estructura y filtros obligatorios.** Acotar por proceso, modalidad, entidad emisora, tipo documental, régimen y fecha aplicable cuando estén acreditados; navegar por documento, capítulo, artículo y numeral. Una vigencia desconocida queda visible como pendiente y no se convierte en vigente por aparecer en la búsqueda.
+2. **Búsqueda léxica y temas.** Indexar el texto por fragmento y mantener un vocabulario de temas, sinónimos y relaciones. Por ejemplo, «paralización» puede recuperar términos relacionados, pero «suspensión» no se trata automáticamente como equivalente jurídico. Las etiquetas sugeridas por IA son pistas de recuperación con procedencia y confianza, no reglas ni clasificación normativa validada. Conservar también búsquedas por artículo y frases exactas.
+3. **Recuperación semántica opcional.** Comparar sobre un conjunto de preguntas reales la búsqueda anterior con vectores, combinación léxica-semántica y reordenación de candidatos. Adoptar cada componente solo si mejora la recuperación de pasajes pertinentes, el costo y la latencia. Los resúmenes sirven para orientar, nunca para citar en lugar del pasaje original.
+
+La consulta para una caja descompone sus afirmaciones en actor, acción, condición, plazo, documento y excepción. Solicita candidatos al índice con filtros de ámbito; amplía los artículos vecinos, las remisiones y las modificatorias pertinentes; elimina duplicados y entrega al agente un paquete pequeño de pasajes con ubicación y estado de extracción. El agente coteja cada candidato con el PDF original, busca evidencia en contra y registra `EVIDENCIA-INSUFICIENTE` si no puede sostener la afirmación. Las relaciones entre fuente, regla propuesta, afirmación y elemento del modelo se guardan explícitamente; una etiqueta temática no constituye ese vínculo.
+
+El mismo servicio de consulta deberá alimentar CLI, API y MCP, con operaciones de lectura acotadas: buscar fragmentos, obtener artículo y páginas contiguas, seguir remisiones y recuperar el paquete de evidencia de un elemento. El visor recibe solo referencias verificadas y rectángulos enlazados al hash del original; no ejecuta una búsqueda al abrir el PDF. Antes de ampliar la auditoría se medirá, con preguntas extraídas del piloto S4.3.2.7, si los pasajes correctos aparecen entre los primeros resultados, si se recuperan condiciones y excepciones, los errores de OCR, el costo, la latencia y la exactitud de las citas. Los fallos se incorporarán al conjunto de prueba antes de reindexar.
 
 El agente puede proponer reglas y correcciones, pero no declarar una regla `VALIDADO`, una conformidad institucional ni un modelo `APROBADO`. Se aplica el [protocolo de conocimiento confiable](../../../00-gobernanza/protocolo-conocimiento-confiable.md): una regla aún no validada queda identificada como propuesta y no sustenta por sí sola una línea base publicada. Si la vigencia no puede comprobarse, se marca pendiente aunque el PDF exista.
 

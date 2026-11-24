@@ -42,6 +42,8 @@ El diagrama expresa asociaciones lógicas: proceso y elemento viven en el reposi
 
 ## Diccionario
 
+La preparación PDF conserva `01-referencias/09-derivados-texto/cache/preparacion-pdf.json`. Cada entrada usa la ruta relativa como llave y registra ID documental, SHA-256 del original, tamaño, procedencia del registro, URL, diagnóstico por página, plan nativo/OCR, prioridad y estado de extracción. El texto derivado se guarda como `<id>/<sha256-corto>-<hash-ruta>.md`, con metadatos de método, fecha, herramienta y marcadores de página física. Cada PDF tiene también su carpeta `<sha256-corto>-<hash-ruta>.ocr/` para las páginas intermedias. El hash de ruta evita que dos PDF idénticos con el mismo ID compartan un encabezado o páginas OCR de procedencia diferente. Los trabajos OCR conservan ID de trabajo, páginas y avisos de baja confianza; el cotejo local se genera bajo `cache/cotejos/`. Todos estos archivos son caché regenerable y no constituyen citas normativas validadas.
+
 | Entidad | Identidad y ubicación | Relación |
 |---|---|---|
 | Proceso | Código NT y carpeta única bajo `02-procesos/` | Puede tener tabla, sustento, BPMN y observaciones |

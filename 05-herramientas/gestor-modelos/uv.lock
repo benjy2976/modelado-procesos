@@ -566,6 +566,7 @@ source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "filelock" },
+    { name = "httpx2" },
     { name = "lxml" },
     { name = "mcp" },
     { name = "pypdf" },
@@ -583,6 +584,7 @@ dev = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.120,<1" },
     { name = "filelock", specifier = ">=3.16,<4" },
+    { name = "httpx2", specifier = ">=2.16,<3" },
     { name = "lxml", specifier = ">=5,<7" },
     { name = "mcp", specifier = ">=2,<3" },
     { name = "pypdf", specifier = ">=6,<7" },
