@@ -54,10 +54,12 @@ La fase termina cuando todo PDF presente tiene un estado y cada decisión de OCR
 | 2.C2 | C | Implementar `fuentes evaluar-extraccion` y `fuentes preparar-cotejo`. | CLI probadas con página vacía, corte y texto alterado; **D**. | Sí |
 | 2.E3 | E | Ejecutar evaluación de extracción. | Señales de baja confianza, tablas/columnas dudosas y páginas por revisar; **D** e **IA** para anomalías no codificadas. | Sí |
 | 2.E4 | E | Preparar y cotejar muestra, y después toda página que llegue a citarse. | Estado de fidelidad con hash, página y registro de cotejo; **H o agente con inspección visual** frente al original. | Sí para el cotejo de trabajo; validación normativa humana posterior |
+| 2.C3 | C | Implementar `fuentes extraer-office`: DOCX a Markdown con marcadores de párrafo y sección y numeración reconstruida; PPTX por diapositiva; ficha de inventario para XLSX. Implementar `fuentes indice`. | CLI probada con DOCX sintético con listas multinivel, reinicio de subniveles, numeración por estilo, tabla combinada, salto de página, nota al pie y texto eliminado; **D**. | Sí |
+| 2.E5 | E | Ejecutar sobre los Office de la biblioteca y cotejar los numerales reconstruidos de una muestra contra el documento abierto. | Markdown de DOCX/PPTX, fichas XLSX e índice; cotejo **D** contra el render de un procesador de textos. | Sí |
 
 La caché sigue los [requisitos del extractor](../../extractor-documental/00-extractor-documental.md) y no se versiona en masa. La indisponibilidad del OCR deja pendientes reanudables; no bloquea la extracción nativa.
 
-**Estado al 24 de noviembre de 2026:** las filas 1.C1–1.E3 y 2.C1–2.E4 se ejecutaron. El [informe de preparación PDF](informe-preparacion-biblioteca-pdf.md) registra la corrida de 181 PDF y 603 páginas OCR, los controles determinísticos y los límites del cotejo visual. La revisión normativa de cajas y flujos aún no comenzó; corresponde a las fases 3 y 4.
+**Estado al 24 de noviembre de 2026:** las filas 1.C1–1.E3 y 2.C1–2.E5 se ejecutaron; 2.C3 y 2.E5 amplían la fase a DOCX, PPTX y XLSX. El [informe de preparación PDF](informe-preparacion-biblioteca-pdf.md) registra la corrida de 181 PDF y 603 páginas OCR, los controles determinísticos y los límites del cotejo visual. El mismo informe registra la corrida Office: 29 DOCX y 1 PPTX con texto anclado, 27 XLSX fichados y el cotejo de numerales. La revisión normativa de cajas y flujos aún no comenzó; corresponde a las fases 3 y 4.
 
 ## Fase 3. Construir la consulta acotada
 

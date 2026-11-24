@@ -13,12 +13,15 @@ from .observaciones import ServicioObservaciones
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .sesiones import ServicioSesiones
 
+# Operaciones que escriben textos derivados; tras ellas el índice legible se regenera.
+CAMBIAN_CACHE = {"extraer", "evaluar-extraccion", "resolver-colisiones-cache", "aislar-paginas-ocr", "extraer-office"}
+
 
 def _argumentos() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="modelador-procesos")
     grupos = parser.add_subparsers(dest="grupo", required=True)
     grupos.add_parser("arbol", help="Leer el arbol institucional")
-    fuentes = grupos.add_parser("fuentes", help="Preparar la biblioteca PDF para consulta y cotejo")
+    fuentes = grupos.add_parser("fuentes", help="Preparar la biblioteca documental para consulta y cotejo")
     tareas_fuentes = fuentes.add_subparsers(dest="operacion", required=True)
     tareas_fuentes.add_parser("inventariar")
     diagnosticar = tareas_fuentes.add_parser("diagnosticar-texto")
@@ -31,6 +34,9 @@ def _argumentos() -> argparse.ArgumentParser:
     extraer.add_argument("--max-documentos", type=int)
     extraer.add_argument("--permitir-id-sin-url", action="append", default=[])
     tareas_fuentes.add_parser("evaluar-extraccion")
+    office = tareas_fuentes.add_parser("extraer-office", help="DOCX/PPTX a Markdown anclado y ficha de XLSX")
+    office.add_argument("--max-documentos", type=int)
+    tareas_fuentes.add_parser("indice", help="Regenerar el índice legible de la caché")
     tareas_fuentes.add_parser("resolver-colisiones-cache")
     tareas_fuentes.add_parser("aislar-paginas-ocr")
     cotejo = tareas_fuentes.add_parser("preparar-cotejo")
@@ -106,6 +112,8 @@ def ejecutar(args: argparse.Namespace) -> object:
     if args.grupo == "fuentes":
         from . import fuentes_extraccion as extraccion
         from . import fuentes_preparacion as preparacion
+        from .fuentes_indice import generar_indice
+        from .fuentes_office import extraer_office
 
         operaciones = {
             "inventariar": lambda: preparacion.inventariar(repositorio.raiz),
@@ -121,8 +129,13 @@ def ejecutar(args: argparse.Namespace) -> object:
             "resolver-colisiones-cache": lambda: extraccion.resolver_colisiones_cache(repositorio.raiz),
             "aislar-paginas-ocr": lambda: extraccion.aislar_paginas_ocr(repositorio.raiz),
             "preparar-cotejo": lambda: extraccion.preparar_cotejo(repositorio.raiz, args.id, args.pagina, args.archivo),
+            "extraer-office": lambda: extraer_office(repositorio.raiz, args.max_documentos),
+            "indice": lambda: generar_indice(repositorio.raiz),
         }
-        return operaciones[args.operacion]()
+        resultado = operaciones[args.operacion]()
+        if args.operacion in CAMBIAN_CACHE:
+            resultado["indice"] = generar_indice(repositorio.raiz)["indice"]
+        return resultado
     observaciones = ServicioObservaciones(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)

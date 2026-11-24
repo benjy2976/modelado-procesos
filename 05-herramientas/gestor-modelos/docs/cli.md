@@ -17,6 +17,10 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 
 La preparación documental de las fases 1 y 2 usa `fuentes inventariar`, `fuentes diagnosticar-texto [--max-documentos N]`, `fuentes planificar-extraccion`, `fuentes priorizar --proceso S4.3.2`, `fuentes extraer --metodo nativo|ocr [--max-documentos N]`, `fuentes evaluar-extraccion` y `fuentes preparar-cotejo --id <ID> --pagina N [--archivo <ruta-registrada>]`. `--archivo` distingue un ID usado por varios PDF. `fuentes resolver-colisiones-cache` separa derivados históricos que compartían ID y hash pese a corresponder a rutas distintas; `fuentes aislar-paginas-ocr` reconstruye páginas OCR intermedias en una carpeta propia por PDF. Ninguno cambia los originales.
 
+`fuentes extraer-office [--max-documentos N]` convierte DOCX y PPTX a Markdown y deja una ficha de inventario de cada XLSX en `preparacion-office.json`, sin transcribir hojas. Un DOCX no tiene páginas fijas: cada párrafo del cuerpo lleva `<!-- parrafo: N; ... -->` con el numeral automático reconstruido desde `numbering.xml` y `styles.xml` (`numeral`), el numeral escrito a mano si lo hay (`numeral_texto`), la sección detectada y, si Word dejó marcas de su última paginación, `pagina_word_aprox`, que es solo orientativa. Las tablas se conservan en HTML con celdas combinadas y las notas al pie al final. Cada PPTX se marca por `diapositiva`. La conversión es reanudable: no repite un archivo con el mismo hash y versión del conversor.
+
+`fuentes indice` reescribe `cache/00-indice.md`, una tabla legible por carpeta que enlaza cada original con su texto derivado, su tamaño, método y estado. Se regenera automáticamente después de `extraer`, `evaluar-extraccion`, `resolver-colisiones-cache`, `aislar-paginas-ocr` y `extraer-office`.
+
 Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-derivados-texto/cache/`, excluida de Git. El umbral inicial de 80 caracteres por página decide si se intenta OCR; no acredita fidelidad ni vigencia. OCR requiere `OCR_MCP_KEY` en el entorno local y procesa copias derivadas de PDF con URL pública HTTPS registrada y hash coincidente. Para un documento sin URL cuya procedencia se haya revisado, `fuentes extraer --metodo ocr --permitir-id-sin-url <ID>` habilita solo ese ID; el argumento puede repetirse. Los demás quedan pendientes. El PDF original no se altera.
 
 | Comando | Resultado |
@@ -34,6 +38,8 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `fuentes preparar-cotejo --id <ID> --pagina N [--archivo <ruta-registrada>]` | Vista local de original y texto |
 | `fuentes resolver-colisiones-cache` | Separa derivados históricos con procedencia diferente |
 | `fuentes aislar-paginas-ocr` | Aísla páginas OCR intermedias de cada PDF |
+| `fuentes extraer-office [--max-documentos N]` | DOCX/PPTX a Markdown anclado por párrafo o diapositiva; ficha de XLSX |
+| `fuentes indice` | Índice Markdown legible de la caché con enlaces a originales y textos |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ...` | Respuesta e historial con nueva revisión |
