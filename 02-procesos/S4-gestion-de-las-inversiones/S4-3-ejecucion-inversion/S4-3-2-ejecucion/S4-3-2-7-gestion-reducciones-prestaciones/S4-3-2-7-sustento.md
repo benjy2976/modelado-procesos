@@ -67,7 +67,29 @@ Segunda pasada del piloto con las herramientas de la fase 4 ([informe del piloto
 - Cambian SE (de `EVIDENCIA-INSUFICIENTE` a `INFERENCIA`) y ST con inspector (de `CONTRADICCION` parcial a `INFERENCIA`). El Reglamento art. 186.1, PDF p. 101, asigna la supervisión de obra «al supervisor o el inspector». La extensión al inspector de la opinión del 109.1 d) no es literal y requiere confirmación.
 - Fuentes añadidas con ancla en el visor: Ley 32069 arts. 63.1, 63.3 y 64.1 (PDF pp. 30-31, texto local al 19-07-2026, SHA-256 `f14ffa37b824b8af…`); Reglamento arts. 19 c) (p. 11), 117.3-117.4 (p. 64), 186.1 (p. 101) y 257.1 (p. 141). Consulta: 2026-11-24. La vigencia posterior sigue pendiente.
 - Hallazgo nuevo: con la reducción del monto, el contratista puede pedir la disminución proporcional de garantías (art. 117.3), con 10 días hábiles para la adecuación (art. 117.4). El modelo no muestra esa interfaz.
-- Propuestas no aplicadas a la tabla: condicionar T2 y la ruta de supervisión; nombrar la publicación en la Pladicop en T4/T5; registrar la interfaz de garantías; documentar la variante con inspector. Requieren antes el control de vigencia y la evaluación del usuario.
+- Propuestas del piloto: condicionar T2 y la ruta de supervisión; nombrar la publicación en la Pladicop en T4/T5; registrar la interfaz de garantías; documentar la variante con inspector.
+
+### Cambios aplicados — 2026-11-24 (DEC-057)
+
+El usuario aprobó el formato de auditoría y pidió aplicar las cuatro propuestas. La vigencia del texto consolidado sigue pendiente; los cambios se apoyan en el texto local citado.
+
+- **G3 (nuevo, número 16)** «¿Corresponde opinión de supervisión?», entre G1 y T2. La solicitud T2, el mensaje T2→SE y la ruta del supervisor solo ocurren si corresponde (art. 109.1 d). Si no corresponde, el flujo pasa a T3.
+- **T4** «Resolver reducción y efecto en plazo»: se retira «notificar». La misma resolución decide el efecto en el plazo (art. 109.2).
+- **T5** «Publicar resolución en Pladicop y actualizar registros»: sin adenda (art. 109.3). Anota la interfaz de garantías que inicia el contratista (arts. 117.3-117.4) sin modelarla como flujo de la entidad. **F1** pasa a «Reducción publicada».
+- **ST** anota la variante con inspector por inferencia del art. 186.1, pendiente de confirmación del equipo u opinión del OECE.
+
+La auditoría se rehízo sobre la nueva revisión de la tabla: 6 afirmaciones superadas pasaron a `NO-APLICA` por rectificación, sin borrar el historial, y se registraron 7 nuevas. Resultado vigente: 11 `SUSTENTADA`, 12 `INFERENCIA`, 3 `EVIDENCIA-INSUFICIENTE` y 6 `NO-APLICA`, sin contradicciones abiertas. Persisten como evidencia insuficiente la adscripción del área usuaria, la unidad de integración (T3) y la vigencia posterior del texto. La nueva compuerta tiene ancla en el visor. D1-D5 sin hallazgos; D4 ya no registra el cruce del mensaje de opinión.
+
+### Validación ampliada — 2026-11-24 (DEC-057)
+
+Tras la revisión del usuario, la auditoría se completó en la dirección fuente → modelo y se precisó el contexto de cada cita.
+
+- **G1** se reformula como «¿Se acreditan las condiciones de la reducción?», con fuente «Reglamento art. 109.1» y ancla a las condiciones a)-c) y al límite (PDF p. 60). La Ley 63.3 queda como marco.
+- **Ley art. 64.1 en T1.** El artículo regula prestaciones adicionales; solo su última oración («Asimismo, puede reducir bienes, servicios, consultorías u obras hasta por el mismo porcentaje», PDF p. 31) trata la reducción. El 25 % de la primera oración (p. 30) es un antecedente necesario para leerla. Se registra como una sola referencia de dos páginas. La fuente operativa del límite es el Reglamento 109.1.
+- **Cobertura de la fuente.** Las 15 obligaciones de los arts. 109.1-109.3, 117.3-117.4 y 186.1 del Reglamento y 63.1 y 64.1 de la Ley quedan representadas en elementos del modelo.
+- **Vigencia.** El art. 109 es idéntico en la publicación oficial del Reglamento (El Peruano, separata especial del 22-01-2025, D.S. 009-2025-EF) y en el texto consolidado. El D.S. 001-2026-EF (El Peruano, 08-01-2026; en vigor desde el 14-01-2026 tras la R.D. 0001-2026-EF/54.01 del 13-01-2026) no lo modifica. El D.S. 222-2026-EF (21-10-2026) solo cambia la Decimocuarta DCF. La tabla de leyes reglamentadas del Congreso no registra otras modificatorias (consulta 2026-11-24). Los arts. 117.3-117.4, 19 y 257.1 son idénticos en ambas ediciones. El 186.1 también, aunque el D.S. 001-2026-EF modificó los numerales 186.4 y 186.5.
+
+Resultado vigente: 13 `SUSTENTADA`, 11 `INFERENCIA`, 2 `EVIDENCIA-INSUFICIENTE` (adscripción del área usuaria y unidad de integración T3) y 7 `NO-APLICA`, sin contradicciones abiertas. Es una propuesta de IA, sin validación normativa ni conformidad.
 
 ## Elementos registrados
 
@@ -94,7 +116,7 @@ EVIDENCIA-INSUFICIENTE. No se incorporan requisitos BIM.
 
 ## Historial de revision
 
-Sin conformidades registradas. Documentos en ELABORACION. 2026-11-24: auditoría con herramientas registrada y anclas automáticas añadidas a `S4-3-2-7-fuentes-visor.json`; derivado HTML regenerado con D1-D5 sin hallazgos. La tabla no cambió.
+Sin conformidades registradas. Documentos en ELABORACION. 2026-11-24: auditoría con herramientas registrada y anclas automáticas añadidas a `S4-3-2-7-fuentes-visor.json`. Después, por instrucción del usuario (DEC-057), se aplicaron a la tabla los cambios G3, T4, T5, F1 y ST; BPMN y HTML se regeneraron con D1-D5 sin hallazgos.
 
 ## Relaciones
 
@@ -104,4 +126,4 @@ Sin conformidades registradas. Documentos en ELABORACION. 2026-11-24: auditoría
 
 ## Control tecnico de la division
 
-D1, D2 y D5 sin hallazgos. D3 sin bloqueos. D4: un cruce de mensaje con etiqueta (T6) al solicitar opinion de supervision. Se adoptan derivados de trabajo con --forzar para sincronizar la propuesta conceptual; no constituyen una linea base lista para publicacion. Revision visual y cierre de hallazgos pendientes. Informe reproducible: 99-temporal/modelos/S4-3-2-7-diagrama-proceso/validacion.txt.
+D1, D2 y D5 sin hallazgos. D3 sin bloqueos. D4: un cruce de mensaje con etiqueta (T6) al solicitar opinion de supervision; resuelto el 2026-11-24 con la compuerta G3 (D4 sin superposiciones). Se adoptan derivados de trabajo con --forzar para sincronizar la propuesta conceptual; no constituyen una linea base lista para publicacion. Revision visual y cierre de hallazgos pendientes. Informe reproducible: 99-temporal/modelos/S4-3-2-7-diagrama-proceso/validacion.txt.

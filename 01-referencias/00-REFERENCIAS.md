@@ -23,7 +23,7 @@ python 05-herramientas/catalogador-documental/descargar_recursos.py --modo resta
 
 Los documentos institucionales no reproducibles se evaluan individualmente. Los documentos aprobados sin restricciones pueden conservarse mediante Git LFS; expedientes y evidencia sensible deben permanecer en almacenamiento institucional controlado y en Git solo se registra su referencia.
 
-Cada recurso debe registrarse en `00-catalogo/catalogo-documental.csv`. Si requiere OCR, la salida se almacena como derivado y nunca reemplaza al original.
+Cada recurso debe registrarse en `00-catalogo/catalogo-documental.csv`. El régimen de ejecución de cada documento (contratación pública Ley 32069, obras por impuestos, administración directa, transversal o no determinado) se asigna con reglas por carpeta y excepciones en `00-catalogo/regimen-documental.json` (`DEC-057`, `PROPUESTA-IA`). Es un filtro de búsqueda y no acredita aplicabilidad ni vigencia. Si requiere OCR, la salida se almacena como derivado y nunca reemplaza al original.
 
 ## Catalogo y control
 

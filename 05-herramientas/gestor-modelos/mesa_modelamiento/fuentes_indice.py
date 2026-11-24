@@ -12,6 +12,7 @@ from urllib.parse import quote
 from .fuentes_extraccion import BASE
 from .fuentes_office import cargar_manifiesto_office
 from .fuentes_preparacion import MANIFIESTO
+from .fuentes_regimen import cargar_reglas, clasificar
 
 INDICE = BASE / "00-indice.md"
 
@@ -74,6 +75,7 @@ def generar_indice(raiz: Path) -> dict:
             filas.append({**_fila_pdf(dato), "id": dato["id"], "ruta": dato["ruta"], "titulo": dato.get("titulo", "")})
     for dato in cargar_manifiesto_office(raiz).get("documentos", {}).values():
         filas.append({**_fila_office(dato), "id": dato["id"], "ruta": dato["ruta"], "titulo": dato.get("titulo", "")})
+    reglas = cargar_reglas(raiz)
     grupos: dict[str, list[dict]] = defaultdict(list)
     for fila in filas:
         partes = Path(fila["ruta"]).parts
@@ -97,16 +99,16 @@ def generar_indice(raiz: Path) -> dict:
             "",
             f"## {grupo}",
             "",
-            "| ID | Documento | Tipo | Texto | Contenido | Método | Estado |",
-            "|---|---|---|---|---|---|---|",
+            "| ID | Documento | Tipo | Régimen | Texto | Contenido | Método | Estado |",
+            "|---|---|---|---|---|---|---|---|",
         ]
         for fila in sorted(grupos[grupo], key=lambda f: (f["id"], f["ruta"])):
             nombre = _celda(fila["titulo"] or Path(fila["ruta"]).name)
             documento = f"[{nombre}]({_enlace(raiz, fila['ruta'])})"
             texto = f"[abrir]({_enlace(raiz, fila['texto'])})" if fila["texto"] else "—"
             lineas.append(
-                f"| {fila['id']} | {documento} | {fila['tipo']} | {texto} | {fila['contenido']} | "
-                f"{fila['metodo']} | {_celda(fila['estado'])} |"
+                f"| {fila['id']} | {documento} | {fila['tipo']} | {clasificar(reglas, fila['ruta'])[0]} | {texto} | "
+                f"{fila['contenido']} | {fila['metodo']} | {_celda(fila['estado'])} |"
             )
     destino = raiz / INDICE
     destino.parent.mkdir(parents=True, exist_ok=True)

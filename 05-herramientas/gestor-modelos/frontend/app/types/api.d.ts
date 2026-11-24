@@ -451,6 +451,8 @@ export interface components {
              * @default
              */
             titulo: string;
+            /** Tramos */
+            tramos?: components["schemas"]["TramoAncla"][];
             /**
              * Ubicacion
              * @default
@@ -519,6 +521,8 @@ export interface components {
              * @default
              */
             titulo: string;
+            /** Tramos */
+            tramos?: components["schemas"]["TramoAncla"][];
             /** Truncado */
             truncado: boolean;
             /**
@@ -741,6 +745,15 @@ export interface components {
             revision: number;
             /** Sesion */
             sesion: string;
+        };
+        /** TramoAncla */
+        TramoAncla: {
+            /** Pagina */
+            pagina: number;
+            /** Rectangulos */
+            rectangulos?: number[][];
+            /** Rol */
+            rol: string;
         };
         /** ValidacionSesion */
         ValidacionSesion: {

@@ -27,7 +27,9 @@ def localizar(codigo: str) -> Path:
 
 def huella(tabla: Path) -> str:
     digest = hashlib.sha256()
-    insumos = [tabla, *(AQUI.glob('*.py')), AQUI / 'bpmn-js.lock.json',
+    # El HTML incrusta las anclas del visor: un cambio en fuentes-visor.json debe invalidar la caché.
+    visor = tabla.with_name(tabla.name.replace('-diagrama-proceso-tabla.md', '-fuentes-visor.json'))
+    insumos = [tabla, *([visor] if visor.is_file() else []), *(AQUI.glob('*.py')), AQUI / 'bpmn-js.lock.json',
                AQUI / 'vendor' / 'bpmn-navigated-viewer-17.11.1.production.min.js']
     for ruta in sorted(insumos):
         digest.update(str(ruta.relative_to(REPO_ROOT)).encode('utf-8'))

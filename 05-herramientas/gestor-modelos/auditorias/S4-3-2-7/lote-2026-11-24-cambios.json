@@ -1,0 +1,422 @@
+[
+ {
+  "elemento": "E1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso inicia al recibirse una necesidad de reducción.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "siempre que el área usuaria sustente lo siguiente"
+   }
+  ],
+  "razonamiento": "El art. 109.1 exige que el área usuaria sustente la reducción, lo que supone una necesidad previa; ninguna fuente identifica originador ni medio de recepción."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "actor",
+  "afirmacion": "El área usuaria sustenta la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "siempre que el área usuaria sustente lo siguiente"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.1. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "condicion",
+  "afirmacion": "El sustento acredita finalidad, prestaciones no ejecutadas, cuantificables y divisibles, y oportunidad antes de la conformidad final o del acta de recepción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "La falta de ejecución de dichas prestaciones no impida alcanzar la finalidad del contrato"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "no hayan sido ejecutadas y deben ser cuantificables y divisibles"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "antes de la conformidad final o suscripción del acta de recepción de la obra"
+   }
+  ],
+  "razonamiento": "Literales a), b) y c) del art. 109.1. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "condicion",
+  "afirmacion": "La reducción tiene un límite del 25 % del monto del contrato original.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "hasta por el 25% del monto del contrato original"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.1",
+    "cita": "puede reducir bienes, servicios, consultorías u obras hasta por el mismo porcentaje"
+   }
+  ],
+  "razonamiento": "El límite figura en el Reglamento y tiene base en el art. 64.1 de la Ley, que remite al 25 % fijado para adicionales. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "actor",
+  "afirmacion": "El carril 'Área usuaria competente' corresponde a una unidad concreta del GORE Huánuco.",
+  "resultado": "EVIDENCIA-INSUFICIENTE",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "La norma asigna la función al área usuaria sin identificar la unidad; falta evidencia institucional (ROF, MOF o expediente) para la adscripción."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "documento",
+  "afirmacion": "El art. 109 aplicable es el del texto consolidado local al 09-01-2026.",
+  "resultado": "EVIDENCIA-INSUFICIENTE",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+    "cita": "No es necesario suscribir una adenda"
+   }
+  ],
+  "razonamiento": "El art. 109 no aparece entre los numerales con versión duplicada por modificación en el texto local, pero el D.S. 001-2026-EF modificó otros numerales con entrada en vigor condicionada; falta cotejar la edición oficial vigente."
+ },
+ {
+  "elemento": "G1",
+  "aspecto": "decision",
+  "afirmacion": "Se verifica si la reducción está comprendida en el art. 109.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-63.3",
+    "cita": "La reducción de prestaciones"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "siempre que el área usuaria sustente lo siguiente"
+   }
+  ],
+  "razonamiento": "La reducción es un supuesto de modificación contractual (Ley 63.3 b) sujeto a las condiciones del 109.1; la compuerta traduce esas condiciones, no es texto literal."
+ },
+ {
+  "elemento": "F0",
+  "aspecto": "excepcion",
+  "afirmacion": "Si no se acredita el supuesto, el caso queda pendiente y no equivale a una denegación de fondo.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Decisión de modelamiento registrada en el sustento; ninguna fuente regula el cierre por falta de acreditación."
+ },
+ {
+  "elemento": "T2",
+  "aspecto": "condicion",
+  "afirmacion": "Se solicita siempre la opinión del supervisor.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. La tabla agrega G3: la solicitud de opinión solo ocurre si corresponde."
+ },
+ {
+  "elemento": "M:T2>SE",
+  "aspecto": "condicion",
+  "afirmacion": "La solicitud de opinión se envía en todos los casos.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. Con G3 el mensaje queda condicionado."
+ },
+ {
+  "elemento": "M1",
+  "aspecto": "secuencia",
+  "afirmacion": "La opinión de supervisión se recibe antes de integrar el sustento.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "Se cuente con opinión del supervisor"
+   }
+  ],
+  "razonamiento": "«Se cuente con» implica que la opinión existe antes de resolver; el medio y el momento exacto no están regulados en la fuente."
+ },
+ {
+  "elemento": "T3",
+  "aspecto": "actor",
+  "afirmacion": "Una unidad competente integra el sustento y aplica controles.",
+  "resultado": "EVIDENCIA-INSUFICIENTE",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Ninguna fuente consultada asigna esta integración a una unidad ni define controles específicos para la reducción."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "actor",
+  "afirmacion": "La autoridad de la gestión administrativa resuelve la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "La autoridad de la gestión administrativa, mediante resolución, puede ordenar la reducción de prestaciones"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-63.1",
+    "cita": "La modificación es aprobada por la autoridad de la gestión administrativa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-19",
+    "cita": "Autorizar las modificaciones contractuales que correspondan conforme al Reglamento"
+   }
+  ],
+  "razonamiento": "Coinciden Reglamento 109.1, Ley 63.1 y Reglamento 19 c). Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "decision",
+  "afirmacion": "La misma resolución determina el efecto en el plazo.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.2",
+    "cita": "En la misma resolución se determina si la reducción de prestaciones implica la reducción del plazo de ejecución contractual"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.2. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "accion",
+  "afirmacion": "La autoridad notifica la reducción.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T4 ya no dice «notificar»; la publicación en la Pladicop se representa en T5."
+ },
+ {
+  "elemento": "G2",
+  "aspecto": "decision",
+  "afirmacion": "La decisión puede ser favorable o no favorable.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "puede ordenar la reducción de prestaciones"
+   }
+  ],
+  "razonamiento": "«Puede ordenar» admite que la autoridad no la ordene; la bifurcación es lógica de modelamiento."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "documento",
+  "afirmacion": "La ruta favorable comunica y actualiza alcance y registros, sin nombrar la publicación en la Pladicop.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T5 nombra ahora la publicación de la resolución en la Pladicop."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "excepcion",
+  "afirmacion": "El proceso no contempla la adecuación de garantías tras reducir el monto.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T5 anota ahora la interfaz de adecuación de garantías."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso termina con la reducción comunicada.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. F1 se renombra «Reducción publicada»."
+ },
+ {
+  "elemento": "F2",
+  "aspecto": "existencia",
+  "afirmacion": "La decisión no favorable se comunica.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Ninguna fuente consultada regula la comunicación de una decisión no favorable de reducción."
+ },
+ {
+  "elemento": "SE",
+  "aspecto": "actor",
+  "afirmacion": "La solicitud de opinión puede dirigirse al supervisor o al inspector, según la modalidad.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "cita": "La supervisión de los contratos de obra es efectuada por el supervisor o el inspector"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "opinión del supervisor"
+   }
+  ],
+  "razonamiento": "Cambio frente al piloto manual (EVIDENCIA-INSUFICIENTE): el 186.1 asigna la supervisión de obra al supervisor o al inspector, de forma excluyente. Que el inspector emita la opinión del 109.1 d) es una inferencia razonable, no un texto literal."
+ },
+ {
+  "elemento": "ST",
+  "aspecto": "actor",
+  "afirmacion": "El supervisor emite opinión sobre la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "Se cuente con opinión del supervisor, en el caso de obras y consultoría de obras"
+   }
+  ],
+  "razonamiento": "Literal en el 109.1 d), sujeto a «de corresponder». Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "ST",
+  "aspecto": "actor",
+  "afirmacion": "El inspector emite la opinión cuando no hay supervisor.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "cita": "El inspector es un servidor de la entidad contratante que ha sido expresamente asignado por ésta"
+   }
+  ],
+  "razonamiento": "Cambio frente al piloto manual (CONTRADICCION parcial): con el 186.1 la variante con inspector queda como inferencia sustentable; requiere confirmación del equipo o de una opinión del OECE."
+ },
+ {
+  "elemento": "SF",
+  "aspecto": "existencia",
+  "afirmacion": "La opinión se remite a la entidad.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Representación funcional de «se cuente con opinión»; sin medio ni plazo en las fuentes consultadas."
+ },
+ {
+  "elemento": "M:SF>M1",
+  "aspecto": "secuencia",
+  "afirmacion": "La opinión viaja como mensaje del supervisor a la entidad.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Intercambio propuesto solo para la ruta con opinión; no se acredita un canal concreto."
+ },
+ {
+  "elemento": "G3",
+  "aspecto": "decision",
+  "afirmacion": "La opinión de supervisión se solicita solo si corresponde.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "Se cuente con opinión del supervisor, en el caso de obras y consultoría de obras, de corresponder"
+   }
+  ],
+  "razonamiento": "El literal d) del art. 109.1 condiciona la opinión con «de corresponder»; la compuerta lo representa. Texto local consolidado al 09-01-2026; vigencia posterior pendiente."
+ },
+ {
+  "elemento": "T2",
+  "aspecto": "condicion",
+  "afirmacion": "La solicitud de opinión se activa solo por la rama afirmativa de G3.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "de corresponder"
+   }
+  ],
+  "razonamiento": "Resuelve la contradicción del piloto: la solicitud ya no es incondicional."
+ },
+ {
+  "elemento": "M:T2>SE",
+  "aspecto": "condicion",
+  "afirmacion": "El mensaje de solicitud solo se envía en la ruta con opinión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "de corresponder"
+   }
+  ],
+  "razonamiento": "Hereda la condición de G3 y T2."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "documento",
+  "afirmacion": "La resolución se publica en la Pladicop, sin adenda.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+    "cita": "No es necesario suscribir una adenda, bastando con la publicación a través de la Pladicop de la resolución que lo aprueba"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.3. El actor que publica no está identificado en la fuente; el carril sigue por confirmar."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "excepcion",
+  "afirmacion": "T5 anota que el contratista puede pedir disminuir garantías y el plazo de adecuación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-117.3",
+    "cita": "el contratista puede solicitar la disminución proporcional del monto y/o plazo de las garantías"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-117.4",
+    "cita": "la adecuación de la garantía debe efectuarse en el plazo máximo de diez días hábiles"
+   }
+  ],
+  "razonamiento": "La anotación reproduce los arts. 117.3 y 117.4; la interfaz la inicia el contratista y no se modela como flujo de la entidad."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso termina con la reducción publicada.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+    "cita": "bastando con la publicación a través de la Pladicop"
+   }
+  ],
+  "razonamiento": "El cierre en la publicación sigue al 109.3; que sea el último acto del proceso es decisión de modelamiento."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "accion",
+  "afirmacion": "La autoridad resuelve sin un acto de notificación adicional modelado.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-257.1",
+    "cita": "se llevan a cabo a través de la Pladicop y tienen la misma validez y eficacia"
+   }
+  ],
+  "razonamiento": "El 257.1 da valor legal a los actos por la Pladicop; no se identificó otra notificación obligatoria. Si el equipo conoce otro canal institucional, debe agregarse."
+ }
+]

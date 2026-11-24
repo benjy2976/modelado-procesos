@@ -89,3 +89,22 @@ Se solicita al usuario evaluar la calidad del piloto y decidir:
 3. Si se incorpora el atributo de régimen al catálogo documental.
 
 Sin esa respuesta no se inicia la fase 5. El silencio o las métricas no equivalen a conformidad.
+
+## Resolución de la puerta 4.P — 2026-11-24
+
+El usuario aprobó el formato, pidió aplicar las cuatro propuestas e incorporar el régimen al catálogo (DEC-057). Resultados:
+
+- **Tabla S4.3.2.7.** Se agregó la compuerta G3 y se modificaron T4, T5, F1 y ST, según el [sustento](../../../02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-7-gestion-reducciones-prestaciones/S4-3-2-7-sustento.md). D1-D5 sin hallazgos. La auditoría rehecha no deja contradicciones abiertas: 11 `SUSTENTADA`, 12 `INFERENCIA`, 3 `EVIDENCIA-INSUFICIENTE` y 6 `NO-APLICA` por rectificación. Hay 16 anclas vigentes.
+- **Régimen.** `01-referencias/00-catalogo/regimen-documental.json` clasifica los 239 documentos: 34 `CONTRATA-LEY-32069`, 5 `OBRAS-POR-IMPUESTOS`, 15 `ADMINISTRACION-DIRECTA`, 184 `TRANSVERSAL` y 1 `NO-DETERMINADO` (D.S. 206-2024-EF). El filtro reduce «valorización» de 223 a 146 coincidencias y elimina homónimos ajenos a la contratación. Las métricas del banco no cambian.
+- **Defecto detectado (corregido después).** La caché de `modelar.py` no consideraba `fuentes-visor.json`: un cambio de anclas no regenera el HTML hasta usar `--sin-cache`. Se corrigió con autorización expresa del usuario: la huella de la caché incluye ahora ese archivo.
+
+## Validación ampliada tras la revisión del usuario — 2026-11-24
+
+El usuario señaló que auditar del modelo hacia las fuentes no basta para validar el modelo. G1 preguntaba por el art. 109 sin ninguna referencia a ese artículo, y la Ley art. 64 regula adicionales, no reducción. Se aceptaron las observaciones y se amplió el formato (DEC-057):
+
+- **Dirección fuente → modelo.** Las 15 obligaciones de los pasajes rectores (Reglamento 109.1-109.3, 117.3-117.4 y 186.1; Ley 63.1 y 64.1) se mapearon a elementos. Todas quedan representadas.
+- **Contexto de cada cita.** Cada fuente declara su ámbito y su relación. En T1, la Ley 64.1 pasa a ser una sola referencia de dos páginas: la última oración (p. 31), que trata la reducción, es la cita directa, y el 25 % de la primera oración (p. 30), que trata adicionales, es el antecedente que le da contenido. La fuente operativa sigue siendo el Reglamento 109.1. La Ley 63.3 y el 186.1 quedan como antecedentes.
+- **G1** pasa a «¿Se acreditan las condiciones de la reducción?», con fuente y ancla en el 109.1. El nuevo control `REFERENCIA-SIN-ANCLA` impide que un elemento mencione un artículo sin mostrarlo.
+- **Vigencia.** Se incorporaron la publicación oficial del Reglamento (El Peruano, 22-01-2025, `CON-001P`), el D.S. 001-2026-EF (`CON-001M1`, en vigor desde el 14-01-2026 tras la R.D. 0001-2026-EF/54.01) y el D.S. 222-2026-EF (`CON-001M2`, que solo modifica la Decimocuarta DCF). Los numerales usados por el piloto son idénticos en la publicación original y no fueron modificados. La afirmación de vigencia de T1 pasa a `SUSTENTADA` al 2026-11-24. Como el texto consolidado es más actual, el visor sigue mostrando ese texto; la edición original queda en la biblioteca sin mostrarse.
+
+Resultado vigente: 33 afirmaciones (13 `SUSTENTADA`, 11 `INFERENCIA`, 2 `EVIDENCIA-INSUFICIENTE`, 7 `NO-APLICA`), sin contradicciones, 15/15 obligaciones representadas, 16 anclas vigentes y ninguna referencia sin ancla.

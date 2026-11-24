@@ -1,0 +1,332 @@
+{
+  "codigo": "S4.3.2.7",
+  "revision_tabla": "5A24EC2D80205986DCFA219595C13CBC521918A7DD98C1E8559C8F59FB461F9C",
+  "fecha": "2026-11-24T23:10:04+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "La autoridad de la gestión administrativa, mediante resolución, puede ordenar la reducción de prestaciones",
+      "obligacion": "La autoridad de la gestión administrativa ordena la reducción mediante resolución",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T4"
+      ],
+      "razonamiento": "T4 está en el carril de la autoridad y resuelve."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "hasta por el 25% del monto del contrato original",
+      "obligacion": "Límite del 25 % del monto del contrato original",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "G1",
+        "T1"
+      ],
+      "razonamiento": "Anotación de G1 y de T1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "lo cual implica una disminución en el monto del contrato",
+      "obligacion": "La reducción disminuye el monto del contrato",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5"
+      ],
+      "razonamiento": "T5 actualiza registros; la disminución de monto se refleja también en la interfaz de garantías."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "siempre que el área usuaria sustente lo siguiente",
+      "obligacion": "El área usuaria sustenta",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1"
+      ],
+      "razonamiento": "T1 en el carril del área usuaria."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "La falta de ejecución de dichas prestaciones no impida alcanzar la finalidad del contrato",
+      "obligacion": "a) La reducción no impide alcanzar la finalidad",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1",
+        "G1"
+      ],
+      "razonamiento": "Condición verificada en T1 y decidida en G1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "no hayan sido ejecutadas y deben ser cuantificables y divisibles",
+      "obligacion": "b) Prestaciones no ejecutadas, cuantificables y divisibles",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1",
+        "G1"
+      ],
+      "razonamiento": "Condición verificada en T1 y decidida en G1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "antes de la conformidad final o suscripción del acta de recepción de la obra",
+      "obligacion": "c) Aprobación antes de la conformidad final o del acta de recepción",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1",
+        "G1"
+      ],
+      "razonamiento": "Oportunidad verificada en T1 y decidida en G1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "Se cuente con opinión del supervisor, en el caso de obras y consultoría de obras, de corresponder",
+      "obligacion": "d) Opinión del supervisor en obras y consultoría de obras, de corresponder",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "G3",
+        "T2",
+        "SE",
+        "ST"
+      ],
+      "razonamiento": "G3 decide si corresponde; T2, SE y ST representan la solicitud y emisión."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "En la misma resolución se determina si la reducción de prestaciones implica la reducción del plazo",
+      "obligacion": "La misma resolución decide si se reduce el plazo",
+      "aspecto": "decision",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T4"
+      ],
+      "razonamiento": "Anotación y nombre de T4."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 60,
+        "hasta": 60,
+        "paginas": [
+          60
+        ]
+      },
+      "cita": "No es necesario suscribir una adenda, bastando con la publicación a través de la Pladicop de la resolución que lo aprueba",
+      "obligacion": "Sin adenda; basta publicar la resolución en la Pladicop",
+      "aspecto": "documento",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5",
+        "F1"
+      ],
+      "razonamiento": "T5 publica; F1 cierra con la reducción publicada."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-117.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 64,
+        "hasta": 64,
+        "paginas": [
+          64
+        ]
+      },
+      "cita": "el contratista puede solicitar la disminución proporcional del monto y/o plazo de las garantías",
+      "obligacion": "El contratista puede pedir disminuir sus garantías",
+      "aspecto": "excepcion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5"
+      ],
+      "razonamiento": "Anotada como interfaz que inicia el contratista; no se modela su trámite."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-117.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 64,
+        "hasta": 64,
+        "paginas": [
+          64
+        ]
+      },
+      "cita": "la adecuación de la garantía debe efectuarse en el plazo máximo de diez días hábiles",
+      "obligacion": "Adecuación de la garantía en 10 días hábiles",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T5"
+      ],
+      "razonamiento": "Anotada en T5."
+    },
+    {
+      "fragmento": "f14ffa37b824b8af-c9c22559:art-63.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+      "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 30,
+        "hasta": 30,
+        "paginas": [
+          30
+        ]
+      },
+      "cita": "La modificación es aprobada por la autoridad de la gestión administrativa",
+      "obligacion": "La modificación contractual la aprueba la autoridad de la gestión administrativa",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T4"
+      ],
+      "razonamiento": "Coincide con el 109.1."
+    },
+    {
+      "fragmento": "f14ffa37b824b8af-c9c22559:art-64.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+      "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 30,
+        "hasta": 31,
+        "paginas": [
+          30,
+          31
+        ]
+      },
+      "cita": "puede reducir bienes, servicios, consultorías u obras hasta por el mismo porcentaje",
+      "obligacion": "Base legal del límite de la reducción",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1"
+      ],
+      "razonamiento": "Referencia de dos páginas en T1 (antecedente: 25 % de la primera oración)."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 101,
+        "hasta": 101,
+        "paginas": [
+          101
+        ]
+      },
+      "cita": "No se puede contar de manera simultánea con un inspector y un supervisor",
+      "obligacion": "Supervisor o inspector, nunca ambos",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "SE",
+        "ST"
+      ],
+      "razonamiento": "Carril «Supervisor o inspector de obra, según modalidad»; la opinión del inspector es inferencia."
+    }
+  ]
+}

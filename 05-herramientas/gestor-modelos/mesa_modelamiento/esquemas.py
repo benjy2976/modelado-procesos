@@ -32,6 +32,12 @@ class ElementoVista(BaseModel):
     destino_tipo: str | None = None
 
 
+class TramoAncla(BaseModel):
+    pagina: int
+    rol: str
+    rectangulos: list[list[float]] = Field(default_factory=list)
+
+
 class FuenteVista(BaseModel):
     ruta: str
     pagina: int | None = None
@@ -42,6 +48,7 @@ class FuenteVista(BaseModel):
     vigencia: str = ""
     sha256: str = ""
     rectangulos: list[list[float]] = Field(default_factory=list)
+    tramos: list[TramoAncla] = Field(default_factory=list)
     estado_ancla: str = "SIN_COORDENADAS"
 
 

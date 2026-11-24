@@ -6,7 +6,7 @@ import type { components } from '~/types/api'
 type Nodo = components['schemas']['NodoArbol']
 type Modelo = components['schemas']['ModeloVista']
 type Fuente = components['schemas']['FuenteVista']
-type DocumentoAbierto = { title: string; url: string; kind: 'markdown' | 'pdf' | 'text'; page?: number; fragment?: string; location?: string; rectangles?: number[][]; anchorStatus?: string }
+type DocumentoAbierto = { title: string; url: string; kind: 'markdown' | 'pdf' | 'text'; page?: number; fragment?: string; location?: string; rectangles?: number[][]; segments?: { pagina: number; rol: string; rectangulos?: number[][] }[]; anchorStatus?: string }
 
 const tree = ref<Nodo | null>(null)
 const activeCode = ref('Nivel 0')
@@ -121,6 +121,7 @@ function openSource(source: Fuente, index: number) {
     fragment: source.fragmento,
     location: source.ubicacion,
     rectangles: source.rectangulos,
+    segments: source.tramos,
     anchorStatus: source.estado_ancla
   }
 }

@@ -56,6 +56,10 @@ Un DOCX no tiene paginación fija. El ancla citable es el número de párrafo de
 
 Este cotejo comprueba la conversión, no el contenido normativo: las bases siguen siendo plantillas cuyo uso en un contrato concreto depende de las bases efectivamente aprobadas.
 
+## Publicaciones oficiales del Reglamento — 2026-11-24
+
+Se incorporaron la separata especial de El Peruano del 22-01-2025 con el D.S. 009-2025-EF (`CON-001P`, aportada por el usuario, 196 páginas con capa de texto; 2 páginas de portada sin texto quedan sin OCR porque no tienen contenido normativo) y las publicaciones de El Peruano del D.S. 001-2026-EF (`CON-001M1`) y del D.S. 222-2026-EF (`CON-001M2`), obtenidas de copias alojadas en lpderecho.pe cuyos metadatos corresponden a la publicación oficial de Editora Perú. Las ediciones de El Peruano extraen la ligadura «fi» con un espacio («efi cientes») e intercalan cabeceras de columna; por eso el anclaje compara sin espacios. Una comparación automática por artículo entre la edición original y el texto consolidado todavía tiene ruido de extracción. Los numerales usados en S4.3.2.7 se verificaron uno por uno.
+
 ## Fase 3: consulta acotada
 
 **Segmentación (3.C1–3.E1).** Los 211 textos derivados (181 PDF, 29 DOCX y 1 PPTX) se dividieron en 22 849 fragmentos con cobertura de texto del 100 % en todos los documentos. 83 PDF se reconocieron como normas con artículos, 98 se segmentaron por bloques de página y 30 por estructura Office. La primera versión solo reconocía «Artículo N.» y dejaba en bloques a normas técnicas del RNE y decretos que usan «Artículo N.-»; el patrón se amplió exigiendo que el título empiece en mayúscula, para no confundir citas con encabezados. Las entradas de índices de contenido (130) quedan como `ENCABEZADO-SIN-CUERPO` y no alteran la jerarquía de capítulos.

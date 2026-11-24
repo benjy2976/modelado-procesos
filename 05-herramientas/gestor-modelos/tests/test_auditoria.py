@@ -8,7 +8,7 @@ from test_fuentes_consulta import _biblioteca
 
 from mesa_modelamiento.auditoria import carpeta_auditoria, eventos, inventariar_elementos, registrar
 from mesa_modelamiento.auditoria_informe import informe
-from mesa_modelamiento.fuentes_anclaje import anclar, rectangulo_valido, verificar_anclas
+from mesa_modelamiento.fuentes_anclaje import anclar, anclar_entre_paginas, rectangulo_valido, verificar_anclas
 from mesa_modelamiento.fuentes_busqueda import buscar, indexar
 from mesa_modelamiento.fuentes_fragmentos import segmentar
 from mesa_modelamiento.repositorio import ErrorDominio
@@ -40,17 +40,21 @@ TABLA = """# S4.3.2.7 Prueba
 """
 
 
-def _pdf(lineas: list[str]) -> bytes:
-    """PDF de una página con un renglón Helvetica por elemento, legible por pdfminer."""
-    flujo = "BT /F1 12 Tf 72 700 Td 14 TL " + " ".join(f"({t}) Tj T*" for t in lineas) + " ET"
-    objetos = [
-        "<< /Type /Catalog /Pages 2 0 R >>",
-        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R "
-        "/Resources << /Font << /F1 5 0 R >> >> >>",
-        f"<< /Length {len(flujo)} >>\nstream\n{flujo}\nendstream",
-        "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
-    ]
+def _pdf(lineas: list[str], *otras: list[str]) -> bytes:
+    """PDF con una página por lista de renglones Helvetica, legible por pdfminer."""
+    paginas = [lineas, *otras]
+    fuente = 3 + 2 * len(paginas)
+    objetos = ["<< /Type /Catalog /Pages 2 0 R >>",
+               f"<< /Type /Pages /Kids [{' '.join(f'{3 + 2 * n} 0 R' for n in range(len(paginas)))}] "
+               f"/Count {len(paginas)} >>"]  # fmt: skip
+    for n, renglones in enumerate(paginas):
+        flujo = "BT /F1 12 Tf 72 700 Td 14 TL " + " ".join(f"({t}) Tj T*" for t in renglones) + " ET"
+        objetos += [
+            f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents {4 + 2 * n} 0 R "
+            f"/Resources << /Font << /F1 {fuente} 0 R >> >> >>",
+            f"<< /Length {len(flujo)} >>\nstream\n{flujo}\nendstream",
+        ]
+    objetos.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
     salida, posiciones = "%PDF-1.4\n", []
     for numero, objeto in enumerate(objetos, 1):
         posiciones.append(len(salida))
@@ -74,6 +78,7 @@ def test_anclar_renglones_guion_y_estados(tmp_path: Path) -> None:
     dos = anclar(tmp_path, ruta, 1, "implica una disminución del monto")
     assert dos["estado"] == "ANCLADO" and len(dos["rectangulos"]) == 2
     assert dos["rectangulos"][0][1] < dos["rectangulos"][1][1]
+    assert anclar(tmp_path, ruta, 1, "primeralinea del  tex to")["estado"] == "ANCLADO"  # Espacios de composición.
     assert anclar(tmp_path, ruta, 1, "texto ausente")["estado"] == "CITA-NO-HALLADA"
     assert anclar(tmp_path, ruta, 2, "primera")["estado"] == "PAGINA-INEXISTENTE"
     assert anclar(tmp_path, ruta, 1, "primera", sha256="0" * 64)["estado"] == "HASH-DISTINTO"
@@ -89,6 +94,12 @@ def test_anclar_renglones_guion_y_estados(tmp_path: Path) -> None:
     }}), encoding="utf-8")  # fmt: skip
     estados = [a["estado"] for a in verificar_anclas(tmp_path, visor)]
     assert estados == ["VIGENTE", "PAGINA-INEXISTENTE", "RECTANGULO-INVALIDO", "HASH-DISTINTO"]
+    tramo = {"pagina": 1, "rol": "citado", "rectangulos": uno["rectangulos"]}
+    visor.write_text(json.dumps({"elementos": {"T1": [
+        {**base, "rectangulos": uno["rectangulos"], "tramos": [tramo, {**tramo, "rol": "antecedente"}]},
+        {**base, "rectangulos": uno["rectangulos"], "tramos": [tramo, {**tramo, "pagina": 2}]},
+    ]}}), encoding="utf-8")  # fmt: skip
+    assert [a["estado"] for a in verificar_anclas(tmp_path, visor)] == ["VIGENTE", "PAGINA-INEXISTENTE"]
 
 
 def _proceso(raiz: Path) -> Path:
@@ -111,7 +122,8 @@ def test_inventario_registro_idempotente_e_informe(tmp_path: Path) -> None:
     fragmento = buscar(tmp_path, "adenda")["resultados"][0]["id"]
     entrada = {"elemento": "T1", "aspecto": "accion", "afirmacion": "La reducción no requiere adenda.",
                "resultado": "SUSTENTADA", "clase": "EXIGENCIA-NORMATIVA", "razonamiento": "El 2.2 lo dice.",
-               "fuentes": [{"fragmento": fragmento, "cita": "No se requiere adenda"}]}  # fmt: skip
+               "fuentes": [{"fragmento": fragmento, "cita": "No se requiere adenda", "ambito": "reducción en ejecución",
+                            "relacion": "directa"}]}  # fmt: skip
     assert registrar(tmp_path, "S4.3.2.7", [entrada])["registrados"] == 1
     assert registrar(tmp_path, "S4.3.2.7", [entrada])["repetidos"] == 1
     cambio = registrar(tmp_path, "S4.3.2.7", [{**entrada, "resultado": "INFERENCIA"}])
@@ -122,10 +134,12 @@ def test_inventario_registro_idempotente_e_informe(tmp_path: Path) -> None:
         {**entrada, "fuentes": [{"fragmento": fragmento, "cita": "texto que no está"}]},
         {**entrada, "resultado": "VALIDADO"},
         {**entrada, "resultado": "CONTRADICCION", "fuentes": []},
+        {**entrada, "fuentes": [{**entrada["fuentes"][0], "relacion": "antecedente"}]},
+        {**entrada, "fuentes": [{"fragmento": fragmento, "cita": "No se requiere adenda"}]},
     ]
     with pytest.raises(ErrorDominio) as error:
         registrar(tmp_path, "S4.3.2.7", malos)
-    for codigo in ("ID-AUSENTE", "CITA-INVALIDA", "RESULTADO", "SIN-FUENTE"):
+    for codigo in ("ID-AUSENTE", "CITA-INVALIDA", "RESULTADO", "SIN-FUENTE", "SIN-FUENTE-DIRECTA", "CONTEXTO-CITA"):
         assert codigo in str(error.value)
     assert len(eventos(tmp_path, "S4.3.2.7")) == 2
 
@@ -134,13 +148,49 @@ def test_inventario_registro_idempotente_e_informe(tmp_path: Path) -> None:
     resto = [{**entrada, "elemento": e, "resultado": "INFERENCIA", "fuentes": [], "afirmacion": f"Paso {e}"}
              for e in ("E1", "G1", "F1", "F0", "M:T1>F1")]  # fmt: skip
     registrar(tmp_path, "S4.3.2.7", resto)
+    con_mencion = informe(tmp_path, "S4.3.2.7")
+    assert con_mencion["referencias_sin_ancla"] == [{"elemento": "T1", "articulo": 2}] and not con_mencion["ok"]
+    from mesa_modelamiento.auditoria import registrar_cobertura
+
+    cobertura = [
+        {"fragmento": fragmento, "cita": "No se requiere adenda", "obligacion": "Sin adenda", "estado": "REPRESENTADO",
+         "elementos": ["T1"], "razonamiento": "T1 lo recoge."},
+        {"fragmento": fragmento, "cita": "basta la publicación de la resolución", "obligacion": "Publicar",
+         "estado": "NO-REPRESENTADO", "elementos": [], "razonamiento": "Falta."},
+    ]  # fmt: skip
+    resumen = registrar_cobertura(tmp_path, "S4.3.2.7", cobertura)
+    assert resumen["por_estado"] == {"REPRESENTADO": 1, "NO-REPRESENTADO": 1}
+    with pytest.raises(ErrorDominio):
+        registrar_cobertura(tmp_path, "S4.3.2.7", [{**cobertura[0], "elementos": ["T9"]}])
+    assert informe(tmp_path, "S4.3.2.7")["no_representadas"] == 1
+    tabla.write_text(TABLA.replace("| NORM | Art. 2 |", "| NORM | DEC |"), encoding="utf-8")
+    inventariar_elementos(tmp_path, "S4.3.2.7")
+    registrar(tmp_path, "S4.3.2.7", [{**entrada, "resultado": "INFERENCIA"}, *resto])
+    registrar_cobertura(tmp_path, "S4.3.2.7", [cobertura[0], {**cobertura[1], "estado": "FUERA-DE-ALCANCE"}])
     completo = informe(tmp_path, "S4.3.2.7")
-    assert completo["ok"] and completo["resultados"] == {"INFERENCIA": 6}
+    assert completo["ok"] and completo["resultados"] == {"INFERENCIA": 6} and not completo["referencias_sin_ancla"]
     texto = (tmp_path / completo["informe"]).read_text(encoding="utf-8")
     assert "| T1 | accion | `INFERENCIA` |" in texto and "tags:" in texto
 
-    tabla.write_text(TABLA.replace("Necesidad", "Necesidad recibida"), encoding="utf-8")
+    tabla.write_text(
+        TABLA.replace("| NORM | Art. 2 |", "| NORM | DEC |").replace("Necesidad", "Nueva"), encoding="utf-8"
+    )
     with pytest.raises(ErrorDominio):
         registrar(tmp_path, "S4.3.2.7", [entrada])
     assert informe(tmp_path, "S4.3.2.7")["inventario_desactualizado"]
     assert carpeta_auditoria(tmp_path, "S4.3.2.7").name == "S4-3-2-7"
+
+
+def test_cita_que_cruza_el_salto_de_pagina(tmp_path: Path) -> None:
+    ruta = "01-referencias/04-contrataciones-publicas/dos.pdf"
+    archivo = tmp_path / ruta
+    archivo.parent.mkdir(parents=True)
+    archivo.write_bytes(_pdf(["Texto previo.", "La entidad puede reducir prestaciones hasta"],
+                             ["por el mismo porcentaje del contrato.", "Otro numeral."]))  # fmt: skip
+    cita = "puede reducir prestaciones hasta por el mismo porcentaje"
+    assert anclar(tmp_path, ruta, 1, cita)["estado"] == "CITA-NO-HALLADA"
+    cruzada = anclar_entre_paginas(tmp_path, ruta, [1, 2], cita)
+    assert cruzada["estado"] == "ANCLADO" and [t["pagina"] for t in cruzada["tramos"]] == [1, 2]
+    assert all(len(t["rectangulos"]) == 1 and t["rol"] == "citado" for t in cruzada["tramos"])
+    assert anclar_entre_paginas(tmp_path, ruta, [1, 2], "texto que no existe en ninguna")["estado"] == "CITA-NO-HALLADA"
+    assert anclar_entre_paginas(tmp_path, ruta, [1, 2], cita, sha256="0" * 64)["estado"] == "HASH-DISTINTO"

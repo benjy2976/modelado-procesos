@@ -391,3 +391,29 @@ def test_mcp_prepara_e_integra_sustento_sin_alterar_bpmn(repositorio: Repositori
     assert resultado["estado"] == "INTEGRADA"
     assert repositorio.rutas("S4.3")["sustento"].read_text(encoding="utf-8").strip() == "# Aclarado"
     assert repositorio.bpmn("S4.3").read_bytes() == bpmn_antes
+
+
+def test_ancla_con_tramos_en_varias_paginas(repositorio: RepositorioProcesos) -> None:
+    pdf = repositorio.raiz / "01-referencias" / "tramos.pdf"
+    escritor = PdfWriter()
+    escritor.add_blank_page(width=300, height=400)
+    escritor.add_blank_page(width=300, height=400)
+    with pdf.open("wb") as archivo:
+        escritor.write(archivo)
+    sha256 = hashlib.sha256(pdf.read_bytes()).hexdigest()
+    tramos = [
+        {"pagina": 1, "rol": "antecedente", "rectangulos": [[0.1, 0.8, 0.5, 0.85]]},
+        {"pagina": 2, "rol": "citado", "rectangulos": [[0.1, 0.05, 0.6, 0.1]]},
+    ]
+    entrada = {"ruta": "01-referencias/tramos.pdf", "pagina": 1, "sha256": sha256,
+               "rectangulos": tramos[0]["rectangulos"], "tramos": tramos}  # fmt: skip
+    referencias = repositorio.carpeta("S4.3") / "S4-3-fuentes-visor.json"
+    referencias.write_text(json.dumps({"elementos": {"Tarea_1": [entrada]}}), encoding="utf-8")
+    cliente = TestClient(crear_aplicacion(repositorio))
+    ancla = cliente.get("/api/procesos/S4.3").json()["fuentes_visor"]["Tarea_1"][0]
+    assert ancla["estado_ancla"] == "DISPONIBLE" and ancla["tramos"] == tramos
+
+    invalido = {**entrada, "tramos": [{**tramos[0], "rol": "otro"}]}
+    referencias.write_text(json.dumps({"elementos": {"Tarea_1": [invalido]}}), encoding="utf-8")
+    with pytest.raises(ValueError, match="Tramos de ancla invalidos"):
+        repositorio.leer_modelo("S4.3")

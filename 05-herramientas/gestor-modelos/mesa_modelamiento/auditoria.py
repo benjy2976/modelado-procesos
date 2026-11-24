@@ -25,6 +25,8 @@ ASPECTOS = {"actor", "accion", "condicion", "plazo", "documento", "entrada-salid
 RESULTADOS = {"SUSTENTADA", "INFERENCIA", "CONTRADICCION", "EVIDENCIA-INSUFICIENTE", "NO-APLICA"}
 CLASES = {"EXIGENCIA-NORMATIVA", "EVIDENCIA-OBSERVADA", "DECISION-PROYECTO", "PROPUESTA"}
 REQUIERE_FUENTE = {"SUSTENTADA", "CONTRADICCION"}
+RELACIONES = {"directa", "antecedente", "analogia"}  # Una cita antecedente o análoga no sustenta por sí sola.
+ESTADOS_COBERTURA = {"REPRESENTADO", "NO-REPRESENTADO", "FUERA-DE-ALCANCE"}
 
 
 def _normalizar(texto: str) -> str:
@@ -122,7 +124,15 @@ def _validar(entrada: dict, ids: set[str], base) -> tuple[list[str], list[dict]]
         errores.append(f"TEXTO-VACIO {etiqueta}")
     if entrada.get("resultado") in REQUIERE_FUENTE and not entrada.get("fuentes"):
         errores.append(f"SIN-FUENTE {etiqueta}")
-    for fuente in entrada.get("fuentes") or []:
+    fuentes_entrada = entrada.get("fuentes") or []
+    for fuente in fuentes_entrada:
+        if fuente.get("relacion") not in RELACIONES or not str(fuente.get("ambito", "")).strip():
+            errores.append(
+                f"CONTEXTO-CITA {etiqueta}: indique ámbito del pasaje y relación (directa/antecedente/analogia)"
+            )
+    if entrada.get("resultado") == "SUSTENTADA" and not any(f.get("relacion") == "directa" for f in fuentes_entrada):
+        errores.append(f"SIN-FUENTE-DIRECTA {etiqueta}: un antecedente o una analogía no sustentan por sí solos")
+    for fuente in fuentes_entrada:
         fila = base.execute(
             "SELECT id, ruta, sha256, ubicacion, texto FROM fragmentos WHERE id = ?", (fuente.get("fragmento"),)
         ).fetchone()
@@ -132,8 +142,9 @@ def _validar(entrada: dict, ids: set[str], base) -> tuple[list[str], list[dict]]
         cita = fuente.get("cita", "")
         if cita and _normalizar(cita) not in _normalizar(fila[4]):
             errores.append(f"CITA-INVALIDA {etiqueta}: la cita no aparece en {fila[0]}")
+        contexto = {"ambito": fuente.get("ambito", ""), "relacion": fuente.get("relacion", "")}
         fuentes.append({"fragmento": fila[0], "ruta": fila[1], "sha256": fila[2], "ubicacion": json.loads(fila[3]),
-                        "cita": cita})  # fmt: skip
+                        "cita": cita, **contexto})  # fmt: skip
     return errores, fuentes
 
 
@@ -189,3 +200,53 @@ def registrar(raiz: Path, codigo: str, entradas: list[dict], actor: str = "agent
             archivo.write(json.dumps(evento, ensure_ascii=False) + "\n")
     return {"codigo": codigo, "registrados": len(nuevos) - rectificaciones, "rectificaciones": rectificaciones,
             "repetidos": repetidos, "registro": ruta.relative_to(raiz).as_posix()}  # fmt: skip
+
+
+def registrar_cobertura(raiz: Path, codigo: str, entradas: list[dict]) -> dict:
+    """Mapea cada obligación del pasaje rector a un elemento o declara por qué no está representada.
+
+    Complementa el registro modelo→fuente con la dirección fuente→modelo; reemplaza la cobertura anterior
+    del proceso (el historial queda en Git) y rechaza todo el lote ante un error.
+    """
+    raiz = raiz.resolve()
+    inventario = cargar_inventario(raiz, codigo)
+    if _sha256(raiz / inventario["tabla"]) != inventario["revision_tabla"]:
+        raise ErrorDominio("La tabla cambió después del inventario; vuelva a inventariar", 409)
+    ids = {item["id"] for item in inventario["items"]}
+    errores, filas = [], []
+    base, _ = _conectar(raiz)
+    with closing(base):
+        for n, entrada in enumerate(entradas, 1):
+            etiqueta = f"cobertura {n}"
+            fila = base.execute("SELECT id, ruta, sha256, ubicacion, texto FROM fragmentos WHERE id = ?",
+                                (entrada.get("fragmento"),)).fetchone()  # fmt: skip
+            if fila is None:
+                errores.append(f"CITA-INVALIDA {etiqueta}: fragmento inexistente")
+                continue
+            if not entrada.get("cita") or _normalizar(entrada["cita"]) not in _normalizar(fila[4]):
+                errores.append(f"CITA-INVALIDA {etiqueta}: la cita no aparece en {fila[0]}")
+            if entrada.get("estado") not in ESTADOS_COBERTURA:
+                errores.append(f"ESTADO {etiqueta}: {entrada.get('estado')}")
+            elementos = entrada.get("elementos") or []
+            if entrada.get("estado") == "REPRESENTADO" and (not elementos or set(elementos) - ids):
+                errores.append(f"ID-AUSENTE {etiqueta}: {sorted(set(elementos) - ids) or 'sin elementos'}")
+            if not str(entrada.get("obligacion", "")).strip() or not str(entrada.get("razonamiento", "")).strip():
+                errores.append(f"TEXTO-VACIO {etiqueta}")
+            filas.append({"fragmento": fila[0], "ruta": fila[1], "sha256": fila[2], "ubicacion": json.loads(fila[3]),
+                          "cita": entrada.get("cita", ""), "obligacion": entrada.get("obligacion", ""),
+                          "aspecto": entrada.get("aspecto", ""), "estado": entrada.get("estado"),
+                          "elementos": elementos, "razonamiento": entrada.get("razonamiento", "")})  # fmt: skip
+    if errores:
+        raise ErrorDominio("Cobertura rechazada sin escribir: " + "; ".join(errores[:20]))
+    datos = {"codigo": codigo, "revision_tabla": inventario["revision_tabla"],
+             "fecha": datetime.now(UTC).isoformat(timespec="seconds"), "obligaciones": filas}  # fmt: skip
+    _guardar(carpeta_auditoria(raiz, codigo) / "cobertura-fuente.json", datos)
+    conteo: dict[str, int] = {}
+    for fila in filas:
+        conteo[fila["estado"]] = conteo.get(fila["estado"], 0) + 1
+    return {"codigo": codigo, "obligaciones": len(filas), "por_estado": conteo}
+
+
+def cargar_cobertura(raiz: Path, codigo: str) -> dict:
+    ruta = carpeta_auditoria(raiz, codigo) / "cobertura-fuente.json"
+    return json.loads(ruta.read_text(encoding="utf-8")) if ruta.is_file() else {"obligaciones": []}

@@ -266,3 +266,36 @@ def test_banco_de_preguntas_metricas_conocidas(tmp_path: Path) -> None:
         medir(tmp_path, "piloto")
     with pytest.raises(ErrorDominio):
         preparar(tmp_path, "../fuera")
+
+
+def test_regimen_por_carpeta_excepcion_y_filtro(tmp_path: Path) -> None:
+    from mesa_modelamiento.fuentes_regimen import REGLAS, clasificar, comprobar
+
+    _biblioteca(tmp_path)
+    base = "01-referencias/04-contrataciones-publicas/"
+    reglas = {
+        "estado": "PROPUESTA-IA",
+        "valores": {"CONTRATA-LEY-32069": "", "TRANSVERSAL": "", "NO-DETERMINADO": ""},
+        "reglas": [{"prefijo": "01-referencias/", "regimen": "TRANSVERSAL", "criterio": "general"},
+                   {"prefijo": base, "regimen": "CONTRATA-LEY-32069", "criterio": "contrata"}],
+        "excepciones": [{"ruta": base + "GUI-002/guia.pdf", "regimen": "NO-DETERMINADO", "criterio": "revisar"}],
+    }  # fmt: skip
+    (tmp_path / base / "GUI-002").mkdir(parents=True)
+    (tmp_path / base / "GUI-002" / "guia.pdf").write_bytes(b"guia")
+    (tmp_path / REGLAS).parent.mkdir(parents=True, exist_ok=True)
+    (tmp_path / REGLAS).write_text(json.dumps(reglas), encoding="utf-8")
+    assert clasificar(reglas, base + "NOR-001/norma.pdf") == ("CONTRATA-LEY-32069", "contrata")
+    assert clasificar(reglas, base + "GUI-002/guia.pdf")[0] == "NO-DETERMINADO"
+    assert clasificar(reglas, "01-referencias/08-bim/x.pdf")[0] == "TRANSVERSAL"
+    assert clasificar(reglas, "otra/x.pdf") == ("NO-DETERMINADO", "Sin regla de carpeta")
+    resumen = comprobar(tmp_path, [base + "NOR-001/norma.pdf", base + "GUI-002/guia.pdf"])
+    assert resumen["por_regimen"] == {"CONTRATA-LEY-32069": 1, "NO-DETERMINADO": 1} and not resumen["hallazgos"]
+    segmentar(tmp_path)
+    indexar(tmp_path)
+    contrata = buscar(tmp_path, "orientación", filtros={"regimen": "CONTRATA-LEY-32069"})
+    assert {r["documento"]["id"] for r in contrata["resultados"]} == {"GUI-001"}
+    assert contrata["resultados"][0]["documento"]["regimen"] == "CONTRATA-LEY-32069"
+    reglas["reglas"].append({"prefijo": "01-referencias/no-existe/", "regimen": "OTRO", "criterio": "x"})
+    (tmp_path / REGLAS).write_text(json.dumps(reglas), encoding="utf-8")
+    hallazgos = comprobar(tmp_path, [])["hallazgos"]
+    assert any("VALOR-DESCONOCIDO" in h for h in hallazgos) and any("RUTA-INEXISTENTE" in h for h in hallazgos)

@@ -2,18 +2,41 @@
 
 from __future__ import annotations
 
+import json
+import re
 from collections import Counter
 from contextlib import closing
 from datetime import UTC, datetime
 from pathlib import Path
 
-from .auditoria import cargar_inventario, carpeta_auditoria, vigentes
+from .auditoria import _tabla, cargar_cobertura, cargar_inventario, carpeta_auditoria, vigentes
 from .fuentes_anclaje import verificar_anclas
 from .fuentes_busqueda import _conectar
 from .fuentes_preparacion import _sha256
 from .repositorio import RepositorioProcesos
 
 OBLIGATORIOS = {"elemento", "mensaje"}
+MENCION = re.compile(r"\bart(?:[íi]culos?|s)?\.?\s*(\d+(?:\.\d+)?(?:\s*(?:,|y|-)\s*\d+(?:\.\d+)?)*)", re.I)
+
+
+def _referencias_sin_ancla(tabla: Path, fuentes_visor: Path) -> list[dict]:
+    """Elementos cuyo nombre, anotación o fuente mencionan un artículo que ninguna de sus anclas muestra."""
+    anclas = (
+        json.loads(fuentes_visor.read_text(encoding="utf-8")).get("elementos", {}) if fuentes_visor.is_file() else {}
+    )
+    hallazgos = []
+    for fila in _tabla(tabla.read_text(encoding="utf-8"), "Elementos"):
+        texto = " ".join(fila.get(c, "") for c in ("Nombre", "Anotacion", "Fuente"))
+        mencionados = {
+            int(n.split(".")[0]) for m in MENCION.finditer(texto) for n in re.findall(r"\d+(?:\.\d+)?", m.group(1))
+        }
+        ubicaciones = " ".join(a.get("ubicacion", "") for a in anclas.get(fila["ID"], []))
+        anclados = {int(n) for n in re.findall(r"(?<![\d.])(\d+)(?:\.\d+)?", ubicaciones)}
+        for articulo in sorted(mencionados - anclados):
+            hallazgos.append({"elemento": fila["ID"], "articulo": articulo})
+    return hallazgos
+
+
 ENCABEZADO = """---
 tipo: informe
 area: herramientas
@@ -80,9 +103,19 @@ def _markdown(codigo: str, datos: dict, items: list[dict], registros: list[dict]
         lineas += ["", f"## {titulo}", ""] + (
             [f"- **{r['elemento']} · {r['aspecto']}.** {r['razonamiento']}" for r in seleccion] or ["Ninguna."]
         )
+    cobertura = datos["cobertura_fuente"]
+    if cobertura:
+        lineas += ["", "## Cobertura de la fuente", "", "| Obligación de la fuente | Estado | Elementos | Fuente |",
+                   "|---|---|---|---|"]  # fmt: skip
+        for c in cobertura:
+            lineas.append(
+                f"| {c['obligacion']} | `{c['estado']}` | {', '.join(c['elementos']) or '—'} | {_ubicacion(c)} |"
+            )
     pendientes = ", ".join(datos["sin_resultado"]) or "ninguno"
     lineas += ["", "## Controles", "", f"- Elementos o mensajes sin resultado: {pendientes}.",
                f"- Citas con problemas: {len(datos['citas_con_problemas'])}.",
+               f"- Referencias mencionadas sin ancla: {len(datos['referencias_sin_ancla'])}.",
+               f"- Obligaciones de la fuente no representadas: {datos['no_representadas']}.",
                f"- Anclas del visor: {dict(Counter(a['estado'] for a in datos['anclas']))}."]  # fmt: skip
     return "\n".join(lineas) + "\n"
 
@@ -96,7 +129,9 @@ def informe(raiz: Path, codigo: str) -> dict:
     con_resultado = {r["elemento"] for r in registros}
     items = inventario["items"]
     sin_resultado = [i["id"] for i in items if i["clase"] in OBLIGATORIOS and i["id"] not in con_resultado]
-    anclas = verificar_anclas(raiz, rutas["tabla"].parent / f"{codigo.replace('.', '-')}-fuentes-visor.json")
+    visor = rutas["tabla"].parent / f"{codigo.replace('.', '-')}-fuentes-visor.json"
+    anclas = verificar_anclas(raiz, visor)
+    cobertura = cargar_cobertura(raiz, codigo)
     datos = {
         "codigo": codigo,
         "fecha": datetime.now(UTC).isoformat(timespec="seconds"),
@@ -110,10 +145,16 @@ def informe(raiz: Path, codigo: str) -> dict:
         "sin_resultado": sin_resultado,
         "citas_con_problemas": _citas(raiz, registros),
         "anclas": anclas,
+        "referencias_sin_ancla": _referencias_sin_ancla(rutas["tabla"], visor),
+        "cobertura_fuente": cobertura["obligaciones"],
+        "cobertura_de_otra_revision": bool(cobertura["obligaciones"])
+        and cobertura.get("revision_tabla") != inventario["revision_tabla"],
+        "no_representadas": sum(c["estado"] == "NO-REPRESENTADO" for c in cobertura["obligaciones"]),
     }
     datos["ok"] = not (
         sin_resultado or datos["citas_con_problemas"] or datos["inventario_desactualizado"]
-        or any(a["estado"] != "VIGENTE" for a in anclas)
+        or any(a["estado"] != "VIGENTE" for a in anclas) or datos["referencias_sin_ancla"]
+        or datos["no_representadas"] or datos["cobertura_de_otra_revision"]
     )  # fmt: skip
     destino = carpeta_auditoria(raiz, codigo) / "informe.md"
     destino.write_text(_markdown(codigo, datos, items, registros), encoding="utf-8")

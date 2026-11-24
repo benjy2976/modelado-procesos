@@ -1,0 +1,29 @@
+{
+  "esquema": "regimen-documental-v1",
+  "estado": "PROPUESTA-IA",
+  "fecha": "2026-11-24",
+  "origen": "Atributo incorporado por instrucción del usuario tras el piloto S4.3.2.7 (DEC-057). Clasificación propuesta por IA según la carpeta de cada documento; las excepciones se declaran una por una.",
+  "advertencia": "El régimen es un filtro de búsqueda. No acredita vigencia, aplicabilidad al contrato concreto ni validez normativa. Un documento TRANSVERSAL puede aplicar a varias modalidades, pero eso no lo hace aplicable a todo caso.",
+  "valores": {
+    "CONTRATA-LEY-32069": "Ejecución contractual bajo la Ley 32069, su reglamento, bases estándar y normas u opiniones del OECE que los desarrollan.",
+    "OBRAS-POR-IMPUESTOS": "Mecanismo de obras por impuestos (TUO de la Ley 29230 y su reglamento).",
+    "ADMINISTRACION-DIRECTA": "Ejecución de obras por administración directa.",
+    "TRANSVERSAL": "Marco aplicable con independencia de la modalidad de ejecución: Invierte.pe, presupuesto, abastecimiento, control gubernamental general, normas técnicas, BIM, gestión por procesos y documentos institucionales.",
+    "NO-DETERMINADO": "La carpeta no basta para fijar el régimen; requiere revisión del documento."
+  },
+  "reglas": [
+    {"prefijo": "01-referencias/01-institucionales-grh/", "regimen": "TRANSVERSAL", "criterio": "Documentos institucionales del GORE Huánuco."},
+    {"prefijo": "01-referencias/02-gestion-por-procesos/", "regimen": "TRANSVERSAL", "criterio": "Norma técnica y guía de gestión por procesos."},
+    {"prefijo": "01-referencias/03-invierte-pe/", "regimen": "TRANSVERSAL", "criterio": "Sistema Invierte.pe: rige el ciclo de inversión cualquiera sea la modalidad de ejecución."},
+    {"prefijo": "01-referencias/03-invierte-pe/obras-por-impuestos/", "regimen": "OBRAS-POR-IMPUESTOS", "criterio": "Carpeta del TUO de la Ley 29230 y su reglamento."},
+    {"prefijo": "01-referencias/04-contrataciones-publicas/", "regimen": "CONTRATA-LEY-32069", "criterio": "Ley 32069, reglamento, bases estándar, directivas y opiniones del OECE."},
+    {"prefijo": "01-referencias/05-control-gubernamental/", "regimen": "TRANSVERSAL", "criterio": "Control gubernamental aplicable a las distintas modalidades."},
+    {"prefijo": "01-referencias/05-control-gubernamental/administracion-directa/", "regimen": "ADMINISTRACION-DIRECTA", "criterio": "Normas y anexos de la Contraloría para obras por administración directa."},
+    {"prefijo": "01-referencias/06-presupuesto-y-administracion/", "regimen": "TRANSVERSAL", "criterio": "Presupuesto y abastecimiento del sector público."},
+    {"prefijo": "01-referencias/07-normativa-tecnica-sectorial/", "regimen": "TRANSVERSAL", "criterio": "Normas técnicas (RNE) y de seguridad y salud en el trabajo."},
+    {"prefijo": "01-referencias/08-bim/", "regimen": "TRANSVERSAL", "criterio": "Marco y guías BIM del Estado."}
+  ],
+  "excepciones": [
+    {"ruta": "01-referencias/04-contrataciones-publicas/obras-paralizadas/ds206_2024ef.pdf", "regimen": "NO-DETERMINADO", "criterio": "Reactivación de obras paralizadas: su ámbito por modalidad debe verificarse en el texto antes de filtrarlo."}
+  ]
+}

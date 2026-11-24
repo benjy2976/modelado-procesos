@@ -10,6 +10,37 @@ from pathlib import Path
 
 from .identificadores import gid
 
+ROLES_TRAMO = {"citado", "antecedente"}
+
+
+def _rectangulos_validos(rectangulos) -> bool:
+    return isinstance(rectangulos, list) and all(
+        isinstance(rect, list)
+        and len(rect) == 4
+        and all(isinstance(v, (int, float)) and not isinstance(v, bool) for v in rect)
+        and 0 <= rect[0] < rect[2] <= 1
+        and 0 <= rect[1] < rect[3] <= 1
+        for rect in rectangulos
+    )
+
+
+def _tramos_validos(tramos, archivo: Path, huella: str) -> bool:
+    """Una referencia puede abarcar varias páginas; cada tramo declara su página, rol y rectángulos."""
+    return (
+        isinstance(tramos, list)
+        and archivo.suffix.lower() == ".pdf"
+        and bool(re.fullmatch(r"[0-9a-fA-F]{64}", str(huella)))
+        and all(
+            isinstance(t, dict)
+            and t.get("rol") in ROLES_TRAMO
+            and isinstance(t.get("pagina"), int)
+            and t["pagina"] >= 1
+            and bool(t.get("rectangulos"))
+            and _rectangulos_validos(t["rectangulos"])
+            for t in tramos
+        )
+    )
+
 
 def _filas(texto: str, titulo: str) -> list[list[str]]:
     seccion = texto.split(f"## {titulo}\n", 1)
@@ -164,8 +195,11 @@ def datos_visor(tabla: Path, html: Path, raiz: Path) -> dict:
                     )
                 ):
                     raise ValueError(f"Ancla PDF invalida: {ruta}")
+                tramos = entrada.get("tramos", [])
+                if tramos and not _tramos_validos(tramos, archivo, huella_registrada):
+                    raise ValueError(f"Tramos de ancla invalidos: {ruta}")
                 estado_ancla = "SIN_COORDENADAS"
-                if rectangulos:
+                if rectangulos or tramos:
                     if archivo not in hashes_fuentes:
                         with archivo.open("rb") as lectura:
                             hashes_fuentes[archivo] = hashlib.file_digest(lectura, "sha256").hexdigest()
@@ -183,6 +217,10 @@ def datos_visor(tabla: Path, html: Path, raiz: Path) -> dict:
                         "vigencia": str(entrada.get("vigencia", "")),
                         "sha256": huella_registrada,
                         "rectangulos": rectangulos if estado_ancla == "DISPONIBLE" else [],
+                        "tramos": [
+                            {**t, "rectangulos": t["rectangulos"] if estado_ancla == "DISPONIBLE" else []}
+                            for t in tramos
+                        ],
                         "estado_ancla": estado_ancla,
                     }
                 )

@@ -15,11 +15,12 @@ from pathlib import Path
 from .fuentes_extraccion import BASE
 from .fuentes_fragmentos import MANIFIESTO_SEGMENTOS, cargar_fragmentos
 from .fuentes_preparacion import _sha256
+from .fuentes_regimen import cargar_reglas, clasificar
 from .repositorio import ErrorDominio
 
 INDICE_DB = BASE / "indice-fuentes.sqlite"
 COLUMNAS = (
-    "id, orden, doc_id, ruta, sha256, tipo, area, articulo, numeral, titulo, encabezados, ubicacion, "
+    "id, orden, doc_id, ruta, sha256, tipo, area, regimen, articulo, numeral, titulo, encabezados, ubicacion, "
     "estructura, metodos, estado_texto, clave_repetida, texto"
 )
 LIMITE_MAXIMO = 50
@@ -46,11 +47,13 @@ def indexar(raiz: Path) -> dict:
             """
         )
         total = 0
+        reglas = cargar_reglas(raiz)
         for orden, f in cargar_fragmentos(raiz):
             documento = f["documento"]
             fila = (
                 f["id"], orden, documento["id"], documento["ruta"], documento["sha256"], documento["tipo"],
-                Path(documento["ruta"]).parts[1], f.get("articulo"), f.get("numeral"), f.get("titulo"),
+                Path(documento["ruta"]).parts[1], clasificar(reglas, documento["ruta"])[0],
+                f.get("articulo"), f.get("numeral"), f.get("titulo"),
                 " > ".join(f.get("encabezados") or []), json.dumps(f["ubicacion"], ensure_ascii=False),
                 f["estructura"], ",".join(f["metodos"]), f["estado_texto"], int(bool(f.get("clave_repetida"))),
                 f["texto"],
@@ -117,7 +120,13 @@ def expresion(consulta: str, modo: str = "todas", terminos: list[str] | None = N
 def _resultado(fila: sqlite3.Row, extracto: str | None = None) -> dict:
     salida = {
         "id": fila["id"],
-        "documento": {"id": fila["doc_id"], "ruta": fila["ruta"], "sha256": fila["sha256"], "tipo": fila["tipo"]},
+        "documento": {
+            "id": fila["doc_id"],
+            "ruta": fila["ruta"],
+            "sha256": fila["sha256"],
+            "tipo": fila["tipo"],
+            "regimen": fila["regimen"],
+        },
         "ubicacion": json.loads(fila["ubicacion"]),
         "estructura": fila["estructura"],
         "articulo": fila["articulo"],
@@ -142,7 +151,14 @@ def buscar(raiz: Path, consulta: str, *, modo: str = "todas", terminos: list[str
     if not fts and not filtros:
         raise ErrorDominio("Indique una consulta, un tema o al menos un filtro")
     condiciones, valores = [], []
-    for campo, columna in (("id_documento", "doc_id"), ("tipo", "tipo"), ("area", "area"), ("articulo", "articulo")):
+    campos = (
+        ("id_documento", "doc_id"),
+        ("tipo", "tipo"),
+        ("area", "area"),
+        ("articulo", "articulo"),
+        ("regimen", "regimen"),
+    )
+    for campo, columna in campos:
         if campo in filtros:
             condiciones.append(f"f.{columna} = ?")
             valores.append(filtros[campo])

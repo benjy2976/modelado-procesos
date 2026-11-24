@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.7",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-7-gestion-reducciones-prestaciones/S4-3-2-7-diagrama-proceso-tabla.md",
-  "revision_tabla": "B00447A47222B693BB8C7F6214B59575C522C7833E973105EC533B05A665DC75",
-  "fecha": "2026-11-24T22:03:34+00:00",
+  "revision_tabla": "5A24EC2D80205986DCFA219595C13CBC521918A7DD98C1E8559C8F59FB461F9C",
+  "fecha": "2026-11-24T23:08:23+00:00",
   "items": [
     {
       "id": "C:Gobierno Regional Huanuco/Area usuaria competente (por confirmar)",
@@ -57,13 +57,13 @@
       "id": "G1",
       "clase": "elemento",
       "tipo": "compuerta",
-      "nombre": "¿Reduccion comprendida en art. 109?",
+      "nombre": "¿Se acreditan las condiciones de la reduccion?",
       "carril": "Area usuaria competente (por confirmar)",
-      "clase_modelo": "PROP",
-      "fuente_modelo": "DEC-047"
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 109.1"
     },
     {
-      "id": "F:G1>T2",
+      "id": "F:G1>G3",
       "clase": "flujo",
       "nombre": "Si"
     },
@@ -71,6 +71,25 @@
       "id": "F:G1>F0",
       "clase": "flujo",
       "nombre": "No o no acreditado"
+    },
+    {
+      "id": "G3",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde opinion de supervision?",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 109.1 d"
+    },
+    {
+      "id": "F:G3>T2",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G3>T3",
+      "clase": "flujo",
+      "nombre": "No"
     },
     {
       "id": "T2",
@@ -118,10 +137,10 @@
       "id": "T4",
       "clase": "elemento",
       "tipo": "tarea-usuario",
-      "nombre": "Resolver y notificar reduccion y efecto en plazo",
+      "nombre": "Resolver reduccion y efecto en plazo",
       "carril": "Autoridad de gestion administrativa",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento art. 109.1-109.3"
+      "fuente_modelo": "Reglamento art. 109.1-109.2; Ley art. 63.1"
     },
     {
       "id": "F:T4>G2",
@@ -151,10 +170,10 @@
       "id": "T5",
       "clase": "elemento",
       "tipo": "tarea",
-      "nombre": "Comunicar y actualizar alcance y registros aplicables",
+      "nombre": "Publicar resolucion en Pladicop y actualizar registros",
       "carril": "Unidad competente (por confirmar)",
-      "clase_modelo": "PROP",
-      "fuente_modelo": "DEC-047"
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento arts. 109.3 y 117.3-117.4"
     },
     {
       "id": "F:T5>F1",
@@ -165,7 +184,7 @@
       "id": "F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Reduccion comunicada",
+      "nombre": "Reduccion publicada",
       "carril": "Unidad competente (por confirmar)",
       "clase_modelo": "PROP",
       "fuente_modelo": "DEC-047"
@@ -209,7 +228,7 @@
       "nombre": "Emitir opinion sobre reduccion",
       "carril": "Supervisor o inspector de obra, segun modalidad",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento art. 109.1 d"
+      "fuente_modelo": "Reglamento arts. 109.1 d y 186.1"
     },
     {
       "id": "F:ST>SF",

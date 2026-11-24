@@ -11,8 +11,9 @@ const props = withDefaults(defineProps<{
   fragment?: string
   location?: string
   rectangles?: number[][]
+  segments?: { pagina: number; rol: string; rectangulos?: number[][] }[]
   anchorStatus?: string
-}>(), { page: 1, fragment: '', location: '', rectangles: () => [], anchorStatus: 'SIN_COORDENADAS' })
+}>(), { page: 1, fragment: '', location: '', rectangles: () => [], segments: () => [], anchorStatus: 'SIN_COORDENADAS' })
 const emit = defineEmits<{ close: [] }>()
 
 const rendered = ref('')
@@ -56,7 +57,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', closeOnEscape))
         <button type="button" class="modal-close" aria-label="Cerrar visor" @click="emit('close')">×</button>
       </header>
       <p v-if="location" class="modal-location">{{ location }}</p>
-      <PdfReader v-if="kind === 'pdf'" :src="url" :initial-page="page" :fragment="fragment" :rectangles="rectangles" :anchor-status="anchorStatus" />
+      <PdfReader v-if="kind === 'pdf'" :src="url" :initial-page="page" :fragment="fragment" :rectangles="rectangles" :segments="segments" :anchor-status="anchorStatus" />
       <div v-else class="markdown-scroll">
         <p v-if="loading">Cargando documento…</p>
         <p v-else-if="error" role="alert">{{ error }}</p>

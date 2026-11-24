@@ -297,6 +297,13 @@
             "title": "Titulo",
             "type": "string"
           },
+          "tramos": {
+            "items": {
+              "$ref": "#/components/schemas/TramoAncla"
+            },
+            "title": "Tramos",
+            "type": "array"
+          },
           "ubicacion": {
             "default": "",
             "title": "Ubicacion",
@@ -434,6 +441,13 @@
             "default": "",
             "title": "Titulo",
             "type": "string"
+          },
+          "tramos": {
+            "items": {
+              "$ref": "#/components/schemas/TramoAncla"
+            },
+            "title": "Tramos",
+            "type": "array"
           },
           "truncado": {
             "title": "Truncado",
@@ -971,6 +985,34 @@
           "revision"
         ],
         "title": "SesionVista",
+        "type": "object"
+      },
+      "TramoAncla": {
+        "properties": {
+          "pagina": {
+            "title": "Pagina",
+            "type": "integer"
+          },
+          "rectangulos": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "title": "Rectangulos",
+            "type": "array"
+          },
+          "rol": {
+            "title": "Rol",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pagina",
+          "rol"
+        ],
+        "title": "TramoAncla",
         "type": "object"
       },
       "ValidacionSesion": {

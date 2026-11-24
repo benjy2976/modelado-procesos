@@ -74,6 +74,7 @@ class ServicioDocumentos:
             "vigencia": registro.get("vigencia", ""),
             "sha256": huella,
             "rectangulos": registro.get("rectangulos", []),
+            "tramos": registro.get("tramos", []),
             "estado_ancla": registro.get("estado_ancla", "SIN_COORDENADAS"),
             "estado": estado,
             "coincidencia_fragmento": bool(fragmento and fragmento.casefold() in texto.casefold()),

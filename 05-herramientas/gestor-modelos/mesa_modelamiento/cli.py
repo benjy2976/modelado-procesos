@@ -40,6 +40,7 @@ def _argumentos() -> argparse.ArgumentParser:
     segmentar = tareas_fuentes.add_parser("segmentar", help="Dividir textos derivados en fragmentos ubicados")
     segmentar.add_argument("--max-documentos", type=int)
     tareas_fuentes.add_parser("indexar", help="Reconstruir el índice léxico local de fragmentos")
+    tareas_fuentes.add_parser("regimen", help="Comprobar las reglas de régimen y resumir la clasificación")
     buscar = tareas_fuentes.add_parser("buscar", help="Buscar pasajes candidatos con ubicación verificable")
     buscar.add_argument("consulta", nargs="?", default="")
     buscar.add_argument("--modo", choices=["todas", "alguna", "frase", "flexible"], default="flexible")
@@ -50,6 +51,9 @@ def _argumentos() -> argparse.ArgumentParser:
     buscar.add_argument("--tipo", choices=["pdf", "docx", "pptx"])
     buscar.add_argument("--area", help="Carpeta de primer nivel de 01-referencias")
     buscar.add_argument("--articulo")
+    buscar.add_argument(
+        "--regimen", help="CONTRATA-LEY-32069, OBRAS-POR-IMPUESTOS, ADMINISTRACION-DIRECTA, TRANSVERSAL..."
+    )
     buscar.add_argument("--limite", type=int, default=8)
     buscar.add_argument("--max-caracteres", type=int, default=6000)
     contexto = tareas_fuentes.add_parser("contexto", help="Texto completo de un fragmento y sus vecinos")
@@ -85,6 +89,9 @@ def _argumentos() -> argparse.ArgumentParser:
     lote = tareas_auditoria.add_parser("registrar")
     lote.add_argument("codigo")
     lote.add_argument("--archivo", type=Path, required=True, help="JSON con una lista de afirmaciones")
+    cobertura = tareas_auditoria.add_parser("cobertura", help="Obligaciones de la fuente y elemento que las representa")
+    cobertura.add_argument("codigo")
+    cobertura.add_argument("--archivo", type=Path, required=True, help="JSON con la lista de obligaciones")
     reporte = tareas_auditoria.add_parser("informe")
     reporte.add_argument("codigo")
     reporte.add_argument("--check", action="store_true", help="Terminar con código 1 si hay pendientes")
@@ -156,6 +163,17 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
         return busqueda.indexar(raiz)
     if args.operacion == "contexto":
         return busqueda.contexto(raiz, args.fragmento, args.vecinos, args.max_caracteres)
+    if args.operacion == "regimen":
+        from .fuentes_office import cargar_manifiesto_office
+        from .fuentes_preparacion import MANIFIESTO
+        from .fuentes_regimen import comprobar
+
+        rutas = (
+            list(json.loads((raiz / MANIFIESTO).read_text(encoding="utf-8"))["documentos"])
+            if (raiz / MANIFIESTO).is_file()
+            else []
+        )
+        return comprobar(raiz, rutas + list(cargar_manifiesto_office(raiz)["documentos"]))
     if args.operacion == "anclar":
         from . import fuentes_anclaje as anclaje
 
@@ -173,7 +191,11 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
     if args.operacion == "temas":
         return temas.comprobar(raiz) if args.accion_temas == "comprobar" else temas.sugerir(raiz, args.proceso)
     terminos, usados = temas.terminos_de(raiz, args.tema, args.con_relacionados) if args.tema else ([], [])
-    filtros = {k: getattr(args, k) for k in ("id_documento", "archivo", "tipo", "area", "articulo")}
+    filtros = {k: getattr(args, k) for k in ("id_documento", "archivo", "tipo", "area", "articulo", "regimen")}
+    if filtros["regimen"]:
+        from .fuentes_regimen import validar_valor
+
+        validar_valor(raiz, filtros["regimen"])
     resultado = busqueda.buscar(
         raiz, args.consulta, modo=args.modo, terminos=terminos, filtros=filtros,
         limite=args.limite, max_caracteres=args.max_caracteres,
@@ -213,7 +235,7 @@ def ejecutar(args: argparse.Namespace) -> object:
             "extraer-office": lambda: extraer_office(repositorio.raiz, args.max_documentos),
             "indice": lambda: generar_indice(repositorio.raiz),
         }
-        if args.operacion in ("segmentar", "indexar", "buscar", "contexto", "temas", "pruebas", "anclar"):
+        if args.operacion in ("segmentar", "indexar", "buscar", "contexto", "temas", "pruebas", "anclar", "regimen"):
             return _consulta(repositorio.raiz, args)
         resultado = operaciones[args.operacion]()
         if args.operacion in CAMBIAN_CACHE:
@@ -228,6 +250,9 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "registrar":
             entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
             return auditoria.registrar(repositorio.raiz, args.codigo, entradas)
+        if args.operacion == "cobertura":
+            entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
+            return auditoria.registrar_cobertura(repositorio.raiz, args.codigo, entradas)
         resultado = informe(repositorio.raiz, args.codigo)
         if args.check and not resultado["ok"]:
             print(json.dumps(resultado, ensure_ascii=False, indent=2))
