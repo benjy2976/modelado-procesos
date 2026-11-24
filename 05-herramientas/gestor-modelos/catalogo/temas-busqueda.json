@@ -1,0 +1,86 @@
+{
+  "esquema": "temas-busqueda-v1",
+  "estado": "BORRADOR-IA",
+  "fecha": "2026-11-24",
+  "origen": "Nombres de los procesos S4.3 del árbol institucional y variantes de búsqueda propuestas por IA.",
+  "advertencia": "Ayuda de recuperación. Un tema, un término o una relación no afirman equivalencia jurídica, aplicabilidad ni vigencia; la cita se coteja siempre en el original.",
+  "temas": [
+    {
+      "id": "inicio-ejecucion",
+      "etiqueta": "Inicio de ejecución",
+      "procesos": ["S4.3.1"],
+      "terminos": ["inicio del plazo de ejecución", "inicio de la ejecución", "inicio de ejecución"],
+      "relacionados": []
+    },
+    {
+      "id": "control-periodico",
+      "etiqueta": "Control periódico de la ejecución",
+      "procesos": ["S4.3.2.1"],
+      "terminos": ["valorización", "valorizaciones", "avance de obra", "cuaderno de obra"],
+      "relacionados": ["consultas-obra"]
+    },
+    {
+      "id": "consultas-obra",
+      "etiqueta": "Atención de consultas en obra",
+      "procesos": ["S4.3.2.2"],
+      "terminos": ["consultas sobre ocurrencias", "absolución de consultas", "absolver consultas", "consulta en obra", "consultas en obra"],
+      "relacionados": ["control-periodico", "adicionales-obra"]
+    },
+    {
+      "id": "adicionales-obra",
+      "etiqueta": "Prestaciones adicionales de obra",
+      "procesos": ["S4.3.2.3"],
+      "terminos": ["prestaciones adicionales de obra", "prestación adicional de obra", "adicional de obra", "adicionales de obra", "prestación adicional", "prestaciones adicionales"],
+      "relacionados": ["deductivos-obra", "reduccion-prestaciones", "mayores-metrados", "consultas-obra"]
+    },
+    {
+      "id": "deductivos-obra",
+      "etiqueta": "Deductivos de obra",
+      "procesos": ["S4.3.2.3"],
+      "terminos": ["deductivo vinculado", "deductivos vinculados", "presupuesto deductivo", "deductivo de obra"],
+      "relacionados": ["adicionales-obra", "reduccion-prestaciones"]
+    },
+    {
+      "id": "ampliacion-plazo",
+      "etiqueta": "Ampliación de plazo",
+      "procesos": ["S4.3.2.4"],
+      "terminos": ["ampliación de plazo", "ampliaciones de plazo", "ampliación del plazo"],
+      "relacionados": ["suspension-plazo", "paralizacion-obra"]
+    },
+    {
+      "id": "suspension-plazo",
+      "etiqueta": "Suspensión del plazo",
+      "procesos": ["S4.3.2.5"],
+      "terminos": ["suspensión del plazo", "suspensión de plazo", "suspensiones de plazo", "suspender el plazo"],
+      "relacionados": ["paralizacion-obra", "ampliacion-plazo"]
+    },
+    {
+      "id": "paralizacion-obra",
+      "etiqueta": "Paralización y reinicio de obra",
+      "procesos": ["S4.3.2.6"],
+      "terminos": ["paralización", "obra paralizada", "obras paralizadas", "reinicio de obra", "reinicio de la obra"],
+      "relacionados": ["suspension-plazo", "ampliacion-plazo"]
+    },
+    {
+      "id": "reduccion-prestaciones",
+      "etiqueta": "Reducción de prestaciones",
+      "procesos": ["S4.3.2.7"],
+      "terminos": ["reducción de prestaciones", "reducciones de prestaciones", "reducción de la prestación"],
+      "relacionados": ["adicionales-obra", "deductivos-obra"]
+    },
+    {
+      "id": "mayores-metrados",
+      "etiqueta": "Mayores metrados",
+      "procesos": ["S4.3.2.8"],
+      "terminos": ["mayores metrados", "mayor metrado"],
+      "relacionados": ["adicionales-obra"]
+    },
+    {
+      "id": "recepcion-obra",
+      "etiqueta": "Recepción de obra",
+      "procesos": ["S4.3.3"],
+      "terminos": ["recepción de obra", "recepción de la obra", "acta de recepción", "comité de recepción"],
+      "relacionados": []
+    }
+  ]
+}

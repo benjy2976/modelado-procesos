@@ -21,6 +21,12 @@ La preparación documental de las fases 1 y 2 usa `fuentes inventariar`, `fuente
 
 `fuentes indice` reescribe `cache/00-indice.md`, una tabla legible por carpeta que enlaza cada original con su texto derivado, su tamaño, método y estado. Se regenera automáticamente después de `extraer`, `evaluar-extraccion`, `resolver-colisiones-cache`, `aislar-paginas-ocr` y `extraer-office`.
 
+La consulta acotada de la fase 3 usa `fuentes segmentar`, `fuentes indexar`, `fuentes buscar` y `fuentes contexto`. `segmentar` divide cada texto derivado en fragmentos con ID estable `<hash-documento>-<hash-ruta>:<clave>`: los PDF normativos por artículo y numeral (`art-109.1`), los demás PDF por bloques de página (`p12-b2`), los DOCX por numeral o sección (`par-795`), las tablas (`tabla-66`) y las diapositivas. Omite cabeceras y pies repetidos en la mitad o más de las páginas y adjudica títulos y capítulos al artículo que los sigue. Una clave repetida en el mismo documento se marca `clave_repetida`; en textos consolidados suele indicar un numeral modificado cuya versión vigente debe verificarse. Una entrada de índice de contenido queda como `ENCABEZADO-SIN-CUERPO`. `indexar` reconstruye un índice SQLite FTS5 local, sin tildes ni mayúsculas, a partir de la segmentación vigente.
+
+`fuentes buscar "<consulta>" [--modo todas|alguna|frase] [--tema <id> [--con-relacionados]] [--id <ID>] [--archivo <parte-de-ruta>] [--tipo pdf|docx|pptx] [--area <carpeta>] [--articulo N] [--limite N] [--max-caracteres N]` devuelve pasajes candidatos con documento, hash, ubicación (páginas PDF, párrafos DOCX o diapositiva), artículo, numeral, encabezados, método de extracción y estado de cotejo. Cada palabra se cita, de modo que el usuario no puede inyectar operadores FTS. `--archivo` busca una parte de la ruta: una cadena común a dos nombres incluye ambos documentos. Sin consulta, un filtro como `--articulo` lista los fragmentos en orden. `fuentes contexto <fragmento> [--vecinos N] [--max-caracteres N]` entrega el texto completo y los fragmentos contiguos del mismo documento. La salida advierte `indice_desactualizado` si la segmentación cambió después de indexar.
+
+`fuentes temas comprobar` valida `catalogo/temas-busqueda.json`: esquema, IDs, procesos existentes, relaciones y ausencia de equivalencias o del estado `VALIDADO`. `fuentes temas sugerir [--proceso S4.3]` asigna temas candidatos a fragmentos por coincidencia de términos, con procedencia y confianza `BAJA` o `MEDIA`, en `cache/temas-sugeridos.jsonl`. Un tema relacionado amplía la búsqueda, pero no afirma equivalencia jurídica.
+
 Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-derivados-texto/cache/`, excluida de Git. El umbral inicial de 80 caracteres por página decide si se intenta OCR; no acredita fidelidad ni vigencia. OCR requiere `OCR_MCP_KEY` en el entorno local y procesa copias derivadas de PDF con URL pública HTTPS registrada y hash coincidente. Para un documento sin URL cuya procedencia se haya revisado, `fuentes extraer --metodo ocr --permitir-id-sin-url <ID>` habilita solo ese ID; el argumento puede repetirse. Los demás quedan pendientes. El PDF original no se altera.
 
 | Comando | Resultado |
@@ -40,6 +46,11 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `fuentes aislar-paginas-ocr` | Aísla páginas OCR intermedias de cada PDF |
 | `fuentes extraer-office [--max-documentos N]` | DOCX/PPTX a Markdown anclado por párrafo o diapositiva; ficha de XLSX |
 | `fuentes indice` | Índice Markdown legible de la caché con enlaces a originales y textos |
+| `fuentes segmentar [--max-documentos N]` | Fragmentos por artículo, numeral, bloque, tabla o diapositiva, con ubicación |
+| `fuentes indexar` | Índice léxico SQLite FTS5 regenerable |
+| `fuentes buscar ...` | Pasajes candidatos filtrados y acotados en cantidad y caracteres |
+| `fuentes contexto <fragmento>` | Texto completo del fragmento y sus vecinos |
+| `fuentes temas comprobar\|sugerir` | Validación del vocabulario y sugerencias léxicas con procedencia |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ...` | Respuesta e historial con nueva revisión |

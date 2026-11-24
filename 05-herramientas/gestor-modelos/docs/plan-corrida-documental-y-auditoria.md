@@ -73,6 +73,8 @@ La caché sigue los [requisitos del extractor](../../extractor-documental/00-ext
 | 3.C3 | C | Implementar `fuentes temas comprobar` y, si mejora la recuperación, `fuentes temas sugerir` para etiquetas candidatas. | CLI probadas con vocabulario permitido, sinónimos no equivalentes y procedencia de sugerencia; **D**. | Sí |
 | 3.E4 | E | Etiquetar inicialmente solo fragmentos pertinentes a S4.3. | Etiquetas de búsqueda con procedencia; **IA** propone, **D** verifica esquema; equivalencias jurídicas quedan sin validar. | Sí |
 
+**Estado al 24 de noviembre de 2026:** las filas 3.C1–3.E4 se ejecutaron; resultados y hallazgos en el [informe](informe-preparacion-biblioteca-pdf.md#fase-3-consulta-acotada). Para la fase 4 conviene registrar en el catálogo el régimen de cada documento (contratación pública, obras por impuestos, administración directa u otro) como filtro obligatorio: esa clasificación es una decisión humana.
+
 La estructura y la búsqueda textual funcionan antes de aplicar IA a etiquetas. `Paralización` puede conducir a pasajes sobre `suspensión`, pero el índice no afirma que sean equivalentes. Los vectores y un MCP propio de consulta se posponen hasta medir el piloto.
 
 ## Fase 4. Medir y auditar un modelo pequeño

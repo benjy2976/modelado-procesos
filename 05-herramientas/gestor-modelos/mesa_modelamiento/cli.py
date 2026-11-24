@@ -37,6 +37,30 @@ def _argumentos() -> argparse.ArgumentParser:
     office = tareas_fuentes.add_parser("extraer-office", help="DOCX/PPTX a Markdown anclado y ficha de XLSX")
     office.add_argument("--max-documentos", type=int)
     tareas_fuentes.add_parser("indice", help="Regenerar el índice legible de la caché")
+    segmentar = tareas_fuentes.add_parser("segmentar", help="Dividir textos derivados en fragmentos ubicados")
+    segmentar.add_argument("--max-documentos", type=int)
+    tareas_fuentes.add_parser("indexar", help="Reconstruir el índice léxico local de fragmentos")
+    buscar = tareas_fuentes.add_parser("buscar", help="Buscar pasajes candidatos con ubicación verificable")
+    buscar.add_argument("consulta", nargs="?", default="")
+    buscar.add_argument("--modo", choices=["todas", "alguna", "frase"], default="todas")
+    buscar.add_argument("--tema", help="Restringir a los términos de un tema del vocabulario")
+    buscar.add_argument("--con-relacionados", action="store_true", help="Incluir temas relacionados (no equivalentes)")
+    buscar.add_argument("--id", dest="id_documento", help="ID de catálogo")
+    buscar.add_argument("--archivo", help="Parte de la ruta del original")
+    buscar.add_argument("--tipo", choices=["pdf", "docx", "pptx"])
+    buscar.add_argument("--area", help="Carpeta de primer nivel de 01-referencias")
+    buscar.add_argument("--articulo")
+    buscar.add_argument("--limite", type=int, default=8)
+    buscar.add_argument("--max-caracteres", type=int, default=6000)
+    contexto = tareas_fuentes.add_parser("contexto", help="Texto completo de un fragmento y sus vecinos")
+    contexto.add_argument("fragmento")
+    contexto.add_argument("--vecinos", type=int, default=1)
+    contexto.add_argument("--max-caracteres", type=int, default=8000)
+    temas = tareas_fuentes.add_parser("temas", help="Vocabulario de temas de búsqueda")
+    tareas_temas = temas.add_subparsers(dest="accion_temas", required=True)
+    tareas_temas.add_parser("comprobar")
+    sugerir = tareas_temas.add_parser("sugerir")
+    sugerir.add_argument("--proceso", help="Prefijo de código de proceso, p. ej. S4.3")
     tareas_fuentes.add_parser("resolver-colisiones-cache")
     tareas_fuentes.add_parser("aislar-paginas-ocr")
     cotejo = tareas_fuentes.add_parser("preparar-cotejo")
@@ -100,6 +124,28 @@ def _argumentos() -> argparse.ArgumentParser:
     return parser
 
 
+def _consulta(raiz: Path, args: argparse.Namespace) -> object:
+    from . import fuentes_busqueda as busqueda
+    from . import fuentes_temas as temas
+    from .fuentes_fragmentos import segmentar
+
+    if args.operacion == "segmentar":
+        return segmentar(raiz, args.max_documentos)
+    if args.operacion == "indexar":
+        return busqueda.indexar(raiz)
+    if args.operacion == "contexto":
+        return busqueda.contexto(raiz, args.fragmento, args.vecinos, args.max_caracteres)
+    if args.operacion == "temas":
+        return temas.comprobar(raiz) if args.accion_temas == "comprobar" else temas.sugerir(raiz, args.proceso)
+    terminos, usados = temas.terminos_de(raiz, args.tema, args.con_relacionados) if args.tema else ([], [])
+    filtros = {k: getattr(args, k) for k in ("id_documento", "archivo", "tipo", "area", "articulo")}
+    resultado = busqueda.buscar(
+        raiz, args.consulta, modo=args.modo, terminos=terminos, filtros=filtros,
+        limite=args.limite, max_caracteres=args.max_caracteres,
+    )  # fmt: skip
+    return {**resultado, "temas_usados": usados}
+
+
 def ejecutar(args: argparse.Namespace) -> object:
     if args.grupo == "contrato":
         from .contrato import sincronizar_contrato
@@ -132,6 +178,8 @@ def ejecutar(args: argparse.Namespace) -> object:
             "extraer-office": lambda: extraer_office(repositorio.raiz, args.max_documentos),
             "indice": lambda: generar_indice(repositorio.raiz),
         }
+        if args.operacion in ("segmentar", "indexar", "buscar", "contexto", "temas"):
+            return _consulta(repositorio.raiz, args)
         resultado = operaciones[args.operacion]()
         if args.operacion in CAMBIAN_CACHE:
             resultado["indice"] = generar_indice(repositorio.raiz)["indice"]
