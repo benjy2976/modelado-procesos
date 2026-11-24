@@ -25,6 +25,10 @@ La consulta acotada de la fase 3 usa `fuentes segmentar`, `fuentes indexar`, `fu
 
 `fuentes buscar "<consulta>" [--modo todas|alguna|frase] [--tema <id> [--con-relacionados]] [--id <ID>] [--archivo <parte-de-ruta>] [--tipo pdf|docx|pptx] [--area <carpeta>] [--articulo N] [--limite N] [--max-caracteres N]` devuelve pasajes candidatos con documento, hash, ubicación (páginas PDF, párrafos DOCX o diapositiva), artículo, numeral, encabezados, método de extracción y estado de cotejo. Cada palabra se cita, de modo que el usuario no puede inyectar operadores FTS. `--archivo` busca una parte de la ruta: una cadena común a dos nombres incluye ambos documentos. Sin consulta, un filtro como `--articulo` lista los fragmentos en orden. `fuentes contexto <fragmento> [--vecinos N] [--max-caracteres N]` entrega el texto completo y los fragmentos contiguos del mismo documento. La salida advierte `indice_desactualizado` si la segmentación cambió después de indexar.
 
+`fuentes buscar` usa por defecto el modo `flexible`: omite palabras vacías, busca por raíz con prefijo («sustenta» halla «sustente») y, si con todas las raíces hay menos resultados que el límite, completa con coincidencias parciales marcadas `relajado`. `todas`, `alguna` y `frase` conservan la coincidencia exacta.
+
+La fase 4 agrega `fuentes pruebas`, `fuentes anclar` y el grupo `auditoria`. `fuentes anclar` normaliza página y cita de la misma forma (sin tildes, mayúsculas ni puntuación y uniendo palabras partidas con guion) y devuelve un rectángulo por renglón con origen arriba a la izquierda. Una página sin capa de texto o una cita que la capa ordena distinto devuelve `SIN-CAPA-TEXTO` o `CITA-NO-HALLADA`; nunca un resaltado aproximado. `auditoria registrar` valida cada ID contra el inventario vigente y cada cita contra el texto del fragmento; un evento idéntico no se repite y un cambio de resultado se guarda como rectificación. Los resultados admitidos son `SUSTENTADA`, `INFERENCIA`, `CONTRADICCION`, `EVIDENCIA-INSUFICIENTE` y `NO-APLICA`; `VALIDADO` se rechaza.
+
 `fuentes temas comprobar` valida `catalogo/temas-busqueda.json`: esquema, IDs, procesos existentes, relaciones y ausencia de equivalencias o del estado `VALIDADO`. `fuentes temas sugerir [--proceso S4.3]` asigna temas candidatos a fragmentos por coincidencia de términos, con procedencia y confianza `BAJA` o `MEDIA`, en `cache/temas-sugeridos.jsonl`. Un tema relacionado amplía la búsqueda, pero no afirma equivalencia jurídica.
 
 Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-derivados-texto/cache/`, excluida de Git. El umbral inicial de 80 caracteres por página decide si se intenta OCR; no acredita fidelidad ni vigencia. OCR requiere `OCR_MCP_KEY` en el entorno local y procesa copias derivadas de PDF con URL pública HTTPS registrada y hash coincidente. Para un documento sin URL cuya procedencia se haya revisado, `fuentes extraer --metodo ocr --permitir-id-sin-url <ID>` habilita solo ese ID; el argumento puede repetirse. Los demás quedan pendientes. El PDF original no se altera.
@@ -51,6 +55,11 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `fuentes buscar ...` | Pasajes candidatos filtrados y acotados en cantidad y caracteres |
 | `fuentes contexto <fragmento>` | Texto completo del fragmento y sus vecinos |
 | `fuentes temas comprobar\|sugerir` | Validación del vocabulario y sugerencias léxicas con procedencia |
+| `fuentes pruebas preparar\|medir <banco> [--modo M] [--sin-temas]` | Banco de recuperación de `bancos-prueba/` y métricas acierto@k, MRR, negativas, latencia y tamaño |
+| `fuentes anclar (--fragmento <id> \| --archivo <pdf> --pagina N) --cita "<texto>"` | Rectángulos por renglón de una cita en el PDF original |
+| `auditoria inventariar-elementos <codigo>` | Elementos, flujos, carriles y mensajes con IDs de auditoría |
+| `auditoria registrar <codigo> --archivo <lote.json>` | Registro inmutable de afirmaciones con cita verificada; rechaza todo el lote ante un error |
+| `auditoria informe <codigo> [--check]` | Cobertura, resultados, citas vigentes y anclas del visor; Markdown en `auditorias/<codigo>/` |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ...` | Respuesta e historial con nueva revisión |

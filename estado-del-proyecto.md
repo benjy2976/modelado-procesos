@@ -32,6 +32,8 @@ tags:
 
 - S4.3.2.3, 2026-11-18: replanteamiento conceptual DEC-046 diferencia adicional con deductivo vinculado, reduccion independiente y mayores metrados; incorpora interfaz de consultas, 15 dias desde anotacion y 10 dias de supervision cuando elabora contratista, con opinion institucional concurrente. Se mantiene el alcance y los codigos; separacion en procesos propios pendiente. CON-010 y CON-011 incorporan las opiniones OECE D000092 y D000083 con guias y cuatro reglas BORRADOR-IA: la respuesta de consulta precede a la anotacion especifica; el computo no se suspende por demora de ratificacion. Elaboracion por entidad tiene ruta precisada; otros regimenes y plazos pendientes requieren completar evidencia. Sin validacion normativa ni conformidad institucional.
 
+Fase 4 de la corrida documental, 2026-11-24: el piloto de auditoría de S4.3.2.7 registra 25 afirmaciones con cita verificada (6 `SUSTENTADA`, 13 `INFERENCIA`, 3 `EVIDENCIA-INSUFICIENTE`, 3 `CONTRADICCION`) y 11 anclas automáticas nuevas en el visor. El art. 186.1 del Reglamento convierte en inferencia la variante con inspector, y aparece la interfaz de adecuación de garantías (arts. 117.3-117.4). La tabla no cambió. El piloto espera la evaluación del usuario (puerta 4.P) antes de extender la auditoría a S4.3. Sin validación normativa ni conformidad.
+
 ## Completado
 
 - Inventario inicial de cuatro PDF.

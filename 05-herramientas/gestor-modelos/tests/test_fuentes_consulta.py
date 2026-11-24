@@ -127,6 +127,11 @@ def test_expresion_cita_palabras_y_no_acepta_operadores() -> None:
     assert expresion('reducción OR "x" NEAR') == '("reducción" AND "OR" AND "x" AND "NEAR")'
     assert expresion("plazo", terminos=["suspensión del plazo"]) == '("plazo") AND ("suspensión del plazo")'
     assert expresion("acta de recepción", modo="frase") == '"acta de recepción"'
+    assert (
+        expresion("área usuaria sustenta sobre la reducción", modo="flexible")
+        == '("área" AND "usuar"* AND "susten"* AND "reducci"*)'
+    )
+    assert expresion("de la", modo="flexible") == '("de" AND "la")'
 
 
 def _sha(ruta: Path) -> str:
@@ -186,6 +191,11 @@ def test_segmentar_indexar_buscar_contexto_y_temas(tmp_path: Path) -> None:
     assert buscar(tmp_path, "publicación resolución", filtros={"articulo": "2"})["resultados"][0]["numeral"] == "2.2"
     assert buscar(tmp_path, "reducción", filtros={"id_documento": "GUI-001"})["coincidencias"] == 0
     assert buscar(tmp_path, "", filtros={"articulo": "2"})["coincidencias"] == 2
+    assert buscar(tmp_path, "reducciones prestación", modo="todas")["coincidencias"] == 0
+    flexible = buscar(tmp_path, "reducciones prestación", modo="flexible", limite=4)
+    assert flexible["coincidencias"] >= 2 and not any(r.get("relajado") for r in flexible["resultados"][:2])
+    relajada = buscar(tmp_path, "paralizada inexistentepalabra", modo="flexible", limite=3)
+    assert relajada["coincidencias"] == 0 and relajada["resultados"][0]["relajado"]
     acotado = buscar(tmp_path, "orientación", max_caracteres=10)
     assert acotado["devueltos"] == 1 and acotado["truncado"]
     con_ocr = buscar(tmp_path, "adenda")["resultados"][0]
@@ -212,3 +222,47 @@ def test_segmentar_indexar_buscar_contexto_y_temas(tmp_path: Path) -> None:
     assert {"ESTADO", "PROCESO-INEXISTENTE", "RELACION-INVALIDA", "EQUIVALENCIA-NO-PERMITIDA"} <= codigos
     with pytest.raises(ErrorDominio):
         sugerir(tmp_path)
+
+
+def test_banco_de_preguntas_metricas_conocidas(tmp_path: Path) -> None:
+    from mesa_modelamiento.fuentes_pruebas import BANCOS, medir, preparar
+
+    _biblioteca(tmp_path)
+    segmentar(tmp_path)
+    indexar(tmp_path)
+    norma = "01-referencias/04-contrataciones-publicas/NOR-001/norma.pdf"
+    banco = {
+        "esquema": "banco-recuperacion-v1",
+        "estado": "PROVISIONAL-IA",
+        "preguntas": [
+            {"id": "P1", "tipo": "POSITIVA", "consulta": "publicación resolución adenda",
+             "esperados": [{"ruta": norma, "clave": "art-2.2"}]},
+            {"id": "P2", "tipo": "POSITIVA", "consulta": "reinicio", "tema": "paralizacion",
+             "esperados": [{"ruta": norma, "clave": "art-3"}]},
+            {"id": "P3", "tipo": "POSITIVA", "consulta": "inexistentepalabra",
+             "esperados": [{"ruta": norma, "clave": "art-4"}]},
+            {"id": "N1", "tipo": "NEGATIVA", "consulta": "orientación",
+             "no_esperados": [{"ruta": norma, "clave": "art-1"}]},
+        ],
+    }  # fmt: skip
+    (tmp_path / BANCOS).mkdir(parents=True)
+    (tmp_path / BANCOS / "piloto.json").write_text(json.dumps(banco, ensure_ascii=False), encoding="utf-8")
+    preparado = preparar(tmp_path, "piloto")
+    assert preparado["hallazgos"] == [] and preparado["positivas"] == 3 and all(preparado["resueltas"][0]["fragmentos"])
+    resultado = medir(tmp_path, "piloto")
+    assert resultado["metricas"]["acierto@1"] == round(2 / 3, 3) and resultado["metricas"]["acierto@10"] == round(
+        2 / 3, 3
+    )
+    assert resultado["metricas"]["mrr"] == round(2 / 3, 3) and resultado["metricas"]["negativas_limpias"] == 1.0
+    assert (tmp_path / resultado["archivo"]).is_file()
+
+    banco["preguntas"].append(
+        {"id": "P1", "tipo": "POSITIVA", "consulta": "x", "esperados": [{"ruta": norma, "clave": "art-99"}]}
+    )
+    (tmp_path / BANCOS / "piloto.json").write_text(json.dumps(banco, ensure_ascii=False), encoding="utf-8")
+    codigos = {h["codigo"] for h in preparar(tmp_path, "piloto")["hallazgos"]}
+    assert codigos == {"ID-REPETIDO", "PASAJE-INEXISTENTE"}
+    with pytest.raises(ErrorDominio):
+        medir(tmp_path, "piloto")
+    with pytest.raises(ErrorDominio):
+        preparar(tmp_path, "../fuera")

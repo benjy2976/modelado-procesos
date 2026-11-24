@@ -42,7 +42,7 @@ def _argumentos() -> argparse.ArgumentParser:
     tareas_fuentes.add_parser("indexar", help="Reconstruir el índice léxico local de fragmentos")
     buscar = tareas_fuentes.add_parser("buscar", help="Buscar pasajes candidatos con ubicación verificable")
     buscar.add_argument("consulta", nargs="?", default="")
-    buscar.add_argument("--modo", choices=["todas", "alguna", "frase"], default="todas")
+    buscar.add_argument("--modo", choices=["todas", "alguna", "frase", "flexible"], default="flexible")
     buscar.add_argument("--tema", help="Restringir a los términos de un tema del vocabulario")
     buscar.add_argument("--con-relacionados", action="store_true", help="Incluir temas relacionados (no equivalentes)")
     buscar.add_argument("--id", dest="id_documento", help="ID de catálogo")
@@ -61,12 +61,33 @@ def _argumentos() -> argparse.ArgumentParser:
     tareas_temas.add_parser("comprobar")
     sugerir = tareas_temas.add_parser("sugerir")
     sugerir.add_argument("--proceso", help="Prefijo de código de proceso, p. ej. S4.3")
+    anclar = tareas_fuentes.add_parser("anclar", help="Rectángulos de una cita en el PDF original")
+    anclar.add_argument("--fragmento", help="ID de fragmento; se prueban sus páginas en orden")
+    anclar.add_argument("--archivo", help="Ruta del PDF original registrada")
+    anclar.add_argument("--pagina", type=int)
+    anclar.add_argument("--cita", required=True)
+    pruebas = tareas_fuentes.add_parser("pruebas", help="Banco de preguntas de recuperación")
+    tareas_pruebas = pruebas.add_subparsers(dest="accion_pruebas", required=True)
+    tareas_pruebas.add_parser("preparar").add_argument("banco")
+    medir = tareas_pruebas.add_parser("medir")
+    medir.add_argument("banco")
+    medir.add_argument("--sin-temas", action="store_true", help="Medir solo la búsqueda léxica")
+    medir.add_argument("--modo", choices=["todas", "alguna", "frase", "flexible"], help="Sustituye el modo del banco")
     tareas_fuentes.add_parser("resolver-colisiones-cache")
     tareas_fuentes.add_parser("aislar-paginas-ocr")
     cotejo = tareas_fuentes.add_parser("preparar-cotejo")
     cotejo.add_argument("--id", required=True)
     cotejo.add_argument("--pagina", required=True, type=int)
     cotejo.add_argument("--archivo", help="Ruta relativa registrada para distinguir IDs repetidos")
+    auditoria = grupos.add_parser("auditoria", help="Auditar afirmaciones de un modelo contra fuentes")
+    tareas_auditoria = auditoria.add_subparsers(dest="operacion", required=True)
+    tareas_auditoria.add_parser("inventariar-elementos").add_argument("codigo")
+    lote = tareas_auditoria.add_parser("registrar")
+    lote.add_argument("codigo")
+    lote.add_argument("--archivo", type=Path, required=True, help="JSON con una lista de afirmaciones")
+    reporte = tareas_auditoria.add_parser("informe")
+    reporte.add_argument("codigo")
+    reporte.add_argument("--check", action="store_true", help="Terminar con código 1 si hay pendientes")
     proceso = grupos.add_parser("proceso", help="Leer un modelo por codigo")
     proceso.add_argument("codigo")
     fuente = grupos.add_parser("fuente", help="Leer una fuente registrada y su página")
@@ -135,6 +156,20 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
         return busqueda.indexar(raiz)
     if args.operacion == "contexto":
         return busqueda.contexto(raiz, args.fragmento, args.vecinos, args.max_caracteres)
+    if args.operacion == "anclar":
+        from . import fuentes_anclaje as anclaje
+
+        if args.fragmento:
+            return anclaje.anclar_fragmento(raiz, args.fragmento, args.cita)
+        if not (args.archivo and args.pagina):
+            raise ErrorDominio("Indique --fragmento, o --archivo y --pagina")
+        return anclaje.anclar(raiz, args.archivo, args.pagina, args.cita)
+    if args.operacion == "pruebas":
+        from . import fuentes_pruebas as pruebas
+
+        if args.accion_pruebas == "preparar":
+            return pruebas.preparar(raiz, args.banco)
+        return pruebas.medir(raiz, args.banco, con_temas=not args.sin_temas, modo=args.modo)
     if args.operacion == "temas":
         return temas.comprobar(raiz) if args.accion_temas == "comprobar" else temas.sugerir(raiz, args.proceso)
     terminos, usados = temas.terminos_de(raiz, args.tema, args.con_relacionados) if args.tema else ([], [])
@@ -178,11 +213,25 @@ def ejecutar(args: argparse.Namespace) -> object:
             "extraer-office": lambda: extraer_office(repositorio.raiz, args.max_documentos),
             "indice": lambda: generar_indice(repositorio.raiz),
         }
-        if args.operacion in ("segmentar", "indexar", "buscar", "contexto", "temas"):
+        if args.operacion in ("segmentar", "indexar", "buscar", "contexto", "temas", "pruebas", "anclar"):
             return _consulta(repositorio.raiz, args)
         resultado = operaciones[args.operacion]()
         if args.operacion in CAMBIAN_CACHE:
             resultado["indice"] = generar_indice(repositorio.raiz)["indice"]
+        return resultado
+    if args.grupo == "auditoria":
+        from . import auditoria
+        from .auditoria_informe import informe
+
+        if args.operacion == "inventariar-elementos":
+            return auditoria.inventariar_elementos(repositorio.raiz, args.codigo)
+        if args.operacion == "registrar":
+            entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
+            return auditoria.registrar(repositorio.raiz, args.codigo, entradas)
+        resultado = informe(repositorio.raiz, args.codigo)
+        if args.check and not resultado["ok"]:
+            print(json.dumps(resultado, ensure_ascii=False, indent=2))
+            return 1
         return resultado
     observaciones = ServicioObservaciones(repositorio)
     documentos = ServicioDocumentos(repositorio)

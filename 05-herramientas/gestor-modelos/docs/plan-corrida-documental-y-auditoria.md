@@ -94,6 +94,8 @@ La estructura y la búsqueda textual funcionan antes de aplicar IA a etiquetas. 
 | 4.E7 | E | Emitir informe del piloto. | Matriz completa, evidencia, vacíos, discrepancias, resaltados y costo; conciliación **D**. | Sí |
 | 4.P | Puerta | Presentar el piloto al usuario antes de extender la auditoría. | El usuario evalúa calidad y ajustes. No se atribuye conformidad por silencio ni por métricas. | Requiere respuesta para entrar a fase 5 |
 
+**Estado al 24 de noviembre de 2026:** se ejecutaron 4.C1, 4.E1, 4.E2, 4.C3, 4.E4, 4.E5, 4.C4, 4.E6 y 4.E7. Se omitieron 4.C2 y 4.E3: los fallos de recuperación eran léxicos y se resolvieron con el modo `flexible`. El piloto queda en la puerta 4.P, a la espera de la evaluación del usuario, según el [informe del piloto](informe-piloto-auditoria-S4-3-2-7.md).
+
 La herramienta de auditoría se construye **antes** de aplicarse incluso al piloto. Una buena búsqueda no prueba por sí misma la interpretación normativa.
 
 ## Fase 5. Ampliar a los demás modelos

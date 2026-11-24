@@ -1,0 +1,239 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2.7",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-7-gestion-reducciones-prestaciones/S4-3-2-7-diagrama-proceso-tabla.md",
+  "revision_tabla": "B00447A47222B693BB8C7F6214B59575C522C7833E973105EC533B05A665DC75",
+  "fecha": "2026-11-24T22:03:34+00:00",
+  "items": [
+    {
+      "id": "C:Gobierno Regional Huanuco/Area usuaria competente (por confirmar)",
+      "clase": "carril",
+      "nombre": "Area usuaria competente (por confirmar)"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Unidad competente (por confirmar)",
+      "clase": "carril",
+      "nombre": "Unidad competente (por confirmar)"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Autoridad de gestion administrativa",
+      "clase": "carril",
+      "nombre": "Autoridad de gestion administrativa"
+    },
+    {
+      "id": "C:Supervisor o inspector de obra/Supervisor o inspector de obra, segun modalidad",
+      "clase": "carril",
+      "nombre": "Supervisor o inspector de obra, segun modalidad"
+    },
+    {
+      "id": "E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Necesidad de reduccion recibida",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:E1>T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Sustentar reduccion y verificar supuesto aplicable",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento art. 109.1; adscripcion pendiente"
+    },
+    {
+      "id": "F:T1>G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "G1",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Reduccion comprendida en art. 109?",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:G1>T2",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G1>F0",
+      "clase": "flujo",
+      "nombre": "No o no acreditado"
+    },
+    {
+      "id": "T2",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Solicitar opinion del supervisor",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento art. 109.1 d; ruta de obra con supervisor"
+    },
+    {
+      "id": "F:T2>M1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "M1",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Opinion de supervision recibida",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:M1>T3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T3",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Integrar sustento y controles aplicables",
+      "carril": "Unidad competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:T3>T4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T4",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Resolver y notificar reduccion y efecto en plazo",
+      "carril": "Autoridad de gestion administrativa",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 109.1-109.3"
+    },
+    {
+      "id": "F:T4>G2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Reduccion dispuesta?",
+      "carril": "Autoridad de gestion administrativa",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:G2>T5",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G2>F2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "T5",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Comunicar y actualizar alcance y registros aplicables",
+      "carril": "Unidad competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:T5>F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Reduccion comunicada",
+      "carril": "Unidad competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F2",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Decision no favorable comunicada",
+      "carril": "Autoridad de gestion administrativa",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F0",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Caso pendiente de sustento o ruta especifica",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "SE",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Solicitud de opinion recibida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:SE>ST",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "ST",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Emitir opinion sobre reduccion",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 109.1 d"
+    },
+    {
+      "id": "F:ST>SF",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "SF",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Opinion remitida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "M:T2>SE",
+      "clase": "mensaje",
+      "nombre": "Solicitud de opinion"
+    },
+    {
+      "id": "M:SF>M1",
+      "clase": "mensaje",
+      "nombre": "Opinion de supervision"
+    }
+  ]
+}

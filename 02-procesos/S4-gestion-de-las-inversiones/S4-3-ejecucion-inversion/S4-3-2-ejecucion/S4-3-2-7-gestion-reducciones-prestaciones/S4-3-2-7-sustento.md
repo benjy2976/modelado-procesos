@@ -59,6 +59,16 @@ Esta prueba se limita a **S4.3.2.7** y al PDF local citado. Se comprobó que la 
 
 **Resultado del piloto:** 15 elementos y dos mensajes examinados; cuatro anclajes PDF preparados. La página errónea se corrigió en este sustento. No se ha cambiado la tabla ni se ha declarado conforme el modelo. Antes de modificar las rutas T2/ST y la publicación de T4/T5, se debe comprobar la edición oficial aplicable y el supuesto contractual; las discrepancias permanecen abiertas. El servicio de conversión PDF a searchable/Markdown ofrecido por el usuario aún no está disponible en esta sesión; el piloto usó el texto extraíble del original y su renderización local.
 
+## Auditoría con herramientas — 2026-11-24
+
+Segunda pasada del piloto con las herramientas de la fase 4 ([informe del piloto](../../../../../05-herramientas/gestor-modelos/docs/informe-piloto-auditoria-S4-3-2-7.md); [detalle generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-7/informe.md)). Hay 25 afirmaciones registradas con cita verificada: 6 `SUSTENTADA`, 13 `INFERENCIA`, 3 `EVIDENCIA-INSUFICIENTE` y 3 `CONTRADICCION`. Son propuestas de IA, sin validación normativa ni conformidad.
+
+- Se mantienen las contradicciones de T2 y del mensaje T2→SE: el modelo pide siempre la opinión de supervisión y el Reglamento art. 109.1 d) dice «de corresponder». Se formula como contradicción la omisión en T5 de la publicación en la Pladicop exigida por el art. 109.3.
+- Cambian SE (de `EVIDENCIA-INSUFICIENTE` a `INFERENCIA`) y ST con inspector (de `CONTRADICCION` parcial a `INFERENCIA`). El Reglamento art. 186.1, PDF p. 101, asigna la supervisión de obra «al supervisor o el inspector». La extensión al inspector de la opinión del 109.1 d) no es literal y requiere confirmación.
+- Fuentes añadidas con ancla en el visor: Ley 32069 arts. 63.1, 63.3 y 64.1 (PDF pp. 30-31, texto local al 19-07-2026, SHA-256 `f14ffa37b824b8af…`); Reglamento arts. 19 c) (p. 11), 117.3-117.4 (p. 64), 186.1 (p. 101) y 257.1 (p. 141). Consulta: 2026-11-24. La vigencia posterior sigue pendiente.
+- Hallazgo nuevo: con la reducción del monto, el contratista puede pedir la disminución proporcional de garantías (art. 117.3), con 10 días hábiles para la adecuación (art. 117.4). El modelo no muestra esa interfaz.
+- Propuestas no aplicadas a la tabla: condicionar T2 y la ruta de supervisión; nombrar la publicación en la Pladicop en T4/T5; registrar la interfaz de garantías; documentar la variante con inspector. Requieren antes el control de vigencia y la evaluación del usuario.
+
 ## Elementos registrados
 
 - OBSERVADO: el usuario acepta dividir el proceso y conserva tres casos en S4.3.2.3 (2026-11-18).
@@ -84,7 +94,7 @@ EVIDENCIA-INSUFICIENTE. No se incorporan requisitos BIM.
 
 ## Historial de revision
 
-Sin conformidades registradas. Documentos en ELABORACION.
+Sin conformidades registradas. Documentos en ELABORACION. 2026-11-24: auditoría con herramientas registrada y anclas automáticas añadidas a `S4-3-2-7-fuentes-visor.json`; derivado HTML regenerado con D1-D5 sin hallazgos. La tabla no cambió.
 
 ## Relaciones
 

@@ -1,0 +1,329 @@
+{
+  "esquema": "banco-recuperacion-v1",
+  "proceso": "S4.3.2.7",
+  "estado": "PROVISIONAL-IA",
+  "fecha": "2026-11-24",
+  "advertencia": "Banco provisional preparado por IA a partir de la tabla y el sustento de S4.3.2.7. Los pasajes esperados se cotejaron con el PDF original para comprobar ubicación y texto; no acreditan vigencia, aplicabilidad ni validez normativa.",
+  "preguntas": [
+    {
+      "id": "P01",
+      "tipo": "POSITIVA",
+      "elemento": "T1",
+      "consulta": "área usuaria sustenta reducción de prestaciones",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P02",
+      "tipo": "POSITIVA",
+      "elemento": "T1",
+      "consulta": "reducción hasta 25% del monto del contrato original",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        },
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+          "clave": "art-64.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG/LEY",
+        "paginas": [
+          60,
+          30,
+          31
+        ]
+      }
+    },
+    {
+      "id": "P03",
+      "tipo": "POSITIVA",
+      "elemento": "G1",
+      "consulta": "prestaciones no ejecutadas cuantificables y divisibles",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P04",
+      "tipo": "POSITIVA",
+      "elemento": "T1",
+      "consulta": "reducción antes de la conformidad final o acta de recepción de la obra",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P05",
+      "tipo": "POSITIVA",
+      "elemento": "T2",
+      "consulta": "opinión del supervisor sobre la reducción de prestaciones",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P06",
+      "tipo": "POSITIVA",
+      "elemento": "SE",
+      "consulta": "supervisión de los contratos de obra supervisor o inspector",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-186.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          101
+        ]
+      }
+    },
+    {
+      "id": "P07",
+      "tipo": "POSITIVA",
+      "elemento": "T4",
+      "consulta": "reducción de prestaciones implica reducción del plazo de ejecución",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.2"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P08",
+      "tipo": "POSITIVA",
+      "elemento": "T5",
+      "consulta": "publicación en la Pladicop de la resolución de reducción sin adenda",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.3"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "P09",
+      "tipo": "POSITIVA",
+      "elemento": "T4",
+      "consulta": "modificación contractual aprobada por la autoridad de la gestión administrativa",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+          "clave": "art-63.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "LEY",
+        "paginas": [
+          30
+        ]
+      }
+    },
+    {
+      "id": "P10",
+      "tipo": "POSITIVA",
+      "elemento": "G1",
+      "consulta": "supuestos para la modificación del contrato",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+          "clave": "art-63.3"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "LEY",
+        "paginas": [
+          30
+        ]
+      }
+    },
+    {
+      "id": "P11",
+      "tipo": "POSITIVA",
+      "elemento": "T5",
+      "consulta": "reducción del monto disminución proporcional de las garantías",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-117.3"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          64
+        ]
+      }
+    },
+    {
+      "id": "P12",
+      "tipo": "POSITIVA",
+      "elemento": "T5",
+      "consulta": "adecuación de la garantía por modificación contractual plazo",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-117.4"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          64
+        ]
+      }
+    },
+    {
+      "id": "P13",
+      "tipo": "POSITIVA",
+      "elemento": "T4",
+      "consulta": "resolución que ordena la reducción",
+      "esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-109.1"
+        }
+      ],
+      "cotejo": {
+        "metodo": "render del PDF original",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          60
+        ]
+      },
+      "tema": "reduccion-prestaciones"
+    },
+    {
+      "id": "N01",
+      "tipo": "NEGATIVA",
+      "elemento": "T1",
+      "consulta": "reducción de prestaciones durante la ejecución contractual",
+      "no_esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-132.2"
+        },
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-167.2"
+        }
+      ],
+      "nota": "Homonimia: 132.2 y 167.2 tratan la reducción negociada con el postor durante la selección, no la reducción contractual.",
+      "cotejo": {
+        "metodo": "lectura del texto extraído",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          71,
+          90
+        ]
+      }
+    },
+    {
+      "id": "N02",
+      "tipo": "NEGATIVA",
+      "elemento": "T4",
+      "consulta": "plazo para pronunciarse sobre la reducción de prestaciones",
+      "no_esperados": [
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-194.2"
+        },
+        {
+          "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+          "clave": "art-193.2"
+        }
+      ],
+      "nota": "El sustento advierte que los plazos de adicionales (arts. 193-194) no se trasladan a la reducción.",
+      "cotejo": {
+        "metodo": "lectura del texto extraído",
+        "fecha": "2026-11-24",
+        "documento": "REG",
+        "paginas": [
+          108,
+          109,
+          110
+        ]
+      }
+    }
+  ]
+}

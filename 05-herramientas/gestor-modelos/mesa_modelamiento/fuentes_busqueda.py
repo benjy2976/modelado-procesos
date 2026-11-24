@@ -75,14 +75,35 @@ def _conectar(raiz: Path) -> tuple[sqlite3.Connection, bool]:
     return base, not manifiesto.is_file() or _sha256(manifiesto) != registrado
 
 
+# Palabras sin contenido que en modo flexible no se exigen; en los demás modos se respetan.
+VACIAS = set(
+    "a al ante bajo con contra de del desde durante el en entre hacia hasta la las lo los mediante o para por "
+    "que se segun sin sobre su sus tras u un una unos unas y".split()
+)
+MODOS = ("todas", "alguna", "frase", "flexible")
+
+
+def _palabra_flexible(palabra: str) -> str:
+    """Raíz por prefijo para tolerar flexión («sustenta» -> «susten*» halla «sustente»)."""
+    if len(palabra) < 6 or palabra.isdigit():
+        return f'"{palabra}"'
+    return f'"{palabra[: max(5, len(palabra) - 2)]}"*'
+
+
 def expresion(consulta: str, modo: str = "todas", terminos: list[str] | None = None) -> str:
     """Traduce la consulta a FTS5 citando cada palabra; nunca pasa operadores escritos por el usuario.
 
-    Los términos de un tema se unen entre sí con OR y restringen la consulta con AND.
+    Los términos de un tema se unen entre sí con OR y restringen la consulta con AND. ``flexible``
+    omite palabras vacías y busca por raíz; ``flexible-alguna`` es su versión relajada con OR.
     """
     palabras = re.findall(r"\w+", consulta)
     partes = []
-    if palabras and modo == "frase":
+    if modo.startswith("flexible"):
+        utiles = [p for p in palabras if p.casefold() not in VACIAS] or palabras
+        union = " OR " if modo == "flexible-alguna" else " AND "
+        if utiles:
+            partes.append("(" + union.join(_palabra_flexible(p) for p in utiles) + ")")
+    elif palabras and modo == "frase":
         partes.append('"' + " ".join(palabras) + '"')
     elif palabras:
         partes.append("(" + (" OR " if modo == "alguna" else " AND ").join(f'"{p}"' for p in palabras) + ")")
@@ -130,31 +151,24 @@ def buscar(raiz: Path, consulta: str, *, modo: str = "todas", terminos: list[str
         valores.append(f"%{filtros['archivo']}%")
     base, desactualizado = _conectar(raiz)
     with closing(base):
-        if fts:
-            desde = "fts JOIN fragmentos f ON f.rowid = fts.rowid"
-            condiciones.insert(0, "fts MATCH ?")
-            valores.insert(0, fts)
-            extracto, orden = "snippet(fts, -1, '«', '»', ' … ', 48)", "bm25(fts, 1.0, 1.0, 0.5)"
-        else:
-            desde, extracto, orden = "fragmentos f", "substr(f.texto, 1, 400)", "f.sha256, f.orden"
-        donde = " AND ".join(condiciones)
-        try:
-            total = base.execute(f"SELECT count(*) FROM {desde} WHERE {donde}", valores).fetchone()[0]
-            filas = base.execute(
-                f"SELECT f.*, {extracto} AS extracto FROM {desde} WHERE {donde} ORDER BY {orden} LIMIT ?",
-                [*valores, limite],
-            ).fetchall()
-        except sqlite3.OperationalError as exc:
-            raise ErrorDominio(f"Consulta no válida: {exc}") from exc
+        total, filas = _consultar(base, fts, condiciones, valores, limite)
+        relajada = ""
+        if modo == "flexible" and len(filas) < limite and len(re.findall(r"\w+", consulta)) > 1:
+            # Con todas las raíces hay pocos pasajes: se completan con coincidencias parciales, marcadas.
+            relajada = expresion(consulta, "flexible-alguna", terminos)
+            vistos = {f["id"] for f in filas}
+            extra = _consultar(base, relajada, condiciones, valores, limite)[1]
+            filas += [dict(f) | {"relajado": True} for f in extra if f["id"] not in vistos][: limite - len(filas)]
     resultados, usados = [], 0
     for fila in filas:
         if resultados and usados + len(fila["extracto"]) > max_caracteres:
             break
         usados += len(fila["extracto"])
-        resultados.append(_resultado(fila, fila["extracto"]))
+        resultados.append(_resultado(fila, fila["extracto"]) | ({"relajado": True} if _relajado(fila) else {}))
     return {
         "consulta": consulta,
         "expresion_fts": fts,
+        "expresion_relajada": relajada,
         "filtros": filtros,
         "coincidencias": total,
         "devueltos": len(resultados),
@@ -162,6 +176,31 @@ def buscar(raiz: Path, consulta: str, *, modo: str = "todas", terminos: list[str
         "indice_desactualizado": desactualizado,
         "resultados": resultados,
     }
+
+
+def _relajado(fila) -> bool:
+    return isinstance(fila, dict) and bool(fila.get("relajado"))
+
+
+def _consultar(base: sqlite3.Connection, fts: str, condiciones: list[str], valores: list, limite: int):
+    condiciones, valores = list(condiciones), list(valores)
+    if fts:
+        desde = "fts JOIN fragmentos f ON f.rowid = fts.rowid"
+        condiciones.insert(0, "fts MATCH ?")
+        valores.insert(0, fts)
+        extracto, orden = "snippet(fts, -1, '«', '»', ' … ', 48)", "bm25(fts, 1.0, 1.0, 0.5)"
+    else:
+        desde, extracto, orden = "fragmentos f", "substr(f.texto, 1, 400)", "f.sha256, f.orden"
+    donde = " AND ".join(condiciones)
+    try:
+        total = base.execute(f"SELECT count(*) FROM {desde} WHERE {donde}", valores).fetchone()[0]
+        filas = base.execute(
+            f"SELECT f.*, {extracto} AS extracto FROM {desde} WHERE {donde} ORDER BY {orden} LIMIT ?",
+            [*valores, limite],
+        ).fetchall()
+    except sqlite3.OperationalError as exc:
+        raise ErrorDominio(f"Consulta no válida: {exc}") from exc
+    return total, filas
 
 
 def contexto(raiz: Path, identificador: str, vecinos: int = 1, max_caracteres: int = 8000) -> dict:
