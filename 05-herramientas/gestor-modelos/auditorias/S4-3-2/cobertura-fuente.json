@@ -1,0 +1,242 @@
+{
+  "codigo": "S4.3.2",
+  "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
+  "fecha": "2026-11-24T23:50:54+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 93,
+        "hasta": 93,
+        "paginas": [
+          93
+        ]
+      },
+      "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+      "obligacion": "El plazo de ejecución rige al cumplirse las condiciones de inicio",
+      "aspecto": "secuencia",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-1",
+        "M:S4.3.1 Inicio de ejecucion>E-1"
+      ],
+      "razonamiento": "El acta de inicio, práctica institucional en contrata, formaliza que se cumplieron las condiciones; el inicio del plazo se representa con su recepción."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-188.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 104,
+        "hasta": 104,
+        "paginas": [
+          104
+        ]
+      },
+      "cita": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+      "obligacion": "Las ocurrencias se registran en el cuaderno de incidencias",
+      "aspecto": "documento",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T-1"
+      ],
+      "razonamiento": "Anotación de T-1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+      "obligacion": "Las consultas se formulan mediante el cuaderno de incidencias",
+      "aspecto": "decision",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "CO"
+      ],
+      "razonamiento": "Disparador de CO."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "Las valorizaciones se realizan mensualmente y son consideradas pagos a cuenta. Las bases pueden establecer periodos distintos de valorización",
+      "obligacion": "Valorizaciones mensuales o en el periodo que fijen las bases",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "CP"
+      ],
+      "razonamiento": "El disparo mensual está representado; el periodo distinto fijado en bases no (ver afirmación de CP)."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-212.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 120,
+        "hasta": 120,
+        "paginas": [
+          120
+        ]
+      },
+      "cita": "Culminada la ejecución de la obra el contratista solicita al supervisor la recepción de la obra",
+      "obligacion": "La recepción sigue a la culminación",
+      "aspecto": "secuencia",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "F-1",
+        "M:F-1>S4.3.3 Recepcion"
+      ],
+      "razonamiento": "Mensaje a S4.3.3."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-122.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 66,
+        "hasta": 67,
+        "paginas": [
+          66,
+          67
+        ]
+      },
+      "cita": "la parte afectada por el incumplimiento observa el siguiente procedimiento",
+      "obligacion": "La resolución sigue su procedimiento",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "B-1"
+      ],
+      "razonamiento": "Evento de borde."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-123.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 67,
+        "hasta": 68,
+        "paginas": [
+          67,
+          68
+        ]
+      },
+      "cita": "la fecha y hora para realizar la constatación física e inventario en la obra",
+      "obligacion": "Tras la resolución, constatación física e inventario",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "F-2",
+        "M:F-2>S4.3.3 Recepcion"
+      ],
+      "razonamiento": "Mensaje a S4.3.3."
+    },
+    {
+      "fragmento": "f14ffa37b824b8af-c9c22559:art-71.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+      "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 35,
+        "hasta": 35,
+        "paginas": [
+          35
+        ]
+      },
+      "cita": "Después de perfeccionados los contratos, la autoridad de la gestión administrativa de la entidad contratante puede declarar su nulidad",
+      "obligacion": "La autoridad de la gestión administrativa puede declarar la nulidad",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "B-2"
+      ],
+      "razonamiento": "Evento de borde."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-111.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 61,
+        "hasta": 61,
+        "paginas": [
+          61
+        ]
+      },
+      "cita": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventario correspondiente.",
+      "obligacion": "Tras la nulidad no atribuible al contratista, constatación física e inventario",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "F-3 lo deja por definir."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 113,
+        "paginas": [
+          112,
+          113
+        ]
+      },
+      "cita": "En el caso de obras, el contratista puede solicitar la ampliación de plazo pactado por cualquiera de las siguientes causales",
+      "obligacion": "El contratista puede solicitar ampliación por causales",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "AP"
+      ],
+      "razonamiento": "Subproceso por evento."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+      "obligacion": "Las partes pueden acordar la suspensión del plazo",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "SP"
+      ],
+      "razonamiento": "Subproceso por evento."
+    }
+  ]
+}

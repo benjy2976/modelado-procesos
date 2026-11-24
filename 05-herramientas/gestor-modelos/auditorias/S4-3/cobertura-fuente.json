@@ -1,0 +1,186 @@
+{
+  "codigo": "S4.3",
+  "revision_tabla": "BCCC169B7ECF12425AD4609B777BE6E3CB4130BF786783AA3DEEE00E0D8B11AE",
+  "fecha": "2026-11-24T23:39:02+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Sub Gerencia de Gestión de Obras y Supervisión ● Unidades ejecutoras que pertenecen al GRH",
+      "obligacion": "Responsable: SGGOS y unidades ejecutoras",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "C:S4.3 Ejecución de la inversión/Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH"
+      ],
+      "razonamiento": "Carril único del pool."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Expediente técnico, documento equivalente aprobado y/o EETT ● S4.3 Ejecución de la inversión",
+      "obligacion": "Entrada: expediente técnico desde S4.2",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "M:S4.2 Elaboración del expediente técnico o documento equivalente>S-1"
+      ],
+      "razonamiento": "Mensaje hacia S-1."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Servicio contratado / bien adquirido / consultoría y obra contratada",
+      "obligacion": "Entrada: bien, servicio, consultoría u obra contratada desde S3.2",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "M:S3.2 Contratación de bienes y servicios (Adquisiciones)>S-1"
+      ],
+      "razonamiento": "Mensaje hacia S-1."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Gobiernos Nacional, Regional y Local ● Convenios",
+      "obligacion": "Entrada: convenios desde gobiernos nacional, regional y local",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Ningún mensaje del padre ni de los hijos recibe convenios."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Designación de personal y/o requerimiento de contratación de consultoría de obra/bienes y servicios",
+      "obligacion": "Producto: designación de personal o requerimiento de contratación hacia S3.1",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No figura en el padre; S4.3.1 designa al coordinador pero no remite requerimientos a S3.1."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Reporte de inversiones ejecutadas ● MEF / INFOBRAS",
+      "obligacion": "Producto: reporte de inversiones ejecutadas al MEF / INFOBRAS",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay mensaje hacia el MEF o INFOBRAS en el padre ni en los hijos."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Expediente para pagos ● S2.1 Gestión Contable",
+      "obligacion": "Producto: expediente para pagos hacia S2.1",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "S4.3.2.1 remite la valorización a Administración (F-1), pero el padre no muestra la interacción con S2.1."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Información técnico y financiero para liquidación ET ● S4.4 Liquidación, transferencia y cierre de inversión",
+      "obligacion": "Producto: información para liquidación hacia S4.4",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "M:S-3>S4.4 Liquidación, transferencia y cierre de inversión"
+      ],
+      "razonamiento": "Mensaje desde S-3."
+    },
+    {
+      "fragmento": "f86c31e6a6bdffbd-8a3fb7a8:p2",
+      "ruta": "01-referencias/01-institucionales-grh/originales/s4-gestion-inversion.pdf",
+      "sha256": "F86C31E6A6BDFFBDBF7D5186BFD21E1FD58522BC546E0127296BD8C461931F83",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 2,
+        "hasta": 2,
+        "paginas": [
+          2
+        ]
+      },
+      "cita": "Informe de estado situacional del Proyecto/ programa o IOARR por saldo de obra",
+      "obligacion": "Producto: informe de estado situacional por saldo de obra hacia S4.2",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Ni el padre ni S4.3.2.6 (paralización) remiten este informe a S4.2."
+    }
+  ]
+}

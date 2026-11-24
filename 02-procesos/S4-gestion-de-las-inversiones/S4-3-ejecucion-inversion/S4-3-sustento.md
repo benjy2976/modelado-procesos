@@ -335,3 +335,15 @@ El repositorio gestiona las fuentes y su versionado. Cualquier emision hacia un 
 - [Sustento de S4.3.2 Ejecucion](S4-3-2-ejecucion/S4-3-2-sustento.md)
 - [Sustento de S4](../S4-sustento.md)
 - [Manual operativo del conocimiento](../../../00-gobernanza/manual-operativo-del-conocimiento.md)
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../05-herramientas/gestor-modelos/auditorias/S4-3/informe.md)): 11 afirmaciones (6 `SUSTENTADA`, 5 `INFERENCIA`) y 9 obligaciones de la ficha S4 aprobada (PDF p. 2), de las que 5 no están representadas. Son propuestas de IA, sin validación ni conformidad.
+
+- **Acta de inicio de obra (OBSERVADO, informado por el usuario el 2026-11-24).** En las obras por contrata, el GORE formaliza con un acta de inicio que se cumplieron las condiciones del Reglamento art. 176.1, para que la fecha de inicio no sea subjetiva. Es una práctica institucional: la ley no la exige ni la contradice. En la biblioteca, el acta solo aparece como requisito en la Directiva 017-2023-CG (administración directa). Queda un desajuste de interfaz: S4.3.1 termina en «Inicio del plazo comunicado» y no produce el acta que el padre declara como su salida.
+- **Interacciones aprobadas en la ficha S4 que el modelo no muestra:** convenios desde los gobiernos nacional, regional y local; designación de personal o requerimiento de contratación hacia S3.1; reporte de inversiones ejecutadas al MEF / INFOBRAS; expediente para pagos hacia S2.1 (S4.3.2.1 remite la valorización a Administración, pero el padre no lo muestra); e informe de estado situacional por saldo de obra hacia S4.2.
+- **Candidatos de interfaz** (`auditoria comparar-interfaces`): S4.3.3 sin modelo; salida y secuencia S4.3.1 → S4.3.2 sin correspondencia; mensaje del acta sin contraparte en S4.3.1.
+- **Propuestas no aplicadas:**
+  - que S4.3.1 termine con el acta de inicio suscrita, que formaliza el cumplimiento de las condiciones del art. 176.1, y la envíe a S4.3.2;
+  - decidir el nivel en que se representan las cinco interacciones de la ficha.
+

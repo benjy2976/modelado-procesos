@@ -1,0 +1,156 @@
+{
+  "alcance": "S4.3",
+  "procesos": {
+    "S4.3": {
+      "estado": "CON-HALLAZGOS",
+      "revision_tabla": "BCCC169B7ECF12425AD4609B777BE6E3CB4130BF786783AA3DEEE00E0D8B11AE",
+      "afirmaciones": 11,
+      "resultados": {
+        "SUSTENTADA": 6,
+        "INFERENCIA": 5
+      },
+      "sin_resultado": 0,
+      "obligaciones": 9,
+      "no_representadas": 5,
+      "referencias_sin_ancla": 0,
+      "citas_con_problemas": 0,
+      "candidatos_interfaz": 4,
+      "actualizado": "2026-11-24T23:51:13+00:00"
+    },
+    "S4.3.1": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 29,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 34,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:13+00:00"
+    },
+    "S4.3.2": {
+      "estado": "CON-HALLAZGOS",
+      "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
+      "afirmaciones": 20,
+      "resultados": {
+        "INFERENCIA": 7,
+        "SUSTENTADA": 11,
+        "CONTRADICCION": 2
+      },
+      "sin_resultado": 0,
+      "obligaciones": 11,
+      "no_representadas": 1,
+      "referencias_sin_ancla": 0,
+      "citas_con_problemas": 0,
+      "candidatos_interfaz": 4,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.1": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 19,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 1,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.2": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "5D79D1E7E25E891E9E7E15D75E397B34D763B69A234B8B4CCE6A0CCE6F9D91D2",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 63,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 32,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.3": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 95,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 55,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.4": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "1B8B1E88B30B6B43D4C7DAE6CEBE456202785FEA0620F4ECC519B4425E43D7E7",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 23,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 20,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.5": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 30,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 26,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.6": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "2B254AD775A38733C1E3CFC9AB386D80D1A28ABC8C88C51589597836B23E2680",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 26,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 8,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:15+00:00"
+    },
+    "S4.3.2.7": {
+      "estado": "COMPLETO",
+      "revision_tabla": "5A24EC2D80205986DCFA219595C13CBC521918A7DD98C1E8559C8F59FB461F9C",
+      "afirmaciones": 33,
+      "resultados": {
+        "INFERENCIA": 11,
+        "SUSTENTADA": 13,
+        "EVIDENCIA-INSUFICIENTE": 2,
+        "NO-APLICA": 7
+      },
+      "sin_resultado": 0,
+      "obligaciones": 15,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 0,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:16+00:00"
+    },
+    "S4.3.2.8": {
+      "estado": "PENDIENTE-AUDITORIA",
+      "revision_tabla": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C",
+      "afirmaciones": 0,
+      "resultados": {},
+      "sin_resultado": 20,
+      "obligaciones": 0,
+      "no_representadas": 0,
+      "referencias_sin_ancla": 5,
+      "citas_con_problemas": 0,
+      "actualizado": "2026-11-24T23:51:16+00:00"
+    },
+    "S4.3.3": {
+      "estado": "SIN-MODELO",
+      "actualizado": "2026-11-24T23:51:16+00:00"
+    }
+  },
+  "actualizado": "2026-11-24T23:51:16+00:00"
+}

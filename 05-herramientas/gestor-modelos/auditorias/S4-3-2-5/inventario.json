@@ -1,0 +1,408 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2.5",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-5-formalizacion-suspensiones-plazo/S4-3-2-5-diagrama-proceso-tabla.md",
+  "revision_tabla": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:Contratista/Residente de obra",
+      "clase": "carril",
+      "nombre": "Residente de obra"
+    },
+    {
+      "id": "C:Contratista/Contratista o representante legal del contratista, solo contrata",
+      "clase": "carril",
+      "nombre": "Contratista o representante legal del contratista, solo contrata"
+    },
+    {
+      "id": "C:Supervisor o inspector de obra/Supervisor o inspector de obra, segun modalidad",
+      "clase": "carril",
+      "nombre": "Supervisor o inspector de obra, segun modalidad"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/OACGD — Registro documentario",
+      "clase": "carril",
+      "nombre": "OACGD — Registro documentario"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Coordinador de obra",
+      "clase": "carril",
+      "nombre": "SGGOS — Coordinador de obra"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Especialista competente",
+      "clase": "carril",
+      "nombre": "Especialista competente"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Titular de la competencia o autoridad delegada",
+      "clase": "carril",
+      "nombre": "Titular de la competencia o autoridad delegada"
+    },
+    {
+      "id": "R-E1",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Causa que impide continuar identificada",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "F:R-E1>R-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y sustentar la causa en el Cuaderno de Incidencias",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 188.3 y 202.1"
+    },
+    {
+      "id": "F:R-T1>R-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Causa de suspension remitida",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Aplicacion operativa del Reglamento, art. 202.1"
+    },
+    {
+      "id": "S-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Causa de suspension recibida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Aplicacion operativa; validacion institucional pendiente"
+    },
+    {
+      "id": "F:S-E1>S-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Evaluar el impedimento y emitir opinion",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 186-188 y 202.1"
+    },
+    {
+      "id": "F:S-T1>S-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Causa y opinion remitidas",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito propuesto sobre la fuente citada"
+    },
+    {
+      "id": "E-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Expediente de suspension recibido",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; DEC-041"
+    },
+    {
+      "id": "F:E-E1>E-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y derivar a SGGOS por SGD",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; observacion del usuario, 2026-11-10"
+    },
+    {
+      "id": "F:E-T1>E-T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T2",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Verificar integridad y clasificar la figura",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, arts. 97-98; DEC-041"
+    },
+    {
+      "id": "F:E-T2>E-G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G1",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde suspension contractual?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1; AD: EVIDENCIA-INSUFICIENTE"
+    },
+    {
+      "id": "F:E-G1>E-T3",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G1>E-F2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T3",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Coordinar las condiciones de suspension con el contratista o su representante legal",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1: acuerdo de las partes"
+    },
+    {
+      "id": "F:E-T3>E-M1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-M1",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Respuesta del ejecutor recibida",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "F:E-M1>E-G2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Existe acuerdo de suspension?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "F:E-G2>E-T4",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G2>E-F2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T4",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Consolidar el acuerdo y elevarlo por SGD",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "No sustituye la decision formal; observacion del usuario, 2026-11-10"
+    },
+    {
+      "id": "F:E-T4>E-T5",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T5",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Formalizar la suspension de plazo",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 107 y 202"
+    },
+    {
+      "id": "F:E-T5>E-T6",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T6",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Actualizar registros y coordinar la comunicacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito interno pendiente de validacion"
+    },
+    {
+      "id": "F:E-T6>E-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Suspension de plazo formalizada y comunicada",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto propuesto"
+    },
+    {
+      "id": "E-F2",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Suspension no formalizada comunicada",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto alterno"
+    },
+    {
+      "id": "C-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Propuesta de suspension recibida",
+      "carril": "Contratista o representante legal del contratista, solo contrata",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "F:C-E1>C-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C-T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Evaluar y responder la propuesta",
+      "carril": "Contratista o representante legal del contratista, solo contrata",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "F:C-T1>C-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Respuesta a la propuesta remitida",
+      "carril": "Contratista o representante legal del contratista, solo contrata",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.1"
+    },
+    {
+      "id": "E-R1",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Cese de la causa de suspension verificado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 107.2 y 202.2"
+    },
+    {
+      "id": "F:E-R1>E-T7",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T7",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar condiciones para reanudar el plazo",
+      "carril": "Especialista competente",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 107.2 y 202.2"
+    },
+    {
+      "id": "F:E-T7>E-T8",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T8",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Consolidar la verificacion y elevarla por SGD",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito interno pendiente de validacion; observacion del usuario, 2026-11-10"
+    },
+    {
+      "id": "F:E-T8>E-T9",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T9",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Formalizar la reanudacion del plazo suspendido",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 107.2 y 202.2"
+    },
+    {
+      "id": "F:E-T9>E-F3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F3",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Reanudacion del plazo formalizada",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto de la instancia posterior"
+    },
+    {
+      "id": "M:R-F1>S-E1",
+      "clase": "mensaje",
+      "nombre": "Causa y sustento"
+    },
+    {
+      "id": "M:S-F1>E-E1",
+      "clase": "mensaje",
+      "nombre": "Causa y opinion"
+    },
+    {
+      "id": "M:E-T3>C-E1",
+      "clase": "mensaje",
+      "nombre": "Propuesta de suspension"
+    },
+    {
+      "id": "M:C-F1>E-M1",
+      "clase": "mensaje",
+      "nombre": "Respuesta del ejecutor"
+    }
+  ]
+}

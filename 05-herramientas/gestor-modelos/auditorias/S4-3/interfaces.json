@@ -1,0 +1,38 @@
+{
+  "codigo": "S4.3",
+  "revision_tabla": "BCCC169B7ECF12425AD4609B777BE6E3CB4130BF786783AA3DEEE00E0D8B11AE",
+  "revisiones_hijos": {
+    "S4.3.1": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
+    "S4.3.2": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6"
+  },
+  "fecha": "2026-11-24T23:51:13+00:00",
+  "hijos": [
+    "S4.3.1",
+    "S4.3.2",
+    "S4.3.3"
+  ],
+  "candidatos": [
+    {
+      "tipo": "SALIDA-NO-REPRESENTADA",
+      "hijo": "S4.3.1",
+      "detalle": "El padre declara la salida «Acta de inicio de obra»; ningún fin del hijo la nombra: ['Inicio del plazo comunicado']"
+    },
+    {
+      "tipo": "HIJO-SIN-MODELO",
+      "hijo": "S4.3.3",
+      "detalle": "El hijo no tiene tabla; su interfaz no se contrasta"
+    },
+    {
+      "tipo": "SECUENCIA-SIN-CORRESPONDENCIA",
+      "hijo": "S4.3.2",
+      "detalle": "Fines de S4.3.1: ['Inicio del plazo comunicado']; inicios de S4.3.2: ['Acta de inicio de obra recibida']",
+      "origen": "S4.3.1"
+    },
+    {
+      "tipo": "MENSAJE-SIN-CONTRAPARTE",
+      "hijo": "S4.3.2",
+      "detalle": "S4.3.2 recibe de S4.3.1 «Acta de inicio de obra», pero S4.3.1 no registra ese intercambio",
+      "hermano": "S4.3.1"
+    }
+  ]
+}

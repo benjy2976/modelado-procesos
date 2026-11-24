@@ -109,6 +109,13 @@ La herramienta de auditoría se construye **antes** de aplicarse incluso al pilo
 | 5.C2 | C | Ampliar `auditoria informe --check` para elementos sin resultado, citas huérfanas y hashes desactualizados. | CLI probada con omisión y referencia rota; **D**. | Sí, tras 4.P |
 | 5.E4 | E | Comprobar toda la corrida. | Informe consolidado y vacíos explícitos; S4.3.3 queda `SIN-MODELO` mientras no exista tabla. | Sí, tras 4.P |
 
+**Estado al 24 de noviembre de 2026:**
+- 5.C1 implementada: `auditoria correr` y `auditoria comparar-interfaces`, probadas con interrupción, reanudación y cambio de tabla.
+- 5.E1 avanza por los padres: S4.3 y S4.3.2 quedan auditados en ambas direcciones, con hallazgos abiertos.
+- 5.E2 tiene una primera corrida de interfaces.
+- Los cambios en las tablas (5.E3) se proponen al usuario antes de aplicarse, como en el piloto.
+- El estado vivo está en el [resumen de la corrida S4.3](../auditorias/corrida-S4-3.md).
+
 La revisión jurídica de vigencia, ámbito y sentido corresponde a especialistas. El agente deja propuestas y evidencia rastreable, sin atribuir su criterio a una persona.
 
 ## Fase 6. Preparar el producto de revisión

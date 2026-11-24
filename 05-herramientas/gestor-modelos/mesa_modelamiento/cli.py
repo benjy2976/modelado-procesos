@@ -92,6 +92,10 @@ def _argumentos() -> argparse.ArgumentParser:
     cobertura = tareas_auditoria.add_parser("cobertura", help="Obligaciones de la fuente y elemento que las representa")
     cobertura.add_argument("codigo")
     cobertura.add_argument("--archivo", type=Path, required=True, help="JSON con la lista de obligaciones")
+    corrida = tareas_auditoria.add_parser("correr", help="Estado reanudable de la auditoría de un alcance")
+    corrida.add_argument("--alcance", required=True, help="Código raíz, p. ej. S4.3")
+    corrida.add_argument("--max-procesos", type=int)
+    tareas_auditoria.add_parser("comparar-interfaces", help="Candidatos de interfaz padre-hijos").add_argument("codigo")
     reporte = tareas_auditoria.add_parser("informe")
     reporte.add_argument("codigo")
     reporte.add_argument("--check", action="store_true", help="Terminar con código 1 si hay pendientes")
@@ -250,6 +254,14 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "registrar":
             entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
             return auditoria.registrar(repositorio.raiz, args.codigo, entradas)
+        if args.operacion == "correr":
+            from .auditoria_corrida import correr
+
+            return correr(repositorio.raiz, args.alcance, args.max_procesos)
+        if args.operacion == "comparar-interfaces":
+            from .auditoria_interfaces import comparar_interfaces
+
+            return comparar_interfaces(repositorio.raiz, args.codigo)
         if args.operacion == "cobertura":
             entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
             return auditoria.registrar_cobertura(repositorio.raiz, args.codigo, entradas)

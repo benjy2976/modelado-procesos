@@ -67,7 +67,7 @@ def inventariar_elementos(raiz: Path, codigo: str) -> dict:
                       "carril": fila.get("Carril", ""), "clase_modelo": fila.get("Clase", ""),
                       "fuente_modelo": fila.get("Fuente", "")})  # fmt: skip
         for destino in (d.strip() for d in fila.get("Siguiente", "").split(";") if d.strip()):
-            objetivo = re.match(r"([A-Za-z0-9]+)\s*(?:\[(.*)\])?", destino)
+            objetivo = re.match(r"([A-Za-z0-9-]+)\s*(?:\[(.*)\])?", destino)
             if objetivo:
                 items.append({"id": f"F:{fila['ID']}>{objetivo.group(1)}", "clase": "flujo",
                               "nombre": objetivo.group(2) or ""})  # fmt: skip

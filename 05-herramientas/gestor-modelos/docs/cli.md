@@ -65,6 +65,8 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `auditoria inventariar-elementos <codigo>` | Elementos, flujos, carriles y mensajes con IDs de auditoría |
 | `auditoria registrar <codigo> --archivo <lote.json>` | Registro inmutable de afirmaciones con cita verificada; rechaza todo el lote ante un error |
 | `auditoria cobertura <codigo> --archivo <obligaciones.json>` | Obligaciones de la fuente rectora y elemento que las representa (`REPRESENTADO`, `NO-REPRESENTADO`, `FUERA-DE-ALCANCE`) |
+| `auditoria correr --alcance <codigo> [--max-procesos N]` | Estado reanudable por proceso: `SIN-MODELO`, `PENDIENTE-AUDITORIA`, `EN-CURSO`, `CON-HALLAZGOS`, `COMPLETO` o `DESACTUALIZADO`; escribe `auditorias/corrida-<alcance>.json` y su resumen Markdown |
+| `auditoria comparar-interfaces <padre>` | Candidatos de interfaz: hijo sin modelo o sin elemento, tipo de disparo, salida declarada no representada, secuencia entre hijos y mensajes sin contraparte entre hermanos |
 | `auditoria informe <codigo> [--check]` | Cobertura, resultados, citas vigentes y anclas del visor; Markdown en `auditorias/<codigo>/` |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |

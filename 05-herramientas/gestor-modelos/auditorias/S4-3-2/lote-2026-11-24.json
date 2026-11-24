@@ -1,0 +1,329 @@
+[
+ {
+  "elemento": "C:S4.3.2 Ejecucion/Ejecucion, control y gestion institucional de la obra",
+  "aspecto": "actor",
+  "afirmacion": "Un solo carril agrupa ejecución, control y gestión institucional de la obra.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Simplificación del nivel 2 (DEC-030); los actores se detallan en los hijos (DEC-042)."
+ },
+ {
+  "elemento": "E-1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La ejecución empieza al recibir el acta de inicio de obra.",
+  "resultado": "CONTRADICCION",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio de la ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "En contrata el plazo rige al cumplirse las condiciones del 176.1; «acta de inicio» solo aparece en la Directiva 017-2023-CG (administración directa). S4.3.1 termina en «Inicio del plazo comunicado»."
+ },
+ {
+  "elemento": "T-1",
+  "aspecto": "accion",
+  "afirmacion": "La ejecución registra sus ocurrencias en el cuaderno de incidencias.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.1",
+    "cita": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+    "ambito": "cuaderno de incidencias en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el 188.1 para obras bajo contrata; la permanencia de una sola instancia es decisión de DEC-030."
+ },
+ {
+  "elemento": "F-1",
+  "aspecto": "secuencia",
+  "afirmacion": "La obra culminada pasa a recepción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-212.1",
+    "cita": "Culminada la ejecución de la obra el contratista solicita al supervisor la recepción de la obra",
+    "ambito": "recepción de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 212.1 inicia la recepción tras la culminación."
+ },
+ {
+  "elemento": "B-1",
+  "aspecto": "condicion",
+  "afirmacion": "La resolución del contrato interrumpe la ejecución.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-122.1",
+    "cita": "la parte afectada por el incumplimiento observa el siguiente procedimiento",
+    "ambito": "procedimiento de resolución de contrato",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-123.4",
+    "cita": "la fecha y hora para realizar la constatación física e inventario en la obra",
+    "ambito": "efectos de la resolución de contrato",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Procedimiento (122) y efectos (123) de la resolución."
+ },
+ {
+  "elemento": "F-2",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Tras la resolución se realiza la constatación física e inventario.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-123.4",
+    "cita": "la fecha y hora para realizar la constatación física e inventario en la obra",
+    "ambito": "efectos de la resolución de contrato",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-122.1",
+    "cita": "la parte afectada por el incumplimiento observa el siguiente procedimiento",
+    "ambito": "procedimiento de resolución de contrato",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El 123.4 exige la constatación física e inventario; ubicarla en S4.3.3 es decisión de modelamiento."
+ },
+ {
+  "elemento": "B-2",
+  "aspecto": "condicion",
+  "afirmacion": "La declaración de nulidad interrumpe la ejecución.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-71.1",
+    "cita": "Después de perfeccionados los contratos, la autoridad de la gestión administrativa de la entidad contratante puede declarar su nulidad",
+    "ambito": "nulidad del contrato (Ley)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-111.1",
+    "cita": "Cuando la entidad contratante advierta posibles vicios de nulidad del contrato",
+    "ambito": "nulidad del contrato (procedimiento)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Ley 71.1 y Reglamento 111.1."
+ },
+ {
+  "elemento": "F-3",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El tratamiento posterior a la nulidad está por definir.",
+  "resultado": "CONTRADICCION",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-111.3",
+    "cita": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventario correspondiente.",
+    "ambito": "nulidad del contrato de obra (efecto)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-71.1",
+    "cita": "Después de perfeccionados los contratos, la autoridad de la gestión administrativa de la entidad contratante puede declarar su nulidad",
+    "ambito": "nulidad del contrato (Ley)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El 111.3 lo define para obras: si la nulidad no es atribuible al contratista corresponde la constatación física e inventario, igual que tras una resolución."
+ },
+ {
+  "elemento": "CP",
+  "aspecto": "decision",
+  "afirmacion": "El control periódico se dispara al cierre de cada mes.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
+    "cita": "Las valorizaciones se realizan mensualmente y son consideradas pagos a cuenta. Las bases pueden establecer periodos distintos de valorización",
+    "ambito": "pago de valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Las valorizaciones son mensuales; el 210.1 admite periodos distintos fijados en las bases, que el disparador no contempla."
+ },
+ {
+  "elemento": "CO",
+  "aspecto": "decision",
+  "afirmacion": "La atención de consultas se dispara por una consulta registrada en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1 vigente (modificado por el D.S. 001-2026-EF solo para suprimir «en obras»)."
+ },
+ {
+  "elemento": "MA",
+  "aspecto": "existencia",
+  "afirmacion": "Los adicionales y deductivos se gestionan como proceso por evento.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "DEC-047; su sustento se audita en S4.3.2.3."
+ },
+ {
+  "elemento": "AP",
+  "aspecto": "existencia",
+  "afirmacion": "Las ampliaciones de plazo se gestionan por causal o solicitud.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+    "cita": "En el caso de obras, el contratista puede solicitar la ampliación de plazo pactado por cualquiera de las siguientes causales",
+    "ambito": "ampliación del plazo en obras",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "En el caso de ejecución de obras, se sigue el siguiente procedimiento",
+    "ambito": "procedimiento de ampliación de plazo en obras",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-201.1",
+    "cita": "Las ampliaciones de plazo en el componente de ejecución de obras dan lugar al pago de los conceptos vinculados",
+    "ambito": "efectos de la ampliación de plazo en obras",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Causales (198.1), procedimiento (200.1) y efectos (201.1)."
+ },
+ {
+  "elemento": "SP",
+  "aspecto": "existencia",
+  "afirmacion": "Las suspensiones del plazo se formalizan por evento.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-202.1",
+    "cita": "La suspensión de plazo de ejecución de obra se realiza de acuerdo con el artículo 107",
+    "ambito": "suspensión de plazo en ejecución de obras",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Acuerdo escrito de suspensión (107.1) aplicado a obras (202.1)."
+ },
+ {
+  "elemento": "PR",
+  "aspecto": "existencia",
+  "afirmacion": "La paralización y el reinicio tienen tratamiento diferenciado por régimen.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Apoyado en reglas BORRADOR-IA del sustento; se audita en S4.3.2.6."
+ },
+ {
+  "elemento": "RP",
+  "aspecto": "decision",
+  "afirmacion": "La reducción de prestaciones se dispara por una condición.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Candidato de interfaz: S4.3.2.7 empieza por mensaje («Necesidad de reducción recibida») y además recibe casos reclasificados desde S4.3.2.3. Debe alinearse el tipo de disparo."
+ },
+ {
+  "elemento": "MM",
+  "aspecto": "existencia",
+  "afirmacion": "Los mayores metrados se gestionan como proceso por evento.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "DEC-047; su sustento se audita en S4.3.2.8."
+ },
+ {
+  "elemento": "M:S4.3.1 Inicio de ejecucion>E-1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "S4.3.1 envía el acta de inicio de obra.",
+  "resultado": "CONTRADICCION",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio de la ejecución de obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Igual que E-1: S4.3.1 no envía un acta y en contrata no se identifica ese documento."
+ },
+ {
+  "elemento": "M:F-1>S4.3.3 Recepcion",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La obra culminada se entrega a recepción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-212.1",
+    "cita": "Culminada la ejecución de la obra el contratista solicita al supervisor la recepción de la obra",
+    "ambito": "recepción de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "212.1."
+ },
+ {
+  "elemento": "M:F-2>S4.3.3 Recepcion",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El contrato resuelto pasa a constatación e inventario.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-123.4",
+    "cita": "la fecha y hora para realizar la constatación física e inventario en la obra",
+    "ambito": "efectos de la resolución de contrato",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "123.4."
+ },
+ {
+  "elemento": "M:F-3>S4.3.3 Recepcion",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El contrato nulo pasa a recepción con tratamiento por definir.",
+  "resultado": "CONTRADICCION",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-111.3",
+    "cita": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventario correspondiente.",
+    "ambito": "nulidad del contrato de obra (efecto)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 111.3 define la constatación física e inventario cuando la nulidad no es atribuible al contratista."
+ }
+]

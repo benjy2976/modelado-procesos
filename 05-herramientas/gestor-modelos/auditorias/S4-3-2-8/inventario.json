@@ -1,0 +1,244 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2.8",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-8-gestion-mayores-metrados/S4-3-2-8-diagrama-proceso-tabla.md",
+  "revision_tabla": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:Contratista/Residente de obra",
+      "clase": "carril",
+      "nombre": "Residente de obra"
+    },
+    {
+      "id": "C:Supervisor o inspector de obra/Supervisor o inspector de obra, segun modalidad",
+      "clase": "carril",
+      "nombre": "Supervisor o inspector de obra, segun modalidad"
+    },
+    {
+      "id": "R1",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Necesidad de mayores metrados identificada",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:R1>R2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R2",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Solicitar mayores metrados en cuaderno",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 197.1"
+    },
+    {
+      "id": "F:R2>R3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R3",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Remitir solicitud a supervision",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:R3>R4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R4",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Pronunciamiento de supervision recibido",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:R4>RG",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "RG",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Ejecucion autorizada?",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:RG>R5",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:RG>RF0",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "R5",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Ejecutar y sustentar mayores metrados del periodo",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 197.1-197.2"
+    },
+    {
+      "id": "F:R5>RF",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "RF",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Sustento remitido a valorizacion",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "RF0",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Ejecucion no habilitada por esta ruta",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "S1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Solicitud en cuaderno recibida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:S1>S2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S2",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar figura, modalidad y acumulados",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 197.1 y 197.4"
+    },
+    {
+      "id": "F:S2>SG",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "SG",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde autorizar mayores metrados?",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:SG>S3",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:SG>S4",
+      "clase": "flujo",
+      "nombre": "No o no acreditado"
+    },
+    {
+      "id": "S3",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Autorizar ejecucion en cuaderno y comunicar a entidad",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento art. 197.1"
+    },
+    {
+      "id": "F:S3>SF1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "SF1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Autorizacion de ejecucion remitida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "S4",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Documentar impedimento o necesidad de reclasificar",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:S4>SF0",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "SF0",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Pronunciamiento sin autorizacion remitido",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "M:R3>S1",
+      "clase": "mensaje",
+      "nombre": "Solicitud de mayores metrados"
+    },
+    {
+      "id": "M:SF1>R4",
+      "clase": "mensaje",
+      "nombre": "Autorizacion"
+    },
+    {
+      "id": "M:SF0>R4",
+      "clase": "mensaje",
+      "nombre": "Pronunciamiento sin autorizacion"
+    },
+    {
+      "id": "M:S3>Gobierno Regional Huanuco",
+      "clase": "mensaje",
+      "nombre": "Comunicacion de autorizacion"
+    },
+    {
+      "id": "M:RF>S4.3.2.1 Control periodico de la ejecucion",
+      "clase": "mensaje",
+      "nombre": "Sustento para valorizacion y autorizacion de pago"
+    }
+  ]
+}

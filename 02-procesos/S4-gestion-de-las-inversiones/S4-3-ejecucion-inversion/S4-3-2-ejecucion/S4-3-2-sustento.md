@@ -269,3 +269,21 @@ Control de cierre DEC-047: padre D1-D5 sin hallazgos; comprobacion global --chec
 
 
 Precision de DEC-047, 2026-11-18: por indicacion expresa del usuario se renombra la carpeta y su nota indice a `S4-3-2-3-gestion-adicionales-deductivos-obra`. Esta precision sustituye la conservacion de la ruta anterior indicada en el lote inicial. Se actualizan los enlaces; el codigo S4.3.2.3 y el contenido del flujo se conservan.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2/informe.md)): 20 afirmaciones (11 `SUSTENTADA`, 7 `INFERENCIA`, 2 `CONTRADICCION`) y 11 obligaciones de los artículos rectores, 10 representadas. Se crearon 18 anclas del visor calculadas desde el texto en `S4-3-2-fuentes-visor.json`. Son propuestas de IA, sin validación ni conformidad.
+
+- **E-1 y el mensaje desde S4.3.1:** el acta de inicio es una práctica institucional en contrata que formaliza el cumplimiento de las condiciones del art. 176.1 (OBSERVADO, informado por el usuario el 2026-11-24). Es coherente con el modelo; falta que S4.3.1 la envíe.
+- **F-3 y su mensaje** dejan «por definir» el tratamiento posterior a la nulidad. El Reglamento art. 111.3 dispone para obras la constatación física y el inventario cuando la nulidad no es atribuible al contratista, igual que el art. 123.4 tras una resolución.
+- **CP se dispara al cierre de cada mes:** el art. 210.1 hace mensuales las valorizaciones, pero admite periodos distintos fijados en las bases.
+- **Candidatos de interfaz con los hijos:**
+  - RP se dispara por condición y S4.3.2.7 empieza por mensaje;
+  - S4.3.2.3 recibe de S4.3.2.2 y envía a S4.3.2.7 sin contraparte en esos hijos;
+  - S4.3.2.8 envía a S4.3.2.1 sin contraparte.
+- **Propuestas no aplicadas:**
+  - que S4.3.1 envíe el acta de inicio que espera E-1;
+  - F-3 con constatación e inventario según el art. 111.3;
+  - periodo de valorización según bases;
+  - alinear disparos y mensajes con los hijos cuando se auditen.
+

@@ -60,6 +60,8 @@ del agente que registró cada afirmación: no constituyen validación normativa 
 
 def _citas(raiz: Path, registros: list[dict]) -> list[dict]:
     """Citas cuyo fragmento ya no está en el índice o cuyo original cambió de hash."""
+    if not any(r["fuentes"] for r in registros):
+        return []
     base, _ = _conectar(raiz)
     problemas, hashes = [], {}
     with closing(base):

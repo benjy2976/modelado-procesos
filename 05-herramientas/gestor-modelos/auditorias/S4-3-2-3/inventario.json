@@ -1,0 +1,1261 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2.3",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-diagrama-proceso-tabla.md",
+  "revision_tabla": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:Ejecutor de obra, segun regimen/Residente de obra",
+      "clase": "carril",
+      "nombre": "Residente de obra"
+    },
+    {
+      "id": "C:Supervisor o inspector de obra/Supervisor o inspector de obra, segun modalidad",
+      "clase": "carril",
+      "nombre": "Supervisor o inspector de obra, segun modalidad"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/OACGD — Registro documentario",
+      "clase": "carril",
+      "nombre": "OACGD — Registro documentario"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase": "carril",
+      "nombre": "SGGOS — Subgerente de Gestion de Obras y Supervision"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Coordinador de obra",
+      "clase": "carril",
+      "nombre": "SGGOS — Coordinador de obra"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Control contractual y costos",
+      "clase": "carril",
+      "nombre": "SGGOS — Control contractual y costos"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGE — Coordinacion de revision tecnica",
+      "clase": "carril",
+      "nombre": "SGE — Coordinacion de revision tecnica"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGE — Especialista tecnico competente",
+      "clase": "carril",
+      "nombre": "SGE — Especialista tecnico competente"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Subgerencia de Presupuesto Publico — Control presupuestal",
+      "clase": "carril",
+      "nombre": "Subgerencia de Presupuesto Publico — Control presupuestal"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/GRAJ — Asesoria Juridica",
+      "clase": "carril",
+      "nombre": "GRAJ — Asesoria Juridica"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Titular de la competencia o autoridad delegada",
+      "clase": "carril",
+      "nombre": "Titular de la competencia o autoridad delegada"
+    },
+    {
+      "id": "C:Elaborador del adicional segun bases: entidad, contratista o supervisor/Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase": "carril",
+      "nombre": "Responsable de elaborar el expediente (una alternativa por caso)"
+    },
+    {
+      "id": "R-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Respuesta de consulta recibida",
+      "carril": "Residente de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Usuario 2026-11-18; Opinion D000083, 2.2.1 y 3.3"
+    },
+    {
+      "id": "F:R-E1>R-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Anotar necesidad del adicional en cuaderno",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 a; Opinion D000092, 2.1-2.3 y 3.1-3.3"
+    },
+    {
+      "id": "F:R-T1>R-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Anotacion y antecedentes remitidos",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "S-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Sustento del residente recibido",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 186.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6"
+    },
+    {
+      "id": "F:S-E1>S-G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-E2",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Necesidad identificada por supervision",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Precision operativa del equipo; Reglamento, arts. 186-188"
+    },
+    {
+      "id": "F:S-E2>S-T0",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-T0",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar la necesidad en el Cuaderno de Incidencias",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Precision operativa del equipo; Reglamento, art. 188.3; Directiva 017-2023-CG, nums. 7.3.2 y 7.3.6"
+    },
+    {
+      "id": "F:S-T0>S-G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-G1",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Convergencia de origenes"
+    },
+    {
+      "id": "F:S-G1>S-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Sustentar posicion tecnica sobre necesidad y riesgo",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, arts. 187.1, 194.2 b y 197.1; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6"
+    },
+    {
+      "id": "F:S-T1>S-G2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Ratifica la necesidad?",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 b; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "F:S-G2>S-F1",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:S-G2>S-F2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "S-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Necesidad ratificada y remitida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "S-F2",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Necesidad no ratificada",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Cierre propuesto para el control inicial"
+    },
+    {
+      "id": "E-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Sustento de necesidad recibido",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; DEC-037"
+    },
+    {
+      "id": "F:E-E1>E-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y derivar a SGGOS por SGD",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; observacion del usuario, 2026-11-10"
+    },
+    {
+      "id": "F:E-T1>E-TSG",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-TSG",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Recibir sustento y derivarlo al coordinador por SGD",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "OBS",
+      "fuente_modelo": "Precision institucional del usuario, 2026-11-19; circuito analogo documentado en S4.3.2.2"
+    },
+    {
+      "id": "F:E-TSG>E-T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T2",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Verificar integridad, regimen, sistema de entrega y supuesto",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, arts. 97-98; DEC-041"
+    },
+    {
+      "id": "F:E-T2>E-GREG",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T3",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Clasificar alcance original, causal y figura inicial",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Precision del equipo registrada en DEC-041"
+    },
+    {
+      "id": "F:E-T3>E-G0",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G0",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde adicional o deductivo de obra?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Separa obligacion original, valorizacion y modificacion potencial"
+    },
+    {
+      "id": "F:E-G0>E-G2",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G0>E-T15",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T15",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Comunicar clasificacion y proceso de destino",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "OBS",
+      "fuente_modelo": "Precision institucional del usuario, 2026-11-19; DEC-041"
+    },
+    {
+      "id": "F:E-T15>E-F3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F3",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Caso clasificado fuera del proceso",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Puede corresponder exigir cumplimiento, valorizar o derivar a otro proceso"
+    },
+    {
+      "id": "E-G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Que caso corresponde?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047; tres casos solicitados por el usuario"
+    },
+    {
+      "id": "F:E-G2>MOD-ALC-ADI",
+      "clase": "flujo",
+      "nombre": "Adicional"
+    },
+    {
+      "id": "F:E-G2>E-TVIN",
+      "clase": "flujo",
+      "nombre": "Adicional con deductivo vinculante"
+    },
+    {
+      "id": "F:E-G2>E-TDP",
+      "clase": "flujo",
+      "nombre": "Deductivo puro"
+    },
+    {
+      "id": "MOD-ALC-ADI",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Identificar adicional sin deductivo vinculado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Ley 32069, art. 64.2-64.3; Reglamento, art. 194; DEC-046"
+    },
+    {
+      "id": "F:MOD-ALC-ADI>E-G6",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G6",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Necesidad ratificada, causal y elaborador acreditados?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.1 y 194.2 a-d; bases del contrato; detalle en sustento"
+    },
+    {
+      "id": "F:E-G6>E-T4",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G6>E-FNEC",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T4",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Comunicar ratificacion a quien elabora",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.1 nota 4, 2.2 y 3.2; Reglamento, art. 194.2 b-d; interfaz S4.3.2.2"
+    },
+    {
+      "id": "F:E-T4>E-M2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-M2",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Expediente del adicional presentado a evaluacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "F:E-M2>E-GEL",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T5A",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Determinar quien emite opinion tecnica previa",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 g; Opinion D000092, 2.8-2.9 y 3.8-3.11"
+    },
+    {
+      "id": "F:E-T5A>E-GPRO",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T5",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Emitir opinion del organo competente",
+      "carril": "SGE — Especialista tecnico competente",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8 y 2.9 A-B; DEC-038"
+    },
+    {
+      "id": "F:E-T5>E-GJOIN",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G7",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Evaluacion tecnica favorable?",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Precision operativa del usuario, 2026-11-20; DEC-038"
+    },
+    {
+      "id": "F:E-G7>E-TINF",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G7>E-T16",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-TINF",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Elaborar informe de evaluacion tecnica favorable",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "OBS",
+      "fuente_modelo": "Precision operativa del usuario, 2026-11-20; Reglamento, art. 194.2 g para opinion tecnica"
+    },
+    {
+      "id": "F:E-TINF>E-TNEV",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T16",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Integrar observaciones para decision",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Propuesta operativa; Reglamento, art. 194.2 f; no sustituir resolucion por informe"
+    },
+    {
+      "id": "F:E-T16>E-TNEV",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-TNEV",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Comunicar evaluacion tecnica",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Precision del usuario, 2026-11-19; art. 194.2 e-g para secuencia de opiniones"
+    },
+    {
+      "id": "F:E-TNEV>E-G5",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G5",
+      "clase": "elemento",
+      "tipo": "compuerta-inclusiva",
+      "nombre": "¿Que controles requiere?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-038; control contractual obligatorio en esta propuesta"
+    },
+    {
+      "id": "F:E-G5>E-TC",
+      "clase": "flujo",
+      "nombre": "C"
+    },
+    {
+      "id": "F:E-G5>E-T6",
+      "clase": "flujo",
+      "nombre": "P"
+    },
+    {
+      "id": "F:E-G5>E-T7",
+      "clase": "flujo",
+      "nombre": "J"
+    },
+    {
+      "id": "E-TC",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar monto, precios, deductivo vinculado y acumulados",
+      "carril": "SGGOS — Control contractual y costos",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Ley 32069, arts. 63-64; Reglamento, arts. 109 y 194-197; ROF, arts. 97-98"
+    },
+    {
+      "id": "F:E-TC>E-G5C",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T6",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Emitir certificacion o prevision cuando corresponda",
+      "carril": "Subgerencia de Presupuesto Publico — Control presupuestal",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 51; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "F:E-T6>E-G5C",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T7",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Emitir opinion o revisar el acto cuando corresponda",
+      "carril": "GRAJ — Asesoria Juridica",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, arts. 44-45; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "F:E-T7>E-G5C",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G5C",
+      "clase": "elemento",
+      "tipo": "compuerta-inclusiva",
+      "nombre": "",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Convergencia de controles activados"
+    },
+    {
+      "id": "F:E-G5C>E-T17",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T17",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Consolidar controles, responsables y discrepancias resueltas",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Matriz de control propuesta en DEC-038; no sustituye opiniones especializadas"
+    },
+    {
+      "id": "F:E-T17>E-G8",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G8",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Requiere autorizacion previa de Contraloria?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 32069, arts. 64.2, 64.3 b y 64.4"
+    },
+    {
+      "id": "F:E-G8>E-T8",
+      "clase": "flujo",
+      "nombre": "Mayor de 30 % y hasta 50 %"
+    },
+    {
+      "id": "F:E-G8>E-T10",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T8",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Solicitar autorizacion a la Contraloria",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Ley 32069, arts. 64.3 b y 64.4; EVIDENCIA-INSUFICIENTE sobre circuito interno"
+    },
+    {
+      "id": "F:E-T8>E-M1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-M1",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Pronunciamiento de Contraloria recibido",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 32069, arts. 64.3 b y 64.4"
+    },
+    {
+      "id": "F:E-M1>E-G9",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G9",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Autorizada?",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 32069, arts. 64.3 b y 64.4"
+    },
+    {
+      "id": "F:E-G9>E-T10",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G9>E-F2B",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-F2B",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "No autorizacion comunicada",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Cierre cuando no se obtiene la autorizacion externa exigible"
+    },
+    {
+      "id": "E-T10",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Emitir y notificar resolucion del adicional",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 f; Opinion D000092, 2.9 y 3.9-3.11"
+    },
+    {
+      "id": "F:E-T10>E-G10",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G10",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Favorable?",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Rutas de decision"
+    },
+    {
+      "id": "F:E-G10>E-T11",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G10>E-F2C",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T11",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Actualizar registros y coordinar la comunicacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Opinion D000092, 2.11 y 3.14-3.15; Reglamento, art. 109.3; registros de inversion aplicables"
+    },
+    {
+      "id": "F:E-T11>E-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Decision del adicional comunicada",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto propuesto; canal formal por confirmar"
+    },
+    {
+      "id": "E-F2C",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Decision no favorable comunicada",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto alterno"
+    },
+    {
+      "id": "X-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Anotacion comunicada al elaborador",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; interfaz S4.3.2.2"
+    },
+    {
+      "id": "F:X-E1>X-TENC",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "X-E2",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Anotacion propia conocida por elaborador",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 a-d; precision del usuario, 2026-11-19"
+    },
+    {
+      "id": "F:X-E2>X-TENC",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "X-TENC",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Asumir encargo y organizar elaboracion del expediente",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; respuesta S4.3.2.2"
+    },
+    {
+      "id": "F:X-TENC>X-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "X-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Elaborar expediente del adicional y deductivo vinculado",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.7"
+    },
+    {
+      "id": "F:X-T1>X-MR",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "X-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Expediente tecnico presentado",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6"
+    },
+    {
+      "id": "E-GREG",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Ley 32069, solo construccion, sin emergencia?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, arts. 194.1-194.4; DEC-046"
+    },
+    {
+      "id": "F:E-GREG>E-T3",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-GREG>E-FPEND",
+      "clase": "flujo",
+      "nombre": "Otro regimen o emergencia"
+    },
+    {
+      "id": "E-FPEND",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Caso pendiente de completar sustento o ruta especifica",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-046; EVIDENCIA-INSUFICIENTE, no es decision de fondo"
+    },
+    {
+      "id": "E-FNEC",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Necesidad o elaborador pendiente de acreditar",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Salida local de E-G6; no es decision de fondo"
+    },
+    {
+      "id": "E-FDP",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Deductivo puro pendiente de ruta",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047; EVIDENCIA-INSUFICIENTE sobre ruta autonoma"
+    },
+    {
+      "id": "E-GEL",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Identificar autor y ruta de evaluacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 c-g; Opinion D000092, 2.9 A-C y 3.9-3.11"
+    },
+    {
+      "id": "F:E-GEL>E-GPAR",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GPAR",
+      "clase": "elemento",
+      "tipo": "compuerta-inclusiva",
+      "nombre": "¿Que opiniones corresponden?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 e-g; Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-GPAR>E-TSUP",
+      "clase": "flujo",
+      "nombre": "Elaboro contratista o entidad"
+    },
+    {
+      "id": "F:E-GPAR>E-T5A",
+      "clase": "flujo",
+      "nombre": "Opinion tecnica previa"
+    },
+    {
+      "id": "E-TSUP",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Coordinar presentacion a supervision",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.4 nota 5; 2.9 A y C"
+    },
+    {
+      "id": "F:E-TSUP>E-MSUP",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-MSUP",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Opinion de supervision recibida",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-046"
+    },
+    {
+      "id": "F:E-MSUP>E-GJOIN",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GJOIN",
+      "clase": "elemento",
+      "tipo": "compuerta-inclusiva",
+      "nombre": "",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-046"
+    },
+    {
+      "id": "F:E-GJOIN>E-G7",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-E3",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Expediente para evaluacion recibido",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.9 A y C"
+    },
+    {
+      "id": "F:S-E3>S-T3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-T3",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Evaluar expediente ajeno y emitir opinion",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.2 e; Opinion D000092, 2.9 A y C"
+    },
+    {
+      "id": "F:S-T3>S-F3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-F3",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Opinion de supervision remitida",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 e-f"
+    },
+    {
+      "id": "X-MR",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Ratificacion comunicada para presentar",
+      "carril": "Responsable de elaborar el expediente (una alternativa por caso)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.1 nota 4, 2.2-2.3"
+    },
+    {
+      "id": "F:X-MR>X-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-ENOT",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Anotacion comunicada a SGGOS",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Precision del usuario, 2026-11-19; Reglamento, art. 194.2 a-d"
+    },
+    {
+      "id": "F:E-ENOT>E-GNOT",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GNOT",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Elaborador conoce la anotacion?",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 c; precision del usuario, 2026-11-19"
+    },
+    {
+      "id": "F:E-GNOT>E-FNOT",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-GNOT>E-TNOT",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-TNOT",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Avisar anotacion y encargo al elaborador",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 194.2 a-d; Opinion D000092, 2.1-2.3; ROF GRH, arts. 95-96"
+    },
+    {
+      "id": "F:E-TNOT>E-FNOT",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-FNOT",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Inicio comunicado o conocido",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Cierre del aviso operativo; no es aprobacion"
+    },
+    {
+      "id": "E-GPRO",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde opinion del proyectista?",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-GPRO>E-TPRO",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-GPRO>E-GEX",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-TPRO",
+      "clase": "elemento",
+      "tipo": "mensaje-envio",
+      "nombre": "Solicitar opinion al proyectista",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-TPRO>E-MPRO",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-MPRO",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Opinion del proyectista recibida",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-MPRO>E-GJOIN",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GEX",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿El expediente lo elaboro la entidad?",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-GEX>E-TEX",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-GEX>E-T5",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-TEX",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Documentar supuesto de opinion inoficiosa",
+      "carril": "SGE — Coordinacion de revision tecnica",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Opinion D000092, 2.8-2.9"
+    },
+    {
+      "id": "F:E-TEX>E-GJOIN",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-EDP",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Sustento de deductivo puro recibido",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:E-EDP>E-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-TVIN",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Identificar adicional y deductivo vinculante",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:E-TVIN>E-G6",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-TDP",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Precisar naturaleza y sustento del deductivo puro",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:E-TDP>E-GDP",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GDP",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Corresponde reduccion de prestaciones?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "F:E-GDP>E-FRED",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-GDP>E-FDP",
+      "clase": "flujo",
+      "nombre": "No o no acreditado"
+    },
+    {
+      "id": "E-FRED",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Caso clasificado para S4.3.2.7",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "DEC-047"
+    },
+    {
+      "id": "M:R-F1>S-E1",
+      "clase": "mensaje",
+      "nombre": "Sustento de necesidad"
+    },
+    {
+      "id": "M:S-F1>E-E1",
+      "clase": "mensaje",
+      "nombre": "Necesidad ratificada"
+    },
+    {
+      "id": "M:R-F1>E-ENOT",
+      "clase": "mensaje",
+      "nombre": "Anotacion de necesidad comunicada a SGGOS"
+    },
+    {
+      "id": "M:S-T0>E-ENOT",
+      "clase": "mensaje",
+      "nombre": "Anotacion de supervision comunicada a SGGOS"
+    },
+    {
+      "id": "M:E-TNOT>X-E1",
+      "clase": "mensaje",
+      "nombre": "Anotacion y encargo comunicados al elaborador distinto del anotante"
+    },
+    {
+      "id": "M:E-T4>X-MR",
+      "clase": "mensaje",
+      "nombre": "Ratificacion comunicada"
+    },
+    {
+      "id": "M:X-F1>E-M2",
+      "clase": "mensaje",
+      "nombre": "Expediente tecnico"
+    },
+    {
+      "id": "M:E-T8>Contraloria General de la Republica",
+      "clase": "mensaje",
+      "nombre": "Solicitud de autorizacion"
+    },
+    {
+      "id": "M:Contraloria General de la Republica>E-M1",
+      "clase": "mensaje",
+      "nombre": "Pronunciamiento"
+    },
+    {
+      "id": "M:S4.3.2.2 Atencion de consultas de obra>R-E1",
+      "clase": "mensaje",
+      "nombre": "Respuesta notificada como antecedente"
+    },
+    {
+      "id": "M:E-TSUP>S-E3",
+      "clase": "mensaje",
+      "nombre": "Expediente presentado para pronunciamiento"
+    },
+    {
+      "id": "M:S-F3>E-MSUP",
+      "clase": "mensaje",
+      "nombre": "Opinion de supervision"
+    },
+    {
+      "id": "M:E-TNEV>Elaborador del adicional segun bases: entidad, contratista o supervisor",
+      "clase": "mensaje",
+      "nombre": "Resultado de evaluacion tecnica preliminar"
+    },
+    {
+      "id": "M:E-TNEV>Ejecutor de obra, segun regimen",
+      "clase": "mensaje",
+      "nombre": "Resultado de evaluacion tecnica preliminar"
+    },
+    {
+      "id": "M:E-TPRO>Proyectista",
+      "clase": "mensaje",
+      "nombre": "Solicitud de opinion previa"
+    },
+    {
+      "id": "M:Proyectista>E-MPRO",
+      "clase": "mensaje",
+      "nombre": "Opinion tecnica"
+    },
+    {
+      "id": "M:E-FRED>S4.3.2.7 Gestion de reducciones de prestaciones",
+      "clase": "mensaje",
+      "nombre": "Sustento reclasificado como reduccion"
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.1",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-1-inicio-de-ejecucion/S4-3-1-diagrama-proceso-tabla.md",
+  "revision_tabla": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:Gobierno Regional Huanuco/GRA — Tramite del contrato",
+      "clase": "carril",
+      "nombre": "GRA — Tramite del contrato"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/OACGD — Registro documentario",
+      "clase": "carril",
+      "nombre": "OACGD — Registro documentario"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/GRI — Gerencia Regional de Infraestructura",
+      "clase": "carril",
+      "nombre": "GRI — Gerencia Regional de Infraestructura"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase": "carril",
+      "nombre": "SGGOS — Subgerente de Gestion de Obras y Supervision"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Coordinador de obra",
+      "clase": "carril",
+      "nombre": "SGGOS — Coordinador de obra"
+    },
+    {
+      "id": "E1",
+      "clase": "elemento",
+      "tipo": "inicio",
+      "nombre": "Contrato de obra suscrito",
+      "carril": "GRA — Tramite del contrato",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "ROF, art. 25 d; Bizagi recibido; contrato concreto pendiente"
+    },
+    {
+      "id": "F:E1>T0A",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T0A",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Remitir contrato para registro",
+      "carril": "GRA — Tramite del contrato",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "ROF, arts. 20 y 25; secuencia operativa por confirmar"
+    },
+    {
+      "id": "F:T0A>T0B",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T0B",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y notificar contrato a GRI",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "ROF, art. 20; usuario, 2026-11-18; canal por confirmar"
+    },
+    {
+      "id": "F:T0B>T0C",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T0C",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Derivar contrato a SGGOS",
+      "carril": "GRI — Gerencia Regional de Infraestructura",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "ROF, arts. 92-94 y 97; ruta interna inferida"
+    },
+    {
+      "id": "F:T0C>T0D",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T0D",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Designar coordinador de obra",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Precision operativa del usuario, 2026-11-18; competencia y forma pendientes"
+    },
+    {
+      "id": "F:T0D>T0E",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T0E",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Notificar designacion y remitir contrato",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Precision operativa del usuario, 2026-11-18; medio por confirmar"
+    },
+    {
+      "id": "F:T0E>T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Recibir contrato y revisar condiciones de inicio",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Bizagi recibido; precision del usuario, 2026-11-18; Reglamento, art. 176.1"
+    },
+    {
+      "id": "F:T1>T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T2",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar supervision contratada o inspeccion habilitada",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Ley, art. 62.5; Reglamento, arts. 176.1 b y 186.1-186.4"
+    },
+    {
+      "id": "F:T2>G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "G1",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Hay supervision?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, arts. 176.1 b y 186.4"
+    },
+    {
+      "id": "F:G1>T3",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G1>G3",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "G3",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Procede inspeccion temporal?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Ley, art. 62.5; Reglamento, art. 186.4; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:G3>T8",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G3>C1",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "T8",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Gestionar designacion de inspector",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Bizagi recibido; precision del usuario, 2026-11-18; Ley, art. 62.5"
+    },
+    {
+      "id": "F:T8>GE1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "GE1",
+      "clase": "elemento",
+      "tipo": "compuerta-eventos",
+      "nombre": "¿Que se acredita primero?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Precision del usuario, 2026-11-18; Ley, art. 62.5"
+    },
+    {
+      "id": "F:GE1>C1B",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:GE1>C2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C1B",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Supervisor contratado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 b; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:C1B>T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C1",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Supervisor contratado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, arts. 176.1 b y 176.7; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:C1>T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C2",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Inspector designado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Ley, art. 62.5; Reglamento, art. 186.4; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:C2>T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T3",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Comunicar al contratista quien supervisa la obra",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 b; adscripcion operativa pendiente"
+    },
+    {
+      "id": "F:T3>T4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T4",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar documentos tecnicos",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 a"
+    },
+    {
+      "id": "F:T4>T5",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T5",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar adelanto y JPRD",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 c-d; art. 179"
+    },
+    {
+      "id": "F:T5>T6",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T6",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Verificar entrega del terreno",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 e"
+    },
+    {
+      "id": "F:T6>G2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Condiciones cumplidas?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1"
+    },
+    {
+      "id": "F:G2>T7",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:G2>T9",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "T9",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Coordinar requisitos pendientes",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, arts. 176.1, 176.4 y 176.7; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:T9>GE2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "GE2",
+      "clase": "elemento",
+      "tipo": "compuerta-eventos",
+      "nombre": "¿Que requisito se acredita?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1; precision del usuario, 2026-11-18"
+    },
+    {
+      "id": "F:GE2>C3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:GE2>C4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:GE2>C5",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:GE2>C6",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C3",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Documentos tecnicos entregados",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 a"
+    },
+    {
+      "id": "F:C3>G4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C4",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Adelanto directo entregado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 c"
+    },
+    {
+      "id": "F:C4>G4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C5",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Contrato JPRD suscrito",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 d"
+    },
+    {
+      "id": "F:C5>G4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "C6",
+      "clase": "elemento",
+      "tipo": "condicional",
+      "nombre": "Terreno entregado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1 e"
+    },
+    {
+      "id": "F:C6>G4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "G4",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "Requisito acreditado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Propuesta de disposicion BPMN; Reglamento, art. 176.1"
+    },
+    {
+      "id": "F:G4>T4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T7",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Comunicar cumplimiento de condiciones de inicio",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Bizagi recibido, actividad final; Reglamento, art. 176.1"
+    },
+    {
+      "id": "F:T7>F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Inicio del plazo comunicado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 176.1; formulacion de salida por confirmar"
+    }
+  ]
+}

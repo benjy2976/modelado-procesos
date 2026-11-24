@@ -1,0 +1,18 @@
+[
+ {
+  "elemento": "S-1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "S4.3.1 entrega un acta de inicio de obra a S4.3.2.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
+    "cita": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+    "ambito": "inicio de la ejecución contractual de obras bajo contrata (Ley 32069)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Práctica institucional informada por el usuario el 2026-11-24: en obras por contrata, el GORE Huánuco formaliza con un acta de inicio que se cumplieron las condiciones del art. 176.1, para que la fecha de inicio no dependa de una apreciación subjetiva. La ley no exige el acta, pero tampoco la contradice: el acta documenta el hecho del que depende el inicio del plazo. Queda pendiente que S4.3.1 la represente: hoy termina en «Inicio del plazo comunicado»."
+ }
+]

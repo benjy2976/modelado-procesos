@@ -1,0 +1,189 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-diagrama-proceso-tabla.md",
+  "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:S4.3.2 Ejecucion/Ejecucion, control y gestion institucional de la obra",
+      "clase": "carril",
+      "nombre": "Ejecucion, control y gestion institucional de la obra"
+    },
+    {
+      "id": "E-1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Acta de inicio de obra recibida",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Propuesta del equipo, 2026-11-02; DEC-030"
+    },
+    {
+      "id": "F:E-1>T-1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T-1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Ejecutar la obra conforme al expediente tecnico",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-030; Reglamento, art. 188; Directiva 017-2023-CG, num. 7.3.2"
+    },
+    {
+      "id": "F:T-1>F-1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F-1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Obra culminada",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "REG-CON-OBRA-003; REG-CGR-AD-002"
+    },
+    {
+      "id": "B-1",
+      "clase": "elemento",
+      "tipo": "borde-condicional",
+      "nombre": "Contrato resuelto",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "REG-CON-OBRA-004; Reglamento, arts. 122 y 123"
+    },
+    {
+      "id": "F:B-1>F-2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "B-2",
+      "clase": "elemento",
+      "tipo": "borde-condicional",
+      "nombre": "Contrato declarado nulo",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 32069, art. 71; Reglamento, art. 111"
+    },
+    {
+      "id": "F:B-2>F-3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F-2",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Ejecucion terminada por resolucion",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "REG-CON-OBRA-004; Reglamento, arts. 122 y 123"
+    },
+    {
+      "id": "F-3",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Ejecucion terminada por nulidad",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 32069, art. 71; Reglamento, art. 111"
+    },
+    {
+      "id": "CP",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-temporizador",
+      "nombre": "S4.3.2.1 Control periodico de la ejecucion",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-032; Reglamento, art. 210.1; Directiva 017-2023-CG, num. 7.3.4"
+    },
+    {
+      "id": "CO",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-mensaje",
+      "nombre": "S4.3.2.2 Atencion de consultas de obra",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-032 y DEC-041; Reglamento, art. 190"
+    },
+    {
+      "id": "MA",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.3 Gestion de adicionales y deductivos de obra",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-047; detalle y limites en sustento"
+    },
+    {
+      "id": "AP",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.4 Gestion de ampliaciones de plazo",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-041; Reglamento, arts. 198, 200 y 201; Directiva 017-2023-CG, num. 7.3.7"
+    },
+    {
+      "id": "SP",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.5 Formalizacion de suspensiones de plazo",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-041; Reglamento, arts. 107 y 202"
+    },
+    {
+      "id": "PR",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.6 Gestion de paralizacion y reinicio",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-041; REG-CGR-AD-005; REG-CON-PARAL-001"
+    },
+    {
+      "id": "RP",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.7 Gestion de reducciones de prestaciones",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-047; detalle y limites en sustento"
+    },
+    {
+      "id": "MM",
+      "clase": "elemento",
+      "tipo": "subproceso-evento-condicional",
+      "nombre": "S4.3.2.8 Gestion de mayores metrados",
+      "carril": "Ejecucion, control y gestion institucional de la obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-047; detalle y limites en sustento"
+    },
+    {
+      "id": "M:S4.3.1 Inicio de ejecucion>E-1",
+      "clase": "mensaje",
+      "nombre": "Acta de inicio de obra"
+    },
+    {
+      "id": "M:F-1>S4.3.3 Recepcion",
+      "clase": "mensaje",
+      "nombre": "Obra culminada para recepcion"
+    },
+    {
+      "id": "M:F-2>S4.3.3 Recepcion",
+      "clase": "mensaje",
+      "nombre": "Contrato resuelto para constatacion e inventario"
+    },
+    {
+      "id": "M:F-3>S4.3.3 Recepcion",
+      "clase": "mensaje",
+      "nombre": "Contrato nulo: tratamiento por definir"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-diagrama-proceso-tabla.md",
+  "revision_tabla": "BCCC169B7ECF12425AD4609B777BE6E3CB4130BF786783AA3DEEE00E0D8B11AE",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:S4.3 Ejecución de la inversión/Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase": "carril",
+      "nombre": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH"
+    },
+    {
+      "id": "E-1",
+      "clase": "elemento",
+      "tipo": "inicio",
+      "nombre": "Inicio",
+      "carril": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Propuesta del equipo, 2026-11-02"
+    },
+    {
+      "id": "F:E-1>S-1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-1",
+      "clase": "elemento",
+      "tipo": "subproceso",
+      "nombre": "S4.3.1 Inicio de ejecución",
+      "carril": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121"
+    },
+    {
+      "id": "F:S-1>S-2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-2",
+      "clase": "elemento",
+      "tipo": "subproceso",
+      "nombre": "S4.3.2 Ejecución",
+      "carril": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "DEC-030; DEC-041"
+    },
+    {
+      "id": "F:S-2>S-3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-3",
+      "clase": "elemento",
+      "tipo": "subproceso",
+      "nombre": "S4.3.3 Recepción",
+      "carril": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Propuesta del equipo, 2026-11-02; ficha S4, páginas impresas 120-121"
+    },
+    {
+      "id": "F:S-3>F-1",
+      "clase": "flujo",
+      "nombre": "Obra recepcionada"
+    },
+    {
+      "id": "F-1",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Fin",
+      "carril": "Sub Gerencia de Gestión de Obras y Supervisión - unidades ejecutoras del GRH",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Propuesta del equipo, 2026-11-02"
+    },
+    {
+      "id": "M:S4.2 Elaboración del expediente técnico o documento equivalente>S-1",
+      "clase": "mensaje",
+      "nombre": "Expediente técnico o documento equivalente"
+    },
+    {
+      "id": "M:S3.2 Contratación de bienes y servicios (Adquisiciones)>S-1",
+      "clase": "mensaje",
+      "nombre": "Contrato de ejecución de inversión"
+    },
+    {
+      "id": "M:S-3>S4.4 Liquidación, transferencia y cierre de inversión",
+      "clase": "mensaje",
+      "nombre": "Información técnico y financiera de liquidación de la inversión"
+    }
+  ]
+}

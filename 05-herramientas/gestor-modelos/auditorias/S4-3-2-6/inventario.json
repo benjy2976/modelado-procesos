@@ -1,0 +1,375 @@
+{
+  "esquema": "inventario-auditoria-v1",
+  "codigo": "S4.3.2.6",
+  "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-6-gestion-paralizacion-reinicio/S4-3-2-6-diagrama-proceso-tabla.md",
+  "revision_tabla": "2B254AD775A38733C1E3CFC9AB386D80D1A28ABC8C88C51589597836B23E2680",
+  "fecha": "2026-11-24T23:38:03+00:00",
+  "items": [
+    {
+      "id": "C:Ejecutor de obra, segun regimen/Residente de obra",
+      "clase": "carril",
+      "nombre": "Residente de obra"
+    },
+    {
+      "id": "C:Supervisor o inspector de obra/Supervisor o inspector de obra, segun modalidad",
+      "clase": "carril",
+      "nombre": "Supervisor o inspector de obra, segun modalidad"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/OACGD — Registro documentario",
+      "clase": "carril",
+      "nombre": "OACGD — Registro documentario"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/SGGOS — Coordinador de obra",
+      "clase": "carril",
+      "nombre": "SGGOS — Coordinador de obra"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Especialista competente",
+      "clase": "carril",
+      "nombre": "Especialista competente"
+    },
+    {
+      "id": "C:Gobierno Regional Huanuco/Titular de la competencia o autoridad delegada",
+      "clase": "carril",
+      "nombre": "Titular de la competencia o autoridad delegada"
+    },
+    {
+      "id": "R-E1",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Evento de paralizacion o reinicio identificado",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 31589, art. 2; Directiva 017-2023-CG, num. 7.3.7"
+    },
+    {
+      "id": "F:R-E1>R-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y sustentar el evento en el Cuaderno de Incidencias",
+      "carril": "Residente de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Directiva 017-2023-CG, num. 7.3.7; Reglamento, art. 188.3 cuando corresponda"
+    },
+    {
+      "id": "F:R-T1>R-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Evento y sustento remitidos",
+      "carril": "Residente de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Aplicacion operativa de las fuentes citadas"
+    },
+    {
+      "id": "S-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Evento y sustento recibidos",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Directiva 017-2023-CG, num. 7.3.7"
+    },
+    {
+      "id": "F:S-E1>S-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-T1",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Validar la causal o las condiciones de reinicio",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Directiva 017-2023-CG, num. 7.3.7; Ley 31589, art. 5.2 en su ambito"
+    },
+    {
+      "id": "F:S-T1>S-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "S-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Evento validado y remitido",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito propuesto sobre las fuentes citadas"
+    },
+    {
+      "id": "E-E1",
+      "clase": "elemento",
+      "tipo": "inicio-mensaje",
+      "nombre": "Expediente recibido",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; DEC-041"
+    },
+    {
+      "id": "F:E-E1>E-T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T1",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Registrar y derivar a SGGOS por SGD",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, art. 20; observacion del usuario, 2026-11-10"
+    },
+    {
+      "id": "F:E-T1>E-T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T2",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Verificar integridad y clasificar regimen y evento",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "ROF, arts. 97-98; DEC-041"
+    },
+    {
+      "id": "F:E-T2>E-G1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G1",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Requiere evaluacion tecnica especializada?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "El coordinador no sustituye al especialista; DEC-041"
+    },
+    {
+      "id": "F:E-G1>E-T3",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G1>E-G2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T3",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Evaluar causal o condiciones tecnicas",
+      "carril": "Especialista competente",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Alcance exacto pendiente por regimen"
+    },
+    {
+      "id": "F:E-T3>E-G2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G2",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Que se gestiona?",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "EQ",
+      "fuente_modelo": "Separacion adoptada en DEC-041"
+    },
+    {
+      "id": "F:E-G2>E-T4",
+      "clase": "flujo",
+      "nombre": "Paralizacion"
+    },
+    {
+      "id": "F:E-G2>E-T7",
+      "clase": "flujo",
+      "nombre": "Reinicio"
+    },
+    {
+      "id": "E-T4",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Consolidar el expediente de paralizacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "No sustituye opiniones especializadas"
+    },
+    {
+      "id": "F:E-T4>E-T5",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T5",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Resolver sobre la paralizacion",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Ley 31589, art. 5.2; Directiva 017-2023-CG, num. 7.3.7"
+    },
+    {
+      "id": "F:E-T5>E-G3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G3",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Favorable?",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Rutas de decision; tratamiento completo por regimen pendiente"
+    },
+    {
+      "id": "F:E-G3>E-T6",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G3>E-F2",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T6",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Actualizar registros y coordinar la comunicacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito interno pendiente de validacion"
+    },
+    {
+      "id": "F:E-T6>E-F1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F1",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Paralizacion formalizada y comunicada",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto propuesto"
+    },
+    {
+      "id": "E-F2",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Paralizacion no formalizada comunicada",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto alterno"
+    },
+    {
+      "id": "E-T7",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Consolidar el sustento de reinicio",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "No sustituye evaluaciones especializadas"
+    },
+    {
+      "id": "F:E-T7>E-T8",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T8",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Formalizar el reinicio",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Directiva 017-2023-CG, num. 7.3.7; contrata: EVIDENCIA-INSUFICIENTE"
+    },
+    {
+      "id": "F:E-T8>E-G4",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-G4",
+      "clase": "elemento",
+      "tipo": "compuerta",
+      "nombre": "¿Favorable?",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Rutas de decision"
+    },
+    {
+      "id": "F:E-G4>E-T9",
+      "clase": "flujo",
+      "nombre": "Si"
+    },
+    {
+      "id": "F:E-G4>E-F4",
+      "clase": "flujo",
+      "nombre": "No"
+    },
+    {
+      "id": "E-T9",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Actualizar registros y coordinar la comunicacion",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Circuito interno pendiente de validacion"
+    },
+    {
+      "id": "F:E-T9>E-F3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-F3",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Reinicio formalizado y comunicado",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto propuesto"
+    },
+    {
+      "id": "E-F4",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Reinicio no formalizado comunicado",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Producto alterno"
+    },
+    {
+      "id": "M:R-F1>S-E1",
+      "clase": "mensaje",
+      "nombre": "Evento y sustento"
+    },
+    {
+      "id": "M:S-F1>E-E1",
+      "clase": "mensaje",
+      "nombre": "Evento validado y opinion"
+    }
+  ]
+}

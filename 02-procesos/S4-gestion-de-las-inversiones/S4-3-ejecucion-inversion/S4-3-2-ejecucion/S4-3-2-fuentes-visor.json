@@ -1,0 +1,446 @@
+{
+  "elementos": {
+    "E-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 93,
+        "ubicacion": "art. 176.1",
+        "fragmento": "El inicio del plazo de ejecución contractual de obras rige desde que la entidad contratante cumpla con las siguientes condiciones",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1939,
+            0.6877,
+            0.8565,
+            0.6995
+          ],
+          [
+            0.143,
+            0.7014,
+            0.4329,
+            0.7132
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 104,
+        "ubicacion": "art. 188.1",
+        "fragmento": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1824,
+            0.2507,
+            0.8563,
+            0.2625
+          ],
+          [
+            0.143,
+            0.2642,
+            0.2979,
+            0.276
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 120,
+        "ubicacion": "art. 212.1",
+        "fragmento": "Culminada la ejecución de la obra el contratista solicita al supervisor la recepción de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1953,
+            0.0894,
+            0.8564,
+            0.1013
+          ],
+          [
+            0.143,
+            0.1031,
+            0.1764,
+            0.115
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "B-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 66,
+        "ubicacion": "art. 122.1",
+        "fragmento": "la parte afectada por el incumplimiento observa el siguiente procedimiento",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.7301,
+            0.4309,
+            0.8564,
+            0.4427
+          ],
+          [
+            0.143,
+            0.4445,
+            0.5702,
+            0.4564
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 67,
+        "ubicacion": "art. 123.4",
+        "fragmento": "la fecha y hora para realizar la constatación física e inventario en la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.3202,
+            0.8434,
+            0.8566,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F-2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 67,
+        "ubicacion": "art. 123.4",
+        "fragmento": "la fecha y hora para realizar la constatación física e inventario en la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.3202,
+            0.8434,
+            0.8566,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 66,
+        "ubicacion": "art. 122.1",
+        "fragmento": "la parte afectada por el incumplimiento observa el siguiente procedimiento",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.7301,
+            0.4309,
+            0.8564,
+            0.4427
+          ],
+          [
+            0.143,
+            0.4445,
+            0.5702,
+            0.4564
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "B-2": [
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 35,
+        "ubicacion": "Ley art. 71.1",
+        "fragmento": "Después de perfeccionados los contratos, la autoridad de la gestión administrativa de la entidad contratante puede declarar su nulidad",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1866,
+            0.168,
+            0.8562,
+            0.1801
+          ],
+          [
+            0.1433,
+            0.1816,
+            0.4861,
+            0.1937
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 61,
+        "ubicacion": "art. 111.1",
+        "fragmento": "Cuando la entidad contratante advierta posibles vicios de nulidad del contrato",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1973,
+            0.4582,
+            0.8103,
+            0.47
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F-3": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 61,
+        "ubicacion": "art. 111.3",
+        "fragmento": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventar…",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1963,
+            0.5676,
+            0.8564,
+            0.5794
+          ],
+          [
+            0.143,
+            0.5812,
+            0.8003,
+            0.5931
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Ley 32069 (texto local al 19-07-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+        "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
+        "pagina": 35,
+        "ubicacion": "Ley art. 71.1",
+        "fragmento": "Después de perfeccionados los contratos, la autoridad de la gestión administrativa de la entidad contratante puede declarar su nulidad",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1866,
+            0.168,
+            0.8562,
+            0.1801
+          ],
+          [
+            0.1433,
+            0.1816,
+            0.4861,
+            0.1937
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "CP": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.1",
+        "fragmento": "Las valorizaciones se realizan mensualmente y son consideradas pagos a cuenta. Las bases pueden establecer periodos distintos de valorización",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1957,
+            0.6385,
+            0.8563,
+            0.6504
+          ],
+          [
+            0.143,
+            0.6522,
+            0.5851,
+            0.6641
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "CO": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 106,
+        "ubicacion": "art. 190.1",
+        "fragmento": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1937,
+            0.0757,
+            0.8564,
+            0.0876
+          ],
+          [
+            0.143,
+            0.0894,
+            0.3307,
+            0.1013
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "AP": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 113,
+        "ubicacion": "art. 198.1",
+        "fragmento": "En el caso de obras, el contratista puede solicitar la ampliación de plazo pactado por cualquiera de las siguientes causales",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1963,
+            0.0757,
+            0.8563,
+            0.0876
+          ],
+          [
+            0.143,
+            0.0894,
+            0.4315,
+            0.1013
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1",
+        "fragmento": "En el caso de ejecución de obras, se sigue el siguiente procedimiento",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1941,
+            0.1167,
+            0.7176,
+            0.1285
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 201.1",
+        "fragmento": "Las ampliaciones de plazo en el componente de ejecución de obras dan lugar al pago de los conceptos vinculados",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1941,
+            0.7724,
+            0.8563,
+            0.7842
+          ],
+          [
+            0.143,
+            0.7861,
+            0.3331,
+            0.7979
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "SP": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 59,
+        "ubicacion": "art. 107.1",
+        "fragmento": "pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.4427,
+            0.6631,
+            0.8561,
+            0.6749
+          ],
+          [
+            0.143,
+            0.6767,
+            0.3125,
+            0.6886
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 202.1",
+        "fragmento": "La suspensión de plazo de ejecución de obra se realiza de acuerdo con el artículo 107",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
+        "rectangulos": [
+          [
+            0.1945,
+            0.909,
+            0.843,
+            0.9208
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ]
+  }
+}
