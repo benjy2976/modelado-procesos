@@ -1,0 +1,347 @@
+[
+ {
+  "elemento": "R-E1",
+  "aspecto": "condicion",
+  "afirmacion": "El proceso inicia con un evento de paralización o de reinicio.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "fd097f262745afb7-1a5d069a:art-2.2",
+    "cita": "controversias, abandono, deficiencias del expediente técnico",
+    "ambito": "régimen especial de reactivación de obras públicas paralizadas",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+    "cita": "Por atrasos y/o paralizaciones por causas no atribuibles al contratista",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "analogia"
+   }
+  ],
+  "razonamiento": "En administración directa el 7.3.7 regula la paralización y el reinicio. La Ley 31589 define la «obra pública paralizada» de su régimen especial (avance ≥ 40 % o ≥ 50 % y 6 meses sin ejecución), no el evento ordinario de paralización. En contrata, el Reglamento no tiene una figura propia de paralización: la trata como causal de ampliación (198.1 a) o, si hay acuerdo, como suspensión (107)."
+ },
+ {
+  "elemento": "R-T1",
+  "aspecto": "documento",
+  "afirmacion": "El residente registra y sustenta el evento en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "Para el reinicio de la obra, el residente comunicará dicha situación al inspector o supervisor",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.3",
+    "cita": "Los encargados del registro son el residente de obra y el supervisor",
+    "ambito": "cuaderno de incidencias en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "En AD, cuaderno de obra (7.3.7); en contrata, cuaderno de incidencias (188.3)."
+ },
+ {
+  "elemento": "R-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Evento y sustento remitidos (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Aplicacion operativa de las fuentes citadas."
+ },
+ {
+  "elemento": "S-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Evento y sustento recibidos (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Directiva 017-2023-CG, num. 7.3.7."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "actor",
+  "afirmacion": "El supervisor o inspector valida la causal o las condiciones de reinicio.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "El inspector o supervisor de obra emitirá un informe aprobatorio para el reinicio de la obra, de encontrar procedente la solicitud",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "En AD, valida la paralización y emite informe aprobatorio para el reinicio (7.3.7). La Ley 31589 5.2 no regula esta validación."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Evento validado y remitido (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Circuito propuesto sobre las fuentes citadas."
+ },
+ {
+  "elemento": "E-E1",
+  "aspecto": "actor",
+  "afirmacion": "La OACGD recibe el expediente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T1",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra y deriva por el SGD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T2",
+  "aspecto": "actor",
+  "afirmacion": "El coordinador de la SGGOS verifica y clasifica régimen y evento.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "Son funciones de la Sub Gerencia de Gestión de Obras y Supervisión los siguientes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF arts. 97-98."
+ },
+ {
+  "elemento": "E-G1",
+  "aspecto": "existencia",
+  "afirmacion": "¿Requiere evaluacion tecnica especializada? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: El coordinador no sustituye al especialista; DEC-041."
+ },
+ {
+  "elemento": "E-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Evaluar causal o condiciones tecnicas (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Alcance exacto pendiente por regimen."
+ },
+ {
+  "elemento": "E-G2",
+  "aspecto": "existencia",
+  "afirmacion": "¿Que se gestiona? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Separacion adoptada en DEC-041."
+ },
+ {
+  "elemento": "E-T4",
+  "aspecto": "existencia",
+  "afirmacion": "Consolidar el expediente de paralizacion (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: No sustituye opiniones especializadas."
+ },
+ {
+  "elemento": "E-T5",
+  "aspecto": "actor",
+  "afirmacion": "La autoridad competente resuelve sobre la paralización.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "Toda ampliación de plazo en la ejecución de la obra debe ser aprobada por el funcionario competente mediante acto resolutivo",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "fd097f262745afb7-1a5d069a:art-5.2",
+    "cita": "Proponer al contratista la continuidad de la ejecución de la obra",
+    "ambito": "régimen especial de reactivación de obras públicas paralizadas",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "En AD la paralización se formaliza como modificación de plazo, aprobada por acto resolutivo del funcionario competente (7.3.7). El 5.2 de la Ley 31589 (continuar o resolver el contrato) solo aplica a obras inventariadas como paralizadas en su régimen especial, no a la decisión sobre una paralización."
+ },
+ {
+  "elemento": "E-G3",
+  "aspecto": "existencia",
+  "afirmacion": "¿Favorable? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Rutas de decision; tratamiento completo por regimen pendiente."
+ },
+ {
+  "elemento": "E-T6",
+  "aspecto": "existencia",
+  "afirmacion": "Actualizar registros y coordinar la comunicacion (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Circuito interno pendiente de validacion."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Paralizacion formalizada y comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto propuesto."
+ },
+ {
+  "elemento": "E-F2",
+  "aspecto": "existencia",
+  "afirmacion": "Paralizacion no formalizada comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto alterno."
+ },
+ {
+  "elemento": "E-T7",
+  "aspecto": "existencia",
+  "afirmacion": "Consolidar el sustento de reinicio (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: No sustituye evaluaciones especializadas."
+ },
+ {
+  "elemento": "E-T8",
+  "aspecto": "actor",
+  "afirmacion": "La autoridad competente formaliza el reinicio.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "La OAD de la entidad autorizará el reinicio de los trabajos",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "En AD «la OAD de la entidad autorizará el reinicio»; que la OAD sea el titular de la competencia no está acreditado. En contrata, EVIDENCIA-INSUFICIENTE según el sustento."
+ },
+ {
+  "elemento": "E-G4",
+  "aspecto": "existencia",
+  "afirmacion": "¿Favorable? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Rutas de decision."
+ },
+ {
+  "elemento": "E-T9",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan registros tras el reinicio.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "el cronograma de obra actualizado con las",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "006fdb364e2ce359-f7cd821e:art-3-parte16",
+    "cita": "Toda ampliación de plazo debe estar registrada en los aplicativos informáticos del SNPMGI y en el INFOBRAS",
+    "ambito": "ejecución de obras por administración directa",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 7.3.7 exige el cronograma actualizado del residente en 2 días calendario y el registro en el SNPMGI e INFOBRAS antes de la ampliación; el modelo no los nombra."
+ },
+ {
+  "elemento": "E-F3",
+  "aspecto": "existencia",
+  "afirmacion": "Reinicio formalizado y comunicado (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto propuesto."
+ },
+ {
+  "elemento": "E-F4",
+  "aspecto": "existencia",
+  "afirmacion": "Reinicio no formalizado comunicado (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto alterno."
+ },
+ {
+  "elemento": "M:R-F1>S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Evento y sustento (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F1>E-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Evento validado y opinion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]

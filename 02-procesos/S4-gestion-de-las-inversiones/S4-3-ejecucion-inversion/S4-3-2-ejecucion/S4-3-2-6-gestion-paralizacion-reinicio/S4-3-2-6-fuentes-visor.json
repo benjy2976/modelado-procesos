@@ -1,0 +1,436 @@
+{
+  "elementos": {
+    "R-E1": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (párr. 2)",
+        "fragmento": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.5359,
+            0.3211,
+            0.9274,
+            0.3313
+          ],
+          [
+            0.1043,
+            0.332,
+            0.5289,
+            0.3422
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "TUO de la Ley 31589 (D.S. 206-2024-EF)",
+        "ruta": "01-referencias/04-contrataciones-publicas/obras-paralizadas/ds206_2024ef.pdf",
+        "sha256": "fd097f262745afb7b5c1e9279e2c4e0df1b63b2276dc6480cf5c75fe59ae08f7",
+        "pagina": 2,
+        "ubicacion": "TUO Ley 31589, art. 2.2",
+        "fragmento": "controversias, abandono, deficiencias del expediente técnico",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); régimen NO-DETERMINADO",
+        "rectangulos": [
+          [
+            0.0725,
+            0.7749,
+            0.4898,
+            0.7852
+          ],
+          [
+            0.0725,
+            0.7857,
+            0.1289,
+            0.796
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 113,
+        "ubicacion": "Reglamento, art. 198.1 a)",
+        "fragmento": "Por atrasos y/o paralizaciones por causas no atribuibles al contratista",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1625,
+            0.1304,
+            0.6828,
+            0.1422
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "R-T1": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (párr. 2)",
+        "fragmento": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.5359,
+            0.3211,
+            0.9274,
+            0.3313
+          ],
+          [
+            0.1043,
+            0.332,
+            0.5289,
+            0.3422
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (reinicio)",
+        "fragmento": "Para el reinicio de la obra, el residente comunicará dicha situación al inspector o supervisor",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.1043,
+            0.4192,
+            0.7966,
+            0.4295
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 104,
+        "ubicacion": "Reglamento, art. 188.3",
+        "fragmento": "Los encargados del registro son el residente de obra y el supervisor",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.391,
+            0.8681,
+            0.857,
+            0.8799
+          ],
+          [
+            0.143,
+            0.8817,
+            0.2426,
+            0.8936
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "S-T1": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (párr. 2)",
+        "fragmento": "el residente de obra informa al inspector o supervisor de obra mediante el cuaderno de obra para su validación",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.5359,
+            0.3211,
+            0.9274,
+            0.3313
+          ],
+          [
+            0.1043,
+            0.332,
+            0.5289,
+            0.3422
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (informe aprobatorio)",
+        "fragmento": "El inspector o supervisor de obra emitirá un informe aprobatorio para el reinicio de la obra, de encontrar procedente la solicitud",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.1891,
+            0.4519,
+            0.9275,
+            0.4622
+          ],
+          [
+            0.1043,
+            0.4628,
+            0.2717,
+            0.4731
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "TUO de la Ley 31589 (D.S. 206-2024-EF)",
+        "ruta": "01-referencias/04-contrataciones-publicas/obras-paralizadas/ds206_2024ef.pdf",
+        "sha256": "fd097f262745afb7b5c1e9279e2c4e0df1b63b2276dc6480cf5c75fe59ae08f7",
+        "pagina": 3,
+        "ubicacion": "TUO Ley 31589, art. 5.2",
+        "fragmento": "Proponer al contratista la continuidad de la ejecución de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); régimen NO-DETERMINADO",
+        "rectangulos": [
+          [
+            0.1114,
+            0.5585,
+            0.4753,
+            0.5687
+          ],
+          [
+            0.058,
+            0.5693,
+            0.2207,
+            0.5796
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-E1": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 14,
+        "ubicacion": "ROF art. 20",
+        "fragmento": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1625,
+            0.5596,
+            0.885,
+            0.5717
+          ],
+          [
+            0.1625,
+            0.5779,
+            0.3229,
+            0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T1": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 14,
+        "ubicacion": "ROF art. 20",
+        "fragmento": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1625,
+            0.5596,
+            0.885,
+            0.5717
+          ],
+          [
+            0.1625,
+            0.5779,
+            0.3229,
+            0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T2": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 47,
+        "ubicacion": "ROF art. 97",
+        "fragmento": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.3859,
+            0.7476,
+            0.8863,
+            0.7593
+          ],
+          [
+            0.1258,
+            0.7659,
+            0.3426,
+            0.7767
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 47,
+        "ubicacion": "ROF art. 98 (funciones de la SGGOS; texto segmentado junto al art. 97)",
+        "fragmento": "Son funciones de la Sub Gerencia de Gestión de Obras y Supervisión los siguientes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1266,
+            0.8685,
+            0.8184,
+            0.8799
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T5": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (acto resolutivo)",
+        "fragmento": "Toda ampliación de plazo en la ejecución de la obra debe ser aprobada por el funcionario competente mediante acto resolutivo",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.1043,
+            0.1793,
+            0.9274,
+            0.1896
+          ],
+          [
+            0.1043,
+            0.1902,
+            0.212,
+            0.2005
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "TUO de la Ley 31589 (D.S. 206-2024-EF)",
+        "ruta": "01-referencias/04-contrataciones-publicas/obras-paralizadas/ds206_2024ef.pdf",
+        "sha256": "fd097f262745afb7b5c1e9279e2c4e0df1b63b2276dc6480cf5c75fe59ae08f7",
+        "pagina": 3,
+        "ubicacion": "TUO Ley 31589, art. 5.2",
+        "fragmento": "Proponer al contratista la continuidad de la ejecución de la obra",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); régimen NO-DETERMINADO",
+        "rectangulos": [
+          [
+            0.1114,
+            0.5585,
+            0.4753,
+            0.5687
+          ],
+          [
+            0.058,
+            0.5693,
+            0.2207,
+            0.5796
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T8": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (autorización OAD)",
+        "fragmento": "La OAD de la entidad autorizará el reinicio de los trabajos",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.2762,
+            0.4628,
+            0.6991,
+            0.4731
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T9": [
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (cronograma)",
+        "fragmento": "el cronograma de obra actualizado con las",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.2706,
+            0.5283,
+            0.5895,
+            0.5385
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
+        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
+        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
+        "pagina": 18,
+        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (registro)",
+        "fragmento": "Toda ampliación de plazo debe estar registrada en los aplicativos informáticos del SNPMGI y en el INFOBRAS",
+        "consulta": "2026-11-24",
+        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
+        "rectangulos": [
+          [
+            0.1043,
+            0.3865,
+            0.9275,
+            0.3968
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ]
+  }
+}

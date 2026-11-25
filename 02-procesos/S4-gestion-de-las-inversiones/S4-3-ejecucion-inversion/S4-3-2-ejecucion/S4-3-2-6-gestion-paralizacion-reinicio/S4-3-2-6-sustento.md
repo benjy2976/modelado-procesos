@@ -97,3 +97,23 @@ Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estanda
 La generacion focalizada de esta normalizacion deja D1, D2, D3 y D5 sin hallazgos. D4 registra 6 hallazgos geometricos (un tramo compartido, etiquetas montadas y un cruce con etiqueta) en las rutas de paralizacion y reinicio; no afectan las referencias ni la terminacion. Se adoptaron BPMN, SVG, PNG y HTML de trabajo con `--forzar`, con revision visual y ajuste de disposicion pendientes antes de una linea base. No se atribuye conformidad institucional.
 
 Regeneracion derivada del ajuste visual de `zigzag-controlado` en S4.3.1, 2026-11-18: la tabla y la semantica de S4.3.2.6 no cambian. D1, D2, D3 y D5 permanecen sin hallazgos; D4 baja de dos a un hallazgo geometrico. Se sincronizan BPMN, SVG, PNG y HTML de trabajo con `--forzar`; el hallazgo pendiente sigue sujeto a revision de disposicion antes de una linea base.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-6/informe.md)). Comprende 26 afirmaciones (5 `SUSTENTADA`, 21 `INFERENCIA`, sin contradicciones) y 12 obligaciones del num. 7.3.7 de la Directiva 017-2023-CG, del TUO de la Ley 31589 (arts. 2 y 5) y del Reglamento art. 198.1 a). De ellas, 7 no están representadas. Se calcularon 18 anclas desde el texto, todas vigentes. Ambas fuentes tienen la vigencia jurídica por confirmar según el catálogo; el ancla lo indica. D4 mantiene el hallazgo geométrico ya documentado y se regeneró con `--forzar`. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado (administración directa):** el residente informa la paralización o el reinicio por el cuaderno de obra; el supervisor o inspector la valida y emite un informe aprobatorio para el reinicio; un acto resolutivo aprueba la modificación de plazo y la OAD autoriza el reinicio (7.3.7).
+- **Ámbito de las fuentes (inferencia principal):**
+  - la Ley 31589 regula un **régimen especial** de reactivación de obras inventariadas como paralizadas: en contrata, avance ≥ 40 % y 6 meses sin ejecución o contrato resuelto o nulo; en administración directa, ≥ 50 %. No regula el evento ordinario de paralización. Citarla en R-E1, S-T1 y E-T5 es un antecedente, no una fuente directa;
+  - en contrata el Reglamento no tiene una figura propia de paralización: la trata como causal de ampliación (198.1 a) o, con acuerdo, como suspensión (107, S4.3.2.5). Esto coincide con el vacío `EVIDENCIA-INSUFICIENTE` ya registrado para contrata.
+- **No representado:**
+  - la anotación de tres fechas en el cuaderno: solicitud de paralización, paralización real y reinicio (7.3.7);
+  - el cronograma actualizado que el residente entrega en 2 días calendario tras el reinicio, para el acto resolutivo (7.3.7);
+  - el registro previo de la modificación de plazo en el SNPMGI y el INFOBRAS (7.3.7);
+  - en el régimen de la Ley 31589: su ámbito (2.1), la decisión de proponer la continuidad o resolver (5.2) y la respuesta del contratista en 15 días calendario (5.3);
+  - la interfaz de contrata con S4.3.2.4 (198.1 a).
+- **Limitación de herramienta:** el texto extraído de la Directiva 017-2023-CG no se segmenta por numerales. El «artículo 3» de la resolución aprobatoria absorbe la directiva (pp. 3-30) y las citas se resuelven dentro de un fragmento amplio. Las anclas caen en la p. 18, que es la correcta.
+- **Propuestas no aplicadas:**
+  - decidir con el equipo si S4.3.2.6 queda solo para administración directa y, en contrata, se deriva la paralización a S4.3.2.4 o S4.3.2.5;
+  - si se mantiene el régimen de la Ley 31589, modelarlo como variante con la propuesta de continuidad o resolución y el plazo de 15 días calendario;
+  - nombrar en R-T1 las tres fechas y en E-T9 el cronograma actualizado y el registro en el SNPMGI y el INFOBRAS.
