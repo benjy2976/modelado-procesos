@@ -30,6 +30,10 @@ export default ts.config(
         WheelEvent: 'readonly',
         HTMLCanvasElement: 'readonly',
         KeyboardEvent: 'readonly',
+        PointerEvent: 'readonly',
+        ClipboardEvent: 'readonly',
+        HTMLDivElement: 'readonly',
+        localStorage: 'readonly',
         window: 'readonly'
       }
     }

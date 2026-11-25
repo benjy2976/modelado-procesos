@@ -69,6 +69,42 @@ def test_observaciones_revision_y_elemento(repositorio: RepositorioProcesos) -> 
     assert len(json.loads(archivo.read_text(encoding="utf-8"))["observaciones"]) == 1
 
 
+def test_observaciones_html_se_guardan_saneadas(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioObservaciones(repositorio)
+    revision = servicio.listar("S4.3")["revision"]
+    entrada = (
+        '<h2 onclick="x()">Título</h2><p><b>Negrita</b> <i>cursiva</i> <strike>tachado</strike>'
+        '<a href="javascript:alert(1)">enlace</a></p><script>alert(1)</script><ul><li>uno<li>dos</ul>'
+    )
+    creada = servicio.agregar(
+        "S4.3", elemento="", texto=entrada, autor="Equipo", revision_esperada=revision, formato="html"
+    )
+    assert creada["formato"] == "html"
+    assert creada["texto"] == (
+        "<h3>Título</h3><p><b>Negrita</b> <i>cursiva</i> <s>tachado</s>enlace</p><ul><li>uno</li><li>dos</li></ul>"
+    )
+    respuesta = servicio.responder(
+        "S4.3", creada["id"], "<p>a &lt; b</p>", "Claudia", creada["revision"], formato="html"
+    )
+    assert respuesta["respuestas"][0]["texto"] == "<p>a &lt; b</p>"
+    with pytest.raises(ErrorDominio, match="visible"):
+        servicio.agregar(
+            "S4.3",
+            elemento="",
+            texto="<p><script>x</script></p>",
+            autor="Equipo",
+            revision_esperada=respuesta["revision"],
+            formato="html",
+        )
+    with pytest.raises(ErrorDominio, match="Formato"):
+        servicio.agregar(
+            "S4.3", elemento="", texto="x", autor="Equipo", revision_esperada=respuesta["revision"], formato="md"
+        )
+    cliente = TestClient(crear_aplicacion(repositorio))
+    listado = cliente.get("/api/procesos/S4.3/observaciones").json()
+    assert listado["observaciones"][0]["formato"] == "html"
+
+
 def test_api_comparte_registro_y_no_acepta_origen_externo(repositorio: RepositorioProcesos) -> None:
     cliente = TestClient(crear_aplicacion(repositorio))
     assert cliente.get("/api/salud").json() == {"estado": "ok"}

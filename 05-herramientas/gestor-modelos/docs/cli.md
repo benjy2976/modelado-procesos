@@ -69,8 +69,8 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `auditoria comparar-interfaces <padre>` | Candidatos de interfaz: hijo sin modelo o sin elemento, tipo de disparo, salida declarada no representada, secuencia entre hijos y mensajes sin contraparte entre hermanos |
 | `auditoria informe <codigo> [--check]` | Cobertura, resultados, citas vigentes y anclas del visor; Markdown en `auditorias/<codigo>/`. Solo cuenta afirmaciones de elementos presentes en el inventario; las de elementos retirados se listan en `afirmaciones_de_elementos_retirados` y permanecen en el registro |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
-| `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...]` | Registro con ID y nueva revisión |
-| `observaciones responder <codigo> <id> --texto ... --autor ... --revision ...` | Respuesta e historial con nueva revisión |
+| `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...] [--formato texto\|html]` | Registro con ID y nueva revisión |
+| `observaciones responder <codigo> <id> --texto ... --autor ... --revision ... [--formato texto\|html]` | Respuesta e historial con nueva revisión |
 | `observaciones estado <codigo> <id> --valor ABIERTA\|RESUELTA --revision ... [--autor ...]` | Cambio de estado trazado |
 | `modelo <codigo> [--check] [--exportar-imagenes]` | Salida y código de `modelar.py` |
 | `api [--host 127.0.0.1] [--port 8000]` | Servidor HTTP local |

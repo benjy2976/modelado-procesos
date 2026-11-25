@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Literal
+
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
@@ -28,9 +30,10 @@ from .sesiones import ServicioSesiones
 class NuevaObservacion(BaseModel):
     elemento: str = ""
     referencia: str = ""
-    texto: str = Field(min_length=1, max_length=4000)
+    texto: str = Field(min_length=1, max_length=20000)
     autor: str = Field(min_length=1, max_length=100)
     tipo: str = "OBSERVACION"
+    formato: Literal["texto", "html"] = "texto"
     revision_esperada: str
 
 
@@ -41,8 +44,9 @@ class CambioEstado(BaseModel):
 
 
 class NuevaRespuesta(BaseModel):
-    texto: str = Field(min_length=1, max_length=4000)
+    texto: str = Field(min_length=1, max_length=20000)
     autor: str = Field(min_length=1, max_length=100)
+    formato: Literal["texto", "html"] = "texto"
     revision_esperada: str
 
 

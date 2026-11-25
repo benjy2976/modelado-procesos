@@ -642,6 +642,15 @@
             "title": "Elemento",
             "type": "string"
           },
+          "formato": {
+            "default": "texto",
+            "enum": [
+              "texto",
+              "html"
+            ],
+            "title": "Formato",
+            "type": "string"
+          },
           "referencia": {
             "default": "",
             "title": "Referencia",
@@ -652,7 +661,7 @@
             "type": "string"
           },
           "texto": {
-            "maxLength": 4000,
+            "maxLength": 20000,
             "minLength": 1,
             "title": "Texto",
             "type": "string"
@@ -679,12 +688,21 @@
             "title": "Autor",
             "type": "string"
           },
+          "formato": {
+            "default": "texto",
+            "enum": [
+              "texto",
+              "html"
+            ],
+            "title": "Formato",
+            "type": "string"
+          },
           "revision_esperada": {
             "title": "Revision Esperada",
             "type": "string"
           },
           "texto": {
-            "maxLength": 4000,
+            "maxLength": 20000,
             "minLength": 1,
             "title": "Texto",
             "type": "string"
@@ -727,6 +745,11 @@
           },
           "fecha": {
             "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
             "type": "string"
           },
           "historial": {
@@ -837,6 +860,11 @@
             "title": "Fecha",
             "type": "string"
           },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
           "historial": {
             "items": {
               "$ref": "#/components/schemas/EventoObservacion"
@@ -892,6 +920,11 @@
           },
           "fecha": {
             "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
             "type": "string"
           },
           "id": {

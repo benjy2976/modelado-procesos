@@ -158,6 +158,11 @@
     mostrarDetalle();
     if (pestana === 'observaciones') mostrarObservaciones();
   }
+  // Las observaciones en HTML (ya saneadas en el servidor) se muestran aquí como texto plano, sin interpretar etiquetas.
+  function textoVisible(o) {
+    if (o.formato !== 'html') return o.texto;
+    return new DOMParser().parseFromString(o.texto, 'text/html').body.textContent || '';
+  }
   function mostrarObservaciones() {
     const lista = $('lista-observaciones'); lista.replaceChildren();
     const elegidas = seleccionado.id ? observaciones.filter(o => o.elemento === seleccionado.id) : observaciones;
@@ -168,7 +173,7 @@
     for (const o of elegidas) {
       const tarjeta = document.createElement('div'); tarjeta.className = 'obs';
       const cab = document.createElement('small'); cab.textContent = `${o.estado} · ${o.referencia || datos.codigo} · ${o.autor} · ${o.fecha.slice(0,10)}`;
-      const cuerpo = document.createElement('p'); cuerpo.textContent = o.texto;
+      const cuerpo = document.createElement('p'); cuerpo.textContent = textoVisible(o);
       tarjeta.append(cab, cuerpo);
       if (!seleccionado.id && o.elemento) {
         const ir = document.createElement('button'); ir.textContent = 'Ver elemento';

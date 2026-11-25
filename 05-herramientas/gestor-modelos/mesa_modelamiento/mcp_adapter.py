@@ -9,6 +9,9 @@ from .observaciones import ServicioObservaciones
 from .repositorio import RepositorioProcesos
 from .sesiones import ServicioSesiones
 
+# Alias con el que el agente de IA firma sus registros en el ciclo de retroalimentación (DEC-064).
+AUTOR_AGENTE = "Claudia"
+
 
 def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
@@ -40,27 +43,37 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
 
     @servidor.tool()
     def registrar_observacion(
-        codigo: str, elemento: str, texto: str, revision_esperada: str, tipo: str = "OBSERVACION"
+        codigo: str,
+        elemento: str,
+        texto: str,
+        revision_esperada: str,
+        tipo: str = "OBSERVACION",
+        referencia: str = "",
+        formato: str = "texto",
     ) -> dict:
-        """Registra una observacion o comentario sobre un ID BPMN; no altera el modelo."""
+        """Registra una observacion o comentario sobre un ID BPMN; no altera el modelo. formato: texto o html."""
         return observaciones.agregar(
             codigo,
             elemento=elemento,
             texto=texto,
-            autor="Agente IA",
+            autor=AUTOR_AGENTE,
             revision_esperada=revision_esperada,
             tipo=tipo,
+            referencia=referencia,
+            formato=formato,
         )
 
     @servidor.tool()
-    def responder_observacion(codigo: str, identificador: str, texto: str, revision_esperada: str) -> dict:
-        """Añade respuesta a una observación existente sin alterar el modelo."""
-        return observaciones.responder(codigo, identificador, texto, "Agente IA", revision_esperada)
+    def responder_observacion(
+        codigo: str, identificador: str, texto: str, revision_esperada: str, formato: str = "texto"
+    ) -> dict:
+        """Añade respuesta a una observación existente sin alterar el modelo. formato: texto o html."""
+        return observaciones.responder(codigo, identificador, texto, AUTOR_AGENTE, revision_esperada, formato)
 
     @servidor.tool()
     def cambiar_estado_observacion(codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
         """Abre o resuelve una observación; no aprueba el proceso ni su sustento."""
-        return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, "Agente IA")
+        return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, AUTOR_AGENTE)
 
     @servidor.tool()
     def leer_elemento(codigo: str, identificador: str) -> dict:

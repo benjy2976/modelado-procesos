@@ -116,12 +116,14 @@ def _argumentos() -> argparse.ArgumentParser:
     agregar.add_argument("--revision", required=True)
     agregar.add_argument("--elemento", default="")
     agregar.add_argument("--tipo", choices=["OBSERVACION", "COMENTARIO"], default="OBSERVACION")
+    agregar.add_argument("--formato", choices=["texto", "html"], default="texto")
     responder = operaciones.add_parser("responder")
     responder.add_argument("codigo")
     responder.add_argument("identificador")
     responder.add_argument("--texto", required=True)
     responder.add_argument("--autor", required=True)
     responder.add_argument("--revision", required=True)
+    responder.add_argument("--formato", choices=["texto", "html"], default="texto")
     estado = operaciones.add_parser("estado")
     estado.add_argument("codigo")
     estado.add_argument("identificador")
@@ -299,7 +301,9 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "listar":
             return observaciones.listar(args.codigo)
         if args.operacion == "responder":
-            return observaciones.responder(args.codigo, args.identificador, args.texto, args.autor, args.revision)
+            return observaciones.responder(
+                args.codigo, args.identificador, args.texto, args.autor, args.revision, args.formato
+            )
         if args.operacion == "estado":
             return observaciones.actualizar_estado(
                 args.codigo, args.identificador, args.valor, args.revision, args.autor
@@ -311,6 +315,7 @@ def ejecutar(args: argparse.Namespace) -> object:
             autor=args.autor,
             revision_esperada=args.revision,
             tipo=args.tipo,
+            formato=args.formato,
         )
     if args.grupo == "modelo":
         repositorio.carpeta(args.codigo)

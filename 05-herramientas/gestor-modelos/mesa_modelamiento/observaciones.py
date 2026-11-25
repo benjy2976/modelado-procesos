@@ -13,6 +13,7 @@ from xml.etree import ElementTree
 
 from filelock import FileLock, Timeout
 
+from .contenido_enriquecido import MAXIMO_HTML, sanear_html
 from .repositorio import ErrorDominio, RepositorioProcesos
 
 BPMN = "{http://www.omg.org/spec/BPMN/20100524/MODEL}"
@@ -76,11 +77,24 @@ class ServicioObservaciones:
             raise ErrorDominio("El elemento no existe en el BPMN", 404)
 
     @staticmethod
-    def _validar_texto_autor(texto: str, autor: str) -> None:
-        if not isinstance(texto, str) or not 1 <= len(texto.strip()) <= 4000:
-            raise ErrorDominio("El texto debe tener entre 1 y 4000 caracteres")
+    def _validar_texto_autor(texto: str, autor: str, formato: str = "texto") -> str:
+        """Valida autor y contenido; devuelve el texto listo para guardar (HTML ya saneado)."""
         if not isinstance(autor, str) or not 1 <= len(autor.strip()) <= 100:
             raise ErrorDominio("Autor o equipo invalido")
+        if formato not in {"texto", "html"}:
+            raise ErrorDominio("Formato de texto invalido")
+        if not isinstance(texto, str):
+            raise ErrorDominio("El texto debe tener entre 1 y 4000 caracteres")
+        if formato == "texto":
+            if not 1 <= len(texto.strip()) <= 4000:
+                raise ErrorDominio("El texto debe tener entre 1 y 4000 caracteres")
+            return texto.strip()
+        if len(texto) > MAXIMO_HTML:
+            raise ErrorDominio(f"El contenido HTML no debe superar {MAXIMO_HTML} caracteres")
+        saneado, visible = sanear_html(texto)
+        if not 1 <= len(visible) <= 4000:
+            raise ErrorDominio("El texto visible debe tener entre 1 y 4000 caracteres")
+        return saneado
 
     def agregar(
         self,
@@ -92,10 +106,11 @@ class ServicioObservaciones:
         revision_esperada: str,
         tipo: str = "OBSERVACION",
         referencia: str = "",
+        formato: str = "texto",
     ) -> dict:
         if tipo not in {"OBSERVACION", "COMENTARIO"}:
             raise ErrorDominio("Tipo de registro invalido")
-        self._validar_texto_autor(texto, autor)
+        contenido = self._validar_texto_autor(texto, autor, formato)
         if not isinstance(referencia, str) or len(referencia) > 100:
             raise ErrorDominio("Referencia invalida")
         try:
@@ -108,7 +123,8 @@ class ServicioObservaciones:
                     "id": str(uuid.uuid4()),
                     "elemento": elemento,
                     "referencia": referencia,
-                    "texto": texto.strip(),
+                    "texto": contenido,
+                    "formato": formato,
                     "autor": autor.strip(),
                     "tipo": tipo,
                     "estado": "ABIERTA",
@@ -122,8 +138,10 @@ class ServicioObservaciones:
         except Timeout as exc:
             raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
 
-    def responder(self, codigo: str, identificador: str, texto: str, autor: str, revision_esperada: str) -> dict:
-        self._validar_texto_autor(texto, autor)
+    def responder(
+        self, codigo: str, identificador: str, texto: str, autor: str, revision_esperada: str, formato: str = "texto"
+    ) -> dict:
+        contenido = self._validar_texto_autor(texto, autor, formato)
         try:
             with self._bloqueo, self._bloqueo_archivo(codigo):
                 archivo, datos = self._leer(codigo)
@@ -132,7 +150,13 @@ class ServicioObservaciones:
                 if registro is None:
                     raise ErrorDominio("Observacion no encontrada", 404)
                 fecha = datetime.now(timezone.utc).isoformat()
-                respuesta = {"id": str(uuid.uuid4()), "texto": texto.strip(), "autor": autor.strip(), "fecha": fecha}
+                respuesta = {
+                    "id": str(uuid.uuid4()),
+                    "texto": contenido,
+                    "formato": formato,
+                    "autor": autor.strip(),
+                    "fecha": fecha,
+                }
                 registro.setdefault("respuestas", []).append(respuesta)
                 registro.setdefault("historial", []).append(
                     {"accion": "RESPONDIDA", "fecha": fecha, "autor": autor.strip()}

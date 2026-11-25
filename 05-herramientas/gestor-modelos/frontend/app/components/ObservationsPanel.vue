@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import DOMPurify from 'dompurify'
 import type { components } from '~/types/api'
 
 type Listado = components['schemas']['ListadoObservaciones']
@@ -17,6 +18,23 @@ const scope = ref<'elemento' | 'diagrama'>('diagrama')
 const filter = ref<'todas' | 'abiertas' | 'resueltas' | 'seleccion'>('todas')
 const replyId = ref<string | null>(null)
 const replyText = ref('')
+const formOpen = ref(false)
+const formCard = ref<HTMLElement | null>(null)
+const AUTHOR_KEY = 'mesa.observaciones.autor'
+// Solo se muestran las etiquetas de formato que también acepta el servidor.
+const ALLOWED_TAGS = ['h3', 'h4', 'p', 'br', 'strong', 'b', 'em', 'i', 'u', 's', 'del', 'ul', 'ol', 'li', 'blockquote']
+
+function rich(content: string, format?: string) {
+  return format === 'html' ? DOMPurify.sanitize(content, { ALLOWED_TAGS, ALLOWED_ATTR: [] }) : ''
+}
+
+async function toggleForm() {
+  formOpen.value = !formOpen.value
+  if (formOpen.value) {
+    await nextTick()
+    formCard.value?.querySelector<HTMLElement>('input, select, [contenteditable]')?.focus()
+  }
+}
 
 const observations = computed(() => {
   const all = list.value?.observaciones || []
@@ -28,7 +46,11 @@ const observations = computed(() => {
 
 watch(() => props.elementId, value => { scope.value = value ? 'elemento' : 'diagrama' }, { immediate: true })
 watch(() => props.code, () => { void load() })
-onMounted(() => { void load() })
+onMounted(() => {
+  author.value = localStorage.getItem(AUTHOR_KEY) || ''
+  void load()
+})
+watch(author, value => { localStorage.setItem(AUTHOR_KEY, value) })
 
 async function load() {
   loading.value = true
@@ -79,16 +101,17 @@ async function add() {
     referencia: scope.value === 'elemento' ? props.reference : '',
     texto: text.value,
     autor: author.value,
-    tipo: kind.value
+    tipo: kind.value,
+    formato: 'html'
   })
-  if (saved) text.value = ''
+  if (saved) { text.value = ''; formOpen.value = false }
 }
 
 async function reply(item: Registro) {
   if (!replyText.value.trim() || !author.value.trim()) { error.value = 'Indique autor o equipo y una respuesta.'; return }
   const saved = await mutate(
     `/api/procesos/${encodeURIComponent(props.code)}/observaciones/${encodeURIComponent(item.id)}/respuestas`,
-    'POST', { texto: replyText.value, autor: author.value }
+    'POST', { texto: replyText.value, autor: author.value, formato: 'html' }
   )
   if (saved) { replyText.value = ''; replyId.value = null }
 }
@@ -104,7 +127,11 @@ async function toggle(item: Registro) {
 <template>
   <div class="observations-panel">
     <p v-if="error" class="form-error" role="alert">{{ error }}</p>
-    <div class="form-card">
+    <button
+      type="button" class="form-toggle" :aria-expanded="formOpen" aria-controls="new-observation-form"
+      @click="toggleForm"
+    ><span aria-hidden="true">{{ formOpen ? '−' : '+' }}</span> {{ formOpen ? 'Ocultar formulario' : 'Nueva observación' }}</button>
+    <div v-show="formOpen" id="new-observation-form" ref="formCard" class="form-card">
       <h3>Nueva observación</h3>
       <label>Autor o equipo<input v-model="author" maxlength="100" autocomplete="name" placeholder="Nombre o equipo responsable" /></label>
       <label>Alcance
@@ -116,8 +143,12 @@ async function toggle(item: Registro) {
       <label>Tipo
         <select v-model="kind"><option value="OBSERVACION">Observación</option><option value="COMENTARIO">Comentario</option></select>
       </label>
-      <label>Texto<textarea v-model="text" rows="4" maxlength="4000" placeholder="Describa el cambio o la duda con precisión" /></label>
-      <button type="button" class="primary-link" :disabled="saving" @click="add">Registrar observación</button>
+      <div class="field-label">Texto</div>
+      <RichTextEditor v-model="text" label="Texto de la observación" placeholder="Describa el cambio o la duda con precisión" />
+      <div class="form-buttons">
+        <button type="button" class="primary-link" :disabled="saving" @click="add">Registrar observación</button>
+        <button type="button" class="secondary-button" @click="formOpen = false">Cancelar</button>
+      </div>
     </div>
 
     <div class="observation-list-heading">
@@ -131,17 +162,28 @@ async function toggle(item: Registro) {
     <p v-else-if="!observations.length" class="muted">No hay observaciones en este filtro.</p>
     <article v-for="item in observations" :key="item.id" class="observation-card">
       <div class="observation-meta"><span :class="item.estado === 'ABIERTA' ? 'state-open' : 'state-closed'">{{ item.estado }}</span><span>{{ item.referencia || (item.elemento ? 'Elemento' : 'Diagrama') }}</span></div>
-      <p>{{ item.texto }}</p>
+      <!-- eslint-disable-next-line vue/no-v-html -- HTML saneado en el servidor y con DOMPurify -->
+      <div v-if="item.formato === 'html'" class="rich-content" v-html="rich(item.texto, item.formato)" />
+      <p v-else>{{ item.texto }}</p>
       <small>{{ item.autor }} · {{ new Date(item.fecha).toLocaleString('es-PE') }}</small>
       <div v-if="item.respuestas?.length" class="replies">
-        <div v-for="answer in item.respuestas" :key="answer.id"><strong>{{ answer.autor }}</strong><p>{{ answer.texto }}</p></div>
+        <div v-for="answer in item.respuestas" :key="answer.id">
+          <strong>{{ answer.autor }}</strong>
+          <!-- eslint-disable-next-line vue/no-v-html -- HTML saneado en el servidor y con DOMPurify -->
+          <div v-if="answer.formato === 'html'" class="rich-content" v-html="rich(answer.texto, answer.formato)" />
+          <p v-else>{{ answer.texto }}</p>
+        </div>
       </div>
       <details v-if="item.historial?.length"><summary>Historial ({{ item.historial.length }})</summary><ul><li v-for="(event, index) in item.historial" :key="index">{{ event.accion }} · {{ event.estado || event.autor || '' }} · {{ new Date(event.fecha).toLocaleString('es-PE') }}</li></ul></details>
       <div class="observation-actions">
         <button type="button" @click="replyId = replyId === item.id ? null : item.id">Responder</button>
         <button type="button" :disabled="saving" @click="toggle(item)">{{ item.estado === 'ABIERTA' ? 'Marcar resuelta' : 'Reabrir' }}</button>
       </div>
-      <div v-if="replyId === item.id" class="reply-form"><textarea v-model="replyText" rows="3" maxlength="4000" placeholder="Escriba una respuesta" /><button type="button" :disabled="saving" @click="reply(item)">Guardar respuesta</button></div>
+      <div v-if="replyId === item.id" class="reply-form">
+        <label>Autor o equipo<input v-model="author" maxlength="100" autocomplete="name" placeholder="Nombre o equipo responsable" /></label>
+        <RichTextEditor v-model="replyText" label="Respuesta" placeholder="Escriba una respuesta" />
+        <button type="button" :disabled="saving" @click="reply(item)">Guardar respuesta</button>
+      </div>
     </article>
   </div>
 </template>

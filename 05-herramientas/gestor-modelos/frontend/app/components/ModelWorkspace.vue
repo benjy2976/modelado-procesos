@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { navigateTo, useRoute } from '#imports'
 import type { components } from '~/types/api'
 
@@ -17,6 +17,40 @@ const message = ref('')
 const documentOpen = ref<DocumentoAbierto | null>(null)
 const inspectorTab = ref<'detalle' | 'observaciones' | 'edicion'>('detalle')
 const sidebarOpen = ref(true)
+// Ancho del inspector: se arrastra desde su borde izquierdo o con las flechas, y se recuerda en el navegador.
+const INSPECTOR_KEY = 'mesa.inspector.ancho'
+const INSPECTOR_MIN = 280
+const inspectorWidth = ref(350)
+const resizing = ref(false)
+const inspectorMax = () => Math.max(INSPECTOR_MIN, Math.min(900, Math.round(window.innerWidth * 0.7)))
+function setInspectorWidth(value: number) {
+  inspectorWidth.value = Math.round(Math.min(inspectorMax(), Math.max(INSPECTOR_MIN, value)))
+  localStorage.setItem(INSPECTOR_KEY, String(inspectorWidth.value))
+}
+function onResizeMove(event: PointerEvent) {
+  if (resizing.value) setInspectorWidth(window.innerWidth - event.clientX)
+}
+function stopResize() {
+  resizing.value = false
+  window.removeEventListener('pointermove', onResizeMove)
+  window.removeEventListener('pointerup', stopResize)
+}
+function startResize(event: PointerEvent) {
+  event.preventDefault()
+  resizing.value = true
+  window.addEventListener('pointermove', onResizeMove)
+  window.addEventListener('pointerup', stopResize)
+}
+function resizeWithKeys(event: KeyboardEvent) {
+  const step = event.shiftKey ? 80 : 24
+  if (event.key === 'ArrowLeft') setInspectorWidth(inspectorWidth.value + step)
+  else if (event.key === 'ArrowRight') setInspectorWidth(inspectorWidth.value - step)
+  else if (event.key === 'Home') setInspectorWidth(INSPECTOR_MIN)
+  else if (event.key === 'End') setInspectorWidth(inspectorMax())
+  else return
+  event.preventDefault()
+}
+onBeforeUnmount(stopResize)
 const route = useRoute()
 const routeCode = computed(() => {
   const path = route.params.path
@@ -127,6 +161,8 @@ function openSource(source: Fuente, index: number) {
 }
 
 onMounted(async () => {
+  const saved = Number(localStorage.getItem(INSPECTOR_KEY))
+  if (saved) setInspectorWidth(saved)
   try {
     const response = await fetch('/api/arbol')
     if (!response.ok) throw new Error('No se pudo cargar el árbol de procesos.')
@@ -159,7 +195,10 @@ onMounted(async () => {
       <span class="topbar-badge">Revisión de procesos</span>
     </header>
 
-    <div class="workspace-body" :class="{ 'workspace-body--sidebar-hidden': !sidebarOpen }">
+    <div
+      class="workspace-body" :class="{ 'workspace-body--sidebar-hidden': !sidebarOpen, 'workspace-body--resizing': resizing }"
+      :style="{ '--inspector-width': `${inspectorWidth}px` }"
+    >
       <aside v-show="sidebarOpen" id="process-sidebar" class="sidebar" aria-label="Árbol de procesos">
         <div class="pane-heading">
           <span class="eyebrow">Explorar</span>
@@ -219,6 +258,12 @@ onMounted(async () => {
       </main>
 
       <aside class="inspector" aria-label="Detalle y sustento">
+        <div
+          class="inspector-resizer" role="separator" aria-orientation="vertical" tabindex="0"
+          aria-label="Ancho del panel derecho" :aria-valuenow="inspectorWidth" :aria-valuemin="INSPECTOR_MIN"
+          title="Arrastre o use las flechas para cambiar el ancho" @pointerdown="startResize" @keydown="resizeWithKeys"
+          @dblclick="setInspectorWidth(350)"
+        />
         <div class="pane-heading inspector-heading">
           <span class="eyebrow">Inspector</span>
           <h2>{{ inspectorTab === 'observaciones' ? 'Observaciones' : inspectorTab === 'edicion' ? 'Edición en copia' : selectedElement ? selectedElement.nombre : selectedFlow ? 'Flujo seleccionado' : 'Detalle del proceso' }}</h2>

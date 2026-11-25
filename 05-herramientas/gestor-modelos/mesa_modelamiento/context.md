@@ -25,7 +25,7 @@ Permite consultar procesos, registrar observaciones y editar modelos lógicos en
 
 Una **observación** puede asociarse a un elemento BPMN o al diagrama. Sus estados actuales son `ABIERTA` y `RESUELTA`. La **revisión** es el hash del documento JSON y se compara antes de escribir; `409` indica conflicto de revisión en HTTP. No representa aprobación técnica o institucional del proceso.
 
-Una **respuesta** permanece dentro de la observación con autor declarado y fecha. El historial conserva creación, respuestas y cambios de estado; responder o resolver no modifica el BPMN ni valida el fundamento.
+El texto de una observación o respuesta puede ser `texto` o `html`; el HTML se sanea al guardarse (`contenido_enriquecido.py`) con una lista blanca de etiquetas de formato sin atributos. Una **respuesta** permanece dentro de la observación con autor declarado y fecha. El historial conserva creación, respuestas y cambios de estado; responder o resolver no modifica el BPMN ni valida el fundamento.
 
 ## Actores
 

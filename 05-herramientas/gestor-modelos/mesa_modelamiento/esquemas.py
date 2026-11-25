@@ -87,6 +87,7 @@ class EventoObservacion(BaseModel):
 class RespuestaObservacion(BaseModel):
     id: str
     texto: str
+    formato: str = "texto"
     autor: str
     fecha: str
 
@@ -96,6 +97,7 @@ class ObservacionVista(BaseModel):
     elemento: str = ""
     referencia: str = ""
     texto: str
+    formato: str = "texto"
     autor: str
     tipo: str = "OBSERVACION"
     estado: str = "ABIERTA"

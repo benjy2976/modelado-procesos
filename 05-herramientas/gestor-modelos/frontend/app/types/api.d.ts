@@ -599,6 +599,12 @@ export interface components {
              */
             elemento: string;
             /**
+             * Formato
+             * @default texto
+             * @enum {string}
+             */
+            formato: "texto" | "html";
+            /**
              * Referencia
              * @default
              */
@@ -617,6 +623,12 @@ export interface components {
         NuevaRespuesta: {
             /** Autor */
             autor: string;
+            /**
+             * Formato
+             * @default texto
+             * @enum {string}
+             */
+            formato: "texto" | "html";
             /** Revision Esperada */
             revision_esperada: string;
             /** Texto */
@@ -640,6 +652,11 @@ export interface components {
             estado: string;
             /** Fecha */
             fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
             /** Historial */
             historial?: components["schemas"]["EventoObservacion"][];
             /** Id */
@@ -689,6 +706,11 @@ export interface components {
             estado: string;
             /** Fecha */
             fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
             /** Historial */
             historial?: components["schemas"]["EventoObservacion"][];
             /** Id */
@@ -716,6 +738,11 @@ export interface components {
             autor: string;
             /** Fecha */
             fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
             /** Id */
             id: string;
             /** Texto */
