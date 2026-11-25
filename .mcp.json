@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mesa-modelamiento": {
+      "command": "docker",
+      "args": [
+        "compose", "-f", "05-herramientas/gestor-modelos/compose.yaml",
+        "exec", "-T", "--user", "1000:1000", "-e", "HOME=/tmp",
+        "api", "/tmp/mesa-venv/bin/modelador-procesos", "mcp", "--transporte", "stdio"
+      ]
+    }
+  }
+}
