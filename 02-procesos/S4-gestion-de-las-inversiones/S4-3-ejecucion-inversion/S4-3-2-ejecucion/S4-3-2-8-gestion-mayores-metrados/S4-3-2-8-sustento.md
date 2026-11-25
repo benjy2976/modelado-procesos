@@ -87,3 +87,11 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - en S4, una salida o anotación hacia la resolución del contrato cuando se supera el 50 % (197.4);
   - un mensaje o anotación hacia S4.3.2.4 cuando los mayores metrados afectan la ruta crítica (198.1 c y 197.3);
   - la recepción correspondiente en S4.3.2.1.
+
+## Rutas de resolución, emergencia y contratos vinculados — 2026-11-25 (DEC-060)
+
+- **Resolución (197.4).** SG suma la rama «Supera el 50 % del componente obra». S5 comunica el exceso a la entidad y el proceso termina en SF2, «Causal de resolucion comunicada a la entidad», con mensaje al GORE. En S4.3.2 la resolución la activa el evento Contrato resuelto (B-1); el proceso que la tramita no está modelado. S4 conserva solo la falta de acreditación o la necesidad de reclasificar.
+- **Auditoría.** Queda pendiente la interfaz con S4.3.2.4 (197.3 y 198.1 c) ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-8/informe.md)).
+- **Generación.** D1-D5 sin hallazgos.
+
+No se atribuye validación ni conformidad; el proceso sigue en `ELABORACION`.

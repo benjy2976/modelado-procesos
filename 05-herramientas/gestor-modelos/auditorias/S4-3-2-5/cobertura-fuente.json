@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.5",
-  "revision_tabla": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
-  "fecha": "2026-11-25T00:10:33+00:00",
+  "revision_tabla": "C634D91B21338B8CD712C2116D12AEDED9CB06FD5BD7996965C7A24CD120441B",
+  "fecha": "2026-11-25T01:21:56+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
@@ -122,9 +122,12 @@
       "cita": "La entidad contratante suspende el plazo de ejecución de los contratos directamente vinculados al contrato suspendido, cuando corresponda",
       "obligacion": "Suspensión de los contratos directamente vinculados",
       "aspecto": "entrada-salida",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "No hay efecto sobre el contrato de supervisión."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T5A",
+        "E-T9A"
+      ],
+      "razonamiento": "E-T5A y E-T9A (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-202.2",
@@ -217,9 +220,12 @@
       "cita": "Cuando se resuelva un contrato directamente vinculado, las partes pueden acordar suspender el plazo de ejecución del contrato principal",
       "obligacion": "Suspensión del contrato principal al resolverse el vinculado",
       "aspecto": "excepcion",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "Caso de resolución del contrato de supervisión durante la obra; afecta a este proceso."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-E2",
+        "E-T3"
+      ],
+      "razonamiento": "Inicio condicional E-E2 (2026-11-25)."
     }
   ]
 }

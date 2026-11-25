@@ -742,48 +742,6 @@
   "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Matriz de control propuesta en DEC-038; no sustituye opiniones especializadas."
  },
  {
-  "elemento": "E-G8",
-  "aspecto": "decision",
-  "afirmacion": "Se verifica si se requiere autorización previa de la Contraloría (más de 30 % y hasta 50 %).",
-  "resultado": "SUSTENTADA",
-  "clase": "EXIGENCIA-NORMATIVA",
-  "fuentes": [
-   {
-    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.3",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
-    "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 31,
-     "hasta": 31,
-     "paginas": [
-      31
-     ]
-    },
-    "cita": "El titular de la entidad puede autorizar la ejecución y pago de prestaciones adicionales de obras mayores al 15 % y hasta un máximo de 30 %",
-    "ambito": "límites y autorización de adicionales de obra (Ley)",
-    "relacion": "directa"
-   },
-   {
-    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 110,
-     "hasta": 110,
-     "paginas": [
-      110
-     ]
-    },
-    "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
-    "ambito": "prestaciones adicionales de obra en solo construcción",
-    "relacion": "directa"
-   }
-  ],
-  "razonamiento": "Ley 64.3 b). No hay rama para el caso que supera el 50 %, en el que el 194.5 manda resolver el contrato."
- },
- {
   "elemento": "E-T8",
   "aspecto": "accion",
   "afirmacion": "Se solicita autorización a la Contraloría.",
@@ -923,6 +881,15 @@
   "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Rutas de decision."
  },
  {
+  "elemento": "E-T11",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan registros y la comunicación, con el canal de publicación por confirmar.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
   "elemento": "E-F1",
   "aspecto": "existencia",
   "afirmacion": "Decision del adicional comunicada (fin-mensaje).",
@@ -1020,41 +987,6 @@
    }
   ],
   "razonamiento": "194.2 d)."
- },
- {
-  "elemento": "E-GREG",
-  "aspecto": "decision",
-  "afirmacion": "Solo sigue la ruta si es Ley 32069, solo construcción y sin emergencia.",
-  "resultado": "INFERENCIA",
-  "clase": "DECISION-PROYECTO",
-  "fuentes": [
-   {
-    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 110,
-     "hasta": 110,
-     "paginas": [
-      110
-     ]
-    },
-    "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales",
-    "ambito": "prestaciones adicionales de obra en solo construcción",
-    "relacion": "antecedente"
-   }
-  ],
-  "razonamiento": "La emergencia tiene procedimiento propio en el 194.4 (ejecución inmediata autorizada a la supervisión y regularización posterior) que el modelo deja pendiente."
- },
- {
-  "elemento": "E-FPEND",
-  "aspecto": "existencia",
-  "afirmacion": "Caso pendiente de completar sustento o ruta especifica (fin).",
-  "resultado": "INFERENCIA",
-  "clase": "DECISION-PROYECTO",
-  "fuentes": [],
-  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-046; EVIDENCIA-INSUFICIENTE, no es decision de fondo."
  },
  {
   "elemento": "E-FNEC",
@@ -1619,12 +1551,32 @@
   "fuentes": [
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-194.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 110,
+     "hasta": 110,
+     "paginas": [
+      110
+     ]
+    },
     "cita": "No corresponde suscribir una adenda al contrato por la aprobación de la prestación adicional",
     "ambito": "prestaciones adicionales de obra bajo contrata",
     "relacion": "directa"
    },
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-194.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 110,
+     "hasta": 110,
+     "paginas": [
+      110
+     ]
+    },
     "cita": "Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regularización",
     "ambito": "prestaciones adicionales de obra bajo contrata",
     "relacion": "directa"
@@ -1641,6 +1593,16 @@
   "fuentes": [
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-194.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 110,
+     "hasta": 110,
+     "paginas": [
+      110
+     ]
+    },
     "cita": "No corresponde suscribir una adenda al contrato por la aprobación de la prestación adicional",
     "ambito": "prestaciones adicionales de obra bajo contrata",
     "relacion": "directa"
@@ -1649,12 +1611,98 @@
   "razonamiento": "194.3."
  },
  {
-  "elemento": "E-T11",
-  "aspecto": "documento",
-  "afirmacion": "Se actualizan registros y la comunicación, con el canal de publicación por confirmar.",
-  "resultado": "NO-APLICA",
+  "elemento": "E-GREG",
+  "aspecto": "decision",
+  "afirmacion": "Se distingue el adicional ordinario, el de emergencia y el de otro régimen.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
+    "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales, mientras que su regularización se da conforme al procedimiento establecido en el numeral 194.2",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La emergencia ya no queda pendiente: tiene la ruta del 194.4. Otro régimen sigue en E-FPEND."
+ },
+ {
+  "elemento": "E-TEMER",
+  "aspecto": "accion",
+  "afirmacion": "La entidad autoriza a la supervisión la ejecución inmediata y regulariza luego por el 194.2.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
+    "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales, mientras que su regularización se da conforme al procedimiento establecido en el numeral 194.2",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.4. La autoridad que autoriza queda por confirmar; la regularización sigue desde E-T3."
+ },
+ {
+  "elemento": "M:E-TEMER>Supervisor o inspector de obra",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La autorización de ejecución inmediata llega a la supervisión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
+    "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales, mientras que su regularización se da conforme al procedimiento establecido en el numeral 194.2",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.4."
+ },
+ {
+  "elemento": "E-G8",
+  "aspecto": "decision",
+  "afirmacion": "Si los adicionales acumulados superan el 50 % del contrato original, se procede a la resolución.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+    "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+    "cita": "En caso de que superen este límite, se procede a la resolución del contrato",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.5; nueva rama de E-G8."
+ },
+ {
+  "elemento": "E-FRES",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El proceso termina en causal de resolución del contrato.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+    "cita": "En caso de que superen este límite, se procede a la resolución del contrato",
+    "ambito": "prestaciones adicionales de obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.5. En S4.3.2 la resolución la activa el evento Contrato resuelto (B-1); el proceso que la tramita no está modelado."
+ },
+ {
+  "elemento": "E-FPEND",
+  "aspecto": "existencia",
+  "afirmacion": "Los casos de otro régimen quedan pendientes de ruta específica.",
+  "resultado": "INFERENCIA",
   "clase": "DECISION-PROYECTO",
   "fuentes": [],
-  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+  "razonamiento": "DEC-046; la emergencia sale de este fin."
  }
 ]

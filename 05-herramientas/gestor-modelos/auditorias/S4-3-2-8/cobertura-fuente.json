@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.8",
-  "revision_tabla": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C",
-  "fecha": "2026-11-25T00:16:15+00:00",
+  "revision_tabla": "F8E3BBC22EB2B409EB4EC2A334490B3A2504B3D1802EE2BD60D4616A4856F9A5",
+  "fecha": "2026-11-25T01:21:55+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
@@ -166,9 +166,13 @@
       "cita": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
       "obligacion": "Si se supera el 50 % del componente obra, se resuelve el contrato",
       "aspecto": "excepcion",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "S4 documenta el impedimento sin derivar la resolución."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "SG",
+        "S5",
+        "SF2"
+      ],
+      "razonamiento": "Rama de resolución (2026-11-25)."
     }
   ]
 }

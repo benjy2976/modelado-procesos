@@ -333,6 +333,60 @@
         ],
         "metodo_ancla": "automatico-pdfminer"
       }
+    ],
+    "S5": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 112,
+        "ubicacion": "art. 197.4",
+        "fragmento": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.5849,
+            0.849,
+            0.8565,
+            0.8608
+          ],
+          [
+            0.143,
+            0.8626,
+            0.7568,
+            0.8745
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "SF2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 112,
+        "ubicacion": "art. 197.4",
+        "fragmento": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.5849,
+            0.849,
+            0.8565,
+            0.8608
+          ],
+          [
+            0.143,
+            0.8626,
+            0.7568,
+            0.8745
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
     ]
   }
 }

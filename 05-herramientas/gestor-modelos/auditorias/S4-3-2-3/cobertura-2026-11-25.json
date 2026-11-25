@@ -113,18 +113,24 @@
   "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales",
   "obligacion": "Adicionales de emergencia: ejecución inmediata autorizada y regularización posterior",
   "aspecto": "excepcion",
-  "estado": "NO-REPRESENTADO",
-  "elementos": [],
-  "razonamiento": "E-GREG envía la emergencia a pendiente."
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-GREG",
+   "E-TEMER"
+  ],
+  "razonamiento": "Ruta de emergencia (2026-11-25)."
  },
  {
   "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
   "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
   "obligacion": "Más del 50 % del contrato original: resolución del contrato",
   "aspecto": "excepcion",
-  "estado": "NO-REPRESENTADO",
-  "elementos": [],
-  "razonamiento": "E-G8 no tiene rama para ese caso."
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-G8",
+   "E-FRES"
+  ],
+  "razonamiento": "Rama de resolución (2026-11-25)."
  },
  {
   "fragmento": "f14ffa37b824b8af-c9c22559:art-64.2",

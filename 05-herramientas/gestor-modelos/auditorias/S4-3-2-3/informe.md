@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.3`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA: 65, NO-APLICA: 1, SUSTENTADA: 31).
+Revisión de la tabla: `F933AE186B82A3B3`. Afirmaciones vigentes: 103 (INFERENCIA: 64, NO-APLICA: 4, SUSTENTADA: 35).
 
 ## Afirmaciones por elemento
 
@@ -59,7 +59,8 @@ Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA
 | E-T7 | actor | `SUSTENTADA` | Asesoría Jurídica emite opinión o revisa el acto. | reglamento-organizacion-funciones-grh-2023 `art-45-parte1` (p. 24, 25, 26)<br>reglamento-organizacion-funciones-grh-2023 `art-44` (p. 24) |
 | E-G5C | existencia | `INFERENCIA` | E-G5C (compuerta-inclusiva). | — |
 | E-T17 | existencia | `INFERENCIA` | Consolidar controles, responsables y discrepancias resueltas (tarea-usuario). | — |
-| E-G8 | decision | `SUSTENTADA` | Se verifica si se requiere autorización previa de la Contraloría (más de 30 % y hasta 50 %). | ley-general-de-contrataciones-publicas-con-modif `art-64.3` (p. 31)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
+| E-G8 | decision | `NO-APLICA` | Se verifica si se requiere autorización previa de la Contraloría (más de 30 % y hasta 50 %). | — |
+| E-G8 | decision | `SUSTENTADA` | Si los adicionales acumulados superan el 50 % del contrato original, se procede a la resolución. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
 | E-T8 | accion | `SUSTENTADA` | Se solicita autorización a la Contraloría. | ley-general-de-contrataciones-publicas-con-modif `art-64.3` (p. 31) |
 | E-M1 | plazo | `SUSTENTADA` | Se recibe el pronunciamiento de la Contraloría. | ley-general-de-contrataciones-publicas-con-modif `art-64.4` (p. 31) |
 | E-G9 | decision | `SUSTENTADA` | Se distingue si la Contraloría autorizó. | ley-general-de-contrataciones-publicas-con-modif `art-64.4` (p. 31) |
@@ -76,8 +77,12 @@ Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA
 | X-TENC | existencia | `INFERENCIA` | Asumir encargo y organizar elaboracion del expediente (tarea-usuario). | — |
 | X-T1 | plazo | `SUSTENTADA` | El elaborador presenta el expediente en 15 días desde la anotación. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | X-F1 | entrada-salida | `SUSTENTADA` | El expediente técnico queda presentado. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
-| E-GREG | decision | `INFERENCIA` | Solo sigue la ruta si es Ley 32069, solo construcción y sin emergencia. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
-| E-FPEND | existencia | `INFERENCIA` | Caso pendiente de completar sustento o ruta especifica (fin). | — |
+| E-GREG | decision | `NO-APLICA` | Solo sigue la ruta si es Ley 32069, solo construcción y sin emergencia. | — |
+| E-GREG | decision | `SUSTENTADA` | Se distingue el adicional ordinario, el de emergencia y el de otro régimen. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
+| E-FPEND | existencia | `NO-APLICA` | Caso pendiente de completar sustento o ruta especifica (fin). | — |
+| E-FPEND | existencia | `INFERENCIA` | Los casos de otro régimen quedan pendientes de ruta específica. | — |
+| E-TEMER | accion | `SUSTENTADA` | La entidad autoriza a la supervisión la ejecución inmediata y regulariza luego por el 194.2. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
+| E-FRES | entrada-salida | `SUSTENTADA` | El proceso termina en causal de resolución del contrato. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
 | E-FNEC | existencia | `INFERENCIA` | Necesidad o elaborador pendiente de acreditar (fin). | — |
 | E-FDP | existencia | `INFERENCIA` | Deductivo puro pendiente de ruta (fin). | — |
 | E-GEL | existencia | `INFERENCIA` | Identificar autor y ruta de evaluacion (tarea-usuario). | — |
@@ -120,6 +125,7 @@ Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA
 | M:E-TPRO>Proyectista | entrada-salida | `INFERENCIA` | Solicitud de opinion previa (mensaje). | — |
 | M:Proyectista>E-MPRO | entrada-salida | `INFERENCIA` | Opinion tecnica (mensaje). | — |
 | M:E-FRED>S4.3.2.7 Gestion de reducciones de prestaciones | entrada-salida | `INFERENCIA` | Sustento reclasificado como reduccion (mensaje). | — |
+| M:E-TEMER>Supervisor o inspector de obra | entrada-salida | `SUSTENTADA` | La autorización de ejecución inmediata llega a la supervisión. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
 
 ## Contradicciones
 
@@ -159,8 +165,6 @@ Ninguna.
 - **X-E1 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; interfaz S4.3.2.2.
 - **X-E2 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 a-d; precision del usuario, 2026-11-19.
 - **X-TENC · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; respuesta S4.3.2.2.
-- **E-GREG · decision.** La emergencia tiene procedimiento propio en el 194.4 (ejecución inmediata autorizada a la supervisión y regularización posterior) que el modelo deja pendiente.
-- **E-FPEND · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-046; EVIDENCIA-INSUFICIENTE, no es decision de fondo.
 - **E-FNEC · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Salida local de E-G6; no es decision de fondo.
 - **E-FDP · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047; EVIDENCIA-INSUFICIENTE sobre ruta autonoma.
 - **E-GEL · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-g; Opinion D000092, 2.9 A-C y 3.9-3.11.
@@ -196,6 +200,7 @@ Ninguna.
 - **M:E-TPRO>Proyectista · entrada-salida.** Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo.
 - **M:Proyectista>E-MPRO · entrada-salida.** Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo.
 - **M:E-FRED>S4.3.2.7 Gestion de reducciones de prestaciones · entrada-salida.** Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo.
+- **E-FPEND · existencia.** DEC-046; la emergencia sale de este fin.
 
 ## Cobertura de la fuente
 
@@ -210,8 +215,8 @@ Ninguna.
 | Resolución notificada en 12 días hábiles | `REPRESENTADO` | E-T10 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | Opinión técnica previa del órgano competente o del proyectista (un año) | `REPRESENTADO` | E-T5A, E-GPRO, E-TPRO, E-T5 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | Publicación en la Pladicop sin adenda y prohibición de aprobar por regularización | `REPRESENTADO` | E-T11, E-F1 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
-| Adicionales de emergencia: ejecución inmediata autorizada y regularización posterior | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
-| Más del 50 % del contrato original: resolución del contrato | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
+| Adicionales de emergencia: ejecución inmediata autorizada y regularización posterior | `REPRESENTADO` | E-GREG, E-TEMER | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
+| Más del 50 % del contrato original: resolución del contrato | `REPRESENTADO` | E-G8, E-FRES | reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
 | Hasta 15 % por la autoridad de la gestión administrativa, restando deductivos vinculados | `REPRESENTADO` | E-TC, E-TVIN, MOD-ALC-ADI | ley-general-de-contrataciones-publicas-con-modif `art-64.2` (p. 31) |
 | Más de 15 % hasta 30 % por el titular; más de 30 % hasta 50 % con autorización de la Contraloría | `REPRESENTADO` | E-G8, E-T8, E-T10 | ley-general-de-contrataciones-publicas-con-modif `art-64.3` (p. 31) |
 | Pronunciamiento de la Contraloría en 15 días hábiles | `REPRESENTADO` | E-M1 | ley-general-de-contrataciones-publicas-con-modif `art-64.4` (p. 31) |
@@ -221,5 +226,5 @@ Ninguna.
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
 - Referencias mencionadas sin ancla: 0.
-- Obligaciones de la fuente no representadas: 2.
-- Anclas del visor: {'SIN-COORDENADAS': 3, 'VIGENTE': 74}.
+- Obligaciones de la fuente no representadas: 0.
+- Anclas del visor: {'SIN-COORDENADAS': 3, 'VIGENTE': 77}.

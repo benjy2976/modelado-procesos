@@ -1227,12 +1227,12 @@
         "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
         "pagina": 110,
         "ubicacion": "art. 194.5",
-        "fragmento": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
-        "consulta": "2026-11-24",
+        "fragmento": "En caso de que superen este límite, se procede a la resolución del contrato",
+        "consulta": "2026-11-25",
         "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
         "rectangulos": [
           [
-            0.2382,
+            0.8358,
             0.7423,
             0.8562,
             0.7541
@@ -1605,6 +1605,43 @@
             0.674,
             0.2314,
             0.6859
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.4",
+        "fragmento": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales, mientras que su regularización se da c…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.7776,
+            0.6467,
+            0.8568,
+            0.6585
+          ],
+          [
+            0.143,
+            0.6603,
+            0.8563,
+            0.6722
+          ],
+          [
+            0.143,
+            0.674,
+            0.8562,
+            0.6859
+          ],
+          [
+            0.143,
+            0.6877,
+            0.2554,
+            0.6995
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -2022,6 +2059,72 @@
             0.5569,
             0.3157,
             0.5711
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-TEMER": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.4",
+        "fragmento": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales, mientras que su regularización se da c…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.7776,
+            0.6467,
+            0.8568,
+            0.6585
+          ],
+          [
+            0.143,
+            0.6603,
+            0.8563,
+            0.6722
+          ],
+          [
+            0.143,
+            0.674,
+            0.8562,
+            0.6859
+          ],
+          [
+            0.143,
+            0.6877,
+            0.2554,
+            0.6995
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-FRES": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.5",
+        "fragmento": "En caso de que superen este límite, se procede a la resolución del contrato",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.8358,
+            0.7423,
+            0.8562,
+            0.7541
+          ],
+          [
+            0.143,
+            0.756,
+            0.6837,
+            0.7678
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"

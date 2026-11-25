@@ -156,3 +156,11 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
 - **Pendiente:** 198.3 (criterio técnico), 200.2 (ampliación parcial) y 200.4 (contratos vinculados).
 
 La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-4/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.
+
+## Rutas de resolución, emergencia y contratos vinculados — 2026-11-25 (DEC-060)
+
+- **Contratos vinculados (200.4).** Tras publicar la resolución favorable, E-T11 amplía de oficio, sin solicitud previa, el plazo de los contratos directamente vinculados, como el de supervisión. El carril del coordinador es una propuesta; el acto y el responsable quedan por confirmar.
+- **Auditoría.** Quedan sin representar el 198.3 (criterio técnico) y el 200.2 (ampliación parcial) ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-4/informe.md)).
+- **Generación.** D4 mantiene los 2 hallazgos ya documentados (`--forzar`).
+
+No se atribuye validación ni conformidad; el proceso sigue en `ELABORACION`.

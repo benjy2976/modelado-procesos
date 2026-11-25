@@ -119,3 +119,16 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - dar a E-F3 destinatario y contenido (programa y calendarios actualizados, 202.2);
   - anotar en E-T3 la regla de costos y registrar en el sustento la suspensión de los contratos vinculados;
   - evaluar con el equipo si la suspensión por falta de pago (202.3) se modela aquí, como disparador por anotación del residente, o en el proceso de valorizaciones.
+
+## Rutas de resolución, emergencia y contratos vinculados — 2026-11-25 (DEC-060)
+
+- **Contratos vinculados (107.3).** Tras formalizar la suspensión, E-T5A suspende el plazo de los contratos directamente vinculados, cuando corresponda. En la reanudación, E-T9A suscribe el acta de reinicio de los contratos vinculados que se hubieran suspendido. El acto y el responsable quedan por confirmar.
+- **Resolución del contrato vinculado (202.5).** El nuevo inicio condicional E-E2, «Contrato directamente vinculado resuelto», lleva a la coordinación con el contratista (E-T3): las partes pueden acordar suspender el plazo de la obra hasta perfeccionar un nuevo contrato vinculado. El 202.4 (suspender el vinculado cuando se resuelve el principal) sigue fuera de alcance.
+- **Auditoría.** Las obligaciones del 107.3 y del 202.5 pasan a representadas ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-5/informe.md)). Siguen pendientes:
+  - el acta de reinicio entre las partes y la ruta sin acuerdo (107.2);
+  - la regla de costos (107.1);
+  - el 202.2;
+  - la suspensión por falta de pago (202.3).
+- **Generación.** D1-D5 sin hallazgos.
+
+No se atribuye validación ni conformidad; el proceso sigue en `ELABORACION`.

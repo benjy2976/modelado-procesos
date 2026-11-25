@@ -119,8 +119,10 @@
   "cita": "la entidad contratante amplía el plazo de los contratos directamente vinculados al contrato principal, sin solicitud previa",
   "obligacion": "Ampliación de oficio de los contratos vinculados",
   "aspecto": "entrada-salida",
-  "estado": "NO-REPRESENTADO",
-  "elementos": [],
-  "razonamiento": "No hay efecto sobre el contrato de supervisión."
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T11"
+  ],
+  "razonamiento": "E-T11 (2026-11-25)."
  }
 ]

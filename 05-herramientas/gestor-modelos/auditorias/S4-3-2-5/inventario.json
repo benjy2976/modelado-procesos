@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.5",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-5-formalizacion-suspensiones-plazo/S4-3-2-5-diagrama-proceso-tabla.md",
-  "revision_tabla": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
-  "fecha": "2026-11-25T00:08:57+00:00",
+  "revision_tabla": "C634D91B21338B8CD712C2116D12AEDED9CB06FD5BD7996965C7A24CD120441B",
+  "fecha": "2026-11-25T01:21:56+00:00",
   "items": [
     {
       "id": "C:Contratista/Residente de obra",
@@ -190,6 +190,20 @@
       "nombre": ""
     },
     {
+      "id": "E-E2",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Contrato directamente vinculado resuelto",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 202.5"
+    },
+    {
+      "id": "F:E-E2>E-T3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
       "id": "E-M1",
       "clase": "elemento",
       "tipo": "mensaje-recepcion",
@@ -246,7 +260,21 @@
       "fuente_modelo": "Reglamento, arts. 107 y 202"
     },
     {
-      "id": "F:E-T5>E-T6",
+      "id": "F:E-T5>E-T5A",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T5A",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Suspender el plazo de los contratos vinculados, cuando corresponda",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 107.3"
+    },
+    {
+      "id": "F:E-T5A>E-T6",
       "clase": "flujo",
       "nombre": ""
     },
@@ -371,7 +399,21 @@
       "fuente_modelo": "Reglamento, arts. 107.2 y 202.2"
     },
     {
-      "id": "F:E-T9>E-F3",
+      "id": "F:E-T9>E-T9A",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T9A",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Suscribir acta de reinicio de los contratos vinculados suspendidos",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 107.3"
+    },
+    {
+      "id": "F:E-T9A>E-F3",
       "clase": "flujo",
       "nombre": ""
     },

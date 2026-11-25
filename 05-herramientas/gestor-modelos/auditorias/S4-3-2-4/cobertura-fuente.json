@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.4",
-  "revision_tabla": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
-  "fecha": "2026-11-25T00:49:25+00:00",
+  "revision_tabla": "3D2A0E280E4E758BFD94554D6376351470F5EA6F40A8FDF3C8AE7C97B225298A",
+  "fecha": "2026-11-25T01:21:55+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
@@ -234,9 +234,11 @@
       "cita": "la entidad contratante amplía el plazo de los contratos directamente vinculados al contrato principal, sin solicitud previa",
       "obligacion": "Ampliación de oficio de los contratos vinculados",
       "aspecto": "entrada-salida",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "No hay efecto sobre el contrato de supervisión."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T11"
+      ],
+      "razonamiento": "E-T11 (2026-11-25)."
     }
   ]
 }

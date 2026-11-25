@@ -352,3 +352,18 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
 - **Pendiente:** emergencia (194.4) y resolución al superar el 50 % (194.5).
 
 La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-3/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.
+
+## Rutas de resolución, emergencia y contratos vinculados — 2026-11-25 (DEC-060)
+
+Por instrucción del usuario:
+
+- **Emergencia (194.4).** E-GREG pasa a «¿Que supuesto corresponde?» y tiene tres salidas:
+  - adicional ordinario de la Ley 32069 con solo construcción, por defecto hacia E-T3;
+  - emergencia, hacia E-TEMER. La entidad autoriza a la supervisión a disponer la ejecución inmediata y la regularización sigue por el 194.2 desde E-T3. El mensaje va al pool del supervisor, que no dispone de una actividad propia para la ejecución inmediata: esa actividad se omitió para no agravar el trazado. La valorización del adicional solo procede tras la resolución;
+  - otro régimen, hacia E-FPEND.
+- **Autoridad de la emergencia.** Quién autoriza queda por confirmar.
+- **Resolución (194.5).** E-G8 pasa a «¿Que limite alcanza el adicional acumulado?» y suma la rama «Mayor de 50 %» hacia E-FRES, «Contrato en causal de resolucion por superar el 50 %». En S4.3.2 la resolución la activa el evento Contrato resuelto (B-1). El proceso que la tramita (arts. 122-123) no está modelado en el árbol.
+- **Auditoría.** Las 14 obligaciones quedan representadas y el proceso pasa a `COMPLETO` ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-3/informe.md)).
+- **Generación.** D1, D2 y D5 sin hallazgos; D3 conserva sus advertencias ya documentadas. D4 sube de 18 a 30 hallazgos geométricos: las ramas nuevas desplazan la disposición de un diagrama ya denso, y quitar el mensaje de emergencia solo reducía uno. Se adopta con `--forzar`; la revisión visual y el ajuste de disposición quedan pendientes antes de una línea base.
+
+No se atribuye validación ni conformidad; el proceso sigue en `ELABORACION`.

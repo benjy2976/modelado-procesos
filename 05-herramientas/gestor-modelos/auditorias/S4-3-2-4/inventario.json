@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.4",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-4-gestion-ampliaciones-plazo/S4-3-2-4-diagrama-proceso-tabla.md",
-  "revision_tabla": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
-  "fecha": "2026-11-25T00:49:25+00:00",
+  "revision_tabla": "3D2A0E280E4E758BFD94554D6376351470F5EA6F40A8FDF3C8AE7C97B225298A",
+  "fecha": "2026-11-25T01:21:55+00:00",
   "items": [
     {
       "id": "C:Contratista/Contratista",
@@ -349,7 +349,21 @@
       "fuente_modelo": "Reglamento, arts. 198.4 y 200.1 d; observacion del usuario, 2026-11-10"
     },
     {
-      "id": "F:E-T10>E-F1",
+      "id": "F:E-T10>E-T11",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-T11",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Ampliar el plazo de los contratos directamente vinculados",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 200.4"
+    },
+    {
+      "id": "F:E-T11>E-F1",
       "clase": "flujo",
       "nombre": ""
     },

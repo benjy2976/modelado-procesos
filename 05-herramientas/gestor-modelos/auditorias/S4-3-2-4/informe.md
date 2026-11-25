@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.4`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `DB255664FCC2A05B`. Afirmaciones vigentes: 39 (INFERENCIA: 6, NO-APLICA: 8, SUSTENTADA: 25).
+Revisión de la tabla: `3D2A0E280E4E758B`. Afirmaciones vigentes: 40 (INFERENCIA: 6, NO-APLICA: 8, SUSTENTADA: 26).
 
 ## Afirmaciones por elemento
 
@@ -53,6 +53,7 @@ Revisión de la tabla: `DB255664FCC2A05B`. Afirmaciones vigentes: 39 (INFERENCIA
 | E-G1 | decision | `SUSTENTADA` | La ampliación se aprueba o no. | reglamento-de-la-ley-general-de-contrataciones-p `art-200.1` (p. 114) |
 | E-T10 | documento | `NO-APLICA` | Se actualizan el plazo y el cronograma y se registra la decisión en el SGD. | — |
 | E-T10 | documento | `SUSTENTADA` | La resolución favorable se publica en la Pladicop, sin adenda, y se actualizan el plazo y el cronograma. | reglamento-de-la-ley-general-de-contrataciones-p `art-198.4` (p. 113)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-200.1` (p. 114) |
+| E-T11 | accion | `SUSTENTADA` | La entidad amplía de oficio el plazo de los contratos directamente vinculados. | reglamento-de-la-ley-general-de-contrataciones-p `art-200.4` (p. 114) |
 | E-F1 | entrada-salida | `NO-APLICA` | La resolución favorable se comunica. | — |
 | E-F1 | entrada-salida | `SUSTENTADA` | La resolución favorable se notifica al contratista por la Pladicop. | reglamento-de-la-ley-general-de-contrataciones-p `art-200.1` (p. 114) |
 | E-F2 | entrada-salida | `NO-APLICA` | La resolución no favorable se comunica. | — |
@@ -94,12 +95,12 @@ Ninguna.
 | Resolución notificada por la Pladicop en 10 días hábiles | `REPRESENTADO` | E-T9, E-G1, E-T10, E-F1, E-F2 | reglamento-de-la-ley-general-de-contrataciones-p `art-200.1` (p. 114) |
 | Silencio de la entidad: se aprueba lo informado o lo solicitado | `REPRESENTADO` | E-T9 | reglamento-de-la-ley-general-de-contrataciones-p `art-200.1` (p. 114) |
 | Ampliación parcial si la causal no tiene fin previsto | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-200.2` (p. 114) |
-| Ampliación de oficio de los contratos vinculados | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-200.4` (p. 114) |
+| Ampliación de oficio de los contratos vinculados | `REPRESENTADO` | E-T11 | reglamento-de-la-ley-general-de-contrataciones-p `art-200.4` (p. 114) |
 
 ## Controles
 
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
 - Referencias mencionadas sin ancla: 0.
-- Obligaciones de la fuente no representadas: 3.
-- Anclas del visor: {'VIGENTE': 30}.
+- Obligaciones de la fuente no representadas: 2.
+- Anclas del visor: {'VIGENTE': 31}.

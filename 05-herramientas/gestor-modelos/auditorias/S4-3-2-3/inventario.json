@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.3",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-diagrama-proceso-tabla.md",
-  "revision_tabla": "4B27170A34348F86E0DCF51B90FBE1E8BCF7186EA7676AB775844E5908456BCF",
-  "fecha": "2026-11-25T00:49:24+00:00",
+  "revision_tabla": "F933AE186B82A3B35F6BB03C7723E9957FA7A6D1121097C01E10DC4C450545C0",
+  "fecha": "2026-11-25T01:23:29+00:00",
   "items": [
     {
       "id": "C:Ejecutor de obra, segun regimen/Residente de obra",
@@ -593,10 +593,10 @@
       "id": "E-G8",
       "clase": "elemento",
       "tipo": "compuerta",
-      "nombre": "¿Requiere autorizacion previa de Contraloria?",
+      "nombre": "¿Que limite alcanza el adicional acumulado?",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Ley 32069, arts. 64.2, 64.3 b y 64.4"
+      "fuente_modelo": "Ley 32069, arts. 64.2, 64.3 b y 64.4; Reglamento, art. 194.5"
     },
     {
       "id": "F:E-G8>E-T8",
@@ -604,9 +604,14 @@
       "nombre": "Mayor de 30 % y hasta 50 %"
     },
     {
+      "id": "F:E-G8>E-FRES",
+      "clase": "flujo",
+      "nombre": "Mayor de 50 %"
+    },
+    {
       "id": "F:E-G8>E-T10",
       "clase": "flujo",
-      "nombre": "No"
+      "nombre": "Hasta 30 %"
     },
     {
       "id": "E-T8",
@@ -798,7 +803,7 @@
       "id": "E-GREG",
       "clase": "elemento",
       "tipo": "compuerta",
-      "nombre": "¿Ley 32069, solo construccion, sin emergencia?",
+      "nombre": "¿Que supuesto corresponde?",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
       "fuente_modelo": "Reglamento, arts. 194.1-194.4; DEC-046"
@@ -806,21 +811,49 @@
     {
       "id": "F:E-GREG>E-T3",
       "clase": "flujo",
-      "nombre": "Si"
+      "nombre": "Ley 32069, solo construccion"
+    },
+    {
+      "id": "F:E-GREG>E-TEMER",
+      "clase": "flujo",
+      "nombre": "Emergencia"
     },
     {
       "id": "F:E-GREG>E-FPEND",
       "clase": "flujo",
-      "nombre": "Otro regimen o emergencia"
+      "nombre": "Otro regimen"
     },
     {
       "id": "E-FPEND",
       "clase": "elemento",
       "tipo": "fin",
-      "nombre": "Caso pendiente de completar sustento o ruta especifica",
+      "nombre": "Caso de otro regimen pendiente de ruta especifica",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
       "fuente_modelo": "DEC-046; EVIDENCIA-INSUFICIENTE, no es decision de fondo"
+    },
+    {
+      "id": "E-TEMER",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Autorizar a la supervision la ejecucion inmediata del adicional",
+      "carril": "Titular de la competencia o autoridad delegada",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.4"
+    },
+    {
+      "id": "F:E-TEMER>E-T3",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-FRES",
+      "clase": "elemento",
+      "tipo": "fin",
+      "nombre": "Contrato en causal de resolucion por superar el 50 %",
+      "carril": "SGGOS — Coordinador de obra",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 194.5"
     },
     {
       "id": "E-FNEC",
@@ -1256,6 +1289,11 @@
       "id": "M:E-FRED>S4.3.2.7 Gestion de reducciones de prestaciones",
       "clase": "mensaje",
       "nombre": "Sustento reclasificado como reduccion"
+    },
+    {
+      "id": "M:E-TEMER>Supervisor o inspector de obra",
+      "clase": "mensaje",
+      "nombre": "Autorizacion de ejecucion inmediata"
     }
   ]
 }

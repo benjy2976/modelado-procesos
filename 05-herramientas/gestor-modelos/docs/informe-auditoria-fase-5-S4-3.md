@@ -123,9 +123,19 @@ Se aplicaron las propuestas de interfaces y de los patrones 1 y 2 en seis tablas
 **Generación.** D4 deja 2 hallazgos geométricos nuevos en S4.3.2.4, adoptados con `--forzar` y documentados. S4.3.2.3 conserva los 18 ya documentados. Los demás modelos quedan sin hallazgos.
 
 **Siguen pendientes:**
-- los patrones 3 y 4: resolución, emergencia y contratos vinculados;
 - el alcance de S4.3.2.6 y el destino del 202.3;
 - los plazos del 210.2-210.3, el 176.4, el 179.2 y el diferimiento.
+
+## Rutas de resolución, emergencia y contratos vinculados — 2026-11-25 (DEC-060)
+
+| Proceso | Cambio | Resultado |
+|---|---|---|
+| S4.3.2.3 | Ruta de emergencia (194.4) y rama de resolución al superar el 50 % (194.5) | `COMPLETO`: 14/14 obligaciones; D4 sube de 18 a 30 hallazgos (`--forzar`, revisión visual pendiente) |
+| S4.3.2.4 | Ampliación de oficio de los contratos vinculados (200.4) | no representadas: 3 → 2 |
+| S4.3.2.5 | Suspensión y acta de reinicio de contratos vinculados (107.3); inicio por resolución del vinculado (202.5) | no representadas: 8 → 6 |
+| S4.3.2.8 | Comunicación de la causal de resolución al superar el 50 % (197.4) | no representadas: 3 → 2 |
+
+La corrida queda con 9 procesos `CON-HALLAZGOS`, 2 `COMPLETO` (S4.3.2.3 y S4.3.2.7) y 1 `SIN-MODELO` (S4.3.3). Los fines de resolución remiten al evento Contrato resuelto (B-1) de S4.3.2. El trámite de la resolución (arts. 122-123) no tiene proceso en el árbol.
 
 ## Limitaciones
 

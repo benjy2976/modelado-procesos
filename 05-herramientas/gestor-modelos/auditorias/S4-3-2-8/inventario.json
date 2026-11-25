@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.8",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-8-gestion-mayores-metrados/S4-3-2-8-diagrama-proceso-tabla.md",
-  "revision_tabla": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C",
-  "fecha": "2026-11-25T00:15:25+00:00",
+  "revision_tabla": "F8E3BBC22EB2B409EB4EC2A334490B3A2504B3D1802EE2BD60D4616A4856F9A5",
+  "fecha": "2026-11-25T01:21:55+00:00",
   "items": [
     {
       "id": "C:Contratista/Residente de obra",
@@ -157,12 +157,17 @@
       "nombre": "¿Corresponde autorizar mayores metrados?",
       "carril": "Supervisor o inspector de obra, segun modalidad",
       "clase_modelo": "PROP",
-      "fuente_modelo": "DEC-047"
+      "fuente_modelo": "Reglamento, arts. 197.1 y 197.4; DEC-047"
     },
     {
       "id": "F:SG>S3",
       "clase": "flujo",
       "nombre": "Si"
+    },
+    {
+      "id": "F:SG>S5",
+      "clase": "flujo",
+      "nombre": "Supera el 50 % del componente obra"
     },
     {
       "id": "F:SG>S4",
@@ -216,6 +221,29 @@
       "fuente_modelo": "DEC-047"
     },
     {
+      "id": "S5",
+      "clase": "elemento",
+      "tipo": "tarea-usuario",
+      "nombre": "Comunicar a la entidad que se supera el limite del 50 %",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 197.4"
+    },
+    {
+      "id": "F:S5>SF2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "SF2",
+      "clase": "elemento",
+      "tipo": "fin-mensaje",
+      "nombre": "Causal de resolucion comunicada a la entidad",
+      "carril": "Supervisor o inspector de obra, segun modalidad",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 197.4"
+    },
+    {
       "id": "M:R3>S1",
       "clase": "mensaje",
       "nombre": "Solicitud de mayores metrados"
@@ -239,6 +267,11 @@
       "id": "M:RF>S4.3.2.1 Control periodico de la ejecucion",
       "clase": "mensaje",
       "nombre": "Sustento para valorizacion y autorizacion de pago"
+    },
+    {
+      "id": "M:SF2>Gobierno Regional Huanuco",
+      "clase": "mensaje",
+      "nombre": "Causal de resolucion por superar el 50 %"
     }
   ]
 }

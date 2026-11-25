@@ -839,6 +839,87 @@
         ],
         "metodo_ancla": "automatico-pdfminer"
       }
+    ],
+    "E-T5A": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 59,
+        "ubicacion": "art. 107.3",
+        "fragmento": "La entidad contratante suspende el plazo de ejecución de los contratos directamente vinculados al contrato suspendido, cuando corresponda",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1967,
+            0.7861,
+            0.8564,
+            0.7979
+          ],
+          [
+            0.143,
+            0.7998,
+            0.5676,
+            0.8116
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-T9A": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 59,
+        "ubicacion": "art. 107.3 (acta de reinicio)",
+        "fragmento": "Culminado el plazo de suspensión se suscribe un acta en la que se indique la fecha de reinicio de la ejecución contractual",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.5732,
+            0.7998,
+            0.8561,
+            0.8116
+          ],
+          [
+            0.143,
+            0.8135,
+            0.7729,
+            0.8253
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-E2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 115,
+        "ubicacion": "art. 202.5",
+        "fragmento": "Cuando se resuelva un contrato directamente vinculado, las partes pueden acordar suspender el plazo de ejecución del contrato principal",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1979,
+            0.3354,
+            0.8562,
+            0.3472
+          ],
+          [
+            0.143,
+            0.3489,
+            0.5702,
+            0.3607
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
     ]
   }
 }
