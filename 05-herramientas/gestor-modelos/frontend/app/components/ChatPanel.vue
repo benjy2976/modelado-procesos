@@ -86,12 +86,14 @@ async function enviar() {
         if (!linea.startsWith('data:')) continue
         const dato = linea.slice(5).trim()
         if (!dato || dato === '[DONE]') continue
+        let trozo: { choices?: { delta?: { content?: string } }[]; error?: { message?: string } }
         try {
-          const trozo = JSON.parse(dato) as { choices?: { delta?: { content?: string } }[] }
-          respuesta.texto += trozo.choices?.[0]?.delta?.content || ''
+          trozo = JSON.parse(dato)
         } catch {
-          // Una línea SSE incompleta o ajena al formato se ignora; el texto acumulado sigue válido.
+          continue // Una línea SSE incompleta o ajena al formato se ignora; el texto acumulado sigue válido.
         }
+        if (trozo.error) throw new Error(`El agente no pudo responder: ${trozo.error.message || 'error del Gateway'}`)
+        respuesta.texto += trozo.choices?.[0]?.delta?.content || ''
       }
       await bajar()
     }

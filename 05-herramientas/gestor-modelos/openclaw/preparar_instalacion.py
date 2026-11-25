@@ -13,6 +13,10 @@ import sys
 from pathlib import Path
 
 ORIGEN = Path(__file__).resolve().parent
+# El perfil `minimal` no carga `bundle-mcp` y deja al agente sin herramientas MCP; `messaging` sí lo carga.
+# Se niegan las herramientas nativas que trae ese perfil, igual que el agente cse-bim de la misma instalación.
+PERFIL = "messaging"
+DENEGADAS = ["browser", "edit", "exec", "view_image", "message", "process", "read", "session_status", "write"]
 
 
 def preparar(destino: Path) -> dict:
@@ -26,7 +30,12 @@ def preparar(destino: Path) -> dict:
         permitidas = [f"{servidor}__{herramienta}" for herramienta in datos["herramientas"]]
         entradas[agente] = {
             "models": {datos["modelo"]: {"agentRuntime": {"id": "openclaw"}}},
-            "tools": {"profile": "minimal", "allow": permitidas, "sandbox": {"tools": {"allow": permitidas}}},
+            "tools": {
+                "profile": PERFIL,
+                "allow": permitidas,
+                "deny": DENEGADAS,
+                "sandbox": {"tools": {"allow": permitidas}},
+            },
         }
         filas.append(f"{agente}\t{datos['modelo']}\t{len(permitidas)}\n")
         rol = (ORIGEN / f"{agente}.AGENTS.md").read_text(encoding="utf-8")

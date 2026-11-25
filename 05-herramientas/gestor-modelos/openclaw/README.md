@@ -56,3 +56,22 @@ Los modelos se confirman con la prueba sobre las cuestiones de S4.3.2.6 (compara
    automatización).
 3. Un cambio de estos archivos no llega solo a OpenClaw: se regenera y se vuelve a ejecutar el 217. Si los agentes
    ya existen, solo se actualizan el parche y los `AGENTS.md`.
+
+## Credenciales y herramientas
+
+Lecciones de la puesta en marcha del 2026-11-25:
+
+- **Solo suscripción.** OpenClaw usa únicamente el perfil OAuth de la suscripción de ChatGPT
+  (`auth.order.openai`). La clave de API se retiró de la instalación.
+- **Orden de credenciales por agente.** Un agente creado con `openclaw agents add` puede traer un orden propio
+  (`models auth order`) que prevalece sobre el global; los agentes `mesa-*` lo trajeron con solo la clave de API y
+  fallaban con «billing issue». Tras crear o recrear un agente se revisa con
+  `openclaw models auth order get --provider openai --agent <id>` y se limpia con `order clear`. Ambos comandos
+  requieren el Gateway detenido.
+- **Perfil de herramientas.** El perfil `minimal` no carga `bundle-mcp` y deja al agente sin herramientas MCP
+  («No callable tools remain after resolving explicit tool allowlist»). Se usa `messaging`, que sí lo carga, con la
+  lista explícita de herramientas MCP y la negación de las nativas (`browser`, `edit`, `exec`, `read`, `write` y
+  otras), como el agente `cse-bim` de la misma instalación. `preparar_instalacion.py` ya genera esa forma.
+- **Modelos.** El catálogo permitido de la instalación aún no incluye `gpt-6.1-terra` ni `gpt-6.2-sol`
+  («Unknown model» al fijarlos). `mesa-chat` funciona temporalmente con `gpt-6-luna`; queda pendiente actualizar el
+  catálogo (`openclaw doctor`) y retirar los modelos GPT-5 antes de la prueba con S4.3.2.6.
