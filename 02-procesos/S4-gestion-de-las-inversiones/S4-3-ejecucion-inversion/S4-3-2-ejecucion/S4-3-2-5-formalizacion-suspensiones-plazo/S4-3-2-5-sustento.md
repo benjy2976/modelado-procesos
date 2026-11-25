@@ -96,3 +96,26 @@ Evidencia geometrica calculada: el inicio E-E1 pasa de x=922 a x=464 (458 unidad
 Se aplica la [convencion de carriles y SGD](../../../../../00-gobernanza/estandar-artefactos-modelamiento.md#74-convencion-de-carriles-y-sgd-en-s432) de `DEC-043`. El pool funcional antes titulado Control de obra se muestra como Supervisor o inspector de obra, segun modalidad; el inspector de la entidad no se atribuye a la supervision externa. OACGD usa la etiqueta uniforme. El registro inicial y las elevaciones internas del acuerdo y del sustento de reanudacion se modelan como tareas de usuario con `almacen: SGD`. La figura de administracion directa y la delegacion decisoria permanecen con `EVIDENCIA-INSUFICIENTE`. El pool se titula Contratista porque el circuito de suspension contractual es la ruta sustentada; la figura de administracion directa no se agrega por analogia.
 
 La generacion focalizada de esta normalizacion deja D1-D5 sin hallazgos. Se regeneraron BPMN, SVG, PNG y HTML. No se ha realizado revision visual ni se atribuye conformidad institucional.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-5/informe.md)): 30 afirmaciones (10 `SUSTENTADA`, 20 `INFERENCIA`, sin contradicciones) y 11 obligaciones de los arts. 107 y 202 del Reglamento (texto vigente). De ellas, 8 no están representadas y 1 queda fuera de alcance. Se calcularon 34 anclas desde el texto, todas vigentes. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado:** la suspensión como acuerdo escrito de las partes ante un evento no atribuible a ellas (107.1 y 202.1), con propuesta al contratista, respuesta y compuerta de acuerdo. Los términos del acuerdo cubren la seguridad de la obra y de las personas.
+- **Inferencias relevantes:**
+  - la opinión del supervisor o inspector (S-T1) es práctica de control; ninguna norma la exige para acordar la suspensión;
+  - el acto de formalización de la autoridad (E-T5) es práctica institucional, porque el 107.1 basta con el acuerdo escrito;
+  - E-T9 formaliza la reanudación de forma unilateral, cuando el 107.2 exige un **acta suscrita por las partes** con la fecha de reinicio y solo sin acuerdo deja a la entidad determinarla.
+- **No representado:**
+  - el acta de reinicio entre las partes y la ruta sin acuerdo (107.2);
+  - la regla de costos: no se reconocen mayores gastos salvo los necesarios para viabilizar la suspensión (107.1);
+  - la suspensión de los contratos directamente vinculados, como el de supervisión (107.3);
+  - la comunicación al contratista del programa de ejecución y los calendarios actualizados tras el reinicio (202.2); E-F3 no tiene destinatario;
+  - la **suspensión por falta de pago de dos valorizaciones consecutivas** (202.3). El contratista requiere el pago; vencido su plazo, el residente anota la suspensión, que inicia al día siguiente, y la entidad reconoce los costos acreditados. No es acordada y el modelo no tiene esa ruta;
+  - la suspensión del contrato principal al resolverse el contrato vinculado (202.5).
+- **Fuera de alcance:** el 202.4 (suspensión del contrato vinculado al resolverse el principal) corresponde al proceso de resolución contractual.
+- **Propuestas no aplicadas:**
+  - en la instancia de reanudación, reemplazar o complementar E-T9 con un acta de reinicio suscrita con el contratista y una compuerta para el caso sin acuerdo;
+  - dar a E-F3 destinatario y contenido (programa y calendarios actualizados, 202.2);
+  - anotar en E-T3 la regla de costos y registrar en el sustento la suspensión de los contratos vinculados;
+  - evaluar con el equipo si la suspensión por falta de pago (202.3) se modela aquí, como disparador por anotación del residente, o en el proceso de valorizaciones.

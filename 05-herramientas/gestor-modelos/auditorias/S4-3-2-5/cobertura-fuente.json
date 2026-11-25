@@ -1,0 +1,225 @@
+{
+  "codigo": "S4.3.2.5",
+  "revision_tabla": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
+  "fecha": "2026-11-25T00:10:33+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+      "obligacion": "Acuerdo escrito de las partes ante un evento no atribuible",
+      "aspecto": "decision",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-G1",
+        "E-T3",
+        "C-T1",
+        "E-G2"
+      ],
+      "razonamiento": "Propuesta, respuesta y compuerta de acuerdo."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "suponga el reconocimiento de mayores gastos generales y/o costos directos; salvo aquellos que resulten necesarios para viabilizar la suspensión",
+      "obligacion": "Sin mayores gastos, salvo los necesarios para viabilizar la suspensión",
+      "aspecto": "documento",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "E-T3 coordina las condiciones pero no nombra los costos."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 114,
+        "hasta": 115,
+        "paginas": [
+          114,
+          115
+        ]
+      },
+      "cita": "lo que incluye la seguridad de la obra y la integridad de las personas, de acuerdo con los términos en los que se acuerda la suspensión",
+      "obligacion": "Los términos acordados incluyen la seguridad de la obra y de las personas",
+      "aspecto": "documento",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T3",
+        "E-T4"
+      ],
+      "razonamiento": "Condiciones coordinadas y acuerdo consolidado."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "Culminado el evento que produjo la interrupción de la ejecución de las prestaciones, las partes suscriben un acta, acordando la fecha de su reinicio",
+      "obligacion": "Acta de reinicio suscrita por las partes",
+      "aspecto": "documento",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "E-T9 formaliza sin el contratista."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "En caso no exista acuerdo, la entidad contratante determina la fecha de reinicio",
+      "obligacion": "Sin acuerdo, la entidad determina la fecha de reinicio",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No se distingue la ruta con y sin acuerdo."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-107.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 59,
+        "hasta": 59,
+        "paginas": [
+          59
+        ]
+      },
+      "cita": "La entidad contratante suspende el plazo de ejecución de los contratos directamente vinculados al contrato suspendido, cuando corresponda",
+      "obligacion": "Suspensión de los contratos directamente vinculados",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay efecto sobre el contrato de supervisión."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 115,
+        "hasta": 115,
+        "paginas": [
+          115
+        ]
+      },
+      "cita": "Reiniciado el plazo de ejecución del contrato, la entidad contratante comunica al contratista la modificación de las fechas del programa de ejecución actualizado y de los calendarios correspondientes",
+      "obligacion": "Comunicar al contratista el programa y los calendarios actualizados",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "E-F3 no tiene destinatario ni nombra el programa."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 115,
+        "hasta": 115,
+        "paginas": [
+          115
+        ]
+      },
+      "cita": "La falta de pago de dos valorizaciones consecutivas ocasiona la suspensión del plazo de ejecución contractual",
+      "obligacion": "Suspensión por falta de pago de dos valorizaciones consecutivas",
+      "aspecto": "condicion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Solo se modela la suspensión acordada."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 115,
+        "hasta": 115,
+        "paginas": [
+          115
+        ]
+      },
+      "cita": "el residente anota en el cuaderno de incidencias la suspensión, que inicia desde el día siguiente de realizada la anotación",
+      "obligacion": "El residente anota la suspensión por falta de pago y esta inicia al día siguiente",
+      "aspecto": "documento",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay ruta de suspensión por anotación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 115,
+        "hasta": 115,
+        "paginas": [
+          115
+        ]
+      },
+      "cita": "En caso se resuelva un contrato principal, las partes pueden acordar suspender el plazo de ejecución del contrato directamente vinculado",
+      "obligacion": "Suspensión del contrato vinculado al resolverse el principal",
+      "aspecto": "excepcion",
+      "estado": "FUERA-DE-ALCANCE",
+      "elementos": [],
+      "razonamiento": "Supuesto de resolución contractual; se registra para la interfaz con el proceso de resolución."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-202.5",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 115,
+        "hasta": 115,
+        "paginas": [
+          115
+        ]
+      },
+      "cita": "Cuando se resuelva un contrato directamente vinculado, las partes pueden acordar suspender el plazo de ejecución del contrato principal",
+      "obligacion": "Suspensión del contrato principal al resolverse el vinculado",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Caso de resolución del contrato de supervisión durante la obra; afecta a este proceso."
+    }
+  ]
+}

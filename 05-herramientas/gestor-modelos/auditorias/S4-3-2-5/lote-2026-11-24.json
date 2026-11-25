@@ -1,0 +1,419 @@
+[
+ {
+  "elemento": "R-E1",
+  "aspecto": "condicion",
+  "afirmacion": "El proceso inicia al identificarse una causa que impide continuar la obra.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-202.1",
+    "cita": "La suspensión de plazo de ejecución de obra se realiza de acuerdo con el artículo 107",
+    "ambito": "suspensión de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 107.1 exige que el evento no sea atribuible a las partes e interrumpa la ejecución; la condición se verifica en E-G1."
+ },
+ {
+  "elemento": "R-T1",
+  "aspecto": "documento",
+  "afirmacion": "El residente registra y sustenta la causa en el cuaderno de incidencias.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.3",
+    "cita": "Los encargados del registro son el residente de obra y el supervisor",
+    "ambito": "cuaderno de incidencias en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El residente es encargado del registro del cuaderno (188.3). Que la suspensión acordada deba anotarse no es literal en el 107; solo el 202.3 lo exige para la falta de pago."
+ },
+ {
+  "elemento": "R-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Causa de suspension remitida (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Aplicacion operativa del Reglamento, art. 202.1."
+ },
+ {
+  "elemento": "S-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Causa de suspension recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Aplicacion operativa; validacion institucional pendiente."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "actor",
+  "afirmacion": "El supervisor o inspector evalúa el impedimento y emite opinión.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "cita": "La supervisión de los contratos de obra es efectuada por el supervisor o el inspector",
+    "ambito": "supervisión de obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.3",
+    "cita": "Los encargados del registro son el residente de obra y el supervisor",
+    "ambito": "cuaderno de incidencias en obras bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "La supervisión corresponde al supervisor o inspector (186.1); ninguna norma exige su opinión para acordar la suspensión: es práctica de control."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Causa y opinion remitidas (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Circuito propuesto sobre la fuente citada."
+ },
+ {
+  "elemento": "E-E1",
+  "aspecto": "actor",
+  "afirmacion": "La OACGD recibe el expediente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T1",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra y deriva por el SGD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T2",
+  "aspecto": "actor",
+  "afirmacion": "El coordinador de la SGGOS verifica y clasifica la figura.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "Son funciones de la Sub Gerencia de Gestión de Obras y Supervisión los siguientes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Control y seguimiento de obras (ROF arts. 97-98)."
+ },
+ {
+  "elemento": "E-G1",
+  "aspecto": "decision",
+  "afirmacion": "Se decide si corresponde la suspensión contractual.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-202.1",
+    "cita": "La suspensión de plazo de ejecución de obra se realiza de acuerdo con el artículo 107",
+    "ambito": "suspensión de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El criterio es que el evento no sea atribuible a las partes e interrumpa la ejecución."
+ },
+ {
+  "elemento": "E-T3",
+  "aspecto": "accion",
+  "afirmacion": "La entidad coordina con el contratista las condiciones de la suspensión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-202.1",
+    "cita": "lo que incluye la seguridad de la obra y la integridad de las personas, de acuerdo con los términos en los que se acuerda la suspensión",
+    "ambito": "suspensión de plazo en obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "suponga el reconocimiento de mayores gastos generales y/o costos directos; salvo aquellos que resulten necesarios para viabilizar la suspensión",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El acuerdo es de las partes; los términos fijan los costos necesarios para viabilizarla, incluida la seguridad de la obra y de las personas (202.1)."
+ },
+ {
+  "elemento": "E-M1",
+  "aspecto": "existencia",
+  "afirmacion": "Respuesta del ejecutor recibida (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 202.1."
+ },
+ {
+  "elemento": "E-G2",
+  "aspecto": "decision",
+  "afirmacion": "La suspensión procede solo si hay acuerdo.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«pueden acordar por escrito»."
+ },
+ {
+  "elemento": "E-T4",
+  "aspecto": "existencia",
+  "afirmacion": "Consolidar el acuerdo y elevarlo por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: No sustituye la decision formal; observacion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T5",
+  "aspecto": "documento",
+  "afirmacion": "La autoridad competente formaliza la suspensión mediante un acto.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 107.1 exige un acuerdo escrito de las partes; un acto unilateral posterior es práctica institucional, no exigencia. El documento exacto sigue en EVIDENCIA-INSUFICIENTE."
+ },
+ {
+  "elemento": "E-T6",
+  "aspecto": "existencia",
+  "afirmacion": "Actualizar registros y coordinar la comunicacion (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Circuito interno pendiente de validacion."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Suspension de plazo formalizada y comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto propuesto."
+ },
+ {
+  "elemento": "E-F2",
+  "aspecto": "existencia",
+  "afirmacion": "Suspension no formalizada comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto alterno."
+ },
+ {
+  "elemento": "C-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Propuesta de suspension recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 202.1."
+ },
+ {
+  "elemento": "C-T1",
+  "aspecto": "actor",
+  "afirmacion": "El contratista evalúa y responde la propuesta.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.1",
+    "cita": "Cuando se produzcan eventos no atribuibles a las partes que originen la interrupción de la ejecución de las prestaciones, estas pueden acordar por escrito la suspensión del plazo de ejecución contractual",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Es parte del acuerdo."
+ },
+ {
+  "elemento": "C-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Respuesta a la propuesta remitida (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 202.1."
+ },
+ {
+  "elemento": "E-R1",
+  "aspecto": "condicion",
+  "afirmacion": "La reanudación inicia al verificarse el cese de la causa.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+    "cita": "Culminado el evento que produjo la interrupción de la ejecución de las prestaciones, las partes suscriben un acta, acordando la fecha de su reinicio",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«Culminado el evento que produjo la interrupción»."
+ },
+ {
+  "elemento": "E-T7",
+  "aspecto": "accion",
+  "afirmacion": "Un especialista verifica las condiciones para reanudar.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+    "cita": "Culminado el evento que produjo la interrupción de la ejecución de las prestaciones, las partes suscriben un acta, acordando la fecha de su reinicio",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Paso de control interno sin exigencia literal."
+ },
+ {
+  "elemento": "E-T8",
+  "aspecto": "existencia",
+  "afirmacion": "Consolidar la verificacion y elevarla por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Circuito interno pendiente de validacion; observacion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T9",
+  "aspecto": "documento",
+  "afirmacion": "La autoridad competente formaliza la reanudación del plazo.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+    "cita": "Culminado el evento que produjo la interrupción de la ejecución de las prestaciones, las partes suscriben un acta, acordando la fecha de su reinicio",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-107.2",
+    "cita": "En caso no exista acuerdo, la entidad contratante determina la fecha de reinicio",
+    "ambito": "suspensión del plazo de ejecución contractual (disposición general)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 107.2 exige un acta suscrita por las partes con la fecha de reinicio; solo sin acuerdo la entidad la determina. El modelo formaliza la reanudación de forma unilateral y sin el contratista."
+ },
+ {
+  "elemento": "E-F3",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La reanudación formalizada se comunica.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-202.2",
+    "cita": "Reiniciado el plazo de ejecución del contrato, la entidad contratante comunica al contratista la modificación de las fechas del programa de ejecución actualizado y de los calendarios correspondientes",
+    "ambito": "suspensión de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 202.2 exige comunicar al contratista el programa de ejecución y los calendarios actualizados; el fin no lo nombra ni tiene destinatario."
+ },
+ {
+  "elemento": "M:R-F1>S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Causa y sustento (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F1>E-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Causa y opinion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-T3>C-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Propuesta de suspension (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:C-F1>E-M1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Respuesta del ejecutor (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]
