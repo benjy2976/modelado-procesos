@@ -120,3 +120,27 @@ Por solicitud del usuario se aplica la mejora general del perfil: compactacion d
 La generacion focalizada de la tabla actual produjo BPMN, SVG, PNG y HTML sin usar `--forzar`. D1 (esquema), D2 (referencias), D3 (bloqueos), D4 (trazado) y D5 (notacion) no registran hallazgos. Se eliminaron de la vista objetos de datos redundantes que cruzaban etiquetas y un almacen de datos repetido junto a la transicion GRAJ-decisor; el registro en Cuaderno, la opinion del supervisor o inspector y la derivacion por SGD permanecen expresados en las actividades, mensajes y sustento. Los derivados se generaron con Chrome por un fallo local del proceso grafico de Edge en el primer intento. No se ha realizado revision visual ni se atribuye conformidad institucional.
 
 La aclaracion posterior del usuario se incorporo en este mismo proceso: GRAJ emite opinion legal, proyecta la resolucion y deriva el expediente por SGD; la autoridad competente resuelve mediante resolucion tanto en la ruta favorable como en la no favorable. La generacion focalizada posterior actualizo BPMN, SVG, PNG y HTML sin `--forzar`. D1, D2, D3, D4 y D5 permanecen sin hallazgos. La identidad y delegacion de la autoridad competente siguen con `EVIDENCIA-INSUFICIENTE`; no se ha realizado revision visual ni se atribuye conformidad institucional.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-4/informe.md)). Comprende 23 afirmaciones (15 `SUSTENTADA`, 8 `INFERENCIA`, sin contradicciones) y 11 obligaciones de los arts. 198 y 200 del Reglamento (texto vigente), de las que 8 no están representadas. Las inferencias corresponden a pasos operativos del circuito interno (coordinador de la SGGOS, GRI y decisor) y a la actualización del cronograma. Se calcularon 22 anclas desde el texto, todas vigentes. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado:** las causales del 198.1, la opinión del supervisor (200.1 b) y la resolución favorable o no favorable de la entidad (200.1 d), con el circuito institucional observado por el usuario el 2026-11-10 (OACGD, SGGOS, GRI, GRAJ y autoridad competente, con sustento en los arts. 20, 44-45, 93 y 97-98 del ROF).
+- **No representado:**
+  - **200.1 a):**
+    - el contratista debe notificar la solicitud a la entidad y también a la supervisión, en 10 días hábiles desde la aprobación del adicional o el fin del hecho generador, con prórroga de hasta 10 días hábiles. R-F1 solo la envía al supervisor y no anota el plazo;
+    - las solicitudes extemporáneas se tienen por no presentadas, y no hay control de oportunidad.
+  - **Plazos:** el de 5 días hábiles del supervisor (200.1 b) y el de 10 días hábiles de la entidad (200.1 d) no están anotados. El circuito interno de cinco instancias tiene que caber en esos 10 días.
+  - **200.1 c):** si el supervisor no se pronuncia, la entidad responde sin esa opinión. No hay ruta de vencimiento.
+  - **200.1 d), silencio:** si la entidad no se pronuncia, se aprueba lo informado por el supervisor o, a falta de este, lo solicitado. No hay ruta de aprobación ficta.
+  - **198.4 y 200.1 d), canal:** la ampliación surte efecto con su publicación en la Pladicop, sin adenda, y la decisión se notifica por la Pladicop. E-T10, E-F1 y E-F2 nombran el SGD, no la Pladicop.
+  - **198.3:** se privilegia el criterio técnico sobre las formalidades. No hay anotación en las evaluaciones.
+  - **200.2:** la ampliación parcial cuando la causal no tiene fecha de fin prevista no se distingue.
+  - **200.4:** la entidad amplía de oficio los contratos directamente vinculados, como el de supervisión. No se representa.
+- **Interfaz:** las causales b) y c) del 198.1 (adicional o mayores metrados) enlazan con S4.3.2.3 y S4.3.2.8; el modelo no registra esos mensajes. Se contrastará en 5.E2.
+- **Propuestas no aplicadas:**
+  - en R-T1 y R-F1, dirigir la solicitud a la entidad y a la supervisión, con el plazo de 10 días hábiles y la regla de extemporaneidad;
+  - anotar los plazos de S-T1 (5 días hábiles) y de E-T9 (10 días hábiles);
+  - una ruta o anotación para la falta de opinión del supervisor y para la aprobación ficta;
+  - nombrar la publicación y la notificación por la Pladicop en E-T10, E-F1 y E-F2;
+  - registrar en E-T10 o en el sustento la ampliación de oficio de los contratos vinculados (200.4).

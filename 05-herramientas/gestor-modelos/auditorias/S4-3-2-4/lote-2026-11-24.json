@@ -1,0 +1,333 @@
+[
+ {
+  "elemento": "R-E1",
+  "aspecto": "condicion",
+  "afirmacion": "El proceso inicia al identificarse una causal de ampliación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+    "cita": "el contratista puede solicitar la ampliación de plazo pactado por cualquiera de las siguientes causales, siempre que modifiquen la ruta crítica",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Causales del 198.1: atrasos o paralizaciones no atribuibles al contratista, adicional o mayores metrados, siempre que afecten la ruta crítica."
+ },
+ {
+  "elemento": "R-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El contratista registra la causal y presenta la solicitud.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "El contratista notifica su solicitud de ampliación de plazo a la entidad contratante y a la supervisión en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Debe notificar a la entidad y a la supervisión en 10 días hábiles desde la aprobación del adicional o el fin del hecho generador; el plazo y la notificación a la entidad no figuran."
+ },
+ {
+  "elemento": "R-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La solicitud se remite.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "El contratista notifica su solicitud de ampliación de plazo a la entidad contratante y a la supervisión en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Solo se envía al supervisor; el 200.1 a) exige notificar también a la entidad."
+ },
+ {
+  "elemento": "S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El supervisor recibe la solicitud.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "200.1 b)."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El supervisor evalúa la causal y emite opinión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-198.3",
+    "cita": "privilegian el criterio técnico y el cumplimiento de la finalidad pública",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Opinión en 5 días hábiles (plazo no anotado), privilegiando el criterio técnico (198.3)."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La solicitud y la opinión llegan al GORE.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "200.1 b)."
+ },
+ {
+  "elemento": "E-E1",
+  "aspecto": "actor",
+  "afirmacion": "La OACGD recibe el expediente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T1",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra y deriva por el SGD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T2",
+  "aspecto": "existencia",
+  "afirmacion": "Evaluar solicitud y sustento de ampliacion (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Observacion del usuario, 2026-11-10; ROF, arts. 97-98."
+ },
+ {
+  "elemento": "E-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Emitir informe y elevar expediente al subgerente por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Observacion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T4",
+  "aspecto": "actor",
+  "afirmacion": "El subgerente de la SGGOS emite el informe técnico de procedencia.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "Son funciones de la Sub Gerencia de Gestión de Obras y Supervisión los siguientes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Funciones de la SGGOS; el circuito es observación del usuario (2026-11-10)."
+ },
+ {
+  "elemento": "E-T5",
+  "aspecto": "existencia",
+  "afirmacion": "Elevar informe tecnico y expediente a GRI por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Observacion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T6",
+  "aspecto": "actor",
+  "afirmacion": "La GRI evalúa la procedencia.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-89-parte2",
+    "cita": "Monitorear la ejecución de los proyectos de inversión",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 93."
+ },
+ {
+  "elemento": "E-T7",
+  "aspecto": "existencia",
+  "afirmacion": "Remitir expediente con memorandum a GRAJ por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Observacion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T8",
+  "aspecto": "actor",
+  "afirmacion": "Asesoría Jurídica emite opinión legal.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-45-parte1",
+    "cita": "Absolver las consultas de carácter jurídico legal que le sean formuladas",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-44",
+    "cita": "Es el órgano responsable de brindar asesoramiento jurídico-legal y administrativo",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF arts. 44-45."
+ },
+ {
+  "elemento": "E-T8A",
+  "aspecto": "existencia",
+  "afirmacion": "Proyectar resolucion y derivar expediente al decisor por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Aclaracion del usuario, 2026-11-10."
+ },
+ {
+  "elemento": "E-T9",
+  "aspecto": "plazo",
+  "afirmacion": "La autoridad competente resuelve la solicitud.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Debe resolver y notificar por la Pladicop en 10 días hábiles desde la opinión del supervisor o el vencimiento de su plazo. Si no lo hace, se tiene por aprobado lo informado por el supervisor o, a falta de este, lo solicitado (200.1 d). El circuito interno (coordinador, subgerente, GRI, GRAJ, decisor) no tiene plazo anotado."
+ },
+ {
+  "elemento": "E-G1",
+  "aspecto": "decision",
+  "afirmacion": "La ampliación se aprueba o no.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "200.1 d)."
+ },
+ {
+  "elemento": "E-T10",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan el plazo y el cronograma y se registra la decisión en el SGD.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-198.4",
+    "cita": "No corresponde suscribir una adenda al contrato por la aprobación de una ampliación de plazo, bastando con su publicación en la Pladicop",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 198.4 hace surtir efecto a la ampliación con su publicación en la Pladicop, sin adenda; el modelo registra en el SGD pero no nombra la Pladicop."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La resolución favorable se comunica.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La notificación al contratista es por la Pladicop."
+ },
+ {
+  "elemento": "E-F2",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La resolución no favorable se comunica.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+    "cita": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor de diez días hábiles",
+    "ambito": "ampliación de plazo en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La notificación al contratista es por la Pladicop."
+ },
+ {
+  "elemento": "M:R-F1>S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Solicitud y sustento (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F1>E-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Solicitud y opinion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]
