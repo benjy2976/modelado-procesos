@@ -152,6 +152,22 @@ Reglas:
 
 Implementado el 2026-11-25 (tanda 2B): `resolucion.py` en servicio, CLI, API y MCP, y la definición en la web. Si la tabla cambió desde la definición, la corrección exige confirmar que la definición sigue aplicando (`confirmar_vigencia`) o volver a analizar; así una corrección no bloquea las demás observaciones del mismo modelo. Un cambio de modelo se cierra con la sesión que lo integró.
 
+### Método de análisis de Claudia (`DEC-067`)
+
+La evaluación del 2026-11-25 comparó las 14 propuestas hechas por MCP con una revisión directa de los documentos. En 7 de 13 cuestiones la recomendación cambió o le faltaba una opción. Todas las omisiones tuvieron la misma causa: no se leyó un documento que sí estaba en la biblioteca. Una búsqueda por palabras no encontró un artículo redactado con otros términos, y una caja vecina se citó de memoria. Por eso, antes de registrar una propuesta, Claudia sigue estos pasos con las herramientas del MCP:
+
+1. **Releer, no recordar.** Lee las cajas propias y las de los procesos relacionados (`paquete_contexto`, `procesos_relacionados`) antes de citarlas. Nunca nombra una caja vecina de memoria.
+2. **Recorrer el capítulo de la figura.** Con `indice_documento` revisa los títulos del capítulo de la norma rectora (por ejemplo, Reglamento arts. 176-212 para la ejecución de obras) y lee con `leer_articulos` los que podrían aplicar. La búsqueda por palabras complementa, no sustituye.
+3. **Formular hipótesis alternativas y buscarlas.** Para cada recomendación registra en `hipotesis` las alternativas consideradas y por qué se descartan o se ofrecen. Incluye al menos:
+   - otra figura regulada que resuelva lo mismo (por ejemplo, intervención económica frente a resolución);
+   - una figura análoga en un proceso vecino (por ejemplo, el acta de reinicio del art. 107.2 para el acta de una paralización);
+   - otro responsable posible.
+4. **Buscar responsables por función, no por nombre.** En el ROF se buscan los verbos de la función: registrar en el Banco de Inversiones, suscribir contratos, controlar la supervisión. Antes de proponer una unidad nueva se revisan las convenciones de carriles de los procesos hermanos.
+5. **Revisión adversarial.** Antes de registrar, para la opción recomendada se pregunta qué fuente la contradiría y se busca. El resultado queda en `hipotesis`.
+6. **Declarar lo no revisado.** Si un documento pertinente no está en la biblioteca, el análisis lo dice y propone incorporarlo, en lugar de suplirlo.
+
+Un análisis que reemplaza a otro conserva el anterior y su propuesta, con el motivo (`resoluciones_anteriores`). Así se ve qué se propuso antes y por qué cambió.
+
 **Objetivo de la consola de observaciones (M5, por planificar).** Una vista que liste todas las observaciones de todos los procesos con su estado, como pendiente, en análisis, pendiente de evidencia, vinculada a otra, resuelta o no procede. Debe permitir filtrar por proceso, caja, autor y estado, y abrir la línea de tiempo de cada registro hasta el cambio o la decisión que lo cerró. Su diseño se planificará más adelante; este objetivo fija el alcance esperado.
 
 ## 3. Consola y orden de implementación

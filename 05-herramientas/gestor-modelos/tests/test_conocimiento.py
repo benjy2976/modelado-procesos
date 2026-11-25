@@ -54,7 +54,28 @@ def raiz(tmp_path: Path) -> Path:
             "extraccion": {"ruta": "01-referencias/09-derivados-texto/cache/DOC-1/abc.md"}}}}),
         encoding="utf-8",
     )  # fmt: skip
+    segmentos = cache / "segmentos" / "DOC-1"
+    segmentos.mkdir(parents=True)
+    fragmentos = [
+        {"id": f"x:art-{n}", "articulo": str(n), "titulo": titulo, "encabezados": "TÍTULO V",
+         "documento": {"id": "DOC-1", "ruta": "01-referencias/04-x/doc.pdf"},
+         "ubicacion": {"desde": n, "paginas": [n]}, "texto": f"Artículo {n}. {titulo}"}
+        for n, titulo in ((207, "Monitoreo y control"), (208, "Intervención económica"), (209, "Reajustes"))
+    ]  # fmt: skip
+    (segmentos / "abc.jsonl").write_text("\n".join(json.dumps(f) for f in fragmentos), encoding="utf-8")
     return tmp_path
+
+
+def test_indice_y_lectura_por_rango_de_articulos(raiz: Path) -> None:
+    indice = c.indice_documento(raiz, "DOC-1", desde=207, hasta=208)
+    assert [(a["articulo"], a["titulo"]) for a in indice["articulos"]] == [
+        ("207", "Monitoreo y control"), ("208", "Intervención económica")]  # fmt: skip
+    lectura = c.leer_articulos(raiz, "DOC-1", 208, 209)
+    assert (
+        lectura["fragmentos"] == 2 and "Intervención económica" in lectura["texto"] and "x:art-208" in lectura["texto"]
+    )
+    with pytest.raises(ErrorDominio):
+        c.leer_articulos(raiz, "DOC-1", 1, 100)
 
 
 def test_notas_filtradas_y_lectura_acotada(raiz: Path) -> None:

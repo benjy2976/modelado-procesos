@@ -71,6 +71,18 @@ const ready = computed(() => mode.value === 'opciones' ? chosen.value.length > 0
       <!-- eslint-disable-next-line vue/no-v-html -- HTML saneado en el servidor y con DOMPurify -->
       <div class="rich-content" v-html="rich(resolucion.analisis.texto, resolucion.analisis.formato)" />
       <p v-if="resolucion.analisis.fuentes?.length" class="resolution-sources">Consultado: {{ resolucion.analisis.fuentes.join(' · ') }}</p>
+      <div v-if="resolucion.analisis.hipotesis?.length" class="resolution-sources">
+        <strong>Hipótesis consideradas</strong>
+        <ul><li v-for="(hipotesis, index) in resolucion.analisis.hipotesis" :key="index">{{ hipotesis }}</li></ul>
+      </div>
+    </details>
+
+    <details v-if="item.resoluciones_anteriores?.length" class="resolution-block">
+      <summary>Propuestas anteriores ({{ item.resoluciones_anteriores.length }})</summary>
+      <div v-for="(anterior, index) in item.resoluciones_anteriores" :key="index" class="resolution-previous">
+        <small v-if="anterior.reemplazada">Reemplazada el {{ new Date(anterior.reemplazada.fecha).toLocaleString('es-PE') }}: {{ anterior.reemplazada.motivo }}</small>
+        <ul v-if="anterior.propuesta"><li v-for="option in anterior.propuesta.opciones" :key="option.id">{{ option.id }}. {{ option.titulo }}{{ option.recomendada ? ' (recomendada)' : '' }}</li></ul>
+      </div>
     </details>
 
     <div v-if="canDefine" class="resolution-form">

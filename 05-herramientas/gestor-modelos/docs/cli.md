@@ -67,6 +67,8 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `conocimiento documentos [--texto --area --formato --regimen --con-texto si\|no]` | Inventario de la biblioteca desde los manifiestos de preparación PDF y Office |
 | `conocimiento documento <ID\|ruta>` | Ficha del documento y su fila de calidad |
 | `conocimiento texto-documento <ID\|ruta> [--pagina N --paginas N]` | Páginas del Markdown derivado |
+| `conocimiento indice <ID> [--archivo --desde --hasta]` | Índice de artículos de un documento |
+| `conocimiento articulos <ID> <desde> <hasta> [--archivo]` | Texto de un rango de hasta 40 artículos |
 | `conocimiento temas` | Vocabulario de temas |
 | `conocimiento reglas [--proceso --dominio --estado --modalidad --texto]` y `conocimiento regla <ID>` | Reglas desde sus YAML y sus eventos de revisión |
 | `conocimiento glosario [texto]` | Términos del glosario |

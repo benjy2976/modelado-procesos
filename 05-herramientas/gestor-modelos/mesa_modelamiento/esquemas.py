@@ -97,9 +97,16 @@ class AnalisisVista(BaseModel):
     formato: str = "texto"
     clase: str
     fuentes: list[str] = Field(default_factory=list)
+    hipotesis: list[str] = Field(default_factory=list)
     autor: str
     fecha: str
     revision_modelo: str | None = None
+
+
+class ReemplazoVista(BaseModel):
+    fecha: str
+    autor: str
+    motivo: str
 
 
 class OpcionVista(BaseModel):
@@ -162,6 +169,7 @@ class ResolucionVista(BaseModel):
     definicion: DefinicionVista | None = None
     correccion: CorreccionVista | None = None
     aplicacion: AplicacionVista | None = None
+    reemplazada: ReemplazoVista | None = None
 
 
 class ObservacionVista(BaseModel):

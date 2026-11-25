@@ -76,25 +76,35 @@ class ServicioResolucion(ServicioObservaciones):
         revision_esperada: str,
         fuentes: list[str] | None = None,
         formato: str = "texto",
+        hipotesis: list[str] | None = None,
+        motivo: str = "",
     ) -> dict:
-        """Etapa EN-ANALISIS: qué entiende el agente, contexto consultado y clase del problema."""
+        """Etapa EN-ANALISIS: qué entiende el agente, contexto consultado, hipótesis consideradas y clase.
+
+        Un nuevo análisis conserva el anterior (con su propuesta) en resoluciones_anteriores y exige motivo."""
         if clase not in CLASES:
             raise ErrorDominio(f"Clase de análisis inválida; use {CLASES}")
         contenido = self._validar_texto_autor(texto, autor, formato)
         fuentes = [str(f).strip() for f in fuentes or [] if str(f).strip()][:30]
+        hipotesis = [str(h).strip()[:400] for h in hipotesis or [] if str(h).strip()][:20]
         revision_modelo = self._revision_modelo(codigo)
 
         def cambio(registro: dict, fecha: str) -> str:
             self._exigir_etapa(registro, ("REGISTRADA", "EN-ANALISIS", "PROPUESTA", "DEFINIDA"), "analizar")
             anterior = registro.get("resolucion") or {}
-            if anterior.get("definicion"):  # Un nuevo análisis tras definir invalida la definición previa.
-                registro.setdefault("resoluciones_anteriores", []).append(anterior)
+            if anterior.get("analisis"):  # Nada se sobrescribe: el análisis previo y su propuesta se conservan.
+                if not motivo.strip():
+                    raise ErrorDominio("Indique el motivo para reemplazar el análisis anterior")
+                registro.setdefault("resoluciones_anteriores", []).append(
+                    {**anterior, "reemplazada": {"fecha": fecha, "autor": autor.strip(), "motivo": motivo.strip()}}
+                )
             registro["resolucion"] = {
                 "analisis": {
                     "texto": contenido,
                     "formato": formato,
                     "clase": clase,
                     "fuentes": fuentes,
+                    "hipotesis": hipotesis,
                     "autor": autor.strip(),
                     "fecha": fecha,
                     "revision_modelo": revision_modelo,
@@ -299,7 +309,7 @@ class ServicioResolucion(ServicioObservaciones):
 
         return self._mutar(codigo, identificador, revision_esperada, cambio)
 
-    def por_etapa(self, etapa_buscada: str | None = None, codigo: str | None = None) -> dict:
+    def por_etapa(self, etapa_buscada: str | None = None, codigo: str | None = None, detalle: bool = True) -> dict:
         """Observaciones por etapa en un proceso o en todo el árbol (p. ej. las DEFINIDA para corregir)."""
         if etapa_buscada and etapa_buscada not in ETAPAS:
             raise ErrorDominio(f"Etapa inválida; use {ETAPAS}")
@@ -324,7 +334,7 @@ class ServicioResolucion(ServicioObservaciones):
                             "etapa": nombre,
                             "autor": registro.get("autor"),
                             "texto": registro["texto"][:240],
-                            "resolucion": registro.get("resolucion"),
+                            **({"resolucion": registro.get("resolucion")} if detalle else {}),
                         }
                     )
         return {"etapa": etapa_buscada, "total": len(resultado), "por_etapa": conteo, "observaciones": resultado}

@@ -105,6 +105,17 @@ def _argumentos() -> argparse.ArgumentParser:
     texto_doc.add_argument("--pagina", type=int, default=1)
     texto_doc.add_argument("--paginas", type=int, default=3)
     texto_doc.add_argument("--max-caracteres", type=int, default=12000)
+    indice = consultas.add_parser("indice", help="Índice de artículos de un documento")
+    indice.add_argument("identificador")
+    indice.add_argument("--archivo")
+    indice.add_argument("--desde", type=int)
+    indice.add_argument("--hasta", type=int)
+    articulos = consultas.add_parser("articulos", help="Texto de un rango de artículos (hasta 40)")
+    articulos.add_argument("identificador")
+    articulos.add_argument("desde", type=int)
+    articulos.add_argument("hasta", type=int)
+    articulos.add_argument("--archivo")
+    articulos.add_argument("--max-caracteres", type=int, default=30000)
     consultas.add_parser("temas", help="Vocabulario de temas de búsqueda")
     reglas = consultas.add_parser("reglas", help="Reglas normativas filtradas")
     for opcion in ("proceso", "dominio", "estado", "modalidad", "texto"):
@@ -203,6 +214,7 @@ def _argumentos() -> argparse.ArgumentParser:
     por_etapa = operaciones.add_parser("etapas", help="Observaciones por etapa en un proceso o en todo el árbol")
     por_etapa.add_argument("--etapa")
     por_etapa.add_argument("--codigo")
+    por_etapa.add_argument("--resumen", action="store_true", help="Sin el análisis ni la propuesta completos")
     modelo = grupos.add_parser("modelo", help="Ejecutar el generador vigente sin cambiar su contrato")
     modelo.add_argument("codigo")
     modelo.add_argument("--check", action="store_true")
@@ -330,6 +342,12 @@ def _conocimiento(repositorio: RepositorioProcesos, args: argparse.Namespace) ->
         return c.leer_documento(raiz, args.identificador)
     if operacion == "texto-documento":
         return c.leer_texto_documento(raiz, args.identificador, args.pagina, args.paginas, args.max_caracteres)
+    if operacion == "indice":
+        return c.indice_documento(raiz, args.identificador, archivo=args.archivo, desde=args.desde, hasta=args.hasta)
+    if operacion == "articulos":
+        return c.leer_articulos(
+            raiz, args.identificador, args.desde, args.hasta, archivo=args.archivo, max_caracteres=args.max_caracteres
+        )
     if operacion == "temas":
         return c.listar_temas(raiz)
     if operacion == "reglas":
@@ -453,7 +471,7 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "listar":
             return observaciones.listar(args.codigo)
         if args.operacion == "etapas":
-            return observaciones.por_etapa(args.etapa, args.codigo)
+            return observaciones.por_etapa(args.etapa, args.codigo, not args.resumen)
         if args.operacion in ("analizar", "proponer", "definir", "corregir", "aplicar"):
             return _etapa_observacion(observaciones, args)
         if args.operacion == "responder":

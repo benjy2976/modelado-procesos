@@ -27,6 +27,13 @@
             "title": "Fuentes",
             "type": "array"
           },
+          "hipotesis": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Hipotesis",
+            "type": "array"
+          },
           "revision_modelo": {
             "anyOf": [
               {
@@ -1380,6 +1387,29 @@
         "title": "PropuestaVista",
         "type": "object"
       },
+      "ReemplazoVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "motivo": {
+            "title": "Motivo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "autor",
+          "motivo"
+        ],
+        "title": "ReemplazoVista",
+        "type": "object"
+      },
       "RegistroObservacion": {
         "properties": {
           "actualizada": {
@@ -1537,6 +1567,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/PropuestaVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reemplazada": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReemplazoVista"
               },
               {
                 "type": "null"

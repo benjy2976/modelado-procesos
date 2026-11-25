@@ -354,6 +354,8 @@ export interface components {
             formato: string;
             /** Fuentes */
             fuentes?: string[];
+            /** Hipotesis */
+            hipotesis?: string[];
             /** Revision Modelo */
             revision_modelo?: string | null;
             /** Texto */
@@ -933,6 +935,15 @@ export interface components {
             /** Seleccion */
             seleccion: string;
         };
+        /** ReemplazoVista */
+        ReemplazoVista: {
+            /** Autor */
+            autor: string;
+            /** Fecha */
+            fecha: string;
+            /** Motivo */
+            motivo: string;
+        };
         /** RegistroObservacion */
         RegistroObservacion: {
             /** Actualizada */
@@ -989,6 +1000,7 @@ export interface components {
             correccion?: components["schemas"]["CorreccionVista"] | null;
             definicion?: components["schemas"]["DefinicionVista"] | null;
             propuesta?: components["schemas"]["PropuestaVista"] | null;
+            reemplazada?: components["schemas"]["ReemplazoVista"] | null;
         };
         /** RespuestaObservacion */
         RespuestaObservacion: {

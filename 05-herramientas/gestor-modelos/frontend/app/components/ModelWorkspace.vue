@@ -308,7 +308,7 @@ onMounted(async () => {
             <strong>El sustento empieza en cada elemento.</strong>
             <p>Haga clic en una caja del diagrama. La selección mostrará su responsable, plazo, documentos y fuente registrada.</p>
           </div>
-          <div v-if="model" class="process-documents">
+          <div v-if="model && inspectorTab === 'detalle'" class="process-documents">
             <h3>Documentación del proceso</h3>
             <button type="button" @click="openProcessDocument('tabla')">Ver tabla estructurada</button>
             <button type="button" @click="openProcessDocument('sustento')">Ver sustento</button>

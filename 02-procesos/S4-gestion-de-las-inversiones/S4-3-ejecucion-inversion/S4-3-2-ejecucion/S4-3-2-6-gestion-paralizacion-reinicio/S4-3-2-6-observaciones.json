@@ -15,9 +15,83 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.376731+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:16:22.203516+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:16:29.375038+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La caja 5 tiene más sustento del que dice el modelo: la Ley 32069, art. 62.2, obliga al inspector o supervisor a informar a la entidad, bajo responsabilidad, de todo acto que pueda poner en riesgo la correcta ejecución y culminación de la obra. Una paralización entra en ese supuesto.</p><ul><li>La ley no fija plazo ni contenido del informe. El plazo y el contenido mínimo siguen siendo práctica institucional o materia de las bases y del contrato de supervisión.</li><li>El destinatario actual (mesa de partes, OACGD, que deriva a SGGOS) es coherente con el ROF (art. 20) y con los demás diagramas.</li><li>Corresponde cambiar la clase de la caja de «práctica» a «exigencia normativa» para el deber de informar.</li></ul>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 (Ley 32069) art. 62.2",
+            "LOC-007 art. 20",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:22.203516+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Sustentar la caja en el art. 62.2 de la Ley 32069",
+              "detalle": "<p>La caja 5 pasa a clase NORM con fuente Ley 32069, art. 62.2 (deber de informar bajo responsabilidad). Se mantiene el envío por mesa de partes. Se ancla la cita en el visor.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-T1"
+              ],
+              "fuentes": [
+                "CON-001 Ley art. 62.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Plazo y contenido según las bases o el contrato de supervisión",
+              "detalle": "<p>El sustento registra que el plazo y el contenido mínimo del informe dependen de las bases y del contrato de supervisión de cada obra, sin fijarlos en el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S-T1"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "C",
+              "titulo": "Fijar un plazo institucional",
+              "detalle": "<p>Si el GORE usa un plazo práctico (por ejemplo, en sus términos de referencia), escríbalo como respuesta propia y se agregará a la columna Plazo de la caja 5.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-T1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:29.375038+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:16:29.375038+00:00"
     },
     {
       "id": "d6186bc1-b5c7-411f-8504-448646ac253a",
@@ -33,9 +107,89 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.379282+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:15:09.272698+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:15:16.074782+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La caja 34 decide si la paralización es atribuible al contratista, y de eso depende la ruta (suspensión o requerimiento). Hoy recae solo en el coordinador de obra.</p><ul><li>El ROF asigna a SGGOS el control y seguimiento de la ejecución (art. 97) y le permite emitir pronunciamientos en su competencia (art. 98 o). No asigna esa función a un cargo concreto.</li><li>En S4.3.2.4 una decisión equivalente sube por coordinador, subgerente SGGOS, GRI y Asesoría Jurídica, pero allí termina en un acto resolutivo. Aquí no hay acto resolutivo: la conclusión deriva a suspensión (S4.3.2.5) o a requerimiento.</li><li>Ninguna fuente de la biblioteca fija quién firma esta conclusión: es práctica institucional por confirmar.</li></ul>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "LOC-007 art. 97",
+            "LOC-007 art. 98 o",
+            "03-conocimiento/fuentes/guia-rof-grh-2023.md",
+            "S4.3.2.4 tabla (cadena E-T2 a E-T8)",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:09.272698+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "El coordinador evalúa y el subgerente SGGOS concluye",
+              "detalle": "<p>El coordinador de obra evalúa la causa y emite un informe; el subgerente de SGGOS concluye si es atribuible y decide la derivación. Se agrega el carril «SGGOS — Subgerente de Gestión de Obras y Supervisión», el mismo de S4.3.2.4. Sin GRI ni Asesoría Jurídica, porque no hay acto resolutivo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T4",
+                "E-G3"
+              ],
+              "fuentes": [
+                "LOC-007 arts. 97-98"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Misma cadena que las ampliaciones (S4.3.2.4)",
+              "detalle": "<p>Coordinador, subgerente SGGOS, GRI y Asesoría Jurídica antes de concluir. Más garantías, pero más pasos y plazo para una decisión que no es un acto resolutivo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T4",
+                "E-G3"
+              ],
+              "fuentes": [
+                "LOC-007 arts. 44-45, 92-98"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener al coordinador y explicarlo en el sustento",
+              "detalle": "<p>El coordinador concluye por sí solo; se documenta en el sustento como práctica institucional, sin cambiar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "E-T4"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:16.074782+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:15:16.074782+00:00"
     },
     {
       "id": "dde0a181-805a-45f1-918b-bfeb0890d2a8",
@@ -51,9 +205,86 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.381934+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:16:53.817530+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:17:00.606286+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El registro de la paralización en INFOBRAS (caja 35) es práctica informada por el usuario; falta la fuente que diga quién registra y cuándo.</p><ul><li>La Directiva 005-2023-CG/GMPL, que regula el registro de obras en INFOBRAS, no está en la biblioteca; la guía CTRL-002 solo la menciona.</li><li>Hay un indicio por analogía, no aplicable directamente: las preguntas frecuentes de la directriz de administración directa de la Contraloría dicen que los datos generales los registra un operador designado por la entidad y que la información de ejecución la registra el supervisor o el inspector (CTRL-001B, p. 69, texto OCR pendiente de cotejo). Es otro régimen.</li><li>La Ley 31589 sí exige registrar en INFOBRAS el avance de las obras reactivadas (9.3), pero no la paralización ordinaria.</li></ul>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CTRL-002 p. 1",
+            "CTRL-001B p. 69 (OCR, analogía)",
+            "CON-009 art. 9.3",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:53.817530+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Incorporar la Directiva 005-2023-CG a la biblioteca",
+              "detalle": "<p>Descargar la directiva oficial, catalogarla y extraer su texto; con ella se precisa quién registra la paralización y en qué plazo. Mientras tanto la observación queda en espera de evidencia.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T5"
+              ],
+              "fuentes": [
+                "CTRL-002"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Carril «Operador INFOBRAS designado por la entidad»",
+              "detalle": "<p>Mover la caja 35 a un carril propio del operador designado, por analogía con la directriz de administración directa. Se marca como inferencia hasta tener la directiva.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T5"
+              ],
+              "fuentes": [
+                "CTRL-001B p. 69"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener al coordinador como provisional",
+              "detalle": "<p>Sin cambiar el diagrama; el sustento deja el responsable y el plazo como EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "E-T5"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:00.606286+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:17:00.606286+00:00"
     },
     {
       "id": "43959fd8-d2d3-4823-9078-b05b4908ae2d",
@@ -69,9 +300,71 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.384701+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:17:06.920292+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:17:12.438954+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>Es la misma duda de la caja 35 aplicada al registro del reinicio en INFOBRAS (caja 20): responsable, plazo y fuente. El análisis de la caja 35 vale aquí sin cambios.</p><p>Lo coherente es resolver ambas con el mismo criterio. Hoy no se puede vincular a la caja 35 porque todavía no está resuelta: el vínculo solo admite observaciones resueltas.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "Observación de la caja 35 (dde0a181)",
+            "CTRL-002",
+            "CTRL-001B p. 69"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:06.920292+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Aplicar el mismo criterio que se defina para la caja 35",
+              "detalle": "<p>Cuando se defina la caja 35, la caja 20 recibe el mismo responsable y la misma fuente. Si prefiere, espere a que la 35 quede resuelta y use «Vincular a otra».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T8"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Criterio distinto para el reinicio",
+              "detalle": "<p>Si el reinicio lo registra otra persona (por ejemplo, el supervisor, como sugiere la directriz para la información de ejecución), escríbalo como respuesta propia.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T8"
+              ],
+              "fuentes": [
+                "CTRL-001B p. 69"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:12.438954+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:17:12.438954+00:00"
     },
     {
       "id": "fd1218e6-e31a-4364-aad1-1e9d26be8fa1",
@@ -87,9 +380,88 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.387284+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:15:35.993112+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:15:43.179722+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El fin «Paralización atribuible comunicada al contratista» deja la ruta incompleta: el Reglamento sí dice qué hace la entidad.</p><ul><li><strong>Penalidad por mora:</strong> ante retraso injustificado, la entidad aplica automáticamente una penalidad por cada día de atraso imputable (art. 120.1). El retraso solo se justifica con una ampliación aprobada o si el contratista acredita que no le es imputable (120.4).</li><li><strong>Requerimiento:</strong> para resolver por incumplimiento, la entidad primero requiere al contratista que ejecute, bajo apercibimiento de resolver. En obras de solo construcción o diseño y construcción con plazo mayor de 60 días, el plazo es de 15 días (122.1 a, texto modificado por el D.S. 001-2026-EF). Si no cumple, puede resolver (122.1 b).</li><li>La resolución está diferida (DEC-061): el modelo puede llegar hasta el requerimiento y remitir el incumplimiento al evento «Contrato resuelto» de S4.3.2.</li><li>La penalidad se descuenta en las valorizaciones (S4.3.2.1); aquí basta con registrarla como consecuencia.</li></ul>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 119.1",
+            "CON-001 art. 120.1",
+            "CON-001 art. 120.4",
+            "CON-001 art. 122.1",
+            "DEC-061"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:35.993112+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Requerir la reanudación bajo apercibimiento de resolver",
+              "detalle": "<p>Nueva tarea antes del fin: la entidad requiere al contratista que reanude en 15 días (obra de más de 60 días), bajo apercibimiento de resolver (122.1 a), con un mensaje al contratista. Si no cumple, el fin remite al evento «Contrato resuelto» de S4.3.2; el trámite de resolución sigue diferido. Quién firma el requerimiento queda por confirmar.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G3",
+                "E-F2"
+              ],
+              "fuentes": [
+                "CON-001 art. 122.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Registrar la penalidad por mora como consecuencia",
+              "detalle": "<p>Anotación en el fin: los días de atraso imputables generan penalidad por mora automática (120.1), que se aplica en las valorizaciones (S4.3.2.1). No agrega cajas.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F2"
+              ],
+              "fuentes": [
+                "CON-001 arts. 119.1, 120.1, 120.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener el fin actual y explicarlo en el sustento",
+              "detalle": "<p>Se conserva la comunicación y el sustento remite a los arts. 120 y 122, sin cambiar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "E-F2"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:43.179722+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:15:43.179722+00:00"
     },
     {
       "id": "fbc49135-c121-4987-9d06-ec2e084e69ad",
@@ -105,9 +477,74 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.390056+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:15:22.591814+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:15:28.827653+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>Falta decir qué pasa cuando la paralización no es atribuible, se deriva a S4.3.2.5 y el contratista no acepta suspender.</p><ul><li>Sin acuerdo no hay suspensión (Reglamento, art. 202.1): el plazo sigue corriendo y la paralización fundada es causal de ampliación (198.1 a).</li><li>El cese ya está modelado: cuando termina la causa, el contratista anota el fin (caja 25, R-E2), se firma el acta de reinicio y desde ahí corren los 10 días hábiles para pedir la ampliación (200.1 a, S4.3.2.4).</li><li>Por eso un retorno a S4.3.2.6 solo aportaría algo si la entidad debe registrar algo al saber que no hubo acuerdo (por ejemplo, el estado en INFOBRAS). Eso ya ocurre en la caja 35, antes de derivar.</li></ul>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 art. 202.1",
+            "CON-001 art. 198.1 a",
+            "CON-001 art. 200.1 a",
+            "S4.3.2.5 tabla (E-E3, C-E1)",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:22.591814+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Sin retorno: queda a la espera del cese de la causa",
+              "detalle": "<p>S4.3.2.5 cierra en «suspensión no acordada» y S4.3.2.6 no se reabre. El caso sigue por el cese de la causa (caja 25) y la ampliación (S4.3.2.4). Se explica en el sustento de ambos procesos y en la anotación de la caja 17.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-F1"
+              ],
+              "fuentes": [
+                "CON-001 arts. 198.1 a, 200.1 a, 202.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Retorno a S4.3.2.6 para registrar que no hubo acuerdo",
+              "detalle": "<p>S4.3.2.5 envía un mensaje «Suspensión no acordada» a S4.3.2.6, que lo registra (por ejemplo, el estado en INFOBRAS) y termina. Requiere una caja de inicio y una tarea nuevas en S4.3.2.6 y un fin de mensaje en S4.3.2.5.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F1",
+                "S4.3.2.5"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:28.827653+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:15:28.827653+00:00"
     },
     {
       "id": "afdbec87-be7d-4eae-ba01-3bcc7eb6993a",
@@ -123,9 +560,84 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.392786+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:16:37.273024+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:16:43.770963+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El acta de reinicio es práctica institucional informada por el usuario: en contrata el Reglamento no la exige para el cese de una paralización. Solo existe un acta de reinicio normada tras una suspensión acordada (art. 107.2, en S4.3.2.5).</p><ul><li>Hay dos dudas: quién la firma (¿también el coordinador de obra?) y si la rama de la Ley 31589 debe terminar con la misma acta cuando el contratista acepta continuar (caja 48).</li><li>En la Ley 31589, aceptar la continuidad lleva a modificaciones contractuales (5.2 a) y al registro del avance en INFOBRAS y en el Formato 12-B (9.3). No exige acta, pero el reinicio físico tendría que constar de alguna forma.</li></ul>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 art. 107.2",
+            "CON-009 arts. 5.2 a, 9.3",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:37.273024+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Firman la supervisión y el contratista (como está)",
+              "detalle": "<p>Se mantiene la caja 32 y el sustento aclara que es práctica institucional, sin exigencia del Reglamento. Excluyente con la opción B.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "S-T2"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Firma también el coordinador de obra",
+              "detalle": "<p>El acta se suscribe con participación de la entidad: se agrega un mensaje al coordinador o se mueve la suscripción a un carril compartido. Excluyente con la opción A.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-T2",
+                "E-T8"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Usar la misma acta al reactivar por la Ley 31589",
+              "detalle": "<p>Cuando el contratista acepta continuar (caja 48), el reinicio físico se formaliza con el acta de reinicio y luego se registra en INFOBRAS y en el Formato 12-B (9.3). La caja 48 dejaría de ser un fin directo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-F3"
+              ],
+              "fuentes": [
+                "CON-009 art. 9.3"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:43.770963+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:16:43.770963+00:00"
     },
     {
       "id": "54716c68-7ac5-4eae-b20b-f43805bcd7af",
@@ -141,9 +653,104 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.395609+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:15:50.626496+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:15:58.327107+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La rama de la Ley 31589 asigna el inventario y el informe de estado situacional a la UEI (arts. 3.1 y 9.2) y el registro de la lista priorizada a la OPMI (4.4). Falta saber qué unidad del GORE es cada una.</p><ul><li><strong>OPMI:</strong> el ROF da a la Sub Gerencia de Programación Multianual de Inversiones la conducción de la fase de programación multianual y el registro de las UF y UEI del Gobierno Regional en el Banco de Inversiones (art. 56). Es la candidata natural a OPMI.</li><li><strong>UEI:</strong> el ROF no dice qué órgano es la UEI de las obras por contrata. La GRI dirige y monitorea la ejecución (arts. 92-93) y SGGOS controla y sigue las obras (art. 97); cualquiera podría estar registrada como UEI. La respuesta está en el registro del Banco de Inversiones, que no está en la biblioteca.</li></ul>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "LOC-007 art. 56",
+            "LOC-007 arts. 92-93",
+            "LOC-007 art. 97",
+            "CON-009 arts. 3.1, 4.4, 9.2"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:50.626496+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "OPMI: Sub Gerencia de Programación Multianual de Inversiones",
+              "detalle": "<p>Renombrar el carril OPMI con la unidad que el ROF le asigna (art. 56). Combinable con una de las opciones de UEI.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "O-T1"
+              ],
+              "fuentes": [
+                "LOC-007 art. 56"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "UEI: Gerencia Regional de Infraestructura",
+              "detalle": "<p>La GRI dirige y monitorea la ejecución de los proyectos (arts. 92-93). Elegir solo si consta así en el Banco de Inversiones.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "U-E1",
+                "U-T1",
+                "U-T2"
+              ],
+              "fuentes": [
+                "LOC-007 arts. 92-93"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "UEI: SGGOS",
+              "detalle": "<p>SGGOS controla y sigue la ejecución de las obras (art. 97). Elegir solo si consta así en el Banco de Inversiones.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "U-E1",
+                "U-T1",
+                "U-T2"
+              ],
+              "fuentes": [
+                "LOC-007 art. 97"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "D",
+              "titulo": "UEI: mantener el carril genérico con evidencia insuficiente",
+              "detalle": "<p>El carril sigue como «UEI — Unidad Ejecutora de Inversiones» y el sustento registra EVIDENCIA-INSUFICIENTE hasta tener el registro del Banco de Inversiones.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "U-E1"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:15:58.327107+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:15:58.327107+00:00"
     },
     {
       "id": "e54696d7-731a-4639-80bb-4ebc77649d3d",
@@ -159,9 +766,91 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.398451+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:16:04.486440+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:16:11.274715+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El carril «Titular de la entidad» mezcla actos que la ley atribuye de forma distinta:</p><ul><li><strong>Expresamente al titular:</strong> solicitar el informe de estado situacional (4.1) y aprobar la lista priorizada por resolución (4.4).</li><li><strong>A «la entidad», sin nombrar autoridad:</strong> proponer la continuidad o resolver el contrato (5.2) y recibir la decisión del contratista (5.3).</li><li>La guía del ROF advierte que el ROF no sustituye al acto de delegación vigente; por eso los demás diagramas de S4.3.2 usan el carril «Titular de la competencia o autoridad delegada» y registran la firma concreta como EVIDENCIA-INSUFICIENTE.</li></ul>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-009 arts. 4.1, 4.4, 5.2, 5.3",
+            "03-conocimiento/fuentes/guia-rof-grh-2023.md",
+            "S4.3.2.4 tabla (carril Autoridad competente)"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:04.486440+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Separar: titular para 4.1 y 4.4; autoridad delegada para 5.2-5.3",
+              "detalle": "<p>El carril «Titular de la entidad» conserva la solicitud del informe (caja 38) y la lista priorizada (caja 40). La decisión y la propuesta de continuidad (cajas 42 a 47) pasan al carril «Titular de la competencia o autoridad delegada», con la firma concreta como EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-G1",
+                "T-T3",
+                "T-GE1",
+                "T-M1",
+                "T-R1",
+                "T-G2"
+              ],
+              "fuentes": [
+                "CON-009 arts. 4.1, 4.4, 5.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Todo en «Titular de la competencia o autoridad delegada»",
+              "detalle": "<p>Un solo carril, igual que en los demás diagramas de S4.3.2, aunque 4.1 y 4.4 nombren al titular.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-T1",
+                "T-T2",
+                "T-G1",
+                "T-T3"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener «Titular de la entidad» y explicarlo",
+              "detalle": "<p>Se conserva el carril y el sustento aclara que 5.2 habla de «la entidad» y que puede haber delegación.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "T-T3"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:16:11.274715+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:16:11.274715+00:00"
     },
     {
       "id": "45fd43a6-d3ab-42ae-944e-4a2c2f08efb0",
@@ -177,9 +866,83 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.401287+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:17:19.406913+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:17:25.904126+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El fin «Obra no incluida en la lista priorizada» (caja 51) es una inferencia: la ley no regula qué pasa con una obra inventariada que no entra en la lista.</p><ul><li>El inventario «se actualiza permanentemente» (3.1) y la lista priorizada se aprueba cada año, a más tardar el 31 de diciembre (4.4).</li><li>De ambos se infiere que la obra sigue en el inventario y puede priorizarse en la lista del año siguiente; mientras tanto el contrato sigue vigente y paralizado.</li><li>El nombre actual del fin no dice eso: parece un cierre definitivo.</li></ul>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-009 art. 3.1",
+            "CON-009 art. 4.4"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:19.406913+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Renombrar: «Obra pendiente de priorización en la siguiente lista»",
+              "detalle": "<p>El fin indica que la obra sigue en el inventario (3.1) y puede priorizarse el año siguiente (4.4). Se mantiene como inferencia (clase PROP) con esa explicación en la anotación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-F2"
+              ],
+              "fuentes": [
+                "CON-009 arts. 3.1, 4.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el nombre y explicar la inferencia en el sustento",
+              "detalle": "<p>Sin cambiar el diagrama; el sustento aclara que no es un cierre definitivo.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "T-F2"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Quitar la rama de obra no priorizada",
+              "detalle": "<p>La decisión de la caja 42 queda solo con continuidad y resolución. La obra no priorizada no se representa, porque la ley no la regula.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-G1",
+                "T-F2"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:25.904126+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:17:25.904126+00:00"
     },
     {
       "id": "7d0319b5-a10a-4864-9661-4b92769c679a",
@@ -195,9 +958,79 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.403015+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:17:39.469490+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:17:46.070953+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La duda era si el régimen de la Ley 31589 sigue aplicando bajo la Ley 32069. La biblioteca aporta dos indicios a favor:</p><ul><li>Las concordancias del Reglamento de la Ley 32069 citan el <strong>D.S. 072-2025-EF</strong>, que aprueba las equivalencias entre los procedimientos de selección del TUO de la Ley 31589 y los de la Ley 32069.</li><li>El índice de directivas vigentes del OECE, actualizado al 17-07-2026 (CON-003), incluye la <strong>Directiva 010-2025-OECE-CD</strong>, de bases estándar para los procedimientos especiales de la Ley 31589.</li></ul><p>Ambos indican que el régimen sigue operando con la nueva ley. Falta el texto del D.S. 072-2025-EF para confirmar su alcance. No afecta el flujo modelado (inventario, informe, lista, continuidad o resolución), que no depende de los procedimientos de selección.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento, concordancias (p. 1)",
+            "CON-003 p. 1",
+            "CON-009",
+            "03-conocimiento/fuentes/guia-ley-31589-obras-paralizadas.md"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:39.469490+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Registrar los indicios de vigencia en el sustento y la guía",
+              "detalle": "<p>El sustento de S4.3.2.6 y la guía de la Ley 31589 citan el D.S. 072-2025-EF y la Directiva 010-2025-OECE-CD como indicios de que el régimen sigue operando bajo la Ley 32069. La vigencia sigue «por confirmar», sin atribuir validación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "CON-001 concordancias",
+                "CON-003"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Incorporar el D.S. 072-2025-EF a la biblioteca",
+              "detalle": "<p>Descargar, catalogar y extraer el decreto para confirmar su alcance. Queda en espera de evidencia hasta entonces.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la advertencia actual",
+              "detalle": "<p>Sin cambios: la rama sigue con vigencia por confirmar.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:46.070953+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:17:46.070953+00:00"
     },
     {
       "id": "5a614d27-0585-42e4-9b62-979fc68d7a59",
@@ -213,9 +1046,92 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.404749+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:17:59.556647+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:18:06.961698+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La comprobación por MCP confirma 5 hallazgos de trazado (D4) y ningún problema de esquema, referencias, bloqueos ni notación (D1, D2, D3, D5).</p><ul><li><strong>3 flujos superpuestos:</strong> el envío del contratista a la supervisión y la propuesta de continuidad comparten 16 px; las salidas de la decisión de la caja 42 hacia las cajas 50 y 51 se montan sobre su entrada (263 y 490 px).</li><li><strong>2 etiquetas montadas</strong> sobre anotaciones (cajas 39 y 43).</li><li>La entrada también avisa de 7 nombres de más de 40 caracteres que Bizagi recortaría (por ejemplo, U-E1 con 66).</li></ul><p>No cambian el significado, pero dificultan la lectura en la reunión. Varias observaciones pendientes cambiarán estas mismas cajas (42, 43 y 51), así que conviene ordenar el trazado después de aplicarlas.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "generar_modelo S4.3.2.6 --check (2026-11-25)",
+            "DEC-027"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:17:59.556647+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "MULTIPLE",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Ordenar el trazado al final, tras aplicar las demás observaciones",
+              "detalle": "<p>Después de los cambios de las cajas 42, 43 y 51, ajustar el orden de filas y acortar anotaciones de documentos para despejar los cruces; si quedan hallazgos, aceptarlos con justificación en el sustento.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Acortar los 7 nombres de más de 40 caracteres",
+              "detalle": "<p>Por ejemplo, U-E1 «Obra con 40 % de avance y 6 meses sin ejecución»; el detalle pasa a la anotación. Mejora la lectura y la exportación a Bizagi.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-E1",
+                "E-G1",
+                "E-F1",
+                "E-F2",
+                "U-E1",
+                "T-F1",
+                "T-F4"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "C",
+              "titulo": "Revisar primero el diagrama en el visor",
+              "detalle": "<p>Usted revisa el diagrama en el visor y registra observaciones sobre las cajas que se lean mal antes de cualquier ajuste.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            },
+            {
+              "id": "D",
+              "titulo": "Aceptar el trazado actual",
+              "detalle": "<p>Se mantiene la adopción con los 5 hallazgos documentados en el sustento.</p>",
+              "formato": "html",
+              "efecto": "NO-PROCEDE",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:18:06.961698+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:18:06.961698+00:00"
     },
     {
       "id": "d5eaa537-f8a6-4930-9ad2-1c082bed2707",
@@ -231,9 +1147,64 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.406441+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:18:14.570439+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:18:19.651353+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La auditoría de S4.3.2.6 sigue en la versión anterior de la tabla: el paquete de contexto muestra la corrida con 26 afirmaciones y 12 obligaciones de la Directiva 017 y la Ley 31589, calculadas antes del cambio a contrata.</p><ul><li>Varias anclas del visor (cajas 1, 2, 5, 7, 8, 9, 35 y 20) provienen del contenido de administración directa (num. 7.3.7) y ya no corresponden.</li><li>Faltan las obligaciones nuevas: Reglamento 198.1 a, 200.1 a, 119-122 y Ley 32069, 62.2; TUO de la Ley 31589, arts. 2.1, 3, 4.1, 4.2, 4.4, 5.2, 5.3 y 9.1-9.3.</li><li>Ya están en el MCP las herramientas para hacerlo: reconfirmar, anclar en copia y retirar anclas.</li><li>Las observaciones por definir cambiarán varias cajas. Si se reconfirma ahora, habría que repetirlo después.</li></ul>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "paquete_contexto S4.3.2.6 (auditoría)",
+            "docs/mcp.md (auditoria_reconfirmar, anclar_en_copia, retirar_anclas_copia)"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:18:14.570439+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Reconfirmar al final, una sola vez",
+              "detalle": "<p>Después de aplicar las observaciones que cambian cajas: retirar anclas huérfanas o ajenas, reconfirmar afirmaciones y cobertura con las obligaciones nuevas y anclar las citas. Todo por MCP.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Reconfirmar ahora y otra vez al final",
+              "detalle": "<p>La auditoría queda al día de inmediato, pero las cajas que cambien obligarán a una segunda reconfirmación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:18:19.651353+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:18:19.651353+00:00"
     }
   ]
 }

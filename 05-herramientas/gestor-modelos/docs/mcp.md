@@ -50,12 +50,14 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `buscar_glosario` | Términos del glosario vivo |
 | `buscar_decisiones` | Decisiones del registro por ID o texto |
 | `revisar_etiquetas` | Revisión o recuento de etiquetas, sin escribir |
-| `paquete_contexto` | Paquete de contexto de una tarea sobre un proceso |
-| `registrar_analisis` y `registrar_propuesta` | Etapas de análisis y propuesta de una observación (`DEC-065`) |
-| `observaciones_por_etapa` | Observaciones por etapa, por ejemplo las `DEFINIDA` pendientes de corregir |
+| `paquete_contexto` | Paquete de contexto de una tarea sobre un proceso: reglas propias y, aparte, las de procesos superiores; procesos relacionados con sus cajas; aviso si la auditoría no está vigente |
+| `indice_documento` y `leer_articulos` | Índice de artículos de un documento y texto de un rango (hasta 40), para recorrer el capítulo de una figura |
+| `leer_observacion` | Una observación completa con su resolución vigente y las anteriores |
+| `registrar_analisis` y `registrar_propuesta` | Etapas de análisis (con hipótesis consideradas) y propuesta de una observación (`DEC-065`, `DEC-067`); reemplazar un análisis exige motivo y conserva el anterior |
+| `observaciones_por_etapa` | Observaciones por etapa, en resumen por defecto; `detalle` agrega la resolución |
 | `iniciar_correccion` y `registrar_aplicacion` | Corrección de una observación definida y cierre con evidencia o espera de evidencia |
 
-Las escrituras del MCP firman con el alias del agente, **Claudia** (`DEC-064`). Un `ErrorDominio` llega como error de herramienta legible, con su código HTTP, no como fallo inesperado.
+Las escrituras del MCP firman con el alias del agente, **Claudia** (`DEC-064`). Un `ErrorDominio` llega como error de herramienta legible, con su código HTTP, no como fallo inesperado. Las escrituras de observaciones responden con una confirmación compacta (ID, referencia, etapa, estado, revisión y último evento); el registro completo se lee con `leer_observacion`.
 
 No expone archivos arbitrarios, aprobación institucional ni validación normativa. El agente puede aplicar cambios sin una autorización por operación, conforme al [plan](../plan-mesa-modelamiento.md), pero la preparación y los hashes de destino impiden sustituciones silenciosas. La sesión no convierte una propuesta en regla `VALIDADO`.
 
@@ -65,7 +67,7 @@ El archivo `.mcp.json` de la raíz del repositorio registra el servidor `mesa-mo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 64 comandos y el MCP 45 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25). El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25). El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|
@@ -128,3 +130,19 @@ Hasta el 2026-11-25 los diagramas de S4.3 se editaron con escritura directa y sc
 | — | Commit, push, pruebas y cambios de herramientas | Git y pytest | Fuera del alcance del MCP | Siguen a cargo de una persona o de una tarea de desarrollo autorizada |
 
 Las filas `Cerrada` quedaron resueltas en la tanda 1 (2026-11-25), en servicio, CLI y MCP con pruebas. También se agregó la numeración de cajas nuevas al preparar una sesión, que antes solo hacía `modelar.py`. La regla del experimento es que, desde la conexión del MCP, todo cambio de modelo se hace por sus herramientas. Cuando una acción falte, se registra aquí en lugar de resolverla por fuera.
+
+## Hallazgos del primer experimento por MCP (2026-11-25)
+
+Claudia analizó y propuso las 14 observaciones de S4.3.2.6 y S4.3.2.5 usando solo el MCP: paquete de contexto, guías, búsqueda y lectura de fuentes, comprobación del modelo y etapas de resolución. Funcionó sin leer el disco. El uso dejó estas brechas:
+
+| Brecha | Efecto | Tanda sugerida |
+|---|---|---|
+| La selección múltiple no marca opciones excluyentes entre sí | Una persona puede acoger opciones contradictorias (por ejemplo, «mantener» y «cambiar») | 2B, ajuste |
+| Al elegir opciones en la web no hay campo de comentario o dato complementario | Una opción que pide un dato (un plazo) obliga a usar «respuesta propia». El servicio ya acepta texto con las opciones | 2B, ajuste de la pantalla |
+| El vínculo solo admite observaciones resueltas y del mismo proceso | No se puede declarar que una observación «sigue a» otra pendiente ni enlazar observaciones de procesos vecinos (interfaces) | 2B, ajuste |
+| `observaciones_por_etapa` devuelve el análisis y la propuesta completos | Respuestas muy largas para el agente | Cerrada: resumen por defecto y confirmaciones compactas |
+| El paquete de contexto trae términos de glosario genéricos y todas las reglas de los procesos ancestros | Ruido: 31 reglas, la mayoría de S4.3 en general | Cerrada: glosario cruzado solo con las cajas; reglas superiores aparte y compactas |
+| La auditoría del paquete sale de la última corrida, aunque la tabla cambió | Puede mostrar un estado desactualizado sin advertirlo | Cerrada: `vigente` y advertencia |
+| La búsqueda por palabras no encuentra artículos redactados con otros términos, y las cajas vecinas se citaban de memoria | 7 de 13 recomendaciones cambiaron en la revisión directa | Cerrada: índice y lectura por artículos, procesos relacionados y método `DEC-067` |
+| No hay herramienta para incorporar un documento nuevo a la biblioteca | Las propuestas que necesitan la Directiva 005-2023-CG o el D.S. 072-2025-EF quedan en espera | 2D |
+| No se pueden editar guías de lectura ni otras notas de conocimiento | Una propuesta que actualiza la guía de la Ley 31589 no puede aplicarse por MCP | 2C |

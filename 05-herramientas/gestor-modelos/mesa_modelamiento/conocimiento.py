@@ -8,6 +8,7 @@ paquete de contexto de una tarea. Nunca se leen originales ni carpetas temporale
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import subprocess
@@ -517,6 +518,46 @@ def etiquetas(raiz: Path, operacion: str = "revisar") -> dict:
     }
 
 
+def _cajas(repositorio: RepositorioProcesos, codigo: str, tipos: tuple[str, ...] | None = None) -> list[dict]:
+    from .auditoria import _tabla
+
+    tabla = repositorio.rutas(codigo)["tabla"]
+    if not tabla.is_file():
+        return []
+    filas = _tabla(tabla.read_text(encoding="utf-8"), "Elementos")
+    return [{"id": f.get("ID"), "numero": f.get("Numero"), "tipo": f.get("Tipo"), "nombre": f.get("Nombre")}
+            for f in filas if not tipos or f.get("Tipo", "").startswith(tipos)]  # fmt: skip
+
+
+def _procesos_relacionados(repositorio: RepositorioProcesos, codigo: str, filas: list[dict], documentos: dict) -> list:
+    """Procesos con los que intercambia mensajes (todas sus cajas) y el padre (inicios, fines y subprocesos).
+
+    Evita afirmar de memoria cómo se llama o qué hace una caja de un proceso vecino."""
+    from .auditoria import _tabla
+
+    texto = (repositorio.raiz / documentos["tabla"]).read_text(encoding="utf-8") if "tabla" in documentos else ""
+    vecinos = []
+    for mensaje in _tabla(texto, "Mensajes"):
+        for extremo in (mensaje.get("Desde", ""), mensaje.get("Hacia", "")):
+            encontrado = re.match(r"(S\d+(?:\.\d+)+)\b", extremo)
+            if encontrado and encontrado.group(1) != codigo and encontrado.group(1) not in vecinos:
+                vecinos.append(encontrado.group(1))
+    salida = []
+    for vecino in vecinos:
+        try:
+            salida.append({"codigo": vecino, "relacion": "intercambia mensajes", "cajas": _cajas(repositorio, vecino)})
+        except ErrorDominio:
+            continue
+    padre = ".".join(codigo.split(".")[:-1])
+    if padre.count(".") >= 1:
+        try:
+            cajas = _cajas(repositorio, padre, ("inicio", "fin", "subproceso", "borde"))
+            salida.append({"codigo": padre, "relacion": "padre", "cajas": cajas})
+        except ErrorDominio:
+            pass
+    return salida
+
+
 def paquete_contexto(repositorio: RepositorioProcesos, codigo: str, tarea: str = "") -> dict:
     """Paquete de contexto de una tarea (manual operativo, 6.6): rutas y resúmenes, no la biblioteca completa."""
     from .auditoria import AUDITORIAS
@@ -534,13 +575,18 @@ def paquete_contexto(repositorio: RepositorioProcesos, codigo: str, tarea: str =
     }
     documentos = {nombre: ruta.relative_to(raiz).as_posix() for nombre, ruta in rutas.items() if ruta.is_file()}
     notas = sorted(p.relative_to(raiz).as_posix() for p in carpeta.glob("*.md"))
-    texto_modelo = " ".join(
-        (raiz / documentos[n]).read_text(encoding="utf-8", errors="replace")
-        for n in ("tabla", "sustento")
-        if n in documentos
+    from .auditoria import _tabla
+
+    filas = (
+        _tabla((raiz / documentos["tabla"]).read_text(encoding="utf-8"), "Elementos") if "tabla" in documentos else []
     )
-    plano = _normalizar(texto_modelo)
-    glosario = [t for t in buscar_glosario(raiz)["terminos"] if t["termino"] and _normalizar(t["termino"]) in plano]
+    # El glosario se cruza solo con lo que el diagrama nombra (cajas, anotaciones, documentos), no con el sustento.
+    plano = _normalizar(" ".join(" ".join(f.get(c, "") for c in ("Nombre", "Anotacion", "Documentos")) for f in filas))
+    glosario = [
+        t
+        for t in buscar_glosario(raiz)["terminos"]
+        if t["termino"] and re.search(rf"\b{re.escape(_normalizar(t['termino']))}\b", plano)
+    ]
     visor = (
         json.loads((raiz / documentos["fuentes_visor"]).read_text(encoding="utf-8"))
         if "fuentes_visor" in documentos
@@ -563,10 +609,16 @@ def paquete_contexto(repositorio: RepositorioProcesos, codigo: str, tarea: str =
     except ErrorDominio:
         abiertas = []
     auditoria = None
+    revision_actual = hashlib.sha256(rutas["tabla"].read_bytes()).hexdigest().upper() if "tabla" in documentos else None
     for corrida in sorted((raiz / AUDITORIAS).glob("corrida-*.json")):
         procesos = json.loads(corrida.read_text(encoding="utf-8")).get("procesos", {})
         if codigo in procesos:
             auditoria = {"corrida": corrida.relative_to(raiz).as_posix(), **procesos[codigo]}
+            auditoria["vigente"] = str(auditoria.get("revision_tabla", "")).upper() == revision_actual
+            if not auditoria["vigente"]:
+                auditoria["advertencia"] = "La tabla cambió después de esta corrida; reconfirme la auditoría."
+    reglas = listar_reglas(raiz, proceso=codigo)["reglas"]
+    propias = [r for r in reglas if any(p == codigo or p.startswith(codigo + ".") for p in r["procesos"])]
     return {
         "esquema": "paquete-contexto-v1",
         "proceso": codigo,
@@ -574,7 +626,9 @@ def paquete_contexto(repositorio: RepositorioProcesos, codigo: str, tarea: str =
         "fase_trabajo": "conceptual",
         "modelo_vigente": documentos,
         "notas_del_proceso": notas,
-        "reglas_aplicables": listar_reglas(raiz, proceso=codigo)["reglas"],
+        "reglas_aplicables": propias,
+        "reglas_de_procesos_superiores": [{"id": r["id"], "titulo": r["titulo"]} for r in reglas if r not in propias],
+        "procesos_relacionados": _procesos_relacionados(repositorio, codigo, filas, documentos),
         "fuentes_ancladas": ids_fuente,
         "guias_de_lectura": guias,
         "glosario_aplicable": glosario,
@@ -594,3 +648,81 @@ def paquete_contexto(repositorio: RepositorioProcesos, codigo: str, tarea: str =
             "Las reglas BORRADOR-IA no sustentan una linea base.",
         ],
     }
+
+
+SEGMENTOS = DERIVADOS / "segmentos"
+
+
+def _numero_articulo(valor: object) -> float | None:
+    encontrado = re.match(r"\s*(\d+)", str(valor or ""))
+    return float(encontrado.group(1)) if encontrado else None
+
+
+def _fragmentos_documento(raiz: Path, identificador: str, archivo: str | None) -> list[dict]:
+    carpeta = raiz / SEGMENTOS / identificador
+    if not carpeta.is_dir():
+        raise ErrorDominio(f"El documento {identificador} no tiene fragmentos segmentados", 404)
+    fragmentos = []
+    for ruta in sorted(carpeta.glob("*.jsonl")):
+        for linea in ruta.read_text(encoding="utf-8").splitlines():
+            if linea.strip():
+                fragmento = json.loads(linea)
+                if not archivo or archivo in fragmento.get("documento", {}).get("ruta", ""):
+                    fragmentos.append(fragmento)
+    if not fragmentos:
+        raise ErrorDominio(f"Sin fragmentos para {identificador} con el filtro {archivo!r}", 404)
+    return fragmentos
+
+
+def indice_documento(
+    raiz: Path, identificador: str, *, archivo: str | None = None, desde: int | None = None, hasta: int | None = None
+) -> dict:
+    """Índice de artículos de un documento (título, encabezados y páginas), para recorrer un capítulo completo.
+
+    Permite formular hipótesis por títulos (p. ej. «Intervención económica») sin depender de acertar palabras."""
+    salida: dict[tuple[str, str], dict] = {}
+    for fragmento in _fragmentos_documento(raiz, identificador, archivo):
+        numero = _numero_articulo(fragmento.get("articulo"))
+        if numero is None or (desde is not None and numero < desde) or (hasta is not None and numero > hasta):
+            continue
+        ruta = fragmento.get("documento", {}).get("ruta", "")
+        clave = (ruta, str(fragmento.get("articulo")))
+        entrada = salida.setdefault(clave, {
+            "articulo": fragmento.get("articulo"), "titulo": fragmento.get("titulo"),
+            "encabezados": fragmento.get("encabezados"), "ruta": ruta, "paginas": set(), "fragmentos": 0,
+        })  # fmt: skip
+        entrada["paginas"].update((fragmento.get("ubicacion") or {}).get("paginas") or [])
+        entrada["fragmentos"] += 1
+    articulos = sorted(salida.values(), key=lambda e: (e["ruta"], _numero_articulo(e["articulo"]) or 0))
+    for entrada in articulos:
+        entrada["paginas"] = sorted(entrada["paginas"])
+    return {"id": identificador, "total": len(articulos), "articulos": articulos}
+
+
+def leer_articulos(
+    raiz: Path,
+    identificador: str,
+    desde: int,
+    hasta: int,
+    *,
+    archivo: str | None = None,
+    max_caracteres: int = 30000,
+) -> dict:
+    """Texto de todos los fragmentos de un rango de artículos, en orden, con su ID para citar y anclar."""
+    if hasta < desde or hasta - desde > 40:
+        raise ErrorDominio("Indique un rango de hasta 40 artículos (desde ≤ hasta)")
+    max_caracteres = max(1000, min(int(max_caracteres), MAXIMO_LECTURA * 2))
+    elegidos = [f for f in _fragmentos_documento(raiz, identificador, archivo)
+                if (n := _numero_articulo(f.get("articulo"))) is not None and desde <= n <= hasta]  # fmt: skip
+    partes, usados, recortado = [], 0, False
+    for fragmento in elegidos:
+        pagina = (fragmento.get("ubicacion") or {}).get("desde")
+        bloque = f"[{fragmento['id']} · p. {pagina}]\n{fragmento.get('texto', '')}\n"
+        if usados + len(bloque) > max_caracteres:
+            recortado = True
+            break
+        partes.append(bloque)
+        usados += len(bloque)
+    rutas = sorted({f.get("documento", {}).get("ruta", "") for f in elegidos})
+    return {"id": identificador, "desde": desde, "hasta": hasta, "rutas": rutas, "fragmentos": len(partes),
+            "recortado": recortado, "texto": "\n".join(partes)}  # fmt: skip

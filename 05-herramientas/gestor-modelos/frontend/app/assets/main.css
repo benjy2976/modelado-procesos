@@ -230,3 +230,4 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .resolution-link select { width: 100%; display: block; margin-top: 5px; padding: 7px 8px; border: 1px solid #b8cbd9; border-radius: 5px; font: inherit; font-size: 12px; }
 .resolution-form .primary-link { margin-top: 10px; }
 .resolution-form .primary-link:disabled { opacity: .55; cursor: not-allowed; }
+.resolution-previous { margin: 6px 0; padding-top: 6px; border-top: 1px solid #e1e9ef; }

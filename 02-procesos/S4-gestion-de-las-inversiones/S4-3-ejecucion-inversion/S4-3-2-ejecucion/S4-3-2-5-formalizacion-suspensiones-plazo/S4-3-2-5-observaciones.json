@@ -15,9 +15,69 @@
           "accion": "CREADA",
           "fecha": "2026-11-25T04:03:53.410230+00:00",
           "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-25T05:18:27.552536+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-25T05:18:33.456998+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": []
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>La caja 30 es la entrada desde S4.3.2.6 y tiene dos pendientes:</p><ul><li><strong>Qué pasa si no hay acuerdo de suspensión.</strong> Depende de cómo se defina la caja 17 de S4.3.2.6: sin retorno, o con un mensaje de vuelta que obligaría a agregar aquí un fin de mensaje.</li><li><strong>Auditoría.</strong> La de S4.3.2.5 no incluye todavía esta caja. Solo necesita una afirmación nueva (entrada desde S4.3.2.6, práctica institucional; acuerdo según el art. 202.1).</li></ul><p>Las observaciones de otros procesos no se pueden vincular entre sí: el vínculo solo admite observaciones del mismo proceso.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "S4.3.2.6, observación de la caja 17 (fbc49135)",
+            "CON-001 art. 202.1",
+            "DEC-063"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:18:27.552536+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Seguir lo que se defina en la caja 17 de S4.3.2.6 y reconfirmar la auditoría",
+              "detalle": "<p>Si la caja 17 queda sin retorno, aquí solo se reconfirma la auditoría con la afirmación de la caja 30. Si se elige el retorno, se agrega en S4.3.2.5 el fin de mensaje «Suspensión no acordada» hacia S4.3.2.6 y luego se reconfirma.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-E3"
+              ],
+              "fuentes": [],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Reconfirmar la auditoría ya, sin esperar",
+              "detalle": "<p>Se registra ahora la afirmación de la caja 30. La interfaz de «sin acuerdo» se ajusta después, si cambia.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-E3"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-25T05:18:33.456998+00:00"
+        }
+      },
+      "etapa": "PROPUESTA",
+      "actualizada": "2026-11-25T05:18:33.456998+00:00"
     }
   ]
 }

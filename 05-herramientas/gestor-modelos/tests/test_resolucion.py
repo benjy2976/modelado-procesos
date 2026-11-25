@@ -127,3 +127,42 @@ def test_mcp_no_expone_la_definicion(repositorio: RepositorioProcesos) -> None:
     assert {"registrar_analisis", "registrar_propuesta", "observaciones_por_etapa", "iniciar_correccion",
             "registrar_aplicacion"} <= nombres  # fmt: skip
     assert not any("defin" in nombre for nombre in nombres)
+
+
+def test_reanalisis_conserva_el_anterior_y_listado_compacto(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioResolucion(repositorio)
+    obs = servicio.agregar("S4.3", elemento="", texto="Duda", autor="Equipo", revision_esperada=_revision(servicio))
+    servicio.registrar_analisis(
+        "S4.3", obs["id"], texto="Primera lectura", clase="FALTA-EVIDENCIA", autor="Claudia",
+        revision_esperada=_revision(servicio),
+    )  # fmt: skip
+    servicio.registrar_propuesta(
+        "S4.3", obs["id"], opciones=[{"titulo": "Esperar", "detalle": "x", "efecto": "PENDIENTE-EVIDENCIA"}],
+        autor="Claudia", revision_esperada=_revision(servicio),
+    )  # fmt: skip
+    with pytest.raises(ErrorDominio, match="motivo"):
+        servicio.registrar_analisis(
+            "S4.3", obs["id"], texto="Segunda", clase="ERROR-MODELO", autor="Claudia",
+            revision_esperada=_revision(servicio),
+        )  # fmt: skip
+    nueva = servicio.registrar_analisis(
+        "S4.3", obs["id"], texto="Segunda lectura", clase="ERROR-MODELO", autor="Claudia",
+        revision_esperada=_revision(servicio), motivo="Revisión con capítulo completo",
+        hipotesis=["Intervención económica: considerada"],
+    )  # fmt: skip
+    anterior = nueva["resoluciones_anteriores"][0]
+    assert anterior["propuesta"]["opciones"][0]["titulo"] == "Esperar"
+    assert anterior["reemplazada"]["motivo"] == "Revisión con capítulo completo"
+    assert nueva["resolucion"]["analisis"]["hipotesis"] == ["Intervención económica: considerada"]
+    assert "resolucion" not in servicio.por_etapa(codigo="S4.3", detalle=False)["observaciones"][0]
+
+
+def test_mcp_responde_con_confirmacion_compacta(repositorio: RepositorioProcesos) -> None:
+    import json
+
+    servidor = crear_servidor(repositorio)
+    servicio = ServicioResolucion(repositorio)
+    resultado = asyncio.run(servidor.call_tool("registrar_observacion", {
+        "codigo": "S4.3", "elemento": "", "texto": "Diagrama", "revision_esperada": _revision(servicio)}))  # fmt: skip
+    datos = json.loads(resultado.content[0].text)
+    assert set(datos) == {"id", "referencia", "etapa", "estado", "revision", "ultimo_evento"}

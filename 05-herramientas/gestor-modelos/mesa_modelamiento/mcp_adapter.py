@@ -33,6 +33,14 @@ def _errores_de_dominio(funcion: Callable) -> Callable:
     return envoltura
 
 
+def _confirmacion(registro: dict) -> dict:
+    """Respuesta compacta de una escritura: lo necesario para seguir (revisión) sin repetir todo el registro."""
+    salida = {k: registro.get(k) for k in ("id", "referencia", "etapa", "estado", "revision")}
+    if registro.get("historial"):
+        salida["ultimo_evento"] = registro["historial"][-1]
+    return salida
+
+
 def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
     observaciones = ServicioResolucion(repositorio)
@@ -81,15 +89,17 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         """Registra una observación sobre una caja (ID BPMN, ID de tabla o número) o el diagrama (elemento vacío).
 
         No altera el modelo. formato: texto o html. La referencia «Caja N (ID)» se completa sola."""
-        return observaciones.agregar(
-            codigo,
-            elemento=elemento,
-            texto=texto,
-            autor=AUTOR_AGENTE,
-            revision_esperada=revision_esperada,
-            tipo=tipo,
-            referencia=referencia,
-            formato=formato,
+        return _confirmacion(
+            observaciones.agregar(
+                codigo,
+                elemento=elemento,
+                texto=texto,
+                autor=AUTOR_AGENTE,
+                revision_esperada=revision_esperada,
+                tipo=tipo,
+                referencia=referencia,
+                formato=formato,
+            )
         )
 
     @herramienta()
@@ -97,12 +107,16 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         codigo: str, identificador: str, texto: str, revision_esperada: str, formato: str = "texto"
     ) -> dict:
         """Añade respuesta a una observación existente sin alterar el modelo. formato: texto o html."""
-        return observaciones.responder(codigo, identificador, texto, AUTOR_AGENTE, revision_esperada, formato)
+        return _confirmacion(
+            observaciones.responder(codigo, identificador, texto, AUTOR_AGENTE, revision_esperada, formato)
+        )
 
     @herramienta()
     def cambiar_estado_observacion(codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
         """Abre o resuelve una observación; no aprueba el proceso ni su sustento."""
-        return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, AUTOR_AGENTE)
+        return _confirmacion(
+            observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, AUTOR_AGENTE)
+        )
 
     @herramienta()
     def registrar_analisis(
@@ -113,15 +127,19 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         revision_esperada: str,
         fuentes: list[str] | None = None,
         formato: str = "texto",
+        hipotesis: list[str] | None = None,
+        motivo: str = "",
     ) -> dict:
-        """Etapa EN-ANALISIS (DEC-065): qué entiende el agente, contexto consultado y clase del problema.
+        """Etapa EN-ANALISIS (DEC-065): qué entiende el agente, contexto consultado, hipótesis y clase.
 
         clase: ERROR-MODELO, EXPLICACION-AUSENTE, DIFERENCIA-CRITERIO, FALTA-EVIDENCIA o FUERA-DE-ALCANCE.
-        fuentes: rutas, IDs de documento, reglas o decisiones consultadas."""
-        return observaciones.registrar_analisis(
+        fuentes: rutas, IDs de documento, artículos, reglas o decisiones consultadas.
+        hipotesis: alternativas consideradas y si se descartaron, con su razón (método de Claudia).
+        motivo: obligatorio si reemplaza un análisis anterior, que se conserva en resoluciones_anteriores."""
+        return _confirmacion(observaciones.registrar_analisis(
             codigo, identificador, texto=texto, clase=clase, autor=AUTOR_AGENTE,
-            revision_esperada=revision_esperada, fuentes=fuentes, formato=formato,
-        )  # fmt: skip
+            revision_esperada=revision_esperada, fuentes=fuentes, formato=formato, hipotesis=hipotesis, motivo=motivo,
+        ))  # fmt: skip
 
     @herramienta()
     def registrar_propuesta(
@@ -132,16 +150,26 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         Cada opción: titulo, detalle, efecto (CAMBIO-MODELO, CAMBIO-SUSTENTO, DECISION, ACLARACION, NO-PROCEDE,
         PENDIENTE-EVIDENCIA), elementos, fuentes, recomendada y formato. seleccion: UNICA o MULTIPLE.
         El agente nunca define: la definición la hace una persona."""
-        return observaciones.registrar_propuesta(
+        return _confirmacion(observaciones.registrar_propuesta(
             codigo, identificador, opciones=opciones, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
             seleccion=seleccion,
-        )  # fmt: skip
+        ))  # fmt: skip
 
     @herramienta()
-    def observaciones_por_etapa(etapa: str | None = None, codigo: str | None = None) -> dict:
+    def observaciones_por_etapa(etapa: str | None = None, codigo: str | None = None, detalle: bool = False) -> dict:
         """Observaciones por etapa (REGISTRADA, EN-ANALISIS, PROPUESTA, DEFINIDA, EN-CORRECCION,
-        PENDIENTE-EVIDENCIA, RESUELTA) en un proceso o en todo el árbol, con su resolución."""
-        return observaciones.por_etapa(etapa, codigo)
+        PENDIENTE-EVIDENCIA, RESUELTA) en un proceso o en todo el árbol. Por defecto en resumen; con detalle
+        incluye la resolución completa. Para una sola, use leer_observacion."""
+        return observaciones.por_etapa(etapa, codigo, detalle)
+
+    @herramienta()
+    def leer_observacion(codigo: str, identificador: str) -> dict:
+        """Una observación completa: texto, historial, respuestas, resolución vigente y anteriores."""
+        listado = observaciones.listar(codigo)
+        registro = next((o for o in listado["observaciones"] if o["id"] == identificador), None)
+        if registro is None:
+            raise ErrorDominio("Observacion no encontrada", 404)
+        return {**registro, "revision": listado["revision"]}
 
     @herramienta()
     def iniciar_correccion(
@@ -149,10 +177,10 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     ) -> dict:
         """Etapa EN-CORRECCION de una observación DEFINIDA. Si la tabla cambió desde la definición, confirme
         que la definición sigue aplicando o vuelva a analizar."""
-        return observaciones.iniciar_correccion(
+        return _confirmacion(observaciones.iniciar_correccion(
             codigo, identificador, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
             confirmar_vigencia=confirmar_vigencia,
-        )  # fmt: skip
+        ))  # fmt: skip
 
     @herramienta()
     def registrar_aplicacion(
@@ -170,10 +198,10 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         """Cierra una observación con evidencia de lo aplicado (sesión, cambios, D1-D5, decisión DEC-NNN).
 
         Con cerrar=False queda en PENDIENTE-EVIDENCIA. Un CAMBIO-MODELO exige la sesión que lo integró."""
-        return observaciones.registrar_aplicacion(
+        return _confirmacion(observaciones.registrar_aplicacion(
             codigo, identificador, texto=texto, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
             cerrar=cerrar, sesion=sesion, cambios=cambios, validacion=validacion, decision=decision, formato=formato,
-        )  # fmt: skip
+        ))  # fmt: skip
 
     @herramienta()
     def leer_elemento(codigo: str, identificador: str) -> dict:
@@ -339,6 +367,23 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     def revisar_etiquetas(accion: str = "revisar") -> dict:
         """Revisa o lista las etiquetas de las notas (solo lectura): accion revisar o listar."""
         return conocimiento.etiquetas(repositorio.raiz, accion)
+
+    @herramienta()
+    def indice_documento(
+        identificador: str, archivo: str | None = None, desde: int | None = None, hasta: int | None = None
+    ) -> dict:
+        """Índice de artículos de un documento (títulos y páginas). Úselo para recorrer el capítulo de una figura y
+        formular hipótesis por título antes de buscar por palabras. archivo filtra por parte de la ruta."""
+        return conocimiento.indice_documento(repositorio.raiz, identificador, archivo=archivo, desde=desde, hasta=hasta)
+
+    @herramienta()
+    def leer_articulos(
+        identificador: str, desde: int, hasta: int, archivo: str | None = None, max_caracteres: int = 30000
+    ) -> dict:
+        """Texto de un rango de artículos (hasta 40), con el ID de cada fragmento para citar y anclar."""
+        return conocimiento.leer_articulos(
+            repositorio.raiz, identificador, desde, hasta, archivo=archivo, max_caracteres=max_caracteres
+        )
 
     @herramienta()
     def paquete_contexto(codigo: str, tarea: str = "") -> dict:
