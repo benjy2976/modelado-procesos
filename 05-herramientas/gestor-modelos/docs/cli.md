@@ -62,6 +62,17 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `fuentes regimen` | Comprueba `regimen-documental.json` y resume la clasificación de los documentos |
 | `fuentes pruebas preparar\|medir <banco> [--modo M] [--sin-temas]` | Banco de recuperación de `bancos-prueba/` y métricas acierto@k, MRR, negativas, latencia y tamaño |
 | `fuentes anclar (--fragmento <id> \| --archivo <pdf> --pagina N) --cita "<texto>"` | Rectángulos por renglón de una cita en el PDF original |
+| `conocimiento notas [--area --tipo --estado --clase --etiqueta --proceso --texto --limite --desplazamiento]` | Notas de áreas autorizadas filtradas por propiedades y texto, con extracto |
+| `conocimiento nota <ruta> [--desde N --max-caracteres N]` | Propiedades, título, enlaces y un tramo de una nota; rechaza originales, cachés y temporales |
+| `conocimiento documentos [--texto --area --formato --regimen --con-texto si\|no]` | Inventario de la biblioteca desde los manifiestos de preparación PDF y Office |
+| `conocimiento documento <ID\|ruta>` | Ficha del documento y su fila de calidad |
+| `conocimiento texto-documento <ID\|ruta> [--pagina N --paginas N]` | Páginas del Markdown derivado |
+| `conocimiento temas` | Vocabulario de temas |
+| `conocimiento reglas [--proceso --dominio --estado --modalidad --texto]` y `conocimiento regla <ID>` | Reglas desde sus YAML y sus eventos de revisión |
+| `conocimiento glosario [texto]` | Términos del glosario |
+| `conocimiento decisiones [--texto --id --limite]` | Decisiones del registro, las más recientes primero |
+| `conocimiento etiquetas [revisar\|listar]` | Revisión de etiquetas sin modificar notas |
+| `conocimiento paquete <codigo> [--tarea]` | Paquete de contexto de una tarea (manual operativo, 6.6) |
 | `auditoria inventariar-elementos <codigo>` | Elementos, flujos, carriles y mensajes con IDs de auditoría |
 | `auditoria registrar <codigo> --archivo <lote.json>` | Registro inmutable de afirmaciones con cita verificada; rechaza todo el lote ante un error |
 | `auditoria cobertura <codigo> --archivo <obligaciones.json>` | Obligaciones de la fuente rectora y elemento que las representa (`REPRESENTADO`, `NO-REPRESENTADO`, `FUERA-DE-ALCANCE`) |

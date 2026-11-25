@@ -43,6 +43,14 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `buscar_fuentes` | Pasajes candidatos de la biblioteca, acotados y con ubicación |
 | `contexto_fragmento` | Texto completo de un fragmento y sus vecinos |
 | `anclar_cita` | Página y rectángulos de una cita en el PDF, sin escribir |
+| `buscar_notas` y `leer_nota` | Notas de áreas autorizadas por propiedades y texto; lectura por tramos con enlaces |
+| `listar_documentos`, `leer_documento` y `leer_texto_documento` | Inventario de la biblioteca, ficha y páginas del texto derivado |
+| `listar_temas` | Vocabulario de temas de búsqueda |
+| `listar_reglas` y `leer_regla` | Reglas normativas y sus eventos de revisión |
+| `buscar_glosario` | Términos del glosario vivo |
+| `buscar_decisiones` | Decisiones del registro por ID o texto |
+| `revisar_etiquetas` | Revisión o recuento de etiquetas, sin escribir |
+| `paquete_contexto` | Paquete de contexto de una tarea sobre un proceso |
 
 Las escrituras del MCP firman con el alias del agente, **Claudia** (`DEC-064`). Un `ErrorDominio` llega como error de herramienta legible, con su código HTTP, no como fallo inesperado.
 
@@ -54,7 +62,7 @@ El archivo `.mcp.json` de la raíz del repositorio registra el servidor `mesa-mo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 46 comandos y el MCP 28 herramientas (tanda 1 cerrada el 2026-11-25).
+La CLI tiene 58 comandos y el MCP 40 herramientas (tandas 1 y 2A cerradas el 2026-11-25).
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|
@@ -68,6 +76,32 @@ La CLI tiene 46 comandos y el MCP 28 herramientas (tanda 1 cerrada el 2026-11-25
 | `api`, `mcp`, `contrato` | No aplica | Infraestructura |
 
 Ya no faltan comandos de edición ni de auditoría. Las acciones de producto pendientes (tanda 2) se listan en la tabla siguiente.
+
+## Canales de conocimiento (`DEC-066`, 2026-11-25)
+
+El MCP debe ser el único canal de un agente hacia el repositorio, no solo hacia los modelos. Hasta ahora el agente lee el conocimiento directamente del disco. Esta tabla inventaría el conocimiento que ya existe, cómo se estructura y qué canal le falta.
+
+| Conocimiento | Estructura actual | Canal hoy | Canal que falta |
+|---|---|---|---|
+| Biblioteca: catálogo de documentos | `01-referencias/00-catalogo/catalogo-documental.csv` (ID, ruta, hash, emisor, vigencia), `regimen-documental.json`, evaluación de calidad | CLI de preparación | Consultar un documento por ID o filtros: metadatos, vigencia, régimen, calidad y estado de extracción |
+| Biblioteca: textos derivados | `09-derivados-texto/cache/`: Markdown paginado por documento, `00-indice.md`, fragmentos por artículo o numeral e índice FTS5 | `buscar_fuentes`, `contexto_fragmento`, `anclar_cita` | Leer el texto derivado de un documento por página o sección y recorrer el índice |
+| Vocabulario de temas | `catalogo/temas-busqueda.json` y `temas-sugeridos.jsonl` | CLI `fuentes temas` | Comprobar y sugerir temas; listar términos de un tema |
+| Guías de lectura de fuentes | 15 notas en `03-conocimiento/fuentes/` | Lectura directa | Listar y leer guías por documento o tema |
+| Reglas normativas | 36 YAML en `03-conocimiento/reglas/` (`BORRADOR-IA`), eventos en `revisiones/` y `catalogo-reglas.csv` generado | Lectura directa | Listar y filtrar por proceso, dominio o estado; leer una regla con sus eventos; proponer una regla `BORRADOR-IA`, nunca validarla |
+| Manual BPMN y paleta | 24 notas en `03-conocimiento/manual-bpmn/` y el catálogo de símbolos | Lectura directa | Leer notas y consultar la paleta permitida (`DEC-027`) |
+| Actores y catálogos comunes | `03-conocimiento/actores-y-roles/` (3 notas); sistemas, documentos, riesgos y reglas de negocio vacíos | Lectura directa | Listar y leer |
+| Glosario | `glosario.md` | Lectura directa | Buscar un término y devolver su definición |
+| Decisiones | `00-gobernanza/registro-decisiones.md` (DEC-001 a DEC-066) | Lectura directa | Buscar y leer una decisión por ID, proceso o texto; registrar una nueva con control de revisión |
+| Gobierno y método | Estándares, protocolos, convenciones, plantillas y `vocabulario-etiquetas.yaml` | Lectura directa | Leer por nombre; listar plantillas |
+| Notas en general | Markdown con propiedades (`tipo`, `area`, `estado_documento`, `clase_conocimiento`, `tags`) y notas índice `00-*.md` | Lectura directa | Buscar notas por propiedades y texto, y leer una nota, dentro de una lista cerrada de áreas y nunca en `originales` |
+| Etiquetas | `gestionar_etiquetas.py` (revisar, listar, aplicar, renombrar) | Script | Revisar y listar; aplicar y renombrar solo como escritura gobernada |
+| Estado del proyecto y coordinación | `estado-del-proyecto.md`, reuniones, diario; Bases y Canvas como vistas | Lectura directa | Leer el estado y las actas |
+| Paquete de contexto | Plantilla `paquete-contexto.yaml`; manual operativo, sección 6.6 | Armado manual | Armar el paquete de una tarea: ficha, modelo vigente, reglas del proceso, guías y glosario pertinentes, decisiones relacionadas, observaciones abiertas y estado de auditoría |
+| Preparación documental | CLI `fuentes` (inventario, extracción, OCR, segmentación, índice, régimen, bancos de prueba) | CLI | Exponer como operaciones de administración, separadas de la consulta |
+
+**Tanda 2A (2026-11-25).** Los canales de solo lectura de la tabla quedan disponibles en el servicio `conocimiento.py`, la CLI (`conocimiento ...`) y el MCP: notas, biblioteca, temas, reglas, glosario, decisiones, etiquetas y paquete de contexto. La consulta usa los manifiestos de preparación (242 documentos), no solo `catalogo-documental.csv`, que cubre 13. Para leer YAML se agregó la dependencia PyYAML. `gestionar_etiquetas.py` recorre el disco cuando no hay `git`, como en el contenedor del MCP. Quedan pendientes las escrituras (2C) y la preparación documental como administración (2D).
+
+Las escrituras de conocimiento siguen el protocolo de conocimiento confiable: la IA solo propone (`BORRADOR-IA`) y ninguna herramienta valida ni atribuye conformidad. Canvas y Bases son vistas y no se exponen como fuente.
 
 ## Brechas para que un agente edite al nivel actual (2026-11-25)
 

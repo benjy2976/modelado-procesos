@@ -8,7 +8,7 @@ from collections.abc import Callable
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 
-from . import auditoria, generacion
+from . import auditoria, conocimiento, generacion
 from . import fuentes_anclaje as anclaje
 from . import fuentes_busqueda as busqueda
 from .documentos import ServicioDocumentos
@@ -174,6 +174,106 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     def cerrar_edicion(codigo: str, sesion: str) -> dict:
         """Cierra sin integrar; conserva la copia y libera el único editor. Tras aplicar_cambio no hace falta."""
         return sesiones.cerrar(codigo, sesion)
+
+    @herramienta()
+    def buscar_notas(
+        area: str | None = None,
+        tipo: str | None = None,
+        estado: str | None = None,
+        clase: str | None = None,
+        etiqueta: str | None = None,
+        proceso: str | None = None,
+        texto: str | None = None,
+        limite: int = 30,
+        desplazamiento: int = 0,
+    ) -> dict:
+        """Busca notas Markdown por propiedades (tipo, estado_documento, clase_conocimiento, tags, proceso) y texto.
+
+        area: gobernanza, referencias, procesos, conocimiento, coordinacion o herramientas. Devuelve rutas,
+        títulos y extractos; lea el contenido con leer_nota."""
+        return conocimiento.listar_notas(
+            repositorio.raiz, area=area, tipo=tipo, estado=estado, clase=clase, etiqueta=etiqueta, proceso=proceso,
+            texto=texto, limite=limite, desplazamiento=desplazamiento,
+        )  # fmt: skip
+
+    @herramienta()
+    def leer_nota(ruta: str, desde: int = 0, max_caracteres: int = 20000) -> dict:
+        """Lee una nota autorizada: propiedades, título, enlaces y un tramo del texto (use siguiente para continuar).
+
+        Nunca lee originales, cachés ni carpetas temporales."""
+        return conocimiento.leer_nota(repositorio.raiz, ruta, desde, max_caracteres)
+
+    @herramienta()
+    def listar_documentos(
+        texto: str | None = None,
+        area: str | None = None,
+        formato: str | None = None,
+        regimen: str | None = None,
+        con_texto: bool | None = None,
+        limite: int = 30,
+        desplazamiento: int = 0,
+    ) -> dict:
+        """Inventario de la biblioteca (PDF y Office): ID, título, ruta, vigencia, régimen y texto derivado."""
+        return conocimiento.listar_documentos(
+            repositorio.raiz, texto=texto, area=area, formato=formato, regimen=regimen, con_texto=con_texto,
+            limite=limite, desplazamiento=desplazamiento,
+        )  # fmt: skip
+
+    @herramienta()
+    def leer_documento(identificador: str) -> dict:
+        """Ficha de un documento de la biblioteca por ID de catálogo o ruta del original."""
+        return conocimiento.leer_documento(repositorio.raiz, identificador)
+
+    @herramienta()
+    def leer_texto_documento(
+        identificador: str, pagina_desde: int = 1, paginas: int = 3, max_caracteres: int = 12000
+    ) -> dict:
+        """Páginas del Markdown derivado de un documento (no del original), por ID o ruta."""
+        return conocimiento.leer_texto_documento(repositorio.raiz, identificador, pagina_desde, paginas, max_caracteres)
+
+    @herramienta()
+    def listar_temas() -> dict:
+        """Vocabulario de temas de búsqueda con sus términos y procesos."""
+        return conocimiento.listar_temas(repositorio.raiz)
+
+    @herramienta()
+    def listar_reglas(
+        proceso: str | None = None,
+        dominio: str | None = None,
+        estado: str | None = None,
+        modalidad: str | None = None,
+        texto: str | None = None,
+    ) -> dict:
+        """Reglas normativas desde sus YAML; proceso incluye ancestros y descendientes. BORRADOR-IA no es validada."""
+        return conocimiento.listar_reglas(
+            repositorio.raiz, proceso=proceso, dominio=dominio, estado=estado, modalidad=modalidad, texto=texto
+        )
+
+    @herramienta()
+    def leer_regla(identificador: str) -> dict:
+        """Regla normativa completa con sus eventos de revisión."""
+        return conocimiento.leer_regla(repositorio.raiz, identificador)
+
+    @herramienta()
+    def buscar_glosario(texto: str | None = None) -> dict:
+        """Términos del glosario vivo cuyo término o definición contiene el texto."""
+        return conocimiento.buscar_glosario(repositorio.raiz, texto)
+
+    @herramienta()
+    def buscar_decisiones(texto: str | None = None, identificador: str | None = None, limite: int = 20) -> dict:
+        """Decisiones del registro por ID (DEC-NNN) o texto; las más recientes primero."""
+        return conocimiento.buscar_decisiones(repositorio.raiz, texto=texto, identificador=identificador, limite=limite)
+
+    @herramienta()
+    def revisar_etiquetas(accion: str = "revisar") -> dict:
+        """Revisa o lista las etiquetas de las notas (solo lectura): accion revisar o listar."""
+        return conocimiento.etiquetas(repositorio.raiz, accion)
+
+    @herramienta()
+    def paquete_contexto(codigo: str, tarea: str = "") -> dict:
+        """Paquete de contexto de una tarea sobre un proceso: modelo vigente, notas, reglas aplicables, fuentes
+        ancladas, guías de lectura, glosario, decisiones, observaciones abiertas, auditoría y sesión activa."""
+        return conocimiento.paquete_contexto(repositorio, codigo, tarea)
 
     @herramienta()
     def generar_modelo(

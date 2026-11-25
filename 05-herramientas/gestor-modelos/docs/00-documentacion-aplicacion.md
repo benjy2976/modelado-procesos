@@ -30,6 +30,7 @@ Esta carpeta describe la aplicación alojada en `05-herramientas/gestor-modelos/
 | ¿Qué resultó de la auditoría de todo S4.3 (fase 5)? | [Informe consolidado de la fase 5](informe-auditoria-fase-5-S4-3.md) |
 | ¿Cómo se traslada el trabajo local, PDF y caché OCR a otro equipo? | [Traslado entre equipos](traslado-entre-equipos.md) |
 | ¿Qué falta para abrir la revisión por áreas usuarias? | [Ruta hacia la revisión por áreas usuarias](ruta-revision-areas-usuarias.md) |
+| ¿Hacia dónde podría crecer la plataforma (gestión documental al estilo drive)? | [Planteamiento a futuro de gestión documental](vision-gestion-documental.md) |
 | ¿Qué instrucciones de IA y skills están disponibles? | [Guía de IA](guia_IA.md) |
 | ¿Qué estándar portable se adoptó? | [Memoria viva](memoria-viva/00-memoria-viva.md) y [plantilla de contexto](context-template.md) |
 

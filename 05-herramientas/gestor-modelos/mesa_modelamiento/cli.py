@@ -82,6 +82,45 @@ def _argumentos() -> argparse.ArgumentParser:
     cotejo.add_argument("--id", required=True)
     cotejo.add_argument("--pagina", required=True, type=int)
     cotejo.add_argument("--archivo", help="Ruta relativa registrada para distinguir IDs repetidos")
+    conocimiento = grupos.add_parser("conocimiento", help="Consultar conocimiento estructurado (solo lectura)")
+    consultas = conocimiento.add_subparsers(dest="operacion", required=True)
+    notas = consultas.add_parser("notas", help="Buscar notas por propiedades y texto")
+    for opcion in ("area", "tipo", "estado", "clase", "etiqueta", "proceso", "texto"):
+        notas.add_argument(f"--{opcion}")
+    notas.add_argument("--limite", type=int, default=30)
+    notas.add_argument("--desplazamiento", type=int, default=0)
+    nota = consultas.add_parser("nota", help="Leer una nota autorizada")
+    nota.add_argument("ruta")
+    nota.add_argument("--desde", type=int, default=0)
+    nota.add_argument("--max-caracteres", type=int, default=20000)
+    documentos_c = consultas.add_parser("documentos", help="Inventario de la biblioteca")
+    for opcion in ("texto", "area", "formato", "regimen"):
+        documentos_c.add_argument(f"--{opcion}")
+    documentos_c.add_argument("--con-texto", choices=["si", "no"])
+    documentos_c.add_argument("--limite", type=int, default=30)
+    documentos_c.add_argument("--desplazamiento", type=int, default=0)
+    consultas.add_parser("documento", help="Ficha de un documento por ID o ruta").add_argument("identificador")
+    texto_doc = consultas.add_parser("texto-documento", help="Páginas del texto derivado de un documento")
+    texto_doc.add_argument("identificador")
+    texto_doc.add_argument("--pagina", type=int, default=1)
+    texto_doc.add_argument("--paginas", type=int, default=3)
+    texto_doc.add_argument("--max-caracteres", type=int, default=12000)
+    consultas.add_parser("temas", help="Vocabulario de temas de búsqueda")
+    reglas = consultas.add_parser("reglas", help="Reglas normativas filtradas")
+    for opcion in ("proceso", "dominio", "estado", "modalidad", "texto"):
+        reglas.add_argument(f"--{opcion}")
+    consultas.add_parser("regla", help="Regla con sus eventos de revisión").add_argument("identificador")
+    consultas.add_parser("glosario", help="Términos del glosario").add_argument("texto", nargs="?")
+    decisiones = consultas.add_parser("decisiones", help="Decisiones del registro")
+    decisiones.add_argument("--texto")
+    decisiones.add_argument("--id", dest="identificador")
+    decisiones.add_argument("--limite", type=int, default=20)
+    consultas.add_parser("etiquetas", help="Revisar o listar etiquetas").add_argument(
+        "accion", choices=["revisar", "listar"], nargs="?", default="revisar"
+    )
+    paquete = consultas.add_parser("paquete", help="Paquete de contexto de una tarea sobre un proceso")
+    paquete.add_argument("codigo")
+    paquete.add_argument("--tarea", default="")
     auditoria = grupos.add_parser("auditoria", help="Auditar afirmaciones de un modelo contra fuentes")
     tareas_auditoria = auditoria.add_subparsers(dest="operacion", required=True)
     tareas_auditoria.add_parser("inventariar-elementos").add_argument("codigo")
@@ -224,6 +263,42 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
     )  # fmt: skip
 
 
+def _conocimiento(repositorio: RepositorioProcesos, args: argparse.Namespace) -> object:
+    from . import conocimiento as c
+
+    raiz = repositorio.raiz
+    operacion = args.operacion
+    if operacion == "notas":
+        filtros = {k: getattr(args, k) for k in ("area", "tipo", "estado", "clase", "etiqueta", "proceso", "texto")}
+        return c.listar_notas(raiz, **filtros, limite=args.limite, desplazamiento=args.desplazamiento)
+    if operacion == "nota":
+        return c.leer_nota(raiz, args.ruta, args.desde, args.max_caracteres)
+    if operacion == "documentos":
+        con_texto = None if args.con_texto is None else args.con_texto == "si"
+        return c.listar_documentos(
+            raiz, texto=args.texto, area=args.area, formato=args.formato, regimen=args.regimen, con_texto=con_texto,
+            limite=args.limite, desplazamiento=args.desplazamiento,
+        )  # fmt: skip
+    if operacion == "documento":
+        return c.leer_documento(raiz, args.identificador)
+    if operacion == "texto-documento":
+        return c.leer_texto_documento(raiz, args.identificador, args.pagina, args.paginas, args.max_caracteres)
+    if operacion == "temas":
+        return c.listar_temas(raiz)
+    if operacion == "reglas":
+        filtros = {k: getattr(args, k) for k in ("proceso", "dominio", "estado", "modalidad", "texto")}
+        return c.listar_reglas(raiz, **filtros)
+    if operacion == "regla":
+        return c.leer_regla(raiz, args.identificador)
+    if operacion == "glosario":
+        return c.buscar_glosario(raiz, args.texto)
+    if operacion == "decisiones":
+        return c.buscar_decisiones(raiz, texto=args.texto, identificador=args.identificador, limite=args.limite)
+    if operacion == "etiquetas":
+        return c.etiquetas(raiz, args.accion)
+    return c.paquete_contexto(repositorio, args.codigo, args.tarea)
+
+
 def ejecutar(args: argparse.Namespace) -> object:
     if args.grupo == "contrato":
         from .contrato import sincronizar_contrato
@@ -262,6 +337,8 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion in CAMBIAN_CACHE:
             resultado["indice"] = generar_indice(repositorio.raiz)["indice"]
         return resultado
+    if args.grupo == "conocimiento":
+        return _conocimiento(repositorio, args)
     if args.grupo == "auditoria":
         from . import auditoria
         from .auditoria_informe import informe

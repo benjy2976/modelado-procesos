@@ -47,11 +47,34 @@ def guardar_vocabulario(vocabulario: dict) -> None:
 
 # ---------------------------------------------------------------- notas
 
+IGNORADAS = (".git/", "99-temporal/", "tmp/", ".venv/", ".ruff_cache/", ".pytest_cache/", ".obsidian/",
+             "01-referencias/09-derivados-texto/cache/", "05-herramientas/gestor-modelos/salida/",
+             "05-herramientas/gestor-modelos/.mesa-sesiones/")
+IGNORADAS_EN_RUTA = ("/node_modules/", "/.nuxt/", "/.output/", "/__pycache__/", "/.pytest_cache/", "/.ruff_cache/",
+                     "/.venv/")
+
+
+def _notas_sin_git() -> list[str]:
+    """Equivalente aproximado de git ls-files para entornos sin git (contenedor del MCP), según .gitignore."""
+    salida = []
+    for ruta in ROOT.rglob("*.md"):
+        rel = ruta.relative_to(ROOT).as_posix()
+        if rel.startswith(IGNORADAS) and rel != "99-temporal/00-TEMPORAL.md":
+            continue
+        if any(parte in f"/{rel}" for parte in IGNORADAS_EN_RUTA):
+            continue
+        salida.append(rel)
+    return salida
+
+
 def notas(vocabulario: dict) -> list[str]:
-    salida = subprocess.run(
-        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "*.md"],
-        cwd=ROOT, capture_output=True, text=True, check=True,
-    ).stdout.splitlines()
+    try:
+        salida = subprocess.run(
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard", "*.md"],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        ).stdout.splitlines()
+    except FileNotFoundError:
+        salida = _notas_sin_git()
     excluir = tuple(vocabulario.get("excluir", []))
     return sorted(n for n in salida if (ROOT / n).is_file() and not n.startswith(excluir) and n not in excluir)
 
