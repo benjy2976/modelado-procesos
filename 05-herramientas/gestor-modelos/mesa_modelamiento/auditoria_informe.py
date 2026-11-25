@@ -155,7 +155,7 @@ def informe(raiz: Path, codigo: str) -> dict:
     }
     datos["ok"] = not (
         sin_resultado or datos["citas_con_problemas"] or datos["inventario_desactualizado"]
-        or any(a["estado"] != "VIGENTE" for a in anclas) or datos["referencias_sin_ancla"]
+        or any(a["estado"] not in ("VIGENTE", "SIN-COORDENADAS") for a in anclas) or datos["referencias_sin_ancla"]
         or datos["no_representadas"] or datos["cobertura_de_otra_revision"]
     )  # fmt: skip
     destino = carpeta_auditoria(raiz, codigo) / "informe.md"

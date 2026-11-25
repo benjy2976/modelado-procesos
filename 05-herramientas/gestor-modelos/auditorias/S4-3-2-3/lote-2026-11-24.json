@@ -1,0 +1,1161 @@
+[
+ {
+  "elemento": "R-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Respuesta de consulta recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Usuario 2026-11-18; Opinion D000083, 2.2.1 y 3.3."
+ },
+ {
+  "elemento": "R-T1",
+  "aspecto": "documento",
+  "afirmacion": "El residente anota la necesidad del adicional en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La necesidad de ejecutar una prestación adicional es anotada en el cuaderno de incidencias por el contratista, a través del residente de obra o por la supervisión",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.1",
+    "cita": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+    "ambito": "cuaderno de incidencias",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 a)."
+ },
+ {
+  "elemento": "R-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Anotacion y antecedentes remitidos (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6."
+ },
+ {
+  "elemento": "S-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Sustento del residente recibido (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, arts. 186.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6."
+ },
+ {
+  "elemento": "S-E2",
+  "aspecto": "existencia",
+  "afirmacion": "Necesidad identificada por supervision (inicio-condicional).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del equipo; Reglamento, arts. 186-188."
+ },
+ {
+  "elemento": "S-T0",
+  "aspecto": "documento",
+  "afirmacion": "La supervisión registra la necesidad en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La necesidad de ejecutar una prestación adicional es anotada en el cuaderno de incidencias por el contratista, a través del residente de obra o por la supervisión",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 a): la anotación puede hacerla la supervisión."
+ },
+ {
+  "elemento": "S-G1",
+  "aspecto": "existencia",
+  "afirmacion": "S-G1 (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Convergencia de origenes."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El supervisor sustenta su posición técnica sobre necesidad y riesgo en 5 días.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "el supervisor envía un informe técnico a la entidad contratante en el que sustente su posición respecto a la necesidad de ejecutar la prestación",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 b)."
+ },
+ {
+  "elemento": "S-G2",
+  "aspecto": "decision",
+  "afirmacion": "El supervisor ratifica o no la necesidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "el supervisor envía un informe técnico a la entidad contratante en el que sustente su posición respecto a la necesidad de ejecutar la prestación",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La ratificación condiciona la presentación (194.2 d)."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La necesidad ratificada se remite a la entidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "el supervisor envía un informe técnico a la entidad contratante en el que sustente su posición respecto a la necesidad de ejecutar la prestación",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 b)."
+ },
+ {
+  "elemento": "S-F2",
+  "aspecto": "existencia",
+  "afirmacion": "Necesidad no ratificada (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Cierre propuesto para el control inicial."
+ },
+ {
+  "elemento": "E-E1",
+  "aspecto": "actor",
+  "afirmacion": "La OACGD recibe el sustento.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T1",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra y deriva por el SGD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-TSG",
+  "aspecto": "existencia",
+  "afirmacion": "Recibir sustento y derivarlo al coordinador por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision institucional del usuario, 2026-11-19; circuito analogo documentado en S4.3.2.2."
+ },
+ {
+  "elemento": "E-T2",
+  "aspecto": "accion",
+  "afirmacion": "El coordinador verifica integridad, régimen, sistema de entrega y supervisión.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "Son funciones de la Sub Gerencia de Gestión de Obras y Supervisión los siguientes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-97",
+    "cita": "responsable del control y seguimiento de la ejecución de las obras de inversión pública",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Funciones de la SGGOS; la verificación concreta es propuesta (DEC-041)."
+ },
+ {
+  "elemento": "E-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Clasificar alcance original, causal y figura inicial (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision del equipo registrada en DEC-041."
+ },
+ {
+  "elemento": "E-G0",
+  "aspecto": "existencia",
+  "afirmacion": "¿Corresponde adicional o deductivo de obra? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Separa obligacion original, valorizacion y modificacion potencial."
+ },
+ {
+  "elemento": "E-T15",
+  "aspecto": "existencia",
+  "afirmacion": "Comunicar clasificacion y proceso de destino (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision institucional del usuario, 2026-11-19; DEC-041."
+ },
+ {
+  "elemento": "E-F3",
+  "aspecto": "existencia",
+  "afirmacion": "Caso clasificado fuera del proceso (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Puede corresponder exigir cumplimiento, valorizar o derivar a otro proceso."
+ },
+ {
+  "elemento": "E-G2",
+  "aspecto": "existencia",
+  "afirmacion": "¿Que caso corresponde? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047; tres casos solicitados por el usuario."
+ },
+ {
+  "elemento": "MOD-ALC-ADI",
+  "aspecto": "decision",
+  "afirmacion": "Se identifica un adicional sin deductivo vinculado.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.1",
+    "cita": "mediante resolución previa, puede disponer la ejecución de prestaciones adicionales en las obras bajo el sistema de entrega de solo construcción siempre que resulte indispensable",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.2",
+    "cita": "la autoridad de la gestión administrativa puede autorizar la ejecución y el pago de prestaciones adicionales hasta por el 15 % del monto total del contrato original, restándole los presupuestos deductivos vinculados",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.1 y Ley 64.2."
+ },
+ {
+  "elemento": "E-G6",
+  "aspecto": "condicion",
+  "afirmacion": "Se acreditan la necesidad ratificada, la causal y el elaborador.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.1",
+    "cita": "mediante resolución previa, puede disponer la ejecución de prestaciones adicionales en las obras bajo el sistema de entrega de solo construcción siempre que resulte indispensable",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La entidad contratante determina en las bases a quien le corresponde la elaboración del expediente técnico del adicional de obra",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Causales del 194.1, elaborador según bases (194.2 c) y ratificación (194.2 d)."
+ },
+ {
+  "elemento": "E-T4",
+  "aspecto": "condicion",
+  "afirmacion": "Se comunica la ratificación a quien elabora el expediente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La presentación está condicionada a la ratificación."
+ },
+ {
+  "elemento": "E-M2",
+  "aspecto": "existencia",
+  "afirmacion": "Expediente del adicional presentado a evaluacion (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 d-f; Directiva 017-2023-CG, num. 7.3.6."
+ },
+ {
+  "elemento": "E-T5A",
+  "aspecto": "actor",
+  "afirmacion": "Se determina quién emite la opinión técnica previa.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "Previo a la aprobación del adicional, la entidad contratante solicita la opinión técnica del órgano de la entidad contratante",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Órgano competente o proyectista si no pasó más de un año."
+ },
+ {
+  "elemento": "E-T5",
+  "aspecto": "accion",
+  "afirmacion": "El órgano competente emite opinión técnica.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "Previo a la aprobación del adicional, la entidad contratante solicita la opinión técnica del órgano de la entidad contratante",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 g)."
+ },
+ {
+  "elemento": "E-G7",
+  "aspecto": "existencia",
+  "afirmacion": "¿Evaluacion tecnica favorable? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-20; DEC-038."
+ },
+ {
+  "elemento": "E-TINF",
+  "aspecto": "existencia",
+  "afirmacion": "Elaborar informe de evaluacion tecnica favorable (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-20; Reglamento, art. 194.2 g para opinion tecnica."
+ },
+ {
+  "elemento": "E-T16",
+  "aspecto": "existencia",
+  "afirmacion": "Integrar observaciones para decision (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Propuesta operativa; Reglamento, art. 194.2 f; no sustituir resolucion por informe."
+ },
+ {
+  "elemento": "E-TNEV",
+  "aspecto": "existencia",
+  "afirmacion": "Comunicar evaluacion tecnica (mensaje-envio).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision del usuario, 2026-11-19; art. 194.2 e-g para secuencia de opiniones."
+ },
+ {
+  "elemento": "E-G5",
+  "aspecto": "existencia",
+  "afirmacion": "¿Que controles requiere? (compuerta-inclusiva).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-038; control contractual obligatorio en esta propuesta."
+ },
+ {
+  "elemento": "E-TC",
+  "aspecto": "accion",
+  "afirmacion": "El control contractual verifica monto, precios, deductivo vinculado y acumulado.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.2",
+    "cita": "la autoridad de la gestión administrativa puede autorizar la ejecución y el pago de prestaciones adicionales hasta por el 15 % del monto total del contrato original, restándole los presupuestos deductivos vinculados",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+    "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Límites del 15 % (64.2) y del 50 % (194.5)."
+ },
+ {
+  "elemento": "E-T6",
+  "aspecto": "actor",
+  "afirmacion": "La Subgerencia de Presupuesto emite certificación o previsión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-51",
+    "cita": "la unidad orgánica responsable del proceso presupuestario del Gobierno Regional",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 51."
+ },
+ {
+  "elemento": "E-T7",
+  "aspecto": "actor",
+  "afirmacion": "Asesoría Jurídica emite opinión o revisa el acto.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-45-parte1",
+    "cita": "Absolver las consultas de carácter jurídico legal que le sean formuladas",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-44",
+    "cita": "Es el órgano responsable de brindar asesoramiento jurídico-legal y administrativo",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF arts. 44-45."
+ },
+ {
+  "elemento": "E-G5C",
+  "aspecto": "existencia",
+  "afirmacion": "E-G5C (compuerta-inclusiva).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Convergencia de controles activados."
+ },
+ {
+  "elemento": "E-T17",
+  "aspecto": "existencia",
+  "afirmacion": "Consolidar controles, responsables y discrepancias resueltas (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Matriz de control propuesta en DEC-038; no sustituye opiniones especializadas."
+ },
+ {
+  "elemento": "E-G8",
+  "aspecto": "decision",
+  "afirmacion": "Se verifica si se requiere autorización previa de la Contraloría (más de 30 % y hasta 50 %).",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.3",
+    "cita": "El titular de la entidad puede autorizar la ejecución y pago de prestaciones adicionales de obras mayores al 15 % y hasta un máximo de 30 %",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+    "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Ley 64.3 b). No hay rama para el caso que supera el 50 %, en el que el 194.5 manda resolver el contrato."
+ },
+ {
+  "elemento": "E-T8",
+  "aspecto": "accion",
+  "afirmacion": "Se solicita autorización a la Contraloría.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.3",
+    "cita": "El titular de la entidad puede autorizar la ejecución y pago de prestaciones adicionales de obras mayores al 15 % y hasta un máximo de 30 %",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Ley 64.3 b)."
+ },
+ {
+  "elemento": "E-M1",
+  "aspecto": "plazo",
+  "afirmacion": "Se recibe el pronunciamiento de la Contraloría.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.4",
+    "cita": "La Contraloría General de la República cuenta con un plazo máximo de quince días hábiles en primera instancia",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "15 días hábiles en primera instancia (64.4)."
+ },
+ {
+  "elemento": "E-G9",
+  "aspecto": "decision",
+  "afirmacion": "Se distingue si la Contraloría autorizó.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.4",
+    "cita": "La Contraloría General de la República cuenta con un plazo máximo de quince días hábiles en primera instancia",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "64.4."
+ },
+ {
+  "elemento": "E-F2B",
+  "aspecto": "existencia",
+  "afirmacion": "No autorizacion comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Cierre cuando no se obtiene la autorizacion externa exigible."
+ },
+ {
+  "elemento": "E-T10",
+  "aspecto": "plazo",
+  "afirmacion": "El titular emite y notifica la resolución del adicional en 12 días hábiles.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.1",
+    "cita": "mediante resolución previa, puede disponer la ejecución de prestaciones adicionales en las obras bajo el sistema de entrega de solo construcción siempre que resulte indispensable",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La entidad contratante notifica la resolución que se pronuncia sobre la solicitud de la prestación adicional en un plazo máximo de doce días hábiles",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Resolución previa (194.1) en el plazo del 194.2 f)."
+ },
+ {
+  "elemento": "E-G10",
+  "aspecto": "existencia",
+  "afirmacion": "¿Favorable? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Rutas de decision."
+ },
+ {
+  "elemento": "E-T11",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan registros y la comunicación, con el canal de publicación por confirmar.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.3",
+    "cita": "bastando con su publicación en la Pladicop para que surta todos sus efectos. Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regularización",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 194.3 vigente fija la publicación en la Pladicop, sin adenda, y prohíbe aprobar adicionales por regularización; E-T11 deja el canal por confirmar y no recoge la prohibición."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "existencia",
+  "afirmacion": "Decision del adicional comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto propuesto; canal formal por confirmar."
+ },
+ {
+  "elemento": "E-F2C",
+  "aspecto": "existencia",
+  "afirmacion": "Decision no favorable comunicada (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto alterno."
+ },
+ {
+  "elemento": "X-E1",
+  "aspecto": "existencia",
+  "afirmacion": "Anotacion comunicada al elaborador (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; interfaz S4.3.2.2."
+ },
+ {
+  "elemento": "X-E2",
+  "aspecto": "existencia",
+  "afirmacion": "Anotacion propia conocida por elaborador (inicio-condicional).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 a-d; precision del usuario, 2026-11-19."
+ },
+ {
+  "elemento": "X-TENC",
+  "aspecto": "existencia",
+  "afirmacion": "Asumir encargo y organizar elaboracion del expediente (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; respuesta S4.3.2.2."
+ },
+ {
+  "elemento": "X-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El elaborador presenta el expediente en 15 días desde la anotación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Incluye el plazo adicional por complejidad, que debe sustentarse."
+ },
+ {
+  "elemento": "X-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El expediente técnico queda presentado.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 d)."
+ },
+ {
+  "elemento": "E-GREG",
+  "aspecto": "decision",
+  "afirmacion": "Solo sigue la ruta si es Ley 32069, solo construcción y sin emergencia.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
+    "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "La emergencia tiene procedimiento propio en el 194.4 (ejecución inmediata autorizada a la supervisión y regularización posterior) que el modelo deja pendiente."
+ },
+ {
+  "elemento": "E-FPEND",
+  "aspecto": "existencia",
+  "afirmacion": "Caso pendiente de completar sustento o ruta especifica (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-046; EVIDENCIA-INSUFICIENTE, no es decision de fondo."
+ },
+ {
+  "elemento": "E-FNEC",
+  "aspecto": "existencia",
+  "afirmacion": "Necesidad o elaborador pendiente de acreditar (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Salida local de E-G6; no es decision de fondo."
+ },
+ {
+  "elemento": "E-FDP",
+  "aspecto": "existencia",
+  "afirmacion": "Deductivo puro pendiente de ruta (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047; EVIDENCIA-INSUFICIENTE sobre ruta autonoma."
+ },
+ {
+  "elemento": "E-GEL",
+  "aspecto": "existencia",
+  "afirmacion": "Identificar autor y ruta de evaluacion (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-g; Opinion D000092, 2.9 A-C y 3.9-3.11."
+ },
+ {
+  "elemento": "E-GPAR",
+  "aspecto": "existencia",
+  "afirmacion": "¿Que opiniones corresponden? (compuerta-inclusiva).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 e-g; Opinion D000092, 2.8-2.9."
+ },
+ {
+  "elemento": "E-TSUP",
+  "aspecto": "existencia",
+  "afirmacion": "Coordinar presentacion a supervision (mensaje-envio).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.4 nota 5; 2.9 A y C."
+ },
+ {
+  "elemento": "E-MSUP",
+  "aspecto": "existencia",
+  "afirmacion": "Opinion de supervision recibida (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-046."
+ },
+ {
+  "elemento": "E-GJOIN",
+  "aspecto": "existencia",
+  "afirmacion": "E-GJOIN (compuerta-inclusiva).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-046."
+ },
+ {
+  "elemento": "S-E3",
+  "aspecto": "existencia",
+  "afirmacion": "Expediente para evaluacion recibido (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.9 A y C."
+ },
+ {
+  "elemento": "S-T3",
+  "aspecto": "plazo",
+  "afirmacion": "La supervisión se pronuncia sobre el expediente del contratista en 10 días.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "la supervisión se pronuncia sobre el expediente técnico de la prestación adicional de obra en un plazo máximo de diez días",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 e); si elaboró la entidad, rige lo indicado por la Opinión D000092."
+ },
+ {
+  "elemento": "S-F3",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La opinión de supervisión queda remitida.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "la supervisión se pronuncia sobre el expediente técnico de la prestación adicional de obra en un plazo máximo de diez días",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 e)."
+ },
+ {
+  "elemento": "X-MR",
+  "aspecto": "existencia",
+  "afirmacion": "Ratificacion comunicada para presentar (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.1 nota 4, 2.2-2.3."
+ },
+ {
+  "elemento": "E-ENOT",
+  "aspecto": "existencia",
+  "afirmacion": "Anotacion comunicada a SGGOS (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision del usuario, 2026-11-19; Reglamento, art. 194.2 a-d."
+ },
+ {
+  "elemento": "E-GNOT",
+  "aspecto": "decision",
+  "afirmacion": "Se verifica si el elaborador conoce la anotación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La entidad contratante determina en las bases a quien le corresponde la elaboración del expediente técnico del adicional de obra",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El elaborador lo fijan las bases."
+ },
+ {
+  "elemento": "E-TNOT",
+  "aspecto": "accion",
+  "afirmacion": "Se avisa la anotación y el encargo al elaborador.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "La entidad contratante determina en las bases a quien le corresponde la elaboración del expediente técnico del adicional de obra",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El plazo de 15 días corre desde la anotación."
+ },
+ {
+  "elemento": "E-FNOT",
+  "aspecto": "existencia",
+  "afirmacion": "Inicio comunicado o conocido (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Cierre del aviso operativo; no es aprobacion."
+ },
+ {
+  "elemento": "E-GPRO",
+  "aspecto": "condicion",
+  "afirmacion": "Corresponde opinión del proyectista si no pasó más de un año desde la conformidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "Previo a la aprobación del adicional, la entidad contratante solicita la opinión técnica del órgano de la entidad contratante",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 g)."
+ },
+ {
+  "elemento": "E-TPRO",
+  "aspecto": "accion",
+  "afirmacion": "Se solicita opinión al proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+    "cita": "Previo a la aprobación del adicional, la entidad contratante solicita la opinión técnica del órgano de la entidad contratante",
+    "ambito": "prestaciones adicionales de obra en solo construcción",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "194.2 g)."
+ },
+ {
+  "elemento": "E-MPRO",
+  "aspecto": "existencia",
+  "afirmacion": "Opinion del proyectista recibida (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.8-2.9."
+ },
+ {
+  "elemento": "E-GEX",
+  "aspecto": "existencia",
+  "afirmacion": "¿El expediente lo elaboro la entidad? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.8-2.9."
+ },
+ {
+  "elemento": "E-TEX",
+  "aspecto": "existencia",
+  "afirmacion": "Documentar supuesto de opinion inoficiosa (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Opinion D000092, 2.8-2.9."
+ },
+ {
+  "elemento": "E-EDP",
+  "aspecto": "existencia",
+  "afirmacion": "Sustento de deductivo puro recibido (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "E-TVIN",
+  "aspecto": "decision",
+  "afirmacion": "Se identifica el adicional con su deductivo vinculante.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.2",
+    "cita": "la autoridad de la gestión administrativa puede autorizar la ejecución y el pago de prestaciones adicionales hasta por el 15 % del monto total del contrato original, restándole los presupuestos deductivos vinculados",
+    "ambito": "límites y autorización de adicionales de obra (Ley)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Los límites se calculan restando los deductivos vinculados (Ley 64.2)."
+ },
+ {
+  "elemento": "E-TDP",
+  "aspecto": "existencia",
+  "afirmacion": "Precisar naturaleza y sustento del deductivo puro (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "E-GDP",
+  "aspecto": "decision",
+  "afirmacion": "Un deductivo puro se evalúa como posible reducción de prestaciones.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "puede ordenar la reducción de prestaciones hasta por el 25% del monto del contrato original",
+    "ambito": "reducción de prestaciones",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "DEC-047; la distinción entre deductivo puro y reducción requiere evidencia técnica y contractual."
+ },
+ {
+  "elemento": "E-FRED",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El caso se clasifica y se envía a S4.3.2.7.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "puede ordenar la reducción de prestaciones hasta por el 25% del monto del contrato original",
+    "ambito": "reducción de prestaciones",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "S4.3.2.7 no registra la recepción de este caso (candidato de interfaz)."
+ },
+ {
+  "elemento": "M:R-F1>S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Sustento de necesidad (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F1>E-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Necesidad ratificada (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:R-F1>E-ENOT",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Anotacion de necesidad comunicada a SGGOS (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-T0>E-ENOT",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Anotacion de supervision comunicada a SGGOS (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-TNOT>X-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Anotacion y encargo comunicados al elaborador distinto del anotante (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-T4>X-MR",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Ratificacion comunicada (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:X-F1>E-M2",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Expediente tecnico (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-T8>Contraloria General de la Republica",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Solicitud de autorizacion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:Contraloria General de la Republica>E-M1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Pronunciamiento (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S4.3.2.2 Atencion de consultas de obra>R-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Respuesta notificada como antecedente (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-TSUP>S-E3",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Expediente presentado para pronunciamiento (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F3>E-MSUP",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Opinion de supervision (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-TNEV>Elaborador del adicional segun bases: entidad, contratista o supervisor",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Resultado de evaluacion tecnica preliminar (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-TNEV>Ejecutor de obra, segun regimen",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Resultado de evaluacion tecnica preliminar (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-TPRO>Proyectista",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Solicitud de opinion previa (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:Proyectista>E-MPRO",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Opinion tecnica (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:E-FRED>S4.3.2.7 Gestion de reducciones de prestaciones",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Sustento reclasificado como reduccion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]

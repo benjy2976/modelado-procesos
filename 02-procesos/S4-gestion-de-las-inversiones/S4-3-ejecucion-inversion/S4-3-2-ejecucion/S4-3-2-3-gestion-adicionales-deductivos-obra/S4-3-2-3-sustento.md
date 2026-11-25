@@ -328,3 +328,20 @@ Paquete de contexto: fase de revision visual solicitada; fuente tabular, PNG y p
 **EVIDENCIA-OBSERVADA:** el usuario indica que la ruta desde la caja 62 debe salir por la izquierda y llegar por arriba a la 29; la salida continua de la 25 debe abrir a la derecha, bajar, girar a la izquierda y volver a bajar sin discurrir junto al mensaje punteado. El PNG previo mostraba una entrada a la 29 desde su borde izquierdo y tramos verticales casi coincidentes junto a la 25.
 
 **PROPUESTA DE TRAZADO:** el perfil prueba el puerto izquierdo de la 62 y el superior de la 29 cuando existe un corredor libre. Para la 25, separa la secuencia del mensaje mediante un rodeo exterior a su anotacion; la distancia horizontal de los tramos verticales es de 50 unidades BPMN-DI. No se altera la direccion semantica, los responsables ni los plazos. El PNG regenerado se inspecciono en ambos sectores y muestra los puertos y el corredor solicitados. D1 y D2 correctos, D5 sin hallazgos y D4 baja de 19 a 18 advertencias; D3 conserva las limitaciones del simulador ya documentadas. Diez pruebas del perfil pasan, incluida una regresion de estas conexiones. Los hallazgos D4 restantes y la conformidad institucional siguen pendientes.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-3/informe.md)): 95 afirmaciones (29 `SUSTENTADA`, 66 `INFERENCIA`, sin contradicciones) y 14 obligaciones del Reglamento art. 194 (texto vigente) y de la Ley art. 64, de las que 3 no están representadas. Las 66 inferencias corresponden sobre todo a la ruta institucional (OACGD, SGGOS, SGE, controles de DEC-038) y a decisiones de modelamiento, sin norma literal que las sustente. Las anclas pasan de 3 a 75, calculadas desde el texto. Las 3 referencias previas a la Opinión D000092 no tienen coordenadas y quedan marcadas como tales. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado:** el circuito del art. 194.2 a)-g), con sus plazos (5, 15, 10 y 12 días hábiles), la opinión técnica previa con el límite de un año del proyectista, y los límites y autorizaciones de la Ley 64.2-64.4 (15 %, 30 %, 50 % y 15 días hábiles de la Contraloría).
+- **No representado:**
+  - el **194.3 vigente**: la aprobación surte efecto con su publicación en la Pladicop, sin adenda, y **está prohibido aprobar adicionales por regularización**. E-T11 deja el canal «por confirmar» y no recoge la prohibición;
+  - el **194.4**: en emergencia, la entidad autoriza a la supervisión a disponer la ejecución inmediata y regulariza después por el 194.2. E-GREG envía la emergencia a pendiente;
+  - el **194.5**: si los adicionales superan el 50 % del contrato original, se resuelve el contrato. E-G8 no tiene rama para ese caso.
+- **Interfaz:** E-FRED envía casos a S4.3.2.7 sin contraparte allí, y R-E1 recibe de S4.3.2.2 una respuesta que S4.3.2.2 no envía.
+- **ROF:** el art. 98 (funciones de la SGGOS) quedó segmentado junto al art. 97 en el texto extraído; el ancla lo indica.
+- **Propuestas no aplicadas:**
+  - nombrar la Pladicop y la prohibición de regularizar en E-T11;
+  - una ruta o anotación de emergencia conforme al 194.4;
+  - una rama de E-G8 para el caso que supera el 50 %, con resolución del contrato.
+

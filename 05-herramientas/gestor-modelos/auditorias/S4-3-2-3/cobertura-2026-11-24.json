@@ -1,0 +1,163 @@
+[
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.1",
+  "cita": "mediante resolución previa, puede disponer la ejecución de prestaciones adicionales en las obras bajo el sistema de entrega de solo construcción siempre que resulte indispensable",
+  "obligacion": "Resolución previa por causal: deficiencias del expediente o causas no previsibles",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-G6",
+   "MOD-ALC-ADI",
+   "E-T10"
+  ],
+  "razonamiento": "Causal acreditada y resolución."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "La necesidad de ejecutar una prestación adicional es anotada en el cuaderno de incidencias por el contratista, a través del residente de obra o por la supervisión",
+  "obligacion": "Anotación de la necesidad por residente o supervisión",
+  "aspecto": "documento",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "R-T1",
+   "S-T0"
+  ],
+  "razonamiento": "Dos orígenes."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "el supervisor envía un informe técnico a la entidad contratante en el que sustente su posición respecto a la necesidad de ejecutar la prestación",
+  "obligacion": "Informe técnico del supervisor en 5 días",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "S-T1"
+  ],
+  "razonamiento": "Con plazo."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "La entidad contratante determina en las bases a quien le corresponde la elaboración del expediente técnico del adicional de obra",
+  "obligacion": "Elaborador del expediente según bases",
+  "aspecto": "actor",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-GNOT",
+   "E-TNOT",
+   "E-G6"
+  ],
+  "razonamiento": "Según bases."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "es presentado por quien corresponda en un plazo de quince días contabilizados desde el día siguiente de la anotación en el cuaderno de incidencias, siempre que el supervisor haya ratificado",
+  "obligacion": "Presentación en 15 días desde la anotación si hay ratificación; plazo adicional por complejidad",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "X-T1",
+   "E-T4"
+  ],
+  "razonamiento": "Con plazo y condición."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "la supervisión se pronuncia sobre el expediente técnico de la prestación adicional de obra en un plazo máximo de diez días",
+  "obligacion": "Pronunciamiento de supervisión en 10 días si elaboró el contratista",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "S-T3"
+  ],
+  "razonamiento": "Con plazo."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "La entidad contratante notifica la resolución que se pronuncia sobre la solicitud de la prestación adicional en un plazo máximo de doce días hábiles",
+  "obligacion": "Resolución notificada en 12 días hábiles",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T10"
+  ],
+  "razonamiento": "Con plazo."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.2",
+  "cita": "Previo a la aprobación del adicional, la entidad contratante solicita la opinión técnica del órgano de la entidad contratante",
+  "obligacion": "Opinión técnica previa del órgano competente o del proyectista (un año)",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T5A",
+   "E-GPRO",
+   "E-TPRO",
+   "E-T5"
+  ],
+  "razonamiento": "Ruta completa."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.3",
+  "cita": "bastando con su publicación en la Pladicop para que surta todos sus efectos. Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regularización",
+  "obligacion": "Publicación en la Pladicop sin adenda y prohibición de aprobar por regularización",
+  "aspecto": "documento",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "E-T11 deja el canal por confirmar y no recoge la prohibición."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",
+  "cita": "La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata de las prestaciones adicionales",
+  "obligacion": "Adicionales de emergencia: ejecución inmediata autorizada y regularización posterior",
+  "aspecto": "excepcion",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "E-GREG envía la emergencia a pendiente."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-194.5",
+  "cita": "no pueden superar el cincuenta por ciento (50%) del monto del contrato original. En caso de que superen este límite, se procede a la resolución del contrato",
+  "obligacion": "Más del 50 % del contrato original: resolución del contrato",
+  "aspecto": "excepcion",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "E-G8 no tiene rama para ese caso."
+ },
+ {
+  "fragmento": "f14ffa37b824b8af-c9c22559:art-64.2",
+  "cita": "la autoridad de la gestión administrativa puede autorizar la ejecución y el pago de prestaciones adicionales hasta por el 15 % del monto total del contrato original, restándole los presupuestos deductivos vinculados",
+  "obligacion": "Hasta 15 % por la autoridad de la gestión administrativa, restando deductivos vinculados",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-TC",
+   "E-TVIN",
+   "MOD-ALC-ADI"
+  ],
+  "razonamiento": "Control contractual."
+ },
+ {
+  "fragmento": "f14ffa37b824b8af-c9c22559:art-64.3",
+  "cita": "El titular de la entidad puede autorizar la ejecución y pago de prestaciones adicionales de obras mayores al 15 % y hasta un máximo de 30 %",
+  "obligacion": "Más de 15 % hasta 30 % por el titular; más de 30 % hasta 50 % con autorización de la Contraloría",
+  "aspecto": "actor",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-G8",
+   "E-T8",
+   "E-T10"
+  ],
+  "razonamiento": "Ruta de autorización."
+ },
+ {
+  "fragmento": "f14ffa37b824b8af-c9c22559:art-64.4",
+  "cita": "La Contraloría General de la República cuenta con un plazo máximo de quince días hábiles en primera instancia",
+  "obligacion": "Pronunciamiento de la Contraloría en 15 días hábiles",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-M1"
+  ],
+  "razonamiento": "Con plazo."
+ }
+]

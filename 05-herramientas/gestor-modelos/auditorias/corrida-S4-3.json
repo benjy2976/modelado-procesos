@@ -15,7 +15,7 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 4,
-      "actualizado": "2026-11-25T00:00:20+00:00"
+      "actualizado": "2026-11-25T00:04:28+00:00"
     },
     "S4.3.1": {
       "estado": "CON-HALLAZGOS",
@@ -30,7 +30,7 @@
       "no_representadas": 6,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:23+00:00"
+      "actualizado": "2026-11-25T00:04:31+00:00"
     },
     "S4.3.2": {
       "estado": "CON-HALLAZGOS",
@@ -47,7 +47,7 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 4,
-      "actualizado": "2026-11-25T00:00:24+00:00"
+      "actualizado": "2026-11-25T00:04:32+00:00"
     },
     "S4.3.2.1": {
       "estado": "CON-HALLAZGOS",
@@ -63,7 +63,7 @@
       "no_representadas": 6,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:25+00:00"
+      "actualizado": "2026-11-25T00:04:33+00:00"
     },
     "S4.3.2.2": {
       "estado": "CON-HALLAZGOS",
@@ -78,19 +78,22 @@
       "no_representadas": 2,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:28+00:00"
+      "actualizado": "2026-11-25T00:04:37+00:00"
     },
     "S4.3.2.3": {
-      "estado": "PENDIENTE-AUDITORIA",
+      "estado": "CON-HALLAZGOS",
       "revision_tabla": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
-      "afirmaciones": 0,
-      "resultados": {},
-      "sin_resultado": 95,
-      "obligaciones": 0,
-      "no_representadas": 0,
-      "referencias_sin_ancla": 55,
+      "afirmaciones": 95,
+      "resultados": {
+        "INFERENCIA": 66,
+        "SUSTENTADA": 29
+      },
+      "sin_resultado": 0,
+      "obligaciones": 14,
+      "no_representadas": 3,
+      "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:28+00:00"
+      "actualizado": "2026-11-25T00:04:43+00:00"
     },
     "S4.3.2.4": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -102,7 +105,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 20,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:28+00:00"
+      "actualizado": "2026-11-25T00:04:43+00:00"
     },
     "S4.3.2.5": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -114,7 +117,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 26,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:28+00:00"
+      "actualizado": "2026-11-25T00:04:43+00:00"
     },
     "S4.3.2.6": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -126,7 +129,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 8,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:28+00:00"
+      "actualizado": "2026-11-25T00:04:43+00:00"
     },
     "S4.3.2.7": {
       "estado": "COMPLETO",
@@ -143,7 +146,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:29+00:00"
+      "actualizado": "2026-11-25T00:04:44+00:00"
     },
     "S4.3.2.8": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -155,12 +158,12 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 5,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:00:29+00:00"
+      "actualizado": "2026-11-25T00:04:44+00:00"
     },
     "S4.3.3": {
       "estado": "SIN-MODELO",
-      "actualizado": "2026-11-25T00:00:29+00:00"
+      "actualizado": "2026-11-25T00:04:44+00:00"
     }
   },
-  "actualizado": "2026-11-25T00:00:29+00:00"
+  "actualizado": "2026-11-25T00:04:44+00:00"
 }

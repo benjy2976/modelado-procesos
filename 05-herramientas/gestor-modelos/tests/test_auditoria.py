@@ -91,9 +91,10 @@ def test_anclar_renglones_guion_y_estados(tmp_path: Path) -> None:
     visor.write_text(json.dumps({"elementos": {
         "T1": [{**base, "rectangulos": uno["rectangulos"]}, {**base, "pagina": 3, "rectangulos": uno["rectangulos"]}],
         "T2": [{**base, "rectangulos": [[0.5, 0.2, 0.4, 0.3]]}, {**base, "sha256": "0" * 64, "rectangulos": []}],
+        "T3": [{"ruta": ruta, "pagina": 1, "ubicacion": "sin coordenadas"}],
     }}), encoding="utf-8")  # fmt: skip
     estados = [a["estado"] for a in verificar_anclas(tmp_path, visor)]
-    assert estados == ["VIGENTE", "PAGINA-INEXISTENTE", "RECTANGULO-INVALIDO", "HASH-DISTINTO"]
+    assert estados == ["VIGENTE", "PAGINA-INEXISTENTE", "RECTANGULO-INVALIDO", "HASH-DISTINTO", "SIN-COORDENADAS"]
     tramo = {"pagina": 1, "rol": "citado", "rectangulos": uno["rectangulos"]}
     visor.write_text(json.dumps({"elementos": {"T1": [
         {**base, "rectangulos": uno["rectangulos"], "tramos": [tramo, {**tramo, "rol": "antecedente"}]},

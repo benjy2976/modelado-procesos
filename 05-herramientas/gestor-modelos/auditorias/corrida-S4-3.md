@@ -22,7 +22,7 @@ Generado por `modelador-procesos auditoria correr --alcance S4.3`; no editar a m
 | S4.3.2 | `CON-HALLAZGOS` | 20 (CONTRADICCION 2, INFERENCIA 7, SUSTENTADA 11) | 11 (no representadas: 1) | 4 | [ver](S4-3-2/informe.md) |
 | S4.3.2.1 | `CON-HALLAZGOS` | 20 (CONTRADICCION 1, INFERENCIA 7, SUSTENTADA 12) | 10 (no representadas: 6) | — | [ver](S4-3-2-1/informe.md) |
 | S4.3.2.2 | `CON-HALLAZGOS` | 64 (INFERENCIA 28, SUSTENTADA 36) | 12 (no representadas: 2) | — | [ver](S4-3-2-2/informe.md) |
-| S4.3.2.3 | `PENDIENTE-AUDITORIA` | 0 (—) | 0 (no representadas: 0) | — | [ver](S4-3-2-3/informe.md) |
+| S4.3.2.3 | `CON-HALLAZGOS` | 95 (INFERENCIA 66, SUSTENTADA 29) | 14 (no representadas: 3) | — | [ver](S4-3-2-3/informe.md) |
 | S4.3.2.4 | `PENDIENTE-AUDITORIA` | 0 (—) | 0 (no representadas: 0) | — | [ver](S4-3-2-4/informe.md) |
 | S4.3.2.5 | `PENDIENTE-AUDITORIA` | 0 (—) | 0 (no representadas: 0) | — | [ver](S4-3-2-5/informe.md) |
 | S4.3.2.6 | `PENDIENTE-AUDITORIA` | 0 (—) | 0 (no representadas: 0) | — | [ver](S4-3-2-6/informe.md) |

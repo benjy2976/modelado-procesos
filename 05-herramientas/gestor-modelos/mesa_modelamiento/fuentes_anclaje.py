@@ -238,6 +238,8 @@ def verificar_anclas(raiz: Path, fuentes_visor: Path) -> list[dict]:
             estado = "VIGENTE"
             if not archivo.is_file():
                 estado = "ARCHIVO-FALTANTE"
+            elif not ancla.get("rectangulos") and not ancla.get("tramos") and not ancla.get("sha256"):
+                estado = "SIN-COORDENADAS"  # Referencia sin resaltado: visible como tal, no es un ancla rota.
             elif _sha256(archivo) != str(ancla.get("sha256", "")).upper():
                 estado = "HASH-DISTINTO"
             else:
