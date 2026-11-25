@@ -6,7 +6,7 @@ estado_documento: BORRADOR
 clase_conocimiento: PROPUESTA
 proceso: []
 fecha_creacion: 2026-11-24
-fecha_actualizacion: 2026-11-24
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -109,11 +109,13 @@ La herramienta de auditoría se construye **antes** de aplicarse incluso al pilo
 | 5.C2 | C | Ampliar `auditoria informe --check` para elementos sin resultado, citas huérfanas y hashes desactualizados. | CLI probada con omisión y referencia rota; **D**. | Sí, tras 4.P |
 | 5.E4 | E | Comprobar toda la corrida. | Informe consolidado y vacíos explícitos; S4.3.3 queda `SIN-MODELO` mientras no exista tabla. | Sí, tras 4.P |
 
-**Estado al 24 de noviembre de 2026:**
+**Estado al 25 de noviembre de 2026:**
 - 5.C1 implementada: `auditoria correr` y `auditoria comparar-interfaces`, probadas con interrupción, reanudación y cambio de tabla.
-- 5.E1 avanza por los padres: S4.3 y S4.3.2 quedan auditados en ambas direcciones, con hallazgos abiertos.
-- 5.E2 tiene una primera corrida de interfaces.
-- Los cambios en las tablas (5.E3) se proponen al usuario antes de aplicarse, como en el piloto.
+- 5.E1 completada el 2026-11-25: los 11 procesos con modelo de S4.3 quedan auditados en ambas direcciones. S4.3.2.7 está `COMPLETO` y los otros 10, `CON-HALLAZGOS`.
+- 5.E2 completada: 8 candidatos deterministas e interfaces implícitas detectadas por la cobertura.
+- 5.C2: el `--check` ya cubre los elementos sin resultado, las citas, los hashes y las anclas. Todos los procesos pasan esas comprobaciones de integridad.
+- 5.E4: [informe consolidado de la fase 5](informe-auditoria-fase-5-S4-3.md). S4.3.3 sigue `SIN-MODELO`.
+- 5.E3 pendiente: las propuestas esperan la decisión del usuario; ninguna tabla se modificó en la fase 5.
 - El estado vivo está en el [resumen de la corrida S4.3](../auditorias/corrida-S4-3.md).
 
 La revisión jurídica de vigencia, ámbito y sentido corresponde a especialistas. El agente deja propuestas y evidencia rastreable, sin atribuir su criterio a una persona.

@@ -27,6 +27,7 @@ Esta carpeta describe la aplicación alojada en `05-herramientas/gestor-modelos/
 | ¿Qué pasos, herramientas y verificaciones requiere la corrida documental? | [Plan de corrida documental y auditoría](plan-corrida-documental-y-auditoria.md) |
 | ¿Qué produjo la preparación de la biblioteca PDF? | [Informe de preparación PDF](informe-preparacion-biblioteca-pdf.md) |
 | ¿Qué resultó del piloto de auditoría de S4.3.2.7? | [Informe del piloto S4.3.2.7](informe-piloto-auditoria-S4-3-2-7.md) |
+| ¿Qué resultó de la auditoría de todo S4.3 (fase 5)? | [Informe consolidado de la fase 5](informe-auditoria-fase-5-S4-3.md) |
 | ¿Cómo se traslada el trabajo local, PDF y caché OCR a otro equipo? | [Traslado entre equipos](traslado-entre-equipos.md) |
 | ¿Qué falta para abrir la revisión por áreas usuarias? | [Ruta hacia la revisión por áreas usuarias](ruta-revision-areas-usuarias.md) |
 | ¿Qué instrucciones de IA y skills están disponibles? | [Guía de IA](guia_IA.md) |
