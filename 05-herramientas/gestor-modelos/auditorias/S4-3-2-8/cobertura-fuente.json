@@ -1,0 +1,174 @@
+{
+  "codigo": "S4.3.2.8",
+  "revision_tabla": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C",
+  "fecha": "2026-11-25T00:16:15+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "Cuando en los contratos suscritos bajo la modalidad de pago de precios unitarios se requiera ejecutar mayores metrados",
+      "obligacion": "Solo en contratos a precios unitarios",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "S2"
+      ],
+      "razonamiento": "Verificación de modalidad."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "el contratista solicita su ejecución mediante anotación en cuaderno de incidencias",
+      "obligacion": "Solicitud por anotación en el cuaderno de incidencias",
+      "aspecto": "documento",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "R2",
+        "R3"
+      ],
+      "razonamiento": "Solicitud en el cuaderno y remisión al supervisor."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "siempre que no se supere el límite establecido para las prestaciones adicionales de obra, considerando el monto acumulado de los mayores metrados y las prestaciones adicionales de obras, restándole los presupuestos deductivos",
+      "obligacion": "El supervisor autoriza en el cuaderno si no se supera el límite acumulado",
+      "aspecto": "decision",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "S2",
+        "SG",
+        "S3"
+      ],
+      "razonamiento": "Verificación de acumulados, compuerta y autorización en el cuaderno."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "No se requiere la aprobación previa de la entidad contratante para la ejecución de mayores metrados, pero sí para su pago",
+      "obligacion": "Sin aprobación previa de la entidad para ejecutar, pero sí para pagar",
+      "aspecto": "entrada-salida",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "RF"
+      ],
+      "razonamiento": "El pago se controla en S4.3.2.1."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "El contratista presenta en su valorización los mayores metrados ejecutados durante el periodo valorizado",
+      "obligacion": "Los mayores metrados se presentan en la valorización del periodo",
+      "aspecto": "documento",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "R5",
+        "RF"
+      ],
+      "razonamiento": "Ejecución, sustento y remisión a valorización."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "Cuando la ejecución de mayores metrados genere una ampliación de plazo, los mayores gastos generales se pagan de acuerdo con lo señalado en el artículo 201",
+      "obligacion": "Si generan ampliación de plazo, los mayores gastos generales se pagan por el art. 201",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Sin interfaz con S4.3.2.4."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 113,
+        "paginas": [
+          112,
+          113
+        ]
+      },
+      "cita": "Cuando es necesario un plazo adicional para la ejecución de los mayores metrados",
+      "obligacion": "Los mayores metrados son causal de ampliación de plazo",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Sin interfaz con S4.3.2.4."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-197.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 112,
+        "hasta": 112,
+        "paginas": [
+          112
+        ]
+      },
+      "cita": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
+      "obligacion": "Si se supera el 50 % del componente obra, se resuelve el contrato",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "S4 documenta el impedimento sin derivar la resolución."
+    }
+  ]
+}

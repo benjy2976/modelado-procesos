@@ -1,0 +1,262 @@
+[
+ {
+  "elemento": "R1",
+  "aspecto": "condicion",
+  "afirmacion": "El proceso inicia al identificarse la necesidad de mayores metrados.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "Cuando en los contratos suscritos bajo la modalidad de pago de precios unitarios se requiera ejecutar mayores metrados",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Solo en contratos a precios unitarios; el inicio no anota la modalidad, que se verifica en S2."
+ },
+ {
+  "elemento": "R2",
+  "aspecto": "documento",
+  "afirmacion": "El residente solicita los mayores metrados en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "el contratista solicita su ejecución mediante anotación en cuaderno de incidencias",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Anotación en el cuaderno de incidencias."
+ },
+ {
+  "elemento": "R3",
+  "aspecto": "existencia",
+  "afirmacion": "Remitir solicitud a supervision (mensaje-envio).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "R4",
+  "aspecto": "existencia",
+  "afirmacion": "Pronunciamiento de supervision recibido (mensaje-recepcion).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "RG",
+  "aspecto": "existencia",
+  "afirmacion": "¿Ejecucion autorizada? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "R5",
+  "aspecto": "documento",
+  "afirmacion": "El residente ejecuta y sustenta los mayores metrados del periodo.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+    "cita": "El contratista presenta en su valorización los mayores metrados ejecutados durante el periodo valorizado",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Se presentan en la valorización del periodo."
+ },
+ {
+  "elemento": "RF",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El sustento pasa a valorización y la autoridad de gestión administrativa autoriza el pago.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+    "cita": "No se requiere la aprobación previa de la entidad contratante para la ejecución de mayores metrados, pero sí para su pago",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Interfaz con S4.3.2.1."
+ },
+ {
+  "elemento": "RF0",
+  "aspecto": "existencia",
+  "afirmacion": "Ejecucion no habilitada por esta ruta (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "S1",
+  "aspecto": "existencia",
+  "afirmacion": "Solicitud en cuaderno recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "S2",
+  "aspecto": "decision",
+  "afirmacion": "El supervisor verifica la figura, la modalidad y los acumulados.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "Cuando en los contratos suscritos bajo la modalidad de pago de precios unitarios se requiera ejecutar mayores metrados",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "siempre que no se supere el límite establecido para las prestaciones adicionales de obra, considerando el monto acumulado de los mayores metrados y las prestaciones adicionales de obras, restándole los presupuestos deductivos",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.4",
+    "cita": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Modalidad de precios unitarios, límite acumulado (mayores metrados más adicionales menos deductivos) y caso del 50 %."
+ },
+ {
+  "elemento": "SG",
+  "aspecto": "decision",
+  "afirmacion": "El supervisor decide si autoriza.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "siempre que no se supere el límite establecido para las prestaciones adicionales de obra, considerando el monto acumulado de los mayores metrados y las prestaciones adicionales de obras, restándole los presupuestos deductivos",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Autoriza siempre que no se supere el límite."
+ },
+ {
+  "elemento": "S3",
+  "aspecto": "actor",
+  "afirmacion": "El supervisor o inspector autoriza en el cuaderno y comunica a la entidad.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.1",
+    "cita": "el contratista solicita su ejecución mediante anotación en cuaderno de incidencias",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "cita": "La supervisión de los contratos de obra es efectuada por el supervisor o el inspector",
+    "ambito": "supervisión de obras bajo contrata",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+    "cita": "No se requiere la aprobación previa de la entidad contratante para la ejecución de mayores metrados, pero sí para su pago",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El 197.1 atribuye la autorización al supervisor; el inspector la ejerce por el 186.1, lo que es una inferencia. Comunicar a la entidad no es exigencia literal, y la entidad no aprueba la ejecución (197.2)."
+ },
+ {
+  "elemento": "SF1",
+  "aspecto": "existencia",
+  "afirmacion": "Autorizacion de ejecucion remitida (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "S4",
+  "aspecto": "excepcion",
+  "afirmacion": "Si se excede el límite se aplica el 197.4 y no se habilita la ejecución.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-197.4",
+    "cita": "se supere el límite para prestaciones adicionales del 50% del componente obra, se procede a la resolución del contrato",
+    "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 197.4 manda resolver el contrato si se supera el 50 % del componente obra. El modelo solo documenta el impedimento y no deriva la resolución."
+ },
+ {
+  "elemento": "SF0",
+  "aspecto": "existencia",
+  "afirmacion": "Pronunciamiento sin autorizacion remitido (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: DEC-047."
+ },
+ {
+  "elemento": "M:R3>S1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Solicitud de mayores metrados (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:SF1>R4",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Autorizacion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:SF0>R4",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Pronunciamiento sin autorizacion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S3>Gobierno Regional Huanuco",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Comunicacion de autorizacion (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:RF>S4.3.2.1 Control periodico de la ejecucion",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Sustento para valorizacion y autorizacion de pago (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]

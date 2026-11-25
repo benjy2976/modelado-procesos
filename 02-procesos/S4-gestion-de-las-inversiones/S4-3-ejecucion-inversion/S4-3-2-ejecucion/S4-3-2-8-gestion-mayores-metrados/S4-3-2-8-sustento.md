@@ -69,3 +69,21 @@ Sin conformidades registradas. Documentos en ELABORACION.
 ## Control tecnico de la division
 
 D1, D2 y D5 sin hallazgos. D3 sin bloqueos. D4: dos interferencias: mensaje a valorizacion atraviesa anotacion (T1) y comunicacion a entidad cruza etiqueta (T6). Se adoptan derivados de trabajo con --forzar para sincronizar la propuesta conceptual; no constituyen una linea base lista para publicacion. Revision visual y cierre de hallazgos pendientes. Informe reproducible: 99-temporal/modelos/S4-3-2-8-diagrama-proceso/validacion.txt.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-8/informe.md)): 20 afirmaciones (6 `SUSTENTADA`, 14 `INFERENCIA`, sin contradicciones) y 8 obligaciones del Reglamento arts. 197 y 198.1 c) (texto vigente; el art. 197 no tiene modificaciones en el texto consolidado), de las que 3 no están representadas. Se calcularon 12 anclas desde el texto, todas vigentes. Esta generación deja D1-D5 sin hallazgos: las dos interferencias D4 registradas antes ya no aparecen. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado:** el núcleo del 197.1 y 197.2. El contratista solicita en el cuaderno de incidencias, solo en contratos a precios unitarios. El supervisor autoriza en el mismo medio si no se supera el límite acumulado (mayores metrados más adicionales, menos deductivos). La ejecución no requiere aprobación previa de la entidad, pero el pago sí, y se tramita en la valorización del periodo (interfaz con S4.3.2.1).
+- **Inferencias relevantes:**
+  - que el inspector autorice: el 197.1 nombra al supervisor y el 186.1 asigna la supervisión al supervisor o al inspector;
+  - comunicar la autorización a la entidad (S3) no es exigencia literal;
+  - S4 documenta el exceso del límite sin derivar la consecuencia del 197.4.
+- **No representado:**
+  - **197.4:** si se supera el 50 % del componente obra, se procede a la resolución del contrato;
+  - **197.3 y 198.1 c):** los mayores metrados son causal de ampliación de plazo, y sus mayores gastos generales se pagan por el art. 201. No hay interfaz con S4.3.2.4.
+- **Interfaz:** RF envía el sustento a S4.3.2.1, que no registra ese mensaje (candidato ya detectado en S4.3.2).
+- **Propuestas no aplicadas:**
+  - en S4, una salida o anotación hacia la resolución del contrato cuando se supera el 50 % (197.4);
+  - un mensaje o anotación hacia S4.3.2.4 cuando los mayores metrados afectan la ruta crítica (198.1 c y 197.3);
+  - la recepción correspondiente en S4.3.2.1.
