@@ -36,15 +36,20 @@ def repositorio(tmp_path: Path) -> RepositorioProcesos:
     return RepositorioProcesos(tmp_path)
 
 
-def test_cola_no_duplica_toma_por_lote_y_cierra(repositorio: RepositorioProcesos) -> None:
+def test_cola_no_duplica_toma_de_a_una_y_cierra(repositorio: RepositorioProcesos) -> None:
+    """DEC-069: la aplicación se toma de a una observación y nunca dos del mismo proceso en paralelo."""
     cola = ServicioTrabajos(repositorio)
     primero = cola.encolar("APLICACION", "S4.3", "obs-1", "Equipo")
     assert cola.encolar("APLICACION", "S4.3", "obs-1", "Equipo")["duplicado"] is True
     cola.encolar("APLICACION", "S4.4", "obs-2", "Equipo")
     cola.encolar("APLICACION", "S4.3", "obs-3", "Equipo")
-    lote = cola.tomar("APLICACION", "Claudia", lote=True)
-    assert lote["codigo"] == "S4.3" and [t["observacion"] for t in lote["tomados"]] == ["obs-1", "obs-3"]
-    assert cola.tomar("APLICACION", "Claudia", codigo="S4.3")["tomados"] == []
+    with pytest.raises(ErrorDominio, match="de a una"):
+        cola.tomar("APLICACION", "Claudia", lote=True)
+    tomado = cola.tomar("APLICACION", "Claudia")
+    assert [t["observacion"] for t in tomado["tomados"]] == ["obs-1"]
+    siguiente = cola.tomar("APLICACION", "Claudia")
+    assert siguiente["codigo"] == "S4.4", "S4.3 ya tiene una aplicación en curso"
+    assert cola.tomar("APLICACION", "Claudia")["tomados"] == []
     with pytest.raises(ErrorDominio, match="resultado"):
         cola.completar(primero["id"], "Claudia", " ")
     cerrado = cola.completar(primero["id"], "Claudia", "Aplicado en sesión abc")
@@ -53,7 +58,8 @@ def test_cola_no_duplica_toma_por_lote_y_cierra(repositorio: RepositorioProcesos
         "TOMADO",
         "HECHO",
     ]
-    assert cola.listar(estado="PENDIENTE")["total"] == 1
+    assert cola.tomar("APLICACION", "Claudia", ocupado=lambda codigo: codigo == "S4.3")["tomados"] == []
+    assert cola.tomar("APLICACION", "Claudia")["tomados"][0]["observacion"] == "obs-3"
     with pytest.raises(ErrorDominio):
         cola.encolar("OTRO", "S4.3", "obs-9", "Equipo")
 

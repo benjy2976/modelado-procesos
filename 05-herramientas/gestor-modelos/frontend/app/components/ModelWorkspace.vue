@@ -11,6 +11,7 @@ type DocumentoAbierto = { title: string; url: string; kind: 'markdown' | 'pdf' |
 const tree = ref<Nodo | null>(null)
 const activeCode = ref('Nivel 0')
 const model = ref<Modelo | null>(null)
+const observacionesAbiertas = ref(0)
 const selectedId = ref<string | null>(null)
 const loading = ref(false)
 const message = ref('')
@@ -134,6 +135,20 @@ watch([tree, routeCode], ([root, code]) => {
   }
   void displayProcess(code)
 }, { immediate: true })
+
+// Contador de la pestaña Observaciones: se carga al cambiar de proceso y lo actualiza el panel al editar.
+async function contarObservaciones(code: string) {
+  observacionesAbiertas.value = 0
+  try {
+    const respuesta = await fetch(`/api/procesos/${encodeURIComponent(code)}/observaciones`)
+    if (!respuesta.ok || model.value?.codigo !== code) return
+    const datos = await respuesta.json() as { observaciones: { estado: string }[] }
+    observacionesAbiertas.value = datos.observaciones.filter(item => item.estado === 'ABIERTA').length
+  } catch {
+    // Sin contador si la API no responde; el panel muestra su propio error al abrirse.
+  }
+}
+watch(() => model.value?.codigo, code => { if (code) void contarObservaciones(code) })
 
 function openProcessDocument(kind: 'tabla' | 'sustento') {
   if (!model.value) return
@@ -271,12 +286,12 @@ onMounted(async () => {
         </div>
         <div v-if="model" class="inspector-tabs" role="tablist" aria-label="Panel de revisión">
           <button type="button" role="tab" :aria-selected="inspectorTab === 'detalle'" :class="{ active: inspectorTab === 'detalle' }" @click="inspectorTab = 'detalle'">Detalle y sustento</button>
-          <button type="button" role="tab" :aria-selected="inspectorTab === 'observaciones'" :class="{ active: inspectorTab === 'observaciones' }" @click="inspectorTab = 'observaciones'">Observaciones</button>
+          <button type="button" role="tab" :aria-selected="inspectorTab === 'observaciones'" :class="{ active: inspectorTab === 'observaciones' }" @click="inspectorTab = 'observaciones'">Observaciones<span v-if="observacionesAbiertas" class="tab-badge" :aria-label="`${observacionesAbiertas} abiertas`">{{ observacionesAbiertas }}</span></button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'edicion'" :class="{ active: inspectorTab === 'edicion' }" @click="inspectorTab = 'edicion'">Editar copia</button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'asistente'" :class="{ active: inspectorTab === 'asistente' }" @click="inspectorTab = 'asistente'">Asistente</button>
         </div>
         <div class="inspector-scroll">
-          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" />
+          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="observacionesAbiertas = $event" />
           <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
           <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" @integrated="openProcess(model.codigo)" />
           <template v-else-if="selectedElement">

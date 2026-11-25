@@ -10,6 +10,8 @@ type Trabajo = components['schemas']['TrabajoVista']
 type ListadoTrabajos = components['schemas']['ListadoTrabajos']
 
 const props = defineProps<{ code: string; elementId: string | null; reference: string }>()
+// Informa a la pestaña cuántas observaciones siguen abiertas tras cada carga.
+const emit = defineEmits<{ abiertas: [cantidad: number] }>()
 const list = ref<Listado | null>(null)
 const loading = ref(false)
 const saving = ref(false)
@@ -56,6 +58,7 @@ onMounted(() => {
   void load()
 })
 watch(author, value => { localStorage.setItem(AUTHOR_KEY, value) })
+watch(list, value => { if (value) emit('abiertas', value.observaciones.filter(item => item.estado === 'ABIERTA').length) })
 
 async function load() {
   loading.value = true

@@ -168,6 +168,142 @@
         "title": "ArchivoSesion",
         "type": "object"
       },
+      "BloqueoModelo": {
+        "properties": {
+          "desde": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Desde"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "observacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacion"
+          },
+          "renovado": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Renovado"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          },
+          "trabajo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trabajo"
+          },
+          "vence": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vence"
+          }
+        },
+        "required": [
+          "sesion"
+        ],
+        "title": "BloqueoModelo",
+        "type": "object"
+      },
+      "BorradorAbierto": {
+        "properties": {
+          "creada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Creada"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          }
+        },
+        "required": [
+          "sesion"
+        ],
+        "title": "BorradorAbierto",
+        "type": "object"
+      },
       "CambioEstado": {
         "properties": {
           "autor": {
@@ -514,6 +650,43 @@
         "title": "EstadoChat",
         "type": "object"
       },
+      "EstadoModelo": {
+        "properties": {
+          "bloqueo": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BloqueoModelo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "borradores": {
+            "items": {
+              "$ref": "#/components/schemas/BorradorAbierto"
+            },
+            "title": "Borradores",
+            "type": "array"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          }
+        },
+        "required": [
+          "codigo",
+          "estado",
+          "bloqueo",
+          "borradores"
+        ],
+        "title": "EstadoModelo",
+        "type": "object"
+      },
       "EventoObservacion": {
         "properties": {
           "accion": {
@@ -666,6 +839,46 @@
         "title": "HTTPValidationError",
         "type": "object"
       },
+      "InicioSesion": {
+        "properties": {
+          "modo": {
+            "default": "EDICION",
+            "enum": [
+              "EDICION",
+              "BORRADOR"
+            ],
+            "title": "Modo",
+            "type": "string"
+          },
+          "motivo": {
+            "default": "",
+            "maxLength": 500,
+            "title": "Motivo",
+            "type": "string"
+          },
+          "observacion": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacion"
+          },
+          "titular": {
+            "default": "persona",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Titular",
+            "type": "string"
+          }
+        },
+        "title": "InicioSesion",
+        "type": "object"
+      },
       "IntegracionSesion": {
         "properties": {
           "revision_esperada": {
@@ -805,6 +1018,79 @@
           "truncado"
         ],
         "title": "LecturaFuente",
+        "type": "object"
+      },
+      "LiberacionModelo": {
+        "properties": {
+          "autor": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "motivo": {
+            "maxLength": 500,
+            "minLength": 10,
+            "title": "Motivo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "autor",
+          "motivo"
+        ],
+        "title": "LiberacionModelo",
+        "type": "object"
+      },
+      "LiberacionVista": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "detalle": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detalle"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "liberada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Liberada"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          }
+        },
+        "required": [
+          "codigo",
+          "estado"
+        ],
+        "title": "LiberacionVista",
         "type": "object"
       },
       "ListadoObservaciones": {
@@ -1730,6 +2016,55 @@
             ],
             "title": "Integrada"
           },
+          "liberada_por": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Liberada Por"
+          },
+          "modo": {
+            "default": "EDICION",
+            "title": "Modo",
+            "type": "string"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "motivo_liberacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo Liberacion"
+          },
+          "observacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacion"
+          },
           "preparacion": {
             "anyOf": [
               {
@@ -1747,6 +2082,39 @@
           "sesion": {
             "title": "Sesion",
             "type": "string"
+          },
+          "terminada": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terminada"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          },
+          "trabajo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trabajo"
           }
         },
         "required": [
@@ -2328,6 +2696,94 @@
         "summary": "Documento Proceso"
       }
     },
+    "/api/procesos/{codigo}/edicion": {
+      "get": {
+        "operationId": "estado_modelo_api_procesos__codigo__edicion_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstadoModelo"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Estado Modelo"
+      }
+    },
+    "/api/procesos/{codigo}/edicion/liberacion": {
+      "post": {
+        "operationId": "liberar_modelo_api_procesos__codigo__edicion_liberacion_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LiberacionModelo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiberacionVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Liberar Modelo"
+      }
+    },
     "/api/procesos/{codigo}/fuentes/{ref}/{indice}": {
       "get": {
         "operationId": "fuente_api_procesos__codigo__fuentes__ref___indice__get",
@@ -2774,6 +3230,23 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/InicioSesion"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Entrada"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "content": {

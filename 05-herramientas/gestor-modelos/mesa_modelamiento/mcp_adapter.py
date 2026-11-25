@@ -215,13 +215,16 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         """Trabajos de la cola (ANALISIS o APLICACION) por estado, tipo o proceso (DEC-068)."""
         return trabajos.listar(estado=estado, tipo=tipo, codigo=codigo, limite=limite)
 
+    def _ocupado(codigo: str) -> bool:
+        return sesiones.estado(codigo)["estado"] != "LIBRE"
+
     @herramienta()
-    def tomar_trabajo(tipo: str, codigo: str | None = None, lote: bool = False) -> dict:
+    def tomar_trabajo(tipo: str, codigo: str | None = None) -> dict:
         """Toma el trabajo pendiente más antiguo del tipo y lo marca EN-CURSO a nombre del agente.
 
-        Con lote=true (aplicación) entrega todos los pendientes del mismo proceso para editarlo en una sola sesión.
-        Un trabajo tomado y no completado vuelve a quedar disponible a los 45 minutos."""
-        return trabajos.tomar(tipo, AUTOR_AGENTE, codigo, lote)
+        La aplicación se entrega de a una observación y solo de procesos libres (DEC-069): cada cambio es una sesión
+        propia. Un trabajo tomado y no completado vuelve a quedar disponible a los 45 minutos."""
+        return trabajos.tomar(tipo, AUTOR_AGENTE, codigo, ocupado=_ocupado)
 
     @herramienta()
     def completar_trabajo(identificador: str, resultado: str, estado: str = "HECHO") -> dict:
@@ -249,9 +252,24 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         return documentos.leer_fuente(codigo, referencia, indice)
 
     @herramienta()
-    def iniciar_edicion(codigo: str) -> dict:
-        """Captura una instantánea verificable y abre una copia aislada del proceso."""
-        return sesiones.iniciar(codigo)
+    def estado_modelo(codigo: str) -> dict:
+        """Estado de edición del proceso: LIBRE, EN-EDICION (titular, motivo y vencimiento) o APROBADO."""
+        return sesiones.estado(codigo)
+
+    @herramienta()
+    def iniciar_edicion(codigo: str, motivo: str, observacion: str | None = None, trabajo: str | None = None) -> dict:
+        """Toma el bloqueo del proceso y abre una copia aislada para aplicar un cambio (DEC-069).
+
+        Falla con 409 si otro titular lo tiene; el bloqueo vence tras 30 min sin actividad y se libera al aplicar o
+        cerrar. Indique la observación y el trabajo que atiende."""
+        return sesiones.iniciar(codigo, AUTOR_AGENTE, motivo, "EDICION", observacion, trabajo)
+
+    @herramienta()
+    def iniciar_borrador(codigo: str, motivo: str) -> dict:
+        """Abre una copia de trabajo que no bloquea el proceso, para preparar una variación que revisará una persona.
+
+        Un borrador solo se integra cuando el proceso está libre y sin cambios desde la copia."""
+        return sesiones.iniciar(codigo, AUTOR_AGENTE, motivo, "BORRADOR")
 
     @herramienta()
     def leer_sesion(codigo: str, sesion: str) -> dict:
@@ -297,7 +315,7 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
 
     @herramienta()
     def cerrar_edicion(codigo: str, sesion: str) -> dict:
-        """Cierra sin integrar; conserva la copia y libera el único editor. Tras aplicar_cambio no hace falta."""
+        """Cierra sin integrar; conserva la copia y libera el bloqueo si lo tenía. Tras aplicar_cambio no hace falta."""
         return sesiones.cerrar(codigo, sesion)
 
     @herramienta()

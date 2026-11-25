@@ -14,8 +14,10 @@ from .esquemas import (
     DocumentoCopia,
     EdicionCopia,
     EstadoChat,
+    EstadoModelo,
     IntegracionVista,
     LecturaFuente,
+    LiberacionVista,
     ListadoObservaciones,
     ListadoTrabajos,
     ModeloVista,
@@ -88,6 +90,18 @@ class PreparacionEntrada(BaseModel):
 
 class IntegracionSesion(BaseModel):
     revision_esperada: int = Field(ge=0)
+
+
+class InicioSesion(BaseModel):
+    titular: str = Field(default="persona", min_length=1, max_length=120)
+    motivo: str = Field(default="", max_length=500)
+    modo: Literal["EDICION", "BORRADOR"] = "EDICION"
+    observacion: str | None = Field(default=None, max_length=40)
+
+
+class LiberacionModelo(BaseModel):
+    autor: str = Field(min_length=1, max_length=120)
+    motivo: str = Field(min_length=10, max_length=500)
 
 
 def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
@@ -238,9 +252,19 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
         response_model=SesionVista,
         response_model_exclude_unset=True,
     )
-    def iniciar_sesion(codigo: str, request: Request) -> dict:
+    def iniciar_sesion(codigo: str, request: Request, entrada: InicioSesion | None = None) -> dict:
         comprobar_origen(request)
-        return sesiones.iniciar(codigo)
+        entrada = entrada or InicioSesion()
+        return sesiones.iniciar(codigo, entrada.titular, entrada.motivo, entrada.modo, entrada.observacion)
+
+    @app.get("/api/procesos/{codigo}/edicion", response_model=EstadoModelo)
+    def estado_modelo(codigo: str) -> dict:
+        return sesiones.estado(codigo)
+
+    @app.post("/api/procesos/{codigo}/edicion/liberacion", response_model=LiberacionVista)
+    def liberar_modelo(codigo: str, entrada: LiberacionModelo, request: Request) -> dict:
+        comprobar_origen(request)
+        return sesiones.liberar(codigo, entrada.autor, entrada.motivo)
 
     @app.get(
         "/api/procesos/{codigo}/sesiones/activa", response_model=SesionVista | None, response_model_exclude_unset=True

@@ -240,7 +240,7 @@ def _argumentos() -> argparse.ArgumentParser:
     tomar_t.add_argument("tipo", choices=["ANALISIS", "APLICACION"])
     tomar_t.add_argument("--agente", required=True)
     tomar_t.add_argument("--codigo")
-    tomar_t.add_argument("--lote", action="store_true")
+    tomar_t.add_argument("--lote", action="store_true", help="Solo ANALISIS; la aplicación va de a una (DEC-069)")
     completar_t = tareas_trabajos.add_parser("completar")
     completar_t.add_argument("identificador")
     completar_t.add_argument("--agente", required=True)
@@ -262,11 +262,19 @@ def _argumentos() -> argparse.ArgumentParser:
     sesiones = grupos.add_parser("sesiones", help="Editar un modelo en copia recuperable")
     acciones = sesiones.add_subparsers(dest="operacion", required=True)
     for operacion in ("iniciar", "leer", "documento", "editar", "preparar", "integrar", "cerrar", "anclar",
-                      "retirar-anclas"):  # fmt: skip
+                      "retirar-anclas", "estado", "liberar"):  # fmt: skip
         accion = acciones.add_parser(operacion)
         accion.add_argument("codigo")
-        if operacion != "iniciar":
+        if operacion not in ("iniciar", "estado", "liberar"):
             accion.add_argument("sesion")
+        if operacion == "iniciar":
+            accion.add_argument("--titular", default="persona", help="Quién toma el modelo (persona o agente)")
+            accion.add_argument("--motivo", default="", help="Para qué se edita (observación, ajuste, etc.)")
+            accion.add_argument("--modo", choices=["EDICION", "BORRADOR"], default="EDICION")
+            accion.add_argument("--observacion", default=None, help="Observación que atiende la edición")
+        if operacion == "liberar":
+            accion.add_argument("--autor", required=True)
+            accion.add_argument("--motivo", required=True, help="Por qué se libera el bloqueo (mín. 10 caracteres)")
         if operacion in ("documento", "editar"):
             accion.add_argument("nombre", choices=["tabla", "sustento", "fuentes_visor"])
         if operacion == "editar":
@@ -470,7 +478,11 @@ def ejecutar(args: argparse.Namespace) -> object:
     sesiones = ServicioSesiones(repositorio)
     if args.grupo == "sesiones":
         if args.operacion == "iniciar":
-            return sesiones.iniciar(args.codigo)
+            return sesiones.iniciar(args.codigo, args.titular, args.motivo, args.modo, args.observacion)
+        if args.operacion == "estado":
+            return sesiones.estado(args.codigo)
+        if args.operacion == "liberar":
+            return sesiones.liberar(args.codigo, args.autor, args.motivo)
         if args.operacion == "leer":
             return sesiones.leer(args.codigo, args.sesion)
         if args.operacion == "documento":
@@ -542,7 +554,11 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "encolar":
             return servicio.encolar(args.tipo, args.codigo, args.observacion, args.solicitante, nota=args.nota)
         if args.operacion == "tomar":
-            return servicio.tomar(args.tipo, args.agente, args.codigo, args.lote)
+
+            def ocupado(codigo: str) -> bool:
+                return sesiones.estado(codigo)["estado"] != "LIBRE"
+
+            return servicio.tomar(args.tipo, args.agente, args.codigo, args.lote, ocupado=ocupado)
         if args.operacion == "completar":
             return servicio.completar(args.identificador, args.agente, args.resultado, args.estado)
         return servicio.cancelar(args.identificador, args.autor, args.motivo)

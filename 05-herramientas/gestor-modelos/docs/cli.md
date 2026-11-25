@@ -95,12 +95,14 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `mcp [--transporte stdio\|streamable-http] [--host 127.0.0.1] [--port 8768]` | Servidor MCP por `stdio` o por HTTP; con HTTP, la cabecera Host se limita a `MESA_MCP_HOSTS` (`DEC-068`) |
 | `trabajos listar [--estado ...] [--tipo ANALISIS\|APLICACION] [--codigo ...]` | Cola de trabajos de los agentes con conteo por estado |
 | `trabajos encolar ANALISIS\|APLICACION <codigo> <observacion> --solicitante ... [--nota ...]` | Encola un trabajo sin duplicar uno activo |
-| `trabajos tomar ANALISIS\|APLICACION --agente ... [--codigo ...] [--lote]` | Toma trabajos pendientes y los marca EN-CURSO |
+| `trabajos tomar ANALISIS\|APLICACION --agente ... [--codigo ...] [--lote]` | Toma el trabajo pendiente más antiguo y lo marca EN-CURSO. La aplicación va de a una observación, solo de procesos libres; `--lote` solo vale para `ANALISIS` (`DEC-069`) |
 | `trabajos completar <id> --agente ... --resultado ... [--estado HECHO\|ERROR]` | Cierra un trabajo tomado |
 | `trabajos cancelar <id> --autor ... --motivo ...` | Cancela un trabajo activo |
 | `relevo --host <IP> [--port 8769]` | Relevo hacia los agentes fijos de OpenClaw; exige `MESA_RELEVO_TOKEN` y `OPENCLAW_GATEWAY_TOKEN` y rechaza `0.0.0.0` |
 | `contrato [--check]` | Exporta `contracts/openapi.json` o comprueba que coincide con FastAPI |
-| `sesiones iniciar <codigo>` | Captura árbol de trabajo y abre copia recuperable |
+| `sesiones iniciar <codigo> [--titular ...] [--motivo ...] [--modo EDICION\|BORRADOR] [--observacion ...]` | Captura árbol de trabajo y abre copia recuperable; `EDICION` toma el bloqueo del proceso, `BORRADOR` no |
+| `sesiones estado <codigo>` | Estado `LIBRE`, `EN-EDICION` o `APROBADO`, bloqueo vigente y borradores abiertos |
+| `sesiones liberar <codigo> --autor ... --motivo ...` | Libera el bloqueo de otro titular; la sesión queda `LIBERADA` con autor y motivo |
 | `sesiones leer <codigo> <sesion>` | Manifiesto y preparación de la copia |
 | `sesiones documento <codigo> <sesion> tabla\|sustento\|fuentes_visor` | Texto y hash de revisión |
 | `sesiones editar <codigo> <sesion> <nombre> --archivo <ruta> --revision <hash>` | Sustituye solo el texto de la copia |
@@ -108,7 +110,7 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `sesiones anclar <codigo> <sesion> --elemento --fragmento --cita --titulo --ubicacion --vigencia` | Ancla una cita literal verificada a una caja de la copia |
 | `sesiones retirar-anclas <codigo> <sesion> [--elemento ID ...] [--huerfanas]` | Retira anclas de cajas indicadas o de cajas que ya no existen |
 | `sesiones integrar <codigo> <sesion> --revision <numero>` | Integra cambios preparados si el destino no cambió |
-| `sesiones cerrar <codigo> <sesion>` | Libera editor; conserva instantánea y copia. Sobre una sesión ya terminada no cambia nada y lo indica |
+| `sesiones cerrar <codigo> <sesion>` | Cierra sin integrar y libera el bloqueo si lo tenía; conserva instantánea y copia. Sobre una sesión ya terminada no cambia nada y lo indica |
 
 Se ejecuta desde la carpeta de la aplicación con `uv run modelador-procesos ...`. Un error de dominio se imprime en JSON en `stderr` y termina con código `1`; el comando `modelo` conserva el código de salida del generador. Los argumentos mal formados se rigen por `argparse`.
 

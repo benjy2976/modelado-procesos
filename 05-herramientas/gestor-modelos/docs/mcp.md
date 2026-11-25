@@ -23,13 +23,15 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `cambiar_estado_observacion` | Abre o resuelve una observación con revisión esperada |
 | `leer_elemento` | Lee una caja o flujo por ID y sus fuentes registradas |
 | `leer_fuente` | Lee texto acotado de una fuente y página registrada, con hash y estado de extracción |
-| `iniciar_edicion` | Conserva instantánea y abre copia aislada |
+| `estado_modelo` | Estado de edición del proceso: `LIBRE`, `EN-EDICION` (titular, motivo, vencimiento) o `APROBADO`, y borradores abiertos (`DEC-069`) |
+| `iniciar_edicion` | Toma el bloqueo del proceso a nombre de Claudia (motivo, observación y trabajo) y abre una copia aislada; 409 si otro titular lo tiene vigente |
+| `iniciar_borrador` | Abre una copia que no bloquea el proceso; solo se integra cuando el proceso está libre (`DEC-069`) |
 | `leer_sesion` | Lee manifiesto, revisiones y preparación |
 | `leer_documento_copia` | Lee tabla, sustento o fuentes de la copia |
 | `editar_documento_copia` | Edita texto de la copia con hash esperado |
 | `preparar_cambio` | Numera cajas nuevas, regenera BPMN/HTML en la copia y presenta diff y D1–D5; `aceptar_hallazgos` adopta hallazgos con justificación y sustento modificado |
 | `aplicar_cambio` | Integra la preparación con revisión esperada y control de conflicto |
-| `cerrar_edicion` | Libera el editor sin borrar la copia; tras `aplicar_cambio` no hace falta |
+| `cerrar_edicion` | Cierra sin integrar y libera el bloqueo si la sesión lo tenía; conserva la copia. Tras `aplicar_cambio` no hace falta |
 | `anclar_en_copia` | Ancla una cita literal verificada de un fragmento a una caja de la copia |
 | `retirar_anclas_copia` | Retira anclas de cajas indicadas o huérfanas en la copia |
 | `generar_modelo` | Genera o comprueba un modelo integrado; devuelve salida e informe D1–D5; `forzar` exige `justificacion` |
@@ -72,14 +74,14 @@ El servicio `mcp-http` del compose sirve el mismo servidor con `modelador-proces
 | Herramienta | Operación |
 |---|---|
 | `listar_trabajos` | Trabajos de la cola por estado, tipo o proceso, con conteo por estado |
-| `tomar_trabajo` | Toma el trabajo pendiente más antiguo de un tipo (`ANALISIS` o `APLICACION`) o, con `lote`, todos los del mismo proceso; los marca EN-CURSO a nombre de Claudia |
+| `tomar_trabajo` | Toma el trabajo pendiente más antiguo de un tipo (`ANALISIS` o `APLICACION`) y lo marca EN-CURSO a nombre de Claudia. La aplicación va de a una observación y solo de procesos libres, sin otra aplicación en curso (`DEC-069`) |
 | `completar_trabajo` | Cierra un trabajo tomado como HECHO o ERROR con un resumen |
 
 La cola vive en `.mesa-trabajos/cola.json`, fuera de Git, con bloqueo de archivo. Un trabajo EN-CURSO por más de 45 minutos vuelve a estar disponible. Definir una resolución encola su `APLICACION`; la web encola `ANALISIS` con el botón de análisis.
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|

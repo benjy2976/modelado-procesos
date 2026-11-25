@@ -10,7 +10,7 @@ import re
 import subprocess
 import sys
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from filelock import FileLock, Timeout
@@ -23,6 +23,22 @@ from .visor_datos import datos_visor
 SESION = re.compile(r"[0-9a-f]{32}\Z")
 EDITABLES = ("tabla", "sustento", "fuentes_visor")
 GENERADOS = ("bpmn", "html")
+# EDICION toma el bloqueo del proceso (un solo titular); BORRADOR es una copia que no bloquea y solo se integra
+# si el proceso está libre (DEC-069).
+MODOS = ("EDICION", "BORRADOR")
+
+
+def _ahora() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def _vigencia() -> timedelta:
+    """Minutos sin actividad tras los que vence el bloqueo de edición (MESA_BLOQUEO_MINUTOS, 30 por defecto)."""
+    try:
+        minutos = int(os.environ.get("MESA_BLOQUEO_MINUTOS", "30"))
+    except ValueError:
+        minutos = 30
+    return timedelta(minutes=max(1, minutos))
 
 
 def _hash(contenido: bytes) -> str:
@@ -36,7 +52,7 @@ def _es_aprobado(contenido: bytes) -> bool:
 
 
 class ServicioSesiones:
-    """Un editor activo por proceso; nunca borra instantáneas ni sesiones cerradas."""
+    """Un titular de edición por proceso, con bloqueo que vence; nunca borra instantáneas ni sesiones cerradas."""
 
     def __init__(self, repositorio: RepositorioProcesos, almacen: Path | None = None):
         self.repositorio = repositorio
@@ -80,15 +96,111 @@ class ServicioSesiones:
         rutas["fuentes_visor"] = self.repositorio.carpeta(codigo) / f"{codigo.replace('.', '-')}-fuentes-visor.json"
         return rutas
 
-    def iniciar(self, codigo: str) -> dict:
-        """Captura bytes del árbol de trabajo, incluidos los no confirmados en Git."""
+    def _leer_activa(self, codigo: str) -> dict | None:
+        """Registro del bloqueo de edición del proceso, o None si está libre."""
+        archivo = self._carpeta_proceso(codigo) / "activa.json"
+        if not archivo.is_file():
+            return None
+        try:
+            registro = json.loads(archivo.read_text(encoding="utf-8"))
+            if not SESION.fullmatch(registro["sesion"]):
+                raise KeyError("sesion")
+        except (OSError, KeyError, TypeError, json.JSONDecodeError) as exc:
+            raise ErrorDominio("Registro de sesión activa ilegible", 500) from exc
+        return registro
+
+    @staticmethod
+    def _vigente(registro: dict) -> bool:
+        """Un bloqueo sin vencimiento (anterior a DEC-069) se considera vigente hasta liberarlo."""
+        vence = registro.get("vence")
+        return not vence or datetime.fromisoformat(vence) > _ahora()
+
+    def _soltar(self, codigo: str, registro: dict, estado: str, **extra: object) -> None:
+        """Marca la sesión titular con el estado dado (si seguía abierta) y deja el proceso libre."""
+        try:
+            carpeta = self._sesion(codigo, registro["sesion"])
+            manifest = self._manifest(carpeta)
+            if manifest["estado"] == "ABIERTA":
+                manifest.update(estado=estado, terminada=_ahora().isoformat(), **extra)
+                self._guardar_json(carpeta / "manifest.json", manifest)
+        except ErrorDominio:
+            pass  # la carpeta de una sesión ilegible o ausente no impide liberar el proceso
+        (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
+
+    def _ocupante(self, codigo: str) -> dict | None:
+        """Bloqueo vigente del proceso; si venció, lo suelta (la sesión queda VENCIDA) y devuelve None."""
+        registro = self._leer_activa(codigo)
+        if registro and not self._vigente(registro):
+            self._soltar(codigo, registro, "VENCIDA")
+            return None
+        return registro
+
+    def _renovar(self, codigo: str, manifest: dict) -> None:
+        """Exige que una sesión de EDICION siga siendo titular y prolonga su bloqueo; los borradores no bloquean."""
+        if manifest.get("modo", "EDICION") != "EDICION":
+            return
+        registro = self._ocupante(codigo)
+        if registro is None:
+            raise ErrorDominio("La sesión perdió el bloqueo del proceso (venció o fue liberada); inicie otra", 409)
+        if registro["sesion"] != manifest["sesion"]:
+            raise ErrorDominio(f"El proceso está en edición por {registro.get('titular', 'otra sesión')}", 409)
+        registro["renovado"] = _ahora().isoformat()
+        registro["vence"] = (_ahora() + _vigencia()).isoformat()
+        self._guardar_json(self._carpeta_proceso(codigo) / "activa.json", registro)
+
+    def estado(self, codigo: str) -> dict:
+        """Estado del modelo para coordinar editores: LIBRE, EN-EDICION (titular y vencimiento) o APROBADO."""
+        try:
+            with self._bloqueo(codigo):
+                rutas = self._rutas(codigo)
+                aprobado = any(rutas[n].is_file() and _es_aprobado(rutas[n].read_bytes()) for n in EDITABLES)
+                registro = self._ocupante(codigo)
+                borradores = []
+                base = self._carpeta_proceso(codigo)
+                for manifiesto in sorted(base.glob("*/manifest.json")):
+                    try:
+                        datos = json.loads(manifiesto.read_text(encoding="utf-8"))
+                    except (OSError, json.JSONDecodeError):
+                        continue
+                    if datos.get("modo") == "BORRADOR" and datos.get("estado") == "ABIERTA":
+                        borradores.append({k: datos.get(k) for k in ("sesion", "titular", "motivo", "creada")})
+        except Timeout as exc:
+            raise ErrorDominio("El proceso está ocupado", 409) from exc
+        estado = "APROBADO" if aprobado else "EN-EDICION" if registro else "LIBRE"
+        return {"codigo": codigo, "estado": estado, "bloqueo": registro, "borradores": borradores}
+
+    def iniciar(
+        self,
+        codigo: str,
+        titular: str = "persona",
+        motivo: str = "",
+        modo: str = "EDICION",
+        observacion: str | None = None,
+        trabajo: str | None = None,
+    ) -> dict:
+        """Captura bytes del árbol de trabajo, incluidos los no confirmados en Git.
+
+        En modo EDICION toma el bloqueo del proceso a nombre del titular; si otro lo tiene vigente, responde 409 con
+        quién y hasta cuándo. En modo BORRADOR no bloquea."""
+        if modo not in MODOS:
+            raise ErrorDominio(f"Modo inválido; use {MODOS}")
+        titular = (titular or "").strip()[:120]
+        if not titular:
+            raise ErrorDominio("Indique el titular de la sesión")
+        motivo = (motivo or "").strip()[:500]
         try:
             with self._bloqueo(codigo):
                 base = self._carpeta_proceso(codigo)
                 activa = base / "activa.json"
-                if activa.exists():
-                    existente = json.loads(activa.read_text(encoding="utf-8"))["sesion"]
-                    raise ErrorDominio(f"Ya existe la sesión activa {existente}; continúe esa sesión", 409)
+                if modo == "EDICION":
+                    registro = self._ocupante(codigo)
+                    if registro:
+                        quien = registro.get("titular", "otra sesión")
+                        hasta = f" hasta {registro['vence']}" if registro.get("vence") else ""
+                        para = f" ({registro['motivo']})" if registro.get("motivo") else ""
+                        raise ErrorDominio(
+                            f"El proceso está en edición por {quien}{para}{hasta}; sesión {registro['sesion']}", 409
+                        )
                 rutas = self._rutas(codigo)
                 if not rutas["tabla"].is_file() or not rutas["sustento"].is_file():
                     raise ErrorDominio("El proceso requiere tabla y sustento para editar", 404)
@@ -113,16 +225,34 @@ class ServicioSesiones:
                         archivos[nombre] = {"nombre": ruta.name, "sha256": None}
                         if nombre == "fuentes_visor":
                             (copia / ruta.name).write_text('{"elementos": {}}\n', encoding="utf-8")
+                creada = _ahora()
                 manifest = {
                     "sesion": identificador,
                     "codigo": codigo,
-                    "creada": datetime.now(timezone.utc).isoformat(),
+                    "creada": creada.isoformat(),
                     "estado": "ABIERTA",
+                    "modo": modo,
+                    "titular": titular,
+                    "motivo": motivo,
+                    "observacion": observacion,
+                    "trabajo": trabajo,
                     "archivos": archivos,
                     "revision": 0,
                 }
                 self._guardar_json(carpeta / "manifest.json", manifest)
-                self._guardar_json(activa, {"sesion": identificador})
+                if modo == "EDICION":
+                    self._guardar_json(
+                        activa,
+                        {
+                            "sesion": identificador,
+                            "titular": titular,
+                            "motivo": motivo,
+                            "observacion": observacion,
+                            "trabajo": trabajo,
+                            "desde": creada.isoformat(),
+                            "vence": (creada + _vigencia()).isoformat(),
+                        },
+                    )
                 return manifest
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc
@@ -132,14 +262,29 @@ class ServicioSesiones:
         return self._manifest(carpeta)
 
     def activa(self, codigo: str) -> dict | None:
-        archivo = self._carpeta_proceso(codigo) / "activa.json"
-        if not archivo.is_file():
-            return None
+        """Sesión titular del bloqueo vigente; None si el proceso está libre o el bloqueo venció."""
         try:
-            identificador = json.loads(archivo.read_text(encoding="utf-8"))["sesion"]
-        except (OSError, KeyError, json.JSONDecodeError) as exc:
-            raise ErrorDominio("Registro de sesión activa ilegible", 500) from exc
-        return self.leer(codigo, identificador)
+            with self._bloqueo(codigo):
+                registro = self._ocupante(codigo)
+        except Timeout as exc:
+            raise ErrorDominio("El proceso está ocupado", 409) from exc
+        return self.leer(codigo, registro["sesion"]) if registro else None
+
+    def liberar(self, codigo: str, autor: str, motivo: str) -> dict:
+        """Una persona libera un bloqueo (por ejemplo, de un agente caído); la sesión queda LIBERADA con el motivo."""
+        autor, motivo = (autor or "").strip()[:120], (motivo or "").strip()[:500]
+        if not autor or len(motivo) < 10:
+            raise ErrorDominio("Indique autor y un motivo de al menos 10 caracteres")
+        try:
+            with self._bloqueo(codigo):
+                registro = self._leer_activa(codigo)
+                if registro is None:
+                    return {"codigo": codigo, "estado": "LIBRE", "detalle": "El proceso ya estaba libre"}
+                self._soltar(codigo, registro, "LIBERADA", liberada_por=autor, motivo_liberacion=motivo)
+                liberada = {"liberada": registro["sesion"], "titular": registro.get("titular")}
+                return {"codigo": codigo, "estado": "LIBRE", **liberada}
+        except Timeout as exc:
+            raise ErrorDominio("El proceso está ocupado", 409) from exc
 
     def contenido(self, codigo: str, identificador: str, nombre: str) -> dict:
         if nombre not in EDITABLES:
@@ -161,6 +306,7 @@ class ServicioSesiones:
                 manifest = self._manifest(carpeta)
                 if manifest["estado"] != "ABIERTA":
                     raise ErrorDominio("La sesión no está abierta", 409)
+                self._renovar(codigo, manifest)
                 ruta = carpeta / "copia" / manifest["archivos"][nombre]["nombre"]
                 actual = ruta.read_bytes()
                 if _hash(actual) != revision_esperada:
@@ -262,6 +408,7 @@ class ServicioSesiones:
                 manifest = self._manifest(carpeta)
                 if manifest["estado"] != "ABIERTA":
                     raise ErrorDominio("La sesión no está abierta", 409)
+                self._renovar(codigo, manifest)
                 tabla = carpeta / "copia" / manifest["archivos"]["tabla"]["nombre"]
                 tabla_anterior = carpeta / "origen" / tabla.name
                 tabla_modificada = tabla.read_bytes() != tabla_anterior.read_bytes()
@@ -370,6 +517,16 @@ class ServicioSesiones:
                     raise ErrorDominio("La sesión cambió; prepare de nuevo", 409)
                 if not preparacion.get("aplicable") or preparacion.get("revision_sesion") != revision_esperada:
                     raise ErrorDominio("Falta preparación válida de la misma revisión", 409)
+                if manifest.get("modo", "EDICION") == "EDICION":
+                    self._renovar(codigo, manifest)
+                else:
+                    ocupante = self._ocupante(codigo)
+                    if ocupante:
+                        raise ErrorDominio(
+                            f"El proceso está en edición por {ocupante.get('titular', 'otra sesión')}; "
+                            "integre el borrador cuando quede libre",
+                            409,
+                        )
                 rutas = self._rutas(codigo)
                 for nombre, registrado in manifest["archivos"].items():
                     ruta = rutas[nombre]
@@ -416,9 +573,10 @@ class ServicioSesiones:
                             temporal.unlink(missing_ok=True)
                     raise ErrorDominio(f"Integración falló; se restauraron los archivos: {exc}", 500) from exc
                 manifest["estado"] = "INTEGRADA"
-                manifest["integrada"] = datetime.now(timezone.utc).isoformat()
+                manifest["integrada"] = _ahora().isoformat()
                 self._guardar_json(carpeta / "manifest.json", manifest)
-                (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
+                if manifest.get("modo", "EDICION") == "EDICION":
+                    (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
                 return {"sesion": identificador, "codigo": codigo, "estado": "INTEGRADA", "cambios": escritos}
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc
@@ -438,7 +596,9 @@ class ServicioSesiones:
                     return {**manifest, "detalle": "La sesión ya había terminado; no se modificó"}
                 manifest["estado"] = "CERRADA"
                 self._guardar_json(carpeta / "manifest.json", manifest)
-                (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
+                registro = self._leer_activa(codigo)
+                if registro and registro["sesion"] == identificador:
+                    (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
                 return manifest
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc

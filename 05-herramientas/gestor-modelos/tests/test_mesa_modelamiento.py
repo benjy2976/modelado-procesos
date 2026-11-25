@@ -3,6 +3,7 @@
 import asyncio
 import hashlib
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pytest
@@ -304,7 +305,7 @@ def test_sesion_copia_estado_real_y_detecta_conflicto(repositorio: RepositorioPr
     sesion = servicio.iniciar("S4.3")
     identificador = sesion["sesion"]
     assert servicio.contenido("S4.3", identificador, "sustento")["texto"] == "# Cambio previo sin commit\n"
-    with pytest.raises(ErrorDominio, match="sesión activa"):
+    with pytest.raises(ErrorDominio, match="en edición por persona"):
         servicio.iniciar("S4.3")
     documento = servicio.contenido("S4.3", identificador, "sustento")
     editado = servicio.editar("S4.3", identificador, "sustento", "# Versión revisada\n", documento["revision"])
@@ -381,7 +382,8 @@ def test_api_y_mcp_comparten_sesion_editable(repositorio: RepositorioProcesos) -
 
 def test_mcp_prepara_e_integra_sustento_sin_alterar_bpmn(repositorio: RepositorioProcesos) -> None:
     servidor = crear_servidor(repositorio)
-    sesion = json.loads(asyncio.run(servidor.call_tool("iniciar_edicion", {"codigo": "S4.3"})).content[0].text)
+    inicio = asyncio.run(servidor.call_tool("iniciar_edicion", {"codigo": "S4.3", "motivo": "Prueba"}))
+    sesion = json.loads(inicio.content[0].text)
     identificador = sesion["sesion"]
     documento = json.loads(
         asyncio.run(
@@ -517,3 +519,46 @@ def test_mcp_expone_paridad_y_errores_de_dominio_legibles(repositorio: Repositor
 
     with pytest.raises(ToolError, match="HTTP 404"):
         asyncio.run(servidor.call_tool("leer_elemento", {"codigo": "S4.3", "identificador": "No_existe"}))
+
+
+def test_bloqueo_registra_titular_vence_y_se_libera(repositorio: RepositorioProcesos) -> None:
+    """DEC-069: un titular por proceso, con vencimiento por inactividad y liberación por una persona."""
+    servicio = ServicioSesiones(repositorio, repositorio.raiz / ".mesa-sesiones")
+    assert servicio.estado("S4.3")["estado"] == "LIBRE"
+    primera = servicio.iniciar("S4.3", "Claudia", "Aplicar obs-1", observacion="obs-1", trabajo="T-1")
+    estado = servicio.estado("S4.3")
+    assert estado["estado"] == "EN-EDICION" and estado["bloqueo"]["titular"] == "Claudia"
+    assert estado["bloqueo"]["observacion"] == "obs-1" and estado["bloqueo"]["vence"]
+    with pytest.raises(ErrorDominio, match=r"en edición por Claudia \(Aplicar obs-1\)"):
+        servicio.iniciar("S4.3", "Otra persona")
+    activa = repositorio.raiz / ".mesa-sesiones" / "S4.3" / "activa.json"
+    registro = json.loads(activa.read_text(encoding="utf-8"))
+    registro["vence"] = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+    activa.write_text(json.dumps(registro), encoding="utf-8")
+    segunda = servicio.iniciar("S4.3", "Otra persona", "Toma tras vencer")
+    assert servicio.leer("S4.3", primera["sesion"])["estado"] == "VENCIDA"
+    documento = servicio.contenido("S4.3", primera["sesion"], "sustento")
+    with pytest.raises(ErrorDominio, match="no está abierta"):
+        servicio.editar("S4.3", primera["sesion"], "sustento", "# Tarde\n", documento["revision"])
+    with pytest.raises(ErrorDominio, match="motivo"):
+        servicio.liberar("S4.3", "Supervisora", "corto")
+    liberado = servicio.liberar("S4.3", "Supervisora", "Agente caído durante la prueba")
+    assert liberado["liberada"] == segunda["sesion"] and servicio.estado("S4.3")["estado"] == "LIBRE"
+    assert servicio.leer("S4.3", segunda["sesion"])["liberada_por"] == "Supervisora"
+
+
+def test_borrador_no_bloquea_e_integra_solo_con_proceso_libre(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioSesiones(repositorio, repositorio.raiz / ".mesa-sesiones")
+    borrador = servicio.iniciar("S4.3", "Claudia", "Variación del chat", modo="BORRADOR")
+    edicion = servicio.iniciar("S4.3", "Persona", "Ajuste directo")
+    assert [b["sesion"] for b in servicio.estado("S4.3")["borradores"]] == [borrador["sesion"]]
+    documento = servicio.contenido("S4.3", borrador["sesion"], "sustento")
+    editado = servicio.editar("S4.3", borrador["sesion"], "sustento", "# Variación\n", documento["revision"])
+    assert servicio.preparar("S4.3", borrador["sesion"])["aplicable"]
+    with pytest.raises(ErrorDominio, match="en edición por Persona"):
+        servicio.integrar("S4.3", borrador["sesion"], editado["revision_sesion"])
+    servicio.cerrar("S4.3", edicion["sesion"])
+    assert servicio.estado("S4.3")["estado"] == "LIBRE"
+    assert servicio.integrar("S4.3", borrador["sesion"], editado["revision_sesion"])["estado"] == "INTEGRADA"
+    assert repositorio.rutas("S4.3")["sustento"].read_text(encoding="utf-8") == "# Variación\n"
+    assert servicio.estado("S4.3")["estado"] == "LIBRE"

@@ -129,6 +129,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/edicion": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Estado Modelo */
+        get: operations["estado_modelo_api_procesos__codigo__edicion_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/edicion/liberacion": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Liberar Modelo */
+        post: operations["liberar_modelo_api_procesos__codigo__edicion_liberacion_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}/fuentes/{ref}/{indice}": {
         parameters: {
             query?: never;
@@ -488,6 +522,36 @@ export interface components {
             /** Sha256 */
             sha256: string | null;
         };
+        /** BloqueoModelo */
+        BloqueoModelo: {
+            /** Desde */
+            desde?: string | null;
+            /** Motivo */
+            motivo?: string | null;
+            /** Observacion */
+            observacion?: string | null;
+            /** Renovado */
+            renovado?: string | null;
+            /** Sesion */
+            sesion: string;
+            /** Titular */
+            titular?: string | null;
+            /** Trabajo */
+            trabajo?: string | null;
+            /** Vence */
+            vence?: string | null;
+        };
+        /** BorradorAbierto */
+        BorradorAbierto: {
+            /** Creada */
+            creada?: string | null;
+            /** Motivo */
+            motivo?: string | null;
+            /** Sesion */
+            sesion: string;
+            /** Titular */
+            titular?: string | null;
+        };
         /** CambioEstado */
         CambioEstado: {
             /**
@@ -662,6 +726,16 @@ export interface components {
             /** Configurado */
             configurado: boolean;
         };
+        /** EstadoModelo */
+        EstadoModelo: {
+            bloqueo: components["schemas"]["BloqueoModelo"] | null;
+            /** Borradores */
+            borradores: components["schemas"]["BorradorAbierto"][];
+            /** Codigo */
+            codigo: string;
+            /** Estado */
+            estado: string;
+        };
         /** EventoObservacion */
         EventoObservacion: {
             /** Accion */
@@ -733,6 +807,27 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** InicioSesion */
+        InicioSesion: {
+            /**
+             * Modo
+             * @default EDICION
+             * @enum {string}
+             */
+            modo: "EDICION" | "BORRADOR";
+            /**
+             * Motivo
+             * @default
+             */
+            motivo: string;
+            /** Observacion */
+            observacion?: string | null;
+            /**
+             * Titular
+             * @default persona
+             */
+            titular: string;
+        };
         /** IntegracionSesion */
         IntegracionSesion: {
             /** Revision Esperada */
@@ -799,6 +894,26 @@ export interface components {
              * @default
              */
             vigencia: string;
+        };
+        /** LiberacionModelo */
+        LiberacionModelo: {
+            /** Autor */
+            autor: string;
+            /** Motivo */
+            motivo: string;
+        };
+        /** LiberacionVista */
+        LiberacionVista: {
+            /** Codigo */
+            codigo: string;
+            /** Detalle */
+            detalle?: string | null;
+            /** Estado */
+            estado: string;
+            /** Liberada */
+            liberada?: string | null;
+            /** Titular */
+            titular?: string | null;
         };
         /** ListadoObservaciones */
         ListadoObservaciones: {
@@ -1153,11 +1268,30 @@ export interface components {
             estado: string;
             /** Integrada */
             integrada?: string | null;
+            /** Liberada Por */
+            liberada_por?: string | null;
+            /**
+             * Modo
+             * @default EDICION
+             */
+            modo: string;
+            /** Motivo */
+            motivo?: string | null;
+            /** Motivo Liberacion */
+            motivo_liberacion?: string | null;
+            /** Observacion */
+            observacion?: string | null;
             preparacion?: components["schemas"]["PreparacionSesion"] | null;
             /** Revision */
             revision: number;
             /** Sesion */
             sesion: string;
+            /** Terminada */
+            terminada?: string | null;
+            /** Titular */
+            titular?: string | null;
+            /** Trabajo */
+            trabajo?: string | null;
         };
         /** SolicitudAnalisis */
         SolicitudAnalisis: {
@@ -1472,6 +1606,72 @@ export interface operations {
             };
         };
     };
+    estado_modelo_api_procesos__codigo__edicion_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EstadoModelo"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    liberar_modelo_api_procesos__codigo__edicion_liberacion_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LiberacionModelo"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LiberacionVista"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     fuente_api_procesos__codigo__fuentes__ref___indice__get: {
         parameters: {
             query?: never;
@@ -1757,7 +1957,11 @@ export interface operations {
             };
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["InicioSesion"] | null;
+            };
+        };
         responses: {
             /** @description Successful Response */
             201: {

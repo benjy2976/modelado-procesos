@@ -78,6 +78,7 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .inspector-tabs { display: flex; border-bottom: 1px solid #d9e3eb; }
 .inspector-tabs button { flex: 1; padding: 11px 5px; border: 0; border-bottom: 3px solid transparent; background: #fff; color: #536b7d; font-size: 12px; cursor: pointer; }
 .inspector-tabs button.active { border-bottom-color: #17618a; color: #15557b; font-weight: 750; }
+.tab-badge { display: inline-block; min-width: 17px; margin-left: 5px; padding: 1px 5px; border-radius: 9px; background: #c2410c; color: #fff; font-size: 10px; font-weight: 750; line-height: 15px; text-align: center; vertical-align: 1px; }
 .inspector-scroll { padding: 18px 20px 30px; }
 .detail-list { margin: 0; }
 .detail-list > div { padding: 13px 0; border-bottom: 1px solid #e6ebf0; }
@@ -187,6 +188,13 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .edit-panel { font-size: 12px; line-height: 1.5; }
 .edit-panel > p:first-child { margin: 0 0 15px; color: #526a7d; }
 .edit-message { padding: 9px; border: 1px solid #a8cdb8; border-radius: 5px; background: #edf8ef; color: #245c3b; }
+.edit-lock { display: grid; gap: 4px; padding: 10px; border: 1px solid #e3c08d; border-radius: 5px; background: #fff7ea; color: #6d4511; }
+.edit-lock details { margin-top: 6px; }
+.edit-input { display: block; width: 100%; margin: 6px 0; padding: 7px 8px; border: 1px solid #aebfcd; border-radius: 4px; font-size: 12px; }
+.edit-drafts { margin-top: 16px; }
+.edit-drafts h3 { margin: 0 0 6px; font-size: 12px; color: #345066; }
+.edit-drafts ul { margin: 0; padding: 0; list-style: none; }
+.edit-drafts li { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid #e3ebf1; }
 .edit-session { display: flex; justify-content: space-between; gap: 8px; margin: 12px 0; color: #345066; }
 .edit-tabs { display: flex; gap: 4px; margin: 12px 0; }
 .edit-tabs button, .edit-actions button { padding: 7px 8px; border: 1px solid #b8cbd9; border-radius: 4px; background: #f5f9fc; color: #245b7c; cursor: pointer; }

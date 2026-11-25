@@ -5,6 +5,7 @@ import type { components } from '~/types/api'
 type Session = components['schemas']['SesionVista']
 type Document = components['schemas']['DocumentoCopia']
 type Preparation = components['schemas']['PreparacionSesion']
+type ModelState = components['schemas']['EstadoModelo']
 type Editable = 'tabla' | 'sustento' | 'fuentes_visor'
 
 const props = defineProps<{ code: string }>()
@@ -20,6 +21,18 @@ const dirty = computed(() => document.value !== null && text.value !== document.
 const base = computed(() => `/api/procesos/${encodeURIComponent(props.code)}/sesiones`)
 const sessionUrl = computed(() => session.value ? `${base.value}/${session.value.sesion}` : '')
 const preparation = computed<Preparation | null>(() => session.value?.preparacion ?? null)
+// Bloqueo del modelo (DEC-069): quién lo tiene, hasta cuándo y qué borradores del asistente esperan revisión.
+const AUTHOR_KEY = 'mesa.observaciones.autor'
+const author = ref('')
+const reason = ref('')
+const releaseReason = ref('')
+const state = ref<ModelState | null>(null)
+const lockedByOther = computed(() => Boolean(state.value?.bloqueo && !session.value))
+const hora = (fecha?: string | null) => fecha ? new Date(fecha).toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' }) : ''
+
+async function loadState() {
+  state.value = await request<ModelState>(`/api/procesos/${encodeURIComponent(props.code)}/edicion`)
+}
 
 async function request<T>(url: string, method = 'GET', body?: object): Promise<T> {
   const response = await fetch(url, {
@@ -56,8 +69,12 @@ async function loadDocument(name: Editable) {
 }
 
 async function loadActive() {
+  author.value = localStorage.getItem(AUTHOR_KEY) || ''
   await run(async () => {
-    session.value = await request<Session | null>(`${base.value}/activa`)
+    await loadState()
+    const active = await request<Session | null>(`${base.value}/activa`)
+    // Solo se continúa la sesión propia; la de otro titular se muestra como bloqueo.
+    session.value = active && active.titular === author.value.trim() ? active : null
     if (session.value) {
       const result = await request<Document>(`${sessionUrl.value}/documentos/${selected.value}`)
       document.value = result
@@ -66,9 +83,37 @@ async function loadActive() {
   })
 }
 
-async function start() {
+async function openDraft(id: string) {
   await run(async () => {
-    session.value = await request<Session>(base.value, 'POST')
+    session.value = await request<Session>(`${base.value}/${id}`)
+    const result = await request<Document>(`${sessionUrl.value}/documentos/tabla`)
+    document.value = result
+    text.value = result.texto
+    selected.value = 'tabla'
+    message.value = 'Borrador abierto. Se integra solo cuando el modelo está libre.'
+  })
+}
+
+async function release() {
+  await run(async () => {
+    await request(`/api/procesos/${encodeURIComponent(props.code)}/edicion/liberacion`, 'POST', {
+      autor: author.value.trim(),
+      motivo: releaseReason.value.trim()
+    })
+    releaseReason.value = ''
+    await loadState()
+    message.value = 'Bloqueo liberado; la sesión anterior queda registrada como LIBERADA.'
+  })
+}
+
+async function start() {
+  if (!author.value.trim()) {
+    error.value = 'Indique su nombre para tomar el modelo.'
+    return
+  }
+  localStorage.setItem(AUTHOR_KEY, author.value.trim())
+  await run(async () => {
+    session.value = await request<Session>(base.value, 'POST', { titular: author.value.trim(), motivo: reason.value.trim() })
     const result = await request<Document>(`${sessionUrl.value}/documentos/tabla`)
     document.value = result
     text.value = result.texto
@@ -108,6 +153,7 @@ async function integrate() {
     session.value = null
     document.value = null
     text.value = ''
+    await loadState()
     emit('integrated')
   })
 }
@@ -120,6 +166,7 @@ async function close() {
     document.value = null
     text.value = ''
     message.value = 'Sesión cerrada. La instantánea y la copia permanecen en el almacén local.'
+    await loadState()
   })
 }
 
@@ -131,9 +178,37 @@ onMounted(loadActive)
     <p>Edite la tabla, el sustento o las referencias en una copia. El modelo vigente cambia solo al integrar una preparación válida.</p>
     <p v-if="error" class="form-error" role="alert">{{ error }}</p>
     <p v-if="message" class="edit-message" role="status">{{ message }}</p>
-    <button v-if="!session" class="primary-link" type="button" :disabled="busy" @click="start">Iniciar sesión recuperable</button>
+    <template v-if="!session">
+      <p v-if="state?.estado === 'APROBADO'" class="edit-lock">El modelo está APROBADO y no se edita.</p>
+      <div v-else-if="lockedByOther && state?.bloqueo" class="edit-lock" role="status">
+        <strong>En edición por {{ state.bloqueo.titular }}</strong>
+        <span v-if="state.bloqueo.motivo">{{ state.bloqueo.motivo }}</span>
+        <span>Desde {{ hora(state.bloqueo.desde) }} · vence {{ hora(state.bloqueo.vence) }} si no hay actividad</span>
+        <details>
+          <summary>Liberar el bloqueo</summary>
+          <p>Úselo solo si el titular dejó de trabajar (por ejemplo, un agente caído). La sesión queda registrada como LIBERADA.</p>
+          <input v-model="author" class="edit-input" type="text" maxlength="120" placeholder="Su nombre">
+          <input v-model="releaseReason" class="edit-input" type="text" maxlength="500" placeholder="Motivo (mín. 10 caracteres)">
+          <button type="button" :disabled="busy || !author.trim() || releaseReason.trim().length < 10" @click="release">Liberar</button>
+        </details>
+      </div>
+      <template v-else>
+        <input v-model="author" class="edit-input" type="text" maxlength="120" placeholder="Su nombre (titular de la edición)">
+        <input v-model="reason" class="edit-input" type="text" maxlength="500" placeholder="Motivo (opcional)">
+        <button class="primary-link" type="button" :disabled="busy || !author.trim()" @click="start">Tomar el modelo y editar</button>
+      </template>
+      <section v-if="state?.borradores?.length" class="edit-drafts">
+        <h3>Borradores del asistente</h3>
+        <ul>
+          <li v-for="draft in state.borradores" :key="draft.sesion">
+            <span>{{ draft.motivo || 'Sin motivo' }} · {{ draft.titular }} · {{ hora(draft.creada) }}</span>
+            <button type="button" :disabled="busy" @click="openDraft(draft.sesion)">Abrir</button>
+          </li>
+        </ul>
+      </section>
+    </template>
     <template v-else>
-      <div class="edit-session"><strong>Sesión {{ session.sesion.slice(0, 8) }}</strong><span>Revisión {{ session.revision }}</span></div>
+      <div class="edit-session"><strong>{{ session.modo === 'BORRADOR' ? 'Borrador' : 'Sesión' }} {{ session.sesion.slice(0, 8) }}</strong><span>{{ session.titular }} · revisión {{ session.revision }}</span></div>
       <div class="edit-tabs" role="tablist" aria-label="Documento editable">
         <button v-for="name in (['tabla', 'sustento', 'fuentes_visor'] as const)" :key="name" type="button" :class="{ active: selected === name }" :disabled="busy" @click="loadDocument(name)">{{ name === 'fuentes_visor' ? 'Fuentes' : name }}</button>
       </div>

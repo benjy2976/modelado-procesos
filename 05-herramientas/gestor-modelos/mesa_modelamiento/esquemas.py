@@ -226,10 +226,51 @@ class SesionVista(BaseModel):
     codigo: str
     creada: str
     estado: str
+    modo: str = "EDICION"
+    titular: str | None = None
+    motivo: str | None = None
+    observacion: str | None = None
+    trabajo: str | None = None
     archivos: dict[str, ArchivoSesion]
     revision: int
     preparacion: PreparacionSesion | None = None
     integrada: str | None = None
+    terminada: str | None = None
+    liberada_por: str | None = None
+    motivo_liberacion: str | None = None
+
+
+class BloqueoModelo(BaseModel):
+    sesion: str
+    titular: str | None = None
+    motivo: str | None = None
+    observacion: str | None = None
+    trabajo: str | None = None
+    desde: str | None = None
+    renovado: str | None = None
+    vence: str | None = None
+
+
+class BorradorAbierto(BaseModel):
+    sesion: str
+    titular: str | None = None
+    motivo: str | None = None
+    creada: str | None = None
+
+
+class EstadoModelo(BaseModel):
+    codigo: str
+    estado: str
+    bloqueo: BloqueoModelo | None
+    borradores: list[BorradorAbierto]
+
+
+class LiberacionVista(BaseModel):
+    codigo: str
+    estado: str
+    detalle: str | None = None
+    liberada: str | None = None
+    titular: str | None = None
 
 
 class DocumentoCopia(BaseModel):

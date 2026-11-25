@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import uuid
+from collections.abc import Callable
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -122,20 +123,35 @@ class ServicioTrabajos:
         elegidos = elegidos[-max(1, min(int(limite), 500)) :]
         return {"total": len(elegidos), "por_estado": conteo, "trabajos": elegidos}
 
-    def tomar(self, tipo: str, agente: str, codigo: str | None = None, lote: bool = False) -> dict:
-        """Entrega el trabajo pendiente más antiguo (o, con lote, todos los del mismo proceso) y lo marca EN-CURSO.
+    def tomar(
+        self,
+        tipo: str,
+        agente: str,
+        codigo: str | None = None,
+        lote: bool = False,
+        ocupado: Callable[[str], bool] | None = None,
+    ) -> dict:
+        """Entrega el trabajo pendiente más antiguo y lo marca EN-CURSO.
 
-        La aplicación se toma por lote para editar cada proceso en una sola sesión."""
+        La aplicación se toma de a una observación (DEC-069): se saltan los procesos con otra aplicación en curso o
+        con el modelo en edición (``ocupado``), para que cada cambio sea una sesión y una versión propias."""
         if tipo not in TIPOS:
             raise ErrorDominio(f"Tipo de trabajo inválido; use {TIPOS}")
+        if lote and tipo == "APLICACION":
+            raise ErrorDominio("La aplicación se toma de a una observación (DEC-069); no use lote")
         try:
             with self._bloqueo():
                 datos = self._leer()
+                en_curso = {t["codigo"] for t in datos["trabajos"] if t["tipo"] == "APLICACION"
+                            and t["estado"] == "EN-CURSO" and not self._vencido(t)}  # fmt: skip
                 disponibles = [t for t in datos["trabajos"] if t["tipo"] == tipo
                                and (t["estado"] == "PENDIENTE" or self._vencido(t))
                                and codigo in (None, t["codigo"])]  # fmt: skip
+                if tipo == "APLICACION":
+                    disponibles = [t for t in disponibles if t["codigo"] not in en_curso
+                                   and not (ocupado and ocupado(t["codigo"]))]  # fmt: skip
                 if not disponibles:
-                    return {"tomados": [], "detalle": "No hay trabajos pendientes"}
+                    return {"tomados": [], "detalle": "No hay trabajos pendientes en procesos libres"}
                 primero = disponibles[0]
                 elegidos = [t for t in disponibles if t["codigo"] == primero["codigo"]] if lote else [primero]
                 for trabajo in elegidos:
