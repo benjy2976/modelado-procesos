@@ -5,16 +5,19 @@ from __future__ import annotations
 from typing import Literal
 
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from . import relevo_cliente
 from .documentos import ServicioDocumentos
 from .esquemas import (
     DocumentoCopia,
     EdicionCopia,
+    EstadoChat,
     IntegracionVista,
     LecturaFuente,
     ListadoObservaciones,
+    ListadoTrabajos,
     ModeloVista,
     NodoArbol,
     ObservacionesPorEtapa,
@@ -22,10 +25,12 @@ from .esquemas import (
     RegistroObservacion,
     Salud,
     SesionVista,
+    TrabajoVista,
 )
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
+from .trabajos import ServicioTrabajos
 
 
 class NuevaObservacion(BaseModel):
@@ -36,6 +41,17 @@ class NuevaObservacion(BaseModel):
     tipo: str = "OBSERVACION"
     formato: Literal["texto", "html"] = "texto"
     revision_esperada: str
+
+
+class SolicitudAnalisis(BaseModel):
+    autor: str = Field(min_length=1, max_length=100)
+    nota: str = Field(default="", max_length=1000)
+
+
+class TurnoChat(BaseModel):
+    conversacion: str = Field(pattern=r"^M-[0-9A-Za-z.-]{6,80}$")
+    mensaje: str = Field(min_length=1, max_length=8000)
+    contexto: dict[str, str | None] = Field(default_factory=dict)
 
 
 class DefinicionEntrada(BaseModel):
@@ -77,6 +93,7 @@ class IntegracionSesion(BaseModel):
 def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
     observaciones = ServicioResolucion(repositorio)
+    trabajos = ServicioTrabajos(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
     app = FastAPI(title="Mesa de modelamiento", version="0.1.0")
@@ -171,6 +188,44 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
         """Una persona acoge opciones, escribe una respuesta manual o vincula a otra observación resuelta."""
         comprobar_origen(request)
         return observaciones.definir(codigo, identificador, **entrada.model_dump())
+
+    @app.post(
+        "/api/procesos/{codigo}/observaciones/{identificador}/solicitud-analisis",
+        status_code=202,
+        response_model=TrabajoVista,
+        response_model_exclude_unset=True,
+    )
+    def solicitar_analisis(codigo: str, identificador: str, entrada: SolicitudAnalisis, request: Request) -> dict:
+        """Encola el análisis de una observación y despierta al agente de análisis por el relevo (DEC-068)."""
+        comprobar_origen(request)
+        trabajo = observaciones.solicitar_analisis(codigo, identificador, entrada.autor, entrada.nota)
+        relevo_cliente.despertar("ANALISIS")
+        return trabajo
+
+    @app.get("/api/procesos/{codigo}/trabajos", response_model=ListadoTrabajos)
+    def trabajos_del_proceso(codigo: str, estado: str | None = None) -> dict:
+        return trabajos.listar(estado=estado, codigo=codigo)
+
+    @app.get("/api/trabajos", response_model=ListadoTrabajos)
+    def listar_trabajos(estado: str | None = None, tipo: str | None = None) -> dict:
+        return trabajos.listar(estado=estado, tipo=tipo)
+
+    @app.get("/api/chat/estado", response_model=EstadoChat)
+    def estado_chat() -> dict:
+        return {"configurado": relevo_cliente.configurado()}
+
+    @app.post("/api/procesos/{codigo}/chat")
+    def chat(codigo: str, entrada: TurnoChat, request: Request) -> StreamingResponse:
+        """Turno de chat con el agente mesa-chat; retransmite el SSE del relevo sin reinterpretarlo."""
+        comprobar_origen(request)
+        repositorio.carpeta(codigo)
+        respuesta = relevo_cliente.abrir_turno(codigo, entrada.conversacion, entrada.mensaje, entrada.contexto)
+
+        def lineas():
+            with respuesta:
+                yield from respuesta
+
+        return StreamingResponse(lineas(), media_type="text/event-stream", headers={"Cache-Control": "no-store"})
 
     @app.get("/api/observaciones/etapas", response_model=ObservacionesPorEtapa)
     def observaciones_por_etapa(etapa: str | None = None, codigo: str | None = None) -> dict:

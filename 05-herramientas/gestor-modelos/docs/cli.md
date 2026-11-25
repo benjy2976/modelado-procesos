@@ -92,7 +92,13 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `observaciones estado <codigo> <id> --valor ABIERTA\|RESUELTA --revision ... [--autor ...]` | Cambio de estado trazado |
 | `modelo <codigo> [--check] [--exportar-imagenes] [--sin-cache] [--forzar --justificacion "..."]` | JSON con opciones, código de salida, salida e informe D1–D5 de `modelar.py`. `--forzar` adopta hallazgos y exige una justificación de al menos 20 caracteres, que además debe constar en el sustento |
 | `api [--host 127.0.0.1] [--port 8000]` | Servidor HTTP local |
-| `mcp [--transporte stdio]` | Servidor MCP local |
+| `mcp [--transporte stdio\|streamable-http] [--host 127.0.0.1] [--port 8768]` | Servidor MCP por `stdio` o por HTTP; con HTTP, la cabecera Host se limita a `MESA_MCP_HOSTS` (`DEC-068`) |
+| `trabajos listar [--estado ...] [--tipo ANALISIS\|APLICACION] [--codigo ...]` | Cola de trabajos de los agentes con conteo por estado |
+| `trabajos encolar ANALISIS\|APLICACION <codigo> <observacion> --solicitante ... [--nota ...]` | Encola un trabajo sin duplicar uno activo |
+| `trabajos tomar ANALISIS\|APLICACION --agente ... [--codigo ...] [--lote]` | Toma trabajos pendientes y los marca EN-CURSO |
+| `trabajos completar <id> --agente ... --resultado ... [--estado HECHO\|ERROR]` | Cierra un trabajo tomado |
+| `trabajos cancelar <id> --autor ... --motivo ...` | Cancela un trabajo activo |
+| `relevo --host <IP> [--port 8769]` | Relevo hacia los agentes fijos de OpenClaw; exige `MESA_RELEVO_TOKEN` y `OPENCLAW_GATEWAY_TOKEN` y rechaza `0.0.0.0` |
 | `contrato [--check]` | Exporta `contracts/openapi.json` o comprueba que coincide con FastAPI |
 | `sesiones iniciar <codigo>` | Captura árbol de trabajo y abre copia recuperable |
 | `sesiones leer <codigo> <sesion>` | Manifiesto y preparación de la copia |

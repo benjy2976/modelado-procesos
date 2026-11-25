@@ -69,5 +69,8 @@ excluir:
   - AGENTS.md
   - CLAUDE.md
   - README.md
+  # Instrucciones de agentes de OpenClaw (DEC-068): se instalan como AGENTS.md, no son notas de conocimiento
+  - 05-herramientas/gestor-modelos/openclaw/comun.md
+  - 05-herramientas/gestor-modelos/openclaw/mesa-
 renombres:
   proceso/s4-3: proceso/s4/s4-3

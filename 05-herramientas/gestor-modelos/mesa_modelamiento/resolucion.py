@@ -15,6 +15,7 @@ from filelock import Timeout
 
 from .observaciones import ServicioObservaciones, _revision
 from .repositorio import ErrorDominio
+from .trabajos import ServicioTrabajos
 
 ETAPAS = ("REGISTRADA", "EN-ANALISIS", "PROPUESTA", "DEFINIDA", "EN-CORRECCION", "PENDIENTE-EVIDENCIA", "RESUELTA")
 CLASES = ("ERROR-MODELO", "EXPLICACION-AUSENTE", "DIFERENCIA-CRITERIO", "FALTA-EVIDENCIA", "FUERA-DE-ALCANCE")
@@ -231,7 +232,26 @@ class ServicioResolucion(ServicioObservaciones):
             registro["_autor_evento"] = autor.strip()
             return "DEFINIDA"
 
-        return self._mutar(codigo, identificador, revision_esperada, cambio)
+        registro = self._mutar(codigo, identificador, revision_esperada, cambio)
+        # Lo definido se aplica en otra pasada (DEC-065): queda en la cola para el agente de aplicación (DEC-068).
+        trabajo = ServicioTrabajos(self.repositorio).encolar(
+            "APLICACION", codigo, identificador, autor.strip(), registro.get("referencia") or ""
+        )
+        return {**registro, "trabajo": {"id": trabajo["id"], "tipo": trabajo["tipo"], "estado": trabajo["estado"]}}
+
+    def solicitar_analisis(self, codigo: str, identificador: str, solicitante: str, nota: str = "") -> dict:
+        """Encola el análisis de una observación a pedido de una persona (botón «Solicitar análisis»)."""
+        registro = next((o for o in self.listar(codigo)["observaciones"] if o["id"] == identificador), None)
+        if registro is None:
+            raise ErrorDominio("Observacion no encontrada", 404)
+        actual = etapa(registro)
+        if actual not in ("REGISTRADA", "EN-ANALISIS", "PROPUESTA"):
+            raise ErrorDominio(f"No se solicita análisis de una observación en etapa {actual}", 409)
+        if actual == "PROPUESTA" and not nota.strip():
+            raise ErrorDominio("Para reanalizar una propuesta indique el motivo en la nota")
+        return ServicioTrabajos(self.repositorio).encolar(
+            "ANALISIS", codigo, identificador, solicitante, registro.get("referencia") or "", nota
+        )
 
     def iniciar_correccion(
         self, codigo: str, identificador: str, *, autor: str, revision_esperada: str, confirmar_vigencia: bool = False

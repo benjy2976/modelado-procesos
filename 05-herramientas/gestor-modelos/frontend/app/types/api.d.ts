@@ -21,6 +21,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/chat/estado": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Estado Chat */
+        get: operations["estado_chat_api_chat_estado_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/observaciones/etapas": {
         parameters: {
             query?: never;
@@ -69,6 +86,26 @@ export interface paths {
         get: operations["bpmn_api_procesos__codigo__bpmn_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/chat": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Chat
+         * @description Turno de chat con el agente mesa-chat; retransmite el SSE del relevo sin reinterpretarlo.
+         */
+        post: operations["chat_api_procesos__codigo__chat_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -198,6 +235,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/observaciones/{identificador}/solicitud-analisis": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Solicitar Analisis
+         * @description Encola el análisis de una observación y despierta al agente de análisis por el relevo (DEC-068).
+         */
+        post: operations["solicitar_analisis_api_procesos__codigo__observaciones__identificador__solicitud_analisis_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}/sesiones": {
         parameters: {
             query?: never;
@@ -318,6 +375,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/trabajos": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Trabajos Del Proceso */
+        get: operations["trabajos_del_proceso_api_procesos__codigo__trabajos_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/salud": {
         parameters: {
             query?: never;
@@ -327,6 +401,23 @@ export interface paths {
         };
         /** Salud */
         get: operations["salud_api_salud_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/trabajos": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Listar Trabajos */
+        get: operations["listar_trabajos_api_trabajos_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -566,6 +657,11 @@ export interface components {
              */
             tipo: string;
         };
+        /** EstadoChat */
+        EstadoChat: {
+            /** Configurado */
+            configurado: boolean;
+        };
         /** EventoObservacion */
         EventoObservacion: {
             /** Accion */
@@ -574,6 +670,15 @@ export interface components {
             autor?: string | null;
             /** Estado */
             estado?: string | null;
+            /** Fecha */
+            fecha: string;
+        };
+        /** EventoTrabajo */
+        EventoTrabajo: {
+            /** Accion */
+            accion: string;
+            /** Autor */
+            autor: string;
             /** Fecha */
             fecha: string;
         };
@@ -703,6 +808,17 @@ export interface components {
             observaciones: components["schemas"]["ObservacionVista"][];
             /** Revision */
             revision: string;
+        };
+        /** ListadoTrabajos */
+        ListadoTrabajos: {
+            /** Por Estado */
+            por_estado: {
+                [key: string]: number;
+            };
+            /** Total */
+            total: number;
+            /** Trabajos */
+            trabajos: components["schemas"]["TrabajoVista"][];
         };
         /** ModeloVista */
         ModeloVista: {
@@ -1043,6 +1159,60 @@ export interface components {
             /** Sesion */
             sesion: string;
         };
+        /** SolicitudAnalisis */
+        SolicitudAnalisis: {
+            /** Autor */
+            autor: string;
+            /**
+             * Nota
+             * @default
+             */
+            nota: string;
+        };
+        /** TrabajoVista */
+        TrabajoVista: {
+            /** Codigo */
+            codigo: string;
+            /** Creado */
+            creado: string;
+            /** Duplicado */
+            duplicado?: boolean | null;
+            /** Estado */
+            estado: string;
+            /** Historial */
+            historial?: components["schemas"]["EventoTrabajo"][];
+            /** Id */
+            id: string;
+            /**
+             * Intentos
+             * @default 0
+             */
+            intentos: number;
+            /**
+             * Nota
+             * @default
+             */
+            nota: string;
+            /** Observacion */
+            observacion: string;
+            /**
+             * Referencia
+             * @default
+             */
+            referencia: string;
+            /** Resultado */
+            resultado?: string | null;
+            /** Solicitante */
+            solicitante: string;
+            /** Terminado */
+            terminado?: string | null;
+            /** Tipo */
+            tipo: string;
+            /** Tomado En */
+            tomado_en?: string | null;
+            /** Tomado Por */
+            tomado_por?: string | null;
+        };
         /** TramoAncla */
         TramoAncla: {
             /** Pagina */
@@ -1051,6 +1221,17 @@ export interface components {
             rectangulos?: number[][];
             /** Rol */
             rol: string;
+        };
+        /** TurnoChat */
+        TurnoChat: {
+            /** Contexto */
+            contexto?: {
+                [key: string]: string | null;
+            };
+            /** Conversacion */
+            conversacion: string;
+            /** Mensaje */
+            mensaje: string;
         };
         /** ValidacionSesion */
         ValidacionSesion: {
@@ -1106,6 +1287,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["NodoArbol"];
+                };
+            };
+        };
+    };
+    estado_chat_api_chat_estado_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EstadoChat"];
                 };
             };
         };
@@ -1183,6 +1384,41 @@ export interface operations {
             cookie?: never;
         };
         requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    chat_api_procesos__codigo__chat_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TurnoChat"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             200: {
@@ -1476,6 +1712,42 @@ export interface operations {
             };
         };
     };
+    solicitar_analisis_api_procesos__codigo__observaciones__identificador__solicitud_analisis_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                identificador: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SolicitudAnalisis"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TrabajoVista"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     iniciar_sesion_api_procesos__codigo__sesiones_post: {
         parameters: {
             query?: never;
@@ -1744,6 +2016,39 @@ export interface operations {
             };
         };
     };
+    trabajos_del_proceso_api_procesos__codigo__trabajos_get: {
+        parameters: {
+            query?: {
+                estado?: string | null;
+            };
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListadoTrabajos"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     salud_api_salud_get: {
         parameters: {
             query?: never;
@@ -1760,6 +2065,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Salud"];
+                };
+            };
+        };
+    };
+    listar_trabajos_api_trabajos_get: {
+        parameters: {
+            query?: {
+                estado?: string | null;
+                tipo?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListadoTrabajos"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

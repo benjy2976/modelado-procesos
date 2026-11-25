@@ -34,6 +34,8 @@ export default ts.config(
         ClipboardEvent: 'readonly',
         HTMLDivElement: 'readonly',
         localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        TextDecoder: 'readonly',
         window: 'readonly'
       }
     }

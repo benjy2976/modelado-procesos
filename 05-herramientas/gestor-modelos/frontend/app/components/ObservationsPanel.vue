@@ -6,6 +6,8 @@ import type { components } from '~/types/api'
 
 type Listado = components['schemas']['ListadoObservaciones']
 type Registro = components['schemas']['ObservacionVista']
+type Trabajo = components['schemas']['TrabajoVista']
+type ListadoTrabajos = components['schemas']['ListadoTrabajos']
 
 const props = defineProps<{ code: string; elementId: string | null; reference: string }>()
 const list = ref<Listado | null>(null)
@@ -62,6 +64,8 @@ async function load() {
     const response = await fetch(`/api/procesos/${encodeURIComponent(props.code)}/observaciones`)
     if (!response.ok) throw new Error('No se pudieron cargar las observaciones.')
     list.value = await response.json() as Listado
+    const jobs = await fetch(`/api/procesos/${encodeURIComponent(props.code)}/trabajos`)
+    trabajos.value = jobs.ok ? (await jobs.json() as ListadoTrabajos).trabajos : []
   } catch (cause) {
     error.value = cause instanceof Error ? cause.message : 'No se pudieron cargar las observaciones.'
   } finally {
@@ -117,6 +121,17 @@ async function reply(item: Registro) {
     'POST', { texto: replyText.value, autor: author.value, formato: 'html' }
   )
   if (saved) { replyText.value = ''; replyId.value = null }
+}
+
+const trabajos = ref<Trabajo[]>([])
+const jobsFor = (id: string) => trabajos.value.filter(job => job.observacion === id)
+
+async function requestAnalysis(item: Registro, nota: string) {
+  if (!author.value.trim()) { error.value = 'Indique su nombre o equipo antes de solicitar el análisis.'; return }
+  await mutate(
+    `/api/procesos/${encodeURIComponent(props.code)}/observaciones/${encodeURIComponent(item.id)}/solicitud-analisis`,
+    'POST', { autor: author.value, nota }
+  )
 }
 
 const resolved = computed(() => (list.value?.observaciones || []).filter(item => item.estado === 'RESUELTA'))
@@ -180,7 +195,7 @@ async function toggle(item: Registro) {
       <div v-if="item.formato === 'html'" class="rich-content" v-html="rich(item.texto, item.formato)" />
       <p v-else>{{ item.texto }}</p>
       <small>{{ item.autor }} · {{ new Date(item.fecha).toLocaleString('es-PE') }}</small>
-      <ResolutionPanel :item="item" :resolved="resolved" :saving="saving" @define="define(item, $event)" />
+      <ResolutionPanel :item="item" :resolved="resolved" :saving="saving" :jobs="jobsFor(item.id)" @define="define(item, $event)" @request-analysis="requestAnalysis(item, $event)" />
       <div v-if="item.respuestas?.length" class="replies">
         <div v-for="answer in item.respuestas" :key="answer.id">
           <strong>{{ answer.autor }}</strong>

@@ -225,8 +225,38 @@ def _argumentos() -> argparse.ArgumentParser:
     api = grupos.add_parser("api", help="Servir la API local")
     api.add_argument("--host", default="127.0.0.1")
     api.add_argument("--port", type=int, default=8000)
+    trabajos = grupos.add_parser("trabajos", help="Cola de trabajos de los agentes (DEC-068)")
+    tareas_trabajos = trabajos.add_subparsers(dest="operacion", required=True)
+    listar_t = tareas_trabajos.add_parser("listar")
+    for opcion in ("estado", "tipo", "codigo"):
+        listar_t.add_argument(f"--{opcion}")
+    encolar_t = tareas_trabajos.add_parser("encolar")
+    encolar_t.add_argument("tipo", choices=["ANALISIS", "APLICACION"])
+    encolar_t.add_argument("codigo")
+    encolar_t.add_argument("observacion")
+    encolar_t.add_argument("--solicitante", required=True)
+    encolar_t.add_argument("--nota", default="")
+    tomar_t = tareas_trabajos.add_parser("tomar")
+    tomar_t.add_argument("tipo", choices=["ANALISIS", "APLICACION"])
+    tomar_t.add_argument("--agente", required=True)
+    tomar_t.add_argument("--codigo")
+    tomar_t.add_argument("--lote", action="store_true")
+    completar_t = tareas_trabajos.add_parser("completar")
+    completar_t.add_argument("identificador")
+    completar_t.add_argument("--agente", required=True)
+    completar_t.add_argument("--resultado", required=True)
+    completar_t.add_argument("--estado", choices=["HECHO", "ERROR"], default="HECHO")
+    cancelar_t = tareas_trabajos.add_parser("cancelar")
+    cancelar_t.add_argument("identificador")
+    cancelar_t.add_argument("--autor", required=True)
+    cancelar_t.add_argument("--motivo", required=True)
+    relevo = grupos.add_parser("relevo", help="Servir el relevo hacia los agentes de OpenClaw (DEC-068)")
+    relevo.add_argument("--host", required=True, help="IP concreta: loopback o puerta de enlace de la red Docker")
+    relevo.add_argument("--port", type=int, default=8769)
     mcp = grupos.add_parser("mcp", help="Servir herramientas MCP")
-    mcp.add_argument("--transporte", choices=["stdio"], default="stdio")
+    mcp.add_argument("--transporte", choices=["stdio", "streamable-http"], default="stdio")
+    mcp.add_argument("--host", default="127.0.0.1", help="Solo con streamable-http")
+    mcp.add_argument("--port", type=int, default=8768, help="Solo con streamable-http")
     contrato = grupos.add_parser("contrato", help="Exportar o comprobar el OpenAPI generado")
     contrato.add_argument("--check", action="store_true", help="Comprobar que el archivo versionado esté vigente")
     sesiones = grupos.add_parser("sesiones", help="Editar un modelo en copia recuperable")
@@ -503,6 +533,24 @@ def ejecutar(args: argparse.Namespace) -> object:
             print(json.dumps(resultado, ensure_ascii=False, indent=2))
             return resultado["codigo_salida"]
         return resultado
+    if args.grupo == "trabajos":
+        from .trabajos import ServicioTrabajos
+
+        servicio = ServicioTrabajos(repositorio)
+        if args.operacion == "listar":
+            return servicio.listar(estado=args.estado, tipo=args.tipo, codigo=args.codigo)
+        if args.operacion == "encolar":
+            return servicio.encolar(args.tipo, args.codigo, args.observacion, args.solicitante, nota=args.nota)
+        if args.operacion == "tomar":
+            return servicio.tomar(args.tipo, args.agente, args.codigo, args.lote)
+        if args.operacion == "completar":
+            return servicio.completar(args.identificador, args.agente, args.resultado, args.estado)
+        return servicio.cancelar(args.identificador, args.autor, args.motivo)
+    if args.grupo == "relevo":
+        from .relevo import servir
+
+        servir(args.host, args.port)
+        return None
     if args.grupo == "api":
         import uvicorn
 
@@ -510,7 +558,7 @@ def ejecutar(args: argparse.Namespace) -> object:
         return None
     from .mcp_adapter import main as servir_mcp
 
-    servir_mcp()
+    servir_mcp(args.transporte, args.host, args.port)
     return None
 
 

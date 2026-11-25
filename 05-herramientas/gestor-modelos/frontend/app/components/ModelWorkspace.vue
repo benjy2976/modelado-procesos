@@ -15,7 +15,7 @@ const selectedId = ref<string | null>(null)
 const loading = ref(false)
 const message = ref('')
 const documentOpen = ref<DocumentoAbierto | null>(null)
-const inspectorTab = ref<'detalle' | 'observaciones' | 'edicion'>('detalle')
+const inspectorTab = ref<'detalle' | 'observaciones' | 'edicion' | 'asistente'>('detalle')
 const sidebarOpen = ref(true)
 // Ancho del inspector: se arrastra desde su borde izquierdo o con las flechas, y se recuerda en el navegador.
 const INSPECTOR_KEY = 'mesa.inspector.ancho'
@@ -266,16 +266,18 @@ onMounted(async () => {
         />
         <div class="pane-heading inspector-heading">
           <span class="eyebrow">Inspector</span>
-          <h2>{{ inspectorTab === 'observaciones' ? 'Observaciones' : inspectorTab === 'edicion' ? 'Edición en copia' : selectedElement ? selectedElement.nombre : selectedFlow ? 'Flujo seleccionado' : 'Detalle del proceso' }}</h2>
-          <p>{{ inspectorTab === 'observaciones' ? 'Registre, responda y organice la revisión.' : inspectorTab === 'edicion' ? 'Copia recuperable, diff y validación.' : selectedElement ? `Caja ${selectedElement.numero || selectedElement.ref}` : 'Seleccione una caja o flujo para consultar su descripción.' }}</p>
+          <h2>{{ inspectorTab === 'asistente' ? 'Asistente' : inspectorTab === 'observaciones' ? 'Observaciones' : inspectorTab === 'edicion' ? 'Edición en copia' : selectedElement ? selectedElement.nombre : selectedFlow ? 'Flujo seleccionado' : 'Detalle del proceso' }}</h2>
+          <p>{{ inspectorTab === 'asistente' ? 'Converse con Claudia sobre este proceso; los cambios quedan en una copia.' : inspectorTab === 'observaciones' ? 'Registre, responda y organice la revisión.' : inspectorTab === 'edicion' ? 'Copia recuperable, diff y validación.' : selectedElement ? `Caja ${selectedElement.numero || selectedElement.ref}` : 'Seleccione una caja o flujo para consultar su descripción.' }}</p>
         </div>
         <div v-if="model" class="inspector-tabs" role="tablist" aria-label="Panel de revisión">
           <button type="button" role="tab" :aria-selected="inspectorTab === 'detalle'" :class="{ active: inspectorTab === 'detalle' }" @click="inspectorTab = 'detalle'">Detalle y sustento</button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'observaciones'" :class="{ active: inspectorTab === 'observaciones' }" @click="inspectorTab = 'observaciones'">Observaciones</button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'edicion'" :class="{ active: inspectorTab === 'edicion' }" @click="inspectorTab = 'edicion'">Editar copia</button>
+          <button type="button" role="tab" :aria-selected="inspectorTab === 'asistente'" :class="{ active: inspectorTab === 'asistente' }" @click="inspectorTab = 'asistente'">Asistente</button>
         </div>
         <div class="inspector-scroll">
           <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" />
+          <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
           <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" @integrated="openProcess(model.codigo)" />
           <template v-else-if="selectedElement">
             <dl class="detail-list">

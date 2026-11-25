@@ -39,6 +39,7 @@ __pycache__/
 
 # Sesiones persistentes de edición local; contienen instantáneas recuperables
 /05-herramientas/gestor-modelos/.mesa-sesiones/
+/05-herramientas/gestor-modelos/.mesa-trabajos/
 
 # Configuracion local de Compose y variables de entorno; .env.example si se versiona
 .env

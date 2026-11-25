@@ -9,7 +9,7 @@ tags:
 
 # Adaptador MCP actual
 
-El servidor MCP por `stdio` usa los mismos servicios de consulta, observaciones y sesiones de edición que la CLI y la API. La edición lógica se hace sobre la tabla y el sustento de una copia; el BPMN se regenera.
+El servidor MCP, por `stdio` o por HTTP (`streamable-http`), usa los mismos servicios de consulta, observaciones y sesiones de edición que la CLI y la API. La edición lógica se hace sobre la tabla y el sustento de una copia; el BPMN se regenera.
 
 Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 
@@ -65,9 +65,21 @@ No expone archivos arbitrarios, aprobación institucional ni validación normati
 
 El archivo `.mcp.json` de la raíz del repositorio registra el servidor `mesa-modelamiento`. Lo ejecuta dentro del contenedor `api`, que ya tiene el entorno instalado, con `docker compose exec -T --user 1000:1000 -e HOME=/tmp api modelador-procesos mcp --transporte stdio`. Requiere el compose levantado. El usuario `1000:1000` corresponde al equipo actual: en otro equipo se ajusta para que los archivos escritos conserven su propietario. El cliente carga el servidor al iniciar la sesión.
 
+## Transporte HTTP y cola de trabajos (`DEC-068`)
+
+El servicio `mcp-http` del compose sirve el mismo servidor con `modelador-procesos mcp --transporte streamable-http --host 0.0.0.0 --port 8768`, publicado solo en `127.0.0.1:8768/mcp`. La protección contra DNS rebinding admite únicamente las cabeceras Host de `MESA_MCP_HOSTS` (por defecto `127.0.0.1:8768,localhost:8768`); otra cabecera recibe 421. Lo usan los agentes de OpenClaw, que lo registran como `mesa-modelamiento` y filtran por agente las herramientas que ven ([agentes de OpenClaw](../openclaw/README.md)).
+
+| Herramienta | Operación |
+|---|---|
+| `listar_trabajos` | Trabajos de la cola por estado, tipo o proceso, con conteo por estado |
+| `tomar_trabajo` | Toma el trabajo pendiente más antiguo de un tipo (`ANALISIS` o `APLICACION`) o, con `lote`, todos los del mismo proceso; los marca EN-CURSO a nombre de Claudia |
+| `completar_trabajo` | Cierra un trabajo tomado como HECHO o ERROR con un resumen |
+
+La cola vive en `.mesa-trabajos/cola.json`, fuera de Git, con bloqueo de archivo. Un trabajo EN-CURSO por más de 45 minutos vuelve a estar disponible. Definir una resolución encola su `APLICACION`; la web encola `ANALISIS` con el botón de análisis.
+
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25). El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|

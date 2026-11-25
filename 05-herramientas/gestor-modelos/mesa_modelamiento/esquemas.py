@@ -267,3 +267,38 @@ class ObservacionesPorEtapa(BaseModel):
     total: int
     por_etapa: dict[str, int]
     observaciones: list[ObservacionEnEtapa]
+
+
+class EventoTrabajo(BaseModel):
+    accion: str
+    autor: str
+    fecha: str
+
+
+class TrabajoVista(BaseModel):
+    id: str
+    tipo: str
+    codigo: str
+    observacion: str
+    referencia: str = ""
+    estado: str
+    solicitante: str
+    nota: str = ""
+    creado: str
+    intentos: int = 0
+    tomado_por: str | None = None
+    tomado_en: str | None = None
+    terminado: str | None = None
+    resultado: str | None = None
+    duplicado: bool | None = None
+    historial: list[EventoTrabajo] = Field(default_factory=list)
+
+
+class ListadoTrabajos(BaseModel):
+    total: int
+    por_estado: dict[str, int]
+    trabajos: list[TrabajoVista]
+
+
+class EstadoChat(BaseModel):
+    configurado: bool

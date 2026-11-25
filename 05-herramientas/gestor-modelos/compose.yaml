@@ -26,6 +26,10 @@ services:
     working_dir: /workspace/05-herramientas/gestor-modelos
     command: >-
       sh -c "uv sync --frozen && exec uv run modelador-procesos api --host 0.0.0.0 --port 8000"
+    env_file:
+      # URL y token del relevo (MESA_RELEVO_URL, MESA_RELEVO_TOKEN); sin él, el chat y el despertar quedan inactivos.
+      - path: ${HOME}/.config/mesa-relevo/api.env
+        required: false
     environment:
       PROCESOS_REPO_ROOT: /workspace
       UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
@@ -40,6 +44,63 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+
+  # MCP por HTTP para agentes de OpenClaw (DEC-068). Solo loopback y protección de cabecera Host; escribe con el
+  # usuario local. Registro (lo hace el operador): openclaw mcp add mesa-modelamiento
+  #   --url http://127.0.0.1:8768/mcp --transport streamable-http --timeout 300
+  mcp-http:
+    image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+    restart: unless-stopped
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    working_dir: /workspace/05-herramientas/gestor-modelos
+    command: >-
+      sh -c "uv sync --frozen && exec uv run modelador-procesos mcp --transporte streamable-http
+      --host 0.0.0.0 --port 8768"
+    environment:
+      HOME: /tmp
+      PROCESOS_REPO_ROOT: /workspace
+      UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
+      UV_CACHE_DIR: /tmp/uv-cache-local
+      MESA_MCP_HOSTS: 127.0.0.1:8768,localhost:8768
+    volumes:
+      - ${PROCESOS_REPO_HOST:-../..}:/workspace
+    ports:
+      - "127.0.0.1:${MODELOS_MCP_PORT:-8768}:8768"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1', 8768), 4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
+
+  # Relevo hacia los agentes de OpenClaw (DEC-068): el ÚNICO proceso con el token del Gateway
+  # (~/.config/mesa-relevo/relevo.env). Red del host para alcanzar el Gateway en 127.0.0.1; escucha solo en la
+  # puerta de enlace de la red de este compose. Perfil openclaw: se levanta cuando el entorno ya está creado.
+  relevo:
+    profiles: ["openclaw"]
+    image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+    restart: unless-stopped
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    network_mode: host
+    working_dir: /workspace/05-herramientas/gestor-modelos
+    env_file:
+      - path: ${HOME}/.config/mesa-relevo/relevo.env
+        required: true
+    environment:
+      HOME: /tmp
+      UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
+      UV_CACHE_DIR: /tmp/uv-cache-local
+      MESA_RELEVO_IP: ${MESA_RELEVO_IP:-192.168.80.1}
+    volumes:
+      - ${PROCESOS_REPO_HOST:-../..}:/workspace:ro
+    command: >-
+      sh -c "cp -r /workspace/05-herramientas/gestor-modelos /tmp/app && cd /tmp/app && uv sync --frozen
+      && exec uv run modelador-procesos relevo --host \"$$MESA_RELEVO_IP\" --port 8769"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os, urllib.request; urllib.request.urlopen('http://' + os.environ['MESA_RELEVO_IP'] + ':8769/salud', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 120s
 
   mcp:
     profiles: ["mcp"]
@@ -59,3 +120,11 @@ services:
 volumes:
   uv-cache:
   frontend-node-modules:
+
+networks:
+  default:
+    # Subred fija: el relevo del chat escucha en su puerta de enlace (MESA_RELEVO_IP, por defecto 192.168.80.1).
+    ipam:
+      config:
+        - subnet: 192.168.80.0/20
+          gateway: 192.168.80.1

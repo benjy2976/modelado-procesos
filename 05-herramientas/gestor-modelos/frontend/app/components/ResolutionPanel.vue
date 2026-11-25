@@ -7,8 +7,16 @@ import type { components } from '~/types/api'
 type Registro = components['schemas']['ObservacionVista']
 export type Definicion = { tipo: 'OPCION' | 'OPCIONES' | 'MANUAL' | 'VINCULADA'; opciones: string[]; texto: string; formato: 'html' | 'texto'; vinculada_a: string }
 
-const props = defineProps<{ item: Registro; resolved: Registro[]; saving: boolean }>()
-const emit = defineEmits<{ define: [value: Definicion] }>()
+type Trabajo = components['schemas']['TrabajoVista']
+const props = defineProps<{ item: Registro; resolved: Registro[]; saving: boolean; jobs: Trabajo[] }>()
+const emit = defineEmits<{ define: [value: Definicion]; requestAnalysis: [nota: string] }>()
+const TIPOS_TRABAJO: Record<string, string> = { ANALISIS: 'Análisis por Claudia', APLICACION: 'Aplicación por Claudia' }
+const ESTADOS_TRABAJO: Record<string, string> = { PENDIENTE: 'en cola', 'EN-CURSO': 'en curso', HECHO: 'hecho', ERROR: 'con error', CANCELADO: 'cancelado' }
+const notaAnalisis = ref('')
+const activeJobs = computed(() => props.jobs.filter(job => ['PENDIENTE', 'EN-CURSO'].includes(job.estado)))
+const lastJob = computed(() => props.jobs.at(-1) || null)
+const canRequestAnalysis = computed(() => ['REGISTRADA', 'EN-ANALISIS', 'PROPUESTA'].includes(etapa.value)
+  && !activeJobs.value.some(job => job.tipo === 'ANALISIS'))
 
 const ALLOWED_TAGS = ['h3', 'h4', 'p', 'br', 'strong', 'b', 'em', 'i', 'u', 's', 'del', 'ul', 'ol', 'li', 'blockquote']
 const ETAPAS: Record<string, string> = {
@@ -65,6 +73,19 @@ const ready = computed(() => mode.value === 'opciones' ? chosen.value.length > 0
 <template>
   <section class="resolution" :aria-label="`Resolución: ${ETAPAS[etapa] || etapa}`">
     <div class="resolution-stage" :data-stage="etapa">{{ ETAPAS[etapa] || etapa }}</div>
+    <p v-for="job in activeJobs" :key="job.id" class="resolution-job" role="status">
+      {{ TIPOS_TRABAJO[job.tipo] || job.tipo }}: {{ ESTADOS_TRABAJO[job.estado] || job.estado }}
+    </p>
+    <p v-if="!activeJobs.length && lastJob && lastJob.estado === 'ERROR'" class="resolution-job resolution-job--error" role="status">
+      {{ TIPOS_TRABAJO[lastJob.tipo] || lastJob.tipo }} terminó con error: {{ lastJob.resultado }}
+    </p>
+    <div v-if="canRequestAnalysis" class="resolution-request">
+      <input v-if="etapa === 'PROPUESTA'" v-model="notaAnalisis" maxlength="1000" placeholder="Motivo para reanalizar (obligatorio)" aria-label="Motivo para reanalizar">
+      <button type="button" class="secondary-button" :disabled="saving || (etapa === 'PROPUESTA' && !notaAnalisis.trim())"
+        @click="emit('requestAnalysis', notaAnalisis); notaAnalisis = ''">
+        {{ etapa === 'PROPUESTA' ? 'Pedir reanálisis a Claudia' : 'Solicitar análisis a Claudia' }}
+      </button>
+    </div>
 
     <details v-if="resolucion?.analisis" class="resolution-block" :open="etapa === 'PROPUESTA'">
       <summary>Análisis de {{ resolucion.analisis.autor }} · {{ resolucion.analisis.clase }}</summary>

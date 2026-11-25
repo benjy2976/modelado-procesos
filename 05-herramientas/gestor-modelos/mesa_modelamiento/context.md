@@ -21,9 +21,13 @@ Permite consultar procesos, registrar observaciones y editar modelos lógicos en
 
 `resolucion.ServicioResolucion` amplía las observaciones con las etapas de `DEC-065`: el agente analiza y propone, una persona define y el agente corrige y cierra con evidencia. `conocimiento` ofrece la consulta de solo lectura del conocimiento estructurado (`DEC-066`): notas de áreas autorizadas, biblioteca, reglas, glosario, decisiones, etiquetas y paquete de contexto. `generacion.generar_modelo` envuelve `modelar.py` y devuelve salida e informe D1–D5; adoptar hallazgos exige justificación. `auditoria.reconfirmar` actualiza la auditoría tras un cambio de tabla sin perder lo vigente. `RepositorioProcesos` localiza un proceso por código NT, lee la tabla y entrega el BPMN disponible. `ServicioObservaciones` mantiene un archivo JSON por proceso con revisión esperada y escritura atómica. `ServicioSesiones` conserva el árbol de trabajo en una instantánea y permite una copia editable por proceso. La autorización multiusuario y el bloqueo distribuido de un editor único siguen pendientes.
 
+`trabajos.ServicioTrabajos` mantiene la cola de trabajos de los agentes de OpenClaw (`DEC-068`): `ANALISIS` a pedido de una persona y `APLICACION` al definir una resolución. Es estado operativo fuera de Git (`.mesa-trabajos/`), con bloqueo de archivo, sin duplicar trabajos activos y con vencimiento de 45 minutos para los tomados. `relevo` es el único proceso con el token del Gateway y solo despierta o conversa con agentes fijos; `relevo_cliente` lo usa desde la API sin conocer ese token. La trazabilidad durable de lo hecho por un agente queda en la observación, no en la cola.
+
 ## Vocabulario y estados
 
 Una **observación** puede asociarse a un elemento BPMN o al diagrama. Sus estados actuales son `ABIERTA` y `RESUELTA`. La **revisión** es el hash del documento JSON y se compara antes de escribir; `409` indica conflicto de revisión en HTTP. No representa aprobación técnica o institucional del proceso.
+
+Un **trabajo** pasa por `PENDIENTE`, `EN-CURSO`, `HECHO`, `ERROR` o `CANCELADO`; cerrar un trabajo no resuelve la observación ni valida su contenido.
 
 El texto de una observación o respuesta puede ser `texto` o `html`; el HTML se sanea al guardarse (`contenido_enriquecido.py`) con una lista blanca de etiquetas de formato sin atributos. Una **respuesta** permanece dentro de la observación con autor declarado y fecha. El historial conserva creación, respuestas y cambios de estado; responder o resolver no modifica el BPMN ni valida el fundamento.
 
@@ -49,4 +53,4 @@ La sesión captura bytes del árbol de trabajo, incluso sin commit. `editar` req
 
 ## Evidencia y contratos
 
-La semántica anterior se apoya en `repositorio.py`, `observaciones.py` y `api.py`. El transporte y sus rutas están en [API](../docs/api.md), la persistencia en [modelo de datos](../docs/modelo-datos.md), los comandos en [CLI](../docs/cli.md), y el alcance evolutivo en [el plan](../plan-mesa-modelamiento.md). Revisar este contexto cuando cambien estados, reglas de concurrencia, actores o capacidad de edición.
+La semántica anterior se apoya en `repositorio.py`, `observaciones.py`, `resolucion.py`, `trabajos.py`, `relevo.py` y `api.py`; la configuración de los agentes está en [openclaw](../openclaw/README.md). El transporte y sus rutas están en [API](../docs/api.md), la persistencia en [modelo de datos](../docs/modelo-datos.md), los comandos en [CLI](../docs/cli.md), y el alcance evolutivo en [el plan](../plan-mesa-modelamiento.md). Revisar este contexto cuando cambien estados, reglas de concurrencia, actores o capacidad de edición.

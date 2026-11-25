@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import functools
+import os
 from collections.abc import Callable
 
+import anyio
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
+from mcp.server.transport_security import TransportSecuritySettings
 
 from . import auditoria, conocimiento, generacion
 from . import fuentes_anclaje as anclaje
@@ -15,6 +18,7 @@ from .documentos import ServicioDocumentos
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
+from .trabajos import ServicioTrabajos
 
 # Alias con el que el agente de IA firma sus registros en el ciclo de retroalimentación (DEC-064).
 AUTOR_AGENTE = "Claudia"
@@ -46,6 +50,7 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
+    trabajos = ServicioTrabajos(repositorio)
     servidor = MCPServer(
         "mesa-modelamiento",
         instructions=(
@@ -202,6 +207,27 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
             codigo, identificador, texto=texto, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
             cerrar=cerrar, sesion=sesion, cambios=cambios, validacion=validacion, decision=decision, formato=formato,
         ))  # fmt: skip
+
+    @herramienta()
+    def listar_trabajos(
+        estado: str | None = None, tipo: str | None = None, codigo: str | None = None, limite: int = 50
+    ) -> dict:
+        """Trabajos de la cola (ANALISIS o APLICACION) por estado, tipo o proceso (DEC-068)."""
+        return trabajos.listar(estado=estado, tipo=tipo, codigo=codigo, limite=limite)
+
+    @herramienta()
+    def tomar_trabajo(tipo: str, codigo: str | None = None, lote: bool = False) -> dict:
+        """Toma el trabajo pendiente más antiguo del tipo y lo marca EN-CURSO a nombre del agente.
+
+        Con lote=true (aplicación) entrega todos los pendientes del mismo proceso para editarlo en una sola sesión.
+        Un trabajo tomado y no completado vuelve a quedar disponible a los 45 minutos."""
+        return trabajos.tomar(tipo, AUTOR_AGENTE, codigo, lote)
+
+    @herramienta()
+    def completar_trabajo(identificador: str, resultado: str, estado: str = "HECHO") -> dict:
+        """Cierra un trabajo como HECHO o ERROR con un resumen breve; la evidencia va en la observación."""
+        cerrado = trabajos.completar(identificador, AUTOR_AGENTE, resultado, estado)
+        return {k: cerrado.get(k) for k in ("id", "tipo", "codigo", "observacion", "estado", "terminado")}
 
     @herramienta()
     def leer_elemento(codigo: str, identificador: str) -> dict:
@@ -494,8 +520,21 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     return servidor
 
 
-def main() -> None:
-    crear_servidor().run(transport="stdio")
+def hosts_permitidos(port: int) -> list[str]:
+    """Cabeceras Host aceptadas por el transporte HTTP (protección contra DNS rebinding)."""
+    configurados = os.environ.get("MESA_MCP_HOSTS", "")
+    hosts = [h.strip() for h in configurados.split(",") if h.strip()]
+    return hosts or [f"127.0.0.1:{port}", f"localhost:{port}"]
+
+
+def main(transporte: str = "stdio", host: str = "127.0.0.1", port: int = 8768) -> None:
+    """Sirve el MCP por stdio (Claude Code) o por HTTP en loopback (OpenClaw), siempre con los mismos servicios."""
+    servidor = crear_servidor()
+    if transporte == "stdio":
+        servidor.run(transport="stdio")
+        return
+    seguridad = TransportSecuritySettings(enable_dns_rebinding_protection=True, allowed_hosts=hosts_permitidos(port))
+    anyio.run(lambda: servidor.run_streamable_http_async(host=host, port=port, transport_security=seguridad))
 
 
 if __name__ == "__main__":

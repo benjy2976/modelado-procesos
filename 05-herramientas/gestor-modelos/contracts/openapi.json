@@ -501,6 +501,19 @@
         "title": "ElementoVista",
         "type": "object"
       },
+      "EstadoChat": {
+        "properties": {
+          "configurado": {
+            "title": "Configurado",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "configurado"
+        ],
+        "title": "EstadoChat",
+        "type": "object"
+      },
       "EventoObservacion": {
         "properties": {
           "accion": {
@@ -539,6 +552,29 @@
           "fecha"
         ],
         "title": "EventoObservacion",
+        "type": "object"
+      },
+      "EventoTrabajo": {
+        "properties": {
+          "accion": {
+            "title": "Accion",
+            "type": "string"
+          },
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          }
+        },
+        "required": [
+          "accion",
+          "autor",
+          "fecha"
+        ],
+        "title": "EventoTrabajo",
         "type": "object"
       },
       "FuenteVista": {
@@ -795,6 +831,35 @@
           "revision"
         ],
         "title": "ListadoObservaciones",
+        "type": "object"
+      },
+      "ListadoTrabajos": {
+        "properties": {
+          "por_estado": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Por Estado",
+            "type": "object"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "trabajos": {
+            "items": {
+              "$ref": "#/components/schemas/TrabajoVista"
+            },
+            "title": "Trabajos",
+            "type": "array"
+          }
+        },
+        "required": [
+          "total",
+          "por_estado",
+          "trabajos"
+        ],
+        "title": "ListadoTrabajos",
         "type": "object"
       },
       "ModeloVista": {
@@ -1695,6 +1760,147 @@
         "title": "SesionVista",
         "type": "object"
       },
+      "SolicitudAnalisis": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "nota": {
+            "default": "",
+            "maxLength": 1000,
+            "title": "Nota",
+            "type": "string"
+          }
+        },
+        "required": [
+          "autor"
+        ],
+        "title": "SolicitudAnalisis",
+        "type": "object"
+      },
+      "TrabajoVista": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "creado": {
+            "title": "Creado",
+            "type": "string"
+          },
+          "duplicado": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duplicado"
+          },
+          "estado": {
+            "title": "Estado",
+            "type": "string"
+          },
+          "historial": {
+            "items": {
+              "$ref": "#/components/schemas/EventoTrabajo"
+            },
+            "title": "Historial",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "intentos": {
+            "default": 0,
+            "title": "Intentos",
+            "type": "integer"
+          },
+          "nota": {
+            "default": "",
+            "title": "Nota",
+            "type": "string"
+          },
+          "observacion": {
+            "title": "Observacion",
+            "type": "string"
+          },
+          "referencia": {
+            "default": "",
+            "title": "Referencia",
+            "type": "string"
+          },
+          "resultado": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resultado"
+          },
+          "solicitante": {
+            "title": "Solicitante",
+            "type": "string"
+          },
+          "terminado": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terminado"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          },
+          "tomado_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tomado En"
+          },
+          "tomado_por": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tomado Por"
+          }
+        },
+        "required": [
+          "id",
+          "tipo",
+          "codigo",
+          "observacion",
+          "estado",
+          "solicitante",
+          "creado"
+        ],
+        "title": "TrabajoVista",
+        "type": "object"
+      },
       "TramoAncla": {
         "properties": {
           "pagina": {
@@ -1721,6 +1927,41 @@
           "rol"
         ],
         "title": "TramoAncla",
+        "type": "object"
+      },
+      "TurnoChat": {
+        "properties": {
+          "contexto": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Contexto",
+            "type": "object"
+          },
+          "conversacion": {
+            "pattern": "^M-[0-9A-Za-z.-]{6,80}$",
+            "title": "Conversacion",
+            "type": "string"
+          },
+          "mensaje": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "title": "Mensaje",
+            "type": "string"
+          }
+        },
+        "required": [
+          "conversacion",
+          "mensaje"
+        ],
+        "title": "TurnoChat",
         "type": "object"
       },
       "ValidacionSesion": {
@@ -1834,6 +2075,24 @@
           }
         },
         "summary": "Arbol"
+      }
+    },
+    "/api/chat/estado": {
+      "get": {
+        "operationId": "estado_chat_api_chat_estado_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstadoChat"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Estado Chat"
       }
     },
     "/api/observaciones/etapas": {
@@ -1973,6 +2232,54 @@
           }
         },
         "summary": "Bpmn"
+      }
+    },
+    "/api/procesos/{codigo}/chat": {
+      "post": {
+        "description": "Turno de chat con el agente mesa-chat; retransmite el SSE del relevo sin reinterpretarlo.",
+        "operationId": "chat_api_procesos__codigo__chat_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoChat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Chat"
       }
     },
     "/api/procesos/{codigo}/documentos/{tipo}": {
@@ -2392,6 +2699,65 @@
           }
         },
         "summary": "Responder Observacion"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}/solicitud-analisis": {
+      "post": {
+        "description": "Encola el análisis de una observación y despierta al agente de análisis por el relevo (DEC-068).",
+        "operationId": "solicitar_analisis_api_procesos__codigo__observaciones__identificador__solicitud_analisis_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitudAnalisis"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrabajoVista"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Solicitar Analisis"
       }
     },
     "/api/procesos/{codigo}/sesiones": {
@@ -2821,6 +3187,61 @@
         "summary": "Preparar Sesion"
       }
     },
+    "/api/procesos/{codigo}/trabajos": {
+      "get": {
+        "operationId": "trabajos_del_proceso_api_procesos__codigo__trabajos_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "estado",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Estado"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListadoTrabajos"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Trabajos Del Proceso"
+      }
+    },
     "/api/salud": {
       "get": {
         "operationId": "salud_api_salud_get",
@@ -2837,6 +3258,68 @@
           }
         },
         "summary": "Salud"
+      }
+    },
+    "/api/trabajos": {
+      "get": {
+        "operationId": "listar_trabajos_api_trabajos_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "estado",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Estado"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tipo",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Tipo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListadoTrabajos"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Listar Trabajos"
       }
     }
   }

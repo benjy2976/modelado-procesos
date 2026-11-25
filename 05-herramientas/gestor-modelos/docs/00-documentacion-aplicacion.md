@@ -22,6 +22,7 @@ Esta carpeta describe la aplicación alojada en `05-herramientas/gestor-modelos/
 | ¿Qué datos conserva hoy? | [Modelo de datos](modelo-datos.md) |
 | ¿Cómo se organiza la pantalla Nuxt? | [Frontend](frontend.md) |
 | ¿Qué puede hacer hoy un agente? | [MCP](mcp.md) |
+| ¿Cómo se integran los agentes de OpenClaw (análisis, aplicación y chat)? | [Agentes de OpenClaw](../openclaw/README.md) |
 | ¿Cómo se edita e integra una copia recuperable? | [Sesiones de edición](sesiones-edicion.md) |
 | ¿Cómo se audita el sustento de S4.3 y se atiende cada observación? | [Metodología de auditoría y observaciones](metodologia-auditoria-y-observaciones.md) |
 | ¿Qué pasos, herramientas y verificaciones requiere la corrida documental? | [Plan de corrida documental y auditoría](plan-corrida-documental-y-auditoria.md) |

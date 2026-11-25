@@ -93,3 +93,7 @@ S4.3.2.3, nuevo lote del 2026-11-19: caja 17 asignada al subgerente SGGOS; pool 
 ## Visor y exportaciones - 2026-11-20
 
 DEC-051: la construccion ordinaria actualiza BPMN y HTML. El HTML carga el `.bpmn` hermano mediante el servidor HTTP local y conserva el panel de revision; ya no incrusta el XML. SVG y PNG se exportan solo con `--exportar-imagenes`, incluso desde `modelar.py`; las imagenes existentes se conservan y pueden quedar desactualizadas durante el desarrollo. La comprobacion normal controla BPMN y HTML; la opcion de imagenes comprueba tambien SVG y PNG. El visor autonomo con XML incrustado queda como opcion excepcional del conversor.
+
+## Agentes de OpenClaw para la mesa - 2026-11-25
+
+DEC-068: la mesa de modelamiento se integra con tres agentes fijos de OpenClaw que firman como Claudia. `mesa-analisis` (GPT-6.2 Sol propuesto) analiza y propone a pedido desde el botón de la observación. `mesa-aplicacion` (GPT-6.1 Terra) aplica lo definido por una persona, encolado y despertado por una automatización periódica. `mesa-chat` (GPT-6.1 Terra) conversa desde la pestaña «Asistente» y prepara variaciones sin aplicarlas. En la aplicación quedan implementados el MCP por HTTP en loopback, la cola de trabajos, el relevo y el chat, con pruebas. Falta que el operador ejecute los scripts 217 (MCP y agentes) y 218 (entorno del relevo y automatización) de ia-familiar. Después se hará la prueba real con las cuestiones de S4.3.2.6 para confirmar los modelos. La configuración versionada está en `05-herramientas/gestor-modelos/openclaw/`.
