@@ -51,6 +51,9 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `buscar_decisiones` | Decisiones del registro por ID o texto |
 | `revisar_etiquetas` | Revisión o recuento de etiquetas, sin escribir |
 | `paquete_contexto` | Paquete de contexto de una tarea sobre un proceso |
+| `registrar_analisis` y `registrar_propuesta` | Etapas de análisis y propuesta de una observación (`DEC-065`) |
+| `observaciones_por_etapa` | Observaciones por etapa, por ejemplo las `DEFINIDA` pendientes de corregir |
+| `iniciar_correccion` y `registrar_aplicacion` | Corrección de una observación definida y cierre con evidencia o espera de evidencia |
 
 Las escrituras del MCP firman con el alias del agente, **Claudia** (`DEC-064`). Un `ErrorDominio` llega como error de herramienta legible, con su código HTTP, no como fallo inesperado.
 
@@ -62,7 +65,7 @@ El archivo `.mcp.json` de la raíz del repositorio registra el servidor `mesa-mo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 58 comandos y el MCP 40 herramientas (tandas 1 y 2A cerradas el 2026-11-25).
+La CLI tiene 64 comandos y el MCP 45 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25). El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|
@@ -110,7 +113,7 @@ Hasta el 2026-11-25 los diagramas de S4.3 se editaron con escritura directa y sc
 | Prioridad | Acción del agente | Cómo se hacía | Situación en el MCP | Qué falta |
 |---|---|---|---|---|
 | Cerrada | Adoptar un modelo con hallazgos D3 o D4 ya documentados | `modelar.py <codigo> --forzar` | `preparar_cambio` deja el resultado en la copia y `aplicar_cambio` no lo integra | Aceptación explícita de hallazgos con justificación, registrada en la sesión y exigida en el sustento. Hoy bloquea S4.3.2.3 y S4.3.2.6 |
-| 1 | Resolver observaciones por etapas (`DEC-065`) | No existía | Solo registrar, responder y cambiar entre `ABIERTA` y `RESUELTA` | Registrar análisis y opciones, listar las definidas por una persona, registrar la aplicación con sesión, diff y D1–D5. La definición la hace una persona por la API o la web |
+| Cerrada | Resolver observaciones por etapas (`DEC-065`) | No existía | Solo registrar, responder y cambiar entre `ABIERTA` y `RESUELTA` | Registrar análisis y opciones, listar las definidas por una persona, registrar la aplicación con sesión, diff y D1–D5. La definición la hace una persona por la API o la web |
 | Cerrada | Registrar una observación sobre una caja por su ID de tabla | Script que traduce el ID de tabla al ID BPMN por el nombre | Exige el ID BPMN interno | Aceptar el ID de tabla o el número de caja y completar la referencia «Caja N (ID)» |
 | 2 | Editar celdas, filas, mensajes, pools y columnas de la tabla | `tabla_edit.py` (operaciones estructuradas) | Solo se reescribe el texto completo del documento | Operaciones estructuradas con validación de columnas, IDs únicos y siguiente número libre (`DEC-044`) |
 | 2 | Coordinar un cambio entre dos procesos (interfaz) | Edición directa de ambas tablas | Una sesión por proceso, sin vínculo | Sesiones vinculadas o integración conjunta, para que una interfaz no quede a medias |

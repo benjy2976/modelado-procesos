@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import DOMPurify from 'dompurify'
+import type { Definicion } from './ResolutionPanel.vue'
 import type { components } from '~/types/api'
 
 type Listado = components['schemas']['ListadoObservaciones']
@@ -15,7 +16,7 @@ const author = ref('')
 const text = ref('')
 const kind = ref<'OBSERVACION' | 'COMENTARIO'>('OBSERVACION')
 const scope = ref<'elemento' | 'diagrama'>('diagrama')
-const filter = ref<'todas' | 'abiertas' | 'resueltas' | 'seleccion'>('todas')
+const filter = ref<'todas' | 'abiertas' | 'resueltas' | 'por-definir' | 'definidas' | 'seleccion'>('todas')
 const replyId = ref<string | null>(null)
 const replyText = ref('')
 const formOpen = ref(false)
@@ -40,6 +41,8 @@ const observations = computed(() => {
   const all = list.value?.observaciones || []
   if (filter.value === 'abiertas') return all.filter(item => item.estado === 'ABIERTA')
   if (filter.value === 'resueltas') return all.filter(item => item.estado === 'RESUELTA')
+  if (filter.value === 'por-definir') return all.filter(item => item.etapa === 'PROPUESTA')
+  if (filter.value === 'definidas') return all.filter(item => ['DEFINIDA', 'EN-CORRECCION'].includes(item.etapa || ''))
   if (filter.value === 'seleccion') return all.filter(item => item.elemento === (props.elementId || ''))
   return all
 })
@@ -66,7 +69,7 @@ async function load() {
   }
 }
 
-async function mutate(path: string, method: 'POST' | 'PATCH', body: Record<string, string>) {
+async function mutate(path: string, method: 'POST' | 'PATCH', body: Record<string, unknown>) {
   if (!list.value || saving.value) return false
   saving.value = true
   error.value = ''
@@ -116,6 +119,16 @@ async function reply(item: Registro) {
   if (saved) { replyText.value = ''; replyId.value = null }
 }
 
+const resolved = computed(() => (list.value?.observaciones || []).filter(item => item.estado === 'RESUELTA'))
+
+async function define(item: Registro, value: Definicion) {
+  if (!author.value.trim()) { error.value = 'Indique su nombre o equipo antes de definir la respuesta.'; return }
+  await mutate(
+    `/api/procesos/${encodeURIComponent(props.code)}/observaciones/${encodeURIComponent(item.id)}/definicion`,
+    'POST', { ...value, autor: author.value }
+  )
+}
+
 async function toggle(item: Registro) {
   await mutate(
     `/api/procesos/${encodeURIComponent(props.code)}/observaciones/${encodeURIComponent(item.id)}`,
@@ -154,7 +167,8 @@ async function toggle(item: Registro) {
     <div class="observation-list-heading">
       <h3>Lista de revisión <span>{{ observations.length }}</span></h3>
       <select v-model="filter" aria-label="Filtrar observaciones">
-        <option value="todas">Todas</option><option value="abiertas">Abiertas</option><option value="resueltas">Resueltas</option>
+        <option value="todas">Todas</option><option value="abiertas">Abiertas</option><option value="por-definir">Por definir</option>
+        <option value="definidas">Definidas</option><option value="resueltas">Resueltas</option>
         <option value="seleccion">{{ elementId ? 'Elemento seleccionado' : 'Diagrama' }}</option>
       </select>
     </div>
@@ -166,6 +180,7 @@ async function toggle(item: Registro) {
       <div v-if="item.formato === 'html'" class="rich-content" v-html="rich(item.texto, item.formato)" />
       <p v-else>{{ item.texto }}</p>
       <small>{{ item.autor }} · {{ new Date(item.fecha).toLocaleString('es-PE') }}</small>
+      <ResolutionPanel :item="item" :resolved="resolved" :saving="saving" @define="define(item, $event)" />
       <div v-if="item.respuestas?.length" class="replies">
         <div v-for="answer in item.respuestas" :key="answer.id">
           <strong>{{ answer.autor }}</strong>

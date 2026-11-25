@@ -83,6 +83,10 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
 | `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--referencia ...] [--tipo ...] [--formato texto\|html]` (`--elemento` acepta ID BPMN, ID de tabla o número de caja) | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ... [--formato texto\|html]` | Respuesta e historial con nueva revisión |
+| `observaciones analizar\|proponer\|aplicar <codigo> <id> --autor ... --revision ... --archivo <json>` | Etapas de resolución (`DEC-065`): análisis, opciones o aplicación con evidencia; el JSON lleva los campos de la etapa |
+| `observaciones definir <codigo> <id> --autor ... --revision ... --tipo OPCION\|OPCIONES\|MANUAL\|VINCULADA [--opcion A ...] [--texto ...] [--vinculada-a <id>]` | Definición por una persona; rechaza el alias del agente |
+| `observaciones corregir <codigo> <id> --autor ... --revision ... [--confirmar-vigencia]` | Pasa una observación definida a corrección |
+| `observaciones etapas [--etapa ...] [--codigo ...]` | Observaciones por etapa en un proceso o en todo el árbol |
 | `observaciones estado <codigo> <id> --valor ABIERTA\|RESUELTA --revision ... [--autor ...]` | Cambio de estado trazado |
 | `modelo <codigo> [--check] [--exportar-imagenes] [--sin-cache] [--forzar --justificacion "..."]` | JSON con opciones, código de salida, salida e informe D1–D5 de `modelar.py`. `--forzar` adopta hallazgos y exige una justificación de al menos 20 caracteres, que además debe constar en el sustento |
 | `api [--host 127.0.0.1] [--port 8000]` | Servidor HTTP local |

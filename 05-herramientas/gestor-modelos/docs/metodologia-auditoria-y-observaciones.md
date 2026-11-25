@@ -150,6 +150,8 @@ Reglas:
 - `ABIERTA` y `RESUELTA` se conservan como estado resumido para compatibilidad. La etapa detallada es un campo nuevo.
 - Ninguna etapa equivale a revisión de equipo, opinión técnica ni aprobación.
 
+Implementado el 2026-11-25 (tanda 2B): `resolucion.py` en servicio, CLI, API y MCP, y la definición en la web. Si la tabla cambió desde la definición, la corrección exige confirmar que la definición sigue aplicando (`confirmar_vigencia`) o volver a analizar; así una corrección no bloquea las demás observaciones del mismo modelo. Un cambio de modelo se cierra con la sesión que lo integró.
+
 **Objetivo de la consola de observaciones (M5, por planificar).** Una vista que liste todas las observaciones de todos los procesos con su estado, como pendiente, en análisis, pendiente de evidencia, vinculada a otra, resuelta o no procede. Debe permitir filtrar por proceso, caja, autor y estado, y abrir la línea de tiempo de cada registro hasta el cambio o la decisión que lo cerró. Su diseño se planificará más adelante; este objetivo fija el alcance esperado.
 
 ## 3. Consola y orden de implementación

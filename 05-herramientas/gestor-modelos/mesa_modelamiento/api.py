@@ -17,13 +17,14 @@ from .esquemas import (
     ListadoObservaciones,
     ModeloVista,
     NodoArbol,
+    ObservacionesPorEtapa,
     PreparacionSesion,
     RegistroObservacion,
     Salud,
     SesionVista,
 )
-from .observaciones import ServicioObservaciones
 from .repositorio import ErrorDominio, RepositorioProcesos
+from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
 
 
@@ -35,6 +36,16 @@ class NuevaObservacion(BaseModel):
     tipo: str = "OBSERVACION"
     formato: Literal["texto", "html"] = "texto"
     revision_esperada: str
+
+
+class DefinicionEntrada(BaseModel):
+    tipo: Literal["OPCION", "OPCIONES", "MANUAL", "VINCULADA"]
+    autor: str = Field(min_length=1, max_length=100)
+    revision_esperada: str
+    opciones: list[str] = Field(default_factory=list, max_length=8)
+    texto: str = Field(default="", max_length=20000)
+    formato: Literal["texto", "html"] = "texto"
+    vinculada_a: str = ""
 
 
 class CambioEstado(BaseModel):
@@ -65,7 +76,7 @@ class IntegracionSesion(BaseModel):
 
 def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
-    observaciones = ServicioObservaciones(repositorio)
+    observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
     app = FastAPI(title="Mesa de modelamiento", version="0.1.0")
@@ -150,6 +161,21 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     def cambiar_estado(codigo: str, identificador: str, entrada: CambioEstado, request: Request) -> dict:
         comprobar_origen(request)
         return observaciones.actualizar_estado(codigo, identificador, **entrada.model_dump())
+
+    @app.post(
+        "/api/procesos/{codigo}/observaciones/{identificador}/definicion",
+        response_model=RegistroObservacion,
+        response_model_exclude_unset=True,
+    )
+    def definir_observacion(codigo: str, identificador: str, entrada: DefinicionEntrada, request: Request) -> dict:
+        """Una persona acoge opciones, escribe una respuesta manual o vincula a otra observación resuelta."""
+        comprobar_origen(request)
+        return observaciones.definir(codigo, identificador, **entrada.model_dump())
+
+    @app.get("/api/observaciones/etapas", response_model=ObservacionesPorEtapa)
+    def observaciones_por_etapa(etapa: str | None = None, codigo: str | None = None) -> dict:
+        """Observaciones por etapa de resolución en un proceso o en todo el árbol."""
+        return observaciones.por_etapa(etapa, codigo)
 
     @app.post(
         "/api/procesos/{codigo}/sesiones",

@@ -21,6 +21,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/observaciones/etapas": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Observaciones Por Etapa
+         * @description Observaciones por etapa de resolución en un proceso o en todo el árbol.
+         */
+        get: operations["observaciones_por_etapa_api_observaciones_etapas_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}": {
         parameters: {
             query?: never;
@@ -139,6 +159,26 @@ export interface paths {
         head?: never;
         /** Cambiar Estado */
         patch: operations["cambiar_estado_api_procesos__codigo__observaciones__identificador__patch"];
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/observaciones/{identificador}/definicion": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Definir Observacion
+         * @description Una persona acoge opciones, escribe una respuesta manual o vincula a otra observación resuelta.
+         */
+        post: operations["definir_observacion_api_procesos__codigo__observaciones__identificador__definicion_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/api/procesos/{codigo}/observaciones/{identificador}/respuestas": {
@@ -299,6 +339,55 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AnalisisVista */
+        AnalisisVista: {
+            /** Autor */
+            autor: string;
+            /** Clase */
+            clase: string;
+            /** Fecha */
+            fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
+            /** Fuentes */
+            fuentes?: string[];
+            /** Revision Modelo */
+            revision_modelo?: string | null;
+            /** Texto */
+            texto: string;
+        };
+        /** AplicacionVista */
+        AplicacionVista: {
+            /** Autor */
+            autor: string;
+            /** Cambios */
+            cambios?: string[];
+            /**
+             * Cerrada
+             * @default true
+             */
+            cerrada: boolean;
+            /** Decision */
+            decision?: string | null;
+            /** Fecha */
+            fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
+            /** Revision Modelo */
+            revision_modelo?: string | null;
+            /** Sesion */
+            sesion?: string | null;
+            /** Texto */
+            texto: string;
+            /** Validacion */
+            validacion?: string | null;
+        };
         /** ArchivoSesion */
         ArchivoSesion: {
             /** Nombre */
@@ -317,6 +406,74 @@ export interface components {
             estado: string;
             /** Revision Esperada */
             revision_esperada: string;
+        };
+        /** CorreccionVista */
+        CorreccionVista: {
+            /** Autor */
+            autor: string;
+            /** Fecha */
+            fecha: string;
+            /** Revision Modelo */
+            revision_modelo?: string | null;
+            /**
+             * Vigencia Confirmada
+             * @default false
+             */
+            vigencia_confirmada: boolean;
+        };
+        /** DefinicionEntrada */
+        DefinicionEntrada: {
+            /** Autor */
+            autor: string;
+            /**
+             * Formato
+             * @default texto
+             * @enum {string}
+             */
+            formato: "texto" | "html";
+            /** Opciones */
+            opciones?: string[];
+            /** Revision Esperada */
+            revision_esperada: string;
+            /**
+             * Texto
+             * @default
+             */
+            texto: string;
+            /**
+             * Tipo
+             * @enum {string}
+             */
+            tipo: "OPCION" | "OPCIONES" | "MANUAL" | "VINCULADA";
+            /**
+             * Vinculada A
+             * @default
+             */
+            vinculada_a: string;
+        };
+        /** DefinicionVista */
+        DefinicionVista: {
+            /** Autor */
+            autor: string;
+            /** Fecha */
+            fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
+            /** Opciones */
+            opciones?: string[];
+            /** Revision Modelo */
+            revision_modelo?: string | null;
+            /**
+             * Texto
+             * @default
+             */
+            texto: string;
+            /** Tipo */
+            tipo: string;
+            vinculada_a?: components["schemas"]["VinculoVista"] | null;
         };
         /** DocumentoCopia */
         DocumentoCopia: {
@@ -634,6 +791,24 @@ export interface components {
             /** Texto */
             texto: string;
         };
+        /** ObservacionEnEtapa */
+        ObservacionEnEtapa: {
+            /** Autor */
+            autor?: string | null;
+            /** Codigo */
+            codigo: string;
+            /** Etapa */
+            etapa: string;
+            /** Id */
+            id: string;
+            /** Referencia */
+            referencia?: string | null;
+            resolucion?: components["schemas"]["ResolucionVista"] | null;
+            /** Texto */
+            texto: string;
+            /** Tipo */
+            tipo?: string | null;
+        };
         /** ObservacionVista */
         ObservacionVista: {
             /** Actualizada */
@@ -650,6 +825,8 @@ export interface components {
              * @default ABIERTA
              */
             estado: string;
+            /** Etapa */
+            etapa?: string | null;
             /** Fecha */
             fecha: string;
             /**
@@ -666,6 +843,9 @@ export interface components {
              * @default
              */
             referencia: string;
+            resolucion?: components["schemas"]["ResolucionVista"] | null;
+            /** Resoluciones Anteriores */
+            resoluciones_anteriores?: components["schemas"]["ResolucionVista"][];
             /** Respuestas */
             respuestas?: components["schemas"]["RespuestaObservacion"][];
             /** Texto */
@@ -675,6 +855,44 @@ export interface components {
              * @default OBSERVACION
              */
             tipo: string;
+        };
+        /** ObservacionesPorEtapa */
+        ObservacionesPorEtapa: {
+            /** Etapa */
+            etapa?: string | null;
+            /** Observaciones */
+            observaciones: components["schemas"]["ObservacionEnEtapa"][];
+            /** Por Etapa */
+            por_etapa: {
+                [key: string]: number;
+            };
+            /** Total */
+            total: number;
+        };
+        /** OpcionVista */
+        OpcionVista: {
+            /** Detalle */
+            detalle: string;
+            /** Efecto */
+            efecto: string;
+            /** Elementos */
+            elementos?: string[];
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
+            /** Fuentes */
+            fuentes?: string[];
+            /** Id */
+            id: string;
+            /**
+             * Recomendada
+             * @default false
+             */
+            recomendada: boolean;
+            /** Titulo */
+            titulo: string;
         };
         /** PreparacionEntrada */
         PreparacionEntrada: {
@@ -704,6 +922,17 @@ export interface components {
             revision_sesion: number;
             validacion: components["schemas"]["ValidacionSesion"];
         };
+        /** PropuestaVista */
+        PropuestaVista: {
+            /** Autor */
+            autor: string;
+            /** Fecha */
+            fecha: string;
+            /** Opciones */
+            opciones: components["schemas"]["OpcionVista"][];
+            /** Seleccion */
+            seleccion: string;
+        };
         /** RegistroObservacion */
         RegistroObservacion: {
             /** Actualizada */
@@ -720,6 +949,8 @@ export interface components {
              * @default ABIERTA
              */
             estado: string;
+            /** Etapa */
+            etapa?: string | null;
             /** Fecha */
             fecha: string;
             /**
@@ -736,6 +967,9 @@ export interface components {
              * @default
              */
             referencia: string;
+            resolucion?: components["schemas"]["ResolucionVista"] | null;
+            /** Resoluciones Anteriores */
+            resoluciones_anteriores?: components["schemas"]["ResolucionVista"][];
             /** Respuestas */
             respuestas?: components["schemas"]["RespuestaObservacion"][];
             /** Revision */
@@ -747,6 +981,14 @@ export interface components {
              * @default OBSERVACION
              */
             tipo: string;
+        };
+        /** ResolucionVista */
+        ResolucionVista: {
+            analisis?: components["schemas"]["AnalisisVista"] | null;
+            aplicacion?: components["schemas"]["AplicacionVista"] | null;
+            correccion?: components["schemas"]["CorreccionVista"] | null;
+            definicion?: components["schemas"]["DefinicionVista"] | null;
+            propuesta?: components["schemas"]["PropuestaVista"] | null;
         };
         /** RespuestaObservacion */
         RespuestaObservacion: {
@@ -820,6 +1062,13 @@ export interface components {
             /** Error Type */
             type: string;
         };
+        /** VinculoVista */
+        VinculoVista: {
+            /** Id */
+            id: string;
+            /** Referencia */
+            referencia?: string | null;
+        };
     };
     responses: never;
     parameters: never;
@@ -845,6 +1094,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["NodoArbol"];
+                };
+            };
+        };
+    };
+    observaciones_por_etapa_api_observaciones_etapas_get: {
+        parameters: {
+            query?: {
+                etapa?: string | null;
+                codigo?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ObservacionesPorEtapa"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -1088,6 +1369,42 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["CambioEstado"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistroObservacion"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    definir_observacion_api_procesos__codigo__observaciones__identificador__definicion_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                identificador: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DefinicionEntrada"];
             };
         };
         responses: {

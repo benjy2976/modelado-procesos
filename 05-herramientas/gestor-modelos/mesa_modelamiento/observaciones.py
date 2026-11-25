@@ -156,6 +156,7 @@ class ServicioObservaciones:
                     "autor": autor.strip(),
                     "tipo": tipo,
                     "estado": "ABIERTA",
+                    "etapa": "REGISTRADA",
                     "fecha": fecha,
                     "historial": [{"accion": "CREADA", "fecha": fecha, "autor": autor.strip()}],
                     "respuestas": [],
@@ -214,6 +215,12 @@ class ServicioObservaciones:
                 fecha = datetime.now(timezone.utc).isoformat()
                 registro["estado"] = estado
                 registro["actualizada"] = fecha
+                if estado == "RESUELTA":
+                    registro["etapa"] = "RESUELTA"
+                else:  # Reabrir conserva la resolución anterior y reinicia el ciclo de etapas (DEC-065).
+                    if registro.get("resolucion"):
+                        registro.setdefault("resoluciones_anteriores", []).append(registro.pop("resolucion"))
+                    registro["etapa"] = "REGISTRADA"
                 evento = {"accion": "ESTADO_CAMBIADO", "fecha": fecha, "estado": estado}
                 if autor.strip():
                     evento["autor"] = autor.strip()

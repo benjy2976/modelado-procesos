@@ -1,6 +1,141 @@
 {
   "components": {
     "schemas": {
+      "AnalisisVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "clase": {
+            "title": "Clase",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
+          "fuentes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Fuentes",
+            "type": "array"
+          },
+          "revision_modelo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Modelo"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "texto",
+          "clase",
+          "autor",
+          "fecha"
+        ],
+        "title": "AnalisisVista",
+        "type": "object"
+      },
+      "AplicacionVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "cambios": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Cambios",
+            "type": "array"
+          },
+          "cerrada": {
+            "default": true,
+            "title": "Cerrada",
+            "type": "boolean"
+          },
+          "decision": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
+          "revision_modelo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Modelo"
+          },
+          "sesion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sesion"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "validacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validacion"
+          }
+        },
+        "required": [
+          "texto",
+          "autor",
+          "fecha"
+        ],
+        "title": "AplicacionVista",
+        "type": "object"
+      },
       "ArchivoSesion": {
         "properties": {
           "nombre": {
@@ -47,6 +182,160 @@
           "revision_esperada"
         ],
         "title": "CambioEstado",
+        "type": "object"
+      },
+      "CorreccionVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "revision_modelo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Modelo"
+          },
+          "vigencia_confirmada": {
+            "default": false,
+            "title": "Vigencia Confirmada",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "autor",
+          "fecha"
+        ],
+        "title": "CorreccionVista",
+        "type": "object"
+      },
+      "DefinicionEntrada": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "enum": [
+              "texto",
+              "html"
+            ],
+            "title": "Formato",
+            "type": "string"
+          },
+          "opciones": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8,
+            "title": "Opciones",
+            "type": "array"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "default": "",
+            "maxLength": 20000,
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "enum": [
+              "OPCION",
+              "OPCIONES",
+              "MANUAL",
+              "VINCULADA"
+            ],
+            "title": "Tipo",
+            "type": "string"
+          },
+          "vinculada_a": {
+            "default": "",
+            "title": "Vinculada A",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tipo",
+          "autor",
+          "revision_esperada"
+        ],
+        "title": "DefinicionEntrada",
+        "type": "object"
+      },
+      "DefinicionVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
+          "opciones": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Opciones",
+            "type": "array"
+          },
+          "revision_modelo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Modelo"
+          },
+          "texto": {
+            "default": "",
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          },
+          "vinculada_a": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VinculoVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "tipo",
+          "autor",
+          "fecha"
+        ],
+        "title": "DefinicionVista",
         "type": "object"
       },
       "DocumentoCopia": {
@@ -716,6 +1005,77 @@
         "title": "NuevaRespuesta",
         "type": "object"
       },
+      "ObservacionEnEtapa": {
+        "properties": {
+          "autor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Autor"
+          },
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "etapa": {
+            "title": "Etapa",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "referencia": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Referencia"
+          },
+          "resolucion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResolucionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tipo"
+          }
+        },
+        "required": [
+          "codigo",
+          "id",
+          "etapa",
+          "texto"
+        ],
+        "title": "ObservacionEnEtapa",
+        "type": "object"
+      },
       "ObservacionVista": {
         "properties": {
           "actualizada": {
@@ -743,6 +1103,17 @@
             "title": "Estado",
             "type": "string"
           },
+          "etapa": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etapa"
+          },
           "fecha": {
             "title": "Fecha",
             "type": "string"
@@ -768,6 +1139,23 @@
             "title": "Referencia",
             "type": "string"
           },
+          "resolucion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResolucionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resoluciones_anteriores": {
+            "items": {
+              "$ref": "#/components/schemas/ResolucionVista"
+            },
+            "title": "Resoluciones Anteriores",
+            "type": "array"
+          },
           "respuestas": {
             "items": {
               "$ref": "#/components/schemas/RespuestaObservacion"
@@ -792,6 +1180,98 @@
           "fecha"
         ],
         "title": "ObservacionVista",
+        "type": "object"
+      },
+      "ObservacionesPorEtapa": {
+        "properties": {
+          "etapa": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etapa"
+          },
+          "observaciones": {
+            "items": {
+              "$ref": "#/components/schemas/ObservacionEnEtapa"
+            },
+            "title": "Observaciones",
+            "type": "array"
+          },
+          "por_etapa": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Por Etapa",
+            "type": "object"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total",
+          "por_etapa",
+          "observaciones"
+        ],
+        "title": "ObservacionesPorEtapa",
+        "type": "object"
+      },
+      "OpcionVista": {
+        "properties": {
+          "detalle": {
+            "title": "Detalle",
+            "type": "string"
+          },
+          "efecto": {
+            "title": "Efecto",
+            "type": "string"
+          },
+          "elementos": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Elementos",
+            "type": "array"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
+          "fuentes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Fuentes",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "recomendada": {
+            "default": false,
+            "title": "Recomendada",
+            "type": "boolean"
+          },
+          "titulo": {
+            "title": "Titulo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "titulo",
+          "detalle",
+          "efecto"
+        ],
+        "title": "OpcionVista",
         "type": "object"
       },
       "PreparacionEntrada": {
@@ -869,6 +1349,37 @@
         "title": "PreparacionSesion",
         "type": "object"
       },
+      "PropuestaVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "opciones": {
+            "items": {
+              "$ref": "#/components/schemas/OpcionVista"
+            },
+            "title": "Opciones",
+            "type": "array"
+          },
+          "seleccion": {
+            "title": "Seleccion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "seleccion",
+          "opciones",
+          "autor",
+          "fecha"
+        ],
+        "title": "PropuestaVista",
+        "type": "object"
+      },
       "RegistroObservacion": {
         "properties": {
           "actualizada": {
@@ -896,6 +1407,17 @@
             "title": "Estado",
             "type": "string"
           },
+          "etapa": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etapa"
+          },
           "fecha": {
             "title": "Fecha",
             "type": "string"
@@ -920,6 +1442,23 @@
             "default": "",
             "title": "Referencia",
             "type": "string"
+          },
+          "resolucion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResolucionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resoluciones_anteriores": {
+            "items": {
+              "$ref": "#/components/schemas/ResolucionVista"
+            },
+            "title": "Resoluciones Anteriores",
+            "type": "array"
           },
           "respuestas": {
             "items": {
@@ -950,6 +1489,62 @@
           "revision"
         ],
         "title": "RegistroObservacion",
+        "type": "object"
+      },
+      "ResolucionVista": {
+        "properties": {
+          "analisis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AnalisisVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aplicacion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AplicacionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "correccion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CorreccionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "definicion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DefinicionVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "propuesta": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PropuestaVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "ResolucionVista",
         "type": "object"
       },
       "RespuestaObservacion": {
@@ -1150,6 +1745,30 @@
         ],
         "title": "ValidationError",
         "type": "object"
+      },
+      "VinculoVista": {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "referencia": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Referencia"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "VinculoVista",
+        "type": "object"
       }
     }
   },
@@ -1175,6 +1794,69 @@
           }
         },
         "summary": "Arbol"
+      }
+    },
+    "/api/observaciones/etapas": {
+      "get": {
+        "description": "Observaciones por etapa de resolución en un proceso o en todo el árbol.",
+        "operationId": "observaciones_por_etapa_api_observaciones_etapas_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "etapa",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Etapa"
+            }
+          },
+          {
+            "in": "query",
+            "name": "codigo",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Codigo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservacionesPorEtapa"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Observaciones Por Etapa"
       }
     },
     "/api/procesos/{codigo}": {
@@ -1553,6 +2235,65 @@
           }
         },
         "summary": "Cambiar Estado"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}/definicion": {
+      "post": {
+        "description": "Una persona acoge opciones, escribe una respuesta manual o vincula a otra observación resuelta.",
+        "operationId": "definir_observacion_api_procesos__codigo__observaciones__identificador__definicion_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DefinicionEntrada"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Definir Observacion"
       }
     },
     "/api/procesos/{codigo}/observaciones/{identificador}/respuestas": {

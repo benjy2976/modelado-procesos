@@ -12,8 +12,8 @@ from . import auditoria, conocimiento, generacion
 from . import fuentes_anclaje as anclaje
 from . import fuentes_busqueda as busqueda
 from .documentos import ServicioDocumentos
-from .observaciones import ServicioObservaciones
 from .repositorio import ErrorDominio, RepositorioProcesos
+from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
 
 # Alias con el que el agente de IA firma sus registros en el ciclo de retroalimentación (DEC-064).
@@ -35,7 +35,7 @@ def _errores_de_dominio(funcion: Callable) -> Callable:
 
 def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     repositorio = repositorio or RepositorioProcesos.desde_entorno()
-    observaciones = ServicioObservaciones(repositorio)
+    observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
     servidor = MCPServer(
@@ -103,6 +103,77 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     def cambiar_estado_observacion(codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
         """Abre o resuelve una observación; no aprueba el proceso ni su sustento."""
         return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, AUTOR_AGENTE)
+
+    @herramienta()
+    def registrar_analisis(
+        codigo: str,
+        identificador: str,
+        texto: str,
+        clase: str,
+        revision_esperada: str,
+        fuentes: list[str] | None = None,
+        formato: str = "texto",
+    ) -> dict:
+        """Etapa EN-ANALISIS (DEC-065): qué entiende el agente, contexto consultado y clase del problema.
+
+        clase: ERROR-MODELO, EXPLICACION-AUSENTE, DIFERENCIA-CRITERIO, FALTA-EVIDENCIA o FUERA-DE-ALCANCE.
+        fuentes: rutas, IDs de documento, reglas o decisiones consultadas."""
+        return observaciones.registrar_analisis(
+            codigo, identificador, texto=texto, clase=clase, autor=AUTOR_AGENTE,
+            revision_esperada=revision_esperada, fuentes=fuentes, formato=formato,
+        )  # fmt: skip
+
+    @herramienta()
+    def registrar_propuesta(
+        codigo: str, identificador: str, opciones: list[dict], revision_esperada: str, seleccion: str = "UNICA"
+    ) -> dict:
+        """Etapa PROPUESTA (DEC-065): 1 a 8 opciones para que una persona elija en la web.
+
+        Cada opción: titulo, detalle, efecto (CAMBIO-MODELO, CAMBIO-SUSTENTO, DECISION, ACLARACION, NO-PROCEDE,
+        PENDIENTE-EVIDENCIA), elementos, fuentes, recomendada y formato. seleccion: UNICA o MULTIPLE.
+        El agente nunca define: la definición la hace una persona."""
+        return observaciones.registrar_propuesta(
+            codigo, identificador, opciones=opciones, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
+            seleccion=seleccion,
+        )  # fmt: skip
+
+    @herramienta()
+    def observaciones_por_etapa(etapa: str | None = None, codigo: str | None = None) -> dict:
+        """Observaciones por etapa (REGISTRADA, EN-ANALISIS, PROPUESTA, DEFINIDA, EN-CORRECCION,
+        PENDIENTE-EVIDENCIA, RESUELTA) en un proceso o en todo el árbol, con su resolución."""
+        return observaciones.por_etapa(etapa, codigo)
+
+    @herramienta()
+    def iniciar_correccion(
+        codigo: str, identificador: str, revision_esperada: str, confirmar_vigencia: bool = False
+    ) -> dict:
+        """Etapa EN-CORRECCION de una observación DEFINIDA. Si la tabla cambió desde la definición, confirme
+        que la definición sigue aplicando o vuelva a analizar."""
+        return observaciones.iniciar_correccion(
+            codigo, identificador, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
+            confirmar_vigencia=confirmar_vigencia,
+        )  # fmt: skip
+
+    @herramienta()
+    def registrar_aplicacion(
+        codigo: str,
+        identificador: str,
+        texto: str,
+        revision_esperada: str,
+        cerrar: bool = True,
+        sesion: str = "",
+        cambios: list[str] | None = None,
+        validacion: str = "",
+        decision: str = "",
+        formato: str = "texto",
+    ) -> dict:
+        """Cierra una observación con evidencia de lo aplicado (sesión, cambios, D1-D5, decisión DEC-NNN).
+
+        Con cerrar=False queda en PENDIENTE-EVIDENCIA. Un CAMBIO-MODELO exige la sesión que lo integró."""
+        return observaciones.registrar_aplicacion(
+            codigo, identificador, texto=texto, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
+            cerrar=cerrar, sesion=sesion, cambios=cambios, validacion=validacion, decision=decision, formato=formato,
+        )  # fmt: skip
 
     @herramienta()
     def leer_elemento(codigo: str, identificador: str) -> dict:

@@ -8,8 +8,8 @@ import sys
 from pathlib import Path
 
 from .documentos import ServicioDocumentos
-from .observaciones import ServicioObservaciones
 from .repositorio import ErrorDominio, RepositorioProcesos
+from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
 
 # Operaciones que escriben textos derivados; tras ellas el índice legible se regenera.
@@ -176,6 +176,33 @@ def _argumentos() -> argparse.ArgumentParser:
     estado.add_argument("--valor", choices=["ABIERTA", "RESUELTA"], required=True)
     estado.add_argument("--revision", required=True)
     estado.add_argument("--autor", default="")
+    for operacion, ayuda in (
+        ("analizar", "Etapa EN-ANALISIS (agente)"),
+        ("proponer", "Etapa PROPUESTA con opciones (agente)"),
+        ("definir", "Etapa DEFINIDA (persona)"),
+        ("corregir", "Etapa EN-CORRECCION (agente)"),
+        ("aplicar", "Cierre con evidencia o espera de evidencia (agente)"),
+    ):
+        etapa_cli = operaciones.add_parser(operacion, help=ayuda)
+        etapa_cli.add_argument("codigo")
+        etapa_cli.add_argument("identificador")
+        etapa_cli.add_argument("--autor", required=True)
+        etapa_cli.add_argument("--revision", required=True)
+        if operacion != "corregir":
+            etapa_cli.add_argument(
+                "--archivo", type=Path, required=operacion != "definir",
+                help="JSON con los campos de la etapa (texto, clase, fuentes, opciones, seleccion, etc.)",
+            )  # fmt: skip
+        if operacion == "definir":
+            etapa_cli.add_argument("--tipo", choices=["OPCION", "OPCIONES", "MANUAL", "VINCULADA"], required=True)
+            etapa_cli.add_argument("--opcion", action="append", default=[])
+            etapa_cli.add_argument("--texto", default="")
+            etapa_cli.add_argument("--vinculada-a", default="")
+        if operacion == "corregir":
+            etapa_cli.add_argument("--confirmar-vigencia", action="store_true")
+    por_etapa = operaciones.add_parser("etapas", help="Observaciones por etapa en un proceso o en todo el árbol")
+    por_etapa.add_argument("--etapa")
+    por_etapa.add_argument("--codigo")
     modelo = grupos.add_parser("modelo", help="Ejecutar el generador vigente sin cambiar su contrato")
     modelo.add_argument("codigo")
     modelo.add_argument("--check", action="store_true")
@@ -261,6 +288,26 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
         raiz, args.consulta, modo=args.modo, tema=args.tema, con_relacionados=args.con_relacionados,
         filtros=filtros, limite=args.limite, max_caracteres=args.max_caracteres,
     )  # fmt: skip
+
+
+def _etapa_observacion(observaciones: ServicioResolucion, args: argparse.Namespace) -> object:
+    comunes = {"autor": args.autor, "revision_esperada": args.revision}
+    if args.operacion == "corregir":
+        return observaciones.iniciar_correccion(
+            args.codigo, args.identificador, **comunes, confirmar_vigencia=args.confirmar_vigencia
+        )
+    datos = json.loads(args.archivo.read_text(encoding="utf-8")) if getattr(args, "archivo", None) else {}
+    if args.operacion == "analizar":
+        return observaciones.registrar_analisis(args.codigo, args.identificador, **comunes, **datos)
+    if args.operacion == "proponer":
+        return observaciones.registrar_propuesta(args.codigo, args.identificador, **comunes, **datos)
+    if args.operacion == "definir":
+        return observaciones.definir(
+            args.codigo, args.identificador, **comunes, tipo=args.tipo, opciones=args.opcion or datos.get("opciones"),
+            texto=args.texto or datos.get("texto", ""), formato=datos.get("formato", "texto"),
+            vinculada_a=args.vinculada_a or datos.get("vinculada_a", ""),
+        )  # fmt: skip
+    return observaciones.registrar_aplicacion(args.codigo, args.identificador, **comunes, **datos)
 
 
 def _conocimiento(repositorio: RepositorioProcesos, args: argparse.Namespace) -> object:
@@ -370,7 +417,7 @@ def ejecutar(args: argparse.Namespace) -> object:
             print(json.dumps(resultado, ensure_ascii=False, indent=2))
             return 1
         return resultado
-    observaciones = ServicioObservaciones(repositorio)
+    observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
     if args.grupo == "sesiones":
@@ -405,6 +452,10 @@ def ejecutar(args: argparse.Namespace) -> object:
     if args.grupo == "observaciones":
         if args.operacion == "listar":
             return observaciones.listar(args.codigo)
+        if args.operacion == "etapas":
+            return observaciones.por_etapa(args.etapa, args.codigo)
+        if args.operacion in ("analizar", "proponer", "definir", "corregir", "aplicar"):
+            return _etapa_observacion(observaciones, args)
         if args.operacion == "responder":
             return observaciones.responder(
                 args.codigo, args.identificador, args.texto, args.autor, args.revision, args.formato

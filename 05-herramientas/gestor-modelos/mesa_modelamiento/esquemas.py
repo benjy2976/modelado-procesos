@@ -92,6 +92,78 @@ class RespuestaObservacion(BaseModel):
     fecha: str
 
 
+class AnalisisVista(BaseModel):
+    texto: str
+    formato: str = "texto"
+    clase: str
+    fuentes: list[str] = Field(default_factory=list)
+    autor: str
+    fecha: str
+    revision_modelo: str | None = None
+
+
+class OpcionVista(BaseModel):
+    id: str
+    titulo: str
+    detalle: str
+    formato: str = "texto"
+    efecto: str
+    elementos: list[str] = Field(default_factory=list)
+    fuentes: list[str] = Field(default_factory=list)
+    recomendada: bool = False
+
+
+class PropuestaVista(BaseModel):
+    seleccion: str
+    opciones: list[OpcionVista]
+    autor: str
+    fecha: str
+
+
+class VinculoVista(BaseModel):
+    id: str
+    referencia: str | None = None
+
+
+class DefinicionVista(BaseModel):
+    tipo: str
+    opciones: list[str] = Field(default_factory=list)
+    texto: str = ""
+    formato: str = "texto"
+    vinculada_a: VinculoVista | None = None
+    autor: str
+    fecha: str
+    revision_modelo: str | None = None
+
+
+class CorreccionVista(BaseModel):
+    autor: str
+    fecha: str
+    revision_modelo: str | None = None
+    vigencia_confirmada: bool = False
+
+
+class AplicacionVista(BaseModel):
+    texto: str
+    formato: str = "texto"
+    sesion: str | None = None
+    cambios: list[str] = Field(default_factory=list)
+    validacion: str | None = None
+    decision: str | None = None
+    autor: str
+    fecha: str
+    cerrada: bool = True
+    revision_modelo: str | None = None
+
+
+class ResolucionVista(BaseModel):
+    analisis: AnalisisVista | None = None
+    propuesta: PropuestaVista | None = None
+    definicion: DefinicionVista | None = None
+    correccion: CorreccionVista | None = None
+    aplicacion: AplicacionVista | None = None
+
+
 class ObservacionVista(BaseModel):
     id: str
     elemento: str = ""
@@ -101,10 +173,13 @@ class ObservacionVista(BaseModel):
     autor: str
     tipo: str = "OBSERVACION"
     estado: str = "ABIERTA"
+    etapa: str | None = None
     fecha: str
     actualizada: str | None = None
     historial: list[EventoObservacion] = Field(default_factory=list)
     respuestas: list[RespuestaObservacion] = Field(default_factory=list)
+    resolucion: ResolucionVista | None = None
+    resoluciones_anteriores: list[ResolucionVista] = Field(default_factory=list)
 
 
 class ListadoObservaciones(BaseModel):
@@ -166,3 +241,21 @@ class IntegracionVista(BaseModel):
     codigo: str
     estado: str
     cambios: list[str]
+
+
+class ObservacionEnEtapa(BaseModel):
+    codigo: str
+    id: str
+    referencia: str | None = None
+    tipo: str | None = None
+    etapa: str
+    autor: str | None = None
+    texto: str
+    resolucion: ResolucionVista | None = None
+
+
+class ObservacionesPorEtapa(BaseModel):
+    etapa: str | None = None
+    total: int
+    por_etapa: dict[str, int]
+    observaciones: list[ObservacionEnEtapa]
