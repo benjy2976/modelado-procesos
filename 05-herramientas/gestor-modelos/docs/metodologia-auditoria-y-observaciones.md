@@ -6,7 +6,7 @@ estado_documento: BORRADOR
 clase_conocimiento: PROPUESTA
 proceso: []
 fecha_creacion: 2026-11-20
-fecha_actualizacion: 2026-11-24
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -110,6 +110,47 @@ El registro de atención añade eventos inmutables: recepción, interpretación,
 El estado actual del [modelo de datos](modelo-datos.md) solo conserva `ABIERTA`/`RESUELTA`, respuestas e historial básico. Los tipos de atención, vínculos a cambios, etapas `EN-ANALISIS`/`EN-CORRECCION` y reapertura detallada son **ampliaciones por implementar** en el mismo servicio de dominio, expuestas a CLI, API y MCP. La escritura requiere revisión esperada. Varios usuarios pueden aportar observaciones; un único editor activo modifica la copia del modelo. Un conflicto de revisión suspende esa integración y obliga a recalcular la atención sobre la versión vigente.
 
 La resolución por agente no constituye revisión humana ni validación de una regla. El agente puede aplicar un cambio mediante el [MCP existente](mcp.md) y la [sesión recuperable](sesiones-edicion.md) dentro de los controles técnicos ya autorizados; el registro debe distinguir `PROPUESTO`, `INTEGRADO` y `VERIFICADO-POR-PERSONA` cuando exista tal intervención, sin inventarla.
+
+### Objetivo del ciclo de retroalimentación (`DEC-064`)
+
+Definido por el usuario el 2026-11-25:
+
+1. **Observar.** Cada usuario puede observar o comentar el diagrama completo o una caja concreta, sobre la versión que está viendo.
+2. **Revisar.** El equipo revisa los registros abiertos de uno en uno, con la tabla, el sustento y las fuentes.
+3. **Resolver y documentar.** Cada registro se cierra con su atención documentada. La atención puede producir un cambio del diagrama o del sustento, o una **decisión** que se registra en el [registro de decisiones](../../../00-gobernanza/registro-decisiones.md) y se vincula al registro que la originó.
+4. **Claudia como actor.** El agente de IA participa con el alias **Claudia**: registra dudas y observaciones propias, propone atenciones y aplica cambios autorizados. Sus registros quedan identificados con ese alias. No sustituye la revisión humana ni marca conformidades.
+
+Primer experimento: S4.3.2.6 y S4.3.2.5, con 14 registros de Claudia. Las limitaciones que revele el uso se anotan como requisitos de M4 y M5. Las primeras son:
+- para observar una caja nueva hay que adoptar antes el BPMN;
+- el elemento se identifica por el ID interno del BPMN y no por el de la tabla;
+- solo hay estados `ABIERTA` y `RESUELTA`;
+- no se guarda la revisión del modelo observada;
+- el autor no distingue persona de agente;
+- no hay campo para distinguir una duda de una observación;
+- el texto era solo plano (atendido el 2026-11-25: formato `html` saneado, editor sencillo, formulario plegable y panel redimensionable);
+- una caja retirada deja su registro sin aviso.
+
+### Etapas de resolución de cada observación (`DEC-065`)
+
+Definidas por el usuario el 2026-11-25. Toda observación, la registre una persona o Claudia, recorre estas etapas. Funciona como las preguntas que el agente hace en el chat, pero en la web y con trazabilidad.
+
+| Etapa | Quién actúa | Qué queda registrado |
+|---|---|---|
+| 1. `REGISTRADA` | Usuario o Claudia | Texto, autor, caja o diagrama y revisión del modelo observada. |
+| 2. `EN-ANALISIS` | Agente (Claudia) | Qué entiende del problema, contexto consultado (tabla, sustento, fuentes, decisiones) y clase: error del modelo, explicación ausente, diferencia de criterio, falta de evidencia o fuera de alcance. |
+| 3. `PROPUESTA` | Agente (Claudia) | Una o varias opciones de solución. Cada una tiene título, detalle, efecto previsto (cambio del modelo, cambio del sustento, decisión, no procede o pendiente de evidencia), cajas afectadas, fuentes y si es la recomendada. Se indica si admite elegir una o varias. |
+| 4. `DEFINIDA` | Persona | La persona acoge una opción, varias compatibles o una opción manual escrita por ella, o vincula la observación a otra ya resuelta. Se registran el autor, la fecha y, si corresponde, la decisión del registro de decisiones. |
+| 5. `EN-CORRECCION` | Agente, 100 % IA por MCP | En otra pasada, el agente aplica lo definido: edita la tabla, el sustento u otro documento en una sesión recuperable, regenera el modelo y ejecuta D1–D5. |
+| 6. `RESUELTA` | Agente, con evidencia | Sesión, diff, hashes anterior y nuevo, resultado de D1–D5 y decisión vinculada. La persona puede verificarla o reabrirla sin perder el historial. |
+
+Reglas:
+- El agente propone, pero nunca elige por la persona: solo una persona puede pasar una observación a `DEFINIDA`.
+- La pasada de corrección solo toma observaciones `DEFINIDA` y aplica exactamente la opción acogida. Si la revisión del modelo cambió desde la definición, se detiene y vuelve a análisis.
+- Una observación vinculada hereda la resolución de la otra, pero conserva su propio registro y su motivo.
+- `ABIERTA` y `RESUELTA` se conservan como estado resumido para compatibilidad. La etapa detallada es un campo nuevo.
+- Ninguna etapa equivale a revisión de equipo, opinión técnica ni aprobación.
+
+**Objetivo de la consola de observaciones (M5, por planificar).** Una vista que liste todas las observaciones de todos los procesos con su estado, como pendiente, en análisis, pendiente de evidencia, vinculada a otra, resuelta o no procede. Debe permitir filtrar por proceso, caja, autor y estado, y abrir la línea de tiempo de cada registro hasta el cambio o la decisión que lo cerró. Su diseño se planificará más adelante; este objetivo fija el alcance esperado.
 
 ## 3. Consola y orden de implementación
 

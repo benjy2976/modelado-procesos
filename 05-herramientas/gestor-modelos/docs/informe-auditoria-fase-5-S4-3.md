@@ -151,6 +151,6 @@ La corrida queda con 9 procesos `CON-HALLAZGOS`, 2 `COMPLETO` (S4.3.2.3 y S4.3.2
 2. El alcance por régimen de S4.3.2.6 y el destino del 202.3 (S4.3.2.1 o S4.3.2.5).
 3. Si se crea o asigna un proceso destino para la resolución del contrato, y si se modela S4.3.3.
 
-**Decisión del 2026-11-25 (`DEC-061`).** La etapa se cierra con los procesos ya definidos. El proceso de resolución del contrato, el tratamiento de la nulidad atribuible al contratista y una eventual variante en diagrama propio de S4.3.2.6 para la Ley 31589 quedan como ampliaciones diferidas en [Alcance](../../../00-gobernanza/alcance.md#ampliaciones-de-alcance-diferidas). S4.3.3 ya figura en el árbol y sigue en alcance.
+**Decisión del 2026-11-25 (`DEC-061`).** La etapa se cierra con los procesos ya definidos. El proceso de resolución del contrato, el tratamiento de la nulidad atribuible al contratista y una eventual variante en diagrama propio de S4.3.2.6 para la Ley 31589 quedan como ampliaciones diferidas en [Alcance](../../../00-gobernanza/alcance.md#ampliaciones-de-alcance-diferidas). S4.3.3 ya figura en el árbol, pero también se difiere por decisión del usuario (`DEC-062`); el candidato de interfaz `HIJO-SIN-MODELO` se explica por esa decisión.
 
 El silencio o las métricas no equivalen a conformidad.
