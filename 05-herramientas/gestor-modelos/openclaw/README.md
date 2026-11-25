@@ -33,9 +33,9 @@ con los scripts de `ia-familiar/tmp/openclaw-diag/` (217 y 218), que usan los ar
 
 | Flujo | Disparo | Agente y modelo propuesto | Resultado |
 |---|---|---|---|
-| Análisis | Botón «Solicitar análisis a Claudia» (o reanálisis con motivo) encola `ANALISIS` y despierta al agente por el relevo | `mesa-analisis`, GPT-6.1 Sol | Análisis y propuesta registrados en la observación (etapa PROPUESTA) |
-| Aplicación | Definir una resolución encola `APLICACION`; la automatización de OpenClaw despierta al agente cada 10 min | `mesa-aplicacion`, GPT-6.1 Sol | Cambios aplicados por lote de proceso en una sesión de edición, aplicación registrada y trabajo cerrado |
-| Chat | Pestaña «Asistente» del espacio de trabajo | `mesa-chat`, GPT-6.1 Sol | Respuesta en streaming; las variaciones quedan preparadas en una copia que la persona revisa y aplica |
+| Análisis | Botón «Solicitar análisis a Claudia» (o reanálisis con motivo) encola `ANALISIS` y despierta al agente por el relevo | `mesa-analisis`, GPT-6.2 Sol | Análisis y propuesta registrados en la observación (etapa PROPUESTA) |
+| Aplicación | Definir una resolución encola `APLICACION`; la automatización de OpenClaw despierta al agente cada 10 min | `mesa-aplicacion`, GPT-6.1 Terra | Cambios aplicados por lote de proceso en una sesión de edición, aplicación registrada y trabajo cerrado |
+| Chat | Pestaña «Asistente» del espacio de trabajo | `mesa-chat`, GPT-6.1 Terra | Respuesta en streaming; las variaciones quedan preparadas en una copia que la persona revisa y aplica |
 
 Los modelos se confirman con la prueba sobre las cuestiones de S4.3.2.6 (comparación con una revisión directa).
 
@@ -72,9 +72,17 @@ Lecciones de la puesta en marcha del 2026-11-25:
   («No callable tools remain after resolving explicit tool allowlist»). Se usa `messaging`, que sí lo carga, con la
   lista explícita de herramientas MCP y la negación de las nativas (`browser`, `edit`, `exec`, `read`, `write` y
   otras), como el agente `cse-bim` de la misma instalación. `preparar_instalacion.py` ya genera esa forma.
-- **Modelos.** La versión instalada de OpenClaw (2026.11.6) no admite asignar `gpt-6.1-terra` ni `gpt-6.2-*`
-  («Unknown model»), aunque el catálogo vivo de la cuenta los ofrece. Por decisión del operador los tres agentes usan
-  `gpt-6.1-sol` hasta actualizar OpenClaw; entonces se reevalúan Sol 6.2 y Terra con la prueba de S4.3.2.6.
+- **Modelos.** OpenClaw 2026.11.6 no admitía asignar `gpt-6.1-terra` ni `gpt-6.2-*` («Unknown model»); desde
+  2026.11.10 sí. Se restableció el plan: `gpt-6.2-sol` para análisis y `gpt-6.1-terra` para aplicación y chat.
+- **Code Mode desactivado.** Con Code Mode el agente recibe una herramienta `exec` de JavaScript que corre en el
+  proceso del Gateway, sin frontera de seguridad. Como los agentes reciben texto de la web pública, cada modelo de
+  agente declara `codeMode: false` (lo genera `preparar_instalacion.py`). Se comprueba pidiendo al agente la lista de
+  sus herramientas: no debe aparecer `exec`.
 - **Entradas de modelos sobrantes.** `openclaw doctor` puede agregar entradas heredadas (`gpt-5.6-*`) a cada
   agente. Cada agente `mesa-*` debe declarar solo su modelo; las demás se retiran con
   `openclaw config unset 'agents.entries.<id>.models["openai/<modelo>"]'`, probando antes con `--dry-run`.
+- **Actualizar OpenClaw.** `openclaw update` reinstala el servicio del Gateway y exige resolver
+  `OPENCLAW_GATEWAY_TOKEN`; en esta instalación el servicio lo recibe por `EnvironmentFile` en un archivo
+  complementario de systemd, y la reinstalación falla y deja el Gateway detenido. Tras actualizar se comprueba
+  `systemctl --user is-active openclaw-gateway.service` y, si está detenido, se arranca. Antes de actualizar:
+  `openclaw backup create --verify` y `openclaw update --dry-run`.

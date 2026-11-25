@@ -29,7 +29,9 @@ def preparar(destino: Path) -> dict:
     for agente, datos in configuracion["agentes"].items():
         permitidas = [f"{servidor}__{herramienta}" for herramienta in datos["herramientas"]]
         entradas[agente] = {
-            "models": {datos["modelo"]: {"agentRuntime": {"id": "openclaw"}}},
+            # Code Mode expone una herramienta `exec` de JavaScript que corre en el proceso del Gateway; los agentes
+            # reciben texto de la web pública, así que se desactiva (docs.openclaw.ai/tools/code-mode).
+            "models": {datos["modelo"]: {"agentRuntime": {"id": "openclaw"}, "codeMode": False}},
             "tools": {
                 "profile": PERFIL,
                 "allow": permitidas,

@@ -6,7 +6,7 @@
   "agentes": {
     "mesa-analisis": {
       "nombre": "Claudia — análisis de observaciones",
-      "modelo": "openai/gpt-6.1-sol",
+      "modelo": "openai/gpt-6.2-sol",
       "herramientas": [
         "listar_procesos",
         "leer_proceso",
@@ -44,7 +44,7 @@
     },
     "mesa-aplicacion": {
       "nombre": "Claudia — aplicación de resoluciones",
-      "modelo": "openai/gpt-6.1-sol",
+      "modelo": "openai/gpt-6.1-terra",
       "herramientas": [
         "listar_procesos",
         "leer_proceso",
@@ -97,7 +97,7 @@
     },
     "mesa-chat": {
       "nombre": "Claudia — asistente de la mesa",
-      "modelo": "openai/gpt-6.1-sol",
+      "modelo": "openai/gpt-6.1-terra",
       "herramientas": [
         "listar_procesos",
         "leer_proceso",
