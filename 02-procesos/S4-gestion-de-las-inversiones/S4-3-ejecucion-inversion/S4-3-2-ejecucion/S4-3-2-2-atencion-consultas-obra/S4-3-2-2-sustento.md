@@ -201,3 +201,10 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - la condición del año en E-G1;
   - un mensaje explícito hacia los procesos de modificación.
 
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+- **Interfaz con S4.3.2.3.** E-F1 envía además la respuesta como antecedente a S4.3.2.3, que la recibe en R-E1. Una anotación precisa que solo es relevante cuando la respuesta identifica un adicional (E-G3).
+- **Causal de ampliación (190.4).** Se anota en el inicio de S4.3.2.4, no aquí; la obligación queda pendiente de una salida explícita si el equipo lo decide.
+- **Generación.** D1-D5 sin hallazgos nuevos.
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-2/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

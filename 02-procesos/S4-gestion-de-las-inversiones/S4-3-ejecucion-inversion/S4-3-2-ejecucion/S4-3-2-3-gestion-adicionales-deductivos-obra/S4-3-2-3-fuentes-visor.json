@@ -1391,37 +1391,6 @@
         "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
         "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
         "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
-        "pagina": 110,
-        "ubicacion": "art. 194.3 (texto vigente)",
-        "fragmento": "bastando con su publicación en la Pladicop para que surta todos sus efectos. Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regul…",
-        "consulta": "2026-11-24",
-        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
-        "rectangulos": [
-          [
-            0.3201,
-            0.5569,
-            0.8572,
-            0.5711
-          ],
-          [
-            0.143,
-            0.5733,
-            0.8568,
-            0.5875
-          ],
-          [
-            0.143,
-            0.5897,
-            0.2833,
-            0.6039
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      },
-      {
-        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
-        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
         "pagina": 60,
         "ubicacion": "art. 109.1",
         "fragmento": "puede ordenar la reducción de prestaciones hasta por el 25% del monto del contrato original",
@@ -1439,6 +1408,56 @@
             0.6467,
             0.6223,
             0.6585
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.3 (texto vigente)",
+        "fragmento": "No corresponde suscribir una adenda al contrato por la aprobación de la prestación adicional",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2125,
+            0.5405,
+            0.8572,
+            0.5547
+          ],
+          [
+            0.143,
+            0.5569,
+            0.3157,
+            0.5711
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.3 (prohibición de regularizar)",
+        "fragmento": "Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regularización",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2103,
+            0.5733,
+            0.8568,
+            0.5875
+          ],
+          [
+            0.143,
+            0.5897,
+            0.2833,
+            0.6039
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -1976,6 +1995,33 @@
             0.6467,
             0.6223,
             0.6585
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-F1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 110,
+        "ubicacion": "art. 194.3 (texto vigente)",
+        "fragmento": "No corresponde suscribir una adenda al contrato por la aprobación de la prestación adicional",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2125,
+            0.5405,
+            0.8572,
+            0.5547
+          ],
+          [
+            0.143,
+            0.5569,
+            0.3157,
+            0.5711
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"

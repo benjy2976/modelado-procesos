@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.1",
-  "revision_tabla": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
-  "fecha": "2026-11-24T23:54:43+00:00",
+  "revision_tabla": "37A2FC2D2201BD9BCB0F0C3003696BFFB73BEF8034B36126A3580604F00666EC",
+  "fecha": "2026-11-25T00:36:01+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-176.1",
@@ -128,9 +128,11 @@
       "cita": "lo cual no debe superar los veintidós días desde la suscripción del contrato",
       "obligacion": "La entidad inicia las gestiones en no más de 22 días desde la suscripción",
       "aspecto": "plazo",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "El modelo no registra el plazo (vigente tras el D.S. 001-2026-EF; 20 días en el texto original)."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T1"
+      ],
+      "razonamiento": "Plazo anotado en T1 (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-176.4",

@@ -10,7 +10,7 @@ perfil_trazado: zigzag-corredores
 proceso:
   - S4.3.2.2
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -92,7 +92,7 @@ Notas que no se dibujan:
 | E-T10 | 40 | Gobierno Regional Huanuco | SGE — Especialistas tecnicos | tarea | Comunicar causal de modificacion a SGGOS | E-G4 |  |  |  |  |  |  |  | PROP | S4.3.2.3 a S4.3.2.6 segun DEC-041 |
 | E-G4 | 41 | Gobierno Regional Huanuco | SGE — Especialistas tecnicos | compuerta |  | E-T11 |  |  |  |  |  |  |  | PROP | Convergencia de rutas |
 | E-T11 | 42 | Gobierno Regional Huanuco | SGE — Subgerente de Estudios | tarea-usuario | Notificar respuesta firmada a la SGGOS | E-T13 |  |  |  |  |  |  |  | EQ | Precision operativa del usuario, 2026-11-17 |
-| E-F1 | 43 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | fin-mensaje | Respuesta comunicada al contratista |  |  |  |  |  |  |  |  | EQ | Precision operativa del usuario, 2026-11-17 |
+| E-F1 | 43 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | fin-mensaje | Respuesta comunicada al contratista |  |  |  |  |  |  | Antecedente para S4.3.2.3 cuando la respuesta identifica un adicional (E-G3) |  | EQ | Precision operativa del usuario, 2026-11-17 |
 | P-E1 | 44 | Proyectista | Proyectista | inicio-mensaje | Solicitud de opinion recibida | P-T1 |  |  | entra: Solicitud y antecedentes tecnicos |  |  |  |  | NORM | Reglamento, arts. 190.3 a y 190.6 |
 | P-T1 | 45 | Proyectista | Proyectista | tarea | Evaluar la consulta y el expediente tecnico | P-T2 |  |  | entra: Solicitud y antecedentes tecnicos |  |  |  |  | NORM | Reglamento, arts. 190.3 a y 190.6 |
 | P-T2 | 46 | Proyectista | Proyectista | tarea | Elaborar y remitir opinion tecnica | P-F1 |  |  | sale: Informe tecnico del proyectista | 10 dias cuando aplica el art. 190.3 a |  |  |  | NORM | Reglamento, arts. 190.3 a y 190.6 |
@@ -120,3 +120,4 @@ Notas que no se dibujan:
 | E-T6 | P-E1 | Solicitud de opinion y antecedentes tecnicos |
 | P-F1 | E-M1 | Informe tecnico del proyectista |
 | E-F1 | C-E3 | Carta de respuesta al contratista |
+| E-F1 | S4.3.2.3 Gestion de adicionales y deductivos de obra | Respuesta notificada como antecedente |

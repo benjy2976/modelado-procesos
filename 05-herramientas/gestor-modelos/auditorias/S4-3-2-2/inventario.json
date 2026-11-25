@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.2",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-2-atencion-consultas-obra/S4-3-2-2-diagrama-proceso-tabla.md",
-  "revision_tabla": "5D79D1E7E25E891E9E7E15D75E397B34D763B69A234B8B4CCE6A0CCE6F9D91D2",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "B995646E7BDF8BBF0FC3AC2DA8D2D18704707ED49BE6460AF699C7DBE9711801",
+  "fecha": "2026-11-25T00:36:02+00:00",
   "items": [
     {
       "id": "C:Contratista/Residente de obra",
@@ -887,6 +887,11 @@
       "id": "M:E-F1>C-E3",
       "clase": "mensaje",
       "nombre": "Carta de respuesta al contratista"
+    },
+    {
+      "id": "M:E-F1>S4.3.2.3 Gestion de adicionales y deductivos de obra",
+      "clase": "mensaje",
+      "nombre": "Respuesta notificada como antecedente"
     }
   ]
 }

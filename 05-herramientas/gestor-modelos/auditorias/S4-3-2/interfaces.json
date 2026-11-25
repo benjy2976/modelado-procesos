@@ -2,16 +2,16 @@
   "codigo": "S4.3.2",
   "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
   "revisiones_hijos": {
-    "S4.3.2.1": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
-    "S4.3.2.2": "5D79D1E7E25E891E9E7E15D75E397B34D763B69A234B8B4CCE6A0CCE6F9D91D2",
-    "S4.3.2.3": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
-    "S4.3.2.4": "1B8B1E88B30B6B43D4C7DAE6CEBE456202785FEA0620F4ECC519B4425E43D7E7",
+    "S4.3.2.1": "5C978FB80ACC3980E5875E3BCA90147EE5D1C06E2D9877B7FDDFAF5E89A6FAE3",
+    "S4.3.2.2": "B995646E7BDF8BBF0FC3AC2DA8D2D18704707ED49BE6460AF699C7DBE9711801",
+    "S4.3.2.3": "4B27170A34348F86E0DCF51B90FBE1E8BCF7186EA7676AB775844E5908456BCF",
+    "S4.3.2.4": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
     "S4.3.2.5": "836FAEE0DDED57FA960C921E342905CCA21B31BFF8A73B6F28433784EECB9997",
     "S4.3.2.6": "2B254AD775A38733C1E3CFC9AB386D80D1A28ABC8C88C51589597836B23E2680",
-    "S4.3.2.7": "5A24EC2D80205986DCFA219595C13CBC521918A7DD98C1E8559C8F59FB461F9C",
+    "S4.3.2.7": "77D23C17CBBA730057C1ECAC9D594C27BC786E206B56046249FE8331D4461499",
     "S4.3.2.8": "0DDE10A7FBB3485A82CCC6F55D13BEC7104C5D9B28E5C8C166E1120C6A944D3C"
   },
-  "fecha": "2026-11-25T00:19:21+00:00",
+  "fecha": "2026-11-25T00:37:33+00:00",
   "hijos": [
     "S4.3.2.1",
     "S4.3.2.2",
@@ -22,29 +22,5 @@
     "S4.3.2.7",
     "S4.3.2.8"
   ],
-  "candidatos": [
-    {
-      "tipo": "TIPO-DE-DISPARO",
-      "hijo": "S4.3.2.7",
-      "detalle": "El padre lo dispara como subproceso-evento-condicional; el hijo no tiene inicio-condicional (inicios: ['inicio-mensaje'])"
-    },
-    {
-      "tipo": "MENSAJE-SIN-CONTRAPARTE",
-      "hijo": "S4.3.2.3",
-      "detalle": "S4.3.2.3 recibe de S4.3.2.2 «Respuesta notificada como antecedente», pero S4.3.2.2 no registra ese intercambio",
-      "hermano": "S4.3.2.2"
-    },
-    {
-      "tipo": "MENSAJE-SIN-CONTRAPARTE",
-      "hijo": "S4.3.2.3",
-      "detalle": "S4.3.2.3 envía a S4.3.2.7 «Sustento reclasificado como reduccion», pero S4.3.2.7 no registra ese intercambio",
-      "hermano": "S4.3.2.7"
-    },
-    {
-      "tipo": "MENSAJE-SIN-CONTRAPARTE",
-      "hijo": "S4.3.2.8",
-      "detalle": "S4.3.2.8 envía a S4.3.2.1 «Sustento para valorizacion y autorizacion de pago», pero S4.3.2.1 no registra ese intercambio",
-      "hermano": "S4.3.2.1"
-    }
-  ]
+  "candidatos": []
 }

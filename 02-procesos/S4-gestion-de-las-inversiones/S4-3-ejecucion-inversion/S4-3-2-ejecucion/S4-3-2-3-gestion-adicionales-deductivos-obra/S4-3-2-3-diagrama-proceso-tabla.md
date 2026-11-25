@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.3
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -102,8 +102,8 @@ Notas que no se dibujan:
 | E-F2B | 42 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | No autorizacion comunicada |  |  |  |  |  |  |  | PROP | Cierre cuando no se obtiene la autorizacion externa exigible |
 | E-T10 | 43 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | tarea-usuario | Emitir y notificar resolucion del adicional | E-G10 |  |  | entra: Expediente consolidado; sale: Pronunciamiento | Art. 194.2 f: 12 dias habiles desde opinion del supervisor o expediente elaborado por este |  | 12 dias habiles del tramite institucional, desde dia siguiente de opinion del supervisor o expediente elaborado por este; no aplica a reduccion | NORM | Reglamento, art. 194.2 f; Opinion D000092, 2.9 y 3.9-3.11 |
 | E-G10 | 44 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | compuerta | ¿Favorable? | E-T11 [Si] (por defecto); E-F2C [No] |  |  |  |  |  |  | PROP | Rutas de decision |
-| E-T11 | 45 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Actualizar registros y coordinar la comunicacion | E-F1 |  |  | sale: Registros y comunicacion |  |  | Verificar canal vigente SEACE/Pladicop o transitorio contractual; no presumir implementacion actual | NORM | Opinion D000092, 2.11 y 3.14-3.15; Reglamento, art. 109.3; registros de inversion aplicables |
-| E-F1 | 46 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Decision del adicional comunicada |  |  |  |  |  |  |  | PROP | Producto propuesto; canal formal por confirmar |
+| E-T11 | 45 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Publicar la aprobacion en la Pladicop y actualizar registros | E-F1 |  |  | sale: Registros y comunicacion; almacen: Pladicop |  |  | Surte efecto con su publicacion en la Pladicop, sin adenda. Prohibido aprobar adicionales por regularizacion. Unidad que publica por confirmar | NORM | Reglamento, art. 194.3 (texto vigente); Opinion D000092, 2.11 y 3.14-3.15; registros de inversion aplicables |
+| E-F1 | 46 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Aprobacion del adicional publicada |  |  |  |  |  |  |  | PROP | Reglamento, art. 194.3 (texto vigente) |
 | E-F2C | 47 | Gobierno Regional Huanuco | Titular de la competencia o autoridad delegada | fin-mensaje | Decision no favorable comunicada |  |  |  |  |  |  |  | PROP | Producto alterno |
 | X-E1 | 48 | Elaborador del adicional segun bases: entidad, contratista o supervisor | Responsable de elaborar el expediente (una alternativa por caso) | inicio-mensaje | Anotacion comunicada al elaborador | X-TENC |  |  | entra: Anotacion de necesidad; entra: Respuesta de consulta y comunicacion del elaborador segun bases |  |  | Solo si el elaborador no conocia la anotacion; el aviso no inicia los 15 dias | PROP | Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; interfaz S4.3.2.2 |
 | X-E2 | 97 | Elaborador del adicional segun bases: entidad, contratista o supervisor | Responsable de elaborar el expediente (una alternativa por caso) | inicio-condicional | Anotacion propia conocida por elaborador | X-TENC |  |  |  |  |  | Alternativa exclusiva de X-E1 cuando el elaborador ya conoce el registro del cuaderno | PROP | Reglamento, art. 194.2 a-d; precision del usuario, 2026-11-19 |

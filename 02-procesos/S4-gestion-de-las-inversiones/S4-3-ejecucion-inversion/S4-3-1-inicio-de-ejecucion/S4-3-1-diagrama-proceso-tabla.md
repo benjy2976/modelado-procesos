@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.1
 fecha_creacion: 2026-11-18
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -52,7 +52,7 @@ Notas que no se dibujan:
 | T0C | 15 | Gobierno Regional Huanuco | GRI — Gerencia Regional de Infraestructura | tarea-usuario | Derivar contrato a SGGOS | T0D |  |  |  | PROP | ROF, arts. 92-94 y 97; ruta interna inferida |
 | T0D | 16 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Designar coordinador de obra | T0E | sale: Designacion, instrumento por confirmar |  |  | EQ | Precision operativa del usuario, 2026-11-18; competencia y forma pendientes |
 | T0E | 17 | Gobierno Regional Huanuco | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea-usuario | Notificar designacion y remitir contrato | T1 | sale: Contrato y designacion comunicados |  |  | EQ | Precision operativa del usuario, 2026-11-18; medio por confirmar |
-| T1 | 2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Recibir contrato y revisar condiciones de inicio | T2 |  |  | Ambito: obra bajo solo construccion | PROP | Bizagi recibido; precision del usuario, 2026-11-18; Reglamento, art. 176.1 |
+| T1 | 2 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Recibir contrato y revisar condiciones de inicio | T2 |  | Gestiones de entrega de 176.1 y 176.2 iniciadas en no mas de 22 dias desde la suscripcion del contrato | Ambito: obra bajo solo construccion | PROP | Bizagi recibido; precision del usuario, 2026-11-18; Reglamento, art. 176.1; art. 176.3 (texto vigente) |
 | T2 | 3 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Verificar supervision contratada o inspeccion habilitada | G1 |  |  |  | PROP | Ley, art. 62.5; Reglamento, arts. 176.1 b y 186.1-186.4 |
 | G1 | 4 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Hay supervision? | T3 [Si]; G3 [No] (por defecto) |  |  |  | PROP | Reglamento, arts. 176.1 b y 186.4 |
 | G3 | 18 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Procede inspeccion temporal? | T8 [Si]; C1 [No] (por defecto) |  |  |  | PROP | Ley, art. 62.5; Reglamento, art. 186.4; precision del usuario, 2026-11-18 |
@@ -73,10 +73,11 @@ Notas que no se dibujan:
 | C5 | 27 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | condicional | Contrato JPRD suscrito | G4 | entra: Contrato tripartito, si aplica |  | Solo si corresponde JPRD | PROP | Reglamento, art. 176.1 d |
 | C6 | 28 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | condicional | Terreno entregado | G4 | entra: Acreditacion de entrega del terreno |  | Total o parcial segun corresponda | PROP | Reglamento, art. 176.1 e |
 | G4 | 30 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | Requisito acreditado | T4 |  |  |  | PROP | Propuesta de disposicion BPMN; Reglamento, art. 176.1 |
-| T7 | 10 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Comunicar cumplimiento de condiciones de inicio | F1 | sale: Comunicacion de inicio |  | El medio y la firma son pendientes de confirmar | PROP | Bizagi recibido, actividad final; Reglamento, art. 176.1 |
-| F1 | 11 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Inicio del plazo comunicado |  |  |  |  | PROP | Reglamento, art. 176.1; formulacion de salida por confirmar |
+| T7 | 10 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea | Formalizar el inicio mediante acta de inicio de obra | F1 | sale: Acta de inicio de obra |  |  | PROP | Reglamento, art. 176.1; practica institucional indicada por el usuario, 2026-11-24 |
+| F1 | 11 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | fin-mensaje | Acta de inicio de obra emitida |  |  |  |  | PROP | Practica institucional indicada por el usuario, 2026-11-24; salida declarada por S4.3 |
 
 ## Mensajes
 
 | Desde | Hacia | Nombre |
 |---|---|---|
+| F1 | S4.3.2 Ejecucion | Acta de inicio de obra |

@@ -1,0 +1,912 @@
+[
+ {
+  "elemento": "E1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso inicia al recibirse una necesidad de reducción.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "siempre que el área usuaria sustente lo siguiente",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El art. 109.1 exige que el área usuaria sustente la reducción, lo que supone una necesidad previa; ninguna fuente identifica originador ni medio de recepción."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "actor",
+  "afirmacion": "El área usuaria sustenta la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "siempre que el área usuaria sustente lo siguiente",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.1. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "condicion",
+  "afirmacion": "El sustento acredita finalidad, prestaciones no ejecutadas, cuantificables y divisibles, y oportunidad antes de la conformidad final o del acta de recepción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "La falta de ejecución de dichas prestaciones no impida alcanzar la finalidad del contrato",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "no hayan sido ejecutadas y deben ser cuantificables y divisibles",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "antes de la conformidad final o suscripción del acta de recepción de la obra",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literales a), b) y c) del art. 109.1. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "condicion",
+  "afirmacion": "La reducción tiene un límite del 25 % del monto del contrato original.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "hasta por el 25% del monto del contrato original",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+    "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 30,
+     "hasta": 31,
+     "paginas": [
+      30,
+      31
+     ]
+    },
+    "cita": "puede reducir bienes, servicios, consultorías u obras hasta por el mismo porcentaje",
+    "ambito": "art. 64 regula adicionales; su última oración extiende el límite a la reducción",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-64.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+    "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 30,
+     "hasta": 31,
+     "paginas": [
+      30,
+      31
+     ]
+    },
+    "cita": "hasta por el 25 % del monto del contrato original",
+    "ambito": "primera oración del 64.1: límite de adicionales de bienes, servicios y consultorías; da contenido a «el mismo porcentaje»",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El límite es literal en el Reglamento 109.1 (fuente operativa). En la Ley, el art. 64 regula prestaciones adicionales; solo su última oración trata la reducción («puede reducir … hasta por el mismo porcentaje») y el 25 % de la primera oración es un antecedente necesario para leerla, no una regla sobre adicionales aplicable al modelo."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "actor",
+  "afirmacion": "El carril 'Área usuaria competente' corresponde a una unidad concreta del GORE Huánuco.",
+  "resultado": "EVIDENCIA-INSUFICIENTE",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "La norma asigna la función al área usuaria sin identificar la unidad; falta evidencia institucional (ROF, MOF o expediente) para la adscripción."
+ },
+ {
+  "elemento": "T1",
+  "aspecto": "documento",
+  "afirmacion": "El art. 109 aplicable es el del texto consolidado local al 09-01-2026.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "3650642723af4fd2-afd32de1:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-ley-32069-ds-009-2025-ef-el-peruano-2025-01-22.pdf",
+    "sha256": "3650642723AF4FD217A05BBAB825E1F1C2BD8BDDB403993E521D40D8BE9EFA73",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 29,
+     "hasta": 29,
+     "paginas": [
+      29
+     ]
+    },
+    "cita": "puede ordenar la reducción de prestaciones hasta por el 25% del monto del contrato original",
+    "ambito": "texto original publicado del Reglamento (El Peruano, 22-01-2025)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "22c32e10e45047fa-e4219b51:art-2-parte1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ds-001-2026-ef-modifica-reglamento-ley-32069-el-peruano-2026-01-08.pdf",
+    "sha256": "22C32E10E45047FAF1F3448122BC8A46472768B7F91FE35C2822B06F4497712D",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 1,
+     "hasta": 13,
+     "paginas": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+     ]
+    },
+    "cita": "Modificar el numeral 15.1 del artículo 15",
+    "ambito": "D.S. 001-2026-EF: lista de numerales modificados, que no incluye el art. 109",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "22c32e10e45047fa-e4219b51:art-5",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ds-001-2026-ef-modifica-reglamento-ley-32069-el-peruano-2026-01-08.pdf",
+    "sha256": "22C32E10E45047FAF1F3448122BC8A46472768B7F91FE35C2822B06F4497712D",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 15,
+     "hasta": 16,
+     "paginas": [
+      15,
+      16
+     ]
+    },
+    "cita": "entra en vigor a partir del día siguiente de la publicación en el diario oficial El Peruano de la Resolución Directoral",
+    "ambito": "D.S. 001-2026-EF: entrada en vigor condicionada",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "d85308b2931b73da-53210cf7:art-1",
+    "ruta": "01-referencias/04-contrataciones-publicas/bases-estandar-2026/rd0001_2026ef5401.pdf",
+    "sha256": "D85308B2931B73DAAB0A433C01A1E8712E08469C9DBDC772B12AF4FDF6686525",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 2,
+     "hasta": 2,
+     "paginas": [
+      2
+     ]
+    },
+    "cita": "tiene por objeto modificar la Resolución Directoral",
+    "ambito": "R.D. 0001-2026-EF/54.01 publicada el 13-01-2026: condición de vigencia del D.S. 001-2026-EF",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "d1b125fabb259137-5b992b95:art-3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ds-222-2026-ef-modifica-reglamento-ley-32069-el-peruano-2026-10-21.pdf",
+    "sha256": "D1B125FABB259137EC0C8CFE542D3C58887D275716CC3DC056F5C0CE5FE66BA6",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 1,
+     "hasta": 1,
+     "paginas": [
+      1
+     ]
+    },
+    "cita": "Modificación de la Decimocuarta Disposición Complementaria Final",
+    "ambito": "D.S. 222-2026-EF: única modificación posterior; no afecta al art. 109",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "El art. 109 es idéntico en la publicación oficial del 22-01-2025 y en el texto consolidado local; el D.S. 001-2026-EF (vigente desde el 14-01-2026 tras la R.D. 0001-2026-EF/54.01) no lo incluye entre los numerales modificados y el D.S. 222-2026-EF solo modifica la Decimocuarta DCF. La tabla de leyes reglamentadas del Congreso (consultada el 2026-11-24, https://www3.congreso.gob.pe/didp/procedimientos-parlamentarios/leyes-reglamentadas-2024) no registra otras modificatorias. Vigencia comprobada al 2026-11-24; debe revisarse ante nuevas publicaciones."
+ },
+ {
+  "elemento": "G1",
+  "aspecto": "decision",
+  "afirmacion": "Se verifica si la reducción está comprendida en el art. 109.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada: G1 se reformuló el 2026-11-24 como «¿Se acreditan las condiciones de la reducción?» (DEC-057)."
+ },
+ {
+  "elemento": "F0",
+  "aspecto": "excepcion",
+  "afirmacion": "Si no se acredita el supuesto, el caso queda pendiente y no equivale a una denegación de fondo.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Decisión de modelamiento registrada en el sustento; ninguna fuente regula el cierre por falta de acreditación."
+ },
+ {
+  "elemento": "T2",
+  "aspecto": "condicion",
+  "afirmacion": "Se solicita siempre la opinión del supervisor.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. La tabla agrega G3: la solicitud de opinión solo ocurre si corresponde."
+ },
+ {
+  "elemento": "M:T2>SE",
+  "aspecto": "condicion",
+  "afirmacion": "La solicitud de opinión se envía en todos los casos.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. Con G3 el mensaje queda condicionado."
+ },
+ {
+  "elemento": "M1",
+  "aspecto": "secuencia",
+  "afirmacion": "La opinión de supervisión se recibe antes de integrar el sustento.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "Se cuente con opinión del supervisor",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«Se cuente con» implica que la opinión existe antes de resolver; el medio y el momento exacto no están regulados en la fuente."
+ },
+ {
+  "elemento": "T3",
+  "aspecto": "actor",
+  "afirmacion": "Una unidad competente integra el sustento y aplica controles.",
+  "resultado": "EVIDENCIA-INSUFICIENTE",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Ninguna fuente consultada asigna esta integración a una unidad ni define controles específicos para la reducción."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "actor",
+  "afirmacion": "La autoridad de la gestión administrativa resuelve la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "La autoridad de la gestión administrativa, mediante resolución, puede ordenar la reducción de prestaciones",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-63.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+    "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 30,
+     "hasta": 30,
+     "paginas": [
+      30
+     ]
+    },
+    "cita": "La modificación es aprobada por la autoridad de la gestión administrativa",
+    "ambito": "modificaciones contractuales: aprobación por la autoridad de la gestión administrativa",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-19",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 11,
+     "hasta": 11,
+     "paginas": [
+      11
+     ]
+    },
+    "cita": "Autorizar las modificaciones contractuales que correspondan conforme al Reglamento",
+    "ambito": "funciones de la autoridad de la gestión administrativa; literal c), modificaciones contractuales",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Coinciden Reglamento 109.1, Ley 63.1 y Reglamento 19 c). Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "decision",
+  "afirmacion": "La misma resolución determina el efecto en el plazo.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.2",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "En la misma resolución se determina si la reducción de prestaciones implica la reducción del plazo de ejecución contractual",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.2. Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "accion",
+  "afirmacion": "La autoridad notifica la reducción.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T4 ya no dice «notificar»; la publicación en la Pladicop se representa en T5."
+ },
+ {
+  "elemento": "G2",
+  "aspecto": "decision",
+  "afirmacion": "La decisión puede ser favorable o no favorable.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "puede ordenar la reducción de prestaciones",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«Puede ordenar» admite que la autoridad no la ordene; la bifurcación es lógica de modelamiento."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "documento",
+  "afirmacion": "La ruta favorable comunica y actualiza alcance y registros, sin nombrar la publicación en la Pladicop.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T5 nombra ahora la publicación de la resolución en la Pladicop."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "excepcion",
+  "afirmacion": "El proceso no contempla la adecuación de garantías tras reducir el monto.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. T5 anota ahora la interfaz de adecuación de garantías."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso termina con la reducción comunicada.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-24 aprobado por el usuario. F1 se renombra «Reducción publicada»."
+ },
+ {
+  "elemento": "F2",
+  "aspecto": "existencia",
+  "afirmacion": "La decisión no favorable se comunica.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Ninguna fuente consultada regula la comunicación de una decisión no favorable de reducción."
+ },
+ {
+  "elemento": "SE",
+  "aspecto": "actor",
+  "afirmacion": "La solicitud de opinión puede dirigirse al supervisor o al inspector, según la modalidad.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 101,
+     "hasta": 101,
+     "paginas": [
+      101
+     ]
+    },
+    "cita": "La supervisión de los contratos de obra es efectuada por el supervisor o el inspector",
+    "ambito": "supervisión de contratos de obra (solo construcción; diseño y construcción)",
+    "relacion": "antecedente"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "opinión del supervisor",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Cambio frente al piloto manual (EVIDENCIA-INSUFICIENTE): el 186.1 asigna la supervisión de obra al supervisor o al inspector, de forma excluyente. Que el inspector emita la opinión del 109.1 d) es una inferencia razonable, no un texto literal."
+ },
+ {
+  "elemento": "ST",
+  "aspecto": "actor",
+  "afirmacion": "El supervisor emite opinión sobre la reducción.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "Se cuente con opinión del supervisor, en el caso de obras y consultoría de obras",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el 109.1 d), sujeto a «de corresponder». Texto local consolidado al 09-01-2026; su vigencia posterior y aplicabilidad al contrato concreto no están comprobadas."
+ },
+ {
+  "elemento": "ST",
+  "aspecto": "actor",
+  "afirmacion": "El inspector emite la opinión cuando no hay supervisor.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-186.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 101,
+     "hasta": 101,
+     "paginas": [
+      101
+     ]
+    },
+    "cita": "El inspector es un servidor de la entidad contratante que ha sido expresamente asignado por ésta",
+    "ambito": "supervisión de contratos de obra (solo construcción; diseño y construcción)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Cambio frente al piloto manual (CONTRADICCION parcial): con el 186.1 la variante con inspector queda como inferencia sustentable; requiere confirmación del equipo o de una opinión del OECE."
+ },
+ {
+  "elemento": "SF",
+  "aspecto": "existencia",
+  "afirmacion": "La opinión se remite a la entidad.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Representación funcional de «se cuente con opinión»; sin medio ni plazo en las fuentes consultadas."
+ },
+ {
+  "elemento": "M:SF>M1",
+  "aspecto": "secuencia",
+  "afirmacion": "La opinión viaja como mensaje del supervisor a la entidad.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [],
+  "razonamiento": "Intercambio propuesto solo para la ruta con opinión; no se acredita un canal concreto."
+ },
+ {
+  "elemento": "G3",
+  "aspecto": "decision",
+  "afirmacion": "La opinión de supervisión se solicita solo si corresponde.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "Se cuente con opinión del supervisor, en el caso de obras y consultoría de obras, de corresponder",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El literal d) del art. 109.1 condiciona la opinión con «de corresponder»; la compuerta lo representa. Texto local consolidado al 09-01-2026; vigencia posterior pendiente."
+ },
+ {
+  "elemento": "T2",
+  "aspecto": "condicion",
+  "afirmacion": "La solicitud de opinión se activa solo por la rama afirmativa de G3.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "de corresponder",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Resuelve la contradicción del piloto: la solicitud ya no es incondicional."
+ },
+ {
+  "elemento": "M:T2>SE",
+  "aspecto": "condicion",
+  "afirmacion": "El mensaje de solicitud solo se envía en la ruta con opinión.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "de corresponder",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Hereda la condición de G3 y T2."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "documento",
+  "afirmacion": "La resolución se publica en la Pladicop, sin adenda.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "No es necesario suscribir una adenda, bastando con la publicación a través de la Pladicop de la resolución que lo aprueba",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Literal en el art. 109.3. El actor que publica no está identificado en la fuente; el carril sigue por confirmar."
+ },
+ {
+  "elemento": "T5",
+  "aspecto": "excepcion",
+  "afirmacion": "T5 anota que el contratista puede pedir disminuir garantías y el plazo de adecuación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-117.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 64,
+     "hasta": 64,
+     "paginas": [
+      64
+     ]
+    },
+    "cita": "el contratista puede solicitar la disminución proporcional del monto y/o plazo de las garantías",
+    "ambito": "adecuación de garantías por modificaciones contractuales",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-117.4",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 64,
+     "hasta": 64,
+     "paginas": [
+      64
+     ]
+    },
+    "cita": "la adecuación de la garantía debe efectuarse en el plazo máximo de diez días hábiles",
+    "ambito": "adecuación de garantías por modificaciones contractuales",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La anotación reproduce los arts. 117.3 y 117.4; la interfaz la inicia el contratista y no se modela como flujo de la entidad."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "existencia",
+  "afirmacion": "El proceso termina con la reducción publicada.",
+  "resultado": "INFERENCIA",
+  "clase": "PROPUESTA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "bastando con la publicación a través de la Pladicop",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El cierre en la publicación sigue al 109.3; que sea el último acto del proceso es decisión de modelamiento."
+ },
+ {
+  "elemento": "T4",
+  "aspecto": "accion",
+  "afirmacion": "La autoridad resuelve sin un acto de notificación adicional modelado.",
+  "resultado": "INFERENCIA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-257.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 141,
+     "hasta": 141,
+     "paginas": [
+      141
+     ]
+    },
+    "cita": "se llevan a cabo a través de la Pladicop y tienen la misma validez y eficacia",
+    "ambito": "validez de los actos realizados por la Pladicop en las tres fases",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El 257.1 da valor legal a los actos por la Pladicop; no se identificó otra notificación obligatoria. Si el equipo conoce otro canal institucional, debe agregarse."
+ },
+ {
+  "elemento": "G1",
+  "aspecto": "decision",
+  "afirmacion": "La compuerta verifica que se acrediten las condiciones a)-c) y el límite del 25 % antes de seguir.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "puede ordenar la reducción de prestaciones hasta por el 25% del monto del contrato original",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 60,
+     "hasta": 60,
+     "paginas": [
+      60
+     ]
+    },
+    "cita": "siempre que el área usuaria sustente lo siguiente",
+    "ambito": "reducción de prestaciones en la ejecución contractual (bienes, servicios, consultorías y obras)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "f14ffa37b824b8af-c9c22559:art-63.3",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
+    "sha256": "F14FFA37B824B8AF03C0B97E0603839A786ED61C7CA07B1D300C9AF928D133F7",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 30,
+     "hasta": 30,
+     "paginas": [
+      30
+     ]
+    },
+    "cita": "La reducción de prestaciones",
+    "ambito": "supuestos de modificación contractual (marco general)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "«Puede ordenar … siempre que el área usuaria sustente» condiciona la reducción al cumplimiento de a)-c) y del límite; la Ley 63.3 b) solo enmarca la reducción como supuesto de modificación."
+ },
+ {
+  "elemento": "E0",
+  "aspecto": "condicion",
+  "afirmacion": "El proceso inicia al identificar la necesidad de reducir prestaciones.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-109.1",
+    "cita": "siempre que el área usuaria sustente lo siguiente",
+    "ambito": "reducción de prestaciones",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Disparo condicional declarado por S4.3.2 (RP); condiciones del 109.1 verificadas en T1 y G1."
+ },
+ {
+  "elemento": "E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El proceso también inicia al recibir un caso reclasificado desde S4.3.2.3.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Interfaz recíproca con S4.3.2.3 (E-FRED), DEC-047."
+ },
+ {
+  "elemento": "M:S4.3.2.3 Gestion de adicionales y deductivos de obra>E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "S4.3.2.3 remite el sustento reclasificado como reducción.",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "DEC-047."
+ }
+]

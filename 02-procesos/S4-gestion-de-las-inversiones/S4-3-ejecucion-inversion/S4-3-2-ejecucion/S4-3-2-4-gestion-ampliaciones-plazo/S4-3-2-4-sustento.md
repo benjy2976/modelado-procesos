@@ -144,3 +144,15 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - una ruta o anotación para la falta de opinión del supervisor y para la aprobación ficta;
   - nombrar la publicación y la notificación por la Pladicop en E-T10, E-F1 y E-F2;
   - registrar en E-T10 o en el sustento la ampliación de oficio de los contratos vinculados (200.4).
+
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+- **Causales e interfaces.** R-E1 anota las causales del 198.1 y su origen: consulta no absuelta (S4.3.2.2, 190.4), paralización en contrata (S4.3.2.6), adicional (S4.3.2.3) y mayores metrados (S4.3.2.8).
+- **Solicitud (200.1 a).** R-T1 notifica a la entidad y a la supervisión en 10 días hábiles desde la aprobación del adicional o el fin del hecho generador, prorrogables hasta 10; fuera de plazo se tiene por no presentada. R-F1 tiene dos mensajes: a S-E1 y a E-E1.
+- **Opinión y su falta (200.1 b-c).** S-T1 anota 5 días hábiles. Tras registrar la solicitud, la OACGD espera en una compuerta basada en eventos la opinión (E-M1) o el vencimiento del plazo (E-R1). Vencido el plazo, la entidad continúa sin opinión.
+- **Resolución y silencio (200.1 d).** E-T9 anota 10 días hábiles desde la opinión o su vencimiento, que cubren todo el circuito interno desde E-T2. La aprobación ficta (se aprueba lo informado por el supervisor o, sin informe, lo solicitado) se anota en E-T9. No se dibuja como evento de borde porque solo puede adjuntarse a una actividad, y la paleta (DEC-027) no incluye el subproceso embebido que agruparía el circuito.
+- **Pladicop (198.4 y 200.1 d).** E-T10 publica la resolución en la Pladicop, sin adenda, y actualiza plazo y cronograma. E-F1 y E-F2 notifican al contratista por la Pladicop. La unidad que publica queda por confirmar.
+- **Generación.** D1-D3 y D5 sin hallazgos. D4 deja 2 hallazgos geométricos: la etiqueta de documentos de E-T9 sobre su anotación de silencio, y el mensaje de E-F2 al contratista, que cruza una etiqueta. Se adopta con `--forzar`, con revisión visual pendiente.
+- **Pendiente:** 198.3 (criterio técnico), 200.2 (ampliación parcial) y 200.4 (contratos vinculados).
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-4/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

@@ -14,7 +14,7 @@ nivel_revision: ELABORACION
 proceso:
   - S4.3.2.7
 fecha_creacion: 2026-11-18
-fecha_actualizacion: 2026-11-24
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -39,7 +39,8 @@ Modelo conceptual propuesto mediante DEC-047. Condiciones, fuentes y limites en 
 
 | ID | Numero | Pool | Carril | Tipo | Nombre | Siguiente | Adjunto | Interrumpe | Documentos | Plazo | Disparador | Anotacion | Clase | Fuente |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| E1 | 1 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | inicio-mensaje | Necesidad de reduccion recibida | T1 |  |  |  |  |  |  | PROP | DEC-047 |
+| E1 | 1 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | inicio-mensaje | Caso reclasificado como reduccion recibido | T1 |  |  |  |  |  |  | PROP | DEC-047; interfaz con S4.3.2.3 (E-FRED) |
+| E0 | 17 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | inicio-condicional | Necesidad de reduccion identificada | T1 |  |  |  |  |  |  | PROP | Reglamento, art. 109.1; disparo condicional declarado por S4.3.2 |
 | T1 | 2 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | tarea | Sustentar reduccion y verificar supuesto aplicable | G1 |  |  |  |  |  | Art. 109: finalidad, prestaciones no ejecutadas, divisibles y cuantificables; limite y oportunidad | PROP | Reglamento art. 109.1; adscripcion pendiente |
 | G1 | 3 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | compuerta | ¿Se acreditan las condiciones de la reduccion? | G3 [Si]; F0 [No o no acreditado] |  |  |  |  |  | Condiciones a)-c) y limite del 25 % (art. 109.1) | NORM | Reglamento art. 109.1 |
 | G3 | 16 | Gobierno Regional Huanuco | Area usuaria competente (por confirmar) | compuerta | ¿Corresponde opinion de supervision? | T2 [Si]; T3 [No] |  |  |  |  |  | Art. 109.1 d: obras y consultoria de obras, de corresponder | NORM | Reglamento art. 109.1 d |
@@ -62,3 +63,4 @@ Modelo conceptual propuesto mediante DEC-047. Condiciones, fuentes y limites en 
 | --- | --- | --- |
 | T2 | SE | Solicitud de opinion |
 | SF | M1 | Opinion de supervision |
+| S4.3.2.3 Gestion de adicionales y deductivos de obra | E1 | Sustento reclasificado como reduccion |

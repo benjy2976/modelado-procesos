@@ -17,13 +17,15 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.7`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `5A24EC2D80205986`. Afirmaciones vigentes: 33 (EVIDENCIA-INSUFICIENTE: 2, INFERENCIA: 11, NO-APLICA: 7, SUSTENTADA: 13).
+Revisión de la tabla: `77D23C17CBBA7300`. Afirmaciones vigentes: 36 (EVIDENCIA-INSUFICIENTE: 2, INFERENCIA: 13, NO-APLICA: 7, SUSTENTADA: 14).
 
 ## Afirmaciones por elemento
 
 | Elemento | Aspecto | Resultado | Afirmación | Fuentes |
 |---|---|---|---|---|
+| E1 | entrada-salida | `INFERENCIA` | El proceso también inicia al recibir un caso reclasificado desde S4.3.2.3. | — |
 | E1 | existencia | `INFERENCIA` | El proceso inicia al recibirse una necesidad de reducción. | reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60) |
+| E0 | condicion | `SUSTENTADA` | El proceso inicia al identificar la necesidad de reducir prestaciones. | reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60) |
 | T1 | actor | `SUSTENTADA` | El área usuaria sustenta la reducción. | reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60) |
 | T1 | actor | `EVIDENCIA-INSUFICIENTE` | El carril 'Área usuaria competente' corresponde a una unidad concreta del GORE Huánuco. | — |
 | T1 | condicion | `SUSTENTADA` | El sustento acredita finalidad, prestaciones no ejecutadas, cuantificables y divisibles, y oportunidad antes de la conformidad final o del acta de recepción. | reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60) |
@@ -56,6 +58,7 @@ Revisión de la tabla: `5A24EC2D80205986`. Afirmaciones vigentes: 33 (EVIDENCIA-
 | M:T2>SE | condicion | `NO-APLICA` | La solicitud de opinión se envía en todos los casos. | — |
 | M:T2>SE | condicion | `SUSTENTADA` | El mensaje de solicitud solo se envía en la ruta con opinión. | reglamento-de-la-ley-general-de-contrataciones-p `art-109.1` (p. 60) |
 | M:SF>M1 | secuencia | `INFERENCIA` | La opinión viaja como mensaje del supervisor a la entidad. | — |
+| M:S4.3.2.3 Gestion de adicionales y deductivos de obra>E1 | entrada-salida | `INFERENCIA` | S4.3.2.3 remite el sustento reclasificado como reducción. | — |
 
 ## Contradicciones
 
@@ -79,6 +82,8 @@ Ninguna.
 - **M:SF>M1 · secuencia.** Intercambio propuesto solo para la ruta con opinión; no se acredita un canal concreto.
 - **F1 · existencia.** El cierre en la publicación sigue al 109.3; que sea el último acto del proceso es decisión de modelamiento.
 - **T4 · accion.** El 257.1 da valor legal a los actos por la Pladicop; no se identificó otra notificación obligatoria. Si el equipo conoce otro canal institucional, debe agregarse.
+- **E1 · entrada-salida.** Interfaz recíproca con S4.3.2.3 (E-FRED), DEC-047.
+- **M:S4.3.2.3 Gestion de adicionales y deductivos de obra>E1 · entrada-salida.** DEC-047.
 
 ## Cobertura de la fuente
 
@@ -106,4 +111,4 @@ Ninguna.
 - Citas con problemas: 0.
 - Referencias mencionadas sin ancla: 0.
 - Obligaciones de la fuente no representadas: 0.
-- Anclas del visor: {'VIGENTE': 16}.
+- Anclas del visor: {'VIGENTE': 17}.

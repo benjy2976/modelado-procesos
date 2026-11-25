@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.3",
-  "revision_tabla": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
-  "fecha": "2026-11-25T00:02:42+00:00",
+  "revision_tabla": "4B27170A34348F86E0DCF51B90FBE1E8BCF7186EA7676AB775844E5908456BCF",
+  "fecha": "2026-11-25T00:36:02+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-194.1",
@@ -202,9 +202,12 @@
       "cita": "bastando con su publicación en la Pladicop para que surta todos sus efectos. Se encuentra prohibida la aprobación de prestaciones adicionales en vía de regularización",
       "obligacion": "Publicación en la Pladicop sin adenda y prohibición de aprobar por regularización",
       "aspecto": "documento",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "E-T11 deja el canal por confirmar y no recoge la prohibición."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T11",
+        "E-F1"
+      ],
+      "razonamiento": "E-T11 publica en la Pladicop y anota la prohibición (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-194.4",

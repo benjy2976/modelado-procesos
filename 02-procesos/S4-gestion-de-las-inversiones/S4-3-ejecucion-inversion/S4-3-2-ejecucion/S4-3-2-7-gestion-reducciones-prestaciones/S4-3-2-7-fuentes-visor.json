@@ -603,6 +603,27 @@
         "metodo_ancla": "automatico-pdfminer",
         "auditoria": "05-herramientas/gestor-modelos/auditorias/S4-3-2-7/registro.jsonl"
       }
+    ],
+    "E0": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 60,
+        "ubicacion": "art. 109.1",
+        "fragmento": "siempre que el área usuaria sustente lo siguiente",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.3321,
+            0.6603,
+            0.7031,
+            0.6722
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
     ]
   }
 }

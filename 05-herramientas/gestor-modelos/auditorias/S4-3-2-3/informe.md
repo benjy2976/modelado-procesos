@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.3`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `B098DC4FEE175883`. Afirmaciones vigentes: 95 (INFERENCIA: 66, SUSTENTADA: 29).
+Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA: 66, SUSTENTADA: 31).
 
 ## Afirmaciones por elemento
 
@@ -67,6 +67,8 @@ Revisión de la tabla: `B098DC4FEE175883`. Afirmaciones vigentes: 95 (INFERENCIA
 | E-T10 | plazo | `SUSTENTADA` | El titular emite y notifica la resolución del adicional en 12 días hábiles. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.1` (p. 109)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | E-G10 | existencia | `INFERENCIA` | ¿Favorable? (compuerta). | — |
 | E-T11 | documento | `INFERENCIA` | Se actualizan registros y la comunicación, con el canal de publicación por confirmar. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
+| E-T11 | documento | `SUSTENTADA` | La aprobación se publica en la Pladicop, sin adenda, y no procede aprobar por regularización. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
+| E-F1 | entrada-salida | `SUSTENTADA` | El proceso termina con la aprobación publicada. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
 | E-F1 | existencia | `INFERENCIA` | Decision del adicional comunicada (fin-mensaje). | — |
 | E-F2C | existencia | `INFERENCIA` | Decision no favorable comunicada (fin-mensaje). | — |
 | X-E1 | existencia | `INFERENCIA` | Anotacion comunicada al elaborador (inicio-mensaje). | — |
@@ -208,7 +210,7 @@ Ninguna.
 | Pronunciamiento de supervisión en 10 días si elaboró el contratista | `REPRESENTADO` | S-T3 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | Resolución notificada en 12 días hábiles | `REPRESENTADO` | E-T10 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | Opinión técnica previa del órgano competente o del proyectista (un año) | `REPRESENTADO` | E-T5A, E-GPRO, E-TPRO, E-T5 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
-| Publicación en la Pladicop sin adenda y prohibición de aprobar por regularización | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
+| Publicación en la Pladicop sin adenda y prohibición de aprobar por regularización | `REPRESENTADO` | E-T11, E-F1 | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
 | Adicionales de emergencia: ejecución inmediata autorizada y regularización posterior | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-194.4` (p. 110) |
 | Más del 50 % del contrato original: resolución del contrato | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-194.5` (p. 110) |
 | Hasta 15 % por la autoridad de la gestión administrativa, restando deductivos vinculados | `REPRESENTADO` | E-TC, E-TVIN, MOD-ALC-ADI | ley-general-de-contrataciones-publicas-con-modif `art-64.2` (p. 31) |
@@ -220,5 +222,5 @@ Ninguna.
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
 - Referencias mencionadas sin ancla: 0.
-- Obligaciones de la fuente no representadas: 3.
-- Anclas del visor: {'SIN-COORDENADAS': 3, 'VIGENTE': 72}.
+- Obligaciones de la fuente no representadas: 2.
+- Anclas del visor: {'SIN-COORDENADAS': 3, 'VIGENTE': 74}.

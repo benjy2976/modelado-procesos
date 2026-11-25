@@ -10,7 +10,7 @@ perfil_trazado: zigzag-controlado
 proceso:
   - S4.3.2.1
 fecha_creacion: 2026-11-03
-fecha_actualizacion: 2026-11-17
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -46,7 +46,7 @@ Notas que no se dibujan:
 | ID | Numero | Pool | Carril | Tipo | Nombre | Siguiente | Adjunto | Interrumpe | Documentos | Plazo | Disparador | Anotacion | Grupo | Clase | Fuente |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | E-1 | 1 | S4.3.2.1 Control periodico de la ejecucion | Ejecutor de obra, segun regimen — Residente de obra | inicio-temporizador | Cierre del periodo de valorizacion | T-1 |  |  |  | Cierre de cada mes |  | Una instancia por periodo |  | NORM | Reglamento de la Ley 32069, art. 210.1; Directiva 017-2023-CG, num. 7.3.4 |
-| T-1 | 2 | S4.3.2.1 Control periodico de la ejecucion | Ejecutor de obra, segun regimen — Residente de obra | tarea | Elaborar y presentar la valorizacion | T-2 |  |  | sale: Informe de valorizacion |  |  |  |  | OBS | ejecucion-bizagi.bpmn, tareas de elaboracion y remision de valorizacion |
+| T-1 | 2 | S4.3.2.1 Control periodico de la ejecucion | Ejecutor de obra, segun regimen — Residente de obra | tarea | Elaborar y presentar la valorizacion | T-2 |  |  | entra: Sustento de mayores metrados del periodo, si los hay; sale: Informe de valorizacion |  |  |  |  | OBS | ejecucion-bizagi.bpmn, tareas de elaboracion y remision de valorizacion; Reglamento de la Ley 32069, arts. 197.2 y 210.1 |
 | T-2 | 3 | S4.3.2.1 Control periodico de la ejecucion | Supervisor o inspector de obra, segun modalidad | tarea | Revisar la valorizacion | G-1 |  |  | entra: Informe de valorizacion |  |  |  |  | OBS | ejecucion-bizagi.bpmn, revisar y aprobar la valorizacion |
 | G-1 | 4 | S4.3.2.1 Control periodico de la ejecucion | Supervisor o inspector de obra, segun modalidad | compuerta | ¿La valorizacion cumple las condiciones tecnicas? | T-8 [Si]; T-4 [No] |  |  |  |  |  |  |  | PROP | Reconstruccion del flujo observado; pendiente validar criterios |
 | T-4 | 5 | S4.3.2.1 Control periodico de la ejecucion | Supervisor o inspector de obra, segun modalidad | tarea | Comunicar observaciones del control de obra | T-5 |  |  | sale: Observaciones |  |  |  |  | OBS | ejecucion-bizagi.bpmn, informe de observaciones |
@@ -69,4 +69,5 @@ Notas que no se dibujan:
 |---|---|---|---|
 | F-1 | Administracion | Valorizacion para tramite de pago | EQ |
 | F-2 | Contratista | Carta de observaciones | EQ |
+| S4.3.2.8 Gestion de mayores metrados | T-1 | Sustento de mayores metrados del periodo | PROP |
 

@@ -19,7 +19,7 @@ tags:
 
 Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md). Procedimiento en el [plan de corrida](plan-corrida-documental-y-auditoria.md). Estado vivo por proceso en el [resumen de la corrida S4.3](../auditorias/corrida-S4-3.md). Antecedente: [informe del piloto S4.3.2.7](informe-piloto-auditoria-S4-3-2-7.md).
 
-Las clasificaciones son propuestas de un agente de IA con el formato aprobado en DEC-057. No validan normas, no atribuyen conformidad y no cambian el estado de ningún modelo, que siguen en `ELABORACION`. **Ninguna tabla se modificó en la fase 5.** Cada propuesta espera la decisión del usuario.
+Las clasificaciones son propuestas de un agente de IA con el formato aprobado en DEC-057. No validan normas, no atribuyen conformidad y no cambian el estado de ningún modelo, que siguen en `ELABORACION`. Las tablas de las secciones siguientes son las de la auditoría inicial. El 2026-11-25 el usuario pidió aplicar las propuestas de interfaces y de Pladicop, plazos y silencio (DEC-058); su resultado está en la sección «Aplicación de propuestas — 2026-11-25». Las demás propuestas esperan decisión.
 
 ## Resultado por proceso
 
@@ -100,6 +100,29 @@ Las propuestas de cada proceso están en la sección «Auditoría por afirmació
 | S4.3.2.6 | Decidir el alcance por régimen. Para administración directa: tres fechas en el cuaderno, cronograma en 2 días calendario y registro en el SNPMGI y el INFOBRAS. Para la Ley 31589, si se mantiene, una variante. |
 | S4.3.2.7 | Ninguna; se recibe el sustento de S4.3.2.3 si se acepta la interfaz. |
 | S4.3.2.8 | Salida a resolución (197.4); interfaz con S4.3.2.4 (198.1 c y 197.3). |
+
+## Aplicación de propuestas — 2026-11-25 (DEC-058)
+
+Se aplicaron las propuestas de interfaces y de los patrones 1 y 2 en seis tablas. Las auditorías se reconfirmaron sobre la nueva revisión (detalle en la sección «Cambios aplicados» de cada sustento):
+
+| Proceso | Cambio | Resultado tras reconfirmar |
+|---|---|---|
+| S4.3.1 | Acta de inicio como salida, con mensaje a S4.3.2; plazo de 22 días del 176.3 en T1 | 34 afirmaciones (18 `SUSTENTADA`); no representadas: 6 → 5 |
+| S4.3.2.1 | T-1 recibe el sustento de S4.3.2.8 (210.1) | no representadas: 6 → 5; F-2 sigue en contradicción |
+| S4.3.2.2 | E-F1 envía la respuesta como antecedente a S4.3.2.3 | sin cambio en obligaciones |
+| S4.3.2.3 | E-T11 publica en la Pladicop y anota la prohibición de regularizar (194.3) | no representadas: 3 → 2 |
+| S4.3.2.4 | Causales con su origen; solicitud a entidad y supervisión con plazo y extemporaneidad; 5 días del supervisor con compuerta basada en eventos y vencimiento; 10 días y silencio en E-T9; Pladicop en E-T10, E-F1 y E-F2 | 40 afirmaciones (32 `SUSTENTADA`); no representadas: 8 → 3 |
+| S4.3.2.7 | Inicio condicional propio (E0) y recepción desde S4.3.2.3 | sigue `COMPLETO` |
+
+**Interfaces.** `comparar-interfaces` baja de 8 candidatos a 1: S4.3.3 `SIN-MODELO`. Las anclas de los seis procesos están vigentes y no hay referencias sin ancla.
+
+**Generación.** D4 deja 2 hallazgos geométricos nuevos en S4.3.2.4, adoptados con `--forzar` y documentados. S4.3.2.3 conserva los 18 ya documentados. Los demás modelos quedan sin hallazgos.
+
+**Siguen pendientes:**
+- las contradicciones de S4.3.2 (F-3) y S4.3.2.1 (F-2);
+- los patrones 3 y 4: resolución, emergencia y contratos vinculados;
+- el alcance de S4.3.2.6 y el destino del 202.3;
+- los plazos del 210.2-210.3, el 176.4, el 179.2 y el diferimiento.
 
 ## Limitaciones
 

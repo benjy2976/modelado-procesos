@@ -142,3 +142,10 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - recibir el sustento de mayores metrados y adicionales;
   - una condición para la última valorización.
 
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+- **Interfaz con S4.3.2.8.** T-1 recibe el sustento de los mayores metrados del periodo (210.1 y 197.2), en reciprocidad con el mensaje RF de S4.3.2.8. La obligación del 210.1 pasa a representada.
+- **Generación.** D1-D5 sin hallazgos nuevos.
+- **Pendiente:** la contradicción de F-2 frente al 210.4 y los plazos del 210.2-210.3, que no formaban parte de este lote.
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

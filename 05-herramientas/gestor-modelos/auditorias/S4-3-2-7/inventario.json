@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.7",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-7-gestion-reducciones-prestaciones/S4-3-2-7-diagrama-proceso-tabla.md",
-  "revision_tabla": "5A24EC2D80205986DCFA219595C13CBC521918A7DD98C1E8559C8F59FB461F9C",
-  "fecha": "2026-11-24T23:08:23+00:00",
+  "revision_tabla": "77D23C17CBBA730057C1ECAC9D594C27BC786E206B56046249FE8331D4461499",
+  "fecha": "2026-11-25T00:36:03+00:00",
   "items": [
     {
       "id": "C:Gobierno Regional Huanuco/Area usuaria competente (por confirmar)",
@@ -29,13 +29,27 @@
       "id": "E1",
       "clase": "elemento",
       "tipo": "inicio-mensaje",
-      "nombre": "Necesidad de reduccion recibida",
+      "nombre": "Caso reclasificado como reduccion recibido",
       "carril": "Area usuaria competente (por confirmar)",
       "clase_modelo": "PROP",
-      "fuente_modelo": "DEC-047"
+      "fuente_modelo": "DEC-047; interfaz con S4.3.2.3 (E-FRED)"
     },
     {
       "id": "F:E1>T1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E0",
+      "clase": "elemento",
+      "tipo": "inicio-condicional",
+      "nombre": "Necesidad de reduccion identificada",
+      "carril": "Area usuaria competente (por confirmar)",
+      "clase_modelo": "PROP",
+      "fuente_modelo": "Reglamento, art. 109.1; disparo condicional declarado por S4.3.2"
+    },
+    {
+      "id": "F:E0>T1",
       "clase": "flujo",
       "nombre": ""
     },
@@ -253,6 +267,11 @@
       "id": "M:SF>M1",
       "clase": "mensaje",
       "nombre": "Opinion de supervision"
+    },
+    {
+      "id": "M:S4.3.2.3 Gestion de adicionales y deductivos de obra>E1",
+      "clase": "mensaje",
+      "nombre": "Sustento reclasificado como reduccion"
     }
   ]
 }

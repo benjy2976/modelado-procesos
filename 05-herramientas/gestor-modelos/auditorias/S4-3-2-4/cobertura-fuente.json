@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.4",
-  "revision_tabla": "1B8B1E88B30B6B43D4C7DAE6CEBE456202785FEA0620F4ECC519B4425E43D7E7",
-  "fecha": "2026-11-25T00:06:06+00:00",
+  "revision_tabla": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
+  "fecha": "2026-11-25T00:36:03+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
@@ -59,9 +59,11 @@
       "cita": "No corresponde suscribir una adenda al contrato por la aprobación de una ampliación de plazo, bastando con su publicación en la Pladicop",
       "obligacion": "Publicación en la Pladicop sin adenda",
       "aspecto": "documento",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "E-T10 registra en el SGD."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T10"
+      ],
+      "razonamiento": "E-T10 publica en la Pladicop (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -78,9 +80,13 @@
       "cita": "El contratista notifica su solicitud de ampliación de plazo a la entidad contratante y a la supervisión en un plazo no mayor de diez días hábiles",
       "obligacion": "Solicitud a la entidad y a la supervisión en 10 días hábiles, con prórroga de 10",
       "aspecto": "plazo",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "Solo al supervisor y sin plazo."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "R-T1",
+        "R-F1",
+        "E-E1"
+      ],
+      "razonamiento": "Destinatarios y plazo aplicados (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -97,9 +103,11 @@
       "cita": "Las solicitudes extemporáneas de ampliación de plazo se tienen por no presentadas",
       "obligacion": "Las solicitudes extemporáneas se tienen por no presentadas",
       "aspecto": "excepcion",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "Sin control de oportunidad."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "R-T1"
+      ],
+      "razonamiento": "Anotado en el plazo de R-T1."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -119,9 +127,10 @@
       "estado": "REPRESENTADO",
       "elementos": [
         "S-T1",
-        "S-F1"
+        "S-F1",
+        "E-M1"
       ],
-      "razonamiento": "La opinión está; el plazo no."
+      "razonamiento": "Plazo de 5 días hábiles anotado."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -138,9 +147,12 @@
       "cita": "Si el supervisor no se pronuncia dentro del referido plazo, la entidad contratante da respuesta a la solicitud de ampliación de plazo sin dicho pronunciamiento",
       "obligacion": "Sin opinión del supervisor, la entidad responde igual",
       "aspecto": "excepcion",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "Sin ruta de vencimiento."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-GE1",
+        "E-R1"
+      ],
+      "razonamiento": "Compuerta basada en eventos y temporizador."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -161,10 +173,11 @@
       "elementos": [
         "E-T9",
         "E-G1",
+        "E-T10",
         "E-F1",
         "E-F2"
       ],
-      "razonamiento": "La resolución está; el plazo y el canal no."
+      "razonamiento": "Plazo de 10 días hábiles y notificación por la Pladicop."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
@@ -181,9 +194,11 @@
       "cita": "Si la entidad contratante no se pronuncia dentro del plazo indicado, se tiene por aprobado lo informado por el supervisor",
       "obligacion": "Silencio de la entidad: se aprueba lo informado o lo solicitado",
       "aspecto": "excepcion",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "Sin ruta de aprobación ficta."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T9"
+      ],
+      "razonamiento": "Anotación en E-T9; ver razonamiento de la afirmación."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-200.2",

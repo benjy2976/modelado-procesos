@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.1",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-1-control-periodico-ejecucion/S4-3-2-1-diagrama-proceso-tabla.md",
-  "revision_tabla": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "5C978FB80ACC3980E5875E3BCA90147EE5D1C06E2D9877B7FDDFAF5E89A6FAE3",
+  "fecha": "2026-11-25T00:36:01+00:00",
   "items": [
     {
       "id": "C:S4.3.2.1 Control periodico de la ejecucion/Ejecutor de obra, segun regimen — Residente de obra",
@@ -56,7 +56,7 @@
       "nombre": "Elaborar y presentar la valorizacion",
       "carril": "Ejecutor de obra, segun regimen — Residente de obra",
       "clase_modelo": "OBS",
-      "fuente_modelo": "ejecucion-bizagi.bpmn, tareas de elaboracion y remision de valorizacion"
+      "fuente_modelo": "ejecucion-bizagi.bpmn, tareas de elaboracion y remision de valorizacion; Reglamento de la Ley 32069, arts. 197.2 y 210.1"
     },
     {
       "id": "F:T-1>T-2",
@@ -282,6 +282,11 @@
       "id": "M:F-2>Contratista",
       "clase": "mensaje",
       "nombre": "Carta de observaciones"
+    },
+    {
+      "id": "M:S4.3.2.8 Gestion de mayores metrados>T-1",
+      "clase": "mensaje",
+      "nombre": "Sustento de mayores metrados del periodo"
     }
   ]
 }

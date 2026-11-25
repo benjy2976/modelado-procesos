@@ -127,3 +127,11 @@ Sin conformidades registradas. Documentos en ELABORACION. 2026-11-24: auditoría
 ## Control tecnico de la division
 
 D1, D2 y D5 sin hallazgos. D3 sin bloqueos. D4: un cruce de mensaje con etiqueta (T6) al solicitar opinion de supervision; resuelto el 2026-11-24 con la compuerta G3 (D4 sin superposiciones). Se adoptan derivados de trabajo con --forzar para sincronizar la propuesta conceptual; no constituyen una linea base lista para publicacion. Revision visual y cierre de hallazgos pendientes. Informe reproducible: 99-temporal/modelos/S4-3-2-7-diagrama-proceso/validacion.txt.
+
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+- **Disparo.** Se agrega E0, inicio condicional «Necesidad de reduccion identificada», coherente con el subproceso de evento condicional del padre (RP).
+- **Interfaz con S4.3.2.3.** E1 pasa a «Caso reclasificado como reduccion recibido» y recibe el mensaje de E-FRED de S4.3.2.3.
+- **Generación.** D1-D5 sin hallazgos. La auditoría sigue `COMPLETO`.
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-7/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

@@ -345,3 +345,10 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - una ruta o anotación de emergencia conforme al 194.4;
   - una rama de E-G8 para el caso que supera el 50 %, con resolución del contrato.
 
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+- **194.3 vigente.** E-T11 pasa a «Publicar la aprobacion en la Pladicop y actualizar registros», con almacén Pladicop. Su anotación recoge que la aprobación surte efecto con la publicación, sin adenda, y que está prohibido aprobar adicionales por regularización. E-F1 pasa a «Aprobacion del adicional publicada». La fuente deja de citar el 109.3, que regula reducciones. La unidad que publica queda por confirmar.
+- **Generación.** D4 vuelve a 18 hallazgos, los mismos documentados antes; D3 conserva sus advertencias. Se adopta con `--forzar`.
+- **Pendiente:** emergencia (194.4) y resolución al superar el 50 % (194.5).
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-3/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

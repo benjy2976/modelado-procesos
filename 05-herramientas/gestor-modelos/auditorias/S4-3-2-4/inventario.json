@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.4",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-4-gestion-ampliaciones-plazo/S4-3-2-4-diagrama-proceso-tabla.md",
-  "revision_tabla": "1B8B1E88B30B6B43D4C7DAE6CEBE456202785FEA0620F4ECC519B4425E43D7E7",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
+  "fecha": "2026-11-25T00:36:03+00:00",
   "items": [
     {
       "id": "C:Contratista/Contratista",
@@ -52,7 +52,7 @@
       "nombre": "Causal de ampliacion identificada",
       "carril": "Contratista",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento, arts. 198 y 200; Directiva 017-2023-CG, num. 7.3.7"
+      "fuente_modelo": "Reglamento, arts. 190.4, 198.1 y 200"
     },
     {
       "id": "F:R-E1>R-T1",
@@ -63,10 +63,10 @@
       "id": "R-T1",
       "clase": "elemento",
       "tipo": "tarea-usuario",
-      "nombre": "Registrar causal en Cuaderno y presentar solicitud",
+      "nombre": "Registrar causal en Cuaderno y notificar solicitud a la entidad y a la supervision",
       "carril": "Contratista",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento, art. 200.1 a; Directiva 017-2023-CG, num. 7.3.7"
+      "fuente_modelo": "Reglamento, art. 200.1 a"
     },
     {
       "id": "F:R-T1>R-F1",
@@ -77,10 +77,10 @@
       "id": "R-F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Solicitud de ampliacion remitida",
+      "nombre": "Solicitud de ampliacion notificada",
       "carril": "Contratista",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7"
+      "fuente_modelo": "Reglamento, art. 200.1 a"
     },
     {
       "id": "S-E1",
@@ -103,7 +103,7 @@
       "nombre": "Evaluar la causal y emitir opinion",
       "carril": "Supervisor o inspector de obra, segun modalidad",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento, arts. 198 y 200.1 b; Directiva 017-2023-CG, num. 7.3.7"
+      "fuente_modelo": "Reglamento, arts. 198 y 200.1 b"
     },
     {
       "id": "F:S-T1>S-F1",
@@ -114,19 +114,19 @@
       "id": "S-F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Solicitud y opinion remitidas al GORE",
+      "nombre": "Opinion tecnica notificada a la entidad",
       "carril": "Supervisor o inspector de obra, segun modalidad",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Reglamento, art. 200.1; Directiva 017-2023-CG, num. 7.3.7"
+      "fuente_modelo": "Reglamento, art. 200.1 b"
     },
     {
       "id": "E-E1",
       "clase": "elemento",
       "tipo": "inicio-mensaje",
-      "nombre": "Expediente de ampliacion recibido",
+      "nombre": "Solicitud de ampliacion recibida",
       "carril": "OACGD — Registro documentario",
       "clase_modelo": "EQ",
-      "fuente_modelo": "ROF, art. 20; observacion del usuario, 2026-11-10"
+      "fuente_modelo": "Reglamento, art. 200.1 a; ROF, art. 20; observacion del usuario, 2026-11-10"
     },
     {
       "id": "F:E-E1>E-T1",
@@ -143,7 +143,54 @@
       "fuente_modelo": "ROF, art. 20; observacion del usuario, 2026-11-10"
     },
     {
-      "id": "F:E-T1>E-T2",
+      "id": "F:E-T1>E-GE1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-GE1",
+      "clase": "elemento",
+      "tipo": "compuerta-eventos",
+      "nombre": "¿Que ocurre primero?",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 200.1 b-c"
+    },
+    {
+      "id": "F:E-GE1>E-M1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:E-GE1>E-R1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-M1",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Opinion del supervisor recibida",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 200.1 b"
+    },
+    {
+      "id": "F:E-M1>E-T2",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "E-R1",
+      "clase": "elemento",
+      "tipo": "temporizador",
+      "nombre": "Vencio el plazo del supervisor",
+      "carril": "OACGD — Registro documentario",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento, art. 200.1 c"
+    },
+    {
+      "id": "F:E-R1>E-T2",
       "clase": "flujo",
       "nombre": ""
     },
@@ -266,7 +313,7 @@
       "nombre": "Resolver la solicitud mediante resolucion",
       "carril": "Autoridad competente para resolver",
       "clase_modelo": "EQ",
-      "fuente_modelo": "Aclaracion del usuario, 2026-11-10; Reglamento, art. 200; Directiva 017-2023-CG, num. 7.3.7; autoridad concreta pendiente"
+      "fuente_modelo": "Reglamento, art. 200.1 d; aclaracion del usuario, 2026-11-10; autoridad concreta pendiente"
     },
     {
       "id": "F:E-T9>E-G1",
@@ -296,10 +343,10 @@
       "id": "E-T10",
       "clase": "elemento",
       "tipo": "tarea-usuario",
-      "nombre": "Actualizar plazo y cronograma y registrar decision en SGD",
+      "nombre": "Publicar la resolucion en la Pladicop y actualizar plazo y cronograma",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "EQ",
-      "fuente_modelo": "Reglamento, art. 198.4; observacion del usuario, 2026-11-10"
+      "fuente_modelo": "Reglamento, arts. 198.4 y 200.1 d; observacion del usuario, 2026-11-10"
     },
     {
       "id": "F:E-T10>E-F1",
@@ -310,19 +357,19 @@
       "id": "E-F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Resolucion favorable comunicada",
+      "nombre": "Resolucion favorable notificada por la Pladicop",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Producto propuesto; aclaracion del usuario, 2026-11-10"
+      "fuente_modelo": "Reglamento, art. 200.1 d"
     },
     {
       "id": "E-F2",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Resolucion no favorable comunicada",
+      "nombre": "Resolucion no favorable notificada por la Pladicop",
       "carril": "Autoridad competente para resolver",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Producto alterno; aclaracion del usuario, 2026-11-10"
+      "fuente_modelo": "Reglamento, art. 200.1 d; canal de la autoridad por confirmar"
     },
     {
       "id": "M:R-F1>S-E1",
@@ -330,9 +377,24 @@
       "nombre": "Solicitud y sustento"
     },
     {
-      "id": "M:S-F1>E-E1",
+      "id": "M:R-F1>E-E1",
       "clase": "mensaje",
-      "nombre": "Solicitud y opinion"
+      "nombre": "Solicitud y sustento"
+    },
+    {
+      "id": "M:S-F1>E-M1",
+      "clase": "mensaje",
+      "nombre": "Opinion tecnica"
+    },
+    {
+      "id": "M:E-F1>Contratista",
+      "clase": "mensaje",
+      "nombre": "Resolucion notificada por la Pladicop"
+    },
+    {
+      "id": "M:E-F2>Contratista",
+      "clase": "mensaje",
+      "nombre": "Resolucion notificada por la Pladicop"
     }
   ]
 }

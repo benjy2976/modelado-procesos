@@ -1,7 +1,7 @@
 {
   "codigo": "S4.3.2.1",
-  "revision_tabla": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
-  "fecha": "2026-11-24T23:57:05+00:00",
+  "revision_tabla": "5C978FB80ACC3980E5875E3BCA90147EE5D1C06E2D9877B7FDDFAF5E89A6FAE3",
+  "fecha": "2026-11-25T00:36:01+00:00",
   "obligaciones": [
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
@@ -39,9 +39,11 @@
       "cita": "En las valorizaciones, se incluyen las prestaciones adicionales de obra, mayores metrados",
       "obligacion": "Las valorizaciones incluyen adicionales y mayores metrados",
       "aspecto": "entrada-salida",
-      "estado": "NO-REPRESENTADO",
-      "elementos": [],
-      "razonamiento": "S4.3.2.8 remite sustento para valorización, pero S4.3.2.1 no lo recibe."
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T-1"
+      ],
+      "razonamiento": "T-1 recibe el sustento de S4.3.2.8 (2026-11-25)."
     },
     {
       "fragmento": "0ebe95b3e05661b8-ec988166:art-210.2",

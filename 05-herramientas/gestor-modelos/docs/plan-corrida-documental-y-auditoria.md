@@ -115,7 +115,7 @@ La herramienta de auditoría se construye **antes** de aplicarse incluso al pilo
 - 5.E2 completada: 8 candidatos deterministas e interfaces implícitas detectadas por la cobertura.
 - 5.C2: el `--check` ya cubre los elementos sin resultado, las citas, los hashes y las anclas. Todos los procesos pasan esas comprobaciones de integridad.
 - 5.E4: [informe consolidado de la fase 5](informe-auditoria-fase-5-S4-3.md). S4.3.3 sigue `SIN-MODELO`.
-- 5.E3 pendiente: las propuestas esperan la decisión del usuario; ninguna tabla se modificó en la fase 5.
+- 5.E3 en curso: el 2026-11-25 se aplicaron las propuestas de interfaces y de Pladicop, plazos y silencio (DEC-058) en seis tablas, con las auditorías reconfirmadas. Las demás propuestas esperan decisión.
 - El estado vivo está en el [resumen de la corrida S4.3](../auditorias/corrida-S4-3.md).
 
 La revisión jurídica de vigencia, ámbito y sentido corresponde a especialistas. El agente deja propuestas y evidencia rastreable, sin atribuir su criterio a una persona.

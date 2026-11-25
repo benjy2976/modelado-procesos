@@ -50,6 +50,31 @@
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 106,
+        "ubicacion": "art. 190.4",
+        "fragmento": "el contratista puede solicitar ampliación de plazo contractual por el tiempo correspondiente a la demora",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.4754,
+            0.6303,
+            0.8564,
+            0.6421
+          ],
+          [
+            0.143,
+            0.644,
+            0.5529,
+            0.6558
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
       }
     ],
     "R-T1": [
@@ -74,6 +99,31 @@
             0.1577,
             0.5875,
             0.1696
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 a) (extemporaneidad)",
+        "fragmento": "Las solicitudes extemporáneas de ampliación de plazo se tienen por no presentadas",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.7392,
+            0.267,
+            0.8564,
+            0.2789
+          ],
+          [
+            0.143,
+            0.2806,
+            0.6616,
+            0.2924
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -138,10 +188,29 @@
         "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
         "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
         "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 113,
+        "ubicacion": "art. 198.3",
+        "fragmento": "privilegian el criterio técnico y el cumplimiento de la finalidad pública",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.236,
+            0.5456,
+            0.7867,
+            0.5574
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
         "pagina": 114,
         "ubicacion": "art. 200.1 b)",
         "fragmento": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
-        "consulta": "2026-11-24",
+        "consulta": "2026-11-25",
         "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
         "rectangulos": [
           [
@@ -155,25 +224,6 @@
             0.3217,
             0.5544,
             0.3335
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      },
-      {
-        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
-        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
-        "pagina": 113,
-        "ubicacion": "art. 198.3",
-        "fragmento": "privilegian el criterio técnico y el cumplimiento de la finalidad pública",
-        "consulta": "2026-11-24",
-        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
-        "rectangulos": [
-          [
-            0.236,
-            0.5456,
-            0.7867,
-            0.5574
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -228,6 +278,31 @@
             0.5779,
             0.3229,
             0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 a)",
+        "fragmento": "El contratista notifica su solicitud de ampliación de plazo a la entidad contratante y a la supervisión en un plazo no mayor de diez días hábiles",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1657,
+            0.144,
+            0.8564,
+            0.1559
+          ],
+          [
+            0.143,
+            0.1577,
+            0.5875,
+            0.1696
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -432,6 +507,31 @@
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 d) (silencio)",
+        "fragmento": "Si la entidad contratante no se pronuncia dentro del plazo indicado, se tiene por aprobado lo informado por el supervisor",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.3033,
+            0.4719,
+            0.8564,
+            0.4837
+          ],
+          [
+            0.143,
+            0.4856,
+            0.4733,
+            0.4974
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
       }
     ],
     "E-G1": [
@@ -469,7 +569,7 @@
         "pagina": 113,
         "ubicacion": "art. 198.4",
         "fragmento": "No corresponde suscribir una adenda al contrato por la aprobación de una ampliación de plazo, bastando con su publicación en la Pladicop",
-        "consulta": "2026-11-24",
+        "consulta": "2026-11-25",
         "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
         "rectangulos": [
           [
@@ -483,6 +583,31 @@
             0.614,
             0.5141,
             0.6259
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 d)",
+        "fragmento": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor d…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1627,
+            0.4309,
+            0.8562,
+            0.4427
+          ],
+          [
+            0.143,
+            0.4445,
+            0.7436,
+            0.4564
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
@@ -537,6 +662,87 @@
             0.4445,
             0.7436,
             0.4564
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-GE1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 c)",
+        "fragmento": "Si el supervisor no se pronuncia dentro del referido plazo, la entidad contratante da respuesta a la solicitud de ampliación de plazo sin dicho pronunciamien…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1615,
+            0.3763,
+            0.8565,
+            0.3881
+          ],
+          [
+            0.143,
+            0.3899,
+            0.6439,
+            0.4018
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-R1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 c)",
+        "fragmento": "Si el supervisor no se pronuncia dentro del referido plazo, la entidad contratante da respuesta a la solicitud de ampliación de plazo sin dicho pronunciamien…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1615,
+            0.3763,
+            0.8565,
+            0.3881
+          ],
+          [
+            0.143,
+            0.3899,
+            0.6439,
+            0.4018
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "E-M1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 114,
+        "ubicacion": "art. 200.1 b)",
+        "fragmento": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1653,
+            0.308,
+            0.8562,
+            0.3198
+          ],
+          [
+            0.143,
+            0.3217,
+            0.5544,
+            0.3335
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"

@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.2`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `5D79D1E7E25E891E`. Afirmaciones vigentes: 64 (INFERENCIA: 28, SUSTENTADA: 36).
+Revisión de la tabla: `B995646E7BDF8BBF`. Afirmaciones vigentes: 65 (INFERENCIA: 29, SUSTENTADA: 36).
 
 ## Afirmaciones por elemento
 
@@ -87,6 +87,7 @@ Revisión de la tabla: `5D79D1E7E25E891E`. Afirmaciones vigentes: 64 (INFERENCIA
 | M:E-T6>P-E1 | entrada-salida | `SUSTENTADA` | La solicitud de opinión llega al proyectista. | reglamento-de-la-ley-general-de-contrataciones-p `art-190.3` (p. 106) |
 | M:P-F1>E-M1 | entrada-salida | `SUSTENTADA` | La opinión llega a la entidad. | reglamento-de-la-ley-general-de-contrataciones-p `art-190.3` (p. 106) |
 | M:E-F1>C-E3 | entrada-salida | `INFERENCIA` | Carta de respuesta al contratista (mensaje). | — |
+| M:E-F1>S4.3.2.3 Gestion de adicionales y deductivos de obra | entrada-salida | `INFERENCIA` | La respuesta a la consulta pasa como antecedente a S4.3.2.3 cuando identifica un adicional. | — |
 
 ## Contradicciones
 
@@ -126,6 +127,7 @@ Ninguna.
 - **C-E3 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17.
 - **M:S-T5>C-E2 · entrada-salida.** Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo.
 - **M:E-F1>C-E3 · entrada-salida.** Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo.
+- **M:E-F1>S4.3.2.3 Gestion de adicionales y deductivos de obra · entrada-salida.** Interfaz recíproca con S4.3.2.3 (R-E1); opinión D000083 citada en S4.3.2.3.
 
 ## Cobertura de la fuente
 

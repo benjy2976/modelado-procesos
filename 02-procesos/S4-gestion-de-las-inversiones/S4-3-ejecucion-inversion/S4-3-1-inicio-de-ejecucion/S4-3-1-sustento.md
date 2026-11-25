@@ -151,3 +151,13 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../05-herramie
   - una ruta de diferimiento por acuerdo con sus actas;
   - una anotación sobre el requerimiento del contratista y sus consecuencias.
 
+## Cambios aplicados — 2026-11-25 (DEC-058)
+
+Por instrucción del usuario se aplicaron las propuestas de interfaz y de plazos:
+
+- **Acta de inicio.** T7 pasa a «Formalizar el inicio mediante acta de inicio de obra» (sale: Acta de inicio de obra) y F1 a «Acta de inicio de obra emitida», con mensaje a S4.3.2. Es práctica institucional en obras por contrata (usuario, 2026-11-24), no exigencia del Reglamento; medio y firmantes por confirmar. Resuelve los tres candidatos de interfaz entre S4.3, S4.3.1 y S4.3.2.
+- **Plazo del 176.3.** T1 anota que las gestiones de entrega de los documentos de 176.1 y 176.2 se inician en no más de 22 días desde la suscripción (texto vigente).
+- **Generación.** D1-D5 sin hallazgos. Una anotación en T7 montaba la etiqueta del mensaje; su contenido queda en este sustento.
+- **Pendiente:** 176.4, diferimiento (176.7-176.9) y 179.2.
+
+La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../05-herramientas/gestor-modelos/auditorias/S4-3-1/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.

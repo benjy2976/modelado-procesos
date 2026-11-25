@@ -1,0 +1,126 @@
+[
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-198.1",
+  "cita": "el contratista puede solicitar la ampliación de plazo pactado por cualquiera de las siguientes causales, siempre que modifiquen la ruta crítica",
+  "obligacion": "Causales que afectan la ruta crítica",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "R-E1"
+  ],
+  "razonamiento": "Evento de inicio."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-198.3",
+  "cita": "privilegian el criterio técnico y el cumplimiento de la finalidad pública",
+  "obligacion": "Se privilegia el criterio técnico sobre las formalidades",
+  "aspecto": "decision",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "No hay anotación en la evaluación."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-198.4",
+  "cita": "No corresponde suscribir una adenda al contrato por la aprobación de una ampliación de plazo, bastando con su publicación en la Pladicop",
+  "obligacion": "Publicación en la Pladicop sin adenda",
+  "aspecto": "documento",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T10"
+  ],
+  "razonamiento": "E-T10 publica en la Pladicop (2026-11-25)."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "El contratista notifica su solicitud de ampliación de plazo a la entidad contratante y a la supervisión en un plazo no mayor de diez días hábiles",
+  "obligacion": "Solicitud a la entidad y a la supervisión en 10 días hábiles, con prórroga de 10",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "R-T1",
+   "R-F1",
+   "E-E1"
+  ],
+  "razonamiento": "Destinatarios y plazo aplicados (2026-11-25)."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "Las solicitudes extemporáneas de ampliación de plazo se tienen por no presentadas",
+  "obligacion": "Las solicitudes extemporáneas se tienen por no presentadas",
+  "aspecto": "excepcion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "R-T1"
+  ],
+  "razonamiento": "Anotado en el plazo de R-T1."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "La supervisión revisa la solicitud del contratista y notifica su opinión técnica a la entidad contratante en un plazo no mayor de cinco días hábiles",
+  "obligacion": "Opinión del supervisor en 5 días hábiles",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "S-T1",
+   "S-F1",
+   "E-M1"
+  ],
+  "razonamiento": "Plazo de 5 días hábiles anotado."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "Si el supervisor no se pronuncia dentro del referido plazo, la entidad contratante da respuesta a la solicitud de ampliación de plazo sin dicho pronunciamiento",
+  "obligacion": "Sin opinión del supervisor, la entidad responde igual",
+  "aspecto": "excepcion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-GE1",
+   "E-R1"
+  ],
+  "razonamiento": "Compuerta basada en eventos y temporizador."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "La entidad contratante resuelve la solicitud de la ampliación de plazo y notifica su decisión al contratista, a través de la Pladicop, en un plazo no mayor de diez días hábiles",
+  "obligacion": "Resolución notificada por la Pladicop en 10 días hábiles",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T9",
+   "E-G1",
+   "E-T10",
+   "E-F1",
+   "E-F2"
+  ],
+  "razonamiento": "Plazo de 10 días hábiles y notificación por la Pladicop."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.1",
+  "cita": "Si la entidad contratante no se pronuncia dentro del plazo indicado, se tiene por aprobado lo informado por el supervisor",
+  "obligacion": "Silencio de la entidad: se aprueba lo informado o lo solicitado",
+  "aspecto": "excepcion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T9"
+  ],
+  "razonamiento": "Anotación en E-T9; ver razonamiento de la afirmación."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.2",
+  "cita": "El contratista puede solicitar una ampliación de plazo parcial",
+  "obligacion": "Ampliación parcial si la causal no tiene fin previsto",
+  "aspecto": "excepcion",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "No se distingue."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-200.4",
+  "cita": "la entidad contratante amplía el plazo de los contratos directamente vinculados al contrato principal, sin solicitud previa",
+  "obligacion": "Ampliación de oficio de los contratos vinculados",
+  "aspecto": "entrada-salida",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "No hay efecto sobre el contrato de supervisión."
+ }
+]

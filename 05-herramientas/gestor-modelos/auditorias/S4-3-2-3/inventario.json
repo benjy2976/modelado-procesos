@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.3",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-diagrama-proceso-tabla.md",
-  "revision_tabla": "B098DC4FEE175883663520C30DF9BBF9360E17CB7C787EB7306148F3232D27B4",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "4B27170A34348F86E0DCF51B90FBE1E8BCF7186EA7676AB775844E5908456BCF",
+  "fecha": "2026-11-25T00:36:02+00:00",
   "items": [
     {
       "id": "C:Ejecutor de obra, segun regimen/Residente de obra",
@@ -701,10 +701,10 @@
       "id": "E-T11",
       "clase": "elemento",
       "tipo": "tarea-usuario",
-      "nombre": "Actualizar registros y coordinar la comunicacion",
+      "nombre": "Publicar la aprobacion en la Pladicop y actualizar registros",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Opinion D000092, 2.11 y 3.14-3.15; Reglamento, art. 109.3; registros de inversion aplicables"
+      "fuente_modelo": "Reglamento, art. 194.3 (texto vigente); Opinion D000092, 2.11 y 3.14-3.15; registros de inversion aplicables"
     },
     {
       "id": "F:E-T11>E-F1",
@@ -715,10 +715,10 @@
       "id": "E-F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Decision del adicional comunicada",
+      "nombre": "Aprobacion del adicional publicada",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Producto propuesto; canal formal por confirmar"
+      "fuente_modelo": "Reglamento, art. 194.3 (texto vigente)"
     },
     {
       "id": "E-F2C",

@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.1",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-1-inicio-de-ejecucion/S4-3-1-diagrama-proceso-tabla.md",
-  "revision_tabla": "C3469599E53EF3B940D76097C8205A93A8A448B7470B88FD37C84D2E37EA532B",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "37A2FC2D2201BD9BCB0F0C3003696BFFB73BEF8034B36126A3580604F00666EC",
+  "fecha": "2026-11-25T00:36:01+00:00",
   "items": [
     {
       "id": "C:Gobierno Regional Huanuco/GRA — Tramite del contrato",
@@ -121,7 +121,7 @@
       "nombre": "Recibir contrato y revisar condiciones de inicio",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Bizagi recibido; precision del usuario, 2026-11-18; Reglamento, art. 176.1"
+      "fuente_modelo": "Bizagi recibido; precision del usuario, 2026-11-18; Reglamento, art. 176.1; art. 176.3 (texto vigente)"
     },
     {
       "id": "F:T1>T2",
@@ -447,10 +447,10 @@
       "id": "T7",
       "clase": "elemento",
       "tipo": "tarea",
-      "nombre": "Comunicar cumplimiento de condiciones de inicio",
+      "nombre": "Formalizar el inicio mediante acta de inicio de obra",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Bizagi recibido, actividad final; Reglamento, art. 176.1"
+      "fuente_modelo": "Reglamento, art. 176.1; practica institucional indicada por el usuario, 2026-11-24"
     },
     {
       "id": "F:T7>F1",
@@ -461,10 +461,15 @@
       "id": "F1",
       "clase": "elemento",
       "tipo": "fin-mensaje",
-      "nombre": "Inicio del plazo comunicado",
+      "nombre": "Acta de inicio de obra emitida",
       "carril": "SGGOS — Coordinador de obra",
       "clase_modelo": "PROP",
-      "fuente_modelo": "Reglamento, art. 176.1; formulacion de salida por confirmar"
+      "fuente_modelo": "Practica institucional indicada por el usuario, 2026-11-24; salida declarada por S4.3"
+    },
+    {
+      "id": "M:F1>S4.3.2 Ejecucion",
+      "clase": "mensaje",
+      "nombre": "Acta de inicio de obra"
     }
   ]
 }

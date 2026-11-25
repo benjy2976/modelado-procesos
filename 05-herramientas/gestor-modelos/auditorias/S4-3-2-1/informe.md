@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.1`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `C4D41E45B6430525`. Afirmaciones vigentes: 20 (CONTRADICCION: 1, INFERENCIA: 7, SUSTENTADA: 12).
+Revisión de la tabla: `5C978FB80ACC3980`. Afirmaciones vigentes: 22 (CONTRADICCION: 1, INFERENCIA: 7, SUSTENTADA: 14).
 
 ## Afirmaciones por elemento
 
@@ -26,6 +26,7 @@ Revisión de la tabla: `C4D41E45B6430525`. Afirmaciones vigentes: 20 (CONTRADICC
 | C:S4.3.2.1 Control periodico de la ejecucion/Supervisor o inspector de obra, segun modalidad | actor | `SUSTENTADA` | El supervisor o inspector revisa la valorización. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
 | E-1 | decision | `SUSTENTADA` | El control se dispara al cierre de cada mes, una instancia por periodo. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118) |
 | T-1 | accion | `SUSTENTADA` | El ejecutor elabora y presenta la valorización. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
+| T-1 | entrada-salida | `SUSTENTADA` | La valorización incorpora el sustento de los mayores metrados del periodo recibido de S4.3.2.8. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-197.2` (p. 112) |
 | T-2 | accion | `SUSTENTADA` | El supervisor o inspector revisa la valorización. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
 | G-1 | decision | `INFERENCIA` | El supervisor decide si la valorización cumple las condiciones técnicas. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
 | T-4 | accion | `INFERENCIA` | El control de obra devuelve observaciones al ejecutor. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
@@ -43,6 +44,7 @@ Revisión de la tabla: `C4D41E45B6430525`. Afirmaciones vigentes: 20 (CONTRADICC
 | F-2 | entrada-salida | `CONTRADICCION` | Con observaciones, el proceso termina sin pago. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.4` (p. 118)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-210.3` (p. 118) |
 | M:F-1>Administracion | entrada-salida | `SUSTENTADA` | La valorización se envía a Administración para el trámite de pago. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.3` (p. 118) |
 | M:F-2>Contratista | entrada-salida | `SUSTENTADA` | Se envía la carta de observaciones al contratista. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.3` (p. 118) |
+| M:S4.3.2.8 Gestion de mayores metrados>T-1 | entrada-salida | `SUSTENTADA` | S4.3.2.8 remite el sustento de mayores metrados a la valorización. | reglamento-de-la-ley-general-de-contrataciones-p `art-197.2` (p. 112) |
 
 ## Contradicciones
 
@@ -67,7 +69,7 @@ Ninguna.
 | Obligación de la fuente | Estado | Elementos | Fuente |
 |---|---|---|---|
 | Valorización mensual o en el periodo que fijen las bases | `REPRESENTADO` | E-1 | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118) |
-| Las valorizaciones incluyen adicionales y mayores metrados | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118) |
+| Las valorizaciones incluyen adicionales y mayores metrados | `REPRESENTADO` | T-1 | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118) |
 | Revisión conjunta de metrados entre residente y supervisor | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
 | Presentación al supervisor y a la entidad en los primeros 3 días | `NO-REPRESENTADO` | — | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
 | Informe del supervisor a la entidad en 5 días | `REPRESENTADO` | T-2, T-8 | reglamento-de-la-ley-general-de-contrataciones-p `art-210.2` (p. 118) |
@@ -82,5 +84,5 @@ Ninguna.
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
 - Referencias mencionadas sin ancla: 0.
-- Obligaciones de la fuente no representadas: 6.
-- Anclas del visor: {'VIGENTE': 14}.
+- Obligaciones de la fuente no representadas: 5.
+- Anclas del visor: {'VIGENTE': 16}.
