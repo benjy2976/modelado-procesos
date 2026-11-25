@@ -134,6 +134,8 @@ class PreparacionSesion(BaseModel):
     diff: str
     validacion: ValidacionSesion
     aplicable: bool
+    numeracion: dict[str, int] | None = None
+    hallazgos_aceptados: dict[str, str] | None = None
 
 
 class SesionVista(BaseModel):

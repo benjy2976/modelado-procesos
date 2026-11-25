@@ -243,3 +243,28 @@ def contexto(raiz: Path, identificador: str, vecinos: int = 1, max_caracteres: i
     salida.sort(key=lambda f: f["orden"])
     return {"fragmento": identificador, "indice_desactualizado": desactualizado, "caracteres": usados,
             "fragmentos": salida}  # fmt: skip
+
+
+def buscar_pasajes(
+    raiz: Path,
+    consulta: str = "",
+    *,
+    modo: str = "flexible",
+    tema: str | None = None,
+    con_relacionados: bool = False,
+    filtros: dict | None = None,
+    limite: int = 8,
+    max_caracteres: int = 6000,
+) -> dict:
+    """Búsqueda acotada con temas del vocabulario y régimen validado; la usan CLI y MCP."""
+    from . import fuentes_temas as temas
+
+    terminos, usados = temas.terminos_de(raiz, tema, con_relacionados) if tema else ([], [])
+    filtros = dict(filtros or {})
+    if filtros.get("regimen"):
+        from .fuentes_regimen import validar_valor
+
+        validar_valor(raiz, filtros["regimen"])
+    resultado = buscar(raiz, consulta, modo=modo, terminos=terminos, filtros=filtros,
+                       limite=limite, max_caracteres=max_caracteres)  # fmt: skip
+    return {**resultado, "temas_usados": usados}

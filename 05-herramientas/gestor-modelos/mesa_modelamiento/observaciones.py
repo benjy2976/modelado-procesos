@@ -64,6 +64,33 @@ class ServicioObservaciones:
         if not esperada or esperada != _revision(datos):
             raise ErrorDominio("Las observaciones cambiaron; recarga antes de guardar", 409)
 
+    def _resolver_elemento(self, codigo: str, elemento: str, referencia: str) -> tuple[str, str]:
+        """Acepta el ID BPMN, el ID de la tabla o el número de caja; completa la referencia «Caja N (ID)»."""
+        if not elemento or not isinstance(elemento, str):
+            return elemento, referencia
+        try:
+            raiz = ElementTree.parse(self.repositorio.bpmn(codigo)).getroot()
+            if any(nodo.get("id") == elemento for nodo in raiz.iter()):
+                return elemento, referencia
+        except (ErrorDominio, OSError, ElementTree.ParseError):
+            return elemento, referencia
+        try:
+            elementos = self.repositorio.leer_modelo(codigo).get("elementos", {})
+        except (ErrorDominio, OSError, ValueError):
+            return elemento, referencia
+        if elemento in elementos:
+            datos = elementos[elemento]
+        else:
+            coincidencias = [(clave, datos) for clave, datos in elementos.items()
+                             if elemento in (datos.get("ref"), str(datos.get("numero") or ""))]  # fmt: skip
+            if len(coincidencias) != 1:
+                return elemento, referencia
+            elemento, datos = coincidencias[0]
+        if not referencia and datos.get("ref"):
+            numero = datos.get("numero")
+            referencia = f"Caja {numero} ({datos['ref']})" if numero else datos["ref"]
+        return elemento, referencia
+
     def _comprobar_elemento(self, codigo: str, elemento: str) -> None:
         if elemento == "":
             return
@@ -113,6 +140,7 @@ class ServicioObservaciones:
         contenido = self._validar_texto_autor(texto, autor, formato)
         if not isinstance(referencia, str) or len(referencia) > 100:
             raise ErrorDominio("Referencia invalida")
+        elemento, referencia = self._resolver_elemento(codigo, elemento, referencia)
         try:
             with self._bloqueo, self._bloqueo_archivo(codigo):
                 self._comprobar_elemento(codigo, elemento)

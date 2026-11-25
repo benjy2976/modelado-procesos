@@ -794,6 +794,18 @@
         "title": "ObservacionVista",
         "type": "object"
       },
+      "PreparacionEntrada": {
+        "properties": {
+          "aceptar_hallazgos": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Aceptar Hallazgos",
+            "type": "string"
+          }
+        },
+        "title": "PreparacionEntrada",
+        "type": "object"
+      },
       "PreparacionSesion": {
         "properties": {
           "aplicable": {
@@ -810,6 +822,34 @@
           "diff": {
             "title": "Diff",
             "type": "string"
+          },
+          "hallazgos_aceptados": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hallazgos Aceptados"
+          },
+          "numeracion": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "integer"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Numeracion"
           },
           "revision_sesion": {
             "title": "Revision Sesion",
@@ -1958,6 +1998,23 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/PreparacionEntrada"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Entrada"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {

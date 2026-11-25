@@ -103,6 +103,6 @@ Ninguna.
 
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
-- Referencias mencionadas sin ancla: 0.
+- Referencias mencionadas sin ancla: 29.
 - Obligaciones de la fuente no representadas: 7.
-- Anclas del visor: {'VIGENTE': 18}.
+- Anclas del visor: {'VIGENTE': 16}.

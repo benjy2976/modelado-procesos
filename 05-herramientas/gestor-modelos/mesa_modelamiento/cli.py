@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import subprocess
 import sys
 from pathlib import Path
 
@@ -96,6 +95,13 @@ def _argumentos() -> argparse.ArgumentParser:
     corrida.add_argument("--alcance", required=True, help="Código raíz, p. ej. S4.3")
     corrida.add_argument("--max-procesos", type=int)
     tareas_auditoria.add_parser("comparar-interfaces", help="Candidatos de interfaz padre-hijos").add_argument("codigo")
+    reconfirmacion = tareas_auditoria.add_parser(
+        "reconfirmar", help="Reconfirmar la auditoría tras cambiar la tabla, conservando lo vigente"
+    )
+    reconfirmacion.add_argument("codigo")
+    reconfirmacion.add_argument(
+        "--archivo", type=Path, required=True, help="JSON con afirmaciones, cobertura (opcional) y motivo"
+    )
     reporte = tareas_auditoria.add_parser("informe")
     reporte.add_argument("codigo")
     reporte.add_argument("--check", action="store_true", help="Terminar con código 1 si hay pendientes")
@@ -116,6 +122,7 @@ def _argumentos() -> argparse.ArgumentParser:
     agregar.add_argument("--revision", required=True)
     agregar.add_argument("--elemento", default="")
     agregar.add_argument("--tipo", choices=["OBSERVACION", "COMENTARIO"], default="OBSERVACION")
+    agregar.add_argument("--referencia", default="", help="Se completa sola si --elemento es un ID de tabla o número")
     agregar.add_argument("--formato", choices=["texto", "html"], default="texto")
     responder = operaciones.add_parser("responder")
     responder.add_argument("codigo")
@@ -134,6 +141,9 @@ def _argumentos() -> argparse.ArgumentParser:
     modelo.add_argument("codigo")
     modelo.add_argument("--check", action="store_true")
     modelo.add_argument("--exportar-imagenes", action="store_true")
+    modelo.add_argument("--sin-cache", action="store_true")
+    modelo.add_argument("--forzar", action="store_true", help="Adopta hallazgos D1-D5 ya documentados en el sustento")
+    modelo.add_argument("--justificacion", default="", help="Obligatoria con --forzar")
     api = grupos.add_parser("api", help="Servir la API local")
     api.add_argument("--host", default="127.0.0.1")
     api.add_argument("--port", type=int, default=8000)
@@ -143,7 +153,8 @@ def _argumentos() -> argparse.ArgumentParser:
     contrato.add_argument("--check", action="store_true", help="Comprobar que el archivo versionado esté vigente")
     sesiones = grupos.add_parser("sesiones", help="Editar un modelo en copia recuperable")
     acciones = sesiones.add_subparsers(dest="operacion", required=True)
-    for operacion in ("iniciar", "leer", "documento", "editar", "preparar", "integrar", "cerrar"):
+    for operacion in ("iniciar", "leer", "documento", "editar", "preparar", "integrar", "cerrar", "anclar",
+                      "retirar-anclas"):  # fmt: skip
         accion = acciones.add_parser(operacion)
         accion.add_argument("codigo")
         if operacion != "iniciar":
@@ -155,6 +166,16 @@ def _argumentos() -> argparse.ArgumentParser:
             accion.add_argument("--revision", required=True)
         if operacion == "integrar":
             accion.add_argument("--revision", type=int, required=True)
+        if operacion == "preparar":
+            accion.add_argument(
+                "--aceptar-hallazgos", default="", help="Justificación para adoptar hallazgos ya documentados"
+            )
+        if operacion == "anclar":
+            for campo in ("elemento", "fragmento", "cita", "titulo", "ubicacion", "vigencia"):
+                accion.add_argument(f"--{campo}", required=True)
+        if operacion == "retirar-anclas":
+            accion.add_argument("--elemento", action="append", default=[], help="Caja cuyas anclas se retiran")
+            accion.add_argument("--huerfanas", action="store_true", help="Retira anclas de cajas que ya no existen")
     return parser
 
 
@@ -196,17 +217,11 @@ def _consulta(raiz: Path, args: argparse.Namespace) -> object:
         return pruebas.medir(raiz, args.banco, con_temas=not args.sin_temas, modo=args.modo)
     if args.operacion == "temas":
         return temas.comprobar(raiz) if args.accion_temas == "comprobar" else temas.sugerir(raiz, args.proceso)
-    terminos, usados = temas.terminos_de(raiz, args.tema, args.con_relacionados) if args.tema else ([], [])
     filtros = {k: getattr(args, k) for k in ("id_documento", "archivo", "tipo", "area", "articulo", "regimen")}
-    if filtros["regimen"]:
-        from .fuentes_regimen import validar_valor
-
-        validar_valor(raiz, filtros["regimen"])
-    resultado = busqueda.buscar(
-        raiz, args.consulta, modo=args.modo, terminos=terminos, filtros=filtros,
-        limite=args.limite, max_caracteres=args.max_caracteres,
+    return busqueda.buscar_pasajes(
+        raiz, args.consulta, modo=args.modo, tema=args.tema, con_relacionados=args.con_relacionados,
+        filtros=filtros, limite=args.limite, max_caracteres=args.max_caracteres,
     )  # fmt: skip
-    return {**resultado, "temas_usados": usados}
 
 
 def ejecutar(args: argparse.Namespace) -> object:
@@ -267,6 +282,12 @@ def ejecutar(args: argparse.Namespace) -> object:
         if args.operacion == "cobertura":
             entradas = json.loads(args.archivo.read_text(encoding="utf-8"))
             return auditoria.registrar_cobertura(repositorio.raiz, args.codigo, entradas)
+        if args.operacion == "reconfirmar":
+            datos = json.loads(args.archivo.read_text(encoding="utf-8"))
+            return auditoria.reconfirmar(
+                repositorio.raiz, args.codigo, datos.get("afirmaciones", []), datos.get("cobertura"),
+                datos.get("motivo", ""),
+            )  # fmt: skip
         resultado = informe(repositorio.raiz, args.codigo)
         if args.check and not resultado["ok"]:
             print(json.dumps(resultado, ensure_ascii=False, indent=2))
@@ -287,7 +308,14 @@ def ejecutar(args: argparse.Namespace) -> object:
                 args.codigo, args.sesion, args.nombre, args.archivo.read_text(encoding="utf-8"), args.revision
             )
         if args.operacion == "preparar":
-            return sesiones.preparar(args.codigo, args.sesion)
+            return sesiones.preparar(args.codigo, args.sesion, aceptar_hallazgos=args.aceptar_hallazgos)
+        if args.operacion == "anclar":
+            return sesiones.anclar(
+                args.codigo, args.sesion, args.elemento, args.fragmento, args.cita, args.titulo, args.ubicacion,
+                args.vigencia,
+            )  # fmt: skip
+        if args.operacion == "retirar-anclas":
+            return sesiones.retirar_anclas(args.codigo, args.sesion, args.elemento, args.huerfanas)
         if args.operacion == "integrar":
             return sesiones.integrar(args.codigo, args.sesion, args.revision)
         return sesiones.cerrar(args.codigo, args.sesion)
@@ -315,17 +343,20 @@ def ejecutar(args: argparse.Namespace) -> object:
             autor=args.autor,
             revision_esperada=args.revision,
             tipo=args.tipo,
+            referencia=args.referencia,
             formato=args.formato,
         )
     if args.grupo == "modelo":
-        repositorio.carpeta(args.codigo)
-        programa = Path(__file__).resolve().parents[1] / "modelar.py"
-        comando = [sys.executable, str(programa), args.codigo]
-        if args.check:
-            comando.append("--check")
-        if args.exportar_imagenes:
-            comando.append("--exportar-imagenes")
-        return subprocess.run(comando, check=False).returncode
+        from .generacion import generar_modelo
+
+        resultado = generar_modelo(
+            repositorio, args.codigo, check=args.check, exportar_imagenes=args.exportar_imagenes,
+            sin_cache=args.sin_cache, forzar=args.forzar, justificacion=args.justificacion,
+        )  # fmt: skip
+        if resultado["codigo_salida"]:
+            print(json.dumps(resultado, ensure_ascii=False, indent=2))
+            return resultado["codigo_salida"]
+        return resultado
     if args.grupo == "api":
         import uvicorn
 

@@ -453,3 +453,67 @@ def test_ancla_con_tramos_en_varias_paginas(repositorio: RepositorioProcesos) ->
     referencias.write_text(json.dumps({"elementos": {"Tarea_1": [invalido]}}), encoding="utf-8")
     with pytest.raises(ValueError, match="Tramos de ancla invalidos"):
         repositorio.leer_modelo("S4.3")
+
+
+def test_sesion_anclas_aceptacion_de_hallazgos_y_cierre_idempotente(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioSesiones(repositorio)
+    identificador = servicio.iniciar("S4.3")["sesion"]
+    with pytest.raises(ErrorDominio, match="no existe"):
+        servicio.anclar("S4.3", identificador, "Tarea_9", "x:y", "cita", "Título", "art. 1", "vigente")
+    documento = servicio.contenido("S4.3", identificador, "fuentes_visor")
+    datos = json.loads(documento["texto"])
+    datos["elementos"]["Retirada"] = [{"ruta": "01-referencias/nota.txt", "fragmento": "x"}]
+    servicio.editar("S4.3", identificador, "fuentes_visor", json.dumps(datos), documento["revision"])
+    retiro = servicio.retirar_anclas("S4.3", identificador, huerfanas=True)
+    assert retiro["retiradas"] == ["Retirada"]
+    assert servicio.retirar_anclas("S4.3", identificador, huerfanas=True)["retiradas"] == []
+    with pytest.raises(ErrorDominio, match="justificación"):
+        servicio.preparar("S4.3", identificador, generar=False, aceptar_hallazgos="corta")
+    with pytest.raises(ErrorDominio, match="sustento"):
+        servicio.preparar(
+            "S4.3", identificador, generar=False, aceptar_hallazgos="Hallazgos D4 ya revisados y aceptados"
+        )
+    sustento = servicio.contenido("S4.3", identificador, "sustento")
+    servicio.editar("S4.3", identificador, "sustento", sustento["texto"] + "\nD4 justificado.\n", sustento["revision"])
+    preparado = servicio.preparar(
+        "S4.3", identificador, generar=False, aceptar_hallazgos="Hallazgos D4 ya revisados y aceptados"
+    )
+    assert preparado["hallazgos_aceptados"]["justificacion"] == "Hallazgos D4 ya revisados y aceptados"
+    assert preparado["aplicable"]
+    assert servicio.cerrar("S4.3", identificador)["estado"] == "CERRADA"
+    repetido = servicio.cerrar("S4.3", identificador)
+    assert repetido["estado"] == "CERRADA" and "ya había terminado" in repetido["detalle"]
+
+
+def test_generacion_exige_justificacion_para_forzar(repositorio: RepositorioProcesos) -> None:
+    from mesa_modelamiento.generacion import generar_modelo, validar_justificacion
+
+    with pytest.raises(ErrorDominio, match="justificación"):
+        validar_justificacion("breve")
+    with pytest.raises(ErrorDominio, match="justificación"):
+        generar_modelo(repositorio, "S4.3", forzar=True, justificacion="")
+
+
+def test_observacion_por_id_de_tabla_o_numero(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioObservaciones(repositorio)
+    identificador = next(iter(repositorio.leer_modelo("S4.3")["elementos"]))
+    bpmn = repositorio.rutas("S4.3")["bpmn"]
+    bpmn.write_text(bpmn.read_text(encoding="utf-8").replace('id="Tarea_1"', f'id="{identificador}"'), encoding="utf-8")
+    creada = servicio.agregar(
+        "S4.3", elemento="1", texto="Por número", autor="Claudia", revision_esperada=servicio.listar("S4.3")["revision"]
+    )
+    assert creada["elemento"] == identificador and creada["referencia"] == "Caja 1 (Tarea_1)"
+
+
+def test_mcp_expone_paridad_y_errores_de_dominio_legibles(repositorio: RepositorioProcesos) -> None:
+    servidor = crear_servidor(repositorio)
+    nombres = {herramienta.name for herramienta in asyncio.run(servidor.list_tools())}
+    esperadas = {"generar_modelo", "anclar_en_copia", "retirar_anclas_copia", "auditoria_inventariar",
+                 "auditoria_registrar", "auditoria_cobertura", "auditoria_reconfirmar", "auditoria_correr",
+                 "auditoria_interfaces", "auditoria_informe", "buscar_fuentes", "contexto_fragmento",
+                 "anclar_cita"}  # fmt: skip
+    assert esperadas <= nombres
+    from mcp.server.mcpserver.exceptions import ToolError
+
+    with pytest.raises(ToolError, match="HTTP 404"):
+        asyncio.run(servidor.call_tool("leer_elemento", {"codigo": "S4.3", "identificador": "No_existe"}))

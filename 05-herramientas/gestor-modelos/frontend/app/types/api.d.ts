@@ -676,6 +676,14 @@ export interface components {
              */
             tipo: string;
         };
+        /** PreparacionEntrada */
+        PreparacionEntrada: {
+            /**
+             * Aceptar Hallazgos
+             * @default
+             */
+            aceptar_hallazgos: string;
+        };
         /** PreparacionSesion */
         PreparacionSesion: {
             /** Aplicable */
@@ -684,6 +692,14 @@ export interface components {
             cambios: string[];
             /** Diff */
             diff: string;
+            /** Hallazgos Aceptados */
+            hallazgos_aceptados?: {
+                [key: string]: string;
+            } | null;
+            /** Numeracion */
+            numeracion?: {
+                [key: string]: number;
+            } | null;
             /** Revision Sesion */
             revision_sesion: number;
             validacion: components["schemas"]["ValidacionSesion"];
@@ -1373,7 +1389,11 @@ export interface operations {
             };
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PreparacionEntrada"] | null;
+            };
+        };
         responses: {
             /** @description Successful Response */
             200: {

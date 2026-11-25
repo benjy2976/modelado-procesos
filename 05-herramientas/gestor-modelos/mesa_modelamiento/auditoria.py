@@ -250,3 +250,76 @@ def registrar_cobertura(raiz: Path, codigo: str, entradas: list[dict]) -> dict:
 def cargar_cobertura(raiz: Path, codigo: str) -> dict:
     ruta = carpeta_auditoria(raiz, codigo) / "cobertura-fuente.json"
     return json.loads(ruta.read_text(encoding="utf-8")) if ruta.is_file() else {"obligaciones": []}
+
+
+CAMPOS_AFIRMACION = ("elemento", "aspecto", "afirmacion", "resultado", "clase", "fuentes", "razonamiento")
+CAMPOS_COBERTURA = ("fragmento", "cita", "obligacion", "aspecto", "estado", "elementos", "razonamiento")
+
+
+def _texto_clave(registro: dict) -> tuple[str, str, str]:
+    return registro["elemento"], registro["aspecto"], " ".join(registro["afirmacion"].split()).lower()
+
+
+def reconfirmar(
+    raiz: Path,
+    codigo: str,
+    afirmaciones: list[dict],
+    cobertura: list[dict] | None = None,
+    motivo: str = "",
+    actor: str = "agente-ia",
+) -> dict:
+    """Reconfirma la auditoría después de cambiar la tabla, sin perder lo vigente.
+
+    Reinventaría el modelo; vuelve a registrar sobre la nueva revisión las afirmaciones vigentes de elementos que
+    siguen existiendo; registra las nuevas; rectifica como `NO-APLICA` las anteriores del mismo elemento y aspecto
+    con otro texto; y aplica a la cobertura los cambios indicados (una obligación existente se identifica por
+    fragmento y comienzo del texto de la obligación; una entrada con cita que no coincide se agrega como nueva).
+    """
+    if not str(motivo).strip():
+        raise ErrorDominio("Indique el motivo de la reconfirmación (cambio de tabla y decisión que lo origina)")
+    raiz = raiz.resolve()
+    inventariar_elementos(raiz, codigo)
+    ids = {item["id"] for item in cargar_inventario(raiz, codigo)["items"]}
+    faltantes = sorted({a.get("elemento") for a in afirmaciones} - ids)
+    if faltantes:
+        raise ErrorDominio(f"ID-AUSENTE: {faltantes} no existen en el inventario actual")
+    previas = list(vigentes(raiz, codigo).values())
+    reemplazo = {(a["elemento"], a["aspecto"]) for a in afirmaciones}
+    textos = {_texto_clave(a) for a in afirmaciones}
+    conservadas = [{k: r[k] for k in CAMPOS_AFIRMACION} for r in previas
+                   if r["elemento"] in ids and (r["elemento"], r["aspecto"]) not in reemplazo]  # fmt: skip
+    superadas = [
+        {"elemento": r["elemento"], "aspecto": r["aspecto"], "afirmacion": r["afirmacion"], "resultado": "NO-APLICA",
+         "clase": "DECISION-PROYECTO", "fuentes": [],
+         "razonamiento": f"Superada por un cambio de tabla: {motivo.strip()}. La reemplaza la afirmación vigente del "
+                         "mismo elemento y aspecto."}
+        for r in previas
+        if r["elemento"] in ids and (r["elemento"], r["aspecto"]) in reemplazo and r["resultado"] != "NO-APLICA"
+        and _texto_clave(r) not in textos
+    ]  # fmt: skip
+    registro = registrar(raiz, codigo, conservadas + list(afirmaciones) + superadas, actor)
+    obligaciones = [{k: o.get(k) for k in CAMPOS_COBERTURA} for o in cargar_cobertura(raiz, codigo)["obligaciones"]]
+    nuevas_obligaciones = 0
+    for cambio in cobertura or []:
+        inicio = str(cambio.get("obligacion", "")).strip()
+        destino = next((o for o in obligaciones
+                        if o["fragmento"] == cambio.get("fragmento") and inicio and o["obligacion"].startswith(inicio)),
+                       None)  # fmt: skip
+        if destino is not None:
+            destino.update({k: cambio[k] for k in ("estado", "elementos", "razonamiento", "aspecto") if k in cambio})
+        elif cambio.get("cita"):
+            obligaciones.append({k: cambio.get(k, [] if k == "elementos" else "") for k in CAMPOS_COBERTURA})
+            nuevas_obligaciones += 1
+        else:
+            raise ErrorDominio(f"Obligación no encontrada y sin cita para agregarla: {inicio[:80]}")
+    resultado_cobertura = registrar_cobertura(raiz, codigo, obligaciones) if obligaciones else None
+    return {
+        "codigo": codigo,
+        "registro": registro,
+        "conservadas": len(conservadas),
+        "nuevas": len(afirmaciones),
+        "superadas": len(superadas),
+        "descartadas_por_elemento_retirado": sorted({r["elemento"] for r in previas} - ids),
+        "obligaciones_nuevas": nuevas_obligaciones,
+        "cobertura": resultado_cobertura,
+    }

@@ -15,6 +15,8 @@ from pathlib import Path
 
 from filelock import FileLock, Timeout
 
+from .auditoria import _tabla
+from .generacion import validar_justificacion
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .visor_datos import datos_visor
 
@@ -187,8 +189,73 @@ class ServicioSesiones:
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc
 
-    def preparar(self, codigo: str, identificador: str, *, generar: bool = True) -> dict:
-        """Genera en la copia y guarda diff; jamás adopta un modelo con hallazgos."""
+    def _ids_tabla_copia(self, codigo: str, identificador: str) -> set[str]:
+        tabla = self.contenido(codigo, identificador, "tabla")["texto"]
+        return {fila["ID"] for fila in _tabla(tabla, "Elementos") if fila.get("ID")}
+
+    def anclar(
+        self,
+        codigo: str,
+        identificador: str,
+        elemento: str,
+        fragmento: str,
+        cita: str,
+        titulo: str,
+        ubicacion: str,
+        vigencia: str,
+    ) -> dict:
+        """Ancla una cita verificada de un fragmento a una caja de la copia; reemplaza el ancla de igual ubicación."""
+        from .fuentes_anclaje import anclar_fragmento
+
+        if elemento not in self._ids_tabla_copia(codigo, identificador):
+            raise ErrorDominio(f"La caja {elemento} no existe en la tabla de la copia", 404)
+        for campo, valor in (("titulo", titulo), ("ubicacion", ubicacion), ("vigencia", vigencia), ("cita", cita)):
+            if not isinstance(valor, str) or not valor.strip():
+                raise ErrorDominio(f"Indique {campo} del ancla")
+        resultado = anclar_fragmento(self.repositorio.raiz, fragmento, cita)
+        if resultado.get("estado") != "ANCLADO":
+            raise ErrorDominio(f"La cita no se pudo anclar: {resultado.get('estado')}", 422)
+        documento = self.contenido(codigo, identificador, "fuentes_visor")
+        datos = json.loads(documento["texto"])
+        entrada = {
+            "titulo": titulo.strip(), "ruta": resultado["ruta"], "sha256": resultado["sha256"],
+            "pagina": resultado["pagina"], "ubicacion": ubicacion.strip(),
+            "fragmento": cita[:157] + ("…" if len(cita) > 157 else ""),
+            "consulta": datetime.now(timezone.utc).date().isoformat(), "vigencia": vigencia.strip(),
+            "rectangulos": resultado["rectangulos"], "metodo_ancla": "automatico-pdfminer",
+        }  # fmt: skip
+        if resultado.get("tramos"):
+            entrada["tramos"] = resultado["tramos"]
+        anclas = datos["elementos"].setdefault(elemento, [])
+        misma = (entrada["ruta"], entrada["ubicacion"])
+        anclas[:] = [a for a in anclas if (a.get("ruta"), a.get("ubicacion")) != misma]
+        anclas.append(entrada)
+        texto = json.dumps(datos, ensure_ascii=False, indent=2) + "\n"
+        editado = self.editar(codigo, identificador, "fuentes_visor", texto, documento["revision"])
+        return {**editado, "elemento": elemento, "pagina": entrada["pagina"], "anclas_del_elemento": len(anclas)}
+
+    def retirar_anclas(
+        self, codigo: str, identificador: str, elementos: list[str] | None = None, huerfanas: bool = False
+    ) -> dict:
+        """Retira anclas de las cajas indicadas y, si se pide, de las que ya no existen en la tabla de la copia."""
+        documento = self.contenido(codigo, identificador, "fuentes_visor")
+        datos = json.loads(documento["texto"])
+        quitar = set(elementos or [])
+        if huerfanas:
+            vigentes = self._ids_tabla_copia(codigo, identificador)
+            quitar |= {clave for clave in datos["elementos"] if clave not in vigentes}
+        retiradas = sorted(clave for clave in quitar if clave in datos["elementos"])
+        if not retiradas:
+            return {"nombre": "fuentes_visor", "revision": documento["revision"], "retiradas": []}
+        for clave in retiradas:
+            datos["elementos"].pop(clave)
+        texto = json.dumps(datos, ensure_ascii=False, indent=2) + "\n"
+        editado = self.editar(codigo, identificador, "fuentes_visor", texto, documento["revision"])
+        return {**editado, "retiradas": retiradas}
+
+    def preparar(self, codigo: str, identificador: str, *, generar: bool = True, aceptar_hallazgos: str = "") -> dict:
+        """Genera en la copia y guarda diff. Solo adopta hallazgos con justificación documentada en el sustento."""
+        justificacion = validar_justificacion(aceptar_hallazgos) if aceptar_hallazgos.strip() else ""
         try:
             with self._bloqueo(codigo):
                 carpeta = self._sesion(codigo, identificador)
@@ -198,12 +265,25 @@ class ServicioSesiones:
                 tabla = carpeta / "copia" / manifest["archivos"]["tabla"]["nombre"]
                 tabla_anterior = carpeta / "origen" / tabla.name
                 tabla_modificada = tabla.read_bytes() != tabla_anterior.read_bytes()
+                if justificacion:
+                    sustento = manifest["archivos"]["sustento"]["nombre"]
+                    if (carpeta / "copia" / sustento).read_bytes() == (carpeta / "origen" / sustento).read_bytes():
+                        raise ErrorDominio("Documente en el sustento de la copia los hallazgos que acepta", 409)
+                numeracion = None
                 if generar and tabla_modificada:
                     programa = Path(__file__).resolve().parents[1] / "construir_modelos.py"
                     if not tabla.is_relative_to(self.repositorio.raiz):
                         raise ErrorDominio("La copia debe estar dentro del repositorio para regenerar", 409)
+                    modulo = str(programa.parent)
+                    if modulo not in sys.path:
+                        sys.path.insert(0, modulo)
+                    from numerar_modelos import numerar
+
+                    total, nuevos = numerar(tabla)  # Números de referencia persistentes (DEC-044), como modelar.py.
+                    numeracion = {"elementos": total, "nuevos": nuevos}
+                    forzar = ["--forzar"] if justificacion else []
                     proceso = subprocess.run(
-                        [sys.executable, str(programa), "--tabla", str(tabla)],
+                        [sys.executable, str(programa), "--tabla", str(tabla), *forzar],
                         cwd=self.repositorio.raiz,
                         capture_output=True,
                         text=True,
@@ -266,6 +346,13 @@ class ServicioSesiones:
                     "validacion": informe,
                     "aplicable": informe["codigo"] == 0 and bool(cambios),
                 }
+                if numeracion:
+                    preparacion["numeracion"] = numeracion
+                if justificacion:
+                    preparacion["hallazgos_aceptados"] = {
+                        "justificacion": justificacion,
+                        "fecha": datetime.now(timezone.utc).isoformat(),
+                    }
                 manifest["preparacion"] = preparacion
                 self._guardar_json(carpeta / "manifest.json", manifest)
                 return preparacion
@@ -348,7 +435,7 @@ class ServicioSesiones:
                 carpeta = self._sesion(codigo, identificador)
                 manifest = self._manifest(carpeta)
                 if manifest["estado"] != "ABIERTA":
-                    raise ErrorDominio("La sesión ya terminó", 409)
+                    return {**manifest, "detalle": "La sesión ya había terminado; no se modificó"}
                 manifest["estado"] = "CERRADA"
                 self._guardar_json(carpeta / "manifest.json", manifest)
                 (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)

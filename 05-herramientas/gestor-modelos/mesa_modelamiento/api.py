@@ -55,6 +55,10 @@ class EdicionDocumento(BaseModel):
     revision_esperada: str
 
 
+class PreparacionEntrada(BaseModel):
+    aceptar_hallazgos: str = Field(default="", max_length=2000)
+
+
 class IntegracionSesion(BaseModel):
     revision_esperada: int = Field(ge=0)
 
@@ -179,9 +183,11 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
         return sesiones.editar(codigo, identificador, nombre, **entrada.model_dump())
 
     @app.post("/api/procesos/{codigo}/sesiones/{identificador}/preparacion", response_model=PreparacionSesion)
-    def preparar_sesion(codigo: str, identificador: str, request: Request) -> dict:
+    def preparar_sesion(
+        codigo: str, identificador: str, request: Request, entrada: PreparacionEntrada | None = None
+    ) -> dict:
         comprobar_origen(request)
-        return sesiones.preparar(codigo, identificador)
+        return sesiones.preparar(codigo, identificador, aceptar_hallazgos=entrada.aceptar_hallazgos if entrada else "")
 
     @app.post("/api/procesos/{codigo}/sesiones/{identificador}/integracion", response_model=IntegracionVista)
     def integrar_sesion(codigo: str, identificador: str, entrada: IntegracionSesion, request: Request) -> dict:

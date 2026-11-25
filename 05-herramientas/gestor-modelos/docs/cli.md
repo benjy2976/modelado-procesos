@@ -67,12 +67,13 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `auditoria cobertura <codigo> --archivo <obligaciones.json>` | Obligaciones de la fuente rectora y elemento que las representa (`REPRESENTADO`, `NO-REPRESENTADO`, `FUERA-DE-ALCANCE`) |
 | `auditoria correr --alcance <codigo> [--max-procesos N]` | Estado reanudable por proceso: `SIN-MODELO`, `PENDIENTE-AUDITORIA`, `EN-CURSO`, `CON-HALLAZGOS`, `COMPLETO` o `DESACTUALIZADO`; escribe `auditorias/corrida-<alcance>.json` y su resumen Markdown |
 | `auditoria comparar-interfaces <padre>` | Candidatos de interfaz: hijo sin modelo o sin elemento, tipo de disparo, salida declarada no representada, secuencia entre hijos y mensajes sin contraparte entre hermanos |
+| `auditoria reconfirmar <codigo> --archivo <json>` | Tras cambiar la tabla: reinventaría, conserva las afirmaciones vigentes de elementos que siguen, registra las nuevas, rectifica como `NO-APLICA` las superadas y aplica cambios de cobertura. El JSON lleva `afirmaciones`, `cobertura` (opcional) y `motivo` |
 | `auditoria informe <codigo> [--check]` | Cobertura, resultados, citas vigentes y anclas del visor; Markdown en `auditorias/<codigo>/`. Solo cuenta afirmaciones de elementos presentes en el inventario; las de elementos retirados se listan en `afirmaciones_de_elementos_retirados` y permanecen en el registro |
 | `observaciones listar S4.3.2.3` | Registros y revisión vigente |
-| `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--tipo ...] [--formato texto\|html]` | Registro con ID y nueva revisión |
+| `observaciones agregar <codigo> --texto ... --autor ... --revision ... [--elemento ...] [--referencia ...] [--tipo ...] [--formato texto\|html]` (`--elemento` acepta ID BPMN, ID de tabla o número de caja) | Registro con ID y nueva revisión |
 | `observaciones responder <codigo> <id> --texto ... --autor ... --revision ... [--formato texto\|html]` | Respuesta e historial con nueva revisión |
 | `observaciones estado <codigo> <id> --valor ABIERTA\|RESUELTA --revision ... [--autor ...]` | Cambio de estado trazado |
-| `modelo <codigo> [--check] [--exportar-imagenes]` | Salida y código de `modelar.py` |
+| `modelo <codigo> [--check] [--exportar-imagenes] [--sin-cache] [--forzar --justificacion "..."]` | JSON con opciones, código de salida, salida e informe D1–D5 de `modelar.py`. `--forzar` adopta hallazgos y exige una justificación de al menos 20 caracteres, que además debe constar en el sustento |
 | `api [--host 127.0.0.1] [--port 8000]` | Servidor HTTP local |
 | `mcp [--transporte stdio]` | Servidor MCP local |
 | `contrato [--check]` | Exporta `contracts/openapi.json` o comprueba que coincide con FastAPI |
@@ -80,9 +81,11 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `sesiones leer <codigo> <sesion>` | Manifiesto y preparación de la copia |
 | `sesiones documento <codigo> <sesion> tabla\|sustento\|fuentes_visor` | Texto y hash de revisión |
 | `sesiones editar <codigo> <sesion> <nombre> --archivo <ruta> --revision <hash>` | Sustituye solo el texto de la copia |
-| `sesiones preparar <codigo> <sesion>` | Regenera copia, devuelve diff y D1–D5 |
+| `sesiones preparar <codigo> <sesion> [--aceptar-hallazgos "..."]` | Numera cajas nuevas (DEC-044), regenera la copia y devuelve diff y D1–D5. Con justificación y el sustento de la copia modificado, adopta hallazgos |
+| `sesiones anclar <codigo> <sesion> --elemento --fragmento --cita --titulo --ubicacion --vigencia` | Ancla una cita literal verificada a una caja de la copia |
+| `sesiones retirar-anclas <codigo> <sesion> [--elemento ID ...] [--huerfanas]` | Retira anclas de cajas indicadas o de cajas que ya no existen |
 | `sesiones integrar <codigo> <sesion> --revision <numero>` | Integra cambios preparados si el destino no cambió |
-| `sesiones cerrar <codigo> <sesion>` | Libera editor; conserva instantánea y copia |
+| `sesiones cerrar <codigo> <sesion>` | Libera editor; conserva instantánea y copia. Sobre una sesión ya terminada no cambia nada y lo indica |
 
 Se ejecuta desde la carpeta de la aplicación con `uv run modelador-procesos ...`. Un error de dominio se imprime en JSON en `stderr` y termina con código `1`; el comando `modelo` conserva el código de salida del generador. Los argumentos mal formados se rigen por `argparse`.
 

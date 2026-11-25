@@ -202,3 +202,38 @@ def test_cita_que_cruza_el_salto_de_pagina(tmp_path: Path) -> None:
     assert all(len(t["rectangulos"]) == 1 and t["rol"] == "citado" for t in cruzada["tramos"])
     assert anclar_entre_paginas(tmp_path, ruta, [1, 2], "texto que no existe en ninguna")["estado"] == "CITA-NO-HALLADA"
     assert anclar_entre_paginas(tmp_path, ruta, [1, 2], cita, sha256="0" * 64)["estado"] == "HASH-DISTINTO"
+
+
+def test_reconfirmar_conserva_vigentes_y_rectifica_superadas(tmp_path: Path) -> None:
+    from mesa_modelamiento.auditoria import cargar_cobertura, reconfirmar, registrar_cobertura, vigentes
+
+    tabla = _proceso(tmp_path)
+    inventariar_elementos(tmp_path, "S4.3.2.7")
+    fragmento = buscar(tmp_path, "adenda")["resultados"][0]["id"]
+    base = {"aspecto": "existencia", "resultado": "INFERENCIA", "clase": "DECISION-PROYECTO", "fuentes": [],
+            "razonamiento": "Paso del modelo."}  # fmt: skip
+    registrar(tmp_path, "S4.3.2.7", [{**base, "elemento": e, "afirmacion": f"Paso {e}"} for e in ("T1", "E1", "F0")])
+    registrar_cobertura(tmp_path, "S4.3.2.7", [
+        {"fragmento": fragmento, "cita": "No se requiere adenda", "obligacion": "Sin adenda",
+         "estado": "NO-REPRESENTADO",
+         "elementos": [], "razonamiento": "Falta."}])  # fmt: skip
+    tabla.write_text(TABLA.replace("F0", "FX"), encoding="utf-8")
+    with pytest.raises(ErrorDominio, match="motivo"):
+        reconfirmar(tmp_path, "S4.3.2.7", [], motivo=" ")
+    resultado = reconfirmar(
+        tmp_path, "S4.3.2.7",
+        [{**base, "elemento": "T1", "afirmacion": "Paso T1 revisado"}, {**base, "elemento": "FX", "afirmacion": "Fin"}],
+        [{"fragmento": fragmento, "obligacion": "Sin adenda", "estado": "REPRESENTADO", "elementos": ["T1"],
+          "razonamiento": "T1 lo recoge."},
+         {"fragmento": fragmento, "cita": "basta la publicación de la resolución", "obligacion": "Publicar",
+          "estado": "NO-REPRESENTADO", "elementos": [], "razonamiento": "Falta."}],
+        motivo="Prueba de cambio de tabla",
+    )  # fmt: skip
+    assert resultado["conservadas"] == 1 and resultado["nuevas"] == 2 and resultado["superadas"] == 1
+    assert resultado["descartadas_por_elemento_retirado"] == ["F0"] and resultado["obligaciones_nuevas"] == 1
+    actuales = {(r["elemento"], r["afirmacion"]): r["resultado"] for r in vigentes(tmp_path, "S4.3.2.7").values()}
+    assert actuales[("T1", "Paso T1")] == "NO-APLICA" and actuales[("T1", "Paso T1 revisado")] == "INFERENCIA"
+    estados = [o["estado"] for o in cargar_cobertura(tmp_path, "S4.3.2.7")["obligaciones"]]
+    assert estados == ["REPRESENTADO", "NO-REPRESENTADO"]
+    with pytest.raises(ErrorDominio, match="ID-AUSENTE"):
+        reconfirmar(tmp_path, "S4.3.2.7", [{**base, "elemento": "F0", "afirmacion": "x"}], motivo="Prueba")

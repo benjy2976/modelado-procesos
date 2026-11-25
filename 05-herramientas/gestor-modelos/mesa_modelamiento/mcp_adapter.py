@@ -2,15 +2,35 @@
 
 from __future__ import annotations
 
-from mcp.server import MCPServer
+import functools
+from collections.abc import Callable
 
+from mcp.server import MCPServer
+from mcp.server.mcpserver.exceptions import ToolError
+
+from . import auditoria, generacion
+from . import fuentes_anclaje as anclaje
+from . import fuentes_busqueda as busqueda
 from .documentos import ServicioDocumentos
 from .observaciones import ServicioObservaciones
-from .repositorio import RepositorioProcesos
+from .repositorio import ErrorDominio, RepositorioProcesos
 from .sesiones import ServicioSesiones
 
 # Alias con el que el agente de IA firma sus registros en el ciclo de retroalimentación (DEC-064).
 AUTOR_AGENTE = "Claudia"
+
+
+def _errores_de_dominio(funcion: Callable) -> Callable:
+    """Entrega un ErrorDominio como error de herramienta legible, no como fallo inesperado con traza."""
+
+    @functools.wraps(funcion)
+    def envoltura(*args, **kwargs):  # noqa: ANN202
+        try:
+            return funcion(*args, **kwargs)
+        except ErrorDominio as exc:
+            raise ToolError(f"{exc} (HTTP {exc.codigo_http})") from exc
+
+    return envoltura
 
 
 def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
@@ -21,27 +41,34 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     servidor = MCPServer(
         "mesa-modelamiento",
         instructions=(
-            "Lee modelos y registra observaciones de borrador. No atribuyas validacion normativa, "
-            "conformidad ni aprobacion institucional. Usa IDs de proceso y BPMN existentes."
+            "Lee, edita en copia recuperable, genera y audita modelos de procesos; registra observaciones. "
+            "No atribuyas validacion normativa, conformidad ni aprobacion institucional. Toda adopcion de "
+            "hallazgos D1-D5 exige justificacion documentada en el sustento."
         ),
     )
 
-    @servidor.tool()
+    def herramienta() -> Callable:
+        def decorar(funcion: Callable) -> Callable:
+            return servidor.tool()(_errores_de_dominio(funcion))
+
+        return decorar
+
+    @herramienta()
     def listar_procesos() -> dict:
         """Lista el arbol de procesos, comenzando por el Nivel 0."""
         return repositorio.arbol()
 
-    @servidor.tool()
+    @herramienta()
     def leer_proceso(codigo: str) -> dict:
         """Lee detalle, cajas, flujos y fuentes registradas de un proceso por codigo NT."""
         return repositorio.leer_modelo(codigo)
 
-    @servidor.tool()
+    @herramienta()
     def listar_observaciones(codigo: str) -> dict:
         """Lee observaciones y revision vigente de un proceso."""
         return observaciones.listar(codigo)
 
-    @servidor.tool()
+    @herramienta()
     def registrar_observacion(
         codigo: str,
         elemento: str,
@@ -51,7 +78,9 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         referencia: str = "",
         formato: str = "texto",
     ) -> dict:
-        """Registra una observacion o comentario sobre un ID BPMN; no altera el modelo. formato: texto o html."""
+        """Registra una observación sobre una caja (ID BPMN, ID de tabla o número) o el diagrama (elemento vacío).
+
+        No altera el modelo. formato: texto o html. La referencia «Caja N (ID)» se completa sola."""
         return observaciones.agregar(
             codigo,
             elemento=elemento,
@@ -63,19 +92,19 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
             formato=formato,
         )
 
-    @servidor.tool()
+    @herramienta()
     def responder_observacion(
         codigo: str, identificador: str, texto: str, revision_esperada: str, formato: str = "texto"
     ) -> dict:
         """Añade respuesta a una observación existente sin alterar el modelo. formato: texto o html."""
         return observaciones.responder(codigo, identificador, texto, AUTOR_AGENTE, revision_esperada, formato)
 
-    @servidor.tool()
+    @herramienta()
     def cambiar_estado_observacion(codigo: str, identificador: str, estado: str, revision_esperada: str) -> dict:
         """Abre o resuelve una observación; no aprueba el proceso ni su sustento."""
         return observaciones.actualizar_estado(codigo, identificador, estado, revision_esperada, AUTOR_AGENTE)
 
-    @servidor.tool()
+    @herramienta()
     def leer_elemento(codigo: str, identificador: str) -> dict:
         """Lee una caja o flujo por ID, sin inventar fuente ni fundamento."""
         modelo = repositorio.leer_modelo(codigo)
@@ -87,49 +116,164 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
             }
         if identificador in modelo["flujos"]:
             return {"tipo": "flujo", "datos": modelo["flujos"][identificador]}
-        from .repositorio import ErrorDominio
-
         raise ErrorDominio("Elemento no encontrado", 404)
 
-    @servidor.tool()
+    @herramienta()
     def leer_fuente(codigo: str, referencia: str, indice: int) -> dict:
         """Lee texto de una fuente registrada y solo la página PDF registrada, sin OCR."""
         return documentos.leer_fuente(codigo, referencia, indice)
 
-    @servidor.tool()
+    @herramienta()
     def iniciar_edicion(codigo: str) -> dict:
         """Captura una instantánea verificable y abre una copia aislada del proceso."""
         return sesiones.iniciar(codigo)
 
-    @servidor.tool()
+    @herramienta()
     def leer_sesion(codigo: str, sesion: str) -> dict:
         """Lee estado, revisiones y preparación de la sesión."""
         return sesiones.leer(codigo, sesion)
 
-    @servidor.tool()
+    @herramienta()
     def leer_documento_copia(codigo: str, sesion: str, nombre: str) -> dict:
         """Lee tabla, sustento o metadatos de fuentes de la copia editable."""
         return sesiones.contenido(codigo, sesion, nombre)
 
-    @servidor.tool()
+    @herramienta()
     def editar_documento_copia(codigo: str, sesion: str, nombre: str, texto: str, revision_esperada: str) -> dict:
         """Edita solo la copia con revisión esperada; no toca originales aprobados."""
         return sesiones.editar(codigo, sesion, nombre, texto, revision_esperada)
 
-    @servidor.tool()
-    def preparar_cambio(codigo: str, sesion: str) -> dict:
-        """Regenera la copia y devuelve diff y validación D1-D5 para revisar."""
-        return sesiones.preparar(codigo, sesion)
+    @herramienta()
+    def preparar_cambio(codigo: str, sesion: str, aceptar_hallazgos: str = "") -> dict:
+        """Numera cajas nuevas, regenera la copia y devuelve diff y validación D1-D5.
 
-    @servidor.tool()
+        aceptar_hallazgos: justificación (mín. 20 caracteres) para adoptar hallazgos ya documentados en el
+        sustento de la copia; sin ella, un resultado con hallazgos no es aplicable."""
+        return sesiones.preparar(codigo, sesion, aceptar_hallazgos=aceptar_hallazgos)
+
+    @herramienta()
+    def anclar_en_copia(
+        codigo: str, sesion: str, elemento: str, fragmento: str, cita: str, titulo: str, ubicacion: str, vigencia: str
+    ) -> dict:
+        """Ancla en la copia una cita literal de un fragmento de la biblioteca a una caja (ID de tabla)."""
+        return sesiones.anclar(codigo, sesion, elemento, fragmento, cita, titulo, ubicacion, vigencia)
+
+    @herramienta()
+    def retirar_anclas_copia(
+        codigo: str, sesion: str, elementos: list[str] | None = None, huerfanas: bool = False
+    ) -> dict:
+        """Retira anclas de las cajas indicadas y, con huerfanas, de las cajas que ya no existen en la copia."""
+        return sesiones.retirar_anclas(codigo, sesion, elementos, huerfanas)
+
+    @herramienta()
     def aplicar_cambio(codigo: str, sesion: str, revision_esperada: int) -> dict:
         """Integra cambios preparados con control de conflictos y instantánea recuperable."""
         return sesiones.integrar(codigo, sesion, revision_esperada)
 
-    @servidor.tool()
+    @herramienta()
     def cerrar_edicion(codigo: str, sesion: str) -> dict:
-        """Cierra sin integrar; conserva la copia y libera el único editor."""
+        """Cierra sin integrar; conserva la copia y libera el único editor. Tras aplicar_cambio no hace falta."""
         return sesiones.cerrar(codigo, sesion)
+
+    @herramienta()
+    def generar_modelo(
+        codigo: str,
+        check: bool = False,
+        exportar_imagenes: bool = False,
+        sin_cache: bool = False,
+        forzar: bool = False,
+        justificacion: str = "",
+    ) -> dict:
+        """Genera o comprueba el BPMN y el HTML de una tabla ya integrada y devuelve el informe D1-D5.
+
+        forzar adopta hallazgos y exige justificacion; esta debe constar en el sustento. Para cambiar la tabla
+        use una sesión de edición."""
+        return generacion.generar_modelo(
+            repositorio, codigo, check=check, exportar_imagenes=exportar_imagenes, sin_cache=sin_cache,
+            forzar=forzar, justificacion=justificacion,
+        )  # fmt: skip
+
+    @herramienta()
+    def auditoria_inventariar(codigo: str) -> dict:
+        """Inventaría elementos, flujos, carriles y mensajes con IDs de auditoría."""
+        return auditoria.inventariar_elementos(repositorio.raiz, codigo)
+
+    @herramienta()
+    def auditoria_registrar(codigo: str, afirmaciones: list[dict]) -> dict:
+        """Registra un lote de afirmaciones con citas verificadas; rechaza todo el lote ante un error."""
+        return auditoria.registrar(repositorio.raiz, codigo, afirmaciones, AUTOR_AGENTE)
+
+    @herramienta()
+    def auditoria_cobertura(codigo: str, obligaciones: list[dict]) -> dict:
+        """Reemplaza la cobertura fuente→modelo del proceso; rechaza todo el lote ante un error."""
+        return auditoria.registrar_cobertura(repositorio.raiz, codigo, obligaciones)
+
+    @herramienta()
+    def auditoria_reconfirmar(
+        codigo: str, afirmaciones: list[dict], motivo: str, cobertura: list[dict] | None = None
+    ) -> dict:
+        """Tras cambiar la tabla: reinventaría, conserva lo vigente, registra nuevas y rectifica superadas.
+
+        cobertura: cambios por fragmento y comienzo de la obligación; con cita y sin coincidencia se agrega."""
+        return auditoria.reconfirmar(repositorio.raiz, codigo, afirmaciones, cobertura, motivo, AUTOR_AGENTE)
+
+    @herramienta()
+    def auditoria_correr(alcance: str, max_procesos: int | None = None) -> dict:
+        """Actualiza el estado reanudable de la auditoría de todos los procesos de un alcance."""
+        from .auditoria_corrida import correr
+
+        return correr(repositorio.raiz, alcance, max_procesos)
+
+    @herramienta()
+    def auditoria_interfaces(codigo: str) -> dict:
+        """Candidatos de discrepancia de interfaz entre un padre, sus hijos y los hermanos."""
+        from .auditoria_interfaces import comparar_interfaces
+
+        return comparar_interfaces(repositorio.raiz, codigo)
+
+    @herramienta()
+    def auditoria_informe(codigo: str) -> dict:
+        """Informe de cobertura, resultados, citas vigentes y anclas; ok indica si no hay hallazgos abiertos."""
+        from .auditoria_informe import informe
+
+        return informe(repositorio.raiz, codigo)
+
+    @herramienta()
+    def buscar_fuentes(
+        consulta: str = "",
+        modo: str = "flexible",
+        tema: str | None = None,
+        con_relacionados: bool = False,
+        id_documento: str | None = None,
+        archivo: str | None = None,
+        tipo: str | None = None,
+        area: str | None = None,
+        articulo: str | None = None,
+        regimen: str | None = None,
+        limite: int = 8,
+        max_caracteres: int = 6000,
+    ) -> dict:
+        """Busca pasajes candidatos en la biblioteca con ubicación verificable, acotados en cantidad y caracteres."""
+        filtros = {"id_documento": id_documento, "archivo": archivo, "tipo": tipo, "area": area,
+                   "articulo": articulo, "regimen": regimen}  # fmt: skip
+        return busqueda.buscar_pasajes(
+            repositorio.raiz, consulta, modo=modo, tema=tema, con_relacionados=con_relacionados, filtros=filtros,
+            limite=limite, max_caracteres=max_caracteres,
+        )  # fmt: skip
+
+    @herramienta()
+    def contexto_fragmento(fragmento: str, vecinos: int = 1, max_caracteres: int = 8000) -> dict:
+        """Texto completo de un fragmento de la biblioteca y de sus vecinos."""
+        return busqueda.contexto(repositorio.raiz, fragmento, vecinos, max_caracteres)
+
+    @herramienta()
+    def anclar_cita(cita: str, fragmento: str = "", archivo: str = "", pagina: int = 0) -> dict:
+        """Calcula página y rectángulos de una cita en el PDF original, sin escribir en ningún proceso."""
+        if fragmento:
+            return anclaje.anclar_fragmento(repositorio.raiz, fragmento, cita)
+        if not (archivo and pagina):
+            raise ErrorDominio("Indique fragmento, o archivo y pagina")
+        return anclaje.anclar(repositorio.raiz, archivo, pagina, cita)
 
     return servidor
 
