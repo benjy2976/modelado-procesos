@@ -1647,5 +1647,14 @@
    }
   ],
   "razonamiento": "194.3."
+ },
+ {
+  "elemento": "E-T11",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan registros y la comunicación, con el canal de publicación por confirmar.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
  }
 ]

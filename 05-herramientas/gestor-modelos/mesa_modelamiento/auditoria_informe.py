@@ -127,9 +127,11 @@ def informe(raiz: Path, codigo: str) -> dict:
     raiz = raiz.resolve()
     inventario = cargar_inventario(raiz, codigo)
     rutas = RepositorioProcesos(raiz).rutas(codigo)
-    registros = list(vigentes(raiz, codigo).values())
-    con_resultado = {r["elemento"] for r in registros}
     items = inventario["items"]
+    # Las afirmaciones sobre elementos que ya no existen en la tabla quedan en el registro, pero no cuentan.
+    todos = list(vigentes(raiz, codigo).values())
+    registros = [r for r in todos if r["elemento"] in {i["id"] for i in items}]
+    con_resultado = {r["elemento"] for r in registros}
     sin_resultado = [i["id"] for i in items if i["clase"] in OBLIGATORIOS and i["id"] not in con_resultado]
     visor = rutas["tabla"].parent / f"{codigo.replace('.', '-')}-fuentes-visor.json"
     anclas = verificar_anclas(raiz, visor)
@@ -141,6 +143,7 @@ def informe(raiz: Path, codigo: str) -> dict:
         "inventario_desactualizado": _sha256(raiz / inventario["tabla"]) != inventario["revision_tabla"],
         "resultados_de_otra_revision": sum(r["revision_tabla"] != inventario["revision_tabla"] for r in registros),
         "afirmaciones": len(registros),
+        "afirmaciones_de_elementos_retirados": sorted({r["elemento"] for r in todos} - con_resultado),
         "resultados": dict(Counter(r["resultado"] for r in registros)),
         "items": dict(Counter(i["clase"] for i in items)),
         "items_con_resultado": len(con_resultado & {i["id"] for i in items}),

@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2.1",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-1-control-periodico-ejecucion/S4-3-2-1-diagrama-proceso-tabla.md",
-  "revision_tabla": "5C978FB80ACC3980E5875E3BCA90147EE5D1C06E2D9877B7FDDFAF5E89A6FAE3",
-  "fecha": "2026-11-25T00:36:01+00:00",
+  "revision_tabla": "35817525CFE5D84663F3A1C2ABFB8A7D18621009D9E0C67BF716F88DA8A38F6C",
+  "fecha": "2026-11-25T00:49:26+00:00",
   "items": [
     {
       "id": "C:S4.3.2.1 Control periodico de la ejecucion/Ejecutor de obra, segun regimen — Residente de obra",
@@ -178,7 +178,7 @@
       "nombre": "Verificar calculos e informar monto propuesto para pago",
       "carril": "SGGOS — Monitor de obras",
       "clase_modelo": "EQ",
-      "fuente_modelo": "Descripcion del tramite regular por el usuario, 2026-11-17"
+      "fuente_modelo": "Descripcion del tramite regular por el usuario, 2026-11-17; Reglamento de la Ley 32069, arts. 210.3 y 210.4"
     },
     {
       "id": "F:T-7>T-10",
@@ -254,24 +254,76 @@
       "id": "T-12",
       "clase": "elemento",
       "tipo": "tarea",
-      "nombre": "Emitir carta y notificar directamente al contratista",
+      "nombre": "Emitir carta y notificar observaciones con plazo de subsanacion",
       "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
       "clase_modelo": "EQ",
-      "fuente_modelo": "Descripcion del tramite regular por el usuario, 2026-11-17"
+      "fuente_modelo": "Descripcion del tramite regular por el usuario, 2026-11-17; Reglamento de la Ley 32069, art. 210.3"
     },
     {
-      "id": "F:T-12>F-2",
+      "id": "F:T-12>GE-1",
       "clase": "flujo",
       "nombre": ""
     },
     {
-      "id": "F-2",
+      "id": "GE-1",
       "clase": "elemento",
-      "tipo": "fin-mensaje",
-      "nombre": "Observaciones notificadas al contratista",
+      "tipo": "compuerta-eventos",
+      "nombre": "¿Que ocurre primero?",
       "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
-      "clase_modelo": "EQ",
-      "fuente_modelo": "Descripcion del tramite regular por el usuario, 2026-11-17"
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento de la Ley 32069, arts. 210.3 y 210.4"
+    },
+    {
+      "id": "F:GE-1>M-1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "F:GE-1>R-1",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "M-1",
+      "clase": "elemento",
+      "tipo": "mensaje-recepcion",
+      "nombre": "Subsanacion recibida",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento de la Ley 32069, art. 210.3"
+    },
+    {
+      "id": "F:M-1>T-13",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "T-13",
+      "clase": "elemento",
+      "tipo": "tarea",
+      "nombre": "Revisar la subsanacion",
+      "carril": "SGGOS — Monitor de obras",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento de la Ley 32069, art. 210.3; revision por el monitor inferida de T-3"
+    },
+    {
+      "id": "F:T-13>T-7",
+      "clase": "flujo",
+      "nombre": ""
+    },
+    {
+      "id": "R-1",
+      "clase": "elemento",
+      "tipo": "temporizador",
+      "nombre": "Vencio el plazo de subsanacion",
+      "carril": "SGGOS — Subgerente de Gestion de Obras y Supervision",
+      "clase_modelo": "NORM",
+      "fuente_modelo": "Reglamento de la Ley 32069, art. 210.4"
+    },
+    {
+      "id": "F:R-1>T-7",
+      "clase": "flujo",
+      "nombre": ""
     },
     {
       "id": "M:F-1>Administracion",
@@ -279,14 +331,19 @@
       "nombre": "Valorizacion para tramite de pago"
     },
     {
-      "id": "M:F-2>Contratista",
-      "clase": "mensaje",
-      "nombre": "Carta de observaciones"
-    },
-    {
       "id": "M:S4.3.2.8 Gestion de mayores metrados>T-1",
       "clase": "mensaje",
       "nombre": "Sustento de mayores metrados del periodo"
+    },
+    {
+      "id": "M:T-12>Contratista",
+      "clase": "mensaje",
+      "nombre": "Carta de observaciones con plazo de subsanacion"
+    },
+    {
+      "id": "M:Contratista>M-1",
+      "clase": "mensaje",
+      "nombre": "Subsanacion de observaciones"
     }
   ]
 }

@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.1`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `37A2FC2D2201BD9B`. Afirmaciones vigentes: 34 (INFERENCIA: 16, SUSTENTADA: 18).
+Revisión de la tabla: `37A2FC2D2201BD9B`. Afirmaciones vigentes: 34 (INFERENCIA: 14, NO-APLICA: 2, SUSTENTADA: 18).
 
 ## Afirmaciones por elemento
 
@@ -52,9 +52,9 @@ Revisión de la tabla: `37A2FC2D2201BD9B`. Afirmaciones vigentes: 34 (INFERENCIA
 | C5 | existencia | `SUSTENTADA` | Se acredita la suscripción del contrato de la JPRD. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
 | C6 | existencia | `SUSTENTADA` | Se acredita la entrega del terreno. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
 | G4 | secuencia | `INFERENCIA` | Cada requisito acreditado vuelve a la verificación. | — |
-| T7 | documento | `INFERENCIA` | Se comunica el cumplimiento de las condiciones de inicio, sin acta. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-176.9` (p. 96) |
+| T7 | documento | `NO-APLICA` | Se comunica el cumplimiento de las condiciones de inicio, sin acta. | — |
 | T7 | documento | `INFERENCIA` | El inicio se formaliza mediante un acta de inicio de obra. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
-| F1 | entrada-salida | `INFERENCIA` | El proceso termina con el inicio del plazo comunicado. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
+| F1 | entrada-salida | `NO-APLICA` | El proceso termina con el inicio del plazo comunicado. | — |
 | F1 | entrada-salida | `INFERENCIA` | S4.3.1 termina con el acta de inicio de obra emitida. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
 | M:F1>S4.3.2 Ejecucion | entrada-salida | `INFERENCIA` | El acta de inicio de obra pasa a S4.3.2. | — |
 
@@ -79,8 +79,6 @@ Ninguna.
 - **T9 · accion.** El modelo no representa las consecuencias del 176.4 (requerimiento del contratista, resarcimiento, resolución) ni el diferimiento por acuerdo del 176.7-176.9, aunque los cita.
 - **GE2 · decision.** Disposición BPMN propuesta.
 - **G4 · secuencia.** Disposición BPMN propuesta.
-- **T7 · documento.** Práctica institucional informada por el usuario el 2026-11-24: en contrata, el GORE formaliza con un acta de inicio el cumplimiento de las condiciones. T7 no la representa. El Reglamento prevé actas, publicadas en la Pladicop, para diferir y reiniciar el inicio (176.9).
-- **F1 · entrada-salida.** S4.3 declara como salida el acta de inicio y S4.3.2 espera recibirla; F1 no la envía (candidato de interfaz).
 - **T7 · documento.** Práctica institucional en obras por contrata indicada por el usuario el 2026-11-24 para formalizar el inicio al cumplirse las condiciones; el Reglamento no la exige.
 - **F1 · entrada-salida.** Salida declarada por S4.3 y recibida por S4.3.2; práctica institucional.
 - **M:F1>S4.3.2 Ejecucion · entrada-salida.** Interfaz alineada con el inicio de S4.3.2 (E-1); práctica institucional.

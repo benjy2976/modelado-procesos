@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `2B3826ACC67F460F`. Afirmaciones vigentes: 20 (CONTRADICCION: 2, INFERENCIA: 7, SUSTENTADA: 11).
+Revisión de la tabla: `F0F27A5E72CE1D1C`. Afirmaciones vigentes: 22 (INFERENCIA: 7, NO-APLICA: 2, SUSTENTADA: 13).
 
 ## Afirmaciones por elemento
 
@@ -30,7 +30,8 @@ Revisión de la tabla: `2B3826ACC67F460F`. Afirmaciones vigentes: 20 (CONTRADICC
 | B-1 | condicion | `SUSTENTADA` | La resolución del contrato interrumpe la ejecución. | reglamento-de-la-ley-general-de-contrataciones-p `art-122.1` (p. 66, 67)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-123.4` (p. 67, 68) |
 | B-2 | condicion | `SUSTENTADA` | La declaración de nulidad interrumpe la ejecución. | ley-general-de-contrataciones-publicas-con-modif `art-71.1` (p. 35)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-111.1` (p. 61) |
 | F-2 | entrada-salida | `SUSTENTADA` | Tras la resolución se realiza la constatación física e inventario. | reglamento-de-la-ley-general-de-contrataciones-p `art-123.4` (p. 67, 68)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-122.1` (p. 66, 67) |
-| F-3 | entrada-salida | `CONTRADICCION` | El tratamiento posterior a la nulidad está por definir. | reglamento-de-la-ley-general-de-contrataciones-p `art-111.3` (p. 61)<br>ley-general-de-contrataciones-publicas-con-modif `art-71.1` (p. 35) |
+| F-3 | entrada-salida | `NO-APLICA` | El tratamiento posterior a la nulidad está por definir. | — |
+| F-3 | entrada-salida | `SUSTENTADA` | Tras la nulidad no atribuible al contratista corresponden la constatación física y el inventario; si es atribuible, el 111.3 no fija tratamiento. | reglamento-de-la-ley-general-de-contrataciones-p `art-111.3` (p. 61)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-111.2` (p. 61) |
 | CP | decision | `SUSTENTADA` | El control periódico se dispara al cierre de cada mes. | reglamento-de-la-ley-general-de-contrataciones-p `art-210.1` (p. 118) |
 | CO | decision | `SUSTENTADA` | La atención de consultas se dispara por una consulta registrada en el cuaderno. | reglamento-de-la-ley-general-de-contrataciones-p `art-190.1` (p. 106) |
 | MA | existencia | `INFERENCIA` | Los adicionales y deductivos se gestionan como proceso por evento. | — |
@@ -42,12 +43,12 @@ Revisión de la tabla: `2B3826ACC67F460F`. Afirmaciones vigentes: 20 (CONTRADICC
 | M:S4.3.1 Inicio de ejecucion>E-1 | entrada-salida | `INFERENCIA` | S4.3.1 envía el acta de inicio de obra. | reglamento-de-la-ley-general-de-contrataciones-p `art-176.1` (p. 93) |
 | M:F-1>S4.3.3 Recepcion | entrada-salida | `SUSTENTADA` | La obra culminada se entrega a recepción. | reglamento-de-la-ley-general-de-contrataciones-p `art-212.1` (p. 120) |
 | M:F-2>S4.3.3 Recepcion | entrada-salida | `SUSTENTADA` | El contrato resuelto pasa a constatación e inventario. | reglamento-de-la-ley-general-de-contrataciones-p `art-123.4` (p. 67, 68) |
-| M:F-3>S4.3.3 Recepcion | entrada-salida | `CONTRADICCION` | El contrato nulo pasa a recepción con tratamiento por definir. | reglamento-de-la-ley-general-de-contrataciones-p `art-111.3` (p. 61) |
+| M:F-3>S4.3.3 Recepcion | entrada-salida | `NO-APLICA` | El contrato nulo pasa a recepción con tratamiento por definir. | — |
+| M:F-3>S4.3.3 Recepcion | entrada-salida | `SUSTENTADA` | El contrato nulo pasa a S4.3.3 para constatación física e inventario. | reglamento-de-la-ley-general-de-contrataciones-p `art-111.3` (p. 61) |
 
 ## Contradicciones
 
-- **F-3 · entrada-salida.** El 111.3 lo define para obras: si la nulidad no es atribuible al contratista corresponde la constatación física e inventario, igual que tras una resolución.
-- **M:F-3>S4.3.3 Recepcion · entrada-salida.** El 111.3 define la constatación física e inventario cuando la nulidad no es atribuible al contratista.
+Ninguna.
 
 ## Evidencia insuficiente
 

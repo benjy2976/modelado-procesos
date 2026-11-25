@@ -254,6 +254,31 @@
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3",
+        "fragmento": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2412,
+            0.8299,
+            0.8564,
+            0.8417
+          ],
+          [
+            0.143,
+            0.8434,
+            0.4549,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
       }
     ],
     "T-7": [
@@ -306,6 +331,31 @@
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.4",
+        "fragmento": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización …",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1973,
+            0.8981,
+            0.8563,
+            0.91
+          ],
+          [
+            0.143,
+            0.9117,
+            0.8296,
+            0.9235
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
       }
     ],
     "F-1": [
@@ -335,52 +385,6 @@
         "metodo_ancla": "automatico-pdfminer"
       }
     ],
-    "F-2": [
-      {
-        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
-        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
-        "pagina": 118,
-        "ubicacion": "art. 210.4",
-        "fragmento": "la entidad contratante realiza el pago del monto de la valorización no cuestionado",
-        "consulta": "2026-11-24",
-        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
-        "rectangulos": [
-          [
-            0.2185,
-            0.9117,
-            0.8296,
-            0.9235
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      },
-      {
-        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
-        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
-        "pagina": 118,
-        "ubicacion": "art. 210.3 (subsanación)",
-        "fragmento": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación",
-        "consulta": "2026-11-24",
-        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
-        "rectangulos": [
-          [
-            0.143,
-            0.8571,
-            0.8562,
-            0.8689
-          ],
-          [
-            0.143,
-            0.8708,
-            0.4134,
-            0.8826
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      }
-    ],
     "T-8": [
       {
         "titulo": "ROF del Gobierno Regional de Huánuco 2023",
@@ -403,6 +407,114 @@
             0.5779,
             0.3229,
             0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-13": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (revisión)",
+        "fragmento": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámi…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.143,
+            0.8571,
+            0.8562,
+            0.8689
+          ],
+          [
+            0.143,
+            0.8708,
+            0.6698,
+            0.8826
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "R-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.4",
+        "fragmento": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización …",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1973,
+            0.8981,
+            0.8563,
+            0.91
+          ],
+          [
+            0.143,
+            0.9117,
+            0.8296,
+            0.9235
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "GE-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.4",
+        "fragmento": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización ",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1973,
+            0.8981,
+            0.8563,
+            0.91
+          ],
+          [
+            0.143,
+            0.9117,
+            0.8296,
+            0.9235
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "M-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3",
+        "fragmento": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámi",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.143,
+            0.8571,
+            0.8562,
+            0.8689
+          ],
+          [
+            0.143,
+            0.8708,
+            0.6698,
+            0.8826
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"

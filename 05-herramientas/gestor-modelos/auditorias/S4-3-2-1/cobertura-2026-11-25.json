@@ -81,18 +81,26 @@
   "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación",
   "obligacion": "Revisión de la subsanación en 2 días hábiles",
   "aspecto": "plazo",
-  "estado": "NO-REPRESENTADO",
-  "elementos": [],
-  "razonamiento": "No hay ciclo de subsanación ante la entidad."
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "T-12",
+   "GE-1",
+   "M-1",
+   "T-13"
+  ],
+  "razonamiento": "Ciclo de subsanación con revisión en 2 días hábiles (2026-11-25)."
  },
  {
   "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
   "cita": "la entidad contratante realiza el pago del monto de la valorización no cuestionado",
   "obligacion": "Pago del monto no cuestionado si no se subsana",
   "aspecto": "excepcion",
-  "estado": "NO-REPRESENTADO",
-  "elementos": [],
-  "razonamiento": "F-2 termina sin pago."
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "R-1",
+   "T-7"
+  ],
+  "razonamiento": "El vencimiento lleva al pago del monto no cuestionado (2026-11-25)."
  },
  {
   "fragmento": "0ebe95b3e05661b8-ec988166:art-210.10",

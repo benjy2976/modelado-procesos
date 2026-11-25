@@ -15,7 +15,7 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 1,
-      "actualizado": "2026-11-25T00:37:29+00:00"
+      "actualizado": "2026-11-25T00:50:44+00:00"
     },
     "S4.3.1": {
       "estado": "CON-HALLAZGOS",
@@ -23,23 +23,24 @@
       "afirmaciones": 34,
       "resultados": {
         "SUSTENTADA": 18,
-        "INFERENCIA": 16
+        "INFERENCIA": 14,
+        "NO-APLICA": 2
       },
       "sin_resultado": 0,
       "obligaciones": 15,
       "no_representadas": 5,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:32+00:00"
+      "actualizado": "2026-11-25T00:50:47+00:00"
     },
     "S4.3.2": {
       "estado": "CON-HALLAZGOS",
-      "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
-      "afirmaciones": 20,
+      "revision_tabla": "F0F27A5E72CE1D1C8CD972CAF38F30BB885E914FC5240AA34C000BB4003D4C22",
+      "afirmaciones": 22,
       "resultados": {
         "INFERENCIA": 7,
-        "SUSTENTADA": 11,
-        "CONTRADICCION": 2
+        "SUSTENTADA": 13,
+        "NO-APLICA": 2
       },
       "sin_resultado": 0,
       "obligaciones": 11,
@@ -47,23 +48,22 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 0,
-      "actualizado": "2026-11-25T00:37:33+00:00"
+      "actualizado": "2026-11-25T00:50:48+00:00"
     },
     "S4.3.2.1": {
       "estado": "CON-HALLAZGOS",
-      "revision_tabla": "5C978FB80ACC3980E5875E3BCA90147EE5D1C06E2D9877B7FDDFAF5E89A6FAE3",
-      "afirmaciones": 22,
+      "revision_tabla": "35817525CFE5D84663F3A1C2ABFB8A7D18621009D9E0C67BF716F88DA8A38F6C",
+      "afirmaciones": 28,
       "resultados": {
-        "SUSTENTADA": 14,
-        "INFERENCIA": 7,
-        "CONTRADICCION": 1
+        "SUSTENTADA": 21,
+        "INFERENCIA": 7
       },
       "sin_resultado": 0,
       "obligaciones": 10,
-      "no_representadas": 5,
+      "no_representadas": 3,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:34+00:00"
+      "actualizado": "2026-11-25T00:50:49+00:00"
     },
     "S4.3.2.2": {
       "estado": "CON-HALLAZGOS",
@@ -78,37 +78,39 @@
       "no_representadas": 2,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:37+00:00"
+      "actualizado": "2026-11-25T00:50:52+00:00"
     },
     "S4.3.2.3": {
       "estado": "CON-HALLAZGOS",
       "revision_tabla": "4B27170A34348F86E0DCF51B90FBE1E8BCF7186EA7676AB775844E5908456BCF",
       "afirmaciones": 97,
       "resultados": {
-        "INFERENCIA": 66,
-        "SUSTENTADA": 31
+        "INFERENCIA": 65,
+        "SUSTENTADA": 31,
+        "NO-APLICA": 1
       },
       "sin_resultado": 0,
       "obligaciones": 14,
       "no_representadas": 2,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:42+00:00"
+      "actualizado": "2026-11-25T00:50:57+00:00"
     },
     "S4.3.2.4": {
       "estado": "CON-HALLAZGOS",
       "revision_tabla": "DB255664FCC2A05B38877FF56E9265447BD4FD51188B6294FE126CEC87C2FEFC",
-      "afirmaciones": 40,
+      "afirmaciones": 39,
       "resultados": {
-        "SUSTENTADA": 32,
-        "INFERENCIA": 8
+        "SUSTENTADA": 25,
+        "NO-APLICA": 8,
+        "INFERENCIA": 6
       },
       "sin_resultado": 0,
       "obligaciones": 11,
       "no_representadas": 3,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:45+00:00"
+      "actualizado": "2026-11-25T00:51:00+00:00"
     },
     "S4.3.2.5": {
       "estado": "CON-HALLAZGOS",
@@ -123,7 +125,7 @@
       "no_representadas": 8,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:47+00:00"
+      "actualizado": "2026-11-25T00:51:02+00:00"
     },
     "S4.3.2.6": {
       "estado": "CON-HALLAZGOS",
@@ -138,7 +140,7 @@
       "no_representadas": 7,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:48+00:00"
+      "actualizado": "2026-11-25T00:51:03+00:00"
     },
     "S4.3.2.7": {
       "estado": "COMPLETO",
@@ -155,7 +157,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:49+00:00"
+      "actualizado": "2026-11-25T00:51:04+00:00"
     },
     "S4.3.2.8": {
       "estado": "CON-HALLAZGOS",
@@ -170,12 +172,12 @@
       "no_representadas": 3,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-25T00:37:50+00:00"
+      "actualizado": "2026-11-25T00:51:05+00:00"
     },
     "S4.3.3": {
       "estado": "SIN-MODELO",
-      "actualizado": "2026-11-25T00:37:50+00:00"
+      "actualizado": "2026-11-25T00:51:05+00:00"
     }
   },
-  "actualizado": "2026-11-25T00:37:50+00:00"
+  "actualizado": "2026-11-25T00:51:05+00:00"
 }

@@ -221,31 +221,6 @@
     ],
     "F-3": [
       {
-        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
-        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
-        "pagina": 61,
-        "ubicacion": "art. 111.3",
-        "fragmento": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventar…",
-        "consulta": "2026-11-24",
-        "vigencia": "Texto local consolidado (incluye el D.S. 001-2026-EF); el D.S. 222-2026-EF no lo modifica. Consulta 2026-11-24",
-        "rectangulos": [
-          [
-            0.1963,
-            0.5676,
-            0.8564,
-            0.5794
-          ],
-          [
-            0.143,
-            0.5812,
-            0.8003,
-            0.5931
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      },
-      {
         "titulo": "Ley 32069 (texto local al 19-07-2026)",
         "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-19-07-2026.pdf",
         "sha256": "f14ffa37b824b8af03c0b97e0603839a786ed61c7ca07b1d300c9af928d133f7",
@@ -266,6 +241,31 @@
             0.1816,
             0.4861,
             0.1937
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 61,
+        "ubicacion": "art. 111.3",
+        "fragmento": "En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventar…",
+        "consulta": "2026-11-25",
+        "vigencia": "Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1963,
+            0.5676,
+            0.8564,
+            0.5794
+          ],
+          [
+            0.143,
+            0.5812,
+            0.8003,
+            0.5931
           ]
         ],
         "metodo_ancla": "automatico-pdfminer"

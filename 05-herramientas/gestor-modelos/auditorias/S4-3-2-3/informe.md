@@ -17,7 +17,7 @@ Sube a: [Plan de corrida documental y auditoría](../../docs/plan-corrida-docume
 Generado por `modelador-procesos auditoria informe S4.3.2.3`; no editar a mano. Los resultados son propuestas
 del agente que registró cada afirmación: no constituyen validación normativa ni conformidad institucional.
 
-Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA: 66, SUSTENTADA: 31).
+Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA: 65, NO-APLICA: 1, SUSTENTADA: 31).
 
 ## Afirmaciones por elemento
 
@@ -66,7 +66,7 @@ Revisión de la tabla: `4B27170A34348F86`. Afirmaciones vigentes: 97 (INFERENCIA
 | E-F2B | existencia | `INFERENCIA` | No autorizacion comunicada (fin-mensaje). | — |
 | E-T10 | plazo | `SUSTENTADA` | El titular emite y notifica la resolución del adicional en 12 días hábiles. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.1` (p. 109)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.2` (p. 109, 110) |
 | E-G10 | existencia | `INFERENCIA` | ¿Favorable? (compuerta). | — |
-| E-T11 | documento | `INFERENCIA` | Se actualizan registros y la comunicación, con el canal de publicación por confirmar. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
+| E-T11 | documento | `NO-APLICA` | Se actualizan registros y la comunicación, con el canal de publicación por confirmar. | — |
 | E-T11 | documento | `SUSTENTADA` | La aprobación se publica en la Pladicop, sin adenda, y no procede aprobar por regularización. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110)<br>reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
 | E-F1 | entrada-salida | `SUSTENTADA` | El proceso termina con la aprobación publicada. | reglamento-de-la-ley-general-de-contrataciones-p `art-194.3` (p. 110) |
 | E-F1 | existencia | `INFERENCIA` | Decision del adicional comunicada (fin-mensaje). | — |
@@ -154,7 +154,6 @@ Ninguna.
 - **E-T17 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Matriz de control propuesta en DEC-038; no sustituye opiniones especializadas.
 - **E-F2B · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Cierre cuando no se obtiene la autorizacion externa exigible.
 - **E-G10 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Rutas de decision.
-- **E-T11 · documento.** El 194.3 vigente fija la publicación en la Pladicop, sin adenda, y prohíbe aprobar adicionales por regularización; E-T11 deja el canal por confirmar y no recoge la prohibición.
 - **E-F1 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto propuesto; canal formal por confirmar.
 - **E-F2C · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto alterno.
 - **X-E1 · existencia.** Paso operativo o de modelamiento; procedencia declarada en la tabla: Reglamento, art. 194.2 c-d; Opinion D000092, 2.1-2.3; interfaz S4.3.2.2.

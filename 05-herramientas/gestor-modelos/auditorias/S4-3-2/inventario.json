@@ -2,8 +2,8 @@
   "esquema": "inventario-auditoria-v1",
   "codigo": "S4.3.2",
   "tabla": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-diagrama-proceso-tabla.md",
-  "revision_tabla": "2B3826ACC67F460F0216C063E9FB29EA09C5443200B44A355320B12C077FA2F6",
-  "fecha": "2026-11-24T23:38:03+00:00",
+  "revision_tabla": "F0F27A5E72CE1D1C8CD972CAF38F30BB885E914FC5240AA34C000BB4003D4C22",
+  "fecha": "2026-11-25T00:49:26+00:00",
   "items": [
     {
       "id": "C:S4.3.2 Ejecucion/Ejecucion, control y gestion institucional de la obra",
@@ -91,7 +91,7 @@
       "nombre": "Ejecucion terminada por nulidad",
       "carril": "Ejecucion, control y gestion institucional de la obra",
       "clase_modelo": "NORM",
-      "fuente_modelo": "Ley 32069, art. 71; Reglamento, art. 111"
+      "fuente_modelo": "Ley 32069, art. 71; Reglamento, arts. 111.2 y 111.3"
     },
     {
       "id": "CP",
@@ -183,7 +183,7 @@
     {
       "id": "M:F-3>S4.3.3 Recepcion",
       "clase": "mensaje",
-      "nombre": "Contrato nulo: tratamiento por definir"
+      "nombre": "Contrato nulo para constatacion e inventario"
     }
   ]
 }

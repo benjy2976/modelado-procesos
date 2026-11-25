@@ -42,10 +42,12 @@ La corrida deja 10 procesos `CON-HALLAZGOS`, 1 `COMPLETO` (S4.3.2.7) y 1 `SIN-MO
 
 **Integridad (5.C2).** El control `auditoria informe --check` ya comprueba elementos sin resultado, citas que no aparecen en su fragmento, inventarios con hash desactualizado, anclas no vigentes y referencias sin ancla. En los 11 procesos con modelo todas estas comprobaciones pasan. El `--check` falla solo por las obligaciones no representadas, que son hallazgos abiertos y no defectos de integridad. S4.3.2.7 pasa por completo.
 
-## Contradicciones abiertas
+## Contradicciones (corregidas el 2026-11-25, DEC-059)
 
 - **S4.3.2, F-3 y su mensaje a S4.3.3.** El modelo deja «por definir» el tratamiento tras la nulidad. El art. 111.3 lo define para obras: si la nulidad no es atribuible al contratista, corresponde la constatación física e inventario, igual que tras una resolución.
 - **S4.3.2.1, F-2.** Con observaciones, el proceso termina sin pago. El art. 210.4 otorga plazo de subsanación, revisa la respuesta en 2 días hábiles y, aunque no se subsane, paga el monto no cuestionado.
+
+Ambas se corrigieron por instrucción del usuario. F-3 envía el contrato a constatación e inventario cuando la nulidad no es atribuible al contratista; el caso atribuible queda sin tratamiento normativo identificado. En S4.3.2.1 se retiró F-2 y se modeló el ciclo de subsanación con pago del monto no cuestionado. No quedan contradicciones abiertas en S4.3.
 
 El acta de inicio (S4.3.1 y S4.3.2 E-1) dejó de ser contradicción: el usuario aclaró que es una práctica institucional en obras por contrata para formalizar el inicio cuando se cumplen las condiciones, no una exigencia legal. Las afirmaciones se rectificaron a `INFERENCIA` y `EVIDENCIA-OBSERVADA`.
 
@@ -107,19 +109,20 @@ Se aplicaron las propuestas de interfaces y de los patrones 1 y 2 en seis tablas
 
 | Proceso | Cambio | Resultado tras reconfirmar |
 |---|---|---|
-| S4.3.1 | Acta de inicio como salida, con mensaje a S4.3.2; plazo de 22 días del 176.3 en T1 | 34 afirmaciones (18 `SUSTENTADA`); no representadas: 6 → 5 |
-| S4.3.2.1 | T-1 recibe el sustento de S4.3.2.8 (210.1) | no representadas: 6 → 5; F-2 sigue en contradicción |
+| S4.3.1 | Acta de inicio como salida, con mensaje a S4.3.2; plazo de 22 días del 176.3 en T1 | 32 afirmaciones vigentes (18 `SUSTENTADA`, 14 `INFERENCIA`) y 2 superadas; no representadas: 6 → 5 |
+| S4.3.2.1 | T-1 recibe el sustento de S4.3.2.8 (210.1) | no representadas: 6 → 5 (luego 3 con DEC-059) |
 | S4.3.2.2 | E-F1 envía la respuesta como antecedente a S4.3.2.3 | sin cambio en obligaciones |
 | S4.3.2.3 | E-T11 publica en la Pladicop y anota la prohibición de regularizar (194.3) | no representadas: 3 → 2 |
-| S4.3.2.4 | Causales con su origen; solicitud a entidad y supervisión con plazo y extemporaneidad; 5 días del supervisor con compuerta basada en eventos y vencimiento; 10 días y silencio en E-T9; Pladicop en E-T10, E-F1 y E-F2 | 40 afirmaciones (32 `SUSTENTADA`); no representadas: 8 → 3 |
+| S4.3.2.4 | Causales con su origen; solicitud a entidad y supervisión con plazo y extemporaneidad; 5 días del supervisor con compuerta basada en eventos y vencimiento; 10 días y silencio en E-T9; Pladicop en E-T10, E-F1 y E-F2 | 31 afirmaciones vigentes (25 `SUSTENTADA`, 6 `INFERENCIA`) y 8 superadas (`NO-APLICA`); no representadas: 8 → 3 |
 | S4.3.2.7 | Inicio condicional propio (E0) y recepción desde S4.3.2.3 | sigue `COMPLETO` |
 
 **Interfaces.** `comparar-interfaces` baja de 8 candidatos a 1: S4.3.3 `SIN-MODELO`. Las anclas de los seis procesos están vigentes y no hay referencias sin ancla.
 
+**Conteos.** Las primeras cifras de este lote contaban también afirmaciones superadas. Se corrigieron rectificándolas a `NO-APLICA`; las de esta tabla son las vigentes.
+
 **Generación.** D4 deja 2 hallazgos geométricos nuevos en S4.3.2.4, adoptados con `--forzar` y documentados. S4.3.2.3 conserva los 18 ya documentados. Los demás modelos quedan sin hallazgos.
 
 **Siguen pendientes:**
-- las contradicciones de S4.3.2 (F-3) y S4.3.2.1 (F-2);
 - los patrones 3 y 4: resolución, emergencia y contratos vinculados;
 - el alcance de S4.3.2.6 y el destino del 202.3;
 - los plazos del 210.2-210.3, el 176.4, el 179.2 y el diferimiento.

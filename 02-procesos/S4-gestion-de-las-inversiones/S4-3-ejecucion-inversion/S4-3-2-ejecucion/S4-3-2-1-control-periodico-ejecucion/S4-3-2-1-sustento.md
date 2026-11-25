@@ -149,3 +149,14 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
 - **Pendiente:** la contradicción de F-2 frente al 210.4 y los plazos del 210.2-210.3, que no formaban parte de este lote.
 
 La auditoría se reconfirmó sobre la nueva revisión de la tabla ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md)). Son propuestas de IA; no se atribuye validación ni conformidad y el proceso sigue en `ELABORACION`.
+
+## Corrección de contradicciones — 2026-11-25 (DEC-059)
+
+- **F-2, valorización observada (210.3-210.4).** Por instrucción del usuario se retira F-2 («Observaciones notificadas al contratista»), que terminaba el proceso sin pago. El circuito queda así:
+  - T-12 notifica las observaciones con plazo de subsanación; la anotación indica que también se comunican al supervisor, que comparte el pool;
+  - una compuerta basada en eventos (GE-1) espera la subsanación del contratista (M-1) o el vencimiento del plazo otorgado (R-1);
+  - con subsanación, T-13 la revisa en 2 días hábiles desde el día siguiente de recibida y sigue a T-7;
+  - sin subsanación o sin respuesta en plazo, se va a T-7, que propone el monto no cuestionado (210.4).
+- **Actor de T-13.** Que la revisión la haga el monitor de obras se infiere de T-3, que revisa la valorización; queda por confirmar.
+- **Auditoría.** Ya no hay contradicciones. Las obligaciones del 210.3 (revisión de la subsanación) y del 210.4 (pago del monto no cuestionado) pasan a representadas ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md)). D1-D5 sin hallazgos.
+- **Pendiente.** La revisión conjunta y la presentación en los primeros 3 días (210.2), y la última valorización (210.10). No se atribuye validación ni conformidad.

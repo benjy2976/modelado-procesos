@@ -173,6 +173,13 @@ def test_inventario_registro_idempotente_e_informe(tmp_path: Path) -> None:
     texto = (tmp_path / completo["informe"]).read_text(encoding="utf-8")
     assert "| T1 | accion | `INFERENCIA` |" in texto and "tags:" in texto
 
+    retirado = TABLA.replace("| NORM | Art. 2 |", "| NORM | DEC |").replace("F0", "FX")
+    tabla.write_text(retirado, encoding="utf-8")
+    inventariar_elementos(tmp_path, "S4.3.2.7")
+    sin_f0 = informe(tmp_path, "S4.3.2.7")
+    assert sin_f0["afirmaciones_de_elementos_retirados"] == ["F0"] and sin_f0["sin_resultado"] == ["FX"]
+    assert sin_f0["afirmaciones"] == 5
+
     tabla.write_text(
         TABLA.replace("| NORM | Art. 2 |", "| NORM | DEC |").replace("Necesidad", "Nueva"), encoding="utf-8"
     )

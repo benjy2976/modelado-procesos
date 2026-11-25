@@ -586,5 +586,77 @@
    }
   ],
   "razonamiento": "200.1 d)."
+ },
+ {
+  "elemento": "R-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El contratista registra la causal y presenta la solicitud.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "R-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La solicitud se remite.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "plazo",
+  "afirmacion": "El supervisor evalúa la causal y emite opinión.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La solicitud y la opinión llegan al GORE.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "E-T9",
+  "aspecto": "plazo",
+  "afirmacion": "La autoridad competente resuelve la solicitud.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "E-T10",
+  "aspecto": "documento",
+  "afirmacion": "Se actualizan el plazo y el cronograma y se registra la decisión en el SGD.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La resolución favorable se comunica.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "E-F2",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La resolución no favorable se comunica.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
  }
 ]

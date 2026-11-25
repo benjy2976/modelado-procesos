@@ -9,7 +9,7 @@ nivel_proceso: 2
 proceso:
   - S4.3.2
 fecha_creacion: 2026-10-19
-fecha_actualizacion: 2026-11-18
+fecha_actualizacion: 2026-11-25
 responsable: equipo-proyecto
 confidencialidad: INTERNO
 tags:
@@ -51,7 +51,7 @@ Notas que no se dibujan:
 | B-1 | 4 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | borde-condicional | Contrato resuelto | F-2 | T-1 | Si |  | Interrumpe la ejecucion |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
 | B-2 | 5 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | borde-condicional | Contrato declarado nulo | F-3 | T-1 | Si |  | Interrumpe la ejecucion |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
 | F-2 | 6 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | fin-mensaje | Ejecucion terminada por resolucion |  |  |  |  |  |  |  |  | NORM | REG-CON-OBRA-004; Reglamento, arts. 122 y 123 |
-| F-3 | 7 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | fin-mensaje | Ejecucion terminada por nulidad |  |  |  |  |  |  |  |  | NORM | Ley 32069, art. 71; Reglamento, art. 111 |
+| F-3 | 7 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | fin-mensaje | Ejecucion terminada por nulidad |  |  |  |  |  |  | Si la nulidad no es atribuible al contratista, corresponde constatacion fisica e inventario. Si es atribuible, el 111.3 no fija el tratamiento |  | NORM | Ley 32069, art. 71; Reglamento, arts. 111.2 y 111.3 |
 | CP | 8 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-temporizador | S4.3.2.1 Control periodico de la ejecucion |  |  |  |  | Una instancia por periodo de control | Cierre de cada mes | Nucleo inicial: valorizacion | Control periodico | EQ | DEC-032; Reglamento, art. 210.1; Directiva 017-2023-CG, num. 7.3.4 |
 | CO | 9 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-mensaje | S4.3.2.2 Atencion de consultas de obra |  |  |  |  | Una instancia por consulta | Consulta registrada en el Cuaderno de Incidencias | Puede originar una instancia de S4.3.2.3 a S4.3.2.8, segun clasificacion | Atencion de incidencias | EQ | DEC-032 y DEC-041; Reglamento, art. 190 |
 | MA | 10 | S4.3.2 Ejecucion | Ejecucion, control y gestion institucional de la obra | subproceso-evento-condicional | S4.3.2.3 Gestion de adicionales y deductivos de obra |  |  |  |  | Una instancia por solicitud o causal | Necesidad de adicional o deductivo | Adicional, deductivo puro o adicional con deductivo vinculante | Modificaciones de alcance | EQ | DEC-047; detalle y limites en sustento |
@@ -68,4 +68,4 @@ Notas que no se dibujan:
 | S4.3.1 Inicio de ejecucion | E-1 | Acta de inicio de obra | EQ |
 | F-1 | S4.3.3 Recepcion | Obra culminada para recepcion | PROP |
 | F-2 | S4.3.3 Recepcion | Contrato resuelto para constatacion e inventario | PROP |
-| F-3 | S4.3.3 Recepcion | Contrato nulo: tratamiento por definir | PROP |
+| F-3 | S4.3.3 Recepcion | Contrato nulo para constatacion e inventario | NORM |

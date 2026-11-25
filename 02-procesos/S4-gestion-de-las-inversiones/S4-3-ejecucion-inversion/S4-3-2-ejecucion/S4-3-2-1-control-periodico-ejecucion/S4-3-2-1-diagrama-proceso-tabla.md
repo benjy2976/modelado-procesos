@@ -54,20 +54,24 @@ Notas que no se dibujan:
 | T-3 | 7 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | tarea | Revisar la valorizacion | G-2 |  |  | entra: Valorizacion derivada por el subgerente |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17; caja 7 |
 | G-2 | 8 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | compuerta | ¿La valorizacion cumple? | T-7 [Si]; T-6 [No] |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
 | T-6 | 9 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | tarea | Elaborar informe de observaciones y proyectar carta del subgerente | T-12 |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
-| T-7 | 10 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | tarea | Verificar calculos e informar monto propuesto para pago | T-10 |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
+| T-7 | 10 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | tarea | Verificar calculos e informar monto propuesto para pago | T-10 |  |  |  |  |  | Si las observaciones no se subsanan o no se responden en plazo, el monto propuesto es el no cuestionado |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17; Reglamento de la Ley 32069, arts. 210.3 y 210.4 |
 | F-1 | 11 | S4.3.2.1 Control periodico de la ejecucion | GRI — Tramite de valorizacion | fin-mensaje | Valorizacion remitida a Administracion para pago |  |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
 | T-8 | 12 | S4.3.2.1 Control periodico de la ejecucion | Atencion al Ciudadano — Recepcion documentaria | tarea | Recepcionar valorizacion y derivar a SGGOS | T-9 |  |  | entra: Valorizacion revisada; sale: Valorizacion derivada |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
 | T-9 | 13 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Recepcionar valorizacion y derivar al monitor de obras | T-3 |  |  | entra: Valorizacion derivada por Atencion al Ciudadano |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
 | T-10 | 14 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Revisar y emitir informe propio de conformidad para tramite de pago | T-11 |  |  |  |  |  |  |  | EQ | Precision del usuario, 2026-11-17; caja 14 |
 | T-11 | 15 | S4.3.2.1 Control periodico de la ejecucion | GRI — Tramite de valorizacion | tarea | Tramitar valorizacion para pago ante Administracion | F-1 |  |  | entra: Informe del subgerente; sale: Valorizacion para pago |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
-| T-12 | 16 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Emitir carta y notificar directamente al contratista | F-2 |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
-| F-2 | 17 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | fin-mensaje | Observaciones notificadas al contratista |  |  |  |  |  |  |  |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17 |
+| T-12 | 16 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | tarea | Emitir carta y notificar observaciones con plazo de subsanacion | GE-1 |  |  |  |  |  | Se comunican tambien al supervisor |  | EQ | Descripcion del tramite regular por el usuario, 2026-11-17; Reglamento de la Ley 32069, art. 210.3 |
+| GE-1 | 18 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | compuerta-eventos | ¿Que ocurre primero? | M-1; R-1 |  |  |  |  |  |  |  | NORM | Reglamento de la Ley 32069, arts. 210.3 y 210.4 |
+| M-1 | 19 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | mensaje-recepcion | Subsanacion recibida | T-13 |  |  | entra: Subsanacion de observaciones |  |  |  |  | NORM | Reglamento de la Ley 32069, art. 210.3 |
+| T-13 | 20 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Monitor de obras | tarea | Revisar la subsanacion | T-7 |  |  |  | 2 dias habiles desde el dia siguiente de recibida |  |  |  | NORM | Reglamento de la Ley 32069, art. 210.3; revision por el monitor inferida de T-3 |
+| R-1 | 21 | S4.3.2.1 Control periodico de la ejecucion | SGGOS — Subgerente de Gestion de Obras y Supervision | temporizador | Vencio el plazo de subsanacion | T-7 |  |  |  | Plazo otorgado en la carta |  |  |  | NORM | Reglamento de la Ley 32069, art. 210.4 |
 
 ## Mensajes
 
 | Desde | Hacia | Nombre | Clase |
 |---|---|---|---|
 | F-1 | Administracion | Valorizacion para tramite de pago | EQ |
-| F-2 | Contratista | Carta de observaciones | EQ |
 | S4.3.2.8 Gestion de mayores metrados | T-1 | Sustento de mayores metrados del periodo | PROP |
+| T-12 | Contratista | Carta de observaciones con plazo de subsanacion | EQ |
+| Contratista | M-1 | Subsanacion de observaciones | NORM |
 

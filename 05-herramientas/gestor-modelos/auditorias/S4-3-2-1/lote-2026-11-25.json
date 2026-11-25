@@ -434,48 +434,6 @@
   "razonamiento": "Trámite regular descrito por el usuario el 2026-11-17."
  },
  {
-  "elemento": "F-2",
-  "aspecto": "entrada-salida",
-  "afirmacion": "Con observaciones, el proceso termina sin pago.",
-  "resultado": "CONTRADICCION",
-  "clase": "EXIGENCIA-NORMATIVA",
-  "fuentes": [
-   {
-    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 118,
-     "hasta": 118,
-     "paginas": [
-      118
-     ]
-    },
-    "cita": "la entidad contratante realiza el pago del monto de la valorización no cuestionado",
-    "ambito": "valorizaciones en contratos de obra bajo contrata (solo construcción y diseño y construcción)",
-    "relacion": "directa"
-   },
-   {
-    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 118,
-     "hasta": 118,
-     "paginas": [
-      118
-     ]
-    },
-    "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación",
-    "ambito": "valorizaciones en contratos de obra bajo contrata (solo construcción y diseño y construcción)",
-    "relacion": "directa"
-   }
-  ],
-  "razonamiento": "El Reglamento otorga plazo de subsanación, revisa la respuesta en 2 días hábiles y, aunque no se subsane, paga el monto no cuestionado (210.4). Terminar en F-2 omite la subsanación y el pago parcial."
- },
- {
   "elemento": "M:F-1>Administracion",
   "aspecto": "entrada-salida",
   "afirmacion": "La valorización se envía a Administración para el trámite de pago.",
@@ -500,32 +458,6 @@
    }
   ],
   "razonamiento": "Interacción con S2.1 Gestión Contable aprobada en la ficha S4 (expediente para pagos)."
- },
- {
-  "elemento": "M:F-2>Contratista",
-  "aspecto": "entrada-salida",
-  "afirmacion": "Se envía la carta de observaciones al contratista.",
-  "resultado": "SUSTENTADA",
-  "clase": "EXIGENCIA-NORMATIVA",
-  "fuentes": [
-   {
-    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
-    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
-    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
-    "ubicacion": {
-     "tipo": "pagina_pdf",
-     "desde": 118,
-     "hasta": 118,
-     "paginas": [
-      118
-     ]
-    },
-    "cita": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
-    "ambito": "valorizaciones en contratos de obra bajo contrata (solo construcción y diseño y construcción)",
-    "relacion": "directa"
-   }
-  ],
-  "razonamiento": "También corresponde comunicarlas al supervisor."
  },
  {
   "elemento": "C:S4.3.2.1 Control periodico de la ejecucion/Supervisor o inspector de obra, segun modalidad",
@@ -562,12 +494,32 @@
   "fuentes": [
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 118,
+     "hasta": 118,
+     "paginas": [
+      118
+     ]
+    },
     "cita": "En las valorizaciones, se incluyen las prestaciones adicionales de obra, mayores metrados",
     "ambito": "valorizaciones en obras bajo contrata",
     "relacion": "directa"
    },
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 112,
+     "hasta": 112,
+     "paginas": [
+      112
+     ]
+    },
     "cita": "El contratista presenta en su valorización los mayores metrados ejecutados durante el periodo valorizado",
     "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
     "relacion": "directa"
@@ -584,11 +536,155 @@
   "fuentes": [
    {
     "fragmento": "0ebe95b3e05661b8-ec988166:art-197.2",
+    "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+    "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+    "ubicacion": {
+     "tipo": "pagina_pdf",
+     "desde": 112,
+     "hasta": 112,
+     "paginas": [
+      112
+     ]
+    },
     "cita": "El contratista presenta en su valorización los mayores metrados ejecutados durante el periodo valorizado",
     "ambito": "mayores metrados en obras bajo contrata a precios unitarios",
     "relacion": "directa"
    }
   ],
   "razonamiento": "Interfaz recíproca con S4.3.2.8 (RF)."
+ },
+ {
+  "elemento": "T-12",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La entidad comunica las observaciones al contratista y al supervisor y otorga plazo de subsanación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3; la comunicación al supervisor se anota porque comparte el pool."
+ },
+ {
+  "elemento": "GE-1",
+  "aspecto": "decision",
+  "afirmacion": "La entidad espera la subsanación o el vencimiento del plazo otorgado, lo que ocurra primero.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámite de pago",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
+    "cita": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización no cuestionado",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3 y 210.4."
+ },
+ {
+  "elemento": "M-1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Se recibe la subsanación del contratista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámite de pago",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3."
+ },
+ {
+  "elemento": "T-13",
+  "aspecto": "plazo",
+  "afirmacion": "La subsanación se revisa en 2 días hábiles y el trámite de pago continúa.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámite de pago",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3. Que la revise el monitor de obras se infiere de T-3."
+ },
+ {
+  "elemento": "R-1",
+  "aspecto": "excepcion",
+  "afirmacion": "Vencido el plazo sin respuesta, se continúa hacia el pago.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
+    "cita": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización no cuestionado",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.4."
+ },
+ {
+  "elemento": "T-7",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Sin subsanación, el monto propuesto es el no cuestionado.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
+    "cita": "En caso las observaciones no sean subsanadas o no sean respondidas en el plazo otorgado, la entidad contratante realiza el pago del monto de la valorización no cuestionado",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Corrige la contradicción del 2026-11-24: ya no hay un fin sin pago; toda ruta con observaciones llega al pago."
+ },
+ {
+  "elemento": "M:T-12>Contratista",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Carta de observaciones con plazo de subsanación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3."
+ },
+ {
+  "elemento": "M:Contratista>M-1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El contratista remite la subsanación.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+    "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación y continúa con el trámite de pago",
+    "ambito": "valorizaciones en obras bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "210.3."
  }
 ]

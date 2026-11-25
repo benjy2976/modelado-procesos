@@ -838,5 +838,23 @@
   "clase": "EVIDENCIA-OBSERVADA",
   "fuentes": [],
   "razonamiento": "Interfaz alineada con el inicio de S4.3.2 (E-1); práctica institucional."
+ },
+ {
+  "elemento": "T7",
+  "aspecto": "documento",
+  "afirmacion": "Se comunica el cumplimiento de las condiciones de inicio, sin acta.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
+ },
+ {
+  "elemento": "F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El proceso termina con el inicio del plazo comunicado.",
+  "resultado": "NO-APLICA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Superada por el cambio de tabla del 2026-11-25 aprobado por el usuario (DEC-058); la reemplaza la afirmación vigente del mismo elemento y aspecto."
  }
 ]

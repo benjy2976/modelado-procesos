@@ -287,3 +287,8 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../05-herramie
   - periodo de valorización según bases;
   - alinear disparos y mensajes con los hijos cuando se auditen.
 
+## Corrección de contradicciones — 2026-11-25 (DEC-059)
+
+- **F-3, nulidad (111.3).** Por instrucción del usuario, F-3 deja de enviar a S4.3.3 un contrato nulo «con tratamiento por definir». El mensaje pasa a «Contrato nulo para constatacion e inventario». La anotación precisa que la constatación física y el inventario corresponden cuando la nulidad no es atribuible al contratista, y que el 111.3 no fija tratamiento para el caso atribuible. La fuente suma el 111.2: la nulidad de oficio se entiende notificada con su publicación en la Pladicop.
+- **Auditoría.** Las dos contradicciones se rectifican a `NO-APLICA` y la nueva afirmación queda `SUSTENTADA` ([informe generado](../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2/informe.md)). D1-D5 sin hallazgos.
+- **Pendiente.** El tratamiento de la nulidad atribuible al contratista requiere otra fuente o criterio del equipo. Queda como `EVIDENCIA-INSUFICIENTE` y no se presume. No se atribuye validación ni conformidad.
