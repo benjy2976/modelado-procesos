@@ -1,0 +1,209 @@
+{
+  "codigo": "S4.3.2.1",
+  "revision_tabla": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
+  "fecha": "2026-11-24T23:57:05+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "Las valorizaciones se realizan mensualmente y son consideradas pagos a cuenta. Las bases pueden establecer periodos distintos de valorización",
+      "obligacion": "Valorización mensual o en el periodo que fijen las bases",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-1"
+      ],
+      "razonamiento": "Disparo mensual; falta el periodo de bases."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "En las valorizaciones, se incluyen las prestaciones adicionales de obra, mayores metrados",
+      "obligacion": "Las valorizaciones incluyen adicionales y mayores metrados",
+      "aspecto": "entrada-salida",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "S4.3.2.8 remite sustento para valorización, pero S4.3.2.1 no lo recibe."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "El residente y el supervisor revisan de forma conjunta los metrados ejecutados",
+      "obligacion": "Revisión conjunta de metrados entre residente y supervisor",
+      "aspecto": "accion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "T-1 y T-2 son sucesivas."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "son presentadas por el contratista al supervisor y a la entidad dentro de los primeros tres días del mes",
+      "obligacion": "Presentación al supervisor y a la entidad en los primeros 3 días",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Solo se presenta al supervisor y sin plazo."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "el supervisor presenta a la entidad contratante su informe respecto a la valorización",
+      "obligacion": "Informe del supervisor a la entidad en 5 días",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T-2",
+        "T-8"
+      ],
+      "razonamiento": "La remisión está; el plazo no."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "La entidad contratante evalúa y paga la valorización hasta el último día del mes en que es presentada",
+      "obligacion": "La entidad evalúa y paga hasta el último día del mes de presentación",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "G-2",
+        "T-7",
+        "F-1"
+      ],
+      "razonamiento": "Evaluación y trámite representados; el plazo de pago no."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+      "obligacion": "Observaciones comunicadas al supervisor y al contratista con plazo",
+      "aspecto": "accion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "T-6",
+        "T-12"
+      ],
+      "razonamiento": "Solo al contratista y sin plazo de subsanación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación",
+      "obligacion": "Revisión de la subsanación en 2 días hábiles",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay ciclo de subsanación ante la entidad."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 118,
+        "hasta": 118,
+        "paginas": [
+          118
+        ]
+      },
+      "cita": "la entidad contratante realiza el pago del monto de la valorización no cuestionado",
+      "obligacion": "Pago del monto no cuestionado si no se subsana",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "F-2 termina sin pago."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-210.10",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 119,
+        "hasta": 119,
+        "paginas": [
+          119
+        ]
+      },
+      "cita": "En la última valorización, el contratista entrega los planos post construcción, de lo contrario la entidad suspende su pago",
+      "obligacion": "En la última valorización, planos post construcción o suspensión del pago",
+      "aspecto": "documento",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No se distingue la última valorización."
+    }
+  ]
+}

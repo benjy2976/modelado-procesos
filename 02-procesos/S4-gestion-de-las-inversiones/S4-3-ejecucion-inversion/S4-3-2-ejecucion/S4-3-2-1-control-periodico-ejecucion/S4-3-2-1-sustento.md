@@ -120,3 +120,25 @@ La generacion focalizada de esta normalizacion dejo D1-D5 sin hallazgos en su fe
 ## Interfaz con mayores metrados - DEC-047
 
 S4.3.2.8 entrega el sustento del periodo y la autorizacion de ejecucion de mayores metrados. Esta ultima no equivale a autorizar el pago: verificar la autorizacion de la autoridad de gestion administrativa conforme al art. 197.2 antes de tramitarlo. El detalle de esta interfaz y la ubicacion documental del control de pago requieren evidencia operativa; no se modifica en este lote la secuencia vigente de valorizacion. Fuente, consulta y vigencia en el [sustento de S4.3.2.8](../S4-3-2-8-gestion-mayores-metrados/S4-3-2-8-sustento.md).
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md)): 20 afirmaciones (12 `SUSTENTADA`, 7 `INFERENCIA`, 1 `CONTRADICCION`) y 10 obligaciones del Reglamento art. 210, de las que 6 no están representadas. Se crearon 14 anclas del visor calculadas desde el texto. El art. 210 no fue modificado por los D.S. 001-2026-EF ni 222-2026-EF. Son propuestas de IA, sin validación ni conformidad.
+
+- **Contradicción en F-2.** Con observaciones, el proceso termina sin pago. El art. 210.3 otorga plazo de subsanación y revisa la respuesta en 2 días hábiles; el 210.4 paga el monto no cuestionado aunque no se subsane.
+- **No representado:**
+  - la revisión conjunta de metrados entre residente y supervisor (210.2);
+  - la presentación al supervisor **y a la entidad** dentro de los primeros 3 días del mes siguiente (210.2);
+  - el ciclo de subsanación ante la entidad (210.3);
+  - el pago del monto no cuestionado (210.4);
+  - los planos post construcción en la última valorización (210.10);
+  - la incorporación de adicionales y mayores metrados (210.1), que S4.3.2.8 envía sin que este proceso lo reciba.
+- **Plazos no anotados:** informe del supervisor en 5 días (210.2) y pago hasta el último día del mes de presentación (210.3). Las observaciones se comunican solo al contratista, cuando el 210.3 exige comunicarlas también al supervisor.
+- **Práctica institucional:** el trámite GORE (Atención al Ciudadano, subgerente, monitor de obras, GRI) se registra como evidencia observada informada por el usuario. El ciclo de devolución del supervisor al ejecutor (G-1, T-4, T-5) proviene del Bizagi y debe compatibilizarse con el plazo de 5 días.
+- **Propuestas no aplicadas:**
+  - revisión conjunta y presentación simultánea al supervisor y a la entidad;
+  - anotar los plazos de 3 y 5 días y el pago dentro del mes;
+  - un ciclo de subsanación que termine en el pago total o del monto no cuestionado;
+  - recibir el sustento de mayores metrados y adicionales;
+  - una condición para la última valorización.
+

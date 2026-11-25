@@ -181,3 +181,23 @@ Control de este lote: D1, D2, D3 y D5 sin hallazgos; D4 registra 14 interferenci
 **Resultado verificado:** la generacion focalizada del 2026-11-18 termina sin hallazgos D1-D5; D4 informa sin superposiciones. Se inspecciono la imagen generada, incluidos el ramal de falta de informe, la comunicacion de respuesta y la caja 52. Se mantienen posibles cruces perpendiculares entre flujos en una colaboracion con varios carriles; no equivalen a atravesar cajas ni a compartir tramos. Perfil documentado en `DEC-045`; revision humana y aprobacion institucional no atribuidas.
 
 **Comprobaciones de cierre:** cuatro pruebas de regresion del trazado superadas, comprobacion global `construir_modelos.py --check` correcta y 172 notas revisadas por `gestionar_etiquetas.py revisar`, sin problemas. Los hallazgos historicos de otros procesos no se modifican ni se declaran resueltos.
+
+## Auditoría por afirmación — 2026-11-24 (fase 5)
+
+Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herramientas/gestor-modelos/auditorias/S4-3-2-2/informe.md)): 64 afirmaciones (36 `SUSTENTADA`, 28 `INFERENCIA`, sin contradicciones) y 12 obligaciones del Reglamento art. 190 (texto vigente) y del ROF art. 96. Se crearon 41 anclas del visor calculadas desde el texto. Son propuestas de IA, sin validación ni conformidad.
+
+- **Bien representado:** la ruta de solo construcción del art. 190: consulta por cuaderno, respuesta directa del supervisor sin modificación, informe técnico obligatorio con su control doble, opinión del proyectista en 10 días y absolución en 5. La Sub Gerencia de Estudios absuelve conforme al ROF art. 96.
+- **No representado:**
+  - el 190.4: si la consulta no se absuelve en plazo, el contratista puede pedir ampliación de plazo, y no hay vínculo con S4.3.2.4;
+  - la exigencia de anticipación del 190.5.
+- **Plazos y condiciones por anotar:**
+  - los 5 días del supervisor para elevar la consulta con su opinión (190.3 a);
+  - el límite de un año desde la conformidad del expediente para consultar al proyectista, que la compuerta E-G1 («¿Aplica?») no nombra.
+- **Interfaz:** E-T10 comunica una causal de modificación sin mensaje hacia S4.3.2.3-S4.3.2.6. S4.3.2.3 declara recibir de este proceso una «respuesta notificada como antecedente» que aquí no se envía.
+- **La ruta de diseño y construcción** (190.3 b) queda fuera del alcance modelado.
+- **Propuestas no aplicadas:**
+  - un evento o anotación para la ampliación de plazo del 190.4;
+  - el plazo de 5 días en S-T4;
+  - la condición del año en E-G1;
+  - un mensaje explícito hacia los procesos de modificación.
+

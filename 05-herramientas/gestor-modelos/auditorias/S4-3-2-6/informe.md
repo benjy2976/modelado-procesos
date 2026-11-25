@@ -3,7 +3,7 @@ tipo: informe
 area: herramientas
 estado_documento: BORRADOR
 clase_conocimiento: OBSERVADO
-fecha_actualizacion: 2026-11-24
+fecha_actualizacion: 2026-11-25
 confidencialidad: INTERNO
 tags:
   - tema/automatizacion

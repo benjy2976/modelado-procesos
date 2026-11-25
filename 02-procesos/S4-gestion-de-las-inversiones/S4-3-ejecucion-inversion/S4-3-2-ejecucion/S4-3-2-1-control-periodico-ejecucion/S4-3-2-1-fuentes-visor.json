@@ -1,0 +1,362 @@
+{
+  "elementos": {
+    "E-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.1",
+        "fragmento": "Las valorizaciones se realizan mensualmente y son consideradas pagos a cuenta. Las bases pueden establecer periodos distintos de valorización",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1957,
+            0.6385,
+            0.8563,
+            0.6504
+          ],
+          [
+            0.143,
+            0.6522,
+            0.5851,
+            0.6641
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.2 (presentación)",
+        "fragmento": "son presentadas por el contratista al supervisor y a la entidad dentro de los primeros tres días del mes",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.5646,
+            0.7342,
+            0.8564,
+            0.746
+          ],
+          [
+            0.143,
+            0.7479,
+            0.6406,
+            0.7597
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.2 (revisión conjunta)",
+        "fragmento": "El residente y el supervisor revisan de forma conjunta los metrados ejecutados",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1957,
+            0.7205,
+            0.7972,
+            0.7323
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.2 (informe del supervisor)",
+        "fragmento": "el supervisor presenta a la entidad contratante su informe respecto a la valorización",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.7591,
+            0.7614,
+            0.8563,
+            0.7732
+          ],
+          [
+            0.143,
+            0.7751,
+            0.6841,
+            0.787
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "G-2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (pago)",
+        "fragmento": "La entidad contratante evalúa y paga la valorización hasta el último día del mes en que es presentada",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1937,
+            0.8162,
+            0.8564,
+            0.828
+          ],
+          [
+            0.143,
+            0.8299,
+            0.2314,
+            0.8417
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (observaciones)",
+        "fragmento": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2412,
+            0.8299,
+            0.8564,
+            0.8417
+          ],
+          [
+            0.143,
+            0.8434,
+            0.4549,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-6": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (observaciones)",
+        "fragmento": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2412,
+            0.8299,
+            0.8564,
+            0.8417
+          ],
+          [
+            0.143,
+            0.8434,
+            0.4549,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-12": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (observaciones)",
+        "fragmento": "De contar con observaciones se las comunica al supervisor y al contratista, otorgando un plazo para su subsanación",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2412,
+            0.8299,
+            0.8564,
+            0.8417
+          ],
+          [
+            0.143,
+            0.8434,
+            0.4549,
+            0.8552
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-7": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 119,
+        "ubicacion": "art. 210.6 (suma alzada)",
+        "fragmento": "las valorizaciones se formulan en función de los metrados ejecutados aplicando las partidas y precios unitarios",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.3139,
+            0.1851,
+            0.8563,
+            0.1969
+          ],
+          [
+            0.143,
+            0.1986,
+            0.4481,
+            0.2105
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (pago)",
+        "fragmento": "La entidad contratante evalúa y paga la valorización hasta el último día del mes en que es presentada",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1937,
+            0.8162,
+            0.8564,
+            0.828
+          ],
+          [
+            0.143,
+            0.8299,
+            0.2314,
+            0.8417
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F-1": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (pago)",
+        "fragmento": "La entidad contratante evalúa y paga la valorización hasta el último día del mes en que es presentada",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.1937,
+            0.8162,
+            0.8564,
+            0.828
+          ],
+          [
+            0.143,
+            0.8299,
+            0.2314,
+            0.8417
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "F-2": [
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.4",
+        "fragmento": "la entidad contratante realiza el pago del monto de la valorización no cuestionado",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.2185,
+            0.9117,
+            0.8296,
+            0.9235
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      },
+      {
+        "titulo": "Reglamento de la Ley 32069 (texto local al 09-01-2026)",
+        "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+        "sha256": "0ebe95b3e05661b80f73c060d6e6ce8dd17621ce34af9277c688dd67e5d99830",
+        "pagina": 118,
+        "ubicacion": "art. 210.3 (subsanación)",
+        "fragmento": "la entidad contratante revisa en el plazo máximo de dos días hábiles contabilizados desde el día siguiente de recibida la subsanación",
+        "consulta": "2026-11-24",
+        "vigencia": "Texto local; art. 210 no modificado por los D.S. 001-2026-EF ni 222-2026-EF",
+        "rectangulos": [
+          [
+            0.143,
+            0.8571,
+            0.8562,
+            0.8689
+          ],
+          [
+            0.143,
+            0.8708,
+            0.4134,
+            0.8826
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ],
+    "T-8": [
+      {
+        "titulo": "ROF del Gobierno Regional de Huánuco 2023",
+        "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+        "sha256": "71778d14cc60b83b798b607cd63b26b897bfb81cd87d8be856848a7bcc47d8da",
+        "pagina": 14,
+        "ubicacion": "ROF art. 20",
+        "fragmento": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+        "consulta": "2026-11-24",
+        "vigencia": "Documento institucional; vigencia por verificar",
+        "rectangulos": [
+          [
+            0.1625,
+            0.5596,
+            0.885,
+            0.5717
+          ],
+          [
+            0.1625,
+            0.5779,
+            0.3229,
+            0.5891
+          ]
+        ],
+        "metodo_ancla": "automatico-pdfminer"
+      }
+    ]
+  }
+}

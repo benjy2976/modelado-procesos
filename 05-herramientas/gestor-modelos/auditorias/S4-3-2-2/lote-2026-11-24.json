@@ -1,0 +1,879 @@
+[
+ {
+  "elemento": "C:Gobierno Regional Huanuco/SGE — Especialistas tecnicos",
+  "aspecto": "actor",
+  "afirmacion": "La Sub Gerencia de Estudios absuelve las consultas de obra.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+    "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 96."
+ },
+ {
+  "elemento": "C-E1",
+  "aspecto": "decision",
+  "afirmacion": "El contratista identifica una consulta que formula por el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1."
+ },
+ {
+  "elemento": "C-G1",
+  "aspecto": "decision",
+  "afirmacion": "Se distingue si la consulta modifica el expediente y requiere informe técnico.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.2."
+ },
+ {
+  "elemento": "C-T1",
+  "aspecto": "documento",
+  "afirmacion": "El ejecutor elabora el informe técnico de especialidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El informe es obligatorio si se modifica el expediente; que lo elabore el equipo especialista es inferencia."
+ },
+ {
+  "elemento": "C-G2",
+  "aspecto": "existencia",
+  "afirmacion": "C-G2 (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Convergencia de rutas."
+ },
+ {
+  "elemento": "C-T2",
+  "aspecto": "documento",
+  "afirmacion": "La consulta se registra en el cuaderno de incidencias.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.1",
+    "cita": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+    "ambito": "cuaderno de incidencias en obras",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1 y 188.1."
+ },
+ {
+  "elemento": "C-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La consulta queda dirigida al supervisor.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1."
+ },
+ {
+  "elemento": "C-E2",
+  "aspecto": "existencia",
+  "afirmacion": "Respuesta a la consulta recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Flujo Bizagi y precision operativa del equipo."
+ },
+ {
+  "elemento": "C-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Tomar conocimiento y registrar la respuesta (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Cierre operativo de la consulta."
+ },
+ {
+  "elemento": "C-F2",
+  "aspecto": "existencia",
+  "afirmacion": "Consulta atendida para el ejecutor (fin).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto del proceso."
+ },
+ {
+  "elemento": "S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El supervisor recibe la consulta.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1."
+ },
+ {
+  "elemento": "S-T1",
+  "aspecto": "existencia",
+  "afirmacion": "Revisar la consulta y el expediente tecnico (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Flujo Bizagi; Reglamento, art. 190."
+ },
+ {
+  "elemento": "S-G1",
+  "aspecto": "decision",
+  "afirmacion": "El supervisor distingue si la consulta modifica el expediente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El supervisor puede responder directamente la consulta formulada, si ésta no conlleva una modificación del expediente técnico",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Solo puede responder directamente si no hay modificación."
+ },
+ {
+  "elemento": "S-T2",
+  "aspecto": "accion",
+  "afirmacion": "El supervisor absuelve y anota en el cuaderno.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El supervisor puede responder directamente la consulta formulada, si ésta no conlleva una modificación del expediente técnico",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-188.1",
+    "cita": "se registran, a través de anotaciones, los principales hechos que ocurren durante la ejecución de la obra",
+    "ambito": "cuaderno de incidencias en obras",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1 y 188.1."
+ },
+ {
+  "elemento": "S-E2",
+  "aspecto": "existencia",
+  "afirmacion": "S-E2 (inicio).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Consulta originada por la supervision; precision operativa del equipo."
+ },
+ {
+  "elemento": "S-T0",
+  "aspecto": "existencia",
+  "afirmacion": "Identificar consulta propia (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del equipo."
+ },
+ {
+  "elemento": "S-G2",
+  "aspecto": "existencia",
+  "afirmacion": "¿Especialista? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del equipo."
+ },
+ {
+  "elemento": "S-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Elaborar informe tecnico de especialidad (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del equipo."
+ },
+ {
+  "elemento": "S-G3",
+  "aspecto": "existencia",
+  "afirmacion": "S-G3 (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Convergencia de rutas."
+ },
+ {
+  "elemento": "S-T4",
+  "aspecto": "plazo",
+  "afirmacion": "El supervisor eleva la consulta con su opinión a la entidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "El plazo de cinco días desde la anotación no figura en la tabla."
+ },
+ {
+  "elemento": "S-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La consulta queda elevada a la entidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "S-T5",
+  "aspecto": "existencia",
+  "afirmacion": "Comunicar la respuesta al ejecutor (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "S-F2",
+  "aspecto": "existencia",
+  "afirmacion": "Respuesta comunicada al ejecutor (fin-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Producto del proceso."
+ },
+ {
+  "elemento": "E-E1",
+  "aspecto": "actor",
+  "afirmacion": "Mesa de Partes (OACGD) recibe la consulta.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20."
+ },
+ {
+  "elemento": "E-T1",
+  "aspecto": "accion",
+  "afirmacion": "La OACGD registra y deriva la consulta a la SGGOS por el SGD.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-20",
+    "cita": "Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 20; el uso del SGD es precisión del usuario."
+ },
+ {
+  "elemento": "E-T2",
+  "aspecto": "existencia",
+  "afirmacion": "Recibir consulta y derivarla al monitor por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "E-T3",
+  "aspecto": "existencia",
+  "afirmacion": "Revisar antecedentes y preparar tramite a la SGE (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Tramite del monitor descrito parcialmente por el usuario, 2026-11-17; documento proyectado pendiente de precisar."
+ },
+ {
+  "elemento": "E-T4",
+  "aspecto": "actor",
+  "afirmacion": "La Sub Gerencia de Estudios evalúa la consulta.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+    "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "ROF art. 96."
+ },
+ {
+  "elemento": "E-G1",
+  "aspecto": "decision",
+  "afirmacion": "Se decide si la consulta se remite al proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Procede si no ha pasado más de un año desde la conformidad del expediente; conviene que la compuerta nombre esa condición."
+ },
+ {
+  "elemento": "E-T5",
+  "aspecto": "documento",
+  "afirmacion": "Se prepara la solicitud de opinión al proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+    "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "E-T6",
+  "aspecto": "plazo",
+  "afirmacion": "La consulta se remite al proyectista al día siguiente.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "E-G2",
+  "aspecto": "decision",
+  "afirmacion": "Se espera la opinión o el vencimiento del plazo del proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La entidad absuelve tras la opinión o el vencimiento."
+ },
+ {
+  "elemento": "E-M1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Se recibe la opinión del proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "E-R1",
+  "aspecto": "plazo",
+  "afirmacion": "Vence el plazo de 10 días del proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "E-T7",
+  "aspecto": "accion",
+  "afirmacion": "La Sub Gerencia de Estudios evalúa la opinión del proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+    "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "ROF art. 96."
+ },
+ {
+  "elemento": "E-T8",
+  "aspecto": "plazo",
+  "afirmacion": "Se elabora el informe de absolución en 5 días.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+    "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+    "ambito": "funciones orgánicas del GORE Huánuco (ROF 2023)",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a) y ROF art. 96."
+ },
+ {
+  "elemento": "E-T9",
+  "aspecto": "existencia",
+  "afirmacion": "Revisar y firmar la respuesta a la consulta (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del equipo; DEC-033."
+ },
+ {
+  "elemento": "E-G3",
+  "aspecto": "existencia",
+  "afirmacion": "¿Identifica modificacion? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Flujo Bizagi; separacion adoptada en DEC-032."
+ },
+ {
+  "elemento": "E-T10",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Si se identifica una modificación, se comunica la causal a la SGGOS.",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.4",
+    "cita": "el contratista puede solicitar ampliación de plazo contractual por el tiempo correspondiente a la demora",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "antecedente"
+   }
+  ],
+  "razonamiento": "Derivación a S4.3.2.3-S4.3.2.6 (DEC-041) sin mensaje hacia esos procesos. Falta además la consecuencia del 190.4: sin absolución, el contratista puede pedir ampliación de plazo (S4.3.2.4)."
+ },
+ {
+  "elemento": "E-G4",
+  "aspecto": "existencia",
+  "afirmacion": "E-G4 (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Convergencia de rutas."
+ },
+ {
+  "elemento": "E-T11",
+  "aspecto": "existencia",
+  "afirmacion": "Notificar respuesta firmada a la SGGOS (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "E-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La respuesta se comunica al contratista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "La entidad absuelve la consulta; la carta por la SGGOS es práctica informada por el usuario."
+ },
+ {
+  "elemento": "P-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "El proyectista recibe la solicitud.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.6",
+    "cita": "El proyectista tiene la obligación de atender las consultas que le remita la entidad contratante",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.6."
+ },
+ {
+  "elemento": "P-T1",
+  "aspecto": "accion",
+  "afirmacion": "El proyectista evalúa la consulta.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.6",
+    "cita": "El proyectista tiene la obligación de atender las consultas que le remita la entidad contratante",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.6."
+ },
+ {
+  "elemento": "P-T2",
+  "aspecto": "plazo",
+  "afirmacion": "El proyectista remite su opinión en 10 días.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   },
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.6",
+    "cita": "El proyectista tiene la obligación de atender las consultas que le remita la entidad contratante",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a) y 190.6."
+ },
+ {
+  "elemento": "P-F1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La opinión del proyectista queda remitida.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "S-G5",
+  "aspecto": "existencia",
+  "afirmacion": "¿Requiere opinion especializada? (compuerta).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "S-T6",
+  "aspecto": "existencia",
+  "afirmacion": "Revisar consulta y emitir pronunciamiento (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "S-T7",
+  "aspecto": "existencia",
+  "afirmacion": "Hacer suyo el pronunciamiento del especialista (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "E-T12",
+  "aspecto": "existencia",
+  "afirmacion": "Tramitar consulta a la SGE por SGD (tarea-usuario).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "E-T13",
+  "aspecto": "existencia",
+  "afirmacion": "Preparar carta e indicar quien elabora el adicional segun bases, si corresponde (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Secuencia inferida de la instruccion del usuario, 2026-11-17; confirmar alcance de «el monitor proyecta»."
+ },
+ {
+  "elemento": "E-T14",
+  "aspecto": "existencia",
+  "afirmacion": "Revisar y emitir carta al contratista (tarea).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Secuencia inferida de la instruccion del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "C-E3",
+  "aspecto": "existencia",
+  "afirmacion": "Carta de respuesta de la SGGOS recibida (inicio-mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "EVIDENCIA-OBSERVADA",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: Precision operativa del usuario, 2026-11-17."
+ },
+ {
+  "elemento": "S-G6",
+  "aspecto": "condicion",
+  "afirmacion": "Si modifica el expediente, se verifica que adjunte el informe del contratista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "«Caso contrario no es atendida»."
+ },
+ {
+  "elemento": "S-F3",
+  "aspecto": "excepcion",
+  "afirmacion": "Sin el informe, la consulta no se atiende.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.2."
+ },
+ {
+  "elemento": "E-G5",
+  "aspecto": "condicion",
+  "afirmacion": "La SGGOS verifica que la consulta traiga el informe exigido.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "Control propuesto sobre el 190.2."
+ },
+ {
+  "elemento": "E-F2",
+  "aspecto": "excepcion",
+  "afirmacion": "Sin el informe exigido, la consulta no se atiende.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+    "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.2."
+ },
+ {
+  "elemento": "S-T8",
+  "aspecto": "documento",
+  "afirmacion": "El supervisor emite su informe técnico (opinión).",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a): consulta y opinión técnica."
+ },
+ {
+  "elemento": "M:C-F1>S-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La consulta e informe llegan al supervisor.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+    "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.1."
+ },
+ {
+  "elemento": "M:S-T5>C-E2",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Respuesta a la consulta (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ },
+ {
+  "elemento": "M:S-F1>E-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La consulta y los informes llegan a la entidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "M:E-T6>P-E1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La solicitud de opinión llega al proyectista.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "M:P-F1>E-M1",
+  "aspecto": "entrada-salida",
+  "afirmacion": "La opinión llega a la entidad.",
+  "resultado": "SUSTENTADA",
+  "clase": "EXIGENCIA-NORMATIVA",
+  "fuentes": [
+   {
+    "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+    "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+    "ambito": "consultas sobre incidencias en obra bajo contrata",
+    "relacion": "directa"
+   }
+  ],
+  "razonamiento": "190.3 a)."
+ },
+ {
+  "elemento": "M:E-F1>C-E3",
+  "aspecto": "entrada-salida",
+  "afirmacion": "Carta de respuesta al contratista (mensaje).",
+  "resultado": "INFERENCIA",
+  "clase": "DECISION-PROYECTO",
+  "fuentes": [],
+  "razonamiento": "Paso operativo o de modelamiento; procedencia declarada en la tabla: mensaje del modelo."
+ }
+]

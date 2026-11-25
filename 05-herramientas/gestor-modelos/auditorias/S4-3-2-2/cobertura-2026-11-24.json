@@ -1,0 +1,140 @@
+[
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+  "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+  "obligacion": "El contratista consulta mediante el cuaderno",
+  "aspecto": "accion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "C-E1",
+   "C-T2"
+  ],
+  "razonamiento": "Ruta del contratista."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+  "cita": "El supervisor puede responder directamente la consulta formulada, si ésta no conlleva una modificación del expediente técnico",
+  "obligacion": "El supervisor responde directamente si no se modifica el expediente",
+  "aspecto": "decision",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "S-G1",
+   "S-T2"
+  ],
+  "razonamiento": "Ruta de respuesta directa."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+  "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+  "obligacion": "Informe técnico obligatorio cuando hay modificación; sin él no se atiende",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "C-G1",
+   "C-T1",
+   "S-G6",
+   "S-F3",
+   "E-G5",
+   "E-F2"
+  ],
+  "razonamiento": "Control doble (supervisión y SGGOS)."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+  "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+  "obligacion": "El supervisor eleva consulta y opinión en 5 días",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "S-T8",
+   "S-T4",
+   "S-F1"
+  ],
+  "razonamiento": "La remisión está; el plazo de 5 días no figura."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+  "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+  "obligacion": "Remisión al proyectista al día siguiente si no pasó más de un año de la conformidad",
+  "aspecto": "condicion",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-G1",
+   "E-T6"
+  ],
+  "razonamiento": "Verificar que la compuerta nombre el límite de un año."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+  "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+  "obligacion": "Opinión del proyectista en 10 días",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-R1",
+   "P-T2"
+  ],
+  "razonamiento": "Temporizador de 10 días."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+  "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+  "obligacion": "La entidad absuelve en 5 días desde la opinión o el vencimiento",
+  "aspecto": "plazo",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "E-T8"
+  ],
+  "razonamiento": "Plazo anotado en E-T8."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+  "cita": "En el sistema de entrega de diseño y construcción",
+  "obligacion": "Diseño y construcción: la opinión del proyectista se integra al informe del contratista",
+  "aspecto": "condicion",
+  "estado": "FUERA-DE-ALCANCE",
+  "elementos": [],
+  "razonamiento": "El modelo representa la ruta de solo construcción (190.3 a)."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.4",
+  "cita": "el contratista puede solicitar ampliación de plazo contractual por el tiempo correspondiente a la demora",
+  "obligacion": "Sin absolución, el contratista puede pedir ampliación de plazo",
+  "aspecto": "excepcion",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "No hay vínculo con S4.3.2.4."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.5",
+  "cita": "El contratista debe formular la consulta con la anticipación suficiente",
+  "obligacion": "El contratista debe consultar con anticipación suficiente",
+  "aspecto": "plazo",
+  "estado": "NO-REPRESENTADO",
+  "elementos": [],
+  "razonamiento": "Condición sobre la oportunidad de la consulta, sin anotación."
+ },
+ {
+  "fragmento": "0ebe95b3e05661b8-ec988166:art-190.6",
+  "cita": "El proyectista tiene la obligación de atender las consultas que le remita la entidad contratante",
+  "obligacion": "El proyectista debe atender las consultas según su contrato",
+  "aspecto": "actor",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "P-T1",
+   "P-T2"
+  ],
+  "razonamiento": "Pool del proyectista."
+ },
+ {
+  "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+  "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+  "obligacion": "La Sub Gerencia de Estudios absuelve las consultas de obra",
+  "aspecto": "actor",
+  "estado": "REPRESENTADO",
+  "elementos": [
+   "C:Gobierno Regional Huanuco/SGE — Especialistas tecnicos"
+  ],
+  "razonamiento": "Carriles de la SGE."
+ }
+]

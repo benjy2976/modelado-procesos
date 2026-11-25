@@ -1,0 +1,265 @@
+{
+  "codigo": "S4.3.2.2",
+  "revision_tabla": "5D79D1E7E25E891E9E7E15D75E397B34D763B69A234B8B4CCE6A0CCE6F9D91D2",
+  "fecha": "2026-11-24T23:59:42+00:00",
+  "obligaciones": [
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "El contratista puede formular consultas dirigidas al supervisor mediante anotaciones en el cuaderno de incidencias",
+      "obligacion": "El contratista consulta mediante el cuaderno",
+      "aspecto": "accion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "C-E1",
+        "C-T2"
+      ],
+      "razonamiento": "Ruta del contratista."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.1",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "El supervisor puede responder directamente la consulta formulada, si ésta no conlleva una modificación del expediente técnico",
+      "obligacion": "El supervisor responde directamente si no se modifica el expediente",
+      "aspecto": "decision",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "S-G1",
+        "S-T2"
+      ],
+      "razonamiento": "Ruta de respuesta directa."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.2",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "Cuando la anotación formulada por el contratista conlleve a una modificación del expediente técnico, debe estar acompañada de un informe técnico, caso contrario no es atendida",
+      "obligacion": "Informe técnico obligatorio cuando hay modificación; sin él no se atiende",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "C-G1",
+        "C-T1",
+        "S-G6",
+        "S-F3",
+        "E-G5",
+        "E-F2"
+      ],
+      "razonamiento": "Control doble (supervisión y SGGOS)."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "el supervisor remite la consulta y su opinión técnica a la entidad contratante en el plazo de cinco días",
+      "obligacion": "El supervisor eleva consulta y opinión en 5 días",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "S-T8",
+        "S-T4",
+        "S-F1"
+      ],
+      "razonamiento": "La remisión está; el plazo de 5 días no figura."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "Al día siguiente, la entidad contratante la remite al proyectista, siempre que no hubiera transcurrido más de un año de otorgada la conformidad",
+      "obligacion": "Remisión al proyectista al día siguiente si no pasó más de un año de la conformidad",
+      "aspecto": "condicion",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-G1",
+        "E-T6"
+      ],
+      "razonamiento": "Verificar que la compuerta nombre el límite de un año."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "quien cuenta con un plazo de diez días contabilizados desde el día siguiente de recibidos los documentos para remitir su opinión",
+      "obligacion": "Opinión del proyectista en 10 días",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-R1",
+        "P-T2"
+      ],
+      "razonamiento": "Temporizador de 10 días."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "La entidad contratante absuelve la consulta en el plazo de cinco días",
+      "obligacion": "La entidad absuelve en 5 días desde la opinión o el vencimiento",
+      "aspecto": "plazo",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "E-T8"
+      ],
+      "razonamiento": "Plazo anotado en E-T8."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.3",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "En el sistema de entrega de diseño y construcción",
+      "obligacion": "Diseño y construcción: la opinión del proyectista se integra al informe del contratista",
+      "aspecto": "condicion",
+      "estado": "FUERA-DE-ALCANCE",
+      "elementos": [],
+      "razonamiento": "El modelo representa la ruta de solo construcción (190.3 a)."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.4",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "el contratista puede solicitar ampliación de plazo contractual por el tiempo correspondiente a la demora",
+      "obligacion": "Sin absolución, el contratista puede pedir ampliación de plazo",
+      "aspecto": "excepcion",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "No hay vínculo con S4.3.2.4."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.5",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "El contratista debe formular la consulta con la anticipación suficiente",
+      "obligacion": "El contratista debe consultar con anticipación suficiente",
+      "aspecto": "plazo",
+      "estado": "NO-REPRESENTADO",
+      "elementos": [],
+      "razonamiento": "Condición sobre la oportunidad de la consulta, sin anotación."
+    },
+    {
+      "fragmento": "0ebe95b3e05661b8-ec988166:art-190.6",
+      "ruta": "01-referencias/04-contrataciones-publicas/ley-y-reglamento/reglamento-de-la-ley-general-de-contrataciones-publicas-con-modificaciones-posteriores-hasta-el-09-01-2026.pdf",
+      "sha256": "0EBE95B3E05661B80F73C060D6E6CE8DD17621CE34AF9277C688DD67E5D99830",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 106,
+        "hasta": 106,
+        "paginas": [
+          106
+        ]
+      },
+      "cita": "El proyectista tiene la obligación de atender las consultas que le remita la entidad contratante",
+      "obligacion": "El proyectista debe atender las consultas según su contrato",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "P-T1",
+        "P-T2"
+      ],
+      "razonamiento": "Pool del proyectista."
+    },
+    {
+      "fragmento": "71778d14cc60b83b-af2c6749:art-96",
+      "ruta": "01-referencias/01-institucionales-grh/originales/reglamento-organizacion-funciones-grh-2023.pdf",
+      "sha256": "71778D14CC60B83B798B607CD63B26B897BFB81CD87D8BE856848A7BCC47D8DA",
+      "ubicacion": {
+        "tipo": "pagina_pdf",
+        "desde": 47,
+        "hasta": 47,
+        "paginas": [
+          47
+        ]
+      },
+      "cita": "Absolver las consultas sobre ocurrencias en la ejecución de la obra",
+      "obligacion": "La Sub Gerencia de Estudios absuelve las consultas de obra",
+      "aspecto": "actor",
+      "estado": "REPRESENTADO",
+      "elementos": [
+        "C:Gobierno Regional Huanuco/SGE — Especialistas tecnicos"
+      ],
+      "razonamiento": "Carriles de la SGE."
+    }
+  ]
+}

@@ -15,7 +15,7 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 4,
-      "actualizado": "2026-11-24T23:55:30+00:00"
+      "actualizado": "2026-11-25T00:00:20+00:00"
     },
     "S4.3.1": {
       "estado": "CON-HALLAZGOS",
@@ -30,7 +30,7 @@
       "no_representadas": 6,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:33+00:00"
+      "actualizado": "2026-11-25T00:00:23+00:00"
     },
     "S4.3.2": {
       "estado": "CON-HALLAZGOS",
@@ -47,31 +47,38 @@
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
       "candidatos_interfaz": 4,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:24+00:00"
     },
     "S4.3.2.1": {
-      "estado": "PENDIENTE-AUDITORIA",
+      "estado": "CON-HALLAZGOS",
       "revision_tabla": "C4D41E45B6430525B9D525EF511D2D3C8B76DBB3BAB6984968F1E2EDEBE0D00B",
-      "afirmaciones": 0,
-      "resultados": {},
-      "sin_resultado": 19,
-      "obligaciones": 0,
-      "no_representadas": 0,
-      "referencias_sin_ancla": 1,
+      "afirmaciones": 20,
+      "resultados": {
+        "SUSTENTADA": 12,
+        "INFERENCIA": 7,
+        "CONTRADICCION": 1
+      },
+      "sin_resultado": 0,
+      "obligaciones": 10,
+      "no_representadas": 6,
+      "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:25+00:00"
     },
     "S4.3.2.2": {
-      "estado": "PENDIENTE-AUDITORIA",
+      "estado": "CON-HALLAZGOS",
       "revision_tabla": "5D79D1E7E25E891E9E7E15D75E397B34D763B69A234B8B4CCE6A0CCE6F9D91D2",
-      "afirmaciones": 0,
-      "resultados": {},
-      "sin_resultado": 63,
-      "obligaciones": 0,
-      "no_representadas": 0,
-      "referencias_sin_ancla": 32,
+      "afirmaciones": 64,
+      "resultados": {
+        "SUSTENTADA": 36,
+        "INFERENCIA": 28
+      },
+      "sin_resultado": 0,
+      "obligaciones": 12,
+      "no_representadas": 2,
+      "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:28+00:00"
     },
     "S4.3.2.3": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -83,7 +90,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 55,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:28+00:00"
     },
     "S4.3.2.4": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -95,7 +102,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 20,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:28+00:00"
     },
     "S4.3.2.5": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -107,7 +114,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 26,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:28+00:00"
     },
     "S4.3.2.6": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -119,7 +126,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 8,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:34+00:00"
+      "actualizado": "2026-11-25T00:00:28+00:00"
     },
     "S4.3.2.7": {
       "estado": "COMPLETO",
@@ -136,7 +143,7 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 0,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:35+00:00"
+      "actualizado": "2026-11-25T00:00:29+00:00"
     },
     "S4.3.2.8": {
       "estado": "PENDIENTE-AUDITORIA",
@@ -148,12 +155,12 @@
       "no_representadas": 0,
       "referencias_sin_ancla": 5,
       "citas_con_problemas": 0,
-      "actualizado": "2026-11-24T23:55:35+00:00"
+      "actualizado": "2026-11-25T00:00:29+00:00"
     },
     "S4.3.3": {
       "estado": "SIN-MODELO",
-      "actualizado": "2026-11-24T23:55:35+00:00"
+      "actualizado": "2026-11-25T00:00:29+00:00"
     }
   },
-  "actualizado": "2026-11-24T23:55:35+00:00"
+  "actualizado": "2026-11-25T00:00:29+00:00"
 }
