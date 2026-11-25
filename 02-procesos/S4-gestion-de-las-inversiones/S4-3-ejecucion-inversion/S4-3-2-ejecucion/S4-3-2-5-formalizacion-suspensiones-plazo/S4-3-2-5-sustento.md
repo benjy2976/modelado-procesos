@@ -132,3 +132,11 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
 - **Generación.** D1-D5 sin hallazgos.
 
 No se atribuye validación ni conformidad; el proceso sigue en `ELABORACION`.
+
+## Interfaz con S4.3.2.6 — 2026-11-25 (DEC-063)
+
+Nuevo inicio por mensaje E-E3, «Paralizacion derivada para suspension recibida», en el carril del coordinador de obra. Recibe desde S4.3.2.6 la paralización no atribuible al contratista y continúa en E-T3, la coordinación de las condiciones de suspensión. La preferencia por suspender para evitar perjuicio económico a la entidad es práctica institucional informada por el usuario; el acuerdo de suspensión sigue el Reglamento, art. 202.1.
+
+Queda pendiente definir qué ocurre si el contratista no acepta la suspensión: la paralización fundada sigue como causal de ampliación (198.1 a), pero falta decidir si el caso vuelve a S4.3.2.6. Está registrado como observación de Claudia (`DEC-064`) junto con la reconfirmación de la auditoría de este proceso.
+
+**Generación.** D1 a D5 sin hallazgos. No se atribuye validación ni conformidad.

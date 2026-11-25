@@ -391,46 +391,6 @@
         ],
         "metodo_ancla": "automatico-pdfminer"
       }
-    ],
-    "E-T9": [
-      {
-        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
-        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
-        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
-        "pagina": 18,
-        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (cronograma)",
-        "fragmento": "el cronograma de obra actualizado con las",
-        "consulta": "2026-11-24",
-        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
-        "rectangulos": [
-          [
-            0.2706,
-            0.5283,
-            0.5895,
-            0.5385
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      },
-      {
-        "titulo": "Directiva 017-2023-CG (El Peruano, 29-12-2023)",
-        "ruta": "01-referencias/05-control-gubernamental/administracion-directa/directiva-n-017-2023-cg-gmpl.pdf",
-        "sha256": "006fdb364e2ce3594fc2c11de2f5add901b4acf389a958ab78e6ed4abd61ca9e",
-        "pagina": 18,
-        "ubicacion": "Directiva 017-2023-CG, num. 7.3.7 (registro)",
-        "fragmento": "Toda ampliación de plazo debe estar registrada en los aplicativos informáticos del SNPMGI y en el INFOBRAS",
-        "consulta": "2026-11-24",
-        "vigencia": "Fuente oficial; vigencia jurídica por confirmar (catálogo, 2026-10-16); aplica a administración directa",
-        "rectangulos": [
-          [
-            0.1043,
-            0.3865,
-            0.9275,
-            0.3968
-          ]
-        ],
-        "metodo_ancla": "automatico-pdfminer"
-      }
     ]
   }
 }

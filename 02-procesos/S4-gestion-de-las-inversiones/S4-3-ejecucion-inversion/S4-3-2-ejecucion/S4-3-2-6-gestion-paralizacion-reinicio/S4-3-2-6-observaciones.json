@@ -1,0 +1,239 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-6-gestion-paralizacion-reinicio/S4-3-2-6-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "db191fe9-61b3-4ad8-9eb2-f91ae0736859",
+      "elemento": "_f048ad50-6470-5ad5-bd35-eb8a3d9826bf",
+      "referencia": "Caja 5 (S-T1)",
+      "texto": "[Duda] El informe de paralización de la supervisión se modeló como práctica institucional (indicación del usuario, 2026-11-25); ninguna fuente de la biblioteca lo regula en contrata. Falta confirmar: (1) en qué plazo lo emite tras la anotación del contratista; (2) su contenido mínimo (causa, fecha de inicio, avance, imputabilidad preliminar); (3) si lo remite por mesa de partes (OACGD) o directamente a SGGOS. Atención sugerida: CAMBIO-MODELO si se fija plazo o destinatario; si no, ACLARACION en el sustento.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.376731+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.376731+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "d6186bc1-b5c7-411f-8504-448646ac253a",
+      "elemento": "_a23981a7-38e7-5d4a-b8ea-0459749ec603",
+      "referencia": "Caja 34 (E-T4)",
+      "texto": "[Duda] La evaluación de la causa y de su atribución al contratista quedó en el coordinador de obra. En S4.3.2.4 una decisión equivalente pasa por coordinador, subgerente SGGOS, GRI y Asesoría Jurídica. ¿Quién concluye si la paralización es atribuible: el coordinador, el subgerente con informe del coordinador u otra instancia? Atención sugerida: CAMBIO-MODELO con los carriles que confirme el equipo.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.379282+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.379282+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "dde0a181-805a-45f1-918b-bfeb0890d2a8",
+      "elemento": "_fda28071-a79a-5bf0-a0d8-ec3fa7706fbd",
+      "referencia": "Caja 35 (E-T5)",
+      "texto": "[Pendiente de evidencia] El registro de la paralización en INFOBRAS es práctica informada por el usuario. La Directiva 005-2023-CG/GMPL (gestión del registro de obras en INFOBRAS, vigente desde el 01-06-2024) no está en la biblioteca: la guía CTRL-002 solo la menciona. Falta: el texto de la directiva o la confirmación de quién registra (coordinador, responsable designado de INFOBRAS u otro) y en qué plazo. El carril actual (coordinador) es provisional. Atención sugerida: PENDIENTE-EVIDENCIA hasta incorporar la fuente.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.381934+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.381934+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "43959fd8-d2d3-4823-9078-b05b4908ae2d",
+      "elemento": "_5595744c-c20f-5721-a3ef-5716df15565c",
+      "referencia": "Caja 20 (E-T8)",
+      "texto": "[Pendiente de evidencia] Igual que la observación de la caja 35 (E-T5), aplicada al registro del reinicio en INFOBRAS: responsable, plazo y fuente por confirmar. Se resolverá vinculada a esa observación (VINCULADA-A-CAMBIO).",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.384701+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.384701+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "fd1218e6-e31a-4364-aad1-1e9d26be8fa1",
+      "elemento": "_b067ef06-5d5b-5736-a2ab-c6ef90b1f103",
+      "referencia": "Caja 18 (E-F2)",
+      "texto": "[Duda] Si la paralización es atribuible al contratista, el modelo solo la comunica y remite a la aplicación del contrato (la resolución está diferida por DEC-061). ¿Qué acto emite la entidad en la práctica: carta de requerimiento de reinicio, aplicación de penalidades, apercibimiento de resolución u otro? Con esa respuesta se precisa el nombre del fin y del mensaje. Atención sugerida: CAMBIO-MODELO o ACLARACION.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.387284+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.387284+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "fbc49135-c121-4987-9d06-ec2e084e69ad",
+      "elemento": "_ccacc64a-10ff-59f8-916f-7f362f9dc578",
+      "referencia": "Caja 17 (E-F1)",
+      "texto": "[Interfaz] La paralización no atribuible se deriva a S4.3.2.5 para acordar la suspensión (preferencia institucional indicada por el usuario). Si el contratista no acepta, S4.3.2.5 termina en suspensión no acordada y la paralización fundada sigue como causal de ampliación (198.1 a). Hay que decidir si ese caso vuelve a S4.3.2.6 (por ejemplo, para registrar el estado) o queda cerrado a la espera del cese de la causa (caja 25, R-E2). Atención sugerida: CAMBIO-MODELO en la interfaz S4.3.2.5–S4.3.2.6 o ACLARACION en el sustento.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.390056+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.390056+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "afdbec87-be7d-4eae-ba01-3bcc7eb6993a",
+      "elemento": "_ff203a1e-97dc-50d7-8ccd-73ea75094b97",
+      "referencia": "Caja 32 (S-T2)",
+      "texto": "[Duda] El acta de reinicio se modeló como práctica (indicación del usuario), suscrita por la supervisión y el contratista. ¿Participa también la entidad (coordinador de obra)? ¿Se usa la misma acta cuando la obra se reactiva por la Ley 31589 (caja 48, T-F3)? Atención sugerida: CAMBIO-MODELO si cambian los participantes.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.392786+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.392786+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "54716c68-7ac5-4eae-b20b-f43805bcd7af",
+      "elemento": "_7b43973d-d853-526e-abe0-2aa3cac47052",
+      "referencia": "Caja 36 (U-E1)",
+      "texto": "[Duda] El TUO de la Ley 31589 asigna el inventario y el informe de estado situacional a la UEI (arts. 3.1 y 9.2) y el registro de la lista priorizada a la OPMI (art. 4.4). ¿Qué unidad del GORE Huánuco actúa como UEI de las obras por contrata (GRI, SGGOS u otra unidad ejecutora)? Con el ROF se precisaría el carril. Atención sugerida: CAMBIO-MODELO del carril y ACLARACION con el artículo del ROF.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.395609+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.395609+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "e54696d7-731a-4639-80bb-4ebc77649d3d",
+      "elemento": "_b5210ec5-bdb7-54f4-99d8-908fafa84c3e",
+      "referencia": "Caja 43 (T-T3)",
+      "texto": "[Duda] El art. 5.2 dice que «la entidad» propone la continuidad o resuelve el contrato; el modelo lo asignó al titular. ¿Lo ejerce el Gobernador Regional o una autoridad delegada (GRI, Gerencia General)? Afecta también la decisión T-G1 (caja 42). Atención sugerida: CAMBIO-MODELO del carril.",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.398451+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.398451+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "45fd43a6-d3ab-42ae-944e-4a2c2f08efb0",
+      "elemento": "_63b3c073-ebcb-578e-9045-caa7a349eeee",
+      "referencia": "Caja 51 (T-F2)",
+      "texto": "[Inferencia] El fin «Obra no incluida en la lista priorizada» no está en la ley: es una inferencia sobre el art. 4.4. La ley no dice qué ocurre con una obra inventariada que no se prioriza; podría reevaluarse en la siguiente actualización del inventario (art. 3.1: se actualiza permanentemente). Atención sugerida: PENDIENTE-EVIDENCIA o decisión del equipo sobre el tratamiento.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.401287+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.401287+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "7d0319b5-a10a-4864-9661-4b92769c679a",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "[Vigencia] El TUO de la Ley 31589 (D.S. 206-2024-EF) remite a la Ley 30225 y al D.S. 344-2018-EF. El preámbulo del Reglamento de la Ley 32069 menciona un decreto supremo que aprueba equivalencias entre los procedimientos de selección del TUO y los de la Ley 32069. La vigencia jurídica del régimen frente a la Ley 32069 figura como por confirmar en el catálogo. Falta incorporar ese decreto de equivalencias y confirmar la vigencia. Atención sugerida: PENDIENTE-EVIDENCIA; no afecta el flujo mientras no se confirme lo contrario.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.403015+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.403015+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "5a614d27-0585-42e4-9b62-979fc68d7a59",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "[Trazado] La generación del 2026-11-25 deja 5 hallazgos D4: 3 flujos superpuestos (corredor común de R-F1→S-E1 y T-T3→C-E1; salidas de T-G1 hacia T-F4 y T-F2 sobre la entrada desde O-T1) y 2 etiquetas montadas sobre anotaciones (documentos de U-T2 y T-T3). Se adoptó con --forzar para poder observar los elementos nuevos. Requiere revisión visual del usuario y, si corresponde, ajuste de orden o anotaciones. D1, D2, D3 y D5 sin hallazgos.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.404749+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.404749+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    },
+    {
+      "id": "d5eaa537-f8a6-4930-9ad2-1c082bed2707",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "[Trabajo pendiente del agente] La tabla cambió a enfoque contrata (decisión del usuario, 2026-11-25). La auditoría por afirmación y la cobertura de fuente siguen sobre la revisión anterior; las anclas de R-E1, R-T1, S-T1, E-E1, E-T1, E-T2, E-T5 y E-T8 provienen del contenido previo (Directiva 017-2023-CG, num. 7.3.7) y algunas ya no corresponden. Hay que reinventariar, reconfirmar afirmaciones y anclas, y registrar las obligaciones nuevas (Reglamento 198.1 a y 200.1 a; TUO de la Ley 31589, arts. 2.1, 3, 4.1, 4.2, 4.4, 5.2, 5.3, 9.1-9.3). Atención sugerida: CAMBIO-SUSTENTO al cerrar el lote, después de resolver las dudas que cambian el flujo.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.406441+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.406441+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    }
+  ]
+}

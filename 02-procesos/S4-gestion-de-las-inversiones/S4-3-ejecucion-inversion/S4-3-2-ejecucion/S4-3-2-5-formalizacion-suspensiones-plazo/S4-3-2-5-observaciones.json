@@ -1,0 +1,23 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-5-formalizacion-suspensiones-plazo/S4-3-2-5-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "c86e5bd1-0b32-433e-b39c-9642d357e71e",
+      "elemento": "_da9c1de6-2e8b-58e7-9af4-31f2b1476fab",
+      "referencia": "Caja 30 (E-E3)",
+      "texto": "[Interfaz] Nuevo inicio por mensaje desde S4.3.2.6: la paralización no atribuible se deriva para acordar la suspensión (preferencia institucional indicada por el usuario, 2026-11-25). Pendiente: (1) reconfirmar la auditoría de S4.3.2.5 con este elemento; (2) definir el retorno a S4.3.2.6 si no hay acuerdo (ver la observación de la caja 17, E-F1, en S4.3.2.6). Atención sugerida: VINCULADA-A-CAMBIO con esa observación.",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "fecha": "2026-11-25T04:03:53.410230+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-25T04:03:53.410230+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": []
+    }
+  ]
+}

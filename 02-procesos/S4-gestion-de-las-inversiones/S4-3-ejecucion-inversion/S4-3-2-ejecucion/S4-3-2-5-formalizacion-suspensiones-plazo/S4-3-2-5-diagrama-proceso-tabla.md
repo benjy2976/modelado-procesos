@@ -50,6 +50,7 @@ Residente de obra y contratista o representante legal pertenecen al mismo partic
 | E-G1 | 10 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Corresponde suspension contractual? | E-T3 [Si]; E-F2 [No] |  |  |  | NORM | Reglamento, art. 202.1; AD: EVIDENCIA-INSUFICIENTE |
 | E-T3 | 11 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Coordinar las condiciones de suspension con el contratista o su representante legal | E-M1 |  |  |  | NORM | Reglamento, art. 202.1: acuerdo de las partes |
 | E-E2 | 29 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | inicio-condicional | Contrato directamente vinculado resuelto | E-T3 |  |  | Las partes pueden acordar suspender el plazo de la obra hasta perfeccionar un nuevo contrato vinculado | NORM | Reglamento, art. 202.5 |
+| E-E3 | 30 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | inicio-mensaje | Paralizacion derivada para suspension recibida | E-T3 | entra: Paralizacion derivada |  | Proviene de S4.3.2.6 cuando la paralizacion no es atribuible al contratista | PROP | Practica institucional informada por el usuario, 2026-11-25; Reglamento, art. 202.1 |
 | E-M1 | 12 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | mensaje-recepcion | Respuesta del ejecutor recibida | E-G2 | entra: Respuesta del contratista o su representante legal |  |  | NORM | Reglamento, art. 202.1 |
 | E-G2 | 13 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | compuerta | ¿Existe acuerdo de suspension? | E-T4 [Si]; E-F2 [No] |  |  |  | NORM | Reglamento, art. 202.1 |
 | E-T4 | 14 | Gobierno Regional Huanuco | SGGOS — Coordinador de obra | tarea-usuario | Consolidar el acuerdo y elevarlo por SGD | E-T5 | sale: Acuerdo consolidado; almacen: SGD |  |  | PROP | No sustituye la decision formal; observacion del usuario, 2026-11-10 |
@@ -76,4 +77,4 @@ Residente de obra y contratista o representante legal pertenecen al mismo partic
 | S-F1 | E-E1 | Causa y opinion |
 | E-T3 | C-E1 | Propuesta de suspension |
 | C-F1 | E-M1 | Respuesta del ejecutor |
-
+| S4.3.2.6 Gestion de paralizacion y reinicio | E-E3 | Paralizacion derivada para suspension |

@@ -117,3 +117,25 @@ Auditoría con el formato de DEC-057 ([informe generado](../../../../../05-herra
   - decidir con el equipo si S4.3.2.6 queda solo para administración directa y, en contrata, se deriva la paralización a S4.3.2.4 o S4.3.2.5;
   - si se mantiene el régimen de la Ley 31589, modelarlo como variante con la propuesta de continuidad o resolución y el plazo de 15 días calendario;
   - nombrar en R-T1 las tres fechas y en E-T9 el cronograma actualizado y el registro en el SNPMGI y el INFOBRAS.
+
+## Enfoque en contrata — 2026-11-25 (DEC-063)
+
+Por decisión del usuario, S4.3.2.6 se centra en obras por contrata, la modalidad que más ejecuta el GORE. En administración directa el procedimiento ya está regulado por la Directiva 017-2023-CG (num. 7.3.7: tres fechas en el cuaderno, cronograma actualizado en 2 días calendario, registro en el SNPMGI y el INFOBRAS y acto resolutivo), que se conserva aquí como referencia y no se diagrama.
+
+| Tramo | Contenido | Clase |
+|---|---|---|
+| Paralización | El contratista anota el inicio de la causal en el cuaderno de incidencias (Reglamento, art. 200.1 a) | Exigencia normativa |
+| Paralización | La supervisión verifica e informa; la entidad evalúa la causa y la atribución, registra en INFOBRAS y, si no es atribuible, deriva a S4.3.2.5 para acordar la suspensión | Práctica institucional informada por el usuario |
+| Paralización | Sin acuerdo, la paralización fundada sigue como causal de ampliación (198.1 a, S4.3.2.4) | Exigencia normativa |
+| Reinicio | El contratista anota el fin de la causal (200.1 a); desde ahí corren los 10 días hábiles para solicitar la ampliación | Exigencia normativa |
+| Reinicio | Acta de reinicio suscrita por la supervisión y el contratista; registro en INFOBRAS | Práctica institucional informada por el usuario |
+| Paralización prolongada | TUO de la Ley 31589: inventario de la UEI (3), informe de estado situacional (4.1-4.2), lista priorizada al 31 de diciembre (4.4), publicación en 5 días hábiles (9.1), propuesta de continuidad o resolución (5.2) y respuesta del contratista en 15 días calendario (5.3) | Exigencia normativa; vigencia por confirmar |
+| Obra no priorizada | Fin «Obra no incluida en la lista priorizada» | Inferencia |
+
+El registro en INFOBRAS queda con `EVIDENCIA-INSUFICIENTE` normativa: la Directiva 005-2023-CG no está en la biblioteca. El contrato resuelto o nulo de la Ley 31589 (2.1 ii) y el trámite de resolución quedan diferidos (`DEC-061`).
+
+Las dudas y pendientes de este cambio están registrados como observaciones de Claudia en `S4-3-2-6-observaciones.json` (`DEC-064`, `DEC-065`) y se resolverán una por una.
+
+**Generación.** D1, D2, D3 y D5 sin hallazgos. D4 registra 5 hallazgos geométricos: 3 flujos superpuestos (el corredor común de R-F1→S-E1 y T-T3→C-E1, y las salidas de T-G1 hacia T-F4 y T-F2 sobre la entrada desde O-T1) y 2 etiquetas de documentos montadas sobre anotaciones (U-T2 y T-T3). Se adoptó con `--forzar` para poder observar las cajas nuevas en el módulo de observaciones; quedan pendientes de revisión visual del usuario y de ajuste de disposición. No afectan referencias ni terminación.
+
+**Auditoría.** La auditoría por afirmación y la cobertura siguen sobre la revisión anterior de la tabla; varias anclas del visor corresponden al contenido previo. Se reconfirmarán al cerrar las observaciones que cambian el flujo. No se atribuye validación ni conformidad.
