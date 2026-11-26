@@ -25,7 +25,7 @@ con los scripts de `ia-familiar/tmp/openclaw-diag/` (217 y 218), que usan los ar
 | `agentes.json` | Por agente: nombre, modelo y lista exacta de herramientas MCP (`mesa-modelamiento__<herramienta>`) |
 | `comun.md` | Reglas comunes; se agrega como sección tras las instrucciones de cada agente |
 | `mesa-analisis.AGENTS.md` | Análisis y propuesta con el método `DEC-067` |
-| `mesa-aplicacion.AGENTS.md` | Aplicación de lo definido, una observación por sesión (`DEC-069`), con controles y evidencia |
+| `mesa-aplicacion.AGENTS.md` | Interpreta la decisión escrita y la aplica: aclaración o no procede sin tocar el modelo, falta evidencia, corrección en su propia sesión (`DEC-069`) o devolución con una pregunta si es ambigua |
 | `mesa-chat.AGENTS.md` | Asistente conversacional: prepara cambios, nunca los integra |
 | `preparar_instalacion.py` | Genera el parche de configuración, `agentes.tsv` y los `AGENTS.md` combinados para el script 217 |
 
@@ -34,7 +34,7 @@ con los scripts de `ia-familiar/tmp/openclaw-diag/` (217 y 218), que usan los ar
 | Flujo | Disparo | Agente y modelo propuesto | Resultado |
 |---|---|---|---|
 | Análisis | Botón «Solicitar análisis a Claudia» (o reanálisis con motivo) encola `ANALISIS` y despierta al agente por el relevo | `mesa-analisis`, GPT-6.2 Sol | Análisis y propuesta registrados en la observación (etapa PROPUESTA) |
-| Aplicación | Definir una resolución encola `APLICACION`; la automatización de OpenClaw despierta al agente cada 10 min | `mesa-aplicacion`, GPT-6.1 Terra | Cada observación se aplica en su propia sesión de edición con bloqueo (`DEC-069`); al integrar queda una versión ligada a la observación, la aplicación registrada y el trabajo cerrado |
+| Aplicación | Una persona responde y decide en lenguaje natural (definición `MANUAL`), lo que encola `APLICACION`; la automatización de OpenClaw despierta al agente cada 10 min | `mesa-aplicacion`, GPT-6.1 Terra | Cada observación se aplica en su propia sesión de edición con bloqueo (`DEC-069`); al integrar queda una versión ligada a la observación, la aplicación registrada y el trabajo cerrado |
 | Chat | Pestaña «Asistente» del espacio de trabajo | `mesa-chat`, GPT-6.1 Terra | Respuesta en streaming; las variaciones quedan preparadas en una copia que la persona revisa y aplica |
 
 Los modelos se confirman con la prueba sobre las cuestiones de S4.3.2.6 (comparación con una revisión directa).

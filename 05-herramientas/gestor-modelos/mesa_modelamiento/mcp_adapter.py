@@ -212,13 +212,25 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         validacion: str = "",
         decision: str = "",
         formato: str = "texto",
+        resultado: str = "",
     ) -> dict:
         """Cierra una observación con evidencia de lo aplicado (sesión, cambios, D1-D5, decisión DEC-NNN).
 
-        Con cerrar=False queda en PENDIENTE-EVIDENCIA. Un CAMBIO-MODELO exige la sesión que lo integró."""
+        Con cerrar=False queda en PENDIENTE-EVIDENCIA. resultado: ACLARADA, NO-PROCEDE, CAMBIO-MODELO o
+        CAMBIO-SUSTENTO, según cómo se aplicó la decisión de la persona; un cambio exige la sesión que lo integró."""
         return _confirmacion(observaciones.registrar_aplicacion(
             codigo, identificador, texto=texto, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
             cerrar=cerrar, sesion=sesion, cambios=cambios, validacion=validacion, decision=decision, formato=formato,
+            resultado=resultado,
+        ))  # fmt: skip
+
+    @herramienta()
+    def devolver_decision(codigo: str, identificador: str, pregunta: str, revision_esperada: str) -> dict:
+        """Devuelve una decisión ambigua sin aplicarla: la pregunta queda como comentario y vuelve a decidirse.
+
+        Úsela cuando la respuesta de la persona no permite saber si cerrar, aplicar un cambio o cuál. pregunta: html."""
+        return _confirmacion(observaciones.devolver_decision(
+            codigo, identificador, pregunta=pregunta, autor=AUTOR_AGENTE, revision_esperada=revision_esperada,
         ))  # fmt: skip
 
     @herramienta()

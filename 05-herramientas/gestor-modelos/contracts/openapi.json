@@ -97,6 +97,17 @@
             "title": "Formato",
             "type": "string"
           },
+          "resultado": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resultado"
+          },
           "revision_modelo": {
             "anyOf": [
               {
@@ -520,6 +531,66 @@
           "fecha"
         ],
         "title": "CorreccionVista",
+        "type": "object"
+      },
+      "DecisionDevuelta": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "devuelta": {
+            "title": "Devuelta",
+            "type": "string"
+          },
+          "devuelta_por": {
+            "title": "Devuelta Por",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "texto",
+            "title": "Formato",
+            "type": "string"
+          },
+          "opciones": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Opciones",
+            "type": "array"
+          },
+          "pregunta": {
+            "title": "Pregunta",
+            "type": "string"
+          },
+          "pregunta_formato": {
+            "default": "html",
+            "title": "Pregunta Formato",
+            "type": "string"
+          },
+          "texto": {
+            "default": "",
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tipo",
+          "autor",
+          "fecha",
+          "pregunta",
+          "devuelta_por",
+          "devuelta"
+        ],
+        "title": "DecisionDevuelta",
         "type": "object"
       },
       "DefinicionEntrada": {
@@ -2260,6 +2331,13 @@
                 "type": "null"
               }
             ]
+          },
+          "decisiones_devueltas": {
+            "items": {
+              "$ref": "#/components/schemas/DecisionDevuelta"
+            },
+            "title": "Decisiones Devueltas",
+            "type": "array"
           },
           "definicion": {
             "anyOf": [

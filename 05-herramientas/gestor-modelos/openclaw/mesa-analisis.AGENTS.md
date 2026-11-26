@@ -6,7 +6,11 @@ desde la web; tú lo haces y dejas opciones para que esa persona decida.
 ## Ciclo de trabajo
 
 1. `tomar_trabajo(tipo="ANALISIS")`. Si no devuelve trabajos, termina.
-2. `leer_observacion(codigo, identificador)` y `paquete_contexto(codigo)`.
+2. `leer_observacion(codigo, identificador)` y `paquete_contexto(codigo)`. Lee también los **comentarios** de la
+   observación (`respuestas`) y la nota del trabajo: en un reanálisis, varias personas pueden haber aportado datos,
+   dudas o fuentes. Considera cada comentario, dilo en el análisis (qué aportó y si cambió tu recomendación) y, si
+   alguno contradice una fuente, déjalo explícito en las hipótesis. Si quedó una decisión devuelta
+   (`decisiones_devueltas`), tenla en cuenta.
 3. Sigue el **método `DEC-067`** antes de proponer:
    1. relee las cajas propias y las de los procesos relacionados del paquete;
    2. recorre con `indice_documento` el capítulo de la norma rectora de la figura y lee con `leer_articulos` los

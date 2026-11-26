@@ -8,6 +8,7 @@ con evidencia. Ninguna etapa equivale a revisión de equipo, opinión técnica n
 from __future__ import annotations
 
 import hashlib
+import uuid
 from collections.abc import Callable
 from datetime import datetime, timezone
 
@@ -23,6 +24,8 @@ EFECTOS = ("CAMBIO-MODELO", "CAMBIO-SUSTENTO", "DECISION", "ACLARACION", "NO-PRO
 DEFINICIONES = ("OPCION", "OPCIONES", "MANUAL", "VINCULADA")
 # Cierres que decide una persona sin cambiar el modelo; quedan con su texto, autor y fecha (no «marcar resuelta»).
 CIERRES = ("ACLARADA", "NO-PROCEDE", "PENDIENTE-EVIDENCIA")
+# Resultado con que el agente aplica una decisión escrita por una persona (rediseño «Responder y decidir»).
+RESULTADOS = ("ACLARADA", "NO-PROCEDE", "CAMBIO-MODELO", "CAMBIO-SUSTENTO")
 AUTORES_AGENTE = {"claudia"}
 MAXIMO_OPCIONES = 8
 
@@ -219,7 +222,8 @@ class ServicioResolucion(ServicioObservaciones):
                 if propuesta["seleccion"] == "UNICA" and len(elegidas) > 1:
                     raise ErrorDominio("La propuesta admite una sola opción")
             else:
-                self._exigir_etapa(registro, ("REGISTRADA", "EN-ANALISIS", "PROPUESTA"), "definir")
+                permitidas = ("REGISTRADA", "EN-ANALISIS", "PROPUESTA", "PENDIENTE-EVIDENCIA")
+                self._exigir_etapa(registro, permitidas, "definir")
             resolucion["definicion"] = {
                 "tipo": tipo,
                 "opciones": elegidas if tipo in {"OPCION", "OPCIONES"} else [],
@@ -282,6 +286,38 @@ class ServicioResolucion(ServicioObservaciones):
 
         return self._mutar(codigo, identificador, revision_esperada, cambio)
 
+    def devolver_decision(
+        self,
+        codigo: str,
+        identificador: str,
+        *,
+        pregunta: str,
+        autor: str,
+        revision_esperada: str,
+        formato: str = "html",
+    ) -> dict:
+        """El agente no aplica una decisión ambigua: la devuelve con una pregunta y la observación vuelve a decidirse.
+
+        La decisión devuelta se conserva en `resolucion.decisiones_devueltas` y la pregunta queda como comentario."""
+        contenido = self._validar_texto_autor(pregunta, autor, formato)
+
+        def cambio(registro: dict, fecha: str) -> str:
+            self._exigir_etapa(registro, ("DEFINIDA", "EN-CORRECCION"), "devolver la decisión de")
+            resolucion = registro["resolucion"]
+            definicion = resolucion.pop("definicion")
+            resolucion.pop("correccion", None)
+            resolucion.setdefault("decisiones_devueltas", []).append(
+                {**definicion, "pregunta": contenido, "pregunta_formato": formato, "devuelta_por": autor.strip(),
+                 "devuelta": fecha}
+            )  # fmt: skip
+            comentario = {"id": str(uuid.uuid4()), "texto": contenido, "formato": formato, "autor": autor.strip()}
+            registro.setdefault("respuestas", []).append({**comentario, "fecha": fecha})
+            registro["etapa"] = "PROPUESTA" if resolucion.get("propuesta") else "REGISTRADA"
+            registro["_autor_evento"] = autor.strip()
+            return "DECISION-DEVUELTA"
+
+        return self._mutar(codigo, identificador, revision_esperada, cambio)
+
     def solicitar_analisis(self, codigo: str, identificador: str, solicitante: str, nota: str = "") -> dict:
         """Encola el análisis de una observación a pedido de una persona (botón «Solicitar análisis»)."""
         registro = next((o for o in self.listar(codigo)["observaciones"] if o["id"] == identificador), None)
@@ -337,11 +373,19 @@ class ServicioResolucion(ServicioObservaciones):
         validacion: str = "",
         decision: str = "",
         formato: str = "texto",
+        resultado: str = "",
     ) -> dict:
-        """Cierra con evidencia (RESUELTA) o deja la observación en PENDIENTE-EVIDENCIA si cerrar es falso."""
+        """Cierra con evidencia (RESUELTA) o deja la observación en PENDIENTE-EVIDENCIA si cerrar es falso.
+
+        resultado: cómo se aplicó la decisión (ACLARADA, NO-PROCEDE, CAMBIO-MODELO o CAMBIO-SUSTENTO); un cambio
+        exige la sesión de edición que lo integró."""
         contenido = self._validar_texto_autor(texto, autor, formato)
         if decision and not decision.startswith("DEC-"):
             raise ErrorDominio("La decisión debe ser un identificador DEC-NNN")
+        if resultado and resultado not in RESULTADOS:
+            raise ErrorDominio(f"Resultado inválido; use {RESULTADOS}")
+        if cerrar and resultado in {"CAMBIO-MODELO", "CAMBIO-SUSTENTO"} and not sesion:
+            raise ErrorDominio("Un cambio se cierra con la sesión de edición que lo integró")
 
         def cambio(registro: dict, fecha: str) -> str:
             self._exigir_etapa(registro, ("EN-CORRECCION", "DEFINIDA"), "registrar la aplicación de")
@@ -363,6 +407,7 @@ class ServicioResolucion(ServicioObservaciones):
                 "autor": autor.strip(),
                 "fecha": fecha,
                 "cerrada": cerrar,
+                "resultado": resultado or None,
                 "revision_modelo": self._revision_modelo(codigo),
             }
             registro["etapa"] = "RESUELTA" if cerrar else "PENDIENTE-EVIDENCIA"

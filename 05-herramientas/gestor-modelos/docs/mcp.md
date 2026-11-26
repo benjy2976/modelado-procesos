@@ -60,6 +60,7 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `leer_observacion` | Una observación completa con su resolución vigente y las anteriores |
 | `registrar_analisis` y `registrar_propuesta` | Etapas de análisis (con hipótesis consideradas) y propuesta de una observación (`DEC-065`, `DEC-067`); reemplazar un análisis exige motivo y conserva el anterior |
 | `observaciones_por_etapa` | Observaciones por etapa, en resumen por defecto; `detalle` agrega la resolución |
+| `devolver_decision` | El agente no aplica una decisión ambigua: la devuelve con una pregunta, que queda como comentario, y la observación vuelve a decidirse; la decisión se conserva en `decisiones_devueltas` |
 | `iniciar_correccion` y `registrar_aplicacion` | Corrección de una observación definida y cierre con evidencia o espera de evidencia |
 
 Las escrituras del MCP firman con el alias del agente, **Claudia** (`DEC-064`). Un `ErrorDominio` llega como error de herramienta legible, con su código HTTP, no como fallo inesperado. Las escrituras de observaciones responden con una confirmación compacta (ID, referencia, etapa, estado, revisión y último evento); el registro completo se lee con `leer_observacion`.
@@ -84,7 +85,7 @@ La cola vive en `.mesa-trabajos/cola.json`, fuera de Git, con bloqueo de archivo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`; con las versiones livianas suma 55 (`listar_versiones`, `leer_version`) y la CLI agrega `versiones listar` y `versiones leer`; con `redactar_observacion` el MCP suma 56 y la CLI agrega `observaciones redactar`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`; con las versiones livianas suma 55 (`listar_versiones`, `leer_version`) y la CLI agrega `versiones listar` y `versiones leer`; con `redactar_observacion` el MCP suma 56 y la CLI agrega `observaciones redactar`; con `devolver_decision` suma 57, y `registrar_aplicacion` acepta `resultado` (`ACLARADA`, `NO-PROCEDE`, `CAMBIO-MODELO`, `CAMBIO-SUSTENTO`). El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|

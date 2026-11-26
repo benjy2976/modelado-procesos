@@ -199,3 +199,50 @@ def test_cerrar_con_decision_deja_registro_y_lo_exige(repositorio: RepositorioPr
               "revision_esperada": _revision(servicio)},
     )  # fmt: skip
     assert respuesta.status_code == 200 and respuesta.json()["resolucion"]["cierre"]["tipo"] == "NO-PROCEDE"
+
+
+def test_reabrir_sin_decision_vuelve_a_por_decidir(repositorio: RepositorioProcesos) -> None:
+    """Una observación cerrada sin decisión se reabre con su análisis y propuesta, lista para decidir."""
+    servicio = ServicioResolucion(repositorio)
+    obs = servicio.agregar("S4.3", elemento="", texto="¿Aplica?", autor="Equipo", revision_esperada=rev2(servicio))
+    servicio.registrar_analisis(
+        "S4.3", obs["id"], texto="Análisis", clase="FALTA-EVIDENCIA", autor="Claudia", revision_esperada=rev2(servicio)
+    )
+    opciones = [{"titulo": "A", "detalle": "x", "efecto": "ACLARACION", "elementos": [], "recomendada": True},
+                {"titulo": "B", "detalle": "y", "efecto": "NO-PROCEDE", "elementos": []}]  # fmt: skip
+    rev = rev2(servicio)
+    servicio.registrar_propuesta("S4.3", obs["id"], opciones=opciones, autor="Claudia", revision_esperada=rev)
+    servicio.actualizar_estado("S4.3", obs["id"], "RESUELTA", rev2(servicio), "Equipo")
+    reabierta = servicio.actualizar_estado("S4.3", obs["id"], "ABIERTA", rev2(servicio), "Equipo")
+    assert reabierta["etapa"] == "PROPUESTA" and reabierta["resolucion"]["propuesta"]
+    assert "resoluciones_anteriores" not in reabierta
+
+
+def test_responder_y_decidir_el_agente_aplica_o_devuelve(repositorio: RepositorioProcesos) -> None:
+    """Rediseño: la persona decide en texto libre; el agente cierra como aclaración o devuelve si es ambigua."""
+    servicio = ServicioResolucion(repositorio)
+    obs = servicio.agregar("S4.3", elemento="", texto="¿Aplica?", autor="Equipo", revision_esperada=rev2(servicio))
+    servicio.definir(
+        "S4.3", obs["id"], tipo="MANUAL", autor="Equipo", texto="<p>Revisar esto</p>", formato="html",
+        revision_esperada=rev2(servicio),
+    )  # fmt: skip
+    devuelta = servicio.devolver_decision(
+        "S4.3", obs["id"], pregunta="<p>¿Cambio el diagrama o solo aclaro?</p>", autor="Claudia",
+        revision_esperada=rev2(servicio),
+    )  # fmt: skip
+    assert devuelta["etapa"] == "REGISTRADA" and "definicion" not in devuelta["resolucion"]
+    assert devuelta["resolucion"]["decisiones_devueltas"][0]["texto"] == "<p>Revisar esto</p>"
+    assert devuelta["respuestas"][-1]["autor"] == "Claudia"
+    servicio.definir(
+        "S4.3", obs["id"], tipo="MANUAL", autor="Equipo", texto="<p>Es una aclaración</p>", formato="html",
+        revision_esperada=rev2(servicio),
+    )  # fmt: skip
+    with pytest.raises(ErrorDominio, match="sesión"):
+        servicio.registrar_aplicacion(
+            "S4.3", obs["id"], texto="x", autor="Claudia", revision_esperada=rev2(servicio), resultado="CAMBIO-MODELO"
+        )
+    cerrada = servicio.registrar_aplicacion(
+        "S4.3", obs["id"], texto="Aclarado sin cambios", autor="Claudia", revision_esperada=rev2(servicio),
+        resultado="ACLARADA",
+    )  # fmt: skip
+    assert cerrada["estado"] == "RESUELTA" and cerrada["resolucion"]["aplicacion"]["resultado"] == "ACLARADA"

@@ -165,7 +165,21 @@ class AplicacionVista(BaseModel):
     autor: str
     fecha: str
     cerrada: bool = True
+    resultado: str | None = None
     revision_modelo: str | None = None
+
+
+class DecisionDevuelta(BaseModel):
+    tipo: str
+    texto: str = ""
+    formato: str = "texto"
+    autor: str
+    fecha: str
+    opciones: list[str] = Field(default_factory=list)
+    pregunta: str
+    pregunta_formato: str = "html"
+    devuelta_por: str
+    devuelta: str
 
 
 class CierreVista(BaseModel):
@@ -184,6 +198,7 @@ class ResolucionVista(BaseModel):
     correccion: CorreccionVista | None = None
     aplicacion: AplicacionVista | None = None
     cierre: CierreVista | None = None
+    decisiones_devueltas: list[DecisionDevuelta] = Field(default_factory=list)
     reemplazada: ReemplazoVista | None = None
 
 

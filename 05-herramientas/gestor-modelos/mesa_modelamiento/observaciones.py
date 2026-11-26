@@ -217,10 +217,20 @@ class ServicioObservaciones:
                 registro["actualizada"] = fecha
                 if estado == "RESUELTA":
                     registro["etapa"] = "RESUELTA"
-                else:  # Reabrir conserva la resolución anterior y reinicia el ciclo de etapas (DEC-065).
-                    if registro.get("resolucion"):
+                else:
+                    resolucion = registro.get("resolucion") or {}
+                    decidida = any(resolucion.get(c) for c in ("definicion", "correccion", "aplicacion", "cierre"))
+                    if decidida:  # Reabrir conserva la resolución anterior y reinicia el ciclo de etapas (DEC-065).
                         registro.setdefault("resoluciones_anteriores", []).append(registro.pop("resolucion"))
-                    registro["etapa"] = "REGISTRADA"
+                        registro["etapa"] = "REGISTRADA"
+                    else:  # Cerrada sin decisión: se retoma donde quedó, con su análisis y propuesta.
+                        registro["etapa"] = (
+                            "PROPUESTA"
+                            if resolucion.get("propuesta")
+                            else "EN-ANALISIS"
+                            if resolucion.get("analisis")
+                            else "REGISTRADA"
+                        )
                 evento = {"accion": "ESTADO_CAMBIADO", "fecha": fecha, "estado": estado}
                 if autor.strip():
                     evento["autor"] = autor.strip()

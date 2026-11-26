@@ -4,6 +4,8 @@ import type { components } from '~/types/api'
 // sola clave con texto y color por significado. Los colores difieren también en luminosidad (daltonismo, impresión).
 type Registro = components['schemas']['ObservacionVista']
 type Trabajo = components['schemas']['TrabajoVista']
+// Decisión en texto libre de una persona («Responder y decidir»): se envía como definición MANUAL al agente.
+export type Definicion = { tipo: 'OPCION' | 'OPCIONES' | 'MANUAL' | 'VINCULADA'; opciones: string[]; texto: string; formato: 'html' | 'texto'; vinculada_a: string }
 
 export type ClaveEstado =
   | 'por-decidir' | 'en-analisis' | 'en-aplicacion' | 'falta-evidencia'
@@ -40,6 +42,10 @@ export function estadoVisual(item: Registro, trabajos: Trabajo[] = []): EstadoVi
     if (cierre?.tipo === 'ACLARADA') return crear('resuelta-sin-cambio', 'Aclarada')
     if (cierre?.tipo === 'NO-PROCEDE') return crear('resuelta-sin-cambio', 'No procede')
     const aplicacion = resolucion?.aplicacion
+    if (aplicacion?.resultado === 'ACLARADA') return crear('resuelta-sin-cambio', 'Aclarada')
+    if (aplicacion?.resultado === 'NO-PROCEDE') return crear('resuelta-sin-cambio', 'No procede')
+    if (aplicacion?.resultado === 'CAMBIO-MODELO') return crear('resuelta-cambio', 'Resuelta: cambió el diagrama')
+    if (aplicacion?.resultado === 'CAMBIO-SUSTENTO') return crear('resuelta-cambio', 'Resuelta: cambió el sustento')
     if (aplicacion?.sesion) {
       return crear('resuelta-cambio', efectosElegidos(item).has('CAMBIO-MODELO') || !efectosElegidos(item).size
         ? 'Resuelta: cambió el diagrama' : 'Resuelta: cambió el sustento')
@@ -48,7 +54,8 @@ export function estadoVisual(item: Registro, trabajos: Trabajo[] = []): EstadoVi
     return crear('cerrada-sin-decision', 'Cerrada sin decisión')
   }
   if (etapa === 'PENDIENTE-EVIDENCIA') return crear('falta-evidencia', 'Falta evidencia')
-  if (etapa === 'DEFINIDA' || etapa === 'EN-CORRECCION') return crear('en-aplicacion', 'En aplicación por el agente')
+  if (etapa === 'DEFINIDA' || etapa === 'EN-CORRECCION') return crear('en-aplicacion', 'Decisión enviada al agente')
+  if (resolucion?.decisiones_devueltas?.length && ['REGISTRADA', 'PROPUESTA'].includes(etapa)) return crear('por-decidir', 'Claudia pidió precisar')
   if (etapa === 'PROPUESTA') return crear('por-decidir', 'Por decidir')
   const analizando = trabajos.some(t => t.tipo === 'ANALISIS' && ['PENDIENTE', 'EN-CURSO'].includes(t.estado))
   return crear('en-analisis', analizando || etapa === 'EN-ANALISIS' ? 'En análisis' : 'Registrada')
@@ -89,7 +96,7 @@ export function pasosObservacion(item: Registro, visual: EstadoVisual): Paso[] {
     pasos.push(hecho('Decidida', `${r!.cierre!.autor} · ${fecha(r!.cierre!.fecha)}`))
     pasos.push(hecho('Sin cambio', 'No se toca el modelo'))
   } else {
-    pasos.push(r?.definicion ? hecho('Definida', `${r.definicion.autor} · ${fecha(r.definicion.fecha)}`) : { nombre: 'Definir', detalle: 'Le toca al equipo', estado: 'futuro' })
+    pasos.push(r?.definicion ? hecho('Decidida', `${r.definicion.autor} · ${fecha(r.definicion.fecha)}`) : { nombre: 'Decidir', detalle: 'Le toca al equipo', estado: 'futuro' })
     pasos.push(r?.aplicacion ? hecho('Aplicada', `${r.aplicacion.autor} · ${fecha(r.aplicacion.fecha)}`) : { nombre: 'Aplicar', detalle: 'Agente', estado: 'futuro' })
   }
   pasos.push(cerrada ? hecho('Resuelta', visual.texto) : { nombre: 'Resuelta', detalle: '—', estado: 'futuro' })

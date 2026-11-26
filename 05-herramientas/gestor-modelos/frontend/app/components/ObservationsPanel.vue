@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
-import type { Definicion } from './ResolutionPanel.vue'
-import type { Cierre } from './CloseDialog.vue'
 import type { components } from '~/types/api'
-import { type ClaveEstado, estadoVisual, resumenObservacion } from '~/utils/estadoObservacion'
+import { type ClaveEstado, type Definicion, estadoVisual, resumenObservacion } from '~/utils/estadoObservacion'
 
 // Lista compacta de observaciones (rediseño 2026-11-26): contadores por estado, filtros, una fila por observación;
 // el detalle, la decisión y el cierre se hacen en ObservationModal.
@@ -82,7 +80,6 @@ function pie(item: Registro): string {
 
 const abiertaId = ref<string | null>(null)
 const abierta = computed(() => (list.value?.observaciones || []).find(item => item.id === abiertaId.value) || null)
-const resolved = computed(() => (list.value?.observaciones || []).filter(item => item.estado === 'RESUELTA'))
 
 async function toggleForm() {
   formOpen.value = !formOpen.value
@@ -175,7 +172,7 @@ async function add() {
 }
 
 async function reply(item: Registro, texto: string) {
-  if (necesitaAutor('responder')) return
+  if (necesitaAutor('comentar')) return
   await mutate(`${base(item)}/respuestas`, 'POST', { texto, autor: author.value, formato: 'html' })
 }
 
@@ -187,11 +184,6 @@ async function requestAnalysis(item: Registro, nota: string) {
 async function define(item: Registro, value: Definicion) {
   if (necesitaAutor('definir la respuesta')) return
   await mutate(`${base(item)}/definicion`, 'POST', { ...value, autor: author.value })
-}
-
-async function cerrar(item: Registro, value: Cierre) {
-  if (necesitaAutor('cerrar la observación')) return
-  await mutate(`${base(item)}/cierre`, 'POST', { ...value, formato: 'html', autor: author.value })
 }
 
 async function reabrir(item: Registro) {
@@ -247,6 +239,7 @@ async function reabrir(item: Registro) {
             <span class="obs-row-meta">
               <span class="state-chip" :style="{ color: f.visual.color, background: f.visual.fondo }">{{ f.visual.texto }}</span>
               <span>{{ f.item.referencia || 'Diagrama completo' }} · {{ f.resumen.etiqueta }}</span>
+              <span v-if="f.item.respuestas?.length">· {{ f.item.respuestas.length }} {{ f.item.respuestas.length === 1 ? 'comentario' : 'comentarios' }}</span>
             </span>
             <strong>{{ f.resumen.titulo }}</strong>
             <small>{{ f.pie }}</small>
@@ -256,9 +249,9 @@ async function reabrir(item: Registro) {
     </ul>
 
     <ObservationModal
-      v-if="abierta" v-model:author="author" :code="code" :item="abierta" :jobs="jobsFor(abierta.id)" :resolved="resolved" :saving="saving"
+      v-if="abierta" v-model:author="author" :code="code" :item="abierta" :jobs="jobsFor(abierta.id)" :saving="saving"
       @close="abiertaId = null" @define="define(abierta, $event)" @request-analysis="requestAnalysis(abierta, $event)"
-      @reply="reply(abierta, $event)" @cerrar="cerrar(abierta, $event)" @reabrir="reabrir(abierta)"
+      @reply="reply(abierta, $event)" @reabrir="reabrir(abierta)"
       @version="abiertaId = null; emit('version', $event)"
     />
   </div>

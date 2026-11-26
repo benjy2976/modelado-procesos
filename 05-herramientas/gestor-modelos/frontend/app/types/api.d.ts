@@ -645,6 +645,8 @@ export interface components {
              * @default texto
              */
             formato: string;
+            /** Resultado */
+            resultado?: string | null;
             /** Revision Modelo */
             revision_modelo?: string | null;
             /** Sesion */
@@ -779,6 +781,38 @@ export interface components {
              * @default false
              */
             vigencia_confirmada: boolean;
+        };
+        /** DecisionDevuelta */
+        DecisionDevuelta: {
+            /** Autor */
+            autor: string;
+            /** Devuelta */
+            devuelta: string;
+            /** Devuelta Por */
+            devuelta_por: string;
+            /** Fecha */
+            fecha: string;
+            /**
+             * Formato
+             * @default texto
+             */
+            formato: string;
+            /** Opciones */
+            opciones?: string[];
+            /** Pregunta */
+            pregunta: string;
+            /**
+             * Pregunta Formato
+             * @default html
+             */
+            pregunta_formato: string;
+            /**
+             * Texto
+             * @default
+             */
+            texto: string;
+            /** Tipo */
+            tipo: string;
         };
         /** DefinicionEntrada */
         DefinicionEntrada: {
@@ -1494,6 +1528,8 @@ export interface components {
             aplicacion?: components["schemas"]["AplicacionVista"] | null;
             cierre?: components["schemas"]["CierreVista"] | null;
             correccion?: components["schemas"]["CorreccionVista"] | null;
+            /** Decisiones Devueltas */
+            decisiones_devueltas?: components["schemas"]["DecisionDevuelta"][];
             definicion?: components["schemas"]["DefinicionVista"] | null;
             propuesta?: components["schemas"]["PropuestaVista"] | null;
             reemplazada?: components["schemas"]["ReemplazoVista"] | null;

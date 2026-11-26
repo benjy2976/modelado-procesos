@@ -95,7 +95,8 @@
         "revisar_etiquetas",
         "listar_trabajos",
         "tomar_trabajo",
-        "completar_trabajo"
+        "completar_trabajo",
+        "devolver_decision"
       ]
     },
     "mesa-chat": {
