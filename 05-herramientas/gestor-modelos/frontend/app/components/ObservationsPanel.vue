@@ -45,10 +45,25 @@ const GRUPO: Record<ClaveEstado, Filtro[]> = {
 const trabajos = ref<Trabajo[]>([])
 const jobsFor = (id: string) => trabajos.value.filter(job => job.observacion === id)
 
-const filas = computed(() => (list.value?.observaciones || []).map(item => ({
-  item, visual: estadoVisual(item, jobsFor(item.id)), resumen: resumenObservacion(item),
-  pie: pie(item)
-})))
+// Última interacción: el evento más reciente entre creación, actualización, historial y comentarios.
+function ultimaInteraccion(item: Registro): { fecha: string; autor: string } {
+  const eventos = [
+    { fecha: item.fecha, autor: item.autor },
+    ...(item.historial || []).map(e => ({ fecha: e.fecha, autor: e.autor || '' })),
+    ...(item.respuestas || []).map(r => ({ fecha: r.fecha, autor: r.autor }))
+  ]
+  return eventos.reduce((ultima, e) => e.fecha > ultima.fecha ? e : ultima, { fecha: item.fecha, autor: item.autor })
+}
+const fechaHora = (valor: string) => new Date(valor).toLocaleString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+const orden = ref<'recientes' | 'antiguas'>('recientes')
+const filas = computed(() => (list.value?.observaciones || []).map(item => {
+  const ultima = ultimaInteraccion(item)
+  return {
+    item, visual: estadoVisual(item, jobsFor(item.id)), resumen: resumenObservacion(item), pie: pie(item),
+    ultima: ultima.fecha, ultimaTexto: `${fechaHora(ultima.fecha)}${ultima.autor ? ` · ${ultima.autor}` : ''}`,
+    creada: fechaHora(item.fecha)
+  }
+}))
 const contadores = computed(() => {
   const cuenta = (claves: ClaveEstado[]) => filas.value.filter(f => claves.includes(f.visual.clave)).length
   return [
@@ -60,10 +75,11 @@ const contadores = computed(() => {
 })
 const visibles = computed(() => {
   const texto = query.value.trim().toLocaleLowerCase('es')
+  const signo = orden.value === 'recientes' ? -1 : 1
   return filas.value.filter(f => {
     if (filter.value === 'seleccion' ? f.item.elemento !== (props.elementId || '') : filter.value !== 'todas' && !GRUPO[f.visual.clave].includes(filter.value)) return false
     return !texto || `${f.item.referencia} ${f.resumen.etiqueta} ${f.resumen.titulo}`.toLocaleLowerCase('es').includes(texto)
-  })
+  }).sort((a, b) => signo * a.ultima.localeCompare(b.ultima))
 })
 
 function pie(item: Registro): string {
@@ -209,6 +225,13 @@ async function reabrir(item: Registro) {
     <div class="obs-filters" role="group" aria-label="Filtrar observaciones">
       <button v-for="f in FILTROS" :key="f.id" type="button" :aria-pressed="filter === f.id" :class="{ active: filter === f.id }" @click="filter = f.id">{{ f.texto }}</button>
     </div>
+    <div class="obs-sort">
+      <span>{{ visibles.length }} {{ visibles.length === 1 ? 'observación' : 'observaciones' }} · por última actividad</span>
+      <button type="button" :aria-label="orden === 'recientes' ? 'Ordenar de la más antigua a la más reciente' : 'Ordenar de la más reciente a la más antigua'" @click="orden = orden === 'recientes' ? 'antiguas' : 'recientes'">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="orden === 'recientes' ? 'M12 4v16M6 14l6 6l6-6' : 'M12 20V4M6 10l6-6l6 6'" /></svg>
+        {{ orden === 'recientes' ? 'Más recientes primero' : 'Más antiguas primero' }}
+      </button>
+    </div>
     <div v-show="formOpen" id="new-observation-form" ref="formCard" class="form-card">
       <h3>Nueva observación</h3>
       <label>Autor o equipo<input v-model="author" maxlength="100" autocomplete="name" placeholder="Nombre o equipo responsable"></label>
@@ -243,6 +266,10 @@ async function reabrir(item: Registro) {
             </span>
             <strong>{{ f.resumen.titulo }}</strong>
             <small>{{ f.pie }}</small>
+            <span class="obs-row-dates">
+              <time :datetime="f.ultima">Última actividad: {{ f.ultimaTexto }}</time>
+              <time :datetime="f.item.fecha">Creada: {{ f.creada }}</time>
+            </span>
           </span>
         </button>
       </li>

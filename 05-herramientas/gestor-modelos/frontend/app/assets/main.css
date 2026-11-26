@@ -271,10 +271,15 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .obs-counter span { font-size: 10.5px; line-height: 1.25; }
 .obs-toolbar { display: flex; gap: 6px; margin-bottom: 6px; }
 .obs-toolbar input { flex: 1; min-width: 0; padding: 7px 9px; border: 1px solid #b8cbd9; border-radius: 6px; font: inherit; font-size: 12px; }
-.obs-toolbar .form-toggle { margin: 0; }
+.obs-toolbar .form-toggle { width: auto; flex: none; margin: 0; padding: 7px 12px; }
 .obs-filters { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
 .obs-filters button { padding: 4px 9px; border: 1px solid #c9d6e0; border-radius: 999px; background: #fff; color: #40586a; font: inherit; font-size: 11.5px; cursor: pointer; }
 .obs-filters button.active { border-color: #17618a; background: #e7f3fa; color: #15557b; font-weight: 700; }
+.obs-sort { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: space-between; margin-bottom: 6px; color: #536b7d; font-size: 11.5px; }
+.obs-sort button { display: inline-flex; gap: 4px; align-items: center; padding: 4px 9px; border: 1px solid #c9d6e0; border-radius: 6px; background: #fff; color: #24465f; font: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+.obs-sort svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.obs-row-dates { display: flex; flex-wrap: wrap; gap: 2px 12px; color: #6b8296; font-size: 11px; }
+.obs-row-dates time:first-child { color: #34556c; font-weight: 600; }
 .obs-list { margin: 0; padding: 0; list-style: none; }
 .obs-row { display: flex; gap: 9px; width: 100%; padding: 9px 6px; border: 0; border-bottom: 1px solid #edf1f4; background: transparent; font: inherit; text-align: left; cursor: pointer; }
 .obs-row:hover, .obs-row:focus-visible { background: #f5f9fc; }
