@@ -3,12 +3,14 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { colorizeBpmn, markEventSubprocesses } from '~/utils/bpmnPresentation'
 import type { BpmnRegistry } from '~/utils/bpmnPresentation'
 
-const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'> }>()
+const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'>; refreshToken?: number }>()
 const emit = defineEmits<{ select: [id: string]; error: [message: string] }>()
 const host = ref<HTMLElement | null>(null)
 
+type ViewBox = { x: number; y: number; width: number; height: number }
 type CanvasService = {
   zoom: (value?: number | 'fit-viewport', center?: { x: number; y: number }) => number
+  viewbox: (box?: ViewBox) => ViewBox
   addMarker: (id: string, marker: string) => void
   removeMarker: (id: string, marker: string) => void
 }
@@ -23,16 +25,19 @@ function canvas(): CanvasService | null {
   return viewer?.get('canvas') as CanvasService | null
 }
 
-async function load() {
+// keepView: recarga por un cambio hecho por otro editor; conserva encuadre, zoom y selección.
+async function load(keepView = false) {
   if (!viewer || !props.xmlUrl) return
+  const view = keepView ? canvas()?.viewbox() : undefined
   try {
-    const response = await fetch(props.xmlUrl)
+    const response = await fetch(props.xmlUrl, { cache: 'no-store' })
     if (!response.ok) throw new Error(`No se pudo cargar el BPMN (${response.status}).`)
     await viewer.importXML(colorizeBpmn(await response.text()))
     const registry = viewer.get('elementRegistry') as BpmnRegistry
     markEventSubprocesses(registry)
     markNumbers()
-    canvas()?.zoom('fit-viewport')
+    if (view) canvas()?.viewbox({ x: view.x, y: view.y, width: view.width, height: view.height })
+    else canvas()?.zoom('fit-viewport')
     currentMarker = null
     changeMarkers = []
     markChanges()
@@ -116,7 +121,8 @@ onMounted(async () => {
   await load()
 })
 
-watch(() => props.xmlUrl, load)
+watch(() => props.xmlUrl, () => load())
+watch(() => props.refreshToken, () => load(true))
 watch(() => props.selectedId, highlight)
 watch(() => props.changes, markChanges)
 

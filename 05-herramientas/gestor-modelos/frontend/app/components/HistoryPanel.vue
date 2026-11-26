@@ -9,7 +9,7 @@ type Detalle = components['schemas']['VersionDetalle']
 type Cambiado = components['schemas']['ElementoCambiado']
 export type VistaVersion = { numero: number; url: string; cambios: Record<string, 'agregado' | 'modificado'> }
 
-const props = defineProps<{ code: string; viewing: number | null }>()
+const props = defineProps<{ code: string; viewing: number | null; refreshToken?: number }>()
 const emit = defineEmits<{ view: [vista: VistaVersion | null]; select: [id: string] }>()
 const versiones = ref<Resumen[]>([])
 const detalle = ref<Detalle | null>(null)
@@ -64,6 +64,12 @@ const total = (v: Resumen) => v.conteo.agregados + v.conteo.retirados + v.conteo
 
 onMounted(cargar)
 watch(() => props.code, cargar)
+// Un cambio integrado por otro editor agrega versiones; se recarga la lista sin cerrar la versión abierta.
+watch(() => props.refreshToken, async () => {
+  const abierta = detalle.value?.numero
+  await cargar()
+  if (abierta) await abrir(abierta)
+})
 </script>
 
 <template>

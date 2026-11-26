@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import type { components } from '~/types/api'
 
 type Session = components['schemas']['SesionVista']
@@ -8,7 +8,7 @@ type Preparation = components['schemas']['PreparacionSesion']
 type ModelState = components['schemas']['EstadoModelo']
 type Editable = 'tabla' | 'sustento' | 'fuentes_visor'
 
-const props = defineProps<{ code: string }>()
+const props = defineProps<{ code: string; refreshToken?: number }>()
 const emit = defineEmits<{ integrated: [] }>()
 const session = ref<Session | null>(null)
 const selected = ref<Editable>('tabla')
@@ -171,6 +171,8 @@ async function close() {
 }
 
 onMounted(loadActive)
+// Otro editor tomó o liberó el modelo: se actualiza el aviso de bloqueo sin tocar una sesión propia abierta.
+watch(() => props.refreshToken, () => { if (!session.value) void loadState() })
 </script>
 
 <template>

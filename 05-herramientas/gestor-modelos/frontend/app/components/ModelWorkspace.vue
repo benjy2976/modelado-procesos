@@ -6,6 +6,7 @@ import type { VistaVersion } from './HistoryPanel.vue'
 
 type Nodo = components['schemas']['NodoArbol']
 type Modelo = components['schemas']['ModeloVista']
+type EstadoEdicion = components['schemas']['EstadoModelo']
 type Fuente = components['schemas']['FuenteVista']
 type DocumentoAbierto = { title: string; url: string; kind: 'markdown' | 'pdf' | 'text'; page?: number; fragment?: string; location?: string; rectangles?: number[][]; segments?: { pagina: number; rol: string; rectangulos?: number[][] }[]; anchorStatus?: string }
 
@@ -13,6 +14,14 @@ const tree = ref<Nodo | null>(null)
 const activeCode = ref('Nivel 0')
 const model = ref<Modelo | null>(null)
 const observacionesAbiertas = ref(0)
+// Reactividad (DEC-069): se consulta el estado de edición; si cambia la huella del contenido, se recarga el modelo
+// y el lienzo conserva su encuadre. `refreshToken` avisa a lienzo, historial y edición.
+const editState = ref<EstadoEdicion | null>(null)
+const refreshToken = ref(0)
+const actualizado = ref('')
+let huellaVista = ''
+let sondeo: number | null = null
+const SONDEO_MS = 8000
 const selectedId = ref<string | null>(null)
 const loading = ref(false)
 const message = ref('')
@@ -55,6 +64,14 @@ function resizeWithKeys(event: KeyboardEvent) {
   event.preventDefault()
 }
 onBeforeUnmount(stopResize)
+onMounted(() => {
+  iniciarSondeo()
+  document.addEventListener('visibilitychange', alVolverVisible)
+})
+onBeforeUnmount(() => {
+  if (sondeo) window.clearInterval(sondeo)
+  document.removeEventListener('visibilitychange', alVolverVisible)
+})
 const route = useRoute()
 const routeCode = computed(() => {
   const path = route.params.path
@@ -153,8 +170,50 @@ async function contarObservaciones(code: string) {
 }
 watch(() => model.value?.codigo, code => {
   versionView.value = null
-  if (code) void contarObservaciones(code)
+  editState.value = null
+  huellaVista = ''
+  actualizado.value = ''
+  if (code) {
+    void contarObservaciones(code)
+    void consultarEstado()
+  }
 })
+
+async function refreshModel(code: string) {
+  const response = await fetch(`/api/procesos/${encodeURIComponent(code)}`, { cache: 'no-store' })
+  if (!response.ok || model.value?.codigo !== code) return
+  const next = await response.json() as Modelo
+  if (model.value?.codigo !== code) return
+  if (selectedId.value && !next.elementos[selectedId.value] && !next.flujos[selectedId.value]) selectedId.value = null
+  model.value = next
+  refreshToken.value++
+  actualizado.value = new Date().toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' })
+  void contarObservaciones(code)
+}
+
+async function consultarEstado() {
+  const code = model.value?.codigo
+  if (!code || document.visibilityState !== 'visible') return
+  try {
+    const response = await fetch(`/api/procesos/${encodeURIComponent(code)}/edicion`, { cache: 'no-store' })
+    if (!response.ok || model.value?.codigo !== code) return
+    const estado = await response.json() as EstadoEdicion
+    editState.value = estado
+    if (huellaVista && estado.huella && estado.huella !== huellaVista) await refreshModel(code)
+    huellaVista = estado.huella || huellaVista
+  } catch {
+    // Sin conexión momentánea: se reintenta en el próximo ciclo.
+  }
+}
+
+function iniciarSondeo() {
+  if (sondeo) window.clearInterval(sondeo)
+  sondeo = window.setInterval(() => { void consultarEstado() }, SONDEO_MS)
+}
+
+function alVolverVisible() {
+  if (document.visibilityState === 'visible') void consultarEstado()
+}
 
 function openProcessDocument(kind: 'tabla' | 'sustento') {
   if (!model.value) return
@@ -241,7 +300,11 @@ onMounted(async () => {
             </span>
             <button v-else type="button" @click="openProcess(part.codigo)">{{ part.codigo }}</button>
           </template>
-          <span v-if="model" class="status-pill">BPMN disponible</span>
+          <span v-if="model && editState?.estado === 'EN-EDICION' && editState.bloqueo" class="status-pill status-editing" :title="editState.bloqueo.motivo || ''">
+            En edición por {{ editState.bloqueo.titular }}<template v-if="editState.bloqueo.motivo"> · {{ editState.bloqueo.motivo }}</template>
+          </span>
+          <span v-else-if="model && editState?.estado === 'APROBADO'" class="status-pill">Aprobado</span>
+          <span v-else-if="model" class="status-pill">{{ actualizado ? `Actualizado ${actualizado}` : 'BPMN disponible' }}</span>
         </nav>
 
         <div v-if="message" class="notice" role="status">{{ message }}</div>
@@ -257,6 +320,7 @@ onMounted(async () => {
           :selected-id="selectedId"
           :numbers="elementNumbers"
           :changes="versionView?.cambios"
+          :refresh-token="versionView ? 0 : refreshToken"
           @select="selectedId = $event"
           @error="message = $event"
         />
@@ -304,9 +368,9 @@ onMounted(async () => {
         </div>
         <div class="inspector-scroll">
           <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="observacionesAbiertas = $event" />
-          <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :viewing="versionView?.numero ?? null" @view="versionView = $event" @select="selectedId = $event" />
+          <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :refresh-token="refreshToken" :viewing="versionView?.numero ?? null" @view="versionView = $event" @select="selectedId = $event" />
           <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
-          <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" @integrated="openProcess(model.codigo)" />
+          <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" :refresh-token="refreshToken" @integrated="openProcess(model.codigo)" />
           <template v-else-if="selectedElement">
             <dl class="detail-list">
               <div><dt>ID de tabla</dt><dd>{{ selectedElement.ref }}</dd></div>

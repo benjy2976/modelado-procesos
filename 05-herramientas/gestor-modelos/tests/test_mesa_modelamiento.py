@@ -623,3 +623,11 @@ def test_api_y_mcp_exponen_versiones(repositorio: RepositorioProcesos) -> None:
     servidor = crear_servidor(repositorio)
     leida = json.loads(asyncio.run(servidor.call_tool("leer_version", {"codigo": "S4.3", "numero": 1})).content[0].text)
     assert leida["titular"] == "Persona"
+
+
+def test_estado_expone_huella_que_cambia_con_el_contenido(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioSesiones(repositorio, repositorio.raiz / ".mesa-sesiones")
+    antes = servicio.estado("S4.3")["huella"]
+    assert antes == servicio.estado("S4.3")["huella"]
+    repositorio.rutas("S4.3")["sustento"].write_text("# Cambio hecho por otra persona\n", encoding="utf-8")
+    assert servicio.estado("S4.3")["huella"] != antes

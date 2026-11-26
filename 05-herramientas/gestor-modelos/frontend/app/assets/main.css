@@ -54,6 +54,7 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .breadcrumb-current { color: #1f3446; font-size: 13px; }
 .breadcrumb-current strong { margin-left: 5px; font-size: 16px; letter-spacing: -.02em; }
 .breadcrumbs .status-pill { margin-left: auto; }
+.status-pill.status-editing { max-width: 360px; overflow: hidden; border-color: #e0b36a; background: #fff4dc; color: #7a4d0b; text-overflow: ellipsis; white-space: nowrap; }
 .status-pill { flex: none; padding: 7px 10px; border: 1px solid #94baa4; border-radius: 999px; background: #ecf8ef; color: #246144; font-size: 11px; font-weight: 700; }
 .notice { margin: 0 27px 14px; padding: 11px 14px; border: 1px solid #e0c387; border-radius: 6px; background: #fff8e8; color: #6a4b1f; font-size: 13px; }
 .empty-state { margin: 0 27px 27px; padding: 50px; border: 1px solid #cdd8e1; border-radius: 8px; background: #fff; color: #58718a; text-align: center; }

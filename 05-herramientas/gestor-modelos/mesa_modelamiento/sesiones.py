@@ -167,7 +167,14 @@ class ServicioSesiones:
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc
         estado = "APROBADO" if aprobado else "EN-EDICION" if registro else "LIBRE"
-        return {"codigo": codigo, "estado": estado, "bloqueo": registro, "borradores": borradores}
+        # Huella barata del contenido vigente: la vista la compara para recargar el diagrama cuando cambia.
+        marcas = [
+            f"{n}:{r.stat().st_mtime_ns}:{r.stat().st_size}" if r.is_file() else f"{n}:-"
+            for n, r in sorted(rutas.items())
+            if n in (*EDITABLES, "bpmn")
+        ]
+        huella = hashlib.sha256("|".join(marcas).encode("utf-8")).hexdigest()[:16]
+        return {"codigo": codigo, "estado": estado, "bloqueo": registro, "borradores": borradores, "huella": huella}
 
     def iniciar(
         self,

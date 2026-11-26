@@ -263,6 +263,7 @@ class EstadoModelo(BaseModel):
     estado: str
     bloqueo: BloqueoModelo | None
     borradores: list[BorradorAbierto]
+    huella: str = ""
 
 
 class LiberacionVista(BaseModel):

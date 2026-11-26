@@ -782,6 +782,11 @@
           "estado": {
             "title": "Estado",
             "type": "string"
+          },
+          "huella": {
+            "default": "",
+            "title": "Huella",
+            "type": "string"
           }
         },
         "required": [

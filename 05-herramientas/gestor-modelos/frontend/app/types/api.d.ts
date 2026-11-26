@@ -825,6 +825,11 @@ export interface components {
             codigo: string;
             /** Estado */
             estado: string;
+            /**
+             * Huella
+             * @default
+             */
+            huella: string;
         };
         /** EventoObservacion */
         EventoObservacion: {
