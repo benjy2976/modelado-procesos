@@ -20,6 +20,8 @@ Esta carpeta describe la aplicación alojada en `05-herramientas/gestor-modelos/
 | ¿Qué rutas HTTP existen? | [API](api.md) |
 | ¿Qué comandos existen? | [CLI](cli.md) |
 | ¿Qué datos conserva hoy? | [Modelo de datos](modelo-datos.md) |
+| ¿Cómo se versionan los cambios durante la validación con especialistas? | [Plan B: versiones livianas](plan-versiones-validacion.md) |
+| ¿Cómo se construirá el sistema nuevo (`mgpp`)? | [Plan A: sistema nuevo](plan-sistema-nuevo.md) |
 | ¿Cómo se organiza la pantalla Nuxt? | [Frontend](frontend.md) |
 | ¿Qué puede hacer hoy un agente? | [MCP](mcp.md) |
 | ¿Cómo se integran los agentes de OpenClaw (análisis, aplicación y chat)? | [Agentes de OpenClaw](../openclaw/README.md) |
