@@ -426,6 +426,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/versiones": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Listar Versiones */
+        get: operations["listar_versiones_api_procesos__codigo__versiones_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/versiones/{numero}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Leer Version */
+        get: operations["leer_version_api_procesos__codigo__versiones__numero__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/versiones/{numero}/bpmn": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Bpmn Version */
+        get: operations["bpmn_version_api_procesos__codigo__versiones__numero__bpmn_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/salud": {
         parameters: {
             query?: never;
@@ -564,6 +615,24 @@ export interface components {
             /** Revision Esperada */
             revision_esperada: string;
         };
+        /** CambiosElementos */
+        CambiosElementos: {
+            /** Agregados */
+            agregados: components["schemas"]["ElementoCambiado"][];
+            /** Modificados */
+            modificados: components["schemas"]["ElementoCambiado"][];
+            /** Retirados */
+            retirados: components["schemas"]["ElementoCambiado"][];
+        };
+        /** ConteoCambios */
+        ConteoCambios: {
+            /** Agregados */
+            agregados: number;
+            /** Modificados */
+            modificados: number;
+            /** Retirados */
+            retirados: number;
+        };
         /** CorreccionVista */
         CorreccionVista: {
             /** Autor */
@@ -656,6 +725,27 @@ export interface components {
             revision_esperada: string;
             /** Texto */
             texto: string;
+        };
+        /** ElementoCambiado */
+        ElementoCambiado: {
+            /** Bpmn Id */
+            bpmn_id?: string | null;
+            /** Campos */
+            campos?: {
+                [key: string]: string[];
+            } | null;
+            /** Id */
+            id: string;
+            /**
+             * Nombre
+             * @default
+             */
+            nombre: string;
+            /**
+             * Numero
+             * @default
+             */
+            numero: string;
         };
         /** ElementoVista */
         ElementoVista: {
@@ -843,6 +933,8 @@ export interface components {
             estado: string;
             /** Sesion */
             sesion: string;
+            /** Version */
+            version?: number | null;
         };
         /** LecturaFuente */
         LecturaFuente: {
@@ -934,6 +1026,13 @@ export interface components {
             total: number;
             /** Trabajos */
             trabajos: components["schemas"]["TrabajoVista"][];
+        };
+        /** ListadoVersiones */
+        ListadoVersiones: {
+            /** Codigo */
+            codigo: string;
+            /** Versiones */
+            versiones: components["schemas"]["VersionResumen"][];
         };
         /** ModeloVista */
         ModeloVista: {
@@ -1388,6 +1487,84 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+        };
+        /** VersionDetalle */
+        VersionDetalle: {
+            /** Codigo */
+            codigo: string;
+            /** Diff */
+            diff: {
+                [key: string]: string;
+            };
+            /** Documentos */
+            documentos: {
+                [key: string]: boolean;
+            };
+            elementos: components["schemas"]["CambiosElementos"];
+            /** Fecha */
+            fecha: string;
+            /** Hashes */
+            hashes: {
+                [key: string]: string | null;
+            };
+            /**
+             * Modo
+             * @default EDICION
+             */
+            modo: string;
+            /** Motivo */
+            motivo?: string | null;
+            /** Numero */
+            numero: number;
+            /** Observacion */
+            observacion?: string | null;
+            /** Secciones */
+            secciones?: {
+                [key: string]: boolean;
+            };
+            /** Sesion */
+            sesion: string;
+            /** Titular */
+            titular?: string | null;
+            /** Trabajo */
+            trabajo?: string | null;
+        };
+        /** VersionResumen */
+        VersionResumen: {
+            /** Codigo */
+            codigo: string;
+            conteo: components["schemas"]["ConteoCambios"];
+            /** Documentos */
+            documentos: {
+                [key: string]: boolean;
+            };
+            /** Fecha */
+            fecha: string;
+            /** Hashes */
+            hashes: {
+                [key: string]: string | null;
+            };
+            /**
+             * Modo
+             * @default EDICION
+             */
+            modo: string;
+            /** Motivo */
+            motivo?: string | null;
+            /** Numero */
+            numero: number;
+            /** Observacion */
+            observacion?: string | null;
+            /** Secciones */
+            secciones?: {
+                [key: string]: boolean;
+            };
+            /** Sesion */
+            sesion: string;
+            /** Titular */
+            titular?: string | null;
+            /** Trabajo */
+            trabajo?: string | null;
         };
         /** VinculoVista */
         VinculoVista: {
@@ -2240,6 +2417,101 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ListadoTrabajos"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    listar_versiones_api_procesos__codigo__versiones_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListadoVersiones"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    leer_version_api_procesos__codigo__versiones__numero__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                numero: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VersionDetalle"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    bpmn_version_api_procesos__codigo__versiones__numero__bpmn_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                numero: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

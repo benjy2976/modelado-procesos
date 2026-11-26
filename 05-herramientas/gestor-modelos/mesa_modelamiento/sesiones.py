@@ -577,9 +577,38 @@ class ServicioSesiones:
                 self._guardar_json(carpeta / "manifest.json", manifest)
                 if manifest.get("modo", "EDICION") == "EDICION":
                     (self._carpeta_proceso(codigo) / "activa.json").unlink(missing_ok=True)
-                return {"sesion": identificador, "codigo": codigo, "estado": "INTEGRADA", "cambios": escritos}
+                version = self._registrar_version(codigo, carpeta, manifest)
+                resultado = {"sesion": identificador, "codigo": codigo, "estado": "INTEGRADA", "cambios": escritos}
+                return {**resultado, "version": version} if version is not None else resultado
         except Timeout as exc:
             raise ErrorDominio("El proceso está ocupado", 409) from exc
+
+    def _registrar_version(self, codigo: str, carpeta: Path, manifest: dict) -> int | None:
+        """Numera la integración como versión y lo anota en la observación atendida.
+
+        La integración ya quedó hecha: un fallo del registro se informa en el manifiesto, nunca la revierte."""
+        from .observaciones import ServicioObservaciones
+        from .versiones import ServicioVersiones
+
+        try:
+            version = ServicioVersiones(self.repositorio, sesiones=self.almacen).registrar(codigo, carpeta, manifest)
+        except (ErrorDominio, OSError, KeyError) as exc:
+            manifest["error_version"] = str(exc)[:500]
+            self._guardar_json(carpeta / "manifest.json", manifest)
+            return None
+        manifest["version"] = version["numero"]
+        self._guardar_json(carpeta / "manifest.json", manifest)
+        if manifest.get("observacion"):
+            try:
+                ServicioObservaciones(self.repositorio).anotar_evento(
+                    codigo,
+                    manifest["observacion"],
+                    {"accion": "VERSION_CREADA", "version": version["numero"], "sesion": manifest["sesion"],
+                     "autor": manifest.get("titular") or ""},
+                )  # fmt: skip
+            except ErrorDominio:
+                pass  # una observación inexistente no invalida la versión; el vínculo queda en la versión
+        return version["numero"]
 
     @staticmethod
     def _titulo(tabla: Path) -> str:

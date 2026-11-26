@@ -20,6 +20,8 @@ erDiagram
     PROCESO ||--o{ OBSERVACION : recibe
     ELEMENTO |o--o{ OBSERVACION : referencia
     PROCESO ||--o{ SESION_EDICION : conserva
+    SESION_EDICION ||--o| VERSION : "se numera al integrar"
+    OBSERVACION |o--o{ VERSION : atendida_por
     PROCESO {
         string codigo PK
     }
@@ -36,9 +38,15 @@ erDiagram
         string id PK
         string codigo_proceso FK
     }
+    VERSION {
+        int numero PK
+        string codigo_proceso FK
+        string sesion FK
+        string observacion FK
+    }
 ```
 
-El diagrama expresa asociaciones lógicas: proceso y elemento viven en el repositorio institucional; no existen tablas SQL ni claves foráneas físicas. `elemento` puede estar vacío para una observación del diagrama completo.
+El diagrama expresa asociaciones lógicas: proceso y elemento viven en el repositorio institucional; no existen tablas SQL ni claves foráneas físicas. `elemento` puede estar vacío para una observación del diagrama completo. `VERSION` es una línea de `.mesa-versiones/<codigo>.jsonl` (fuera de Git): su número es único por proceso y su contenido es el de la sesión integrada (ver [sesiones de edición](sesiones-edicion.md#versiones)).
 
 ## Diccionario
 

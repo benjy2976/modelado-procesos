@@ -259,6 +259,12 @@ def _argumentos() -> argparse.ArgumentParser:
     mcp.add_argument("--port", type=int, default=8768, help="Solo con streamable-http")
     contrato = grupos.add_parser("contrato", help="Exportar o comprobar el OpenAPI generado")
     contrato.add_argument("--check", action="store_true", help="Comprobar que el archivo versionado esté vigente")
+    versiones_p = grupos.add_parser("versiones", help="Consultar versiones integradas de un modelo")
+    acciones_v = versiones_p.add_subparsers(dest="operacion", required=True)
+    acciones_v.add_parser("listar").add_argument("codigo")
+    leer_v = acciones_v.add_parser("leer")
+    leer_v.add_argument("codigo")
+    leer_v.add_argument("numero", type=int)
     sesiones = grupos.add_parser("sesiones", help="Editar un modelo en copia recuperable")
     acciones = sesiones.add_subparsers(dest="operacion", required=True)
     for operacion in ("iniciar", "leer", "documento", "editar", "preparar", "integrar", "cerrar", "anclar",
@@ -476,6 +482,13 @@ def ejecutar(args: argparse.Namespace) -> object:
     observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
+    if args.grupo == "versiones":
+        from .versiones import ServicioVersiones
+
+        versiones = ServicioVersiones(repositorio, sesiones=sesiones.almacen)
+        if args.operacion == "listar":
+            return versiones.listar(args.codigo)
+        return versiones.leer(args.codigo, args.numero)
     if args.grupo == "sesiones":
         if args.operacion == "iniciar":
             return sesiones.iniciar(args.codigo, args.titular, args.motivo, args.modo, args.observacion)

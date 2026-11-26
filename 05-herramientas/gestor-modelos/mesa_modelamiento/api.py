@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from pydantic import BaseModel, Field
 
 from . import relevo_cliente
@@ -20,6 +20,7 @@ from .esquemas import (
     LiberacionVista,
     ListadoObservaciones,
     ListadoTrabajos,
+    ListadoVersiones,
     ModeloVista,
     NodoArbol,
     ObservacionesPorEtapa,
@@ -28,11 +29,13 @@ from .esquemas import (
     Salud,
     SesionVista,
     TrabajoVista,
+    VersionDetalle,
 )
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
 from .trabajos import ServicioTrabajos
+from .versiones import ServicioVersiones
 
 
 class NuevaObservacion(BaseModel):
@@ -110,6 +113,7 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     trabajos = ServicioTrabajos(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
+    versiones = ServicioVersiones(repositorio, sesiones=sesiones.almacen)
     app = FastAPI(title="Mesa de modelamiento", version="0.1.0")
 
     @app.exception_handler(ErrorDominio)
@@ -260,6 +264,18 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     @app.get("/api/procesos/{codigo}/edicion", response_model=EstadoModelo)
     def estado_modelo(codigo: str) -> dict:
         return sesiones.estado(codigo)
+
+    @app.get("/api/procesos/{codigo}/versiones", response_model=ListadoVersiones)
+    def listar_versiones(codigo: str) -> dict:
+        return versiones.listar(codigo)
+
+    @app.get("/api/procesos/{codigo}/versiones/{numero}", response_model=VersionDetalle)
+    def leer_version(codigo: str, numero: int) -> dict:
+        return versiones.leer(codigo, numero)
+
+    @app.get("/api/procesos/{codigo}/versiones/{numero}/bpmn")
+    def bpmn_version(codigo: str, numero: int) -> Response:
+        return Response(versiones.bpmn(codigo, numero), media_type="application/xml")
 
     @app.post("/api/procesos/{codigo}/edicion/liberacion", response_model=LiberacionVista)
     def liberar_modelo(codigo: str, entrada: LiberacionModelo, request: Request) -> dict:

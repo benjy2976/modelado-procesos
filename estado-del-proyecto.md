@@ -94,6 +94,10 @@ S4.3.2.3, nuevo lote del 2026-11-19: caja 17 asignada al subgerente SGGOS; pool 
 
 DEC-051: la construccion ordinaria actualiza BPMN y HTML. El HTML carga el `.bpmn` hermano mediante el servidor HTTP local y conserva el panel de revision; ya no incrusta el XML. SVG y PNG se exportan solo con `--exportar-imagenes`, incluso desde `modelar.py`; las imagenes existentes se conservan y pueden quedar desactualizadas durante el desarrollo. La comprobacion normal controla BPMN y HTML; la opcion de imagenes comprueba tambien SVG y PNG. El visor autonomo con XML incrustado queda como opcion excepcional del conversor.
 
+## Versiones livianas para la validación - 2026-11-26
+
+Plan B implementado: cada integración de una sesión crea una versión numerada por proceso, con titular, motivo, observación y cambio por caja; se consulta por API, CLI, MCP (`listar_versiones`, `leer_version`, también para `mesa-chat` y `mesa-analisis`) y en la pestaña «Historial», que muestra el diagrama de la versión con las cajas agregadas en verde y las modificadas en ámbar. La observación atendida recibe el evento `VERSION_CREADA`. El registro y las sesiones viven fuera de Git y se respaldan con `scripts/respaldar-estado.sh`. La API pasó a correr con el usuario local, como el MCP. El plan del sistema nuevo (`mgpp`) vive en `~/mgpp`.
+
 ## Bloqueo de edición por proceso - 2026-11-25
 
 DEC-069: cada proceso tiene un estado de edición (`LIBRE`, `EN-EDICION`, `APROBADO`). Una sesión de edición toma el bloqueo a nombre de un titular, con motivo, observación y trabajo; vence tras 30 minutos sin actividad y una persona puede liberarlo con motivo. `mesa-aplicacion` toma de a una observación y solo de procesos libres; `mesa-chat` prepara variaciones en borradores que no bloquean. La web muestra el bloqueo y los borradores en «Editar copia» y el número de observaciones abiertas en la pestaña «Observaciones». Queda pendiente decidir el almacenamiento de versiones históricas del modelo (alternativas a Git en evaluación) y la vista interactiva de cambios.

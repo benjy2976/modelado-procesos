@@ -562,3 +562,64 @@ def test_borrador_no_bloquea_e_integra_solo_con_proceso_libre(repositorio: Repos
     assert servicio.integrar("S4.3", borrador["sesion"], editado["revision_sesion"])["estado"] == "INTEGRADA"
     assert repositorio.rutas("S4.3")["sustento"].read_text(encoding="utf-8") == "# Variación\n"
     assert servicio.estado("S4.3")["estado"] == "LIBRE"
+
+
+def test_cambios_por_elemento_detecta_agregado_retiro_y_campos() -> None:
+    from mesa_modelamiento.versiones import cambios_elementos
+
+    cabecera = "## Elementos\n\n| ID | Numero | Tipo | Nombre |\n|---|---|---|---|\n"
+    antes = cabecera + "| E1 | 1 | tarea | Registrar |\n| E2 | 2 | tarea | Revisar |\n"
+    despues = cabecera + "| E1 | 1 | tarea | Registrar y derivar |\n| E3 | 3 | tarea | Aprobar |\n"
+    cambios = cambios_elementos(antes, despues)
+    assert [e["id"] for e in cambios["agregados"]] == ["E3"]
+    assert [e["id"] for e in cambios["retirados"]] == ["E2"]
+    campos = {"Nombre": ["Registrar", "Registrar y derivar"]}
+    assert cambios["modificados"] == [{"id": "E1", "numero": "1", "nombre": "Registrar y derivar", "campos": campos}]
+
+
+def test_integracion_crea_version_consultable_y_anota_observacion(repositorio: RepositorioProcesos) -> None:
+    """Plan B: cada integración es una versión numerada, consultable por API y MCP, ligada a su observación."""
+    repositorio.rutas("S4.3")["observaciones"].write_text(
+        json.dumps({"modelo": "m.html", "observaciones": [{"id": "obs-1", "estado": "ABIERTA", "historial": []}]}),
+        encoding="utf-8",
+    )
+    sesiones = ServicioSesiones(repositorio, repositorio.raiz / ".mesa-sesiones")
+    for numero, texto in ((1, "# Primera\n"), (2, "# Segunda\n")):
+        sesion = sesiones.iniciar("S4.3", "Claudia", f"Cambio {numero}", observacion="obs-1")
+        revision = sesiones.contenido("S4.3", sesion["sesion"], "sustento")["revision"]
+        editado = sesiones.editar("S4.3", sesion["sesion"], "sustento", texto, revision)
+        assert sesiones.preparar("S4.3", sesion["sesion"])["aplicable"]
+        assert sesiones.integrar("S4.3", sesion["sesion"], editado["revision_sesion"])["version"] == numero
+    from mesa_modelamiento.versiones import ServicioVersiones
+
+    versiones = ServicioVersiones(repositorio, sesiones=repositorio.raiz / ".mesa-sesiones")
+    listado = versiones.listar("S4.3")["versiones"]
+    assert [v["numero"] for v in listado] == [2, 1]
+    assert listado[0]["documentos"]["sustento"] is True and listado[0]["documentos"]["tabla"] is False
+    assert listado[0]["titular"] == "Claudia" and listado[0]["observacion"] == "obs-1"
+    detalle = versiones.leer("S4.3", 2)
+    assert "-# Primera" in detalle["diff"]["sustento"] and "+# Segunda" in detalle["diff"]["sustento"]
+    assert versiones.bpmn("S4.3", 2).startswith(b"<")
+    with pytest.raises(ErrorDominio, match="no encontrada"):
+        versiones.leer("S4.3", 9)
+    historial = json.loads(repositorio.rutas("S4.3")["observaciones"].read_text(encoding="utf-8"))
+    eventos = [e for e in historial["observaciones"][0]["historial"] if e["accion"] == "VERSION_CREADA"]
+    assert [e["version"] for e in eventos] == [1, 2]
+
+
+def test_api_y_mcp_exponen_versiones(repositorio: RepositorioProcesos) -> None:
+    cliente = TestClient(crear_aplicacion(repositorio))
+    sesion = cliente.post("/api/procesos/S4.3/sesiones", json={"titular": "Persona", "motivo": "Validación"}).json()
+    base = f"/api/procesos/S4.3/sesiones/{sesion['sesion']}"
+    revision = cliente.get(f"{base}/documentos/sustento").json()["revision"]
+    editado = cliente.put(f"{base}/documentos/sustento", json={"texto": "# Nuevo\n", "revision_esperada": revision})
+    assert cliente.post(f"{base}/preparacion").json()["aplicable"]
+    integrado = cliente.post(f"{base}/integracion", json={"revision_esperada": editado.json()["revision_sesion"]})
+    assert integrado.json()["version"] == 1
+    listado = cliente.get("/api/procesos/S4.3/versiones").json()
+    assert listado["versiones"][0]["conteo"] == {"agregados": 0, "retirados": 0, "modificados": 0}
+    assert cliente.get("/api/procesos/S4.3/versiones/1").json()["motivo"] == "Validación"
+    assert cliente.get("/api/procesos/S4.3/versiones/1/bpmn").headers["content-type"].startswith("application/xml")
+    servidor = crear_servidor(repositorio)
+    leida = json.loads(asyncio.run(servidor.call_tool("leer_version", {"codigo": "S4.3", "numero": 1})).content[0].text)
+    assert leida["titular"] == "Persona"

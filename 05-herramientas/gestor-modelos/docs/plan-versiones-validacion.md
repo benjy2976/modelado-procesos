@@ -16,7 +16,7 @@ tags:
 
 Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 
-Estado: **propuesta para ejecutar de inmediato**. Objetivo: que desde el inicio de la validación con
+Estado: **implementado el 2026-11-26** (B1, B2 y B3; detalle vigente en [sesiones de edición](sesiones-edicion.md#versiones)). Además, la API pasó a correr con el usuario local, como el MCP, para que ambos puedan escribir el registro. Objetivo: que desde el inicio de la validación con
 especialistas (2026-11-26) cada cambio integrado en un modelo quede numerado, explicado por elemento y
 consultable, sin construir todavía el almacén definitivo (eso es del [sistema nuevo](plan-sistema-nuevo.md)).
 

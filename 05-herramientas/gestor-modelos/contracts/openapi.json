@@ -327,6 +327,61 @@
         "title": "CambioEstado",
         "type": "object"
       },
+      "CambiosElementos": {
+        "properties": {
+          "agregados": {
+            "items": {
+              "$ref": "#/components/schemas/ElementoCambiado"
+            },
+            "title": "Agregados",
+            "type": "array"
+          },
+          "modificados": {
+            "items": {
+              "$ref": "#/components/schemas/ElementoCambiado"
+            },
+            "title": "Modificados",
+            "type": "array"
+          },
+          "retirados": {
+            "items": {
+              "$ref": "#/components/schemas/ElementoCambiado"
+            },
+            "title": "Retirados",
+            "type": "array"
+          }
+        },
+        "required": [
+          "agregados",
+          "retirados",
+          "modificados"
+        ],
+        "title": "CambiosElementos",
+        "type": "object"
+      },
+      "ConteoCambios": {
+        "properties": {
+          "agregados": {
+            "title": "Agregados",
+            "type": "integer"
+          },
+          "modificados": {
+            "title": "Modificados",
+            "type": "integer"
+          },
+          "retirados": {
+            "title": "Retirados",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "agregados",
+          "retirados",
+          "modificados"
+        ],
+        "title": "ConteoCambios",
+        "type": "object"
+      },
       "CorreccionVista": {
         "properties": {
           "autor": {
@@ -545,6 +600,57 @@
           "revision_esperada"
         ],
         "title": "EdicionDocumento",
+        "type": "object"
+      },
+      "ElementoCambiado": {
+        "properties": {
+          "bpmn_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bpmn Id"
+          },
+          "campos": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Campos"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "nombre": {
+            "default": "",
+            "title": "Nombre",
+            "type": "string"
+          },
+          "numero": {
+            "default": "",
+            "title": "Numero",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "ElementoCambiado",
         "type": "object"
       },
       "ElementoVista": {
@@ -913,6 +1019,17 @@
           "sesion": {
             "title": "Sesion",
             "type": "string"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
           }
         },
         "required": [
@@ -1146,6 +1263,27 @@
           "trabajos"
         ],
         "title": "ListadoTrabajos",
+        "type": "object"
+      },
+      "ListadoVersiones": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "versiones": {
+            "items": {
+              "$ref": "#/components/schemas/VersionResumen"
+            },
+            "title": "Versiones",
+            "type": "array"
+          }
+        },
+        "required": [
+          "codigo",
+          "versiones"
+        ],
+        "title": "ListadoVersiones",
         "type": "object"
       },
       "ModeloVista": {
@@ -2393,6 +2531,236 @@
           "type"
         ],
         "title": "ValidationError",
+        "type": "object"
+      },
+      "VersionDetalle": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "diff": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Diff",
+            "type": "object"
+          },
+          "documentos": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "title": "Documentos",
+            "type": "object"
+          },
+          "elementos": {
+            "$ref": "#/components/schemas/CambiosElementos"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "hashes": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Hashes",
+            "type": "object"
+          },
+          "modo": {
+            "default": "EDICION",
+            "title": "Modo",
+            "type": "string"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "numero": {
+            "title": "Numero",
+            "type": "integer"
+          },
+          "observacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacion"
+          },
+          "secciones": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "title": "Secciones",
+            "type": "object"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          },
+          "trabajo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trabajo"
+          }
+        },
+        "required": [
+          "numero",
+          "codigo",
+          "fecha",
+          "sesion",
+          "documentos",
+          "hashes",
+          "elementos",
+          "diff"
+        ],
+        "title": "VersionDetalle",
+        "type": "object"
+      },
+      "VersionResumen": {
+        "properties": {
+          "codigo": {
+            "title": "Codigo",
+            "type": "string"
+          },
+          "conteo": {
+            "$ref": "#/components/schemas/ConteoCambios"
+          },
+          "documentos": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "title": "Documentos",
+            "type": "object"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "hashes": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Hashes",
+            "type": "object"
+          },
+          "modo": {
+            "default": "EDICION",
+            "title": "Modo",
+            "type": "string"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "numero": {
+            "title": "Numero",
+            "type": "integer"
+          },
+          "observacion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observacion"
+          },
+          "secciones": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "title": "Secciones",
+            "type": "object"
+          },
+          "sesion": {
+            "title": "Sesion",
+            "type": "string"
+          },
+          "titular": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Titular"
+          },
+          "trabajo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trabajo"
+          }
+        },
+        "required": [
+          "numero",
+          "codigo",
+          "fecha",
+          "sesion",
+          "documentos",
+          "hashes",
+          "conteo"
+        ],
+        "title": "VersionResumen",
         "type": "object"
       },
       "VinculoVista": {
@@ -3713,6 +4081,139 @@
           }
         },
         "summary": "Trabajos Del Proceso"
+      }
+    },
+    "/api/procesos/{codigo}/versiones": {
+      "get": {
+        "operationId": "listar_versiones_api_procesos__codigo__versiones_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListadoVersiones"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Listar Versiones"
+      }
+    },
+    "/api/procesos/{codigo}/versiones/{numero}": {
+      "get": {
+        "operationId": "leer_version_api_procesos__codigo__versiones__numero__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "numero",
+            "required": true,
+            "schema": {
+              "title": "Numero",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionDetalle"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Leer Version"
+      }
+    },
+    "/api/procesos/{codigo}/versiones/{numero}/bpmn": {
+      "get": {
+        "operationId": "bpmn_version_api_procesos__codigo__versiones__numero__bpmn_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "numero",
+            "required": true,
+            "schema": {
+              "title": "Numero",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Bpmn Version"
       }
     },
     "/api/salud": {

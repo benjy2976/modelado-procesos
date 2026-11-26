@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { colorizeBpmn, markEventSubprocesses } from '~/utils/bpmnPresentation'
 import type { BpmnRegistry } from '~/utils/bpmnPresentation'
 
-const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string> }>()
+const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'> }>()
 const emit = defineEmits<{ select: [id: string]; error: [message: string] }>()
 const host = ref<HTMLElement | null>(null)
 
@@ -17,6 +17,7 @@ type Viewer = { importXML: (xml: string) => Promise<unknown>; get: (name: string
 
 let viewer: Viewer | null = null
 let currentMarker: string | null = null
+let changeMarkers: [string, string][] = []
 
 function canvas(): CanvasService | null {
   return viewer?.get('canvas') as CanvasService | null
@@ -33,6 +34,8 @@ async function load() {
     markNumbers()
     canvas()?.zoom('fit-viewport')
     currentMarker = null
+    changeMarkers = []
+    markChanges()
     highlight(props.selectedId)
   } catch (error) {
     emit('error', error instanceof Error ? error.message : 'No se pudo abrir el BPMN.')
@@ -57,6 +60,21 @@ function markNumbers() {
     text.setAttribute('data-numero-referencia', number)
     text.textContent = number
     visual.appendChild(text)
+  }
+}
+
+// Cajas cambiadas en una versión (plan B): verde si se agregó, ámbar si se modificó.
+function markChanges() {
+  const service = canvas()
+  if (!service) return
+  for (const [id, marker] of changeMarkers) service.removeMarker(id, marker)
+  changeMarkers = []
+  const registry = viewer?.get('elementRegistry') as BpmnRegistry | undefined
+  for (const [id, kind] of Object.entries(props.changes || {})) {
+    if (!registry?.get(id)) continue
+    const marker = kind === 'agregado' ? 'change-added' : 'change-modified'
+    service.addMarker(id, marker)
+    changeMarkers.push([id, marker])
   }
 }
 
@@ -100,6 +118,7 @@ onMounted(async () => {
 
 watch(() => props.xmlUrl, load)
 watch(() => props.selectedId, highlight)
+watch(() => props.changes, markChanges)
 
 onBeforeUnmount(() => {
   host.value?.removeEventListener('wheel', onWheel, true)

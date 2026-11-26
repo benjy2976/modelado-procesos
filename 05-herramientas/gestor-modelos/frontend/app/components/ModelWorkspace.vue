@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { navigateTo, useRoute } from '#imports'
 import type { components } from '~/types/api'
+import type { VistaVersion } from './HistoryPanel.vue'
 
 type Nodo = components['schemas']['NodoArbol']
 type Modelo = components['schemas']['ModeloVista']
@@ -16,7 +17,9 @@ const selectedId = ref<string | null>(null)
 const loading = ref(false)
 const message = ref('')
 const documentOpen = ref<DocumentoAbierto | null>(null)
-const inspectorTab = ref<'detalle' | 'observaciones' | 'edicion' | 'asistente'>('detalle')
+const inspectorTab = ref<'detalle' | 'observaciones' | 'edicion' | 'asistente' | 'historial'>('detalle')
+// Versión que se está viendo en el lienzo (plan B); null muestra el diagrama vigente.
+const versionView = ref<VistaVersion | null>(null)
 const sidebarOpen = ref(true)
 // Ancho del inspector: se arrastra desde su borde izquierdo o con las flechas, y se recuerda en el navegador.
 const INSPECTOR_KEY = 'mesa.inspector.ancho'
@@ -148,7 +151,10 @@ async function contarObservaciones(code: string) {
     // Sin contador si la API no responde; el panel muestra su propio error al abrirse.
   }
 }
-watch(() => model.value?.codigo, code => { if (code) void contarObservaciones(code) })
+watch(() => model.value?.codigo, code => {
+  versionView.value = null
+  if (code) void contarObservaciones(code)
+})
 
 function openProcessDocument(kind: 'tabla' | 'sustento') {
   if (!model.value) return
@@ -239,13 +245,18 @@ onMounted(async () => {
         </nav>
 
         <div v-if="message" class="notice" role="status">{{ message }}</div>
+        <div v-if="versionView && model" class="version-banner" role="status">
+          Viendo la versión v{{ versionView.numero }} (solo consulta) · <span class="added">verde: agregada</span> · <span class="modified">ámbar: modificada</span>
+          <button type="button" @click="versionView = null">Volver al vigente</button>
+        </div>
         <div v-if="loading" class="empty-state">Cargando el diagrama…</div>
         <BpmnCanvas
           v-else-if="model?.bpmn_url"
           :key="model.codigo"
-          :xml-url="model.bpmn_url"
+          :xml-url="versionView?.url || model.bpmn_url"
           :selected-id="selectedId"
           :numbers="elementNumbers"
+          :changes="versionView?.cambios"
           @select="selectedId = $event"
           @error="message = $event"
         />
@@ -281,17 +292,19 @@ onMounted(async () => {
         />
         <div class="pane-heading inspector-heading">
           <span class="eyebrow">Inspector</span>
-          <h2>{{ inspectorTab === 'asistente' ? 'Asistente' : inspectorTab === 'observaciones' ? 'Observaciones' : inspectorTab === 'edicion' ? 'Edición en copia' : selectedElement ? selectedElement.nombre : selectedFlow ? 'Flujo seleccionado' : 'Detalle del proceso' }}</h2>
-          <p>{{ inspectorTab === 'asistente' ? 'Converse con Claudia sobre este proceso; los cambios quedan en una copia.' : inspectorTab === 'observaciones' ? 'Registre, responda y organice la revisión.' : inspectorTab === 'edicion' ? 'Copia recuperable, diff y validación.' : selectedElement ? `Caja ${selectedElement.numero || selectedElement.ref}` : 'Seleccione una caja o flujo para consultar su descripción.' }}</p>
+          <h2>{{ inspectorTab === 'asistente' ? 'Asistente' : inspectorTab === 'observaciones' ? 'Observaciones' : inspectorTab === 'edicion' ? 'Edición en copia' : inspectorTab === 'historial' ? 'Historial de versiones' : selectedElement ? selectedElement.nombre : selectedFlow ? 'Flujo seleccionado' : 'Detalle del proceso' }}</h2>
+          <p>{{ inspectorTab === 'asistente' ? 'Converse con Claudia sobre este proceso; los cambios quedan en una copia.' : inspectorTab === 'observaciones' ? 'Registre, responda y organice la revisión.' : inspectorTab === 'edicion' ? 'Copia recuperable, diff y validación.' : inspectorTab === 'historial' ? 'Cambios integrados, caja por caja.' : selectedElement ? `Caja ${selectedElement.numero || selectedElement.ref}` : 'Seleccione una caja o flujo para consultar su descripción.' }}</p>
         </div>
         <div v-if="model" class="inspector-tabs" role="tablist" aria-label="Panel de revisión">
           <button type="button" role="tab" :aria-selected="inspectorTab === 'detalle'" :class="{ active: inspectorTab === 'detalle' }" @click="inspectorTab = 'detalle'">Detalle y sustento</button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'observaciones'" :class="{ active: inspectorTab === 'observaciones' }" @click="inspectorTab = 'observaciones'">Observaciones<span v-if="observacionesAbiertas" class="tab-badge" :aria-label="`${observacionesAbiertas} abiertas`">{{ observacionesAbiertas }}</span></button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'edicion'" :class="{ active: inspectorTab === 'edicion' }" @click="inspectorTab = 'edicion'">Editar copia</button>
+          <button type="button" role="tab" :aria-selected="inspectorTab === 'historial'" :class="{ active: inspectorTab === 'historial' }" @click="inspectorTab = 'historial'">Historial</button>
           <button type="button" role="tab" :aria-selected="inspectorTab === 'asistente'" :class="{ active: inspectorTab === 'asistente' }" @click="inspectorTab = 'asistente'">Asistente</button>
         </div>
         <div class="inspector-scroll">
           <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="observacionesAbiertas = $event" />
+          <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :viewing="versionView?.numero ?? null" @view="versionView = $event" @select="selectedId = $event" />
           <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
           <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" @integrated="openProcess(model.codigo)" />
           <template v-else-if="selectedElement">

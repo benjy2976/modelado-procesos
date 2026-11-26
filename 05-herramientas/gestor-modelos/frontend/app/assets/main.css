@@ -62,6 +62,8 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .diagram-toolbar { position: absolute; top: 14px; right: 15px; z-index: 2; display: flex; gap: 3px; padding: 4px; border: 1px solid #c8d5df; border-radius: 7px; background: #fff; box-shadow: 0 2px 8px #21384d1f; }
 .diagram-toolbar button { min-width: 31px; height: 30px; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: #24465f; font-size: 13px; font-weight: 700; cursor: pointer; }
 .diagram-toolbar button:hover { background: #eaf1f7; }
+.diagram-surface .change-added .djs-visual > :first-child { stroke: #2f8f4e !important; stroke-width: 3px !important; fill: #e6f5ea !important; }
+.diagram-surface .change-modified .djs-visual > :first-child { stroke: #c98a12 !important; stroke-width: 3px !important; fill: #fff4dc !important; }
 .diagram-surface .selected-node .djs-visual > :first-child { stroke: #df7b19 !important; stroke-width: 4px !important; }
 .diagram-surface .djs-overlay-drilldown { display: none !important; }
 .level-landing { flex: 1; min-height: 0; margin: 20px 27px 27px; padding: 32px; overflow-y: auto; border: 1px solid #cbd7e1; border-radius: 8px; background: #fff; }
@@ -253,3 +255,25 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .chat-message--error { background: #fbf0f0; color: #7d2c2c; }
 .chat-input { display: flex; flex-direction: column; gap: 6px; }
 .chat-input textarea { width: 100%; padding: 8px 9px; border: 1px solid #b8cbd9; border-radius: 5px; font: inherit; font-size: 13px; resize: vertical; }
+
+.version-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 8px; padding: 7px 10px; border: 1px solid #e3c08d; border-radius: 5px; background: #fff7ea; color: #6d4511; font-size: 12px; }
+.version-banner button { margin-left: auto; padding: 4px 8px; border: 1px solid #c9a46a; border-radius: 4px; background: #fff; color: #6d4511; cursor: pointer; }
+.history-panel { font-size: 12px; line-height: 1.5; }
+.history-list { margin: 0; padding: 0; list-style: none; }
+.history-list button { display: grid; width: 100%; gap: 2px; margin: 0 0 6px; padding: 8px 10px; border: 1px solid #d3dfe8; border-radius: 5px; background: #fff; color: #23384a; text-align: left; cursor: pointer; }
+.history-list button:hover { border-color: #17618a; }
+.history-reason { color: #40586a; }
+.history-counts { display: flex; gap: 8px; font-weight: 700; }
+.history-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.history-actions { margin: 8px 0 12px; }
+.history-group h3 { margin: 12px 0 4px; font-size: 12px; }
+.history-item { display: block; width: 100%; margin: 2px 0; padding: 4px 6px; border: 0; border-radius: 4px; background: #f5f9fc; color: #23384a; text-align: left; cursor: pointer; }
+.history-change dl { margin: 2px 0 8px 10px; }
+.history-change dt { color: #536b7d; font-weight: 700; }
+.history-change dd { display: grid; gap: 2px; margin: 0 0 4px; }
+.history-change del { color: #9b2c2c; }
+.history-change ins { color: #23663a; text-decoration: none; }
+.history-panel pre { max-height: 260px; overflow: auto; padding: 8px; background: #f5f9fc; font-size: 11px; }
+.added { color: #2f8f4e; }
+.modified { color: #b07a0e; }
+.removed { color: #9b2c2c; }

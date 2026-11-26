@@ -23,6 +23,8 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `cambiar_estado_observacion` | Abre o resuelve una observación con revisión esperada |
 | `leer_elemento` | Lee una caja o flujo por ID y sus fuentes registradas |
 | `leer_fuente` | Lee texto acotado de una fuente y página registrada, con hash y estado de extracción |
+| `listar_versiones` | Versiones integradas del proceso, la más reciente primero, con titular, motivo, observación y conteo de cajas agregadas, modificadas y retiradas (plan B) |
+| `leer_version` | Una versión con su cambio por caja (antes y después por campo, ID BPMN) y el diff de tabla y sustento |
 | `estado_modelo` | Estado de edición del proceso: `LIBRE`, `EN-EDICION` (titular, motivo, vencimiento) o `APROBADO`, y borradores abiertos (`DEC-069`) |
 | `iniciar_edicion` | Toma el bloqueo del proceso a nombre de Claudia (motivo, observación y trabajo) y abre una copia aislada; 409 si otro titular lo tiene vigente |
 | `iniciar_borrador` | Abre una copia que no bloquea el proceso; solo se integra cuando el proceso está libre (`DEC-069`) |
@@ -81,7 +83,7 @@ La cola vive en `.mesa-trabajos/cola.json`, fuera de Git, con bloqueo de archivo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`; con las versiones livianas suma 55 (`listar_versiones`, `leer_version`) y la CLI agrega `versiones listar` y `versiones leer`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|

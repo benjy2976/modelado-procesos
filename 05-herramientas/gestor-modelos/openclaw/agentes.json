@@ -39,7 +39,9 @@
         "registrar_propuesta",
         "listar_trabajos",
         "tomar_trabajo",
-        "completar_trabajo"
+        "completar_trabajo",
+        "listar_versiones",
+        "leer_version"
       ]
     },
     "mesa-aplicacion": {
@@ -135,7 +137,9 @@
         "anclar_en_copia",
         "retirar_anclas_copia",
         "preparar_cambio",
-        "cerrar_edicion"
+        "cerrar_edicion",
+        "listar_versiones",
+        "leer_version"
       ]
     }
   }

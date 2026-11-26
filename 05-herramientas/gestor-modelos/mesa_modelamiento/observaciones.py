@@ -230,6 +230,21 @@ class ServicioObservaciones:
         except Timeout as exc:
             raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
 
+    def anotar_evento(self, codigo: str, identificador: str, evento: dict) -> None:
+        """Agrega al historial un evento generado por el sistema (p. ej., la versión que atendió la observación).
+
+        No exige revisión esperada: no cambia contenido ni estado, solo deja trazabilidad durable en Git."""
+        try:
+            with self._bloqueo, self._bloqueo_archivo(codigo):
+                archivo, datos = self._leer(codigo)
+                registro = next((o for o in datos["observaciones"] if o.get("id") == identificador), None)
+                if registro is None:
+                    raise ErrorDominio("Observacion no encontrada", 404)
+                registro.setdefault("historial", []).append({**evento, "fecha": datetime.now(timezone.utc).isoformat()})
+                self._guardar(archivo, datos)
+        except Timeout as exc:
+            raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
+
     @staticmethod
     def _guardar(archivo: Path, datos: dict) -> None:
         temporal = archivo.with_name(f"{archivo.name}.{uuid.uuid4().hex}.tmp")

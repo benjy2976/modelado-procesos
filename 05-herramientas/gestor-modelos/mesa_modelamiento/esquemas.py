@@ -290,6 +290,56 @@ class IntegracionVista(BaseModel):
     codigo: str
     estado: str
     cambios: list[str]
+    version: int | None = None
+
+
+class ElementoCambiado(BaseModel):
+    id: str
+    numero: str = ""
+    nombre: str = ""
+    bpmn_id: str | None = None
+    campos: dict[str, list[str]] | None = None
+
+
+class CambiosElementos(BaseModel):
+    agregados: list[ElementoCambiado]
+    retirados: list[ElementoCambiado]
+    modificados: list[ElementoCambiado]
+
+
+class ConteoCambios(BaseModel):
+    agregados: int
+    retirados: int
+    modificados: int
+
+
+class VersionBase(BaseModel):
+    numero: int
+    codigo: str
+    fecha: str
+    sesion: str
+    modo: str = "EDICION"
+    titular: str | None = None
+    motivo: str | None = None
+    observacion: str | None = None
+    trabajo: str | None = None
+    documentos: dict[str, bool]
+    secciones: dict[str, bool] = Field(default_factory=dict)
+    hashes: dict[str, str | None]
+
+
+class VersionResumen(VersionBase):
+    conteo: ConteoCambios
+
+
+class ListadoVersiones(BaseModel):
+    codigo: str
+    versiones: list[VersionResumen]
+
+
+class VersionDetalle(VersionBase):
+    elementos: CambiosElementos
+    diff: dict[str, str]
 
 
 class ObservacionEnEtapa(BaseModel):

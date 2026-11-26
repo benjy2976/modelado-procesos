@@ -23,6 +23,8 @@ services:
   api:
     image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
     restart: unless-stopped
+    # Mismo usuario que mcp-http: sesiones, versiones y bloqueos fuera de Git los escriben ambos (plan B).
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
     working_dir: /workspace/05-herramientas/gestor-modelos
     command: >-
       sh -c "uv sync --frozen && exec uv run modelador-procesos api --host 0.0.0.0 --port 8000"
@@ -31,12 +33,12 @@ services:
       - path: ${HOME}/.config/mesa-relevo/api.env
         required: false
     environment:
+      HOME: /tmp
       PROCESOS_REPO_ROOT: /workspace
       UV_PROJECT_ENVIRONMENT: /tmp/mesa-venv
-      UV_CACHE_DIR: /tmp/uv-cache
+      UV_CACHE_DIR: /tmp/uv-cache-local
     volumes:
       - ${PROCESOS_REPO_HOST:-../..}:/workspace
-      - uv-cache:/tmp/uv-cache
     ports:
       - "127.0.0.1:${MODELOS_API_PORT:-8766}:8000"
     healthcheck:

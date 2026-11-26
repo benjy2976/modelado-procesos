@@ -19,6 +19,7 @@ from .repositorio import ErrorDominio, RepositorioProcesos
 from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
 from .trabajos import ServicioTrabajos
+from .versiones import ServicioVersiones
 
 # Alias con el que el agente de IA firma sus registros en el ciclo de retroalimentación (DEC-064).
 AUTOR_AGENTE = "Claudia"
@@ -50,6 +51,7 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
     observaciones = ServicioResolucion(repositorio)
     documentos = ServicioDocumentos(repositorio)
     sesiones = ServicioSesiones(repositorio)
+    versiones = ServicioVersiones(repositorio, sesiones=sesiones.almacen)
     trabajos = ServicioTrabajos(repositorio)
     servidor = MCPServer(
         "mesa-modelamiento",
@@ -263,6 +265,16 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         Falla con 409 si otro titular lo tiene; el bloqueo vence tras 30 min sin actividad y se libera al aplicar o
         cerrar. Indique la observación y el trabajo que atiende."""
         return sesiones.iniciar(codigo, AUTOR_AGENTE, motivo, "EDICION", observacion, trabajo)
+
+    @herramienta()
+    def listar_versiones(codigo: str) -> dict:
+        """Versiones integradas del proceso (más reciente primero): quién, motivo, observación y conteo de cambios."""
+        return versiones.listar(codigo)
+
+    @herramienta()
+    def leer_version(codigo: str, numero: int) -> dict:
+        """Una versión con su cambio por elemento (agregados, retirados, modificados campo a campo) y el diff."""
+        return versiones.leer(codigo, numero)
 
     @herramienta()
     def iniciar_borrador(codigo: str, motivo: str) -> dict:
