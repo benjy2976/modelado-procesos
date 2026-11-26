@@ -5,7 +5,7 @@
       "id": "c86e5bd1-0b32-433e-b39c-9642d357e71e",
       "elemento": "_da9c1de6-2e8b-58e7-9af4-31f2b1476fab",
       "referencia": "Caja 30 (E-E3)",
-      "texto": "[Interfaz] Nuevo inicio por mensaje desde S4.3.2.6: la paralización no atribuible se deriva para acordar la suspensión (preferencia institucional indicada por el usuario, 2026-11-25). Pendiente: (1) reconfirmar la auditoría de S4.3.2.5 con este elemento; (2) definir el retorno a S4.3.2.6 si no hay acuerdo (ver la observación de la caja 17, E-F1, en S4.3.2.6). Atención sugerida: VINCULADA-A-CAMBIO con esa observación.",
+      "texto": "<p><strong>Conexión con otro proceso.</strong> Se agregó un nuevo inicio por mensaje desde S4.3.2.6: cuando la paralización no es atribuible al contratista, se deriva aquí para acordar la suspensión del plazo, por preferencia institucional indicada por el usuario el 2026-11-25.</p><p><strong>Falta:</strong></p><ol><li>Reconfirmar la auditoría de S4.3.2.5 con este nuevo elemento.</li><li>Definir a dónde vuelve el caso en S4.3.2.6 si no hay acuerdo. Ver la observación de la caja 17 (E-F1) en S4.3.2.6.</li></ol><p><strong>Efecto posible:</strong> se resolverá junto con esa observación de S4.3.2.6.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -27,6 +27,14 @@
           "fecha": "2026-11-25T05:18:33.456998+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.107738+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Interfaz] Nuevo inicio por mensaje desde S4.3.2.6: la paralización no atribuible se deriva para acordar la suspensión (preferencia institucional indicada por el usuario, 2026-11-25). Pendiente: (1) reconfirmar la auditoría de S4.3.2.5 con este elemento; (2) definir el retorno a S4.3.2.6 si no hay acuerdo (ver la observación de la caja 17, E-F1, en S4.3.2.6). Atención sugerida: VINCULADA-A-CAMBIO con esa observación.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -77,7 +85,980 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:18:33.456998+00:00"
+      "actualizada": "2026-11-26T04:13:21.107738+00:00",
+      "formato": "html"
+    },
+    {
+      "id": "1d69111a-5463-40c9-8481-f275001d6482",
+      "elemento": "_cde41db4-3911-525c-be9a-9a80e8f0dde5",
+      "referencia": "Caja 10 (E-G1)",
+      "texto": "<p><strong>Vacío normativo.</strong> La compuerta «¿Corresponde suspensión contractual?» solo contempla el supuesto del art. 107.1 del Reglamento de la Ley 32069: un evento <em>no atribuible a las partes</em>.</p><p>El mismo artículo, en su numeral 107.5, regula otro supuesto: las partes pueden acordar la suspensión cuando el evento se debe a una <strong>causa imputable a la entidad</strong>, pero solo con <strong>autorización previa de la autoridad de la gestión administrativa</strong> y sin perjuicio del deslinde de responsabilidades. Según la Ley 32069, art. 25.1 b), en los gobiernos regionales esa autoridad es la <strong>Gerencia General Regional</strong>.</p><p>Ni la tabla ni el sustento ni la auditoría mencionan el 107.5.</p><p><strong>Pregunta:</strong> ¿se incorpora este supuesto al proceso, con la autorización previa de la Gerencia General Regional antes de coordinar con el contratista?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una salida más en la compuerta y una tarea de autorización), o basta con explicar en el sustento por qué queda fuera.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:20.643919+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:20.643919+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:35.537354+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:45.993221+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> E-G1 cita el art. 202.1; la cobertura de la auditoría registra solo los numerales 107.1, 107.2 y 107.3 y el art. 202. El 107.5 no aparece en la tabla, el sustento ni la auditoría.</p><p><strong>Exigencia normativa.</strong></p><ul><li>Reglamento de la Ley 32069 (texto local al 09-01-2026), art. 107.5, PDF p. 60: «Previa autorización de la autoridad de la gestión administrativa, las partes pueden acordar la suspensión del plazo de ejecución, aun cuando el evento se deba a causa imputable a la entidad contratante, sin perjuicio de iniciarse el respectivo deslinde de responsabilidades».</li><li>El D.S. 001-2026-EF modifica la redacción («cuando el evento se deba a causa imputable a la entidad»), pero mantiene la autorización previa y el deslinde. Su entrada en vigor depende de la publicación de una resolución directoral; con cualquiera de las dos redacciones la exigencia es la misma.</li><li>Ley 32069, art. 25.1 b), PDF p. 15: en los gobiernos regionales, la autoridad de la gestión administrativa es la gerencia general regional. El art. 25.2 permite delegar sus facultades mediante resolución, salvo excepción del reglamento.</li><li>El art. 202.1 remite al 107 sin excluir el 107.5, así que la regla también se aplica a las obras.</li></ul><p><strong>Inferencia.</strong> Una causa imputable a la entidad (por ejemplo, una deficiencia del expediente técnico o la falta de disponibilidad del terreno) hoy saldría por «No» en E-G1 y terminaría en «Suspensión no formalizada», aunque la norma permite suspender con autorización.</p><p><strong>Hueco de evidencia.</strong> En la biblioteca no hay ninguna resolución de delegación de facultades del GORE Huánuco. No se puede confirmar si la Gerencia General Regional ha delegado esta autorización.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento art. 107.5 (PDF p. 60)",
+            "CON-001 Ley 32069 art. 25.1 b) y 25.2 (PDF pp. 15-16)",
+            "CON-001 Reglamento art. 202.1 (PDF p. 114)",
+            "Auditoría S4.3.2.5, cobertura_fuente",
+            "S4-3-2-5-sustento.md"
+          ],
+          "hipotesis": [
+            "El 107.5 lo cubre otro proceso hermano: descartada; ninguna tabla de S4.3.2.x lo cita y S4.3.2.6 deriva aquí la paralización no atribuible al contratista, sin distinguir si es imputable a la entidad.",
+            "El 107.5 no se aplica a obras porque el 202 lo desplaza: descartada; el 202.1 dice que la suspensión de obra «se realiza de acuerdo con el artículo 107».",
+            "La autorización la da el titular de la competencia (carril de E-T5): descartada como regla; la norma la reserva a la autoridad de la gestión administrativa (GGR), aunque puede estar delegada (Ley, 25.2), lo que no consta en la biblioteca.",
+            "Revisión adversarial: el D.S. 001-2026-EF podría haber eliminado el supuesto. Leído el texto modificado, lo conserva."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:35.537354+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Agregar la ruta de causa imputable a la entidad con autorización previa de la GGR",
+              "detalle": "<p>Convertir E-G1 en una compuerta con tres salidas: «No atribuible a las partes» (va a E-T3, como hoy), «Imputable a la entidad» y «No corresponde» (va a E-F2).</p><p>La salida «Imputable a la entidad» pasa por una tarea de usuario nueva, «Autorizar la suspensión por causa imputable a la entidad», en un carril «GGR — Autoridad de la gestión administrativa». Luego continúa en E-T3.</p><p>Se agrega una anotación sobre el deslinde de responsabilidades (107.5) y se registra como EVIDENCIA-INSUFICIENTE la existencia o no de una delegación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G1",
+                "E-T3"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.5",
+                "CON-001 Ley 32069 art. 25.1 b)"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Dejar el supuesto fuera de alcance y explicarlo en el sustento",
+              "detalle": "<p>No se cambia el diagrama. El sustento registra el 107.5 como obligación no representada o fuera de alcance, con la razón (por ejemplo, que no se usa en la práctica institucional) y la fuente que lo confirme.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-G1"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.5"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar a incorporar la resolución de delegación de facultades",
+              "detalle": "<p>Se incorpora primero a la biblioteca la resolución vigente de delegación de facultades del GORE Huánuco en contrataciones. Con ella se decide el carril de la autorización.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-G1"
+              ],
+              "fuentes": [
+                "CON-001 Ley 32069 art. 25.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:45.993221+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:45.993221+00:00"
+    },
+    {
+      "id": "6a19fed1-cf49-4309-9b7a-bdbc2f190d11",
+      "elemento": "_214abd44-c762-5f17-9e95-8418638e6d9a",
+      "referencia": "Caja 25 (E-T9)",
+      "texto": "<p><strong>Diferencia con la norma.</strong> En el modelo, la reanudación la formaliza solo la entidad, por medio del titular o la autoridad delegada (caja 25). El contratista no participa.</p><p>El Reglamento, art. 107.2, dice otra cosa: cuando termina el evento, <strong>las partes suscriben un acta</strong> con la fecha de reinicio. Solo <strong>si no hay acuerdo</strong>, la entidad determina la fecha.</p><p>La auditoría del 2026-11-24 ya lo marcó como no representado y el sustento lo deja como «propuesta no aplicada». Hasta ahora no tenía una observación.</p><p><strong>Pregunta:</strong> ¿se modela el acta de reinicio con el contratista y la ruta sin acuerdo, en la que la entidad fija la fecha?</p><p><strong>Efecto posible:</strong> cambia el diagrama (un intercambio con el pool Contratista y una compuerta de acuerdo).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:53.753466+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:53.753466+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:08.020230+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:18.514254+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> El recorrido de la reanudación es E-R1 → E-T7 → E-T8 → E-T9 → E-T9A → E-F3. Ninguna de esas cajas tiene un mensaje hacia el pool Contratista. E-T9 está clasificada NORM y cita los arts. 107.2 y 202.2, pero la cobertura de la auditoría marca como NO-REPRESENTADO tanto el «acta de reinicio suscrita por las partes» como «sin acuerdo, la entidad determina la fecha».</p><p><strong>Exigencia normativa.</strong> Reglamento, art. 107.2 (PDF p. 59): «Culminado el evento que produjo la interrupción de la ejecución de las prestaciones, las partes suscriben un acta, acordando la fecha de su reinicio. En caso no exista acuerdo, la entidad contratante determina la fecha de reinicio». El art. 202.2 añade que, reiniciado el plazo, la entidad comunica el programa de ejecución actualizado; eso se trata en otra observación, la de la caja 26.</p><p><strong>Coherencia interna.</strong> Para los contratos vinculados el modelo sí representa un acta (E-T9A, 107.3). Para el contrato principal, que es el caso central, no.</p><p><strong>Responsable.</strong> El art. 105.4 faculta para autorizar modificaciones al «servidor o funcionario que tenga facultades para suscribir el contrato y sus adendas conforme a las normas de gestión interna». La biblioteca no tiene esas normas ni una resolución de delegación, así que quién firma el acta por la entidad es EVIDENCIA-INSUFICIENTE.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento art. 107.2 (PDF p. 59)",
+            "CON-001 Reglamento art. 107.3 (PDF p. 59)",
+            "CON-001 Reglamento art. 105.4 (PDF p. 58)",
+            "Auditoría S4.3.2.5, cobertura_fuente 107.2",
+            "S4-3-2-5-sustento.md, sección Auditoría por afirmación 2026-11-24"
+          ],
+          "hipotesis": [
+            "El acto unilateral de E-T9 es la «determinación de la fecha» sin acuerdo: descartada como única ruta; la norma la deja como excepción, y la regla general es el acta entre las partes.",
+            "El acta de reinicio la firma la supervisión, como en S4.3.2.6 (S-T2): posible, pero en contrata la supervisión no es parte del contrato de obra. El 107.2 habla de «las partes», es decir, entidad y contratista. Queda como duda de quién firma por la entidad.",
+            "Revisión adversarial: no se encontró en el Reglamento una disposición específica de obras que sustituya al 107.2; el 202.2 lo complementa."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:08.020230+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Acta de reinicio con el contratista y ruta sin acuerdo",
+              "detalle": "<p>Después de E-T8, reemplazar E-T9 por esta secuencia:</p><ol><li>Tarea de usuario «Proponer la fecha de reinicio al contratista», con un mensaje al pool Contratista (inicio, tarea «Evaluar y responder la fecha propuesta» y fin de mensaje, como ya se hace con C-E1 a C-F1).</li><li>Recepción de mensaje de la respuesta.</li><li>Compuerta «¿Hay acuerdo sobre la fecha?». Si hay acuerdo: «Suscribir el acta de reinicio». Si no: «Determinar la fecha de reinicio» (107.2).</li><li>Las dos ramas se unen antes de E-T9A.</li></ol><p>El firmante por la entidad queda como EVIDENCIA-INSUFICIENTE (105.4).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T9",
+                "E-T9A",
+                "E-F3"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.2",
+                "CON-001 Reglamento art. 105.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener E-T9 y reclasificarla como determinación de la fecha sin acuerdo",
+              "detalle": "<p>Se renombra E-T9 a «Determinar la fecha de reinicio cuando no hay acuerdo» y se explica en el sustento que el acta con el contratista queda pendiente. Es una solución parcial: la regla general del 107.2 sigue sin representarse.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T9"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:18.514254+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:18.514254+00:00"
+    },
+    {
+      "id": "21af6f26-23cf-4bbe-8e24-6c7923e845ca",
+      "elemento": "_f5977707-f472-586b-ada1-318e81cbbfcd",
+      "referencia": "Caja 22 (E-R1)",
+      "texto": "<p><strong>Conexión con otro proceso.</strong> Cuando S4.3.2.6 deriva una paralización aquí (caja 30) y se acuerda la suspensión, el fin del evento queda cubierto por <strong>dos procesos</strong> a la vez:</p><ul><li>en <strong>S4.3.2.6</strong>, el residente anota el fin de la causal (caja 26), la supervisión firma el acta de reinicio con el contratista (caja 32) y la entidad la registra en INFOBRAS (caja 20);</li><li>en <strong>S4.3.2.5</strong>, el coordinador verifica el cese (caja 22) y la entidad formaliza la reanudación (caja 25).</li></ul><p>Además, la caja 22 empieza en el carril del coordinador sin ningún aviso del residente ni de la supervisión. No se ve cómo se entera la entidad de que terminó el evento.</p><p><strong>Pregunta:</strong> si el plazo está suspendido, ¿qué proceso gestiona el reinicio y cómo llega el aviso del fin del evento?</p><p><strong>Efecto posible:</strong> cambia la conexión entre S4.3.2.5 y S4.3.2.6 en los dos diagramas.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:29.047124+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:29.047124+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:44.043830+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:56.590736+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada (cajas releídas el 2026-11-26).</strong></p><ul><li>S4.3.2.6: R-E2 «Cese de la causa de paralización» → R-T2 «Anotar el fin de la causal» → R-F2 → S-E2 → S-T2 «Suscribir con el contratista el acta de reinicio» (anotación: «el Reglamento no la exige en contrata») → S-F2 → E-E1 → E-G2 «Reinicio» → E-T8 «Registrar el reinicio en INFOBRAS» → E-F3.</li><li>S4.3.2.5: E-R1 «Cese de la causa de suspensión verificado» (inicio condicional en el carril del coordinador de SGGOS) → E-T7 «Especialista competente» → E-T8 → E-T9 → E-T9A → E-F3. Ningún mensaje llega desde el residente ni desde la supervisión.</li></ul><p><strong>Exigencia normativa.</strong> Cuando hay suspensión acordada, el art. 107.2 sí exige un acta de reinicio suscrita por las partes. La anotación de S-T2 en S4.3.2.6 solo es exacta para una paralización <em>sin</em> suspensión.</p><p><strong>Inferencia.</strong> Para una paralización derivada con suspensión acordada, los dos procesos se disparan con el mismo hecho (el fin del evento) y producen dos actas o actos de reinicio distintos. Para una paralización sin suspensión (no hubo acuerdo, ver la caja 17 de S4.3.2.6), solo corresponde la ruta de S4.3.2.6.</p><p>La observación abierta de la caja 30 trata otro tema: qué pasa <em>sin acuerdo</em> de suspensión. Esta trata el reinicio <em>con</em> suspensión. La observación de S-T2 en S4.3.2.6 pregunta quién firma, pero no menciona la duplicidad.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4.3.2.6 cajas R-E2, R-T2, S-T2, E-T8, E-F3 (leer_proceso 2026-11-26)",
+            "S4.3.2.5 cajas E-R1, E-T7, E-T8, E-T9",
+            "CON-001 Reglamento art. 107.2",
+            "S4.3.2.6 observaciones fbc49135 (caja 17) y afdbec87 (caja 32)",
+            "DEC-063"
+          ],
+          "hipotesis": [
+            "La duplicidad es intencional (S4.3.2.6 registra el reinicio físico y S4.3.2.5 el reinicio del plazo): posible, pero no está explicado en ningún sustento y llevaría a dos actas por el mismo hecho. Queda como opción C para que el equipo decida.",
+            "E-R1 lo dispara el contratista mediante el cuaderno: no está modelado. El inicio condicional en SGGOS no muestra la fuente del aviso.",
+            "La supervisión firma el acta en nombre de la entidad: no hay fuente en la biblioteca que le dé esa facultad para modificar o reiniciar el plazo contractual; el 105.4 remite al funcionario facultado para suscribir el contrato."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:44.043830+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "S4.3.2.5 gestiona el reinicio de todo plazo suspendido; S4.3.2.6 solo el de paralizaciones sin suspensión",
+              "detalle": "<p>En S4.3.2.5, la reanudación empieza con un aviso del fin del evento:</p><ul><li>el residente anota el fin del evento en el Cuaderno de Incidencias y la supervisión lo remite a la entidad, con el mismo patrón de R-T1 a S-F1;</li><li>E-R1 pasa a ser un inicio por mensaje en OACGD o SGGOS.</li></ul><p>En S4.3.2.6 se anota que la rama «Reinicio» solo aplica cuando no hubo suspensión.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-R1",
+                "E-T7",
+                "E-T9"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.2",
+                "DEC-063"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "S4.3.2.6 recibe el fin del evento y envía un mensaje a S4.3.2.5",
+              "detalle": "<p>Se mantiene la entrada única del fin de la causal en S4.3.2.6 (R-E2 a S-F2). Cuando el plazo está suspendido, la compuerta E-G2 de S4.3.2.6 deriva por mensaje a S4.3.2.5 para el acta del 107.2, y E-R1 pasa a ser un inicio por mensaje. Las suspensiones que no vienen de S4.3.2.6 (cajas 1 y 29) necesitarían otra entrada.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-R1"
+              ],
+              "fuentes": [
+                "DEC-063"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener los dos recorridos y explicar en ambos sustentos qué produce cada uno",
+              "detalle": "<p>Se documenta que S4.3.2.6 registra el reinicio físico (acta de la supervisión e INFOBRAS) y que S4.3.2.5 formaliza el reinicio del plazo (107.2). Esto exige una decisión del equipo y la confirmación de la práctica institucional.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-R1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:56.590736+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:56.590736+00:00"
+    },
+    {
+      "id": "93486f2f-76a1-44c4-ac54-0fcba131e2ba",
+      "elemento": "_ae6f73ea-a5d8-55e6-9e1a-3e7ae8e67da7",
+      "referencia": "Caja 15 (E-T5)",
+      "texto": "<p><strong>Duda.</strong> La caja 15, «Formalizar la suspensión de plazo», está en el carril genérico «Titular de la competencia o autoridad delegada» y recibe el acuerdo directamente del coordinador de obra (caja 14).</p><p>Hay dos puntos que no cuadran:</p><ol><li><strong>Forma del acto.</strong> El Reglamento, art. 107.1, exige que las partes acuerden la suspensión <em>por escrito</em>; no pide un acto aparte de la entidad. La propia auditoría califica este acto como práctica institucional.</li><li><strong>Circuito interno.</strong> En el proceso hermano S4.3.2.4 (ampliaciones), una decisión parecida pasa por el coordinador, el subgerente de SGGOS, la GRI y Asesoría Jurídica antes de llegar a la autoridad. Aquí no hay ni subgerente, ni GRI, ni opinión legal.</li></ol><p>El art. 105.4 dice que autoriza las modificaciones del contrato quien tiene facultades para suscribir el contrato y sus adendas según las normas internas. Esas normas no están en la biblioteca.</p><p><strong>Pregunta:</strong> ¿la suspensión se formaliza con un acta firmada por ambas partes o con una resolución? ¿Quién firma por el GORE y qué unidades intervienen antes?</p><p><strong>Efecto posible:</strong> cambia el diagrama (carriles y tareas entre las cajas 14 y 15), o queda pendiente hasta incorporar la fuente.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:05.568726+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:05.568726+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:21.297395+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:32.295065+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> E-T4 «Consolidar el acuerdo y elevarlo por SGD» (PROP) → E-T5 «Formalizar la suspensión de plazo» (NORM, arts. 107 y 202), en el carril «Titular de la competencia o autoridad delegada». El sustento registra «Dueño, delegación y unidad que prepara el acto» como EVIDENCIA-INSUFICIENTE, y la auditoría del 2026-11-24 dice que el acto de formalización «es práctica institucional, porque el 107.1 basta con el acuerdo escrito».</p><p><strong>Exigencia normativa.</strong></p><ul><li>Art. 107.1: las partes «pueden acordar por escrito la suspensión».</li><li>Art. 105.4: está facultado para autorizar cualquier modificación «el servidor o funcionario que tenga facultades para suscribir el contrato y sus adendas conforme a las normas de gestión interna».</li><li>Art. 105.1: los actos de la ejecución contractual se realizan por la Pladicop.</li></ul><p><strong>Convención de procesos hermanos.</strong> S4.3.2.4 usa los carriles «SGGOS — Coordinador de obra», «SGGOS — Subgerente de Gestión de Obras y Supervisión», «GRI — Gerente Regional de Infraestructura», «GRAJ — Asesoría Jurídica» y «Autoridad competente para resolver», con un circuito que confirmó el usuario el 2026-11-10. En S4.3.2.5 el carril se llama distinto y el circuito es más corto, sin que el sustento explique por qué.</p><p><strong>ROF (arts. 97-98).</strong> A SGGOS le asigna control y seguimiento de la ejecución y «emitir pronunciamiento y/o opiniones». No le asigna la suscripción de contratos ni de adendas.</p><p><strong>Fuentes que faltan.</strong> Resolución de delegación de facultades del GORE Huánuco en contrataciones, manual o directiva interna de gestión contractual y modelo de acta o resolución de suspensión.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento arts. 105.1, 105.4, 107.1",
+            "LOC-007 ROF arts. 97-98 (p. 47)",
+            "S4.3.2.4 cajas E-T2 a E-T9 (circuito interno)",
+            "S4-3-2-5-sustento.md, Vacíos de evidencia",
+            "Auditoría S4.3.2.5, 2026-11-24"
+          ],
+          "hipotesis": [
+            "El acuerdo escrito es el acto (acta firmada por ambas partes) y E-T5 sobra: es coherente con el 107.1, pero no consta la práctica del GORE.",
+            "La suspensión se aprueba por resolución, como la ampliación (S4.3.2.4): posible por analogía, pero el 200.1 d exige resolución solo para la ampliación y el 107 no la exige. La analogía no basta para afirmarlo.",
+            "Firma SGGOS: descartada, porque el ROF no le asigna esa función.",
+            "Revisión adversarial: no se encontró una norma que exija resolución para la suspensión; tampoco una que la prohíba."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:21.297395+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "El acuerdo escrito es el acto: «Suscribir el acta de suspensión con el contratista»",
+              "detalle": "<p>E-T5 se renombra a «Suscribir el acta de suspensión con el contratista» y se envía por la Pladicop (105.1). El carril se llama «Funcionario facultado para suscribir el contrato y sus adendas» (105.4). La identidad del funcionario y la delegación quedan como EVIDENCIA-INSUFICIENTE hasta incorporar la resolución.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T4",
+                "E-T5"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento arts. 105.1, 105.4, 107.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener la resolución y alinear el circuito interno con S4.3.2.4",
+              "detalle": "<p>Si el usuario confirma que la práctica es aprobar la suspensión por resolución, se agregan entre E-T4 y E-T5 los pasos de S4.3.2.4: informe del subgerente de SGGOS, criterio de la GRI, opinión legal de GRAJ y proyecto de resolución. El carril de E-T5 se iguala a «Autoridad competente para resolver».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T4",
+                "E-T5"
+              ],
+              "fuentes": [
+                "S4.3.2.4 E-T2 a E-T9"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar a incorporar la delegación y un modelo de acta o resolución",
+              "detalle": "<p>No se cambia el modelo hasta incorporar a la biblioteca la resolución de delegación y una muestra no sensible del documento de suspensión.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T5"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:32.295065+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:32.295065+00:00"
+    },
+    {
+      "id": "bca68e87-b884-4790-8ec9-1e971a5e5eb2",
+      "elemento": "_9181835b-99df-5932-a762-9972d8ddbe63",
+      "referencia": "Caja 26 (E-F3)",
+      "texto": "<p><strong>Comunicaciones sin destinatario.</strong> Los finales del proceso son de tipo mensaje, pero no dicen a quién ni por qué medio se comunica:</p><ul><li>caja 17, «Suspensión de plazo formalizada y comunicada», y caja 16, «Actualizar registros y coordinar la comunicación»;</li><li>caja 26, «Reanudación del plazo formalizada».</li></ul><p>El Reglamento pide dos cosas concretas:</p><ul><li><strong>art. 202.2:</strong> reiniciado el plazo, la entidad <strong>comunica al contratista</strong> las nuevas fechas del programa de ejecución actualizado y de los calendarios;</li><li><strong>art. 105.1:</strong> todos los actos de la ejecución contractual se realizan por la <strong>Pladicop</strong>.</li></ul><p>El proceso hermano S4.3.2.4 ya notifica por la Pladicop.</p><p><strong>Pregunta:</strong> ¿se precisan el destinatario (contratista y supervisión), el documento y el canal (Pladicop) en las cajas 16, 17 y 26?</p><p><strong>Efecto posible:</strong> cambia el diagrama (nombres, documentos y mensajes hacia el pool Contratista).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:41.292287+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:41.292287+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:55.700432+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:04.407159+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:34:29.700260+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:34:45.698950+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El hallazgo de fondo se mantiene: los finales de mensaje de las cajas 16, 17 y 26 no dicen a quién ni qué se comunica, y falta la comunicación que exige el <strong>art. 202.2</strong>: reiniciado el plazo, la entidad comunica al contratista las nuevas fechas del programa de ejecución actualizado y de los calendarios.</p><p>Lo que se corrige es el canal. El art. 105.1 prevé la Pladicop, pero la <strong>Decimotercera Disposición Complementaria Transitoria</strong> establece que, en tanto se implemente para la ejecución contractual, las entidades pueden usar sus medios físicos y digitales (numeral 1) y las notificaciones se hacen <em>«al domicilio o al correo electrónico previsto en el contrato y surten efectos desde su recepción»</em> (numeral 2 a). Por eso el modelo debe nombrar el destinatario y el documento, y anotar el medio de notificación del contrato, sin exigir todavía la Pladicop.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 202.2",
+            "CON-001 art. 105.1",
+            "CON-001 13.ª DCT num. 1 y 2 a (fragmento 0ebe95b3e05661b8-ec988166:art-389-parte12)",
+            "CON-010 Opinión D000092-2026-OECE-DTN, p. 8"
+          ],
+          "hipotesis": [
+            "Notificar por la Pladicop (análisis anterior): descartada mientras no se implemente; queda como evolución prevista.",
+            "Explicar todo solo en el sustento: se ofrece como opción B, pero el 202.2 es una comunicación obligatoria con plazo y conviene verla en el diagrama."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:29.700260+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Nombrar destinatario y documento, y agregar la comunicación del programa actualizado",
+              "detalle": "<p>En las cajas 16 y 17, indicar que la suspensión se notifica al contratista, con mensaje al pool Contratista. En la reanudación, antes de la caja 26, una tarea «Comunicar al contratista el programa de ejecución y los calendarios actualizados» (art. 202.2) y su mensaje. Anotar el medio: «al domicilio o correo previsto en el contrato mientras no se implemente la Pladicop (13.ª DCT)».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T6",
+                "E-F1",
+                "E-F3"
+              ],
+              "fuentes": [
+                "CON-001 art. 202.2",
+                "CON-001 13.ª DCT num. 2 a",
+                "CON-001 art. 105.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo la comunicación del art. 202.2; el resto en el sustento",
+              "detalle": "<p>Se agrega únicamente la tarea de comunicar el programa actualizado y su mensaje al contratista. Los destinatarios de los demás finales y el medio de notificación se explican en el sustento.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F3"
+              ],
+              "fuentes": [
+                "CON-001 art. 202.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:45.698950+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:34:45.698950+00:00",
+      "resoluciones_anteriores": [
+        {
+          "analisis": {
+            "texto": "<p><strong>Evidencia observada.</strong></p><ul><li>E-F1, E-F2 y E-F3 son de tipo fin-mensaje, pero la tabla no tiene ningún flujo de mensaje que salga de ellos.</li><li>E-T6 está clasificada PROP, con la fuente «circuito interno pendiente de validación», y no nombra ningún registro ni sistema.</li><li>La cobertura de la auditoría marca el 202.2 como NO-REPRESENTADO: «E-F3 no tiene destinatario ni nombra el programa».</li></ul><p><strong>Exigencia normativa.</strong></p><ul><li>Reglamento, art. 202.2 (PDF p. 115): «Reiniciado el plazo de ejecución del contrato, la entidad contratante comunica al contratista la modificación de las fechas del programa de ejecución actualizado y de los calendarios correspondientes, respetando los términos en los que se acordó la suspensión».</li><li>Art. 105.1 (PDF p. 58): todos los actos de la ejecución contractual se realizan por la Pladicop y se entienden notificados el mismo día que se registran.</li><li>Art. 206.1-206.2: la actualización del programa la presenta el contratista al supervisor y este la remite a la entidad. El 206.1 no menciona expresamente la suspensión entre sus supuestos, así que no se propone ese circuito.</li></ul><p><strong>Convención de procesos hermanos.</strong> En S4.3.2.4, E-T10 «Publicar la resolución en la Pladicop y actualizar plazo y cronograma» (almacén: Pladicop) y E-F1 con un mensaje al Contratista.</p><p><strong>Hueco de evidencia.</strong> El registro en INFOBRAS de la suspensión y de la reanudación depende de la Directiva 005-2023-CG, que no está en la biblioteca (ya señalado en S4.3.2.6, cajas 35 y 20). Por eso no se propone aquí.</p>",
+            "formato": "html",
+            "clase": "ERROR-MODELO",
+            "fuentes": [
+              "CON-001 Reglamento art. 202.2 (PDF p. 115)",
+              "CON-001 Reglamento art. 105.1 (PDF p. 58)",
+              "CON-001 Reglamento art. 206 (PDF p. 116)",
+              "S4.3.2.4 E-T10 y E-F1",
+              "Auditoría S4.3.2.5, cobertura 202.2"
+            ],
+            "hipotesis": [
+              "La comunicación la hace la supervisión: el 202.2 la atribuye a la entidad. Descartada.",
+              "Se usa el procedimiento del art. 206 (el contratista presenta el programa actualizado): no está previsto expresamente para la suspensión. Se deja como duda posible, sin proponerlo.",
+              "Agregar una tarea de registro en INFOBRAS: descartada por ahora, porque falta la directiva (EVIDENCIA-INSUFICIENTE)."
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:25:55.700432+00:00",
+            "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+          },
+          "propuesta": {
+            "seleccion": "UNICA",
+            "opciones": [
+              {
+                "id": "A",
+                "titulo": "Nombrar el destinatario, el documento y la Pladicop en las cajas 16, 17 y 26",
+                "detalle": "<ul><li>E-T6: «Notificar la suspensión por la Pladicop y actualizar registros» (almacén: Pladicop), con un mensaje de E-F1 al pool Contratista.</li><li>En la reanudación: antes de E-F3, una tarea de usuario «Comunicar al contratista el programa de ejecución y los calendarios actualizados por la Pladicop» (202.2), y un mensaje de E-F3 al Contratista.</li><li>E-F2 también con un mensaje al Contratista.</li></ul>",
+                "formato": "html",
+                "efecto": "CAMBIO-MODELO",
+                "elementos": [
+                  "E-T6",
+                  "E-F1",
+                  "E-F2",
+                  "E-F3"
+                ],
+                "fuentes": [
+                  "CON-001 Reglamento arts. 105.1 y 202.2",
+                  "S4.3.2.4 E-T10"
+                ],
+                "recomendada": true
+              },
+              {
+                "id": "B",
+                "titulo": "Solo el 202.2 en la reanudación; el resto, en el sustento",
+                "detalle": "<p>Se agrega solo la tarea de comunicar el programa actualizado y su mensaje al Contratista. La Pladicop y los destinatarios de E-F1 y E-F2 se explican en el sustento.</p>",
+                "formato": "html",
+                "efecto": "CAMBIO-MODELO",
+                "elementos": [
+                  "E-F3"
+                ],
+                "fuentes": [
+                  "CON-001 Reglamento art. 202.2"
+                ],
+                "recomendada": false
+              }
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:26:04.407159+00:00"
+          },
+          "reemplazada": {
+            "fecha": "2026-11-26T13:34:29.700260+00:00",
+            "autor": "Claudia",
+            "motivo": "La revisión cruzada encontró la Decimotercera Disposición Complementaria Transitoria del Reglamento: mientras no se implemente la Pladicop, la notificación va al domicilio o correo previsto en el contrato. Se mantiene el hallazgo de fondo y se corrige el canal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "fb694913-24be-4939-8280-a4fe71a41036",
+      "elemento": "_a30050f9-958b-522f-aaed-bbac06a70162",
+      "referencia": "Caja 1 (R-E1)",
+      "texto": "<p><strong>Duda.</strong> Dos procesos empiezan con el mismo hecho:</p><ul><li>S4.3.2.5, caja 1: «Causa que impide continuar identificada» (residente);</li><li>S4.3.2.6, caja 1: «Hecho que impide continuar la ejecución identificado» (residente).</li></ul><p>Desde el 2026-11-25 (DEC-063), S4.3.2.6 deriva aquí la paralización no atribuible al contratista (caja 30), y esa entrada salta la clasificación de las cajas 7 a 10. Para el residente y para quien recibe el expediente no queda claro cuándo se usa la ruta de las cajas 1 a 10 y cuándo la de S4.3.2.6.</p><p><strong>Pregunta:</strong> ¿la entrada de la caja 1 sigue siendo necesaria? Si lo es, ¿qué la diferencia de S4.3.2.6? Por ejemplo, que el contratista pida expresamente la suspensión sin que haya paralización.</p><p><strong>Efecto posible:</strong> cambia el diagrama (se renombra o se retira la entrada de las cajas 1 a 6), o basta con explicarlo en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:13.837811+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:13.837811+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:28.788551+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:40.024830+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong></p><ul><li>S4.3.2.5: R-E1 → R-T1 «Registrar y sustentar la causa en el Cuaderno de Incidencias» → R-F1 → S-E1 → S-T1 «Evaluar el impedimento y emitir opinión» → S-F1 → E-E1 (OACGD) → E-T1 → E-T2 → E-G1.</li><li>S4.3.2.6: R-E1 → R-T1 «Anotar el inicio de la causal» → S-T1 «Verificar la paralización … y emitir informe» → E-E1 (OACGD) → E-T2 → E-G2 … → E-T4 (¿atribuible?) → E-F1, que deriva a S4.3.2.5 (E-E3 → E-T3).</li></ul><p>Los dos recorridos de entrada son casi iguales: residente → supervisión → OACGD → coordinador. La auditoría ya calificó S-T1 de S4.3.2.5 como inferencia («ninguna norma la exige para acordar la suspensión»).</p><p><strong>Exigencia normativa.</strong> El art. 107.1 no fija quién propone la suspensión: «las partes pueden acordar». Ninguna norma exige que la iniciativa venga del residente.</p><p><strong>Inferencia.</strong> Desde DEC-063, la ruta de las cajas 1 a 10 serviría para eventos que interrumpen la ejecución y no se tramitan como paralización, pero el modelo no lo dice. Si todo hecho que impide continuar entra por S4.3.2.6, la ruta de las cajas 1 a 10 sobra. Si no, hace falta un criterio que separe los dos casos.</p><p>Las entradas E-E2 (202.5) y E-E3 (desde S4.3.2.6) tienen un disparador propio y no se discuten aquí.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "S4.3.2.5 cajas R-E1 a E-G1",
+            "S4.3.2.6 cajas R-E1 a E-F1 (leídas 2026-11-26)",
+            "CON-001 Reglamento art. 107.1",
+            "DEC-063",
+            "Auditoría S4.3.2.5 (inferencia sobre S-T1)"
+          ],
+          "hipotesis": [
+            "La caja 1 cubre la iniciativa del contratista de pedir la suspensión: es plausible, pero hoy el nombre no lo dice y no hay fuente institucional.",
+            "La caja 1 cubre la administración directa: descartada; el sustento declara EVIDENCIA-INSUFICIENTE para la AD y el pool se titula Contratista.",
+            "La iniciativa puede venir también de la entidad (art. 107.1, «las partes»): el modelo no tiene un inicio de la entidad para eventos no derivados de S4.3.2.6. Se menciona en la opción B."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:28.788551+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Mantener la caja 1 como solicitud de suspensión del contratista y explicar la diferencia",
+              "detalle": "<p>R-E1 se renombra a algo como «Solicitud de suspensión del contratista» (si el usuario confirma que es la práctica). El sustento explica que la paralización de obra entra por S4.3.2.6 y llega por la caja 30, y que la caja 1 cubre la propuesta directa del contratista sin paralización tramitada.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-E1",
+                "R-T1",
+                "E-T2",
+                "E-G1"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 107.1",
+                "DEC-063"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Retirar la ruta de las cajas 1 a 6 y dejar a S4.3.2.6 como única entrada del hecho",
+              "detalle": "<p>Se eliminan R-E1 a S-F1 y la entrada E-E1 a E-T2. Las suspensiones entran por E-E3 (desde S4.3.2.6), por E-E2 (202.5) o por un inicio de la entidad, si se confirma. E-G1 se reubica después de E-E3 si sigue haciendo falta clasificar.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-E1",
+                "R-T1",
+                "R-F1",
+                "S-E1",
+                "S-T1",
+                "S-F1",
+                "E-E1",
+                "E-T1",
+                "E-T2",
+                "E-G1"
+              ],
+              "fuentes": [
+                "DEC-063"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "No cambiar el diagrama; explicar en el sustento cuándo se usa cada entrada",
+              "detalle": "<p>Solo se registra en el sustento el criterio que separa la caja 1 de la ruta de S4.3.2.6.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "R-E1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:40.024830+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:40.024830+00:00"
+    },
+    {
+      "id": "9fe704ba-edd4-4645-9d80-29ffe61224a8",
+      "elemento": "",
+      "referencia": "",
+      "texto": "<p><strong>Figura no representada.</strong> El Reglamento, art. 202.3, regula una suspensión que <strong>no es acordada</strong>: la causa la falta de pago de dos valorizaciones consecutivas.</p><ol><li>El contratista requiere a la entidad el pago de al menos una valorización, en un plazo no mayor de 10 días.</li><li>Si vence ese plazo, el residente anota la suspensión en el Cuaderno de Incidencias.</li><li>La suspensión empieza al día siguiente de la anotación.</li><li>La entidad reconoce los costos directos y mayores gastos generales que estén vinculados y acreditados.</li></ol><p>La auditoría y el sustento lo dejan pendiente desde el 2026-11-24 («evaluar con el equipo si se modela aquí o en el proceso de valorizaciones»). No hay una observación que lleve esa decisión, y S4.3.2.1 (control periódico y valorizaciones) tampoco cubre el supuesto.</p><p><strong>Pregunta:</strong> ¿dónde se modela esta suspensión: aquí, en S4.3.2.1 o en ambos, con un mensaje entre ellos?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una entrada nueva y su reanudación), o basta con registrar la decisión en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:49.729968+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:49.729968+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:06.664533+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:17.309730+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Reglamento, art. 202.3 (PDF p. 115): «La falta de pago de dos valorizaciones consecutivas ocasiona la suspensión del plazo de ejecución contractual, para lo cual el contratista requiere a la entidad contratante el pago de por lo menos una valorización pendiente en un plazo no mayor de diez días. Vencido el plazo otorgado por el contratista, el residente anota en el cuaderno de incidencias la suspensión, que inicia desde el día siguiente de realizada la anotación. En este caso, la entidad contratante reconoce al contratista los costos directos y/o mayores gastos generales vinculados y acreditados».</p><p><strong>Evidencia observada.</strong></p><ul><li>La cobertura de la auditoría marca dos obligaciones del 202.3 como NO-REPRESENTADO: «Solo se modela la suspensión acordada» y «No hay ruta de suspensión por anotación».</li><li>En la sección de 2026-11-24, el sustento deja la decisión al equipo.</li><li>Las notas de S4.3.2.1 tratan la valorización hasta el trámite de pago, sin el requerimiento del contratista ni la suspensión (búsqueda «falta de pago» en procesos: solo aparece en este sustento).</li></ul><p><strong>Diferencias con el modelo actual.</strong> No hay acuerdo ni compuerta de acuerdo: el efecto es automático tras la anotación. Además, la regla de costos es la contraria a la del 107.1, porque aquí sí se reconocen. Por eso no puede reutilizar E-T3 ni E-G2.</p><p><strong>Hueco de evidencia.</strong> No hay fuente sobre cómo termina esta suspensión (¿con el pago?). El 202.3 no lo dice. Sería EVIDENCIA-INSUFICIENTE o habría que aplicar el 107.2 por remisión, lo que es una inferencia.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-001 Reglamento art. 202.3 (PDF p. 115)",
+            "CON-001 Reglamento art. 107.1-107.2",
+            "Auditoría S4.3.2.5, cobertura 202.3",
+            "S4-3-2-5-sustento.md, secciones 2026-11-24 y 2026-11-25",
+            "Notas de S4.3.2.1 (búsqueda «pago»)"
+          ],
+          "hipotesis": [
+            "Se modela en S4.3.2.1, porque nace del pago: es coherente con el origen, pero el efecto (suspender el plazo) es materia de S4.3.2.5.",
+            "Se modela aquí como otro inicio condicional del residente: es coherente con el nombre del proceso, aunque falte la relación con el trámite de pago.",
+            "Fuera de alcance: no hay ninguna decisión registrada que lo excluya, y el padre S4.3.2 define a S4.3.2.5 como el proceso de suspensiones de plazo."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:06.664533+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Modelarla aquí, con un mensaje desde S4.3.2.1",
+              "detalle": "<p>En el pool Contratista:</p><ul><li>inicio condicional «Dos valorizaciones consecutivas impagas»;</li><li>tarea «Requerir el pago a la entidad», con un mensaje a la entidad;</li><li>temporizador «Venció el plazo otorgado (máx. 10 días)»;</li><li>tarea «Anotar la suspensión en el Cuaderno de Incidencias», con un mensaje a la supervisión y a la entidad.</li></ul><p>En la entidad: registrar la suspensión y los costos que se reconocen. El cese de la suspensión queda como EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [],
+              "fuentes": [
+                "CON-001 Reglamento art. 202.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Modelarla en S4.3.2.1 (valorizaciones)",
+              "detalle": "<p>Se registra en el sustento de S4.3.2.5 que el 202.3 se representa en S4.3.2.1, junto al trámite de pago, y se abre ahí el cambio.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [
+                "CON-001 Reglamento art. 202.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Declararla fuera de alcance con una decisión registrada",
+              "detalle": "<p>Se registra una decisión de alcance y se explica en el sustento, por ejemplo si la entidad considera que no ocurre en la práctica. Requiere una decisión del equipo.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:17.309730+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:17.309730+00:00"
+    },
+    {
+      "id": "fa7ecd19-473f-4a2b-a1a3-ca5a8b377dfb",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "<p><strong>Otra causal de suspensión que no aparece.</strong> El Reglamento, art. 171.4, permite que las partes acuerden suspender el plazo de la obra cuando la revisión temprana del expediente técnico encuentra <strong>omisiones o errores que afectan el programa de ejecución</strong>. La suspensión dura hasta que la entidad haga las adecuaciones.</p><p>Esa revisión la hace el contratista dentro de los 12 días siguientes a la firma del contrato (171.1). Le sigue el informe del supervisor en 5 días (171.2) y el pronunciamiento de la entidad en 10 días (171.3).</p><p>El modelo, el sustento y la auditoría solo consideran los arts. 107 y 202. En las notas de procesos no se encontró ningún proceso que modele el art. 171.</p><p><strong>Pregunta:</strong> ¿esta suspensión entra por S4.3.2.5? Si la revisión del expediente es parte del inicio de ejecución (S4.3.1), ¿hace falta un mensaje desde allí?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una entrada más hacia la caja 11), o basta con explicarlo en el sustento hasta que se modele el art. 171.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:26.720068+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:26.720068+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:40.271503+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:49.835442+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Cómo se encontró.</strong> Se buscó «acordar la suspensión del plazo» en todo el Reglamento (CON-001), además de recorrer por índice los arts. 100-110 y 185-215. Aparecen los arts. 107.1-107.5, 171.4, 202.1-202.5 y el 202.3.</p><p><strong>Exigencia normativa.</strong></p><ul><li>Art. 171.4 (PDF p. 92): «En caso a partir del referido procedimiento se detecte omisiones o errores en el expediente técnico que impacten en el Programa de Ejecución, las partes pueden acordar la suspensión del plazo de ejecución de la obra hasta que la entidad contratante efectúe las adecuaciones correspondientes».</li><li>Arts. 171.1-171.3 (PDF pp. 91-92): informe del contratista dentro de los 12 días siguientes a la firma del contrato, informe del supervisor en 5 días y pronunciamiento de la entidad en 10 días, «a través del órgano … encargado de la elaboración, aprobación o conformidad de los expedientes técnicos».</li><li>El artículo se aplica solo al sistema de entrega de solo construcción.</li></ul><p><strong>Evidencia observada.</strong> La búsqueda en notas de procesos de «revisión del expediente técnico», «informe técnico de revisión» y «171.4» no dio resultados. En S4.3.1 tampoco aparece «deficiencias».</p><p><strong>Inferencia.</strong> La suspensión del 171.4 es acordada, así que podría reutilizar E-T3 → E-M1 → E-G2 → E-T4 → E-T5, con un inicio propio. Su cese depende de que la entidad termine las adecuaciones, no de un evento externo.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento art. 171 (PDF pp. 91-92)",
+            "CON-001 índice arts. 100-110 y 185-215",
+            "buscar_fuentes «acordar la suspensión del plazo» en CON-001",
+            "buscar_notas en procesos: «revision del expediente tecnico», «171.4», S4.3.1 «deficiencias»"
+          ],
+          "hipotesis": [
+            "El 171.4 lo cubre la entrada general R-E1 («causa que impide continuar»): no del todo. El disparador es el pronunciamiento de la entidad sobre el informe de revisión, no un hecho de obra que anote el residente.",
+            "Corresponde a S4.3.1 (inicio de ejecución): la revisión puede ocurrir antes del inicio del plazo, pero la suspensión afecta al plazo de ejecución. Queda abierto.",
+            "Revisión adversarial: se buscó si el D.S. 001-2026-EF modificó el 171; el texto local no muestra una nota de modificación en el 171.4."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:40.271503+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Explicarlo en el sustento y dejar la interfaz pendiente hasta modelar el art. 171",
+              "detalle": "<p>Se registra el 171.4 como obligación no representada. Cuando se modele la revisión del expediente técnico (S4.3.1 u otro), esa revisión enviará un mensaje a S4.3.2.5 hacia E-T3. Hoy no se cambia el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T3"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 171.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar ya un inicio condicional del 171.4 hacia E-T3",
+              "detalle": "<p>Nuevo inicio condicional «Omisiones o errores del expediente técnico que afectan el programa de ejecución», en el carril del coordinador de obra, con una anotación («hasta que la entidad efectúe las adecuaciones»). Lleva a E-T3, como E-E2.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T3"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento art. 171.4"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:49.835442+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:49.835442+00:00"
+    },
+    {
+      "id": "d59eb6ec-d1d5-459a-a955-7f22ae897401",
+      "elemento": "_6836a8ce-a806-54b3-a680-1d8554e23e9f",
+      "referencia": "Caja 11 (E-T3)",
+      "texto": "<p><strong>Contenido del acuerdo.</strong> La caja 11, «Coordinar las condiciones de suspensión con el contratista», no dice qué debe contener el acuerdo. El Reglamento fija dos reglas:</p><ul><li><strong>arts. 107.1 y 202.1:</strong> la suspensión <strong>no da derecho a mayores gastos generales ni costos directos</strong>, salvo los necesarios para viabilizar la suspensión, como la seguridad de la obra y la integridad de las personas;</li><li><strong>art. 107.4:</strong> durante la suspensión no se ejecutan actividades del contrato, pero sí se pueden seguir tramitando adicionales, valorizaciones pendientes y otras modificaciones.</li></ul><p>La auditoría marca la regla de costos como no representada.</p><p><strong>Pregunta:</strong> ¿se anota en la caja 11, o en el documento que sale de ella, el contenido mínimo del acuerdo: fecha de inicio, causa, costos necesarios que se reconocen, medidas de seguridad y trámites que siguen?</p><p><strong>Efecto posible:</strong> cambia el diagrama solo en la anotación y el documento de la caja 11; no cambia el flujo.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:58.379348+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:58.379348+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:11.591969+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:19.702158+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> E-T3 no tiene documentos ni anotación, aunque envía el mensaje «Propuesta de suspensión» a C-E1. La cobertura de la auditoría marca el 107.1 («sin mayores gastos, salvo los necesarios para viabilizar la suspensión») como NO-REPRESENTADO: «E-T3 coordina las condiciones pero no nombra los costos». El sustento lo deja como «propuesta no aplicada: anotar en E-T3 la regla de costos».</p><p><strong>Exigencia normativa.</strong></p><ul><li>Art. 107.1 (PDF p. 59): «… sin que ello suponga el reconocimiento de mayores gastos generales y/o costos directos; salvo aquellos que resulten necesarios para viabilizar la suspensión».</li><li>Art. 202.1 (PDF pp. 114-115): «… lo que incluye la seguridad de la obra y la integridad de las personas, de acuerdo con los términos en los que se acuerda la suspensión».</li><li>Art. 107.4 (PDF p. 59): durante la suspensión no se realizan actividades del alcance del contrato, pero pueden realizarse trámites de gestión del contrato, como adicionales, valorizaciones pendientes u otras modificaciones.</li></ul><p><strong>Inferencia.</strong> El documento que sale de E-T3 (la propuesta) y el acuerdo de E-T4 son los que deben fijar estos términos. Representarlo como anotación es suficiente con la paleta del proyecto, sin símbolos nuevos.</p><p><strong>Excepción.</strong> En la suspensión del 202.3 la regla es la contraria: sí se reconocen los costos acreditados. Se trata en otra observación.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento arts. 107.1, 107.4 (PDF p. 59)",
+            "CON-001 Reglamento art. 202.1 (PDF pp. 114-115)",
+            "Auditoría S4.3.2.5, cobertura 107.1",
+            "S4-3-2-5-sustento.md, Propuestas no aplicadas"
+          ],
+          "hipotesis": [
+            "Basta con el sustento: es posible, pero quien lea el diagrama no vería la regla, que es la decisión económica central del acuerdo.",
+            "Agregar una tarea de valorización de costos de viabilización: descartada por ahora, porque no hay fuente sobre quién la hace ni en qué documento; sería inventar una actividad.",
+            "Revisión adversarial: no hay una norma especial de obras que permita mayores gastos en la suspensión acordada, fuera del 202.3."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:11.591969+00:00",
+          "revision_modelo": "3298811fbcdbec98beb4a62011ebbaf265127f660e403f2485eebd9184dae8a9"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotación y documento de salida en E-T3",
+              "detalle": "<p>E-T3 lleva el documento «sale: Propuesta de suspensión» y la anotación: «Sin mayores gastos generales ni costos directos, salvo los necesarios para viabilizar la suspensión (seguridad de la obra e integridad de las personas). Siguen los trámites de gestión del contrato (107.4)». Fuente: arts. 107.1, 107.4 y 202.1.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T3",
+                "E-T4"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento arts. 107.1, 107.4, 202.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo en el sustento y en la ficha",
+              "detalle": "<p>Se registra el contenido mínimo del acuerdo en el sustento y en la ficha de producto, sin cambiar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T3"
+              ],
+              "fuentes": [
+                "CON-001 Reglamento arts. 107.1, 202.1"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:19.702158+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:19.702158+00:00"
     }
   ]
 }

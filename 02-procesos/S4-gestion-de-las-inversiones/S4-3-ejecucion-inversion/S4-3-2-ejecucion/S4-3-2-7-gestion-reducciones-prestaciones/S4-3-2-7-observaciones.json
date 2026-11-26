@@ -1,0 +1,947 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-7-gestion-reducciones-prestaciones/S4-3-2-7-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "548a7c95-c0a9-4156-b3fd-84167148f306",
+      "elemento": "_c71b69bf-5a89-5e12-9e98-f0178f0ae97b",
+      "referencia": "Caja 2 (T1)",
+      "texto": "<p><strong>Observación.</strong> Nueve cajas del pool de la entidad (E0, E1, T1, G1, G3, T2, M1 y F0) están en el carril «Área usuaria competente (por confirmar)». El proceso hermano S4.3.2.3, del que proviene el caso (E-FRED), ubica la misma función de gestión en «SGGOS — Coordinador de obra», convención fijada por DEC-041 para S4.3.2.</p><ul><li>El Reglamento de la Ley 32069 (art. 109.1) atribuye el sustento de la reducción al <em>área usuaria</em>, que es un rol normativo y no una unidad orgánica.</li><li>El ROF del GRH (art. 97) asigna a la SGGOS el control y seguimiento de la ejecución de obras y el control de la supervisión o inspección.</li><li>El mensaje sale de «SGGOS — Coordinador de obra» en S4.3.2.3 y llega a un carril sin unidad identificada en S4.3.2.7.</li></ul><p><strong>Pregunta:</strong> ¿Quién actúa como área usuaria de una obra por contrata en el GRH para sustentar la reducción: la SGGOS a través del coordinador de obra o alguna otra unidad?</p><p><strong>Efecto posible:</strong> cambia el diagrama, porque se renombra el carril y se alinea con los hermanos. Si no hay evidencia institucional, se explica en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:31.771916+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:31.771916+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:49.233290+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:58.264924+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Corrección del texto de la observación:</strong> en el carril hay <em>ocho</em> cajas (E0, E1, T1, G1, G3, T2, M1 y F0), no nueve.</p><h4>Evidencia observada</h4><ul><li>En S4.3.2.7 el carril se llama «Área usuaria competente (por confirmar)». El sustento clasifica la adscripción del área usuaria como EVIDENCIA-INSUFICIENTE (auditoría vigente: 2 afirmaciones en ese estado).</li><li>En S4.3.2.3 hay 27 cajas en «SGGOS — Coordinador de obra», entre ellas E-T2, E-T3, E-TDP, E-GDP y E-FRED. La fuente que citan es el ROF, arts. 97-98, junto con DEC-041.</li><li>DEC-041 (2026-11-05) dispone llamar «SGGOS — Coordinador de obra» al rol de gestión y «Titular de la competencia o autoridad delegada» a quien adopta la decisión formal.</li></ul><h4>Exigencia normativa</h4><ul><li>Reglamento de la Ley 32069 (texto local al 09-01-2026), art. 109.1, PDF p. 60: «siempre que el área usuaria sustente lo siguiente».</li><li>ROF GRH 2023 (LOC-007), art. 97, PDF p. 47: la SGGOS es la «unidad orgánica de línea responsable del control y seguimiento de la ejecución de las obras», y le corresponde «efectuar control a la supervisión o inspección de las obras». La vigencia del ROF depende de su acto aprobatorio, que está pendiente.</li></ul><h4>Inferencia</h4><p>El ROF no emplea la expresión «área usuaria». Que la SGGOS cumpla ese rol en la reducción se deduce de sus funciones, pero ninguna fuente lo dice expresamente. Aun así, es la misma inferencia ya adoptada en S4.3.2.3 para la clasificación del caso. Mantener un carril genérico rompe la convención de los procesos hermanos y deja el mensaje de E-FRED sin destinatario institucional.</p><h4>Revisión adversarial</h4><p>Busqué alguna fuente que asigne el rol de área usuaria de las obras a otra unidad, como la Gerencia Regional de Infraestructura o la SGE. En la biblioteca no la hay. Tampoco está disponible un MOF, una directiva interna de modificaciones contractuales ni una resolución de delegación del GRH. Si la entidad tuviera una directiva interna, esta podría contradecir la propuesta.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "Reglamento Ley 32069, art. 109.1, PDF p. 60 (0ebe95b3e05661b8-ec988166:art-109.1)",
+            "ROF GRH 2023 LOC-007, art. 97, PDF p. 47 (71778d14cc60b83b-af2c6749:art-97)",
+            "DEC-041",
+            "S4.3.2.3 tabla: E-T2, E-T3, E-TDP, E-GDP, E-FRED",
+            "S4-3-2-7-sustento.md, piloto de auditoría"
+          ],
+          "hipotesis": [
+            "La SGGOS (coordinador de obra) actúa como área usuaria. Es la hipótesis retenida, por el ROF art. 97 y por la convención de S4.3.2.3 y DEC-041.",
+            "La Gerencia Regional de Infraestructura actúa como área usuaria. Queda abierta: el ROF art. 97 menciona que la SGGOS depende de ella, pero no se encontró una función que le asigne el sustento de las modificaciones.",
+            "La SGE (Coordinación de revisión técnica) sustenta. Se descarta como carril principal porque en S4.3.2.3 solo interviene para el juicio técnico especializado, no para la gestión.",
+            "Mantener el carril genérico hasta contar con una directiva interna. Es posible, pero contradice DEC-041 y deja sin destinatario el mensaje entre procesos."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:49.233290+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Renombrar el carril «SGGOS — Coordinador de obra»",
+              "detalle": "<p>Llevar E0, E1, T1, G1, G3, T2, M1 y F0 al carril «SGGOS — Coordinador de obra», conforme a DEC-041. En el sustento se registra como <em>inferencia</em> que la SGGOS ejerce el rol de área usuaria del art. 109.1, con base en el ROF art. 97. La adscripción definitiva queda pendiente de confirmación por el equipo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E0",
+                "E1",
+                "T1",
+                "G1",
+                "G3",
+                "T2",
+                "M1",
+                "F0"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1",
+                "ROF art. 97",
+                "DEC-041"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el carril genérico y explicarlo",
+              "detalle": "<p>Conservar «Área usuaria competente (por confirmar)» y explicar en el sustento por qué este proceso se aparta de DEC-041, dejando la pregunta abierta para el equipo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T1"
+              ],
+              "fuentes": [
+                "DEC-041"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar la directiva interna",
+              "detalle": "<p>No cambiar nada hasta incorporar a la biblioteca una directiva o un manual del GRH que identifique al área usuaria de las obras por contrata.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "T1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:58.264924+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:58.264924+00:00"
+    },
+    {
+      "id": "cb3124ce-4b27-431c-966b-5601294c52b5",
+      "elemento": "_7957377a-6a9e-5fd9-996c-f069704b9abc",
+      "referencia": "Caja 7 (T4)",
+      "texto": "<p><strong>Observación.</strong> T4, G2 y F2 se ubican en el carril «Autoridad de gestión administrativa». En S4.3.2.3 la decisión formal equivalente (E-T10, E-F2C) está en «Titular de la competencia o autoridad delegada», denominación que DEC-041 adoptó para todos los hermanos.</p><ul><li>La Ley 32069, art. 25.2, permite delegar mediante resolución las facultades de la autoridad de la gestión administrativa, salvo excepciones. No se encontró que la reducción sea indelegable; el art. 55.2 y el art. 302.1 sí declaran indelegables otras facultades.</li><li>La biblioteca no contiene la resolución de delegación de facultades del GRH. Por eso no se puede saber qué cargo resuelve en la práctica.</li></ul><p><strong>Pregunta:</strong> ¿Debe uniformarse el carril con el de S4.3.2.3 y declararse la delegación como pendiente de evidencia?</p><p><strong>Efecto posible:</strong> cambia el diagrama (nombre del carril). La identificación del cargo queda pendiente hasta incorporar la resolución de delegación.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:07.373761+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:07.373761+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:25.525622+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:40.660440+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Exigencia normativa</h4><ul><li>Reglamento, art. 109.1 (PDF p. 60): «La autoridad de la gestión administrativa, mediante resolución, puede ordenar la reducción».</li><li>Ley 32069, art. 63.1 (PDF p. 30): la modificación la aprueba la autoridad de la gestión administrativa.</li><li>Ley 32069, art. 25.2 (PDF p. 16): el titular y la autoridad de la gestión administrativa «pueden delegar, mediante resolución, las facultades que la presente ley les otorga, salvo las excepciones previstas en el reglamento».</li><li>Reglamento, art. 105.4 (PDF p. 58): quien está facultado para suscribir el contrato autoriza sus modificaciones, «salvo que se encuentren reservados a la autoridad de la gestión administrativa». El art. 109.1 hace esa reserva.</li></ul><h4>Evidencia observada</h4><p>DEC-041 adopta «Titular de la competencia o autoridad delegada» para la decisión formal. S4.3.2.3 aplica esa denominación en E-T10 y E-F2C. S4.3.2.7 es el único hermano revisado que usa otro nombre.</p><h4>Inferencia</h4><p>La etiqueta de DEC-041 es genérica: designa a quien es titular de la competencia, no al titular de la entidad. Aplicada aquí, significa «autoridad de la gestión administrativa o el funcionario en quien la haya delegado». El art. 109 no prohíbe la delegación. No encontré una excepción del Reglamento que la impida, aunque solo revisé los arts. 55.2 y 302.1 y la búsqueda por palabras; no recorrí el Reglamento completo.</p><h4>Revisión adversarial</h4><p>Lo que contradiría la propuesta sería un artículo del Reglamento que declare indelegable la reducción. La búsqueda por «indelegable» devolvió solo otras figuras. Hay que cuidar que la etiqueta no se lea como «titular de la entidad»: eso sí sería un error, porque en las reducciones el art. 109.1 no asigna ningún papel al titular. Conviene anotarlo en la caja.</p><h4>Documentos no disponibles</h4><p>Resolución de delegación de facultades del GRH en materia de contrataciones, y la norma que identifica a la autoridad de la gestión administrativa en el pliego.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "Reglamento art. 109.1, PDF p. 60",
+            "Ley 32069 art. 63.1, PDF p. 30",
+            "Ley 32069 art. 25.2, PDF p. 16 (f14ffa37b824b8af-c9c22559:art-25.2)",
+            "Reglamento art. 105.4, PDF p. 58",
+            "Reglamento art. 302.1 y Ley art. 55.2 (facultades indelegables, otras figuras)",
+            "DEC-041",
+            "S4.3.2.3: E-T10, E-F2C"
+          ],
+          "hipotesis": [
+            "Decide el titular de la entidad. Se descarta: el art. 109.1 reserva la decisión a la autoridad de la gestión administrativa.",
+            "Decide quien suscribe el contrato (art. 105.4). Se descarta: el 105.4 cede ante la reserva del 109.1.",
+            "La reducción es indelegable. No se encontró ninguna fuente que lo diga; los arts. 55.2 y 302.1 son indelegables para otras figuras.",
+            "Usar la etiqueta de DEC-041 con una anotación. Es la hipótesis retenida."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:25.525622+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Uniformar el carril con DEC-041 y anotar la competencia",
+              "detalle": "<p>Renombrar el carril de T4, G2 y F2 a «Titular de la competencia o autoridad delegada» y anotar en T4: «Autoridad de la gestión administrativa o delegado (art. 109.1; Ley art. 25.2)». En el sustento se registra lo siguiente:</p><ul><li>En el Reglamento local, la palabra «indelegable» aparece solo en los arts. 212.9, 238.2, 302.1 y 333.3, no en el 109.</li><li>La resolución de delegación del GRH queda como documento pendiente.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T4",
+                "G2",
+                "F2"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1",
+                "Ley art. 25.2",
+                "DEC-041"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el nombre actual y justificar la diferencia",
+              "detalle": "<p>Conservar «Autoridad de gestión administrativa» porque es literal del art. 109.1, y explicar en el sustento por qué se aparta de la convención de los procesos hermanos.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T4"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar la resolución de delegación",
+              "detalle": "<p>Incorporar a la biblioteca la resolución de delegación del GRH y nombrar el cargo concreto cuando se disponga de ella.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "T4"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:40.660440+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:40.660440+00:00"
+    },
+    {
+      "id": "e3361511-034d-4ef6-8d58-151e39a1c48d",
+      "elemento": "_93f3ad95-4c87-5f04-9ea0-15f7d09ca16d",
+      "referencia": "Caja 3 (G1)",
+      "texto": "<p><strong>Observación.</strong> La rama «No o no acreditado» de G1 lleva a F0, «Caso pendiente de sustento o ruta específica», que según su anotación «no es denegación de fondo». Esa misma rama recoge dos situaciones distintas:</p><ol><li><strong>Falta acreditar algo que puede completarse</strong>, por ejemplo la cuantificación o la divisibilidad de la prestación. En ese caso el proceso no prevé volver a T1 para completar el sustento.</li><li><strong>Una condición del art. 109.1 no se cumple</strong> y no puede subsanarse, por ejemplo cuando la reducción supera el 25 % del monto del contrato original, cuando la prestación ya se ejecutó o cuando ya se suscribió el acta de recepción. En esos casos la reducción no procede, y cerrar como «pendiente» lo oculta.</li></ol><p><strong>Pregunta:</strong> ¿Conviene distinguir en el diagrama «sustento incompleto» (retorno a T1 o cierre pendiente) de «reducción improcedente» (cierre definitivo)?</p><p><strong>Efecto posible:</strong> cambia el diagrama: un evento de fin y una condición nuevos en G1, o un retorno a T1.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:50.245174+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:50.245174+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:06.432912+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:16.156151+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>G1 lleva a G3 con «Sí» y a F0 con «No o no acreditado».</li><li>F0 está anotado así: «No es denegación de fondo; otros regímenes y variante sin supervisor pendientes». No hay ningún flujo de retorno a T1.</li><li>Además, F0 reúne una tercera causa: los otros regímenes y la variante sin supervisor. Esta queda fuera del alcance del proceso y no tiene relación con el sustento.</li></ul><h4>Exigencia normativa</h4><p>Reglamento, art. 109.1 (PDF p. 60). La reducción procede «hasta por el 25 % del monto del contrato original», siempre que se cumplan estas condiciones:</p><ul><li>b) que las prestaciones «no hayan sido ejecutadas y deben ser cuantificables y divisibles»;</li><li>c) que «su aprobación se efectúe antes de la conformidad final o suscripción del acta de recepción de la obra».</li></ul><p>Las condiciones de límite y oportunidad son objetivas. Si no se cumplen, la vía del art. 109 no está disponible, cualquiera sea el sustento que se presente.</p><h4>Inferencia</h4><p>Que exista un retorno para completar el sustento es una propuesta de modelamiento: el art. 109 no regula la subsanación. Lo que sí se desprende del texto es que una reducción por encima del límite o posterior a la recepción no puede quedar «pendiente». Por otra parte, el art. 110.1 prevé la modificación por hecho sobreviniente «en caso no resulten aplicables los adicionales, reducciones y ampliaciones de plazo». Sería un destino posible del caso improcedente, pero está fuera del alcance de este proceso y no se modela.</p><h4>Revisión adversarial</h4><p>Podría sostenerse que G1 solo evalúa si el sustento está completo, y que la improcedencia corresponde a T4 y G2 (decisión no favorable). Pero la anotación de G1 dice «condiciones a)-c) y límite del 25 %»: la compuerta ya evalúa el fondo. Si se optara por que solo T4 declare la improcedencia, G1 debería reformularse como un control de completitud.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "Reglamento art. 109.1 a)-c), PDF p. 60",
+            "Reglamento art. 110.1, PDF p. 60",
+            "Tabla S4.3.2.7: G1, F0 y flujos G1->G3, G1->F0",
+            "Sustento S4.3.2.7: F0 como INFERENCIA, no denegación de fondo"
+          ],
+          "hipotesis": [
+            "G1 es un control de completitud y el fondo se decide en T4/G2. Se descarta con el texto actual, porque la anotación de G1 incluye el límite y la oportunidad; queda como opción si se reformula G1.",
+            "El caso improcedente pasa a modificación por hecho sobreviniente (art. 110). Es una figura distinta, ajena a este proceso; solo se menciona en el sustento.",
+            "El caso improcedente vuelve a S4.3.2.3 como deductivo. Requiere sustento técnico propio; se trata en la observación sobre la interfaz con S4.3.2.3."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:06.432912+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Tres salidas en G1",
+              "detalle": "<p>Convertir G1 en una compuerta exclusiva con tres salidas:</p><ul><li>«Sí», que continúa a G3;</li><li>«Sustento incompleto», que vuelve a T1;</li><li>«Condición no cumplida (límite u oportunidad)», que lleva a un nuevo evento de fin «Reducción improcedente».</li></ul><p>F0 queda solo para los casos fuera del alcance del proceso: otros regímenes y la variante sin supervisor. Se usan solo una compuerta, flujos de secuencia y un evento de fin de la paleta.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "G1",
+                "T1",
+                "F0"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Reformular G1 como control de completitud",
+              "detalle": "<p>Renombrar G1 como «¿Sustento completo?», con retorno a T1, y dejar que T4 y G2 declaren la improcedencia de fondo (límite y oportunidad) mediante F2.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "G1",
+                "T4",
+                "G2"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener el modelo y aclarar F0 en el sustento",
+              "detalle": "<p>Dejar el diagrama como está y precisar en el sustento que F0 incluye también la improcedencia definitiva.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "F0"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:16.156151+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:16.156151+00:00"
+    },
+    {
+      "id": "d454acc3-5655-402a-9558-9dda494a15e8",
+      "elemento": "_ec6985fb-5134-52af-b261-fc48c591c425",
+      "referencia": "Caja 14 (ST)",
+      "texto": "<p><strong>Duda.</strong> Ninguna caja del proceso tiene plazo. El sustento explica que no se trasladan los plazos del art. 194 (adicionales), y es correcto no inventarlos. Sin embargo, el Reglamento, art. 192.2, dispone que, «cuando el Reglamento no establezca un plazo específico para la respuesta de las partes, se aplica el plazo máximo de respuesta establecido en el contrato». Esta regla podría aplicarse a la opinión del supervisor (ST) y a la resolución (T4).</p><p><strong>Pregunta:</strong></p><ul><li>¿El art. 192.2 alcanza la opinión del supervisor, que no es parte del contrato de obra sino de su propio contrato de supervisión?</li><li>¿Rige para la resolución de la entidad?</li><li>¿Las bases o los contratos estándar del GRH fijan ese «plazo máximo de respuesta»?</li></ul><p><strong>Efecto posible:</strong> basta con anotarlo en ST y T4 («plazo según contrato, art. 192.2») y explicarlo en el sustento. La cifra concreta queda pendiente hasta incorporar el contrato o las bases.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:26.199055+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:26.199055+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:56.477005+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:05.991890+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Exigencia normativa</h4><ul><li>Reglamento, art. 192.2 (PDF p. 107), dentro del capítulo de ejecución de obras bajo solo construcción y diseño y construcción: «Cuando el Reglamento no establezca un plazo específico para la respuesta de las partes, se aplica el plazo máximo de respuesta establecido en el contrato, salvo que durante la ejecución las partes acuerden la prórroga para cada caso específico».</li><li>El art. 109 no fija plazos ni para la opinión ni para la resolución.</li></ul><h4>Evidencia documental (bases estándar 2026, CON-003A)</h4><ul><li>Bases de licitación pública de obras: numeral 3.3.13 / 3.4.3 «Plazo para respuestas entre las partes», que remite al art. 192.2, y la cláusula del contrato correspondiente, con «[CONSIGNAR LA CANTIDAD DE DÍAS…] días calendario».</li><li>Bases de concurso público para consultoría de obra: literal d «Plazo para respuestas entre las partes», con un cuadro «Plazo máximo de respuesta: [CONSIGNAR…]».</li></ul><p>En consecuencia, el plazo existe, pero su valor depende de cada contrato.</p><h4>Inferencia</h4><p>Para la opinión del supervisor, la fuente aplicable sería el <em>contrato de supervisión</em> (consultoría de obra), que también incorpora un plazo máximo de respuesta. No sería el contrato de obra, porque el supervisor no es parte de él. Para la resolución de la entidad, el plazo del contrato de obra podría aplicarse por analogía como «respuesta de las partes». Sin embargo, la reducción es un acto unilateral de la entidad, no una respuesta a un pedido del contratista. Por eso esta aplicación es dudosa y conviene consultarla.</p><h4>Revisión adversarial</h4><p>Busqué algún plazo específico para la reducción en el capítulo de obras (arts. 191-202 revisados por índice) y en el art. 109. No lo hay. Los plazos del art. 194 son exclusivos de los adicionales, como ya se anota en E-T10 de S4.3.2.3 («no aplica a reducción»).</p><h4>Documentos no disponibles</h4><p>Los contratos concretos de obra y de supervisión, o las bases efectivamente usadas por el GRH, donde consta el número de días.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "Reglamento art. 192.2, PDF p. 107 (0ebe95b3e05661b8-ec988166:art-192.2)",
+            "Bases estándar LP obras 2026, 3.3.13 / 3.4.3 y cláusula del contrato (0be52f3ff010343b-84a55005:par-806, par-1108)",
+            "Bases estándar CP consultoría de obra 2026, literal d (3440513a2445f285-5c6e7285:par-524, tabla-27)",
+            "Reglamento art. 109",
+            "S4.3.2.3 E-T10 (anotación «no aplica a reducción»)"
+          ],
+          "hipotesis": [
+            "Aplicar los plazos del art. 194 por analogía. Se descarta: son propios de los adicionales, y el sustento y S4.3.2.3 ya lo excluyen.",
+            "Aplicar a la opinión del supervisor el plazo máximo de respuesta del contrato de supervisión (art. 192.2 y bases de consultoría de obra). Es la hipótesis retenida, como inferencia.",
+            "Aplicar a la resolución de la entidad el plazo de respuesta del contrato de obra. Es dudosa, porque la reducción es un acto unilateral; se deja como pregunta.",
+            "Sin plazo. Sería válido solo si se descarta el art. 192.2; debería explicarse en el sustento."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:56.477005+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar en ST el plazo contractual y consultar sobre T4",
+              "detalle": "<p>Completar la columna Plazo de ST con «Plazo máximo de respuesta del contrato de supervisión (art. 192.2)» y explicar en el sustento las bases estándar consultadas. Para T4, registrar en el sustento la duda sobre si el art. 192.2 alcanza un acto unilateral y dejar el plazo vacío hasta que el equipo decida.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "ST",
+                "T4"
+              ],
+              "fuentes": [
+                "Reglamento art. 192.2",
+                "Bases estándar CP consultoría de obra 2026, literal d"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo explicarlo en el sustento",
+              "detalle": "<p>No tocar la tabla. Registrar en el sustento que el art. 192.2 remite al contrato y que el número de días depende de cada caso.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "ST"
+              ],
+              "fuentes": [
+                "Reglamento art. 192.2"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar los contratos tipo del GRH",
+              "detalle": "<p>Incorporar a la biblioteca los contratos de obra y de supervisión del GRH, o sus bases, antes de anotar cualquier plazo.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "ST",
+                "T4"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:05.991890+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:05.991890+00:00"
+    },
+    {
+      "id": "3d7b3a9f-52d2-4114-b9fd-c2cf789bb071",
+      "elemento": "_baf1cf66-0b0f-524f-b5aa-1fc12ec4d1d3",
+      "referencia": "Caja 9 (T5)",
+      "texto": "<p><strong>Observación.</strong> Tras la resolución, el modelo termina en T5 («Publicar resolución en Pladicop y actualizar registros») y en F1 («Reducción publicada»). F1 es un evento de fin de mensaje, pero no tiene destinatario. La ficha, en cambio, señala como receptores del producto al «Ejecutor, supervisión y unidades competentes». Hay al menos tres efectos posteriores con fuente que el diagrama no muestra:</p><ol><li><strong>Contratista.</strong> La publicación en la Pladicop le notifica el acto: según el Reglamento, art. 105.1, los actos se entienden «válidamente notificados el mismo día que se registran». No hay pool del contratista ni mensaje hacia él.</li><li><strong>Programa de ejecución.</strong> El art. 206.1 b) obliga al contratista a presentar el programa y los calendarios actualizados «por la aprobación de modificaciones contractuales, cuando corresponda», y el art. 206.2 indica que el supervisor los evalúa. Esto es relevante sobre todo si la resolución reduce el plazo (art. 109.2).</li><li><strong>Banco de Inversiones.</strong> El ROF, art. 97, asigna a la SGGOS «registrar en el Banco de Inversiones las modificaciones que se presentan durante la etapa de ejecución física». El carril de T5 figura como «Unidad competente (por confirmar)».</li></ol><p><strong>Pregunta:</strong> ¿Deben representarse estos receptores y efectos como mensajes hacia pools externos o hacia procesos vecinos, o basta con anotarlos?</p><p><strong>Efecto posible:</strong> cambia el diagrama: pool del contratista, mensajes y carril de T5. Como mínimo, debe explicarse en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:21.124755+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:21.124755+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:41.691105+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:54.369027+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:34:45.720043+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:34:57.310637+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El hallazgo de fondo se mantiene: después de la resolución (T5) el modelo no muestra a quién llega el acto ni sus efectos posteriores. Siguen faltando el programa de ejecución actualizado que presenta el contratista si se reduce el plazo (art. 206.1 b) y la actualización del registro en el Banco de Inversiones, que corresponde a SGGOS según el ROF (art. 97).</p><p>Se corrige la parte de la notificación. El análisis anterior daba por notificado al contratista con la publicación en la Pladicop (art. 105.1). Pero la <strong>Decimotercera Disposición Complementaria Transitoria</strong> establece que, mientras no se implemente la Pladicop para la ejecución contractual, las notificaciones se hacen <em>«al domicilio o al correo electrónico previsto en el contrato y surten efectos desde su recepción»</em> (numeral 2 a). Por lo tanto, publicar la resolución no basta: hace falta notificarla al contratista por el medio del contrato, y el nombre de T5 («Publicar resolución en Pladicop…») también debería revisarse.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 105.1",
+            "CON-001 13.ª DCT num. 1 y 2 a (fragmento 0ebe95b3e05661b8-ec988166:art-389-parte12)",
+            "CON-001 art. 206.1 b",
+            "ROF GORE Huánuco art. 97"
+          ],
+          "hipotesis": [
+            "Notificación por publicación en la Pladicop (análisis anterior): descartada mientras no se implemente.",
+            "Que la Pladicop ya esté implementada para el GORE: sin evidencia; si se confirma, la publicación notificaría el mismo día (105.1)."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:45.720043+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Notificar al contratista por el medio del contrato y mostrar los efectos posteriores",
+              "detalle": "<p>Renombrar T5 a «Notificar la resolución al contratista y actualizar registros», con la anotación «al domicilio o correo previsto en el contrato mientras no se implemente la Pladicop (13.ª DCT)». Agregar el pool cerrado «Contratista ejecutor de obra» con los mensajes de F1 (resolución de reducción) y F2 (decisión no favorable). Anotar en T5 el programa actualizado si se reduce el plazo (206.1 b) y el registro en el Banco de Inversiones a cargo de SGGOS (ROF art. 97).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T5",
+                "F1",
+                "F2"
+              ],
+              "fuentes": [
+                "CON-001 13.ª DCT num. 2 a",
+                "CON-001 art. 206.1 b",
+                "ROF art. 97"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo anotaciones y sustento",
+              "detalle": "<p>Sin pools ni mensajes nuevos: anotar en T5 la notificación por el medio del contrato, el programa actualizado y el Banco de Inversiones, y explicar en el sustento por qué F1 no tiene receptor dibujado.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T5",
+                "F1"
+              ],
+              "fuentes": [
+                "CON-001 13.ª DCT num. 2 a"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Definir una convención de receptores para todos los subprocesos",
+              "detalle": "<p>Como S4.3.2.3 y S4.3.2.5 comparten el rasgo, que el equipo decida una convención común para los finales de mensaje y la notificación al contratista en S4.3.2, y luego se aplique aquí.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "F1",
+                "F2"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:57.310637+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:34:57.310637+00:00",
+      "resoluciones_anteriores": [
+        {
+          "analisis": {
+            "texto": "<h4>Evidencia observada</h4><ul><li>En la tabla de mensajes de S4.3.2.7 solo figuran S4.3.2.3→E1, T2→SE y SF→M1. Ni F1 ni F2 tienen mensaje de salida.</li><li>La ficha declara como receptores del producto al «Ejecutor, supervisión y unidades competentes».</li><li>En S4.3.2.3, E-F1 y E-F2C tampoco tienen mensaje, pero ese proceso sí incluye el pool «Ejecutor de obra, según régimen», al que E-TNEV envía mensajes. Por tanto, la ausencia de un receptor en los eventos de fin es un rasgo compartido, no exclusivo de este proceso.</li></ul><h4>Exigencia normativa</h4><ul><li>Reglamento, art. 105.1 (PDF p. 58): «Todos los actos correspondientes a la ejecución contractual se realizan a través de la Pladicop, y se entienden válidamente notificados el mismo día que se registran».</li><li>Reglamento, art. 109.3 (PDF p. 60): no es necesaria una adenda; basta con publicar la resolución en la Pladicop.</li><li>Reglamento, art. 206.1 b) y 206.2 (PDF p. 116): el contratista presenta al supervisor el programa y los calendarios actualizados por la aprobación de modificaciones contractuales, «cuando corresponda». El supervisor los evalúa y remite a la entidad para su aprobación.</li><li>ROF GRH, art. 97 (PDF pp. 47-49): la SGGOS registra en el Banco de Inversiones las modificaciones de la ejecución física. La Directiva 001-2019-EF/63.01, art. 33.2 (regla REG-INV-EJEC-004, estado BORRADOR-IA, vigencia por confirmar), exige registrar las modificaciones antes de su ejecución mediante el Formato 08-A.</li></ul><h4>Inferencia</h4><ul><li>La publicación de T5 es también el acto de notificación al contratista. El mensaje hacia un pool externo cerrado, «Contratista ejecutor de obra», puede salir de F1 sin agregar ninguna tarea.</li><li>La actualización del programa solo corresponde cuando cambia el plazo o la secuencia. Su trámite no pertenece a este proceso, por lo que basta con un mensaje o una anotación de interfaz.</li><li>El registro en el Banco de Inversiones encaja con la función de la SGGOS. Que se haga en la fase de ejecución <em>antes</em> de ejecutar no aplica de la misma manera a una reducción, que suprime prestaciones. Queda como duda.</li></ul><h4>Revisión adversarial</h4><p>Podría sostenerse que no conviene un pool del contratista porque el art. 109 no le da intervención. Sin embargo, el contratista es el destinatario del acto y además puede pedir la reducción de sus garantías (art. 117.3), lo que ya está anotado en T5. Un pool cerrado, que aparece solo en los mensajes, está dentro de la paleta (plantilla de la tabla: «un pool que solo aparece allí se dibuja cerrado»).</p>",
+            "formato": "html",
+            "clase": "ERROR-MODELO",
+            "fuentes": [
+              "Reglamento art. 105.1, PDF p. 58",
+              "Reglamento art. 109.2-109.3, PDF p. 60",
+              "Reglamento art. 206.1 b) y 206.2, PDF p. 116",
+              "Reglamento art. 117.3-117.4, PDF p. 64",
+              "ROF GRH LOC-007 art. 97, PDF pp. 47-49",
+              "REG-INV-EJEC-004 (Directiva 001-2019-EF/63.01 art. 33.2, BORRADOR-IA)",
+              "S4-3-2-7-ficha-producto-proceso.md (receptores)",
+              "S4.3.2.3: E-TNEV, E-F1, E-F2C",
+              "Plantilla diagrama-proceso-tabla.md (pool cerrado)"
+            ],
+            "hipotesis": [
+              "Basta con la publicación en la Pladicop y no hace falta mensaje. Es posible, porque el art. 105.1 hace que publicar sea notificar; pero deja a F1 sin receptor y contradice la ficha.",
+              "Modelar la actualización del programa dentro de S4.3.2.7. Se descarta: es un trámite propio del contratista y la supervisión (art. 206); basta con representar la interfaz.",
+              "Registrar en el Banco de Inversiones dentro de otro proceso (S4.3.2.1, control periódico). Queda abierta: conviene verificar si S4.3.2.1 ya lo contempla antes de agregarlo aquí.",
+              "Ajustar también el contrato de supervisión por el plazo vinculado (art. 186.5). No se encontró una regla específica para la reducción; queda como pregunta y no como propuesta."
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:26:41.691105+00:00",
+            "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+          },
+          "propuesta": {
+            "seleccion": "UNICA",
+            "opciones": [
+              {
+                "id": "A",
+                "titulo": "Pool cerrado del contratista, mensajes de F1 y F2, y carril de T5 en la SGGOS",
+                "detalle": "<p>Cambios propuestos en el diagrama:</p><ul><li>Agregar en la tabla de mensajes un pool externo cerrado, «Contratista ejecutor de obra», con los mensajes F1 → contratista («Resolución de reducción publicada en la Pladicop») y F2 → contratista o área que sustentó («Decisión no favorable»).</li><li>Anotar en T5: «Si se reduce el plazo, el contratista presenta el programa actualizado al supervisor (art. 206.1 b)» y «Registro en el Banco de Inversiones (ROF art. 97)».</li><li>Pasar T5 y F1 al carril «SGGOS — Coordinador de obra», como en E-T11 de S4.3.2.3.</li></ul>",
+                "formato": "html",
+                "efecto": "CAMBIO-MODELO",
+                "elementos": [
+                  "T5",
+                  "F1",
+                  "F2"
+                ],
+                "fuentes": [
+                  "Reglamento arts. 105.1, 109.3, 206.1 b)",
+                  "ROF art. 97"
+                ],
+                "recomendada": true
+              },
+              {
+                "id": "B",
+                "titulo": "Solo anotaciones y sustento",
+                "detalle": "<p>No agregar pools ni mensajes. Anotar en T5 la notificación por la Pladicop (art. 105.1), el programa actualizado y el registro en el Banco de Inversiones, y explicar en el sustento por qué F1 no tiene receptor dibujado.</p>",
+                "formato": "html",
+                "efecto": "CAMBIO-SUSTENTO",
+                "elementos": [
+                  "T5",
+                  "F1"
+                ],
+                "fuentes": [
+                  "Reglamento arts. 105.1, 206.1 b)"
+                ],
+                "recomendada": false
+              },
+              {
+                "id": "C",
+                "titulo": "Definir la convención de receptores para todos los hermanos",
+                "detalle": "<p>Como S4.3.2.3 comparte el mismo rasgo, que el equipo decida una convención común para los receptores de los eventos de fin de mensaje en S4.3.2 y luego la aplique aquí.</p>",
+                "formato": "html",
+                "efecto": "DECISION",
+                "elementos": [
+                  "F1",
+                  "F2"
+                ],
+                "fuentes": [
+                  "S4.3.2.3 E-F1, E-F2C"
+                ],
+                "recomendada": false
+              }
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:26:54.369027+00:00"
+          },
+          "reemplazada": {
+            "fecha": "2026-11-26T13:34:45.720043+00:00",
+            "autor": "Claudia",
+            "motivo": "La revisión cruzada encontró la Decimotercera Disposición Complementaria Transitoria del Reglamento: mientras no se implemente la Pladicop, la notificación va al domicilio o correo del contrato y surte efecto desde su recepción. Se mantienen los otros dos efectos y se corrige el canal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "fd02da9d-d37a-4d3f-b544-fe228ce29873",
+      "elemento": "_b2254e5b-53a7-5fab-9ed3-f17d9c6ac7f2",
+      "referencia": "Caja 6 (T3)",
+      "texto": "<p><strong>Duda.</strong> T3, «Integrar sustento y controles aplicables», está en el carril «Unidad competente (por confirmar)» y lleva la anotación «Circuito interno y controles por acreditar». No dice qué controles se integran ni quién los realiza. En el proceso hermano S4.3.2.3, los controles equivalentes tienen responsable:</p><ul><li>E-TC, «Verificar monto, precios, deductivo vinculado y acumulados», a cargo de SGGOS — Control contractual y costos;</li><li>E-T6, certificación o previsión presupuestal, a cargo de la Subgerencia de Presupuesto Público;</li><li>E-T7, opinión legal, a cargo de GRAJ — Asesoría Jurídica.</li></ul><p>El art. 109 del Reglamento no exige expresamente certificación presupuestal ni opinión legal para una reducción, que disminuye el monto. Sí exige verificar el límite del 25 % del monto del contrato original.</p><p><strong>Pregunta:</strong></p><ul><li>¿Qué controles internos aplica el GRH a una reducción: el cálculo del monto y del porcentaje acumulado, una revisión legal de la resolución, la liberación o ajuste presupuestal?</li><li>¿Lo hace la misma unidad de control contractual y costos de S4.3.2.3?</li></ul><p><strong>Efecto posible:</strong> cambia el diagrama (nombre y carril de T3, y quizá su división en controles concretos). La parte presupuestal y legal queda pendiente hasta incorporar una directiva interna.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:05.578172+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:05.578172+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:28.962516+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:39.274623+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>La auditoría vigente clasifica T3 como EVIDENCIA-INSUFICIENTE: falta la unidad responsable y el procedimiento.</li><li>En S4.3.2.3, E-TC (SGGOS — Control contractual y costos) lleva la anotación «No descontar una reducción independiente como deductivo vinculado sin sustento». Es decir, el hermano ya cuenta con una unidad que controla los montos acumulados.</li></ul><h4>Exigencia normativa</h4><ul><li>Reglamento, art. 109.1 (PDF p. 60): la reducción procede hasta el 25 % del monto del contrato original. El cálculo del porcentaje es un control necesario.</li><li>El art. 109 no menciona certificación presupuestal ni opinión legal. En cambio, el art. 110.3 sí exige «la certificación o previsión de crédito presupuestario» cuando una modificación por hecho sobreviniente altera el monto. El contraste sugiere que la omisión en el 109 es deliberada, porque el monto disminuye.</li><li>ROF GRH, art. 45 (PDF p. 24): la GRAJ debe «proyectar y visar los proyectos de resoluciones que expida la Gobernación Regional y la Gerencia General Regional, así como revisar y visar los proyectos de resoluciones gerenciales regionales, debiendo contar previamente con el informe técnico elaborado por el órgano competente».</li></ul><h4>Inferencia</h4><p>Si la resolución de reducción la expide la Gerencia General Regional o una gerencia regional, el ROF exige el visado de la GRAJ. Ese visado es un control institucional obligatorio aunque el art. 109 no lo mencione. Qué órgano expide la resolución depende de la delegación, que no está disponible (ver la observación sobre T4). El ajuste o la liberación presupuestal derivados de la menor obligación son una inferencia sin fuente en la biblioteca.</p><h4>Revisión adversarial</h4><p>Lo que contradiría el visado obligatorio sería que la resolución la expidiera un órgano no comprendido en el art. 45 (por ejemplo, una subgerencia con facultad delegada). La biblioteca no permite descartarlo.</p><h4>Documentos no disponibles</h4><ul><li>Directiva interna del GRH sobre modificaciones contractuales.</li><li>Resolución de delegación de facultades.</li><li>Directiva de ejecución presupuestaria aplicable a la disminución de compromisos.</li></ul>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "Reglamento art. 109.1, PDF p. 60",
+            "Reglamento art. 110.3, PDF p. 61 (contraste)",
+            "ROF GRH LOC-007 art. 45, PDF p. 24 (71778d14cc60b83b-af2c6749:art-45-parte1)",
+            "ROF GRH art. 97",
+            "S4.3.2.3: E-TC, E-T6, E-T7",
+            "Auditoría S4.3.2.7: T3 EVIDENCIA-INSUFICIENTE"
+          ],
+          "hipotesis": [
+            "Exigir la certificación presupuestal como en el adicional (E-T6). Se descarta: el art. 109 no la exige y el monto disminuye; por contraste, el art. 110.3 la exige solo para otra figura.",
+            "Visado legal de la GRAJ (ROF art. 45). Es la hipótesis retenida, condicionada a qué órgano expide la resolución.",
+            "Control del monto y del porcentaje por SGGOS — Control contractual y costos, como en E-TC. Es la hipótesis retenida, por coherencia con el hermano.",
+            "Integración por la DEC (Dependencia Encargada de las Contrataciones). Es posible por analogía con el art. 110.2 (sustento técnico «en coordinación con la DEC»), pero el 109 no lo prevé; queda como pregunta."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:28.962516+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Concretar T3 en dos controles con responsable",
+              "detalle": "<p>Reemplazar T3 por dos tareas en secuencia:</p><ol><li>«Verificar monto, porcentaje acumulado y efecto en plazo», en el carril «SGGOS — Control contractual y costos» (art. 109.1; analogía con E-TC).</li><li>«Revisar y visar el proyecto de resolución», en el carril «GRAJ — Asesoría Jurídica» (ROF art. 45), con la anotación «si la expide la GGR o una gerencia regional».</li></ol><p>En el sustento se registra que la certificación presupuestal no se exige (contraste con el art. 110.3) y que el ajuste presupuestal queda como evidencia insuficiente.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T3"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1",
+                "ROF art. 45",
+                "S4.3.2.3 E-TC"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener una sola tarea con anotación precisa",
+              "detalle": "<p>Conservar T3 como una sola tarea, pero renombrarla y moverla al carril «SGGOS — Control contractual y costos», y anotar «Visado de la GRAJ según el órgano emisor (ROF art. 45)».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T3"
+              ],
+              "fuentes": [
+                "ROF arts. 45 y 97"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar la directiva interna",
+              "detalle": "<p>No modificar T3 hasta incorporar la directiva interna del GRH sobre modificaciones contractuales y la resolución de delegación.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "T3"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:39.274623+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:39.274623+00:00"
+    },
+    {
+      "id": "93a0c35d-d2a8-49e6-8093-ab2b4afe7472",
+      "elemento": "_0ec288a8-d999-53d7-96ba-8a025a29eae8",
+      "referencia": "Caja 17 (E0)",
+      "texto": "<p><strong>Duda.</strong> El proceso tiene dos entradas que confluyen en T1:</p><ul><li>E1, el caso que S4.3.2.3 ya clasificó como reducción (E-GDP → E-FRED);</li><li>E0, un inicio condicional propio, «Necesidad de reducción identificada».</li></ul><p>Por la vía E0, nada en el modelo verifica que el caso no sea un deductivo vinculado a un adicional o un deductivo puro, que son materia de S4.3.2.3. El sustento advierte que «un caso no se tramita dos veces» y que la distinción «requiere evidencia técnica y contractual». A la inversa, si T1 y G1 concluyen que no es una reducción, F0 cierra sin devolver el caso a S4.3.2.3.</p><p><strong>Pregunta:</strong></p><ul><li>¿Debe toda necesidad pasar primero por la clasificación de S4.3.2.3, con lo que E0 sobraría?</li><li>Si E0 se mantiene, ¿debería T1 incluir la verificación de la figura y existir un mensaje de retorno a S4.3.2.3 cuando el caso no sea una reducción?</li></ul><p><strong>Efecto posible:</strong> cambia el diagrama (se retira E0, o se agrega una verificación y un mensaje de retorno). Cualquiera de las dos opciones exige coordinarse con S4.3.2.3.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:50.033971+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:50.033971+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:11.450926+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:22.216189+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li><strong>DEC-058</strong> (2026-11-25) aplicó expresamente el «inicio condicional propio de S4.3.2.7», coherente con el subproceso de evento condicional RP del padre S4.3.2. Retirar E0 contradiría esa decisión y además el disparo que declara el padre.</li><li><strong>DEC-047</strong> establece: «Deductivo puro requiere clasificación y evidencia antes de asignar trámite; no duplicar reducciones».</li><li>En S4.3.2.3, la clasificación entre deductivo puro y reducción se hace en E-TDP → E-GDP («¿Corresponde reducción de prestaciones?»). Si la respuesta es «No», el caso va a E-FDP («Deductivo puro pendiente de ruta»).</li><li>En S4.3.2.7, la anotación de T1 enumera las condiciones del art. 109, pero no la exclusión de las figuras de S4.3.2.3. F0 es un evento de fin simple, sin mensaje.</li></ul><h4>Exigencia normativa</h4><p>Ley 32069, art. 63.3 (PDF p. 30): la ejecución de prestaciones adicionales y la reducción de prestaciones son supuestos distintos de modificación. La regla REG-CON-ADIC-002 (BORRADOR-IA), basada en la Ley art. 64.2, resta los «presupuestos deductivos vinculados» del límite de los adicionales. Si un deductivo vinculado se tramitara además como reducción, la misma disminución se computaría dos veces: una en el límite de los adicionales y otra en el 25 % de las reducciones.</p><h4>Inferencia</h4><p>Sin un control de figura en la vía E0, el riesgo de doble trámite que advierten DEC-047 y el sustento queda sin cubrir en el modelo. La opción coherente con DEC-058 es conservar E0, añadir la verificación de figura en T1 o en G1, y prever un mensaje de retorno a S4.3.2.3.</p><h4>Revisión adversarial</h4><p>Podría argumentarse que la vía E0 cubre casos que nunca tocan un adicional, de modo que la verificación sería superflua. Pero esa distinción es precisamente la que DEC-047 pide acreditar con evidencia técnica y contractual. Por eso es necesario verificar la figura, aunque se trate de un control breve.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "DEC-058",
+            "DEC-047",
+            "S4.3.2.3: E-TDP, E-GDP, E-FRED, E-FDP",
+            "Ley 32069 art. 63.3, PDF p. 30",
+            "REG-CON-ADIC-002 (Ley art. 64.2, BORRADOR-IA)",
+            "S4-3-2-7-sustento.md, Vacíos de evidencia"
+          ],
+          "hipotesis": [
+            "Retirar E0 y obligar a pasar por S4.3.2.3. Se descarta como opción recomendada porque contradice DEC-058 y el disparo condicional del padre; se ofrece solo si el equipo revisa esa decisión.",
+            "Mantener E0 sin verificación. Se descarta: deja abierto el doble cómputo que advierte DEC-047.",
+            "Mantener E0, verificar la figura en T1 y G1, y enviar un mensaje de retorno a S4.3.2.3 desde un fin de mensaje. Es la hipótesis retenida."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:11.450926+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Verificar la figura y prever un retorno a S4.3.2.3",
+              "detalle": "<p>Cambios propuestos:</p><ul><li>Ampliar la anotación de T1: «Descartar deductivo vinculado o deductivo puro (S4.3.2.3) antes de evaluar el art. 109».</li><li>Agregar a G1 una salida «Corresponde a otra figura» hacia un nuevo evento de fin de mensaje, «Caso devuelto para reclasificación», con un mensaje hacia «S4.3.2.3 Gestión de adicionales y deductivos de obra».</li><li>Coordinar con S4.3.2.3 el evento que recibe ese mensaje.</li></ul><p>Se conserva E0 conforme a DEC-058.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T1",
+                "G1",
+                "E0",
+                "F0"
+              ],
+              "fuentes": [
+                "DEC-047",
+                "DEC-058",
+                "Ley art. 63.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Retirar E0 y entrar solo por S4.3.2.3",
+              "detalle": "<p>Eliminar E0 y hacer que toda reducción pase por la clasificación de S4.3.2.3 (E-GDP). Requiere revisar DEC-058 y el disparo condicional RP del padre.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E0"
+              ],
+              "fuentes": [
+                "DEC-058"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicarlo solo en el sustento",
+              "detalle": "<p>Mantener el diagrama y registrar en el sustento que la verificación de la figura forma parte implícita de T1.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:22.216189+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:22.216189+00:00"
+    },
+    {
+      "id": "d411f410-7bbf-4977-9fd7-0363a7573470",
+      "elemento": "",
+      "referencia": "",
+      "texto": "<p><strong>Observación.</strong> Ninguna de las 17 cajas tiene la columna «Documentos» completada. Por eso el diagrama no muestra qué entra ni qué sale de cada actividad. Sin embargo, la propia norma identifica al menos tres documentos:</p><ul><li>el <em>sustento del área usuaria</em> (art. 109.1);</li><li>la <em>opinión del supervisor</em> (art. 109.1 d);</li><li>la <em>resolución</em> de la autoridad, que además decide sobre el plazo (arts. 109.1 y 109.2) y se publica en la Pladicop (art. 109.3).</li></ul><p>La ficha también menciona como registros la «necesidad y sustento de reducción» y los «pronunciamientos aplicables». El hermano S4.3.2.3 sí usa esta columna, con anotaciones como «sale: Expediente presentado» o «sale: Observaciones técnicas».</p><p><strong>Pregunta:</strong> ¿Se completan las entradas y salidas documentales con los documentos que tienen fuente, dejando sin nombre los internos que aún no la tienen?</p><p><strong>Efecto posible:</strong> cambia la tabla: la columna Documentos de T1, ST, T3, T4 y T5. No cambia el flujo.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:28:31.789470+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:28:31.789470+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:45.392642+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:53.724144+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>En la lectura del proceso, la columna documentos está vacía en las 17 cajas.</li><li>En S4.3.2.3 la columna se usa, por ejemplo en E-T16 («sale: Observaciones técnicas») y en E-TSUP («sale: Expediente presentado»).</li><li>La plantilla de la tabla prevé el formato «entra: … / sale: …».</li></ul><h4>Exigencia normativa</h4><ul><li>Reglamento, art. 109.1 (PDF p. 60): el área usuaria «sustente»; literal d), «opinión del supervisor».</li><li>Reglamento, art. 109.2: «En la misma resolución se determina si la reducción… implica la reducción del plazo».</li><li>Reglamento, art. 109.3: publicación de «la resolución que lo aprueba» en la Pladicop.</li><li>NT 002-2025-PCM-SGP, Anexo 3 (regla REG-GPP-DIA-003, BORRADOR-IA): contenido mínimo obligatorio del diagrama. No verifiqué si el Anexo 3 exige expresamente documentos de entrada y salida; la regla no lo detalla.</li></ul><h4>Inferencia</h4><p>Los tres documentos citados tienen fuente y pueden anotarse como exigencia normativa. El «informe de controles» de T3 sería una propuesta, sin fuente, que depende de la observación sobre T3.</p><h4>Revisión adversarial</h4><p>Si el equipo considera la columna opcional en la etapa lógica, esto es una mejora de claridad y no un error. La clasifico como observación porque la ficha y el padre necesitan identificar el producto («Decisión de reducción comunicada»), y hoy ese producto no aparece en ninguna caja.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "Reglamento art. 109.1-109.3, PDF p. 60",
+            "Plantilla 00-gobernanza/plantillas/modelamiento/diagrama-proceso-tabla.md",
+            "S4.3.2.3: E-T16, E-TSUP",
+            "REG-GPP-DIA-003 (BORRADOR-IA)",
+            "S4-3-2-7-ficha-producto-proceso.md (Registros, Producto)"
+          ],
+          "hipotesis": [
+            "Dejar la columna vacía hasta la etapa física. Es posible, pero los documentos normativos ya son conocidos; se descarta como opción recomendada.",
+            "Anotar todos los documentos, incluidos los internos. Se descarta: el informe de controles y los registros internos carecen de fuente."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:45.392642+00:00",
+          "revision_modelo": "77d23c17cbba730057c1ecac9d594c27bc786e206b56046249fe8331d4461499"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Completar los documentos con fuente normativa",
+              "detalle": "<p>Completar la columna Documentos de las siguientes cajas:</p><ul><li>T1: «sale: Sustento de reducción del área usuaria».</li><li>ST: «entra: Sustento; sale: Opinión del supervisor».</li><li>T4: «entra: Sustento y opinión; sale: Resolución de reducción (incluye efecto en plazo)».</li><li>T5: «entra: Resolución; sale: Resolución publicada en la Pladicop».</li></ul><p>T3 queda sin documento hasta que se resuelva su observación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T1",
+                "ST",
+                "T4",
+                "T5"
+              ],
+              "fuentes": [
+                "Reglamento art. 109.1-109.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Registrar los documentos solo en la ficha y el sustento",
+              "detalle": "<p>Mantener la tabla sin documentos y listar en la sección de registros de la ficha los documentos con su fuente.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "Reglamento art. 109"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:53.724144+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:53.724144+00:00"
+    }
+  ]
+}

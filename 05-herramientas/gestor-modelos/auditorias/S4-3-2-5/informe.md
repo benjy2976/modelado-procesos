@@ -3,7 +3,7 @@ tipo: informe
 area: herramientas
 estado_documento: BORRADOR
 clase_conocimiento: OBSERVADO
-fecha_actualizacion: 2026-11-25
+fecha_actualizacion: 2026-11-26
 confidencialidad: INTERNO
 tags:
   - tema/automatizacion
@@ -108,6 +108,6 @@ Ninguna.
 
 - Elementos o mensajes sin resultado: ninguno.
 - Citas con problemas: 0.
-- Referencias mencionadas sin ancla: 0.
+- Referencias mencionadas sin ancla: 1.
 - Obligaciones de la fuente no representadas: 6.
 - Anclas del visor: {'VIGENTE': 37}.

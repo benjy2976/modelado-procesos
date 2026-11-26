@@ -1,0 +1,1090 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-4-gestion-ampliaciones-plazo/S4-3-2-4-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "d3cdb000-70d7-4db7-873e-965485337012",
+      "elemento": "_420538f0-ebe4-5aff-8b77-5888b5973f3d",
+      "referencia": "Caja 7 (E-E1)",
+      "texto": "<p><strong>Problema.</strong> La solicitud del contratista entra al GORE por la OACGD (mesa de partes) y se registra en el SGD (cajas 7 y 8). El Reglamento de la Ley 32069, art. 105.1, dispone que <em>todos</em> los actos de la ejecución contractual, incluida cualquier comunicación entre la entidad y el contratista, se realizan a través de la Pladicop y se entienden notificados el mismo día de su registro.</p><p>Esto importa porque los plazos del supervisor (5 días hábiles, 200.1 b) y de la entidad (10 días hábiles, 200.1 d) se cuentan desde la presentación de la solicitud en ese canal. No se cuentan desde el registro interno en mesa de partes.</p><p><strong>Pregunta:</strong> ¿la solicitud de ampliación llega al GORE por la Pladicop? Si es así, ¿qué cargo la revisa allí y la incorpora al SGD?</p><p><strong>Efecto posible:</strong> cambia el diagrama: el nombre y el documento de entrada de la caja 7 y, si procede, el carril que recibe. El registro en el SGD puede mantenerse como paso interno posterior.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:22:53.578460+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:22:53.578460+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:08.266344+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:19.455278+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:33:57.583832+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:34:06.314994+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        },
+        {
+          "accion": "RESPONDIDA",
+          "fecha": "2026-11-26T13:34:15.383791+00:00",
+          "autor": "Claudia"
+        }
+      ],
+      "respuestas": [
+        {
+          "id": "97f99dd8-fcfd-441a-860c-a3aee5fb6174",
+          "texto": "<p><strong>Corrección de la revisión cruzada.</strong> El texto de esta observación presenta la Pladicop como obligatoria hoy. La Decimotercera Disposición Complementaria Transitoria del Reglamento permite, mientras no se implemente, recibir y notificar por los medios físicos y digitales de la entidad y al domicilio o correo del contrato. Por eso se reemplazaron el análisis y la propuesta: ahora se recomienda mantener la mesa de partes y anotar el régimen de transición.</p>",
+          "formato": "html",
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:15.383791+00:00"
+        }
+      ],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>El art. 105.1 del Reglamento dispone que los actos de la ejecución contractual se realicen por la Pladicop y se entiendan notificados el día de su registro. Pero el propio Reglamento lo condiciona a su implementación: la <strong>Decimotercera Disposición Complementaria Transitoria</strong> establece que, en tanto se implementen las funcionalidades de la Pladicop para la ejecución contractual:</p><ul><li>las entidades <em>«pueden seguir utilizando los medios físicos y digitales a su disposición»</em>, conforme a la LPAG (numeral 1);</li><li>las notificaciones durante la ejecución del contrato <em>«se realizan al domicilio o al correo electrónico previsto en el contrato y surten efectos desde su recepción»</em> (numeral 2 a).</li></ul><p>La Opinión D000092-2026-OECE-DTN aplica esa misma disposición. Por lo tanto, la recepción por mesa de partes (OACGD) y el registro en el SGD de las cajas 7 y 8 <strong>son válidos mientras dure la transición</strong>; no son un error del modelo. Lo que falta es explicarlo: desde cuándo corren los 5 días hábiles del supervisor (200.1 b) y los 10 de la entidad (200.1 d) y qué cambia cuando la Pladicop esté operativa para la ejecución contractual.</p><p>No hay en la biblioteca la resolución directoral de la DGA que fije desde cuándo el GORE Huánuco está obligado a usar la Pladicop en ejecución contractual.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 art. 105.1",
+            "CON-001 Decimotercera Disposición Complementaria Transitoria, num. 1 y 2 a (fragmento 0ebe95b3e05661b8-ec988166:art-389-parte12)",
+            "CON-010 Opinión D000092-2026-OECE-DTN, p. 8",
+            "CON-001 art. 200.1 b y d"
+          ],
+          "hipotesis": [
+            "Exigir ya la Pladicop (análisis anterior): descartada como recomendación, porque la disposición transitoria permite los medios físicos y digitales mientras no se implemente.",
+            "Que la Pladicop ya esté implementada para el GORE: no hay evidencia; queda como pendiente con la resolución directoral de la DGA.",
+            "Revisión adversarial: el art. 105.1 contradice la opción recomendada solo si la Pladicop ya está operativa para la entidad; por eso la opción incluye la anotación de transición."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:33:57.583832+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Mantener la mesa de partes y anotar el régimen de transición",
+              "detalle": "<p>Las cajas 7 y 8 se mantienen. Se anota en la caja 7: «Mientras no se implemente la Pladicop para la ejecución contractual, la solicitud se recibe por los medios físicos o digitales de la entidad y las notificaciones al domicilio o correo del contrato surten efecto desde su recepción (Reglamento, 13.ª DCT)». En el sustento se explica desde cuándo corren los plazos de 200.1 b y d y que, al implementarse la Pladicop, la recepción pasará a ese canal (art. 105.1).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-E1",
+                "E-T1"
+              ],
+              "fuentes": [
+                "CON-001 13.ª DCT num. 1 y 2 a",
+                "CON-001 art. 105.1",
+                "CON-001 art. 200.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Modelar ya la recepción por la Pladicop",
+              "detalle": "<p>Solo si el equipo confirma que la DGA ya obligó al GORE Huánuco a usar la Pladicop en ejecución contractual: la caja 7 pasa a «Solicitud registrada en la Pladicop» y la caja 8 conserva el registro interno en el SGD.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-E1",
+                "E-T1"
+              ],
+              "fuentes": [
+                "CON-001 art. 105.1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Dejarlo pendiente hasta confirmar el estado de la Pladicop en el GORE",
+              "detalle": "<p>Pedir la resolución directoral de la DGA que fije la obligatoriedad para la entidad, o la confirmación del área de contrataciones, antes de decidir.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-E1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:34:06.314994+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:34:15.383791+00:00",
+      "resoluciones_anteriores": [
+        {
+          "analisis": {
+            "texto": "<h4>Qué entiendo</h4><p>Las cajas 7 (E-E1) y 8 (E-T1) ponen la entrada de la solicitud en el carril «OACGD — Registro documentario». Citan el ROF, art. 20 (recibir y registrar documentos que entran por mesa de partes) y la observación del usuario del 2026-11-10.</p><h4>Exigencia normativa</h4><ul><li><strong>Reglamento de la Ley 32069, art. 105.1 (PDF p. 58):</strong> «Todos los actos correspondientes a la ejecución contractual se realizan a través de la Pladicop, y se entienden válidamente notificados el mismo día que se registran, incluyendo cualquier comunicación entre la entidad contratante y los contratistas».</li><li><strong>Art. 200.1 a) y b) (p. 114):</strong> el contratista notifica la solicitud a la entidad y a la supervisión. La supervisión tiene 5 días hábiles «contabilizados desde el día siguiente de presentada la solicitud».</li><li><strong>Art. 188.1 (p. 104):</strong> el Cuaderno de Incidencias forma parte de la Pladicop.</li></ul><h4>Inferencia</h4><p>El momento de la presentación, que activa los temporizadores del modelo (E-R1 y el plazo de E-T9), es el registro en la Pladicop. Un paso previo por mesa de partes podría hacer creer que el plazo se cuenta desde el registro en el SGD. El modelo ya usa la Pladicop para la salida (E-T10, E-F1 y E-F2), pero no para la entrada, y esa diferencia no se explica en el sustento.</p><h4>Evidencia no disponible</h4><p>No hay en la biblioteca un documento del GORE que diga quién opera la Pladicop por la entidad (usuario o rol asignado) ni cómo se pasa la solicitud al SGD. Lo comunicado por el usuario el 2026-11-10 sobre el uso del SGD es evidencia observada para el circuito interno, no para el canal de entrada.</p>",
+            "formato": "html",
+            "clase": "ERROR-MODELO",
+            "fuentes": [
+              "CON-001 Reglamento Ley 32069, art. 105.1, PDF p. 58 (fragmento 0ebe95b3e05661b8-ec988166:art-105.1)",
+              "CON-001 Reglamento Ley 32069, art. 200.1 a-b, PDF p. 114",
+              "CON-001 Reglamento Ley 32069, art. 188.1, PDF p. 104",
+              "LOC-007 ROF GRH 2023, art. 20, PDF p. 14",
+              "S4-3-2-4-sustento.md, secciones Ajuste operativo 2026-11-10 y Cambios aplicados 2026-11-25"
+            ],
+            "hipotesis": [
+              "La solicitud se presenta físicamente por mesa de partes como práctica institucional: no se descarta como evidencia observada. Aun así, no cambia el momento legal de la notificación (105.1), así que el modelo debería distinguirla.",
+              "El 105.1 solo rige para los actos de la entidad: se descarta, porque el texto incluye 'cualquier comunicación entre la entidad contratante y los contratistas'.",
+              "La OACGD es quien opera la Pladicop: no hay fuente. El ROF, art. 20, habla de mesa de partes, no de la plataforma. Queda como EVIDENCIA-INSUFICIENTE."
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:23:08.266344+00:00",
+            "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+          },
+          "propuesta": {
+            "seleccion": "UNICA",
+            "opciones": [
+              {
+                "id": "A",
+                "titulo": "Recibir la solicitud por la Pladicop y luego registrarla en el SGD",
+                "detalle": "<p>Renombrar la caja 7 como «Solicitud de ampliación registrada en la Pladicop», con «entra: Solicitud y sustento; almacen: Pladicop». Añadir esta anotación: «Notificada el día de su registro (105.1); desde el día siguiente corren los 5 días del supervisor». La caja 8 conserva el registro y la derivación por SGD. El carril que recibe queda provisional, con EVIDENCIA-INSUFICIENTE en el sustento, hasta que se confirme qué rol opera la Pladicop.</p>",
+                "formato": "html",
+                "efecto": "CAMBIO-MODELO",
+                "elementos": [
+                  "E-E1",
+                  "E-T1"
+                ],
+                "fuentes": [
+                  "Reglamento Ley 32069, art. 105.1, p. 58",
+                  "art. 200.1 a-b, p. 114"
+                ],
+                "recomendada": true
+              },
+              {
+                "id": "B",
+                "titulo": "Mantener la mesa de partes y explicar el cómputo en el sustento",
+                "detalle": "<p>Dejar el diagrama como está. En el sustento, indicar que el plazo legal se cuenta desde el registro en la Pladicop (105.1) y que el paso por la OACGD es un registro interno que no cambia ese momento.</p>",
+                "formato": "html",
+                "efecto": "CAMBIO-SUSTENTO",
+                "elementos": [
+                  "E-E1"
+                ],
+                "fuentes": [
+                  "Reglamento Ley 32069, art. 105.1, p. 58"
+                ],
+                "recomendada": false
+              },
+              {
+                "id": "C",
+                "titulo": "Dejarlo pendiente hasta conocer cómo opera la Pladicop en el GORE",
+                "detalle": "<p>Pedir al equipo un documento o muestra no sensible que indique qué rol recibe en la Pladicop las comunicaciones del contratista. Mientras tanto, marcar las cajas 7 y 8 con EVIDENCIA-INSUFICIENTE.</p>",
+                "formato": "html",
+                "efecto": "PENDIENTE-EVIDENCIA",
+                "elementos": [
+                  "E-E1",
+                  "E-T1"
+                ],
+                "fuentes": [
+                  "ROF GRH 2023, art. 20, p. 14"
+                ],
+                "recomendada": false
+              }
+            ],
+            "autor": "Claudia",
+            "fecha": "2026-11-26T04:23:19.455278+00:00"
+          },
+          "reemplazada": {
+            "fecha": "2026-11-26T13:33:57.583832+00:00",
+            "autor": "Claudia",
+            "motivo": "La revisión cruzada encontró la Decimotercera Disposición Complementaria Transitoria del Reglamento, que el análisis anterior no consideró: mientras no se implemente la Pladicop, rigen los medios físicos y digitales y la notificación al domicilio o correo del contrato."
+          }
+        }
+      ]
+    },
+    {
+      "id": "7c80142d-0e66-45eb-8b19-d48ae01e4542",
+      "elemento": "_ae8f4b1f-216a-5ebe-b06d-32297a1f8bcb",
+      "referencia": "Caja 17 (E-T9)",
+      "texto": "<p><strong>Problema.</strong> El carril «Autoridad competente para resolver» (cajas 17, 18 y 21) no tiene ningún criterio normativo para identificar al decisor. La norma sí da uno:</p><ul><li>la Ley 32069, art. 63.3 c), clasifica la ampliación de plazo como modificación del contrato;</li><li>el Reglamento, art. 105.4, dice que autoriza cualquier modificación el servidor o funcionario facultado para suscribir el contrato y sus adendas según las normas de gestión interna de la entidad.</li></ul><p>Además, el proceso hermano S4.3.2.3 nombra al mismo decisor como «Titular de la competencia o autoridad delegada». Los dos procesos usan títulos distintos para una figura equivalente.</p><p><strong>Pregunta:</strong> ¿se adopta el criterio del 105.4 como regla para identificar al decisor? ¿Se unifica el título del carril con S4.3.2.3?</p><p><strong>Efecto posible:</strong> cambia el diagrama (título del carril) y el sustento. La persona concreta sigue pendiente hasta que se incorpore la resolución de delegación de facultades del GORE.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:27.885824+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:27.885824+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:45.443633+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:56.613317+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La caja 17 (E-T9) indica «autoridad concreta pendiente». El sustento registra EVIDENCIA-INSUFICIENTE sobre el cargo y la delegación. El art. 200.1 d) solo dice «la entidad contratante resuelve».</p><h4>Exigencia normativa encontrada</h4><ul><li><strong>Ley 32069, art. 63.3 c) (PDF p. 30):</strong> «Son supuestos para la modificación del contrato: … c) La autorización de ampliaciones de plazo».</li><li><strong>Reglamento, art. 105.4, texto vigente según el D.S. 001-2026-EF (p. 58):</strong> el servidor o funcionario facultado para suscribir el contrato y sus adendas según las normas de gestión interna «es quien se encuentra facultado para autorizar cualquier modificación a este o su resolución», salvo que la modificación esté reservada a la autoridad de la gestión administrativa o al titular.</li><li><strong>Ley 32069, art. 25.2 (p. 16):</strong> el titular y la autoridad de la gestión administrativa pueden delegar sus facultades mediante resolución.</li><li>Los arts. 198 y 200 no reservan la ampliación de obra a ninguna autoridad. En cambio, el 199.1 b) sí la asigna a la autoridad de la gestión administrativa, pero solo para la <em>consultoría</em> de obras.</li></ul><h4>Contraste con procesos hermanos</h4><p>En S4.3.2.3, las cajas E-T10, E-G10 y E-F2C están en el carril «Titular de la competencia o autoridad delegada». La convención 7.4, punto 3, admite títulos funcionales provisionales, pero los dos procesos tratan de forma distinta una figura que el 105.4 hace equivalente.</p><h4>Revisión adversarial</h4><p>Busqué alguna norma que reserve la ampliación de obra al titular o a la autoridad de la gestión administrativa y no la encontré en los arts. 185-215 del Reglamento. El ROF (art. 11, Gerencia General) no asigna esta facultad en los pasajes revisados.</p><h4>Documentos no disponibles</h4><p>No está en la biblioteca la resolución de delegación de facultades en contrataciones del GORE Huánuco, ni la norma interna que define quién suscribe contratos y adendas de obra.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Ley 32069, art. 63.3 c), PDF p. 30",
+            "CON-001 Ley 32069, art. 25.2, PDF p. 16",
+            "CON-001 Reglamento, art. 105.4 (texto D.S. 001-2026-EF), PDF p. 58",
+            "CON-001 Reglamento, art. 199.1 b), PDF p. 113",
+            "S4.3.2.3, cajas E-T10, E-G10, E-F2C (carril Titular de la competencia o autoridad delegada)",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4 punto 3",
+            "LOC-007 ROF GRH 2023, art. 11"
+          ],
+          "hipotesis": [
+            "Decide la autoridad de la gestión administrativa por analogía con el 199.1 b): se descarta, porque ese numeral rige solo la consultoría de obras y el 200 no lo reproduce.",
+            "Decide el titular (Gobernador Regional): no hay reserva expresa. Solo lo sería si las normas internas no designan a otro firmante de contratos y adendas.",
+            "Decide el Gerente Regional de Infraestructura (GRI): es posible si la delegación del GORE le da la facultad de suscribir adendas. No está acreditado y no debe presumirse.",
+            "Mantener títulos distintos en S4.3.2.3 y S4.3.2.4: se descarta como opción preferente, porque el 105.4 aplica el mismo criterio a toda modificación contractual."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:45.443633+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Unificar el carril con S4.3.2.3 y citar el 105.4 en el sustento",
+              "detalle": "<p>Renombrar el carril como «Titular de la competencia o autoridad delegada», igual que en S4.3.2.3. En el sustento, registrar el criterio de los arts. 63.3 c) de la Ley y 105.4 del Reglamento: decide quien está facultado para suscribir el contrato y sus adendas. Mantener EVIDENCIA-INSUFICIENTE sobre la persona concreta hasta incorporar la resolución de delegación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T9",
+                "E-G1",
+                "E-F2"
+              ],
+              "fuentes": [
+                "Ley 32069, art. 63.3 c)",
+                "Reglamento, art. 105.4",
+                "S4.3.2.3, carril del decisor"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el título actual y añadir solo el criterio al sustento",
+              "detalle": "<p>Conservar «Autoridad competente para resolver» y añadir al sustento el criterio del 105.4. El equipo tendría que decidir si la diferencia con S4.3.2.3 se mantiene, y dejarlo registrado.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T9"
+              ],
+              "fuentes": [
+                "Reglamento, art. 105.4"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar la resolución de delegación antes de tocar el carril",
+              "detalle": "<p>Pedir al equipo la resolución de delegación de facultades en contrataciones vigente en el GORE e incorporarla a la biblioteca. Con ella se nombraría directamente el cargo y se aplicaría el patrón «SIGLA — cargo».</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T9",
+                "E-G1",
+                "E-F2"
+              ],
+              "fuentes": [
+                "Ley 32069, art. 25.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:56.613317+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:56.613317+00:00"
+    },
+    {
+      "id": "3a0f03f9-90b1-4afa-988c-0984dc06fe63",
+      "elemento": "_923de2f9-3006-59fc-a1cf-aab7f0b8010f",
+      "referencia": "Caja 18 (E-G1)",
+      "texto": "<p><strong>Problema.</strong> La compuerta «¿Se aprueba la ampliación?» (caja 18) tiene solo dos salidas, Sí y No. El Reglamento prevé otros dos resultados que el modelo no recorre:</p><ol><li><strong>Días distintos de los pedidos.</strong> El supervisor puede recalcular el plazo e indicar los días que aprueba (200.1 b). Por silencio de la entidad se aprueba «lo informado por el supervisor» (200.1 d). La resolución puede otorgar menos días que los solicitados, y la ruta «Sí» no lo muestra.</li><li><strong>Aprobación por silencio.</strong> Si la entidad no notifica en 10 días hábiles, se tiene por aprobado lo informado por el supervisor o, sin informe, lo solicitado. Hoy solo hay una anotación en la caja 17. Después del silencio, el modelo no dice quién registra el nuevo plazo, si se publica en la Pladicop (198.4) ni si se amplían los contratos vinculados (200.4, caja 25).</li></ol><p><strong>Pregunta:</strong> ¿se nombran en la ruta favorable los días otorgados? ¿Cómo se ejecuta en el GORE una aprobación por silencio?</p><p><strong>Efecto posible:</strong> cambia el diagrama (rótulos de la compuerta o una ruta nueva), o basta con explicarlo en el sustento si el equipo mantiene la anotación.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:06.727414+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:06.727414+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:22.642149+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:35.299429+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La caja 18 (E-G1) lleva la etiqueta PROP y como fuente «Dos resultados posibles de la decisión». Según el sustento (Cambios aplicados del 2026-11-25), el silencio no se dibujó como evento de borde porque solo puede adjuntarse a una actividad, y la paleta (DEC-027) no incluye el subproceso embebido que agruparía todo el circuito interno.</p><h4>Exigencia normativa</h4><ul><li><strong>200.1 b) (p. 114):</strong> «El supervisor puede sustentar el recálculo del plazo materia de ampliación, en cuyo caso indica expresamente los días aprobados».</li><li><strong>200.1 d) (p. 114):</strong> «Si la entidad contratante no se pronuncia dentro del plazo indicado, se tiene por aprobado lo informado por el supervisor, salvo que éste no se haya pronunciado, caso en el cual se tiene por aprobado lo solicitado por el contratista».</li><li><strong>198.4 (p. 113):</strong> la ampliación surte efecto con su publicación en la Pladicop.</li><li><strong>200.4 (p. 114):</strong> «En virtud de la ampliación otorgada», la entidad amplía de oficio los contratos vinculados.</li></ul><h4>Inferencia</h4><p>Los días otorgados pueden ser menos que los pedidos. Por eso «Sí» no equivale a «lo solicitado». Tras el silencio la ampliación existe, y el 200.4 la sigue alcanzando. Sin embargo, el modelo solo llega a E-T10 y E-T11 cuando hay resolución expresa.</p><h4>Notación</h4><p>La paleta 7.3 incluye borde-temporizador, pero adjunto a E-T9 contaría solo el tiempo de esa actividad, no los 10 días desde la opinión. Es correcto no haberlo usado. Una ruta paralela con temporizador sería válida con la paleta, pero obliga a cancelar la rama que no ocurre y complica el diagrama. Por eso no la recomiendo para el nivel descriptivo.</p><h4>Evidencia no disponible</h4><p>No hay en la biblioteca un procedimiento o práctica del GORE para registrar y publicar una aprobación por silencio.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 200.1 b) y d), PDF p. 114",
+            "CON-001 Reglamento, art. 198.4, PDF p. 113",
+            "CON-001 Reglamento, art. 200.4, PDF p. 114",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.3",
+            "S4-3-2-4-sustento.md, Cambios aplicados 2026-11-25"
+          ],
+          "hipotesis": [
+            "Evento de borde temporizador en E-T9: se descarta, porque no mide el plazo legal, que empieza antes, en E-M1 o E-R1.",
+            "Subproceso embebido con evento de borde: se descarta, porque está fuera de la paleta (sección 7.3, segunda fase).",
+            "Compuerta basada en eventos después de E-R1/E-M1, entre resolución y vencimiento: se descarta, porque la resolución es una actividad interna y no un evento de captura.",
+            "La aprobación parcial equivale a una denegación de los días restantes: no hay fuente que lo diga. Solo se propone nombrar los días otorgados."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:22.642149+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Nombrar los días otorgados y explicar en el sustento cómo se ejecuta el silencio",
+              "detalle": "<p>Cambiar los rótulos de la caja 18 a «Sí, total o parcial» y «No», y poner en la caja 17 «sale: Resolución con días otorgados». En el sustento, explicar que una aprobación por silencio (200.1 d) también requiere registrar el nuevo plazo, publicarlo en la Pladicop y ampliar los contratos vinculados (E-T10 y E-T11). Dejar como EVIDENCIA-INSUFICIENTE la práctica concreta del GORE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G1",
+                "E-T9",
+                "E-T10",
+                "E-T11"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1 b) y d)",
+                "art. 198.4",
+                "art. 200.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Dibujar una ruta paralela para la aprobación por silencio",
+              "detalle": "<p>Después de E-M1/E-R1, abrir una compuerta paralela. Una rama sigue el circuito interno. La otra tiene un temporizador «Vencieron 10 días hábiles sin notificar» y lleva a una tarea de registro de la aprobación por silencio y a E-T10. Se necesitaría un fin terminal para cerrar la rama que no ocurre. Usa solo símbolos de la paleta, pero hace el diagrama mucho más complejo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-GE1",
+                "E-T9",
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1 d)",
+                "estándar 7.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener el diagrama y explicar ambos puntos solo en el sustento",
+              "detalle": "<p>No tocar la caja 18. En el sustento, explicar que «Sí» puede otorgar menos días de los pedidos y que el silencio produce aprobación con los mismos efectos que la ruta favorable.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-G1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1 b) y d)"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:35.299429+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:35.299429+00:00"
+    },
+    {
+      "id": "44424b2b-9f11-4810-a414-2da4cfb3fca2",
+      "elemento": "_6bfc1be1-2156-5955-a7df-e8a6752d99d8",
+      "referencia": "Caja 19 (E-T10)",
+      "texto": "<p><strong>Problema.</strong> La caja 19 encarga al coordinador de SGGOS «actualizar plazo y cronograma». Según el Reglamento, esa actualización sigue otro camino y tiene otros responsables:</p><ul><li><strong>Art. 206.1 b) y 206.2:</strong> cuando se aprueba una modificación contractual, el contratista presenta al supervisor el programa de ejecución y los calendarios actualizados. El supervisor los evalúa y remite la versión definitiva a la entidad para su aprobación.</li><li><strong>Art. 117.2 y 117.4:</strong> si la modificación amplía el plazo, el contratista amplía sus garantías en un máximo de 10 días hábiles desde la aprobación y publicación. Es requisito para el pago.</li></ul><p>Ninguna de las dos obligaciones aparece en el modelo ni en un proceso vecino identificado.</p><p><strong>Pregunta:</strong> ¿la caja 19 registra el nuevo plazo aprobado o aprueba el programa actualizado? ¿Dónde se representan el programa del 206 y la ampliación de garantías del 117?</p><p><strong>Efecto posible:</strong> cambia el diagrama (nombre de la caja 19 y, quizás, mensajes de salida) o basta con explicar en el sustento la interfaz con el proceso que corresponda.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:43.688843+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:43.688843+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:58.854663+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:10.692794+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La caja 19 (E-T10, clase EQ) produce «Plazo y cronograma actualizados». La auditoría la clasificó como inferencia del circuito. Su fuente (198.4 y 200.1 d) solo respalda la publicación en la Pladicop.</p><h4>Exigencia normativa</h4><ul><li><strong>206.1 (p. 116):</strong> «El contratista presenta el programa de ejecución y calendarios contractuales actualizados al supervisor en los siguientes casos: … b) Por la aprobación modificaciones contractuales, cuando corresponda».</li><li><strong>206.2 (p. 116):</strong> «El supervisor evalúa y remite a la entidad contratante la versión definitiva del programa de ejecución y calendarios actualizados para su aprobación».</li><li><strong>200.1 a) (p. 114):</strong> la solicitud ya «adjunta el programa de ejecución de obra actualizado».</li><li><strong>207.4 (p. 117):</strong> para analizar la ruta crítica se usa el «programa de ejecución vigente». Por eso importa que el programa aprobado quede registrado.</li><li><strong>117.2 y 117.4 (p. 64):</strong> el contratista amplía el plazo de las garantías; debe adecuarlas en un máximo de 10 días hábiles desde que la modificación se aprueba y publica. Presentarlas es requisito para el pago.</li><li><strong>Ley 32069, art. 63.3 c):</strong> la ampliación de plazo es una modificación contractual, así que le aplican el 206.1 b) y el 117.</li></ul><h4>Inferencia</h4><p>Lo que corresponde a la entidad tras la resolución es registrar el nuevo plazo y, más adelante, aprobar el programa definitivo que remite el supervisor. El coordinador no actualiza el cronograma por su cuenta. No encontré un proceso vecino que tome el 206 o el 117. No revisé en detalle la tabla de S4.3.2.1, que sería el candidato natural, y el equipo debería confirmarlo.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 206.1-206.2, PDF p. 116",
+            "CON-001 Reglamento, art. 200.1 a), PDF p. 114",
+            "CON-001 Reglamento, art. 207.4, PDF p. 117",
+            "CON-001 Reglamento, art. 117.2 y 117.4, PDF p. 64",
+            "CON-001 Ley 32069, art. 63.3 c), PDF p. 30",
+            "auditoria_informe S4.3.2.4 (E-T10 como inferencia)"
+          ],
+          "hipotesis": [
+            "El programa adjunto a la solicitud (200.1 a) sustituye al del 206: no se descarta del todo. El 206.2 exige una versión definitiva evaluada por el supervisor, y la aprobación puede otorgar días distintos de los pedidos.",
+            "El programa actualizado se gestiona en S4.3.2.1 (control periódico): es plausible, pero no está verificado. Se propone confirmarlo antes de cambiar el modelo.",
+            "La ampliación de garantías corresponde a otro macroproceso (tesorería o administración de contratos): es posible. Basta con registrar la interfaz en el sustento."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:58.854663+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Limitar la caja 19 al registro del plazo y anotar las obligaciones posteriores",
+              "detalle": "<p>Renombrar la caja 19 como «Publicar la resolución en la Pladicop y registrar el nuevo plazo contractual». Añadir esta anotación: «Luego el contratista presenta el programa actualizado al supervisor (206.1 b) y amplía sus garantías en 10 días hábiles (117.2, 117.4)». En el sustento, registrar en qué proceso se aprueba el programa definitivo (206.2), una vez confirmado.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T10",
+                "E-F1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 206.1-206.2, 117.2, 117.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Representar en este proceso el programa actualizado y las garantías",
+              "detalle": "<p>Añadir en el pool Contratista un inicio de mensaje «Resolución notificada» y las tareas «Presentar programa y calendarios actualizados al supervisor» y «Ampliar garantías». En el pool Supervisor, añadir «Evaluar y remitir programa definitivo» y, en la entidad, su aprobación. Alarga el proceso con un trámite que podría ser común a toda modificación contractual.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F1",
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 206 y 117"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la caja y explicar la interfaz solo en el sustento",
+              "detalle": "<p>Conservar el nombre actual de la caja 19. En el sustento, aclarar que «actualizar cronograma» significa registrar el plazo aprobado y que el programa definitivo y las garantías siguen los arts. 206 y 117 en el proceso que se identifique.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 206 y 117"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:10.692794+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:10.692794+00:00"
+    },
+    {
+      "id": "7ba7d59a-411a-4768-845e-3d6d9fe2831e",
+      "elemento": "_9ecb6e42-6366-5544-9b33-02c69714e1e8",
+      "referencia": "Caja 25 (E-T11)",
+      "texto": "<p><strong>Problema.</strong> La caja 25, «Ampliar el plazo de los contratos directamente vinculados», está en el carril del coordinador de SGGOS y va después de publicar la resolución. Hay tres dificultades:</p><ol><li>Ampliar el plazo de otro contrato, como el de supervisión, también es modificar un contrato. Según el art. 105.4, lo autoriza quien está facultado para suscribir contratos y adendas, no necesariamente el coordinador.</li><li>El art. 199.2 permite ampliar el plazo de la supervisión «en el mismo acto resolutivo» que aprueba la ampliación de la obra. El modelo, en cambio, lo trata como un paso posterior y separado.</li><li>Si la supervisión la hace un inspector, que es un servidor de la entidad (186.1), no hay contrato de supervisión que ampliar. La caja se ejecuta igual en todos los casos.</li></ol><p><strong>Pregunta:</strong> ¿quién emite el acto de ampliación de los contratos vinculados? ¿Se incluye en la misma resolución de la caja 17?</p><p><strong>Efecto posible:</strong> cambia el diagrama (carril o ubicación de la caja 25 y una condición previa).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:18.931947+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:18.931947+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:33.523795+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:44.102068+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La caja 25 (E-T11) se añadió por DEC-060. El sustento dice que «el carril del coordinador es una propuesta; el acto y el responsable quedan por confirmar».</p><h4>Exigencia normativa</h4><ul><li><strong>200.4 (p. 114):</strong> «En virtud de la ampliación otorgada, la entidad contratante amplía el plazo de los contratos directamente vinculados al contrato principal, sin solicitud previa».</li><li><strong>199.2 (p. 113):</strong> «En el caso de contratos de supervisión de obras, en el mismo acto resolutivo que aprueba la ampliación de plazo de la obra, puede ampliarse el plazo de la supervisión».</li><li><strong>105.2 y 186.5 (pp. 58 y 101):</strong> el plazo del contrato de supervisión está vinculado al del contrato supervisado.</li><li><strong>105.4 (p. 58) y Ley 63.3 c):</strong> la ampliación de plazo es una modificación contractual y la autoriza quien está facultado para suscribir adendas.</li><li><strong>186.1 (p. 101):</strong> la supervisión la hace un supervisor contratado o un inspector, servidor de la entidad, nunca los dos a la vez.</li></ul><h4>Inferencia</h4><p>Lo más probable es que el coordinador prepare o registre, pero que la decisión corresponda al decisor de la caja 17. Si la ampliación de la supervisión se resuelve en el mismo acto, la caja 25 quedaría solo para otros contratos vinculados, si los hay, o para registrar el efecto. Los arts. 198-202 no regulan otros contratos vinculados distintos de la supervisión, y no supongo cuáles serían.</p><h4>Revisión adversarial</h4><p>El 199.2 dice «puede», así que tramitarlo por separado no es contrario a la norma. La observación se centra en el responsable y en la condición de que exista un contrato, no en impedir un acto separado.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 200.4, PDF p. 114",
+            "CON-001 Reglamento, art. 199.2, PDF p. 113",
+            "CON-001 Reglamento, arts. 105.2 y 105.4, PDF p. 58",
+            "CON-001 Reglamento, arts. 186.1 y 186.5, PDF p. 101",
+            "CON-001 Ley 32069, art. 63.3 c)",
+            "S4-3-2-4-sustento.md, sección DEC-060"
+          ],
+          "hipotesis": [
+            "El coordinador sí tiene la facultad delegada: no está acreditado. El ROF, arts. 97-98, habla de control y seguimiento de obras, no de suscribir adendas.",
+            "Ampliar el contrato vinculado siempre requiere un acto separado: se descarta como única vía, por el 199.2 ('en el mismo acto resolutivo').",
+            "La caja 25 aplica también cuando hay inspector: se descarta, porque no hay contrato de supervisión (186.1). Haría falta una condición."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:33.523795+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Incluir la ampliación de la supervisión en la resolución de la caja 17 y condicionar la caja 25",
+              "detalle": "<p>En la caja 17 (E-T9), anotar: «Si hay supervisor contratado, la misma resolución puede ampliar el plazo de la supervisión (199.2)». Antes de la caja 25, añadir una compuerta exclusiva «¿Quedan contratos vinculados por ampliar?», con salida «No» hacia E-F1. Mover la caja 25 al carril del decisor, o renombrarla como registro si solo ejecuta un acto ya emitido.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T9",
+                "E-T11",
+                "E-F1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 199.2, 200.4, 105.4, 186.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mover solo la caja 25 al carril del decisor",
+              "detalle": "<p>Conservar la secuencia actual, pero poner la caja 25 en el carril del decisor, porque es una modificación contractual (105.4). Añadir una anotación de que no aplica cuando hay inspector.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T11"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 105.4, 186.1, 200.4"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener el modelo y pedir evidencia sobre el responsable",
+              "detalle": "<p>Dejar la caja 25 donde está, marcada con EVIDENCIA-INSUFICIENTE, hasta que el equipo confirme quién emite el acto de ampliación del contrato de supervisión en el GORE.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T11"
+              ],
+              "fuentes": [
+                "S4-3-2-4-sustento.md, DEC-060"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:44.102068+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:44.102068+00:00"
+    },
+    {
+      "id": "f04d3bdc-d198-4b80-84e6-8bd3006035e3",
+      "elemento": "_aae691a0-1620-57bd-9597-4253a2af5b1b",
+      "referencia": "Caja 2 (R-T1)",
+      "texto": "<p><strong>Problema.</strong> La caja 2 se titula «Registrar causal en Cuaderno y notificar solicitud…». El art. 200.1 a) no obliga a anotar la causal en el Cuaderno: dice que el contratista «puede utilizar» los asientos del cuaderno como sustento. A la vez, la caja no recoge lo que la norma sí exige que contenga la solicitud:</p><ul><li>los motivos de la ampliación;</li><li>los días de inicio y fin de la causal;</li><li>la cuantificación de los días pedidos y los riesgos asociados;</li><li>el programa de ejecución actualizado.</li></ul><p>Además, el art. 198.3 manda que supervisor y entidad privilegien el criterio técnico sobre las formalidades. La auditoría lo marca como no representado.</p><p><strong>Pregunta:</strong> ¿es una práctica del GORE exigir la anotación previa en el Cuaderno? Si no lo es, ¿se ajusta el nombre y se detalla el contenido de la solicitud?</p><p><strong>Efecto posible:</strong> cambia el diagrama (nombre y documentos de la caja 2; anotación en las cajas 5 y 9).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:52.796082+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:52.796082+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:06.548126+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:16.502828+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La caja 2 (R-T1) presenta la anotación en el Cuaderno como un paso más de la actividad. El documento de salida es genérico («Solicitud y sustento»).</p><h4>Exigencia normativa</h4><ul><li><strong>200.1 a) (p. 114):</strong> «La solicitud contiene los motivos que originan la ampliación, detallando los días de inicio y fin de la causal, la cuantificación de los días de ampliación, así como los riesgos asociados. Además, adjunta el programa de ejecución de obra actualizado […]. Como parte del sustento, el contratista <em>puede</em> utilizar los asientos del cuaderno de incidencias, relacionados al inicio y fin de la causal».</li><li><strong>198.3 (p. 113):</strong> el supervisor y la entidad «privilegian el criterio técnico y el cumplimiento de la finalidad pública para su pronunciamiento por encima de las formalidades de la documentación presentada, siempre que el sustento otorgue certeza a la decisión».</li><li><strong>188.1 (p. 104):</strong> el Cuaderno registra «los principales hechos» de la obra. No hay en los arts. 188-202 un deber específico de anotar la causal de ampliación.</li></ul><h4>Contraste con procesos hermanos</h4><p>En S4.3.2.3, la anotación en el Cuaderno sí es obligatoria y marca el inicio de los plazos (art. 194.2). Puede que el modelo de ampliaciones haya heredado esa lógica del modelo anterior (variante MOD-PLA-AMP). Es una inferencia.</p><h4>Revisión adversarial</h4><p>Busqué en el Reglamento una exigencia de anotar en el Cuaderno el inicio y el fin de la causal de ampliación, que sí existía en regímenes anteriores, y no la encontré en el texto local vigente. No consulté el Reglamento del régimen anterior porque está fuera del alcance de este proceso.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 200.1 a), PDF p. 114",
+            "CON-001 Reglamento, art. 198.3, PDF p. 113",
+            "CON-001 Reglamento, art. 188.1, PDF p. 104",
+            "S4.3.2.3, caja R-T1 (anotación de necesidad del adicional)",
+            "auditoria_informe S4.3.2.4: 198.3 NO-REPRESENTADO"
+          ],
+          "hipotesis": [
+            "Las bases o el contrato exigen la anotación previa: es posible, pero no hay bases en la biblioteca. Queda como pregunta al equipo.",
+            "La anotación es una buena práctica del GORE comunicada por el usuario: no consta en el sustento. Solo DEC-041 menciona el Cuaderno como denominación.",
+            "El 198.3 debería ser una compuerta: se descarta, porque es un criterio de evaluación y no una decisión con salidas. Basta con anotarlo."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:06.548126+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Renombrar la caja 2, detallar la solicitud y anotar el 198.3",
+              "detalle": "<p>Renombrar la caja 2 como «Elaborar y notificar la solicitud de ampliación a la entidad y a la supervisión». Como documento de salida, poner «sale: Solicitud (motivos, inicio y fin de la causal, días, riesgos) y programa de ejecución actualizado» y anotar «Puede sustentarse con asientos del Cuaderno». En las cajas 5 (S-T1) y 9 (E-T2), anotar: «Prima el criterio técnico sobre las formalidades (198.3)».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-T1",
+                "S-T1",
+                "E-T2"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 200.1 a) y 198.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener la anotación en el Cuaderno como práctica institucional",
+              "detalle": "<p>Si el equipo confirma que el GORE exige la anotación previa, conservar el nombre. Registrar en el sustento que es una práctica observada y no una exigencia del 200.1 a), y completar el documento de salida con el contenido mínimo.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "R-T1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1 a)"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Detallar la solicitud solo en el sustento",
+              "detalle": "<p>No tocar la tabla. En el sustento, listar el contenido mínimo de la solicitud, el carácter opcional del Cuaderno y el criterio del 198.3.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "R-T1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 200.1 a) y 198.3"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:16.502828+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:16.502828+00:00"
+    },
+    {
+      "id": "4c2bad24-9dcd-494a-a25f-34c55ff9d3f4",
+      "elemento": "_78ababe2-d5a0-5b2a-b6dd-19c4735d83b0",
+      "referencia": "Caja 1 (R-E1)",
+      "texto": "<p><strong>Vacío.</strong> El inicio «Causal de ampliación identificada» (caja 1) solo contempla una solicitud por una causal terminada. El Reglamento regula dos situaciones más que el modelo no distingue:</p><ul><li><strong>Ampliación parcial (200.2).</strong> Si la causal no tiene fecha prevista de fin, el contratista puede pedir una ampliación parcial con el mismo procedimiento, siempre que el plazo no esté suspendido. Esa condición vincula este proceso con S4.3.2.5 (suspensiones de plazo).</li><li><strong>Trámite independiente (200.5).</strong> Las causales que no corresponden a un mismo periodo se tramitan y resuelven cada una por separado.</li></ul><p>Además, el plazo de 10 días hábiles de la caja 2 empieza «al finalizar el hecho generador», y en una causal sin fin previsto ese momento no existe.</p><p><strong>Pregunta:</strong> ¿se representa la ampliación parcial en el modelo? ¿Se declara que cada causal es una instancia del proceso?</p><p><strong>Efecto posible:</strong> cambia el diagrama (anotación en las cajas 1 y 2) y el sustento (instancia y relación con S4.3.2.5).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:26.324089+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:26.324089+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:41.272585+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:51.320552+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La auditoría marca el 200.2 como NO-REPRESENTADO y el sustento lo deja pendiente desde el 2026-11-25. Según el sustento («Elementos registrados»), la instancia es «una por solicitud o causal» (DEC-041), pero el modelo no lo muestra.</p><h4>Exigencia normativa</h4><ul><li><strong>200.2 (p. 114):</strong> «El contratista puede solicitar una ampliación de plazo parcial cuando se trate de circunstancias que no cuenten con fecha prevista de conclusión, siempre que no se hubiera suspendido el plazo contractual, para lo cual se aplica […] el procedimiento señalado en el numeral precedente».</li><li><strong>200.5 (p. 114):</strong> «Cuando las ampliaciones se sustenten en causales que no correspondan a un mismo periodo de tiempo, sea este parcial o total, cada solicitud de ampliación de plazo se tramita y resuelve independientemente».</li><li><strong>200.1 a) (p. 114):</strong> el plazo de 10 días hábiles se cuenta desde el aviso de aprobación del adicional o desde que «finaliza el hecho generador».</li><li><strong>202.1 y 107:</strong> la suspensión de plazo se rige por otro procedimiento, que el proyecto modela en S4.3.2.5.</li></ul><h4>Inferencia</h4><p>En la ampliación parcial, el procedimiento es el mismo y solo cambia el momento desde el que se cuenta el plazo. Por eso no hace falta una ruta nueva: basta con anotar la condición y la exclusión por suspensión. El 200.5 confirma que la instancia es por causal o periodo, así que podría ponerse el marcador de instancias en el sustento sin cambiar los símbolos.</p><h4>Evidencia no disponible</h4><p>El Reglamento no dice desde cuándo corren los 10 días en una ampliación parcial. Hay que registrarlo como EVIDENCIA-INSUFICIENTE o pedir una opinión del OECE o del MEF, que no está en la biblioteca, en lugar de suplirlo.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento, art. 200.2, PDF p. 114",
+            "CON-001 Reglamento, art. 200.5, PDF p. 114",
+            "CON-001 Reglamento, art. 200.1 a), PDF p. 114",
+            "CON-001 Reglamento, art. 202.1, PDF p. 114",
+            "auditoria_informe S4.3.2.4: 200.2 NO-REPRESENTADO",
+            "S4-3-2-4-sustento.md, Elementos registrados (instancia)",
+            "DEC-041"
+          ],
+          "hipotesis": [
+            "La ampliación parcial requiere un proceso o una ruta propia: se descarta, porque el 200.2 remite al mismo procedimiento del 200.1.",
+            "Una causal sin fin previsto debe tramitarse siempre como suspensión (S4.3.2.5): se descarta, porque la suspensión es una alternativa, no una obligación. El 200.2 la excluye solo si el plazo ya se suspendió.",
+            "Las causales de un mismo periodo se resuelven en una sola solicitud: es compatible con el 200.5, que solo exige separarlas si los periodos son distintos."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:41.272585+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar la ampliación parcial y la instancia por causal",
+              "detalle": "<p>Añadir a la anotación de la caja 1: «También ampliación parcial si la causal no tiene fin previsto y el plazo no está suspendido (200.2; ver S4.3.2.5). Una solicitud por causal o periodo distinto (200.5)». En el sustento, dejar EVIDENCIA-INSUFICIENTE sobre desde cuándo corren los 10 días en la ampliación parcial.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-E1",
+                "R-T1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 200.2 y 200.5"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Distinguir la ampliación parcial con una compuerta propia del contratista",
+              "detalle": "<p>Añadir en el pool Contratista una compuerta exclusiva «¿La causal tiene fecha prevista de fin?», con dos rutas que confluyen en la misma notificación. Como el procedimiento es el mismo, añade símbolos sin cambiar lo que pasa después.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R-E1",
+                "R-T1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.2"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicarlo solo en el sustento",
+              "detalle": "<p>Registrar en el sustento el 200.2, el 200.5 y la relación con S4.3.2.5, sin tocar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "R-E1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 200.2 y 200.5"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:51.320552+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:51.320552+00:00"
+    },
+    {
+      "id": "5cf7ac95-ebe0-4d99-849e-db9fb35d1fc4",
+      "elemento": "_8680ffb0-ae6f-5efc-bbd2-7fb0287013c0",
+      "referencia": "Caja 22 (E-GE1)",
+      "texto": "<p><strong>Duda.</strong> Después de registrar la solicitud, el modelo espera en la compuerta «¿Qué ocurre primero?» (caja 22) hasta que llega la opinión del supervisor o vencen sus 5 días. Solo entonces empieza la evaluación del coordinador (caja 9). En los 10 días hábiles siguientes deben actuar seis instancias: coordinador, subgerente, GRI, GRAJ (opinión y proyecto) y decisor. Tengo tres dudas:</p><ol><li>¿En la práctica, el coordinador empieza a revisar la solicitud mientras espera la opinión, o espera de verdad?</li><li>En S4.3.2.3, la OACGD deriva primero al subgerente de SGGOS, que deriva al coordinador. Aquí la caja 8 deriva directamente al coordinador. ¿Cuál es el circuito real?</li><li>Si el supervisor no se pronuncia, el art. 200.1 c) prevé aplicarle las penalidades que correspondan. ¿Se registra ese efecto en algún proceso?</li></ol><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento si se confirma la secuencia actual. Cambia el diagrama si el equipo confirma una revisión anticipada o la derivación por el subgerente.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:01+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:01+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:16.261052+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:26.502025+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué entiendo</h4><p>La secuencia E-T1 → E-GE1 → (E-M1 | E-R1) → E-T2 sigue al 200.1 b-d. El sustento (Cambios aplicados del 2026-11-25) dice que los 10 días de E-T9 «cubren todo el circuito interno desde E-T2». La secuencia coordinador → subgerente → GRI → GRAJ → decisor viene de la observación del usuario del 2026-11-10 (evidencia observada; el ROF no fija el orden).</p><h4>Exigencia normativa</h4><ul><li><strong>200.1 d) (p. 114):</strong> los 10 días hábiles se cuentan «desde el día siguiente de recibida la opinión del supervisor o del vencimiento del plazo sin que haya emitido opinión». La norma no impide que la entidad revise antes. Solo fija cuándo empieza a contar el plazo.</li><li><strong>200.1 c) (p. 114):</strong> «sin perjuicio de aplicar las penalidades que correspondan a la supervisión».</li><li><strong>105.5 (p. 59):</strong> la entidad gestiona mecanismos de colaboración ágil entre contratista, supervisión y entidad para evaluar modificaciones contractuales.</li></ul><h4>Contraste con procesos hermanos</h4><p>En S4.3.2.3, la OACGD deriva primero al subgerente de SGGOS (E-T1 → E-TSG «Recibir sustento y derivarlo al coordinador por SGD»). En S4.3.2.4, E-T1 «Registrar expediente y derivar a SGGOS» va directamente a E-T2, en el carril del coordinador. Puede ser una simplificación o una diferencia real. No hay fuente que lo resuelva.</p><h4>Inferencia</h4><p>Es una duda de práctica (AS-IS), no un error normativo. Una revisión anticipada sería una propuesta de mejora y, como tal, tendría que ir al árbol TO-BE, no al modelo principal. Las penalidades a la supervisión parecen corresponder a la gestión del contrato de supervisión. No identifiqué qué proceso las recoge.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 200.1 c) y d), PDF p. 114",
+            "CON-001 Reglamento, art. 105.5, PDF p. 59",
+            "S4.3.2.3, cajas E-T1 y E-TSG",
+            "S4-3-2-4-sustento.md, Ajuste operativo 2026-11-10 y Cambios aplicados 2026-11-25",
+            "AGENTS.md: separación del árbol TO-BE"
+          ],
+          "hipotesis": [
+            "La espera es real y el coordinador no actúa hasta recibir la opinión: es compatible con la norma. Bastaría con confirmarlo.",
+            "El coordinador revisa en paralelo: se trata como pregunta. Si fuera una mejora y no la práctica actual, iría al TO-BE.",
+            "La derivación directa al coordinador es una simplificación válida: no se descarta, pero debería justificarse frente a S4.3.2.3.",
+            "Las penalidades a la supervisión se aplican dentro de este proceso: se descarta, porque son un efecto sobre otro contrato. Solo se pide registrar la interfaz."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:16.261052+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Confirmar la práctica con el equipo y explicarla en el sustento",
+              "detalle": "<p>Preguntar al equipo: (1) si el coordinador espera la opinión; (2) si la OACGD deriva al subgerente o al coordinador; (3) dónde se registra la penalidad del 200.1 c). Registrar las respuestas como evidencia observada. Si la derivación pasa por el subgerente, alinear la caja 8 con S4.3.2.3. En la caja 24 (E-R1), anotar: «Penalidad a la supervisión según contrato (200.1 c)».</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "E-GE1",
+                "E-T1",
+                "E-T2",
+                "E-R1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1 c-d",
+                "S4.3.2.3, E-TSG"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Alinear ya la derivación con S4.3.2.3",
+              "detalle": "<p>Añadir una tarea de usuario del subgerente de SGGOS, «Recibir expediente y derivarlo al coordinador por SGD», entre las cajas 8 y 9, igual que en S4.3.2.3. Sin confirmación, se basa solo en la analogía con el proceso hermano.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T1",
+                "E-T2"
+              ],
+              "fuentes": [
+                "S4.3.2.3, E-T1 y E-TSG"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la secuencia sin cambios",
+              "detalle": "<p>No hacer nada: la secuencia actual cumple el 200.1 b-d y la derivación directa es una simplificación aceptable. Registrar en el sustento por qué difiere de S4.3.2.3.</p>",
+              "formato": "html",
+              "efecto": "NO-PROCEDE",
+              "elementos": [
+                "E-GE1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 200.1"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:26.502025+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:26.502025+00:00"
+    },
+    {
+      "id": "f83602f1-267f-402c-8353-78461961cb17",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "<p><strong>Duda.</strong> No queda claro qué régimen cubre el modelo. El diagrama es solo de contrata: pool Contratista, Pladicop y plazos del art. 200. Sin embargo, el sustento y la caja 4 citan la Directiva 017-2023-CG, num. 7.3.7, que regula la ampliación de plazo en obras por <em>administración directa</em>. Esa directiva exige además que la ampliación esté «previamente registrada en el Banco de Inversiones».</p><p>En contrata, la Directiva 001-2019-EF/63.01, art. 33.2, pide que la UEI registre las modificaciones durante la ejecución física antes de ejecutarlas. El modelo no dice si una ampliación de plazo de obra debe registrarse en el Banco de Inversiones (Formato 08-A) ni quién lo hace.</p><p><strong>Pregunta:</strong></p><ol><li>¿La administración directa queda fuera de este modelo, o tendrá una variante?</li><li>¿Corresponde algún registro en el Banco de Inversiones tras aprobar una ampliación en contrata?</li></ol><p><strong>Efecto posible:</strong> basta con explicar el alcance en el sustento y retirar la cita de la caja 4. Si se confirma el registro, se añade una interfaz. Para eso hace falta incorporar una fuente del MEF que lo precise.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:37.004177+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:37.004177+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:52.061867+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:02.963643+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada en el modelo</h4><ul><li>La caja 4 (S-E1) tiene como fuente «Reglamento, art. 200.1 b; Directiva 017-2023-CG, num. 7.3.7».</li><li>El sustento, en «Fuentes utilizadas», cita la Directiva 017-2023-CG para la «ampliación en administración directa». En «Ajuste operativo» la mantiene como fuente propuesta «según régimen».</li><li>La ficha nombra como proveedor al «supervisor o inspector» sin precisar el régimen.</li><li>Todas las cajas siguen el procedimiento del art. 200, propio de contrata: Pladicop, contratista y aprobación por silencio.</li></ul><h4>Exigencia normativa</h4><ul><li><strong>Directiva 017-2023-CG, num. 7.3.7 (CTRL-001):</strong> «Toda ampliación de plazo en la ejecución de la obra debe ser aprobada por el funcionario competente mediante acto resolutivo y previamente registrada en el Banco de Inversiones». Aplica solo a administración directa.</li><li><strong>Directiva 001-2019-EF/63.01, art. 33.2 (INV-003, p. 30):</strong> «Las modificaciones durante la ejecución física de las inversiones deben ser registradas por la UEI antes de su ejecución, mediante el Formato N° 08-A». Está recogida como REG-INV-EJEC-004, en estado BORRADOR-IA y con vigencia por confirmar.</li></ul><h4>Inferencia</h4><p>El art. 33.2 no dice expresamente si una ampliación de plazo contractual es una «modificación» de la inversión que deba registrarse. Puede referirse solo a cambios de alcance o de costo. No lo doy por exigido: lo planteo como duda. El supervisor e inspector en contrata está bien sustentado en el Reglamento, art. 186.1, sin necesidad de la Directiva CG.</p><h4>Documentos no disponibles</h4><p>No hay en la biblioteca un instructivo o comunicado del MEF sobre el Formato 08-A que diga si deben registrarse las ampliaciones de plazo de obra en contrata. La regla REG-INV-EJEC-004 advierte que la Directiva cita aún el reglamento anterior de Invierte.pe.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CTRL-001 Directiva 017-2023-CG, num. 7.3.7",
+            "INV-003 Directiva 001-2019-EF/63.01, art. 33.2, PDF p. 30",
+            "REG-INV-EJEC-004 (BORRADOR-IA)",
+            "CON-001 Reglamento, art. 186.1, PDF p. 101",
+            "S4-3-2-4-sustento.md, Fuentes utilizadas",
+            "S4-3-2-4-ficha-producto-proceso.md",
+            "Caja 4 (S-E1), campo fuente"
+          ],
+          "hipotesis": [
+            "El modelo pretende cubrir también la administración directa: se descarta, porque ninguna caja sigue la Directiva CG y el pool es Contratista (convención 7.4, punto 1).",
+            "La cita de la Directiva CG en la caja 4 sustenta la figura del inspector: se descarta, porque el art. 186.1 del Reglamento ya lo hace para contrata.",
+            "El registro en el Banco de Inversiones se hace en S4.3.2.1 con el seguimiento mensual (REG-INV-EJEC-006): es plausible, pero no verificado."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:52.061867+00:00",
+          "revision_modelo": "3d2a0e280e4e758bfd94554d6376351470f5ea6f40a8fdf3c8ae7c97b225298a"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Declarar que el modelo es solo de contrata y dejar pendiente el Banco de Inversiones",
+              "detalle": "<p>En el sustento y en la ficha, indicar que el modelo cubre la ampliación en contrata (Reglamento, arts. 198-201) y que la administración directa (Directiva 017-2023-CG, 7.3.7) queda para una variante. Quitar la Directiva CG de la fuente de la caja 4 y citar el 186.1 para el inspector. Registrar el registro en el Banco de Inversiones como EVIDENCIA-INSUFICIENTE, a la espera de una fuente del MEF.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S-E1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 186.1",
+                "Directiva 017-2023-CG, 7.3.7",
+                "Directiva 001-2019-EF/63.01, art. 33.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Incorporar ya la administración directa al modelo",
+              "detalle": "<p>Usar el pool «Ejecutor de obra, según régimen» (convención 7.4) y añadir una compuerta de régimen con la ruta de la Directiva 017-2023-CG, que incluye el registro previo en el Banco de Inversiones. Supone ampliar mucho el alcance del proceso.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "R-E1",
+                "S-E1"
+              ],
+              "fuentes": [
+                "Directiva 017-2023-CG, 7.3.7",
+                "estándar 7.4"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Añadir ahora una interfaz de registro en el Banco de Inversiones",
+              "detalle": "<p>Tras la caja 19, añadir un mensaje hacia la UEI o el proceso de seguimiento: «Ampliación aprobada para registro (Formato 08-A)». Solo procede si se confirma con una fuente del MEF que la ampliación de plazo es una modificación registrable.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T10"
+              ],
+              "fuentes": [
+                "Directiva 001-2019-EF/63.01, art. 33.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:02.963643+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:02.963643+00:00"
+    }
+  ]
+}

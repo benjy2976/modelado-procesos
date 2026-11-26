@@ -1,0 +1,978 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-3-gestion-adicionales-deductivos-obra/S4-3-2-3-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "dadbcf47-447c-483b-9fcb-56e0644d4fc8",
+      "elemento": "_918cb9df-5021-58c7-8a42-d3c3b0ada77f",
+      "referencia": "Caja 45 (E-T11)",
+      "texto": "<p><strong>Observación.</strong> La Ley 32069, art. 64.5, dispone que, cuando se aprueban adicionales de obra por <em>deficiencias en el expediente técnico</em>, se debe informar al Tribunal de Contrataciones Públicas y a la Contraloría General de la República. El modelo distingue esa causal al inicio (Reglamento, art. 194.1 i, en la caja E-G6), pero después de publicar la aprobación (E-T11) termina en E-F1 sin ninguna comunicación a esas dos instancias. Ni la tabla ni el sustento mencionan el art. 64.5.</p><p><strong>Pregunta:</strong> ¿se incorpora al modelo la obligación de informar al Tribunal y a la Contraloría cuando la causal aprobada es deficiencia del expediente, y qué unidad la cumple?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una decisión por causal y una comunicación a participantes externos después de E-T11); la unidad responsable queda pendiente hasta contar con la fuente institucional.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:48.303960+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:48.303960+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:05.241721+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:16.232753+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>Falta representar una obligación legal posterior a la aprobación, condicionada a la causal.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Ley 32069 (texto consolidado al 19-07-2026, PDF p. 31), art. 64.5: «En caso de aprobarse adicionales de obra por deficiencias en el expediente técnico, se debe informar al Tribunal de Contrataciones Públicas y a la Contraloría General de la República, a fin de que inicien los procesos administrativos que correspondan». Fragmento f14ffa37b824b8af-c9c22559:art-64.5. Consulta: 2026-11-26.</li><li>Reglamento, art. 194.1 (PDF p. 109): distingue las causales i) deficiencias del expediente y ii) causas no previsibles. El modelo ya exige acreditar la causal en E-G6.</li><li><strong>Evidencia observada:</strong> en la tabla, E-T11 → E-F1 sin mensaje; la auditoría (14 obligaciones, estado COMPLETO) no incluye el art. 64.5 en su cobertura. El sustento cita «Ley art. 64.2-64.4», no el 64.5.</li><li>El art. 64.6 (negativa o demora de la entidad en corregir vicios del expediente) es un supuesto distinto, que no se activa en este flujo; se menciona solo para descartarlo.</li></ul><h4>Responsable</h4><p><strong>EVIDENCIA-INSUFICIENTE.</strong> En la biblioteca no se halló una norma interna ni una función del ROF que asigne a una unidad la comunicación al Tribunal y a la Contraloría; la búsqueda por «Tribunal de Contrataciones» en notas no dio resultados. No se propone una unidad concreta.</p><h4>Inferencia</h4><p>Lo natural es que la comunicación ocurra después de emitida o publicada la resolución (el texto dice «en caso de aprobarse»), por eso se ubica después de E-T11; el plazo no está fijado en la Ley ni en el Reglamento revisados (arts. 176-212).</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Ley 32069, art. 64.5, PDF p. 31 (f14ffa37b824b8af-c9c22559:art-64.5)",
+            "CON-001 Ley 32069, art. 64.6, PDF p. 31",
+            "CON-001 Reglamento, art. 194.1, PDF p. 109",
+            "Tabla S4.3.2.3, cajas E-G6, E-T11, E-F1",
+            "Auditoría S4.3.2.3 (cobertura_fuente)",
+            "Sustento S4.3.2.3, Fuentes utilizadas"
+          ],
+          "hipotesis": [
+            "Otra figura regulada: art. 64.6 (negativa o demora en corregir el expediente) — descartada: es un supuesto diferente, no el de aprobación.",
+            "La obligación ya estaría cubierta por la solicitud a Contraloría (E-T8) — descartada: E-T8 solo opera en el tramo >30 % y es una autorización previa, no la comunicación posterior del 64.5, que aplica a cualquier porcentaje.",
+            "Figura análoga en proceso vecino: S4.3.2.2 E-T10 comunica la causal de modificación a SGGOS; no cubre la comunicación externa — descartada como sustituto.",
+            "Otro responsable: Titular o autoridad que resolvió, SGGOS que publica, o GRAJ — no hay fuente que lo defina; queda EVIDENCIA-INSUFICIENTE.",
+            "Revisión adversarial: se buscó en el Reglamento arts. 176-212 una regla que exceptúe o regule el 64.5; no se encontró. Una directiva de la Contraloría o del OECE podría precisar forma y plazo; no está en la biblioteca."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:05.241721+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Agregar la decisión por causal y la comunicación externa después de E-T11",
+              "detalle": "<p>Entre E-T11 y E-F1: compuerta exclusiva «¿Se aprobó por deficiencias del expediente técnico?». Rama «Sí»: tarea de usuario «Informar la aprobación al Tribunal y a la Contraloría» con mensajes al pool cerrado de la Contraloría (ya existe) y a un nuevo pool cerrado «Tribunal de Contrataciones Públicas». Rama «No» (por defecto): E-F1. El carril de la tarea se deja con título funcional provisional y <strong>EVIDENCIA-INSUFICIENTE</strong> en el sustento, hasta acreditar la unidad.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T11",
+                "E-F1"
+              ],
+              "fuentes": [
+                "Ley 32069, art. 64.5, PDF p. 31",
+                "Reglamento, art. 194.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo anotar la obligación en E-T11 y registrarla en el sustento",
+              "detalle": "<p>Agregar a la anotación de E-T11: «Si la causal es deficiencia del expediente, informar al Tribunal y a la Contraloría (Ley, art. 64.5)», y registrar la obligación en el sustento como pendiente de responsable. No hace visible el intercambio con participantes externos.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T11"
+              ],
+              "fuentes": [
+                "Ley 32069, art. 64.5"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar la fuente interna antes de modelar",
+              "detalle": "<p>Registrar el vacío en el sustento y solicitar al equipo la norma o práctica interna que define unidad, forma y oportunidad de la comunicación; modelar cuando se incorpore.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T11"
+              ],
+              "fuentes": [
+                "Ley 32069, art. 64.5"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:16.232753+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:16.232753+00:00"
+    },
+    {
+      "id": "aebc5f03-ab7e-4cb2-aae6-1e89a9b9c798",
+      "elemento": "_b1f8b5a5-2dc0-5153-9676-2a5e8c4ca631",
+      "referencia": "Caja 38 (E-G8)",
+      "texto": "<p><strong>Observación.</strong> La compuerta «¿Qué límite alcanza el adicional acumulado?» agrupa en una sola rama «Hasta 30 %» dos tramos que la Ley 32069 asigna a autoridades distintas:</p><ul><li>hasta 15 %: la <em>autoridad de la gestión administrativa</em> (art. 64.2), que en los gobiernos regionales es la Gerencia General Regional (art. 25.1);</li><li>más de 15 % y hasta 30 %: el <em>titular de la entidad</em>, siempre que cuente con los recursos necesarios (art. 64.3 a).</li></ul><p>Ambos tramos llegan a E-T10, en el carril genérico «Titular de la competencia o autoridad delegada», sin indicar qué autoridad resuelve en cada caso. Tampoco se precisa la base del acumulado: el Reglamento, art. 197.1, suma los mayores metrados y los adicionales para verificar el límite.</p><p><strong>Pregunta:</strong> ¿se distinguen en el modelo los tramos de 15 % y 30 % y la autoridad competente de cada uno, y se aclara que el acumulado incluye los mayores metrados autorizados (S4.3.2.8)?</p><p><strong>Efecto posible:</strong> cambia el diagrama (rótulos de la compuerta y anotación de E-T10) o basta con explicarlo en el sustento; la delegación concreta queda pendiente de la resolución de delegación.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:24.932633+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:24.932633+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:41.575970+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:54.197717+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>La compuerta decide el circuito de autorización, pero no la competencia del acto, que también depende del porcentaje.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Ley 32069, art. 64.2 (PDF p. 31): la autoridad de la gestión administrativa autoriza hasta 15 % «restándole los presupuestos deductivos vinculados». Art. 64.3 a): el titular, más de 15 % y hasta 30 %, «siempre que cuente con los recursos necesarios». Art. 64.3 b): más de 30 % hasta 50 %, previa autorización de la Contraloría.</li><li>Ley 32069, art. 25.1 (PDF pp. 15-16): en los gobiernos regionales, la autoridad de la gestión administrativa es la gerencia general regional. Art. 25.2: titular y autoridad pueden delegar «salvo las excepciones previstas en el reglamento». No se halló en el Reglamento (arts. 176-212 y búsqueda por «indelegable») una excepción para adicionales de obra.</li><li>Reglamento, art. 194.1 (p. 109): «la autoridad de la gestión administrativa o el titular de la entidad, según corresponda, mediante resolución previa».</li><li>Reglamento, art. 197.1 (p. 112): para mayores metrados, el límite considera «el monto acumulado de los mayores metrados y las prestaciones adicionales de obras, restándole los presupuestos deductivos».</li><li><strong>Evidencia observada:</strong> tabla, E-G8 → E-T10 «[Hasta 30 %] (por defecto)»; carril de E-T10 «Titular de la competencia o autoridad delegada». ROF GRH 2023, art. 11 (LOC-007, pp. 9-10), describe a la Gerencia General Regional.</li></ul><h4>Inferencia</h4><p>Que el acumulado del adicional deba incluir los mayores metrados ya autorizados es una <strong>inferencia</strong> por simetría del art. 197.1, que está redactado desde la perspectiva de los mayores metrados; requiere confirmación especializada.</p><h4>No disponible</h4><p>Resoluciones de delegación vigentes del GORE Huánuco en materia de contrataciones: no están en la biblioteca (el sustento ya las declara pendientes).</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Ley 32069, arts. 64.2, 64.3 a-b, PDF p. 31",
+            "CON-001 Ley 32069, art. 25.1-25.2, PDF pp. 15-16",
+            "CON-001 Reglamento, arts. 194.1 y 197.1, PDF pp. 109 y 112",
+            "LOC-007 ROF GRH 2023, art. 11, pp. 9-10",
+            "Tabla S4.3.2.3, cajas E-G8, E-T10, E-TC",
+            "Proceso S4.3.2.8, cajas S2 y SG"
+          ],
+          "hipotesis": [
+            "El carril abstracto ya cubre ambas autoridades — parcialmente cierto: evita fijar una delegación, pero no informa que la competencia cambia al 15 %; se ofrece como opción de solo sustento.",
+            "Otro responsable: GRI — Gerente Regional de Infraestructura (catálogo de carriles, usado en S4.3.2.4) — posible solo si existe delegación; sin fuente, no se propone.",
+            "Otra figura: art. 195.1 b (diseño y construcción, 20 %/40 %/50 %) — descartada: este detalle es solo construcción; los otros sistemas van a E-FPEND.",
+            "Revisión adversarial: se buscó una regla que haga indelegable la aprobación de adicionales (que impediría el carril 'autoridad delegada'); no se encontró en el Reglamento local. El art. 302.1 y 55.2 contienen facultades indelegables, pero de otras materias."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:41.575970+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Precisar tramos y autoridad en la compuerta y en E-T10, conservando el carril funcional",
+              "detalle": "<p>Mantener el carril «Titular de la competencia o autoridad delegada» y la ruta E-G8 → E-T10, pero:</p><ul><li>anotar en E-T10: «Hasta 15 %: autoridad de la gestión administrativa (Gerencia General Regional, Ley art. 25.1); más de 15 % y hasta 30 %: titular, con recursos disponibles (art. 64.3 a); más de 30 %: titular con autorización de Contraloría»;</li><li>anotar en E-G8 o E-TC la base del acumulado: adicionales y mayores metrados autorizados, menos deductivos vinculados (arts. 64.2 y 197.1), marcando la inclusión de mayores metrados como inferencia por confirmar;</li><li>registrar en el sustento la delegación vigente como EVIDENCIA-INSUFICIENTE.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G8",
+                "E-T10",
+                "E-TC"
+              ],
+              "fuentes": [
+                "Ley 32069, arts. 25.1, 64.2, 64.3",
+                "Reglamento, arts. 194.1 y 197.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Separar dos carriles de decisión por autoridad legal",
+              "detalle": "<p>Dividir E-G8 en «Hasta 15 %» y «Más de 15 % y hasta 30 %», con dos tareas de resolución en carriles «Gerencia General Regional — autoridad de la gestión administrativa» y «Titular de la entidad». Hace visible la competencia, pero puede quedar desfasado si existen delegaciones, que no están acreditadas.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G8",
+                "E-T10",
+                "E-T8"
+              ],
+              "fuentes": [
+                "Ley 32069, arts. 25, 64.2-64.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicarlo solo en el sustento",
+              "detalle": "<p>Conservar el diagrama y agregar al sustento una tabla de tramos, autoridades y base del acumulado.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-G8"
+              ],
+              "fuentes": [
+                "Ley 32069, arts. 25.1, 64.2-64.3"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:54.197717+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:54.197717+00:00"
+    },
+    {
+      "id": "c9bf2912-3d3d-4b8f-b4d6-623fb386e3ad",
+      "elemento": "_7def99b4-58d1-5405-a94a-20225b6ffc0e",
+      "referencia": "Caja 11 (S-F2)",
+      "texto": "<p><strong>Observación.</strong> Cuando el supervisor no ratifica la necesidad (S-G2 «No»), el modelo termina en S-F2, un fin sin mensaje. Sin embargo, el art. 194.2 b del Reglamento obliga al supervisor a enviar a la entidad un informe técnico con su posición <em>en cualquier sentido</em>. Con el modelo actual:</p><ol><li>la entidad no recibe el informe desfavorable (E-E1 solo recibe la necesidad ratificada), por lo que la salida «No» de E-G6 nunca se alcanza por esta causa;</li><li>el elaborador, que puede haber empezado a trabajar desde la anotación (X-TENC, X-T1), queda esperando indefinidamente en X-MR «Ratificación comunicada», porque nadie le comunica que no corresponde presentar el expediente (Opinión D000092, conclusión 3.2).</li></ol><p><strong>Pregunta:</strong> ¿se hace que el informe del supervisor llegue siempre a la entidad y que el elaborador reciba también la comunicación de no ratificación?</p><p><strong>Efecto posible:</strong> cambia el diagrama (fin con mensaje en el supervisor, rama de no ratificación en la entidad y cierre del elaborador).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:03.034168+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:03.034168+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:20.154248+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:33.243013+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>La rama de no ratificación queda incompleta en dos participantes: la entidad y el elaborador.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Reglamento, art. 194.2 b (PDF p. 109): «el supervisor envía un informe técnico a la entidad contratante en el que sustente su posición respecto a la necesidad de ejecutar la prestación adicional y el riesgo que conlleva su aprobación». La obligación de enviar el informe no depende del sentido.</li><li>Art. 194.2 d: la presentación del expediente procede «siempre que el supervisor haya ratificado la necesidad».</li><li>Opinión D000092-2026-OECE-DTN (CON-010, p. 9), conclusión 3.2: «no corresponde la presentación de dicho expediente, cuando no se hubiese ratificado dicha necesidad». Conclusión 3.3: la demora del informe no tiene consecuencia jurídica expresa.</li><li><strong>Evidencia observada (tabla):</strong> S-G2 → S-F2 [No] (fin simple); mensaje S-F1 → E-E1 solo en la rama «Sí»; X-T1 → X-MR (espera la ratificación) → X-F1; X-MR solo recibe el mensaje de E-T4. E-G6 tiene salida «No» → E-FNEC.</li></ul><h4>Inferencia</h4><p>La decisión final de no tramitar puede requerir que la entidad tome conocimiento formal del informe; el modelo actual no permite trazarlo. Si el elaborador es la entidad (SGE), la falta de aviso implica trabajo sin destino.</p><h4>Notación</h4><p>Para cerrar la espera del elaborador ante dos mensajes alternativos, la paleta del proyecto admite la compuerta basada en eventos con eventos de captura de mensaje como destino (estándar, sección 7.3; ya usada en S4.3.2.2, E-G2).</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 194.2 b y d, PDF pp. 109-110",
+            "CON-010 Opinión D000092-2026-OECE-DTN, conclusiones 3.2-3.3, p. 9",
+            "Tabla S4.3.2.3, cajas S-G2, S-F1, S-F2, E-E1, E-G6, E-FNEC, X-T1, X-MR, E-T4",
+            "Estándar de artefactos, sección 7.3 (compuerta-eventos)",
+            "S4.3.2.2, caja E-G2 (compuerta basada en eventos)"
+          ],
+          "hipotesis": [
+            "La no ratificación se comunica por el propio Cuaderno de Incidencias, sin mensaje formal — posible en la práctica, pero el 194.2 b exige un informe a la entidad; descartada como suficiente.",
+            "La entidad podría continuar el trámite pese a la no ratificación — descartada: 194.2 d y la conclusión 3.2 de D000092 condicionan la presentación a la ratificación.",
+            "Figura análoga vecina: S4.3.2.7 (reducciones) cierra con F2 'Decisión no favorable comunicada' (fin-mensaje) — se toma como patrón de cierre comunicado.",
+            "Otro responsable de avisar al elaborador: supervisor directamente o SGGOS — el modelo ya usa SGGOS (E-T4) para comunicar la ratificación; por coherencia se propone el mismo carril.",
+            "Revisión adversarial: se buscó en CON-010 un criterio que permita a la entidad prescindir del informe desfavorable; no se encontró."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:20.154248+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Informe siempre remitido y cierre comunicado al elaborador",
+              "detalle": "<ol><li>Reemplazar S-F2 por un fin de mensaje «Informe de no ratificación remitido» con mensaje a E-E1 (o fusionar S-F1 y S-F2 en un único fin de mensaje «Informe técnico de necesidad remitido» y dejar que E-G6 evalúe la ratificación).</li><li>En la rama «No» de E-G6, antes de E-FNEC, un evento de envío de mensaje en SGGOS «Comunicar que no corresponde presentar el expediente».</li><li>En el elaborador, después de X-T1, una compuerta basada en eventos con dos capturas de mensaje: «Ratificación comunicada» (X-MR) y «No ratificación comunicada» → fin «Elaboración concluida sin presentación».</li></ol>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-G2",
+                "S-F1",
+                "S-F2",
+                "E-G6",
+                "E-FNEC",
+                "X-T1",
+                "X-MR"
+              ],
+              "fuentes": [
+                "Reglamento, art. 194.2 b y d",
+                "Opinión D000092, conclusión 3.2",
+                "Estándar 7.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo hacer llegar el informe desfavorable a la entidad",
+              "detalle": "<p>Cambiar S-F2 a fin de mensaje hacia E-E1 y dejar la espera del elaborador explicada en el sustento. Corrige la obligación del 194.2 b, pero mantiene la espera sin cierre en el pool del elaborador.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-F2",
+                "E-E1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 194.2 b"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicar en el sustento sin cambiar el diagrama",
+              "detalle": "<p>Declarar que el modelo representa solo la ruta ratificada y que la no ratificación se gestiona fuera del flujo. No recomendable: deja sin trazar una obligación expresa.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S-F2"
+              ],
+              "fuentes": [
+                "Reglamento, art. 194.2 b"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:33.243013+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:33.243013+00:00"
+    },
+    {
+      "id": "1adb45b9-6822-4314-b067-765e86fdba4b",
+      "elemento": "_20655219-4a82-5c68-8f0d-e6713838f6dc",
+      "referencia": "Caja 8 (S-T1)",
+      "texto": "<p><strong>Observación.</strong> Las cajas S-T1 «Sustentar posición técnica sobre necesidad y riesgo» y R-F1 «Anotación y antecedentes remitidos» citan como fuente el <strong>art. 197.1</strong> del Reglamento. Ese numeral regula los <em>mayores metrados</em> en contratos a precios unitarios, figura que desde DEC-047 pertenece a S4.3.2.8. Para estas cajas la fuente pertinente es el art. 194.2 a-b. Parece una referencia que quedó del modelo anterior a la división.</p><p><strong>Pregunta:</strong> ¿se retira el art. 197.1 de las fuentes de S-T1 y R-F1 y se cita el art. 194.2 a-b?</p><p><strong>Efecto posible:</strong> basta con corregir la columna Fuente de la tabla (no cambia el dibujo) y dejar constancia en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:41.064428+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:41.064428+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:54.762221+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:03.394703+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>Error de cita en la columna Fuente; el contenido de las cajas es correcto.</p><h4>Evidencia</h4><ul><li><strong>Evidencia observada:</strong> tabla S4.3.2.3: S-T1, fuente «Reglamento, arts. 187.1, 194.2 b y 197.1; Directiva 017-2023-CG…»; R-F1, fuente «Reglamento, arts. 194.2 y 197.1; Directiva 017-2023-CG, num. 7.3.6».</li><li><strong>Exigencia normativa:</strong> Reglamento, art. 197.1 (PDF p. 112): «Cuando en los contratos suscritos bajo la modalidad de pago de precios unitarios se requiera ejecutar mayores metrados, el contratista solicita su ejecución mediante anotación…». Art. 194.2 a-b (p. 109): anotación de la necesidad del adicional e informe del supervisor en cinco días.</li><li>DEC-047 trasladó los mayores metrados a S4.3.2.8, que cita el 197.1 en sus cajas R2, S2, S3.</li><li>Precedente en el mismo sustento (DEC-058): se retiró de E-T11 la cita al art. 109.3 «que regula reducciones», por el mismo tipo de arrastre.</li></ul><h4>Nota</h4><p>Las citas a la Directiva 017-2023-CG (administración directa) no se evalúan aquí.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, art. 197.1, PDF p. 112",
+            "CON-001 Reglamento, art. 194.2 a-b, PDF p. 109",
+            "Tabla S4.3.2.3, cajas S-T1 y R-F1",
+            "DEC-047",
+            "Sustento S4.3.2.3, sección Cambios aplicados 2026-11-25 (DEC-058)",
+            "Proceso S4.3.2.8, cajas R2, S2, S3"
+          ],
+          "hipotesis": [
+            "La cita al 197.1 sería intencional para advertir que el adicional y los mayores metrados comparten el límite acumulado — descartada para S-T1 y R-F1: esas cajas tratan la anotación y el informe de necesidad, no el límite; el acumulado corresponde a E-G8/E-TC (ver observación sobre E-G8).",
+            "Otra figura: el 197.1 también exige anotación en cuaderno, análoga a la del 194.2 a — la analogía no basta como fuente de una caja de adicionales.",
+            "Revisión adversarial: se leyó el art. 197 completo (197.1-197.4) por si algún numeral regulara el informe del supervisor en adicionales; no lo hace."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:54.762221+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Retirar el art. 197.1 de S-T1 y R-F1",
+              "detalle": "<p>Fuentes propuestas: S-T1 «Reglamento, arts. 187.1 y 194.2 b; Directiva 017-2023-CG, nums. 6.8.3 y 7.3.6»; R-F1 «Reglamento, art. 194.2 a-b; Directiva 017-2023-CG, num. 7.3.6». Registrar el ajuste en el sustento y reconfirmar la auditoría de esas dos cajas.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-T1",
+                "R-F1"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 194.2 a-b y 197.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Conservar la cita y explicar su propósito",
+              "detalle": "<p>Si el equipo quiso señalar la relación con mayores metrados, dejar la cita y explicarla en el sustento. No se recomienda: induce a leer que la anotación del adicional se rige por el 197.1.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "S-T1",
+                "R-F1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 197.1"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:03.394703+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:03.394703+00:00"
+    },
+    {
+      "id": "b39b121b-d2da-4339-a897-7d9765069d6f",
+      "elemento": "_3775e92a-e4fa-5dcf-bd48-792ff9564d97",
+      "referencia": "Caja 99 (E-TEMER)",
+      "texto": "<p><strong>Observación.</strong> La ruta de emergencia (art. 194.4) tiene cuatro vacíos:</p><ol><li><strong>Oportunidad.</strong> La emergencia recién se identifica en E-GREG, después del informe de ratificación del supervisor (hasta 5 días), el registro en OACGD y dos derivaciones internas. El 194.4 pide que las partes coordinen «a fin de agilizar el procedimiento» y que la ejecución sea inmediata.</li><li><strong>Ejecución.</strong> E-TEMER envía la autorización al pool del supervisor, pero allí no hay ninguna actividad que reciba la autorización y disponga la ejecución (el sustento lo reconoce como omisión por trazado).</li><li><strong>Pago y Contraloría.</strong> La Ley, art. 64.4, indica que en adicionales de emergencia la autorización de la Contraloría se emite <em>previamente al pago</em>, y el 194.4, que la valorización procede después de la resolución. Ninguna de las dos condiciones aparece en la ruta.</li><li><strong>Coherencia.</strong> E-T11 anota «Prohibido aprobar adicionales por regularización» (194.3), mientras E-TEMER anota «Regularización por el 194.2». Falta explicar por qué no se contradicen.</li></ol><p><strong>Pregunta:</strong> ¿se completa la ruta de emergencia con la actuación del supervisor, las condiciones de pago y una explicación de la relación entre 194.3 y 194.4? ¿Debe la emergencia poder identificarse antes, desde la anotación?</p><p><strong>Efecto posible:</strong> cambia el diagrama (actividad del supervisor y anotaciones) y el sustento; la autoridad que autoriza queda pendiente de fuente.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:13.290831+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:13.290831+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:33.267222+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:45.401385+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>La ruta agregada por DEC-060 representa la autorización, pero no la ejecución inmediata ni sus condiciones posteriores, y se activa tarde respecto del propósito de la norma.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Reglamento, art. 194.4 (PDF p. 110): adicionales de emergencia «cuya falta de ejecución pueda afectar el ambiente o poner en peligro a la población, a los trabajadores o a la integridad de la misma obra, las partes coordinan a fin de agilizar el procedimiento. La entidad contratante autoriza a la supervisión para disponer la ejecución inmediata…, mientras que su regularización se da conforme al procedimiento establecido en el numeral 194.2. Una vez emitida la resolución correspondiente, se procede a la valorización del adicional».</li><li>Ley 32069, art. 64.4 (PDF p. 31): «En el caso de adicionales con carácter de emergencia, dicha autorización [de la Contraloría] se emite previamente al pago».</li><li>Reglamento, art. 194.3 vigente (DS 001-2026-EF): prohíbe aprobar adicionales «en vía de regularización».</li><li><strong>Evidencia observada (tabla):</strong> E-E1 → E-T1 → E-TSG → E-T2 → E-GREG [Emergencia] → E-TEMER → E-T3. E-E1 solo se activa con la necesidad ratificada (S-F1). Mensaje E-TEMER → pool del supervisor, sin evento receptor. Sustento DEC-060: la actividad del supervisor «se omitió para no agravar el trazado»; la autoridad «queda por confirmar».</li></ul><h4>Inferencia</h4><ul><li>La tensión 194.3/194.4 se resuelve, como lectura propuesta, en que el 194.4 es una excepción expresa que autoriza la ejecución antes de la resolución, mientras la prohibición general recae en aprobar sin el procedimiento; esta lectura es <strong>inferencia</strong> y requiere opinión especializada. No se halló en la biblioteca una opinión del OECE que la confirme.</li><li>Identificar la emergencia desde la anotación (S-T0/R-T1) o desde el informe del supervisor (S-T1, que ya evalúa «riesgo») acortaría el circuito; la forma concreta de coordinación no está regulada (EVIDENCIA-INSUFICIENTE).</li></ul><h4>No disponible</h4><p>Directiva de la Contraloría sobre el servicio de control previo de prestaciones adicionales de obra (no figura en la biblioteca; el inventario de 04-contrataciones-publicas no la incluye). Sería la fuente para el trámite y la oportunidad de la autorización previa al pago.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento, arts. 194.2, 194.3 y 194.4, PDF pp. 109-110",
+            "CON-001M1 DS 001-2026-EF (modifica 194.3)",
+            "CON-001 Ley 32069, art. 64.4, PDF p. 31",
+            "Tabla S4.3.2.3, cajas E-E1, E-GREG, E-TEMER, E-T3, E-T11, S-T1",
+            "Sustento S4.3.2.3, sección DEC-060",
+            "Inventario de documentos, área 04-contrataciones-publicas"
+          ],
+          "hipotesis": [
+            "Otra figura regulada: art. 195.5 (emergencia en diseño y construcción) — remite al 194.4; no aporta otra ruta para solo construcción.",
+            "Figura análoga vecina: S4.3.2.8 S3 'Autorizar ejecución en cuaderno y comunicar a entidad' — patrón útil para la actividad del supervisor que dispone la ejecución inmediata.",
+            "Otra figura: suspensión o paralización (S4.3.2.5/S4.3.2.6) ante el riesgo — no sustituye la ejecución inmediata que ordena el 194.4; descartada como alternativa.",
+            "Otro responsable de autorizar: Titular, autoridad de la gestión administrativa o órgano delegado — el 194.4 dice 'la entidad contratante'; sin fuente interna, se mantiene el carril funcional y EVIDENCIA-INSUFICIENTE.",
+            "Revisión adversarial: »la prohibición del 194.3 impediría toda regularización« — contradicho por el texto del 194.4 que la ordena expresamente; se mantiene como tensión a explicar, no como error."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:33.267222+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Completar la ruta actual: actividad del supervisor, condiciones de pago y explicación 194.3/194.4",
+              "detalle": "<ul><li>En el pool del supervisor: inicio de mensaje «Autorización de ejecución inmediata recibida» → tarea de usuario «Disponer la ejecución inmediata en el Cuaderno de Incidencias» → fin.</li><li>Anotar en E-TEMER: «Valorización solo tras la resolución (194.4); si supera 30 %, autorización de Contraloría previa al pago (Ley 64.4)».</li><li>Sustento: lectura propuesta de la relación 194.3/194.4 marcada como inferencia, y solicitud de incorporar la directiva de la Contraloría sobre control previo de adicionales.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-TEMER",
+                "E-T11",
+                "E-G8"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 194.3-194.4",
+                "Ley 32069, art. 64.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Adelantar la identificación de la emergencia al informe del supervisor",
+              "detalle": "<p>Además de lo anterior, hacer que S-T1 (que ya evalúa el riesgo) pueda calificar la emergencia y comunicarla de inmediato a la entidad, sin esperar el circuito OACGD-SGGOS. Mejora la oportunidad, pero introduce un canal de coordinación que no está documentado: requiere evidencia de práctica institucional.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "S-T1",
+                "E-GREG",
+                "E-TEMER"
+              ],
+              "fuentes": [
+                "Reglamento, arts. 194.2 b y 194.4"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Solo explicar en el sustento",
+              "detalle": "<p>Documentar los cuatro vacíos como pendientes, sin cambiar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-TEMER"
+              ],
+              "fuentes": [
+                "Reglamento, art. 194.4"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:45.401385+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:45.401385+00:00"
+    },
+    {
+      "id": "df1df198-9bcf-4bc7-a19d-ea2065a43f7b",
+      "elemento": "_71ba4135-6354-55e7-a4f3-b46394650abb",
+      "referencia": "Caja 49 (X-T1)",
+      "texto": "<p><strong>Duda.</strong> El Reglamento, art. 196, fija cómo se arma el presupuesto del adicional y, en particular, cómo se obtienen los precios de partidas nuevas:</p><ul><li>se pactan entre el residente (u otro jefe según corresponda) y el supervisor; si elabora la entidad, esta participa en el acuerdo (196.2);</li><li>a falta de acuerdo, el supervisor fija un precio provisional, sin perjuicio de que el contratista lo controvierta (196.3).</li></ul><p>El modelo solo verifica precios en el control contractual (E-TC), después de elaborado el expediente. El pacto de precios entre ejecutor y supervisor, y el precio provisional, no aparecen ni en la tabla ni en el sustento.</p><p><strong>Pregunta:</strong> ¿se hace visible el acuerdo o la fijación provisional de precios nuevos durante la elaboración (X-T1) o la opinión de supervisión (S-T3)?</p><p><strong>Efecto posible:</strong> basta con anotarlo en X-T1 y S-T3 y explicarlo en el sustento; podría cambiar el diagrama si el equipo quiere mostrar la intervención del supervisor.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:54.170116+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:54.170116+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:08.608448+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:18.527701+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>El art. 196 regula una interacción ejecutor–supervisor (y entidad) dentro de la elaboración que el modelo no explicita.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Reglamento, art. 196.1 (PDF p. 112): presupuestos con precios del contrato y/o pactados, gastos generales propios del adicional, utilidad e IGV. 196.2: «De no existir precios unitarios…, se acuerdan los precios entre el jefe de formulación, el jefe de elaboración del expediente técnico o el residente de obra del contratista, según corresponda, y el supervisor… En caso la entidad contratante realice el expediente técnico del adicional de obra, esta participa en los acuerdos de precios unitarios». 196.3: el supervisor puede fijar provisionalmente un precio «con la finalidad de no retrasar la aprobación y ejecución», sin perjuicio de la controversia. 196.4: costos de ensayos o especialistas no previstos se incluyen en gastos generales del adicional o en la valorización de la supervisión.</li><li><strong>Evidencia observada:</strong> tabla, X-T1 «Elaborar expediente del adicional y deductivo vinculado» (sin mención de precios); S-T3 «Evaluar expediente ajeno y emitir opinión»; E-TC «Verificar monto, precios, deductivo vinculado y acumulados». El sustento lista el art. 196 entre las fuentes del lote DEC-046, pero no desarrolla su contenido.</li></ul><h4>Inferencia</h4><p>El momento del acuerdo de precios (antes de presentar o durante la opinión de supervisión) no está fijado por el 196; se infiere que ocurre durante la elaboración. Si se representa como tarea propia, sería una actividad compartida entre dos pools, lo que en BPMN exige dos actividades y mensajes; por eso se propone primero una anotación.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento, art. 196.1-196.4, PDF p. 112",
+            "Tabla S4.3.2.3, cajas X-T1, S-T3, E-TC",
+            "Sustento S4.3.2.3, paquete de contexto del lote DEC-046"
+          ],
+          "hipotesis": [
+            "Ya está cubierto por E-TC — descartada: E-TC verifica precios después; no representa el acuerdo ni la fijación provisional por el supervisor.",
+            "Figura análoga: en mayores metrados (S4.3.2.8) se aplican precios del contrato y no hay pacto de precios nuevos — confirma que el 196.2 es propio del adicional.",
+            "Otro responsable: si elabora el supervisor, el acuerdo es entre residente y supervisor; si elabora la entidad (SGE), esta participa — la anotación debe recoger las tres variantes del 194.2 c.",
+            "Revisión adversarial: se buscó si el 196 aplica solo a consultorías (título 'adicionales de obras y consultorías de obra'); aplica a ambas, el 196.2 menciona expresamente al residente de obra."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:08.608448+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar el art. 196 en X-T1 y S-T3 y desarrollarlo en el sustento",
+              "detalle": "<p>X-T1: «Precios nuevos: acuerdo entre residente (o elaborador) y supervisor; la entidad participa si elabora (196.2)». S-T3: «A falta de acuerdo, fija precio provisional (196.3)». Sustento: composición del presupuesto (196.1) y costos de ensayos o especialistas (196.4).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "X-T1",
+                "S-T3"
+              ],
+              "fuentes": [
+                "Reglamento, art. 196"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Representar el acuerdo de precios con actividades y mensajes",
+              "detalle": "<p>Agregar en el pool del supervisor una tarea «Acordar o fijar provisionalmente precios nuevos» con mensajes de ida y vuelta con X-T1. Hace visible la interacción pero agrega elementos a un diagrama ya denso.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "X-T1",
+                "S-T3"
+              ],
+              "fuentes": [
+                "Reglamento, art. 196.2-196.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener fuera del modelo",
+              "detalle": "<p>Considerar el pacto de precios como contenido técnico del expediente, sin representarlo, y declararlo así en el sustento.</p>",
+              "formato": "html",
+              "efecto": "NO-PROCEDE",
+              "elementos": [
+                "X-T1"
+              ],
+              "fuentes": [
+                "Reglamento, art. 196"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:18.527701+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:18.527701+00:00"
+    },
+    {
+      "id": "5ce67c8f-6de1-4037-af76-061b532df52e",
+      "elemento": "_064e1416-8c1d-5c4c-a757-98221d898d84",
+      "referencia": "Caja 43 (E-T10)",
+      "texto": "<p><strong>Duda.</strong> El Reglamento, art. 193.3, regula una consecuencia directa del adicional de obra sobre el <em>contrato de supervisión</em>:</p><ul><li>en hasta cinco días hábiles desde que remite su opinión favorable (194.2 e) o el expediente que elaboró, el supervisor presenta a la entidad el sustento y la estructura de costos de sus propias prestaciones derivadas del adicional;</li><li>la entidad puede pronunciarse sobre ellas <em>en la misma resolución</em> que aprueba el adicional (E-T10) o en hasta diez días hábiles después;</li><li>estas prestaciones no se consideran adicional de supervisión ni están sujetas al límite del 25 %.</li></ul><p>El modelo no lo menciona y no hay otro proceso del árbol que lo recoja.</p><p><strong>Pregunta:</strong> ¿se incorpora esta interfaz en S4.3.2.3 (presentación del supervisor y posible pronunciamiento conjunto en E-T10) o se deriva a otro proceso de gestión del contrato de supervisión?</p><p><strong>Efecto posible:</strong> cambia el diagrama si se incorpora; si se deriva, basta con explicarlo en el sustento y registrar el proceso destino como pendiente.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:28:27.728295+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:28:27.728295+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:43.176666+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:54.488886+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>Hay una obligación con plazo, vinculada a hitos de este proceso (opinión del supervisor y resolución), que no está representada ni asignada.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Reglamento, art. 193.3 (PDF p. 109; rectificado por fe de erratas): «a) En un plazo máximo de cinco días hábiles desde la remisión de su opinión favorable o del expediente técnico del adicional elaborado por él, a la que hace referencia el literal e) del numeral 194.2…, el supervisor presenta a la entidad el sustento técnico y la estructura de costos de las prestaciones correspondientes a su contrato… b) La entidad puede pronunciarse sobre la prestación derivada del adicional de obra que corresponde al supervisor en la misma resolución de la aprobación del adicional de obra, o puede pronunciarse en un plazo no mayor de diez días hábiles de emitida la referida resolución». Las prestaciones derivadas no están sujetas al límite del 25 % del art. 64.1 de la Ley.</li><li>Ley 32069, art. 64.9: el reglamento establece las condiciones de las prestaciones adicionales de la supervisión.</li><li><strong>Evidencia observada:</strong> tabla S4.3.2.3 sin referencias al 193.3; búsqueda en notas de procesos («193.3», «adicional de supervisión») sin resultados; S4.3.2 (padre) no tiene un subproceso de gestión del contrato de supervisión.</li></ul><h4>Inferencia</h4><p>Por el hito de inicio (S-F3 o X-F1 cuando elabora el supervisor) y la posibilidad de resolución conjunta (E-T10), la interfaz encaja en este proceso; su trámite posterior, si la entidad se pronuncia por separado, podría pertenecer a otro proceso que hoy no existe en el árbol.</p><h4>Nota de alcance</h4><p>El 193.4 (extensiones de plazo de supervisión sin variación de actividades) se relaciona con ampliaciones de plazo (S4.3.2.4), no con este proceso.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento, art. 193.3-193.4, PDF p. 109",
+            "CON-001 Ley 32069, arts. 64.1 y 64.9, PDF pp. 30-31",
+            "Tabla S4.3.2.3, cajas S-T3, S-F3, X-F1, E-T10",
+            "Proceso padre S4.3.2 (cajas de subprocesos)",
+            "Búsqueda de notas: '193.3', 'adicional de supervisión'"
+          ],
+          "hipotesis": [
+            "Otra figura regulada: adicional del contrato de supervisión del 193.2 (variaciones de plazo o ritmo distintas a adicionales de obra) — descartada: el 193.3 excluye expresamente las derivadas de adicionales de obra de esa figura y del límite del 25 %.",
+            "Figura análoga vecina: S4.3.2.4 (ampliaciones de plazo) gestiona efectos en el contrato de supervisión por plazo (193.4) — no cubre el 193.3.",
+            "Otro responsable del pronunciamiento separado: la misma autoridad de E-T10 o la autoridad de la gestión administrativa — sin fuente interna; queda pendiente.",
+            "Revisión adversarial: ¿el 193.3 aplica a inspector de la entidad? No: se refiere al contrato de supervisión; con inspector la rama no se activa. La anotación debe advertirlo."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:43.176666+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar la interfaz en S-F3 y E-T10 y registrarla en el sustento",
+              "detalle": "<p>S-F3 (y X-F1 cuando elabora el supervisor): «Solo supervisión contratada: en 5 días hábiles presenta sustento y costos de sus prestaciones derivadas (193.3 a)». E-T10: «Puede pronunciarse en la misma resolución sobre las prestaciones derivadas del supervisor o en 10 días hábiles (193.3 b)». Sustento: interfaz con la gestión del contrato de supervisión, proceso destino pendiente.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S-F3",
+                "X-F1",
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, art. 193.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Modelar la presentación del supervisor y su recepción por la entidad",
+              "detalle": "<p>En el pool del supervisor, después de S-F3: tarea «Presentar sustento y costos de prestaciones derivadas» con mensaje a la entidad; en la entidad, recepción antes de E-T10 para integrarlo a la resolución. Requiere condicionar la rama a supervisión contratada y no bloquear E-T10 si no llega.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-F3",
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, art. 193.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Decidir la creación o asignación de un proceso de gestión del contrato de supervisión",
+              "detalle": "<p>Registrar una decisión de alcance sobre dónde se gestionan las prestaciones derivadas y los adicionales de supervisión (193.2-193.4) y enlazar S4.3.2.3 con ese proceso mediante mensaje.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-T10"
+              ],
+              "fuentes": [
+                "Reglamento, art. 193.2-193.4",
+                "Ley 32069, art. 64.9"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:54.488886+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:54.488886+00:00"
+    },
+    {
+      "id": "2c8536b0-19ad-4313-89df-95bbeee30012",
+      "elemento": "_1bc2cf6d-1b00-5e92-982b-0a99d281203f",
+      "referencia": "Caja 85 (E-GDP)",
+      "texto": "<p><strong>Duda.</strong> Para el «deductivo puro», el modelo solo pregunta si corresponde una reducción de prestaciones (E-GDP). Si no, el caso termina en E-FDP «Deductivo puro pendiente de ruta», con EVIDENCIA-INSUFICIENTE. El Reglamento regula otra figura que también baja el costo de la obra sin ser reducción ni adicional: la <strong>propuesta de cambio de ingeniería de valor (PCIV)</strong> del art. 205. La presenta el contratista de forma voluntaria, debe reducir el costo total o generar ahorros en operación y mantenimiento sin afectar las características esenciales, y tiene plazos propios (supervisión 10 días, proyectista 10 días, entidad 10 días hábiles).</p><p><strong>Pregunta:</strong> cuando el equipo habla de «deductivo puro», ¿incluye casos que en realidad son PCIV? ¿Se agrega esa alternativa a la clasificación de E-TDP/E-GDP?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento y en la anotación de E-TDP; cambiaría el diagrama si se agrega una salida propia hacia una ruta de PCIV.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T13:31:00.443263+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T13:31:00.443263+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:31:16.739202+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:31:26.495334+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>La rama de deductivo puro descarta solo una hipótesis regulada (reducción) y deja todo lo demás como pendiente; hay al menos otra figura del Reglamento que podría explicar parte de esos casos.</p><h4>Evidencia</h4><ul><li><strong>Exigencia normativa:</strong> Reglamento, art. 205.1-205.4 (PDF pp. 115-116): el contratista presenta PCIV de manera voluntaria; la supervisión se pronuncia en 10 días y, en solo construcción, si no pasó más de un año desde la conformidad del expediente, las remite al proyectista (10 días); la entidad se pronuncia en 10 días hábiles. En ejecución de obra deben «reducir el costo total del contrato o generar ahorros durante la operación y mantenimiento… sin perjudicar sus características esenciales o funciones». Los ahorros se reparten según las bases.</li><li>Ley 32069, art. 64.1 y Reglamento, art. 109: reducción de prestaciones hasta 25 % (ruta S4.3.2.7, ya modelada).</li><li><strong>Evidencia observada:</strong> tabla, E-TDP «Precisar naturaleza y sustento del deductivo puro» (anotación: EVIDENCIA-INSUFICIENTE sobre ruta autónoma) → E-GDP «¿Corresponde reducción de prestaciones?» → E-FRED / E-FDP. Sustento (DEC-047): el usuario distingue deductivo puro de reducción de metas; no se aportó el supuesto que acredite una ruta autónoma.</li></ul><h4>Inferencia</h4><p>Que algunos «deductivos puros» de la práctica institucional sean PCIV es una <strong>hipótesis</strong>, no una conclusión: la PCIV es voluntaria del contratista y reparte ahorros, mientras un deductivo puede nacer de la entidad o la supervisión. Sirve para ordenar la consulta al equipo, no para reclasificar.</p><h4>No disponible</h4><p>No hay en la biblioteca un expediente o caso del GORE que ilustre un deductivo puro; tampoco una opinión del OECE sobre deductivos sin adicional vinculado.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento, art. 205.1-205.4, PDF pp. 115-116",
+            "CON-001 Ley 32069, art. 64.1, PDF pp. 30-31",
+            "Tabla S4.3.2.3, cajas E-TDP, E-GDP, E-FRED, E-FDP",
+            "Sustento S4.3.2.3, sección DEC-047",
+            "Proceso S4.3.2.7 (E1)"
+          ],
+          "hipotesis": [
+            "Otra figura regulada: PCIV (art. 205) — se ofrece como alternativa de clasificación, sujeta a que el equipo confirme los casos.",
+            "Otra figura: intensificación del programa (art. 191) — descartada: no modifica el alcance de la obra (191.1) ni reduce partidas.",
+            "Otra figura: reducción de prestaciones (S4.3.2.7) — ya representada en E-GDP.",
+            "Figura análoga vecina: S4.3.2.7 G1 '¿Se acreditan las condiciones de la reducción?' — confirma que la reducción tiene control propio y no absorbe la PCIV.",
+            "Revisión adversarial: ¿la PCIV pertenece a otro proceso? En el árbol S4.3.2 no hay subproceso para PCIV; si el equipo la considera, habría que decidir su ubicación."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:31:16.739202+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Consultar al equipo con casos y registrar la PCIV como hipótesis en el sustento",
+              "detalle": "<p>Agregar a la anotación de E-TDP: «Verificar si corresponde reducción (S4.3.2.7) o PCIV del contratista (art. 205)». En el sustento, registrar la PCIV como hipótesis y pedir al equipo uno o dos casos reales de deductivo puro para definir la ruta.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-TDP",
+                "E-GDP",
+                "E-FDP"
+              ],
+              "fuentes": [
+                "Reglamento, art. 205"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar una salida «PCIV» a la clasificación",
+              "detalle": "<p>Convertir E-GDP en «¿Qué figura corresponde?» con salidas: reducción → E-FRED; PCIV → fin «Caso clasificado como PCIV, ruta específica pendiente»; otra o no acreditada → E-FDP. Hace visible la alternativa, pero sin proceso destino definido.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-GDP",
+                "E-FDP"
+              ],
+              "fuentes": [
+                "Reglamento, art. 205"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la rama actual",
+              "detalle": "<p>Conservar E-GDP con solo la reducción y la salida pendiente, como está documentado en DEC-047.</p>",
+              "formato": "html",
+              "efecto": "NO-PROCEDE",
+              "elementos": [
+                "E-GDP"
+              ],
+              "fuentes": [
+                "DEC-047"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:31:26.495334+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:31:26.495334+00:00"
+    },
+    {
+      "id": "6c276fc8-e4f3-4a86-bd74-abdcf3190be2",
+      "elemento": "_936f965d-cb75-5dd0-a912-7bf52dce6728",
+      "referencia": "Caja 18 (E-F3)",
+      "texto": "<p><strong>Observación.</strong> Cuando el caso no corresponde a adicional ni deductivo (E-G0 «No»), el Subgerente de SGGOS «Comunica clasificación y proceso de destino» (E-T15) y el flujo termina en E-F3 «Caso clasificado fuera del proceso», un <em>fin de mensaje</em> ubicado en el carril de OACGD. Ese fin no tiene ningún flujo de mensaje en la tabla, así que no se sabe a quién se comunica. Además:</p><ul><li>E-T15 indica como destinos S4.3.2.7 (reducciones) y S4.3.2.8 (mayores metrados), pero solo existe mensaje hacia S4.3.2.7 desde otra rama (E-FRED);</li><li>S4.3.2.8 no tiene un evento que reciba casos derivados: empieza con la solicitud del contratista en el cuaderno (R1, inicio condicional);</li><li>la tarea es de SGGOS, pero el fin se dibuja en el carril de OACGD, sin una actividad de OACGD que lo explique.</li></ul><p><strong>Pregunta:</strong> ¿a quién se comunica la clasificación (ejecutor, supervisor, otro proceso) y quién la remite?</p><p><strong>Efecto posible:</strong> cambia el diagrama (destinatario del mensaje y carril del fin).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T13:31:35.625084+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T13:31:35.625084+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:31:52.737334+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:32:03.564614+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Qué se entiende</h4><p>Problema de notación e interfaz: un fin de mensaje sin mensaje y un destino declarado que no tiene entrada en el proceso hermano.</p><h4>Evidencia</h4><ul><li><strong>Evidencia observada (tabla S4.3.2.3):</strong> E-G0 → E-T15 [No] → E-F3. E-T15 en «SGGOS — Subgerente de Gestión de Obras y Supervisión», anotación «Reducciones: S4.3.2.7; mayores metrados: S4.3.2.8». E-F3 en «OACGD — Registro documentario», tipo fin-mensaje. En la tabla Mensajes no hay ningún flujo desde E-T15 ni desde E-F3.</li><li>S4.3.2.8 (leído el 2026-11-26): R1 «Necesidad de mayores metrados identificada» (inicio condicional), sin inicio de mensaje; la solicitud nace del contratista en el cuaderno (Reglamento, art. 197.1).</li><li>S4.3.2.7: E1 «Caso reclasificado como reducción recibido» (inicio de mensaje) ya recibe desde E-FRED.</li><li><strong>Notación:</strong> estándar de artefactos, sección 7.3 y manual BPMN (LOC-004): el fin de mensaje expresa que al terminar se envía un mensaje a otro participante; sin flujo de mensaje, el símbolo no comunica nada. El control D5 no lo detecta porque la tabla es sintácticamente válida.</li></ul><h4>Inferencia</h4><p>En mayores metrados, lo que procede es comunicar al ejecutor (y a supervisión) que el caso debe tramitarse como solicitud en el cuaderno conforme al 197.1, no remitir un expediente a S4.3.2.8. Para reducciones ya existe la ruta E-FRED; E-T15 podría estar duplicándola.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "Tabla S4.3.2.3, cajas E-G0, E-T15, E-F3, E-FRED y tabla Mensajes",
+            "Proceso S4.3.2.8, caja R1",
+            "Proceso S4.3.2.7, caja E1",
+            "CON-001 Reglamento, art. 197.1, PDF p. 112",
+            "Estándar de artefactos, sección 7.3"
+          ],
+          "hipotesis": [
+            "El mensaje se omitió por trazado, como ocurrió con E-TEMER — posible; aun así debe declararse el destinatario en la tabla o cambiar el fin a fin simple.",
+            "Destino: S4.3.2.8 — descartado como receptor directo: no tiene evento de mensaje y el 197.1 exige la solicitud del contratista en el cuaderno.",
+            "Destino: ejecutor de obra y supervisor — opción más coherente con el 197.1 y con E-TNEV, que ya comunica al ejecutor.",
+            "Otro responsable del envío: OACGD (notificación documentaria) frente a SGGOS (quien decide) — sin fuente que asigne la notificación a OACGD; la convención 7.4 no presume el medio de las comunicaciones externas.",
+            "Revisión adversarial: se revisó si E-F3 recibe un mensaje de otro elemento; no, en la tabla no aparece como origen ni como destino."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:31:52.737334+00:00",
+          "revision_modelo": "f933ae186b82a3b35f6bb03c7723e9957fa7a6d1121097c01e10dc4c450545c0"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Ubicar E-F3 en el carril de SGGOS y dirigir el mensaje al ejecutor y al supervisor",
+              "detalle": "<p>Mover E-F3 al carril del Subgerente de SGGOS (donde está E-T15) y agregar mensajes de E-F3 a los pools «Ejecutor de obra, según régimen» y «Supervisor o inspector de obra», con el nombre «Clasificación y vía aplicable». Ajustar la anotación de E-T15: mayores metrados se tramitan por solicitud en el cuaderno (197.1, S4.3.2.8); reducciones siguen la ruta E-FRED.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T15",
+                "E-F3"
+              ],
+              "fuentes": [
+                "Reglamento, art. 197.1",
+                "Estándar 7.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Convertir E-F3 en fin simple",
+              "detalle": "<p>Si la comunicación queda dentro de E-T15, cambiar E-F3 a fin sin mensaje y declarar el destinatario en la anotación de E-T15. Corrige la notación, pero no muestra el intercambio.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F3",
+                "E-T15"
+              ],
+              "fuentes": [
+                "Estándar 7.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Agregar una entrada en S4.3.2.8 para casos derivados",
+              "detalle": "<p>Crear en S4.3.2.8 un inicio de mensaje para casos derivados desde S4.3.2.3. Requiere decidirlo con el equipo: el 197.1 hace nacer los mayores metrados de la solicitud del contratista.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-F3"
+              ],
+              "fuentes": [
+                "Reglamento, art. 197.1",
+                "Proceso S4.3.2.8"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:32:03.564614+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:32:03.564614+00:00"
+    }
+  ]
+}

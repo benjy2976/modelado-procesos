@@ -1,0 +1,885 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-2-atencion-consultas-obra/S4-3-2-2-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "a045d662-3fc0-4331-b3c3-f0ed63f4191e",
+      "elemento": "_0e3a0151-71b0-50e9-abd9-9aaf8611cb26",
+      "referencia": "Caja 32 (E-T6)",
+      "texto": "<p><strong>Observación.</strong> El art. 190.3 a) del Reglamento de la Ley 32069 dispone que, recibida la consulta con la opinión del supervisor, <em>«al día siguiente, la entidad contratante la remite al proyectista»</em>. En el modelo, el plazo «al día siguiente» figura en la caja 32 (E-T6), pero antes de llegar a ella la consulta recorre ocho pasos en tres unidades:</p><ol><li>OACGD registra y deriva (caja 26).</li><li>El Subgerente de SGGOS deriva al monitor (caja 27).</li><li>El monitor revisa antecedentes y controla el informe del contratista (cajas 28 y 57).</li><li>El Subgerente de SGGOS tramita a SGE (caja 51).</li><li>Los especialistas de SGE evalúan, deciden si interviene el proyectista y elaboran la solicitud (cajas 29, 30 y 31).</li><li>OACGD remite (caja 32).</li></ol><p>El plazo de un día se cuenta desde que la entidad recibe la consulta (caja 25), no desde que la caja 32 se activa. Tal como está dibujado, el circuito interno hace muy probable el incumplimiento, y el art. 190.4 permite al contratista pedir ampliación de plazo cuando la entidad no cumple el procedimiento.</p><p><strong>Pregunta:</strong> ¿la remisión al proyectista puede adelantarse, por ejemplo con una verificación temprana de la condición del año (ver la observación sobre la caja 30), mientras SGE evalúa en paralelo? ¿O el equipo cuenta con evidencia de que el circuito actual se cumple en un día?</p><p><strong>Efecto posible:</strong> cambia el diagrama (orden o ubicación de la decisión y de la remisión), o al menos el plazo debe expresarse desde la caja 25 y el riesgo explicarse en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:03.176757+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:03.176757+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:18.576233+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:29.297054+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Qué se entiende.</strong> La exigencia de remitir «al día siguiente» se dirige a la entidad como un todo y se cuenta desde que recibe la consulta y la opinión del supervisor. En el modelo esa recepción es la caja 25 (E-E1, Mesa de Partes).</p><p><strong>Evidencia observada (tabla vigente):</strong> secuencia E-E1 → E-T1 → E-T2 → E-T3 → E-G5 → E-T12 → E-T4 → E-G1 → E-T5 → E-T6. El plazo solo está anotado en E-T6: «Al dia siguiente cuando aplica el art. 190.3 a».</p><p><strong>Exigencia normativa:</strong> Reglamento de la Ley 32069 (CON-001, texto consolidado local al 09-01-2026, vigencia comprobada por el equipo al 2026-11-24), art. 190.3 a), p. 106 del PDF, fragmento 0ebe95b3e05661b8-ec988166:art-190.3. Art. 190.4 (misma página): consecuencia del incumplimiento.</p><p><strong>Inferencia:</strong> la decisión de la caja 30 depende de un hecho verificable (la fecha de conformidad del expediente técnico), no de la evaluación técnica de fondo. Podría verificarse antes, sin esperar el análisis de SGE. Esta reordenación es una propuesta y no está respaldada por evidencia operativa.</p><p><strong>Lectura adversarial:</strong> se buscó en el art. 190 alguna regla que cuente el día desde la recepción por el órgano técnico y no se encontró. El art. 192.2 solo aplica cuando el Reglamento no fija plazo, y aquí sí lo fija.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 190.3 a) p. 106 (0ebe95b3e05661b8-ec988166:art-190.3)",
+            "CON-001 art. 190.4 p. 106",
+            "CON-001 art. 192.2 p. 107",
+            "Tabla S4-3-2-2-diagrama-proceso-tabla.md (revisión B995646E…)",
+            "S4-3-2-2-sustento.md, sección Auditoría por afirmación 2026-11-24"
+          ],
+          "hipotesis": [
+            "El plazo se contaría desde la recepción en SGE: descartada, porque el 190.3 a) se refiere a la entidad contratante y la recepción institucional es la de Mesa de Partes (E-E1).",
+            "El día siguiente sería solo una referencia sin efecto: descartada, porque el 190.4 vincula el incumplimiento del procedimiento a la ampliación de plazo.",
+            "La remisión requiere evaluación técnica previa de SGE: no se encontró fuente que lo exija; la condición del 190.3 a) es temporal (un año desde la conformidad). Queda como criterio del equipo.",
+            "Existe evidencia operativa de que el circuito se cumple en un día: no se encontró en el sustento; queda como pregunta."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:18.576233+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Adelantar la verificación del año y la remisión al proyectista",
+              "detalle": "<p>Ubicar la decisión de la caja 30 inmediatamente después del control del monitor (caja 57), con la pregunta sobre el año desde la conformidad del expediente técnico. Si corresponde, la remisión al proyectista (cajas 31 y 32) se hace de inmediato y la evaluación de SGE (caja 29) se realiza mientras se espera su opinión. Anotar en la caja 32 que el día se cuenta desde la recepción en la caja 25.</p><p>El responsable de verificar la fecha de conformidad debe confirmarlo el equipo; no se presume.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G1",
+                "E-T4",
+                "E-T5",
+                "E-T6",
+                "E-T3",
+                "E-G5"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106",
+                "CON-001 art. 190.4 p. 106"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el orden y precisar el cómputo",
+              "detalle": "<p>Conservar la secuencia actual. Cambiar el plazo de la caja 32 a «al día siguiente de recibida la consulta en la caja 25» y explicar en el sustento el riesgo de incumplimiento y su relación con el art. 190.4.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T6"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Pendiente de medir el circuito real",
+              "detalle": "<p>Antes de cambiar el modelo, obtener del equipo una muestra no sensible de tiempos reales entre Mesa de Partes y la remisión al proyectista. Registrar EVIDENCIA-INSUFICIENTE hasta entonces.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T6"
+              ],
+              "fuentes": [
+                "S4-3-2-2-sustento.md, Vacíos de evidencia"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:29.297054+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:29.297054+00:00"
+    },
+    {
+      "id": "c47262ec-7d0b-4835-8194-0bfdc0219c6e",
+      "elemento": "_8d82da66-7478-5c63-a80b-9920748d66de",
+      "referencia": "Caja 30 (E-G1)",
+      "texto": "<p><strong>Observación.</strong> La compuerta de la caja 30 se llama «¿Aplica?» y no dice qué se decide. La caja 29 la presenta como una decisión técnica («definir si interviene el proyectista»). Sin embargo, el art. 190.3 a) fija una condición objetiva: la consulta se remite al proyectista <em>«siempre que no hubiera transcurrido más de un año de otorgada la conformidad de la elaboración del expediente técnico»</em>. El sustento registra además como EVIDENCIA-INSUFICIENTE el «criterio exacto para involucrar al proyectista», aunque la norma lo da.</p><p>Hay un segundo supuesto que el modelo no distingue. Si el expediente lo elaboró la propia entidad (la SGE elabora expedientes según el ROF, art. 96), puede no existir un proyectista externo. El proceso hermano S4.3.2.3 resuelve un caso análogo para adicionales con las cajas 80 y 81 («¿El expediente lo elaboró la entidad?» y «Documentar supuesto de opinión inoficiosa»).</p><p><strong>Pregunta:</strong> ¿se acepta rotular la compuerta con la condición del año y revisar el nombre de la caja 29? ¿Debe tratarse aquí también el supuesto del expediente elaborado por la entidad, y con qué fuente para consultas (no para adicionales)?</p><p><strong>Efecto posible:</strong> cambia el diagrama (rótulos de las cajas 29 y 30 y, quizá, una rama adicional) y debe corregirse el vacío declarado en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:39.957389+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:39.957389+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:53.634922+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:05.529935+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong> en la tabla, E-G1 «¿Aplica?» tiene salidas «Sí» → E-T5 y «No» (por defecto) → E-T8. E-T4 se llama «Evaluar la consulta y definir si interviene el proyectista». En la sección «Vacíos de evidencia», el sustento registra «Criterio exacto para involucrar al proyectista: EVIDENCIA-INSUFICIENTE». La propia auditoría del 2026-11-24 ya pedía nombrar el límite de un año, y quedó como «propuesta no aplicada».</p><p><strong>Exigencia normativa:</strong> CON-001, art. 190.3 a), p. 106 (fragmento 0ebe95b3e05661b8-ec988166:art-190.3): remisión condicionada a que no haya pasado más de un año desde la conformidad de la elaboración del expediente técnico. Art. 190.6: obligación del proyectista de atender según su contrato.</p><p><strong>Figura análoga (no aplicable directamente):</strong> la Opinión D000092-2026-OECE/DTN (CON-010, pp. 5-6 y 10) trata el supuesto del expediente elaborado por el órgano técnico de la entidad, pero solo para el expediente del adicional (art. 194.2 g). S4.3.2.3 lo modela en E-GEX/E-TEX. Para consultas (art. 190) no se encontró en la biblioteca una fuente equivalente.</p><p><strong>Fuente institucional:</strong> ROF GRH 2023 (LOC-007), art. 96, p. 47: la SGE elabora expedientes técnicos y absuelve consultas.</p><p><strong>Inferencia:</strong> si la SGE fue la proyectista, la «remisión al proyectista» y la absolución recaerían en la misma unidad. El modelo no lo distingue.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 190.3 a) p. 106",
+            "CON-001 art. 190.6 p. 106",
+            "CON-010 Opinión D000092-2026-OECE/DTN pp. 5-6, 10 (ba387f8733a82f17-dc94ea81:p5-b2, p6-b2, p10-b2)",
+            "LOC-007 ROF GRH 2023 art. 96 p. 47",
+            "S4.3.2.3 tabla: E-GPRO, E-GEX, E-TEX",
+            "S4-3-2-2-sustento.md, Vacíos de evidencia y Auditoría 2026-11-24"
+          ],
+          "hipotesis": [
+            "La intervención del proyectista sería discrecional de SGE: descartada, porque el 190.3 a) la formula como regla con una condición temporal.",
+            "El supuesto de expediente elaborado por la entidad está regulado para consultas: no se encontró fuente; la Opinión D000092 se refiere al adicional. Queda pendiente.",
+            "El contrato del proyectista puede fijar otro plazo (190.6): es compatible; afecta al plazo del proyectista, no a la condición del año."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:53.634922+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Rotular la condición del año y corregir el sustento",
+              "detalle": "<p>Renombrar la caja 30 como «¿Ha pasado como máximo un año desde la conformidad del expediente técnico?», con salidas Sí y No. Renombrar la caja 29 sin la idea de «definir», por ejemplo «Evaluar la consulta y verificar la fecha de conformidad del expediente». En el sustento, reemplazar el vacío «criterio exacto» por la regla del 190.3 a) con su fuente.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G1",
+                "E-T4"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Además, distinguir el expediente elaborado por la entidad",
+              "detalle": "<p>Aplicar la opción anterior y agregar, por analogía con S4.3.2.3, una pregunta sobre si el expediente lo elaboró la entidad y cómo se resguarda la independencia de la absolución. Requiere antes incorporar una fuente para consultas del art. 190; hasta entonces se registra como EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-G1",
+                "E-T4"
+              ],
+              "fuentes": [
+                "CON-010 Opinión D000092 pp. 5-6, 10 (análoga)",
+                "LOC-007 ROF art. 96"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Solo anotación",
+              "detalle": "<p>Mantener los nombres y agregar a la caja 30 una anotación con la condición del año y su fuente.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-G1"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:05.529935+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:05.529935+00:00"
+    },
+    {
+      "id": "14bd9d1a-0308-4e50-b572-2204571ff085",
+      "elemento": "_2edbcdfd-ad59-5c5c-a547-658c613030f5",
+      "referencia": "Caja 37 (E-T8)",
+      "texto": "<p><strong>Observación.</strong> El plazo de 5 días para absolver figura en la caja 37 (E-T8, informe técnico de absolución). Pero la consulta no queda absuelta para el contratista con ese informe, sino cuando se le comunica la respuesta. Después de la caja 37 siguen cinco pasos en dos unidades: firma (38), comunicación de causal (40), notificación a SGGOS (42), carta del monitor (52) y emisión de la carta (53).</p><p>Además, el art. 190.3 a) fija dos puntos de inicio distintos:</p><ul><li><strong>Sin proyectista</strong> (rama «No» de la caja 30): desde el día siguiente de recibida la opinión del supervisor. En el modelo, eso ocurre en la caja 25, varios pasos antes.</li><li><strong>Con proyectista:</strong> desde el día siguiente de recibida su opinión (caja 34) o del vencimiento de sus 10 días (caja 35).</li></ul><p>El texto actual, «5 días desde la opinión aplicable o el vencimiento correspondiente», no distingue estos casos.</p><p><strong>Pregunta:</strong> ¿se acepta expresar el plazo como plazo de la entidad hasta la comunicación de la respuesta (caja 43), con sus dos inicios, en vez de dejarlo en la tarea de elaborar el informe?</p><p><strong>Efecto posible:</strong> cambia el diagrama (ubicación y texto del plazo o anotación) y basta explicar en el sustento la relación con el art. 190.4.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:15.434111+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:15.434111+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:28.794148+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:39.704965+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa:</strong> CON-001, art. 190.3 a), p. 106: «La entidad contratante absuelve la consulta en el plazo de cinco días contabilizados desde el día siguiente de la recepción de la opinión del supervisor o del proyectista, según corresponda, o del vencimiento del plazo otorgado a este último». Art. 190.4: si la entidad no absuelve, el contratista puede pedir ampliación de plazo.</p><p><strong>Evidencia observada:</strong> en la tabla, E-T8 tiene plazo «5 dias desde la opinion aplicable o el vencimiento correspondiente». La ruta posterior es E-T9 → E-G3 → (E-T10) → E-G4 → E-T11 → E-T13 → E-T14 → E-F1. La rama E-G1 «No» llega directamente a E-T8, y la opinión del supervisor ingresó en E-E1.</p><p><strong>Inferencia:</strong> la absolución se perfecciona frente al contratista cuando se le comunica. La norma no define «absolver»; que el plazo cubra hasta la comunicación es una interpretación prudente y debe confirmarla el equipo. Ninguna fuente de la biblioteca precisa si basta la firma.</p><p><strong>Notación:</strong> un temporizador de borde solo puede ir sobre una actividad. Para un plazo que abarca varias cajas, la paleta (sección 7.3) permite usar la columna Plazo de la caja final o una anotación.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 190.3 a) p. 106",
+            "CON-001 art. 190.4 p. 106",
+            "Tabla S4.3.2.2: E-T8, E-T9, E-T11, E-T13, E-T14, E-F1, E-G1",
+            "estandar-artefactos-modelamiento.md §7.3"
+          ],
+          "hipotesis": [
+            "El plazo se cumple con la firma del Subgerente de Estudios (E-T9): posible, pero no hay fuente que lo diga; la consecuencia del 190.4 depende de que el contratista conozca la absolución. Queda abierta.",
+            "El plazo aplica solo al informe de los especialistas: descartada, porque la norma obliga a la entidad contratante, no a una unidad.",
+            "En la rama sin proyectista el plazo empieza en E-T8: descartada, porque el inicio es la recepción de la opinión del supervisor."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:28.794148+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Plazo de la entidad hasta la comunicación, con dos inicios",
+              "detalle": "<p>Trasladar el plazo de la caja 37 a la caja 43 (E-F1) o a una anotación asociada: «5 días para absolver: desde el día siguiente de recibida la opinión del supervisor (caja 25) si no interviene el proyectista; o de recibida la opinión del proyectista (caja 34) o vencido su plazo (caja 35)». En el sustento, señalar que la interpretación «hasta la comunicación» debe confirmarla el equipo y su relación con el art. 190.4.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T8",
+                "E-F1"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) y 190.4 p. 106"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener en la caja 37 y precisar el texto",
+              "detalle": "<p>Dejar el plazo en la caja 37 con los dos puntos de inicio explícitos y anotar que las cajas 38 a 53 deben caber dentro del mismo plazo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T8"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Consultar primero qué acto cierra el plazo",
+              "detalle": "<p>Registrar como pendiente si el plazo se cumple con la firma (caja 38) o con la comunicación (caja 43). Incorporar una opinión del OECE o un criterio institucional que lo precise antes de cambiar el modelo.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T8",
+                "E-T9",
+                "E-F1"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.3 a) p. 106"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:39.704965+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:39.704965+00:00"
+    },
+    {
+      "id": "d4b01b9a-4501-42d9-9a4a-5f95d008908a",
+      "elemento": "_72f0e375-a660-5f2f-a171-359b71ab155b",
+      "referencia": "Caja 43 (E-F1)",
+      "texto": "<p><strong>Observación.</strong> Cuando la entidad absuelve, la respuesta sale de SGGOS por carta directamente al contratista (caja 43 → caja 54). La supervisión no recibe la respuesta, y el modelo no indica que se registre en el Cuaderno de Incidencias. Esto contrasta con:</p><ul><li>el art. 188.1 del Reglamento: en el cuaderno se registran «las consultas y sus respuestas»;</li><li>la Directiva 017-2025-OECE-CD, num. 10.6.1 y 10.6.5: «Respuestas a consultas» es un tipo de asiento. Según el num. 10.6.2, solo el residente, el inspector o el supervisor registran asientos; la entidad, no;</li><li>la ruta directa del propio modelo, donde el supervisor sí absuelve y anota en el cuaderno (caja 13).</li></ul><p>Además, en la consulta propia de la supervisión (caja 14), la respuesta de la entidad llega al contratista y no a quien consultó.</p><p><strong>Pregunta:</strong> ¿quién registra en el cuaderno la respuesta de la entidad: el supervisor (que además debe controlar que la obra se ejecute conforme a ella, art. 187.1) o el residente (caja 8, «Tomar conocimiento y registrar la respuesta»)? ¿La carta se dirige también a la supervisión?</p><p><strong>Efecto posible:</strong> cambia el diagrama (mensaje a la supervisión y tarea de registro en el cuaderno con su responsable). El responsable queda pendiente de confirmar por el equipo.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:49.157370+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:49.157370+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:04.850727+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:15.989426+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong> los mensajes de la tabla son E-F1 → C-E3 («Carta de respuesta al contratista») y E-F1 → S4.3.2.3. No hay mensaje de la entidad hacia el pool Supervisión contratada. C-T3 (PROP) dice «Tomar conocimiento y registrar la respuesta», sin indicar dónde. La ruta S-E2 (consulta propia de la supervisión) termina en la elevación S-F1, sin retorno a la supervisión. El sustento (precisión del 2026-11-17) reemplazó la ruta SGE → supervisor → contratista por SGE → SGGOS → contratista y deja «canal de notificación» como pendiente.</p><p><strong>Exigencia normativa:</strong></p><ul><li>CON-001, art. 188.1 (p. 104) y 188.3: los encargados del registro son el residente y el supervisor o inspector.</li><li>CON-004, Directiva 017-2025-OECE-CD, num. 10.6.1 iv), 10.6.2 y 10.6.5 p) (pp. 9-10; fragmentos cbb2e6737c9dd52c-517722fc:p9-b2 y p10); vigencia de la directiva por confirmar (REG-CON-CDI-001).</li><li>CON-001, art. 187.1 (p. 102): la supervisión vela por la correcta ejecución técnica.</li></ul><p><strong>Figura análoga:</strong> en ampliaciones, el art. 200.1 a) exige notificar «a la entidad contratante y a la supervisión», y el 200.1 d) notificar por la Pladicop. Muestra que la norma integra a la supervisión en las comunicaciones contractuales, aunque no rige directamente las consultas.</p><p><strong>Inferencia:</strong> la carta no es incompatible con el cuaderno, pero el modelo no muestra cómo la respuesta llega al registro oficial ni a la supervisión. La norma no precisa quién registra el asiento de respuesta de la entidad: EVIDENCIA-INSUFICIENTE.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 art. 188.1 y 188.3 pp. 104-105",
+            "CON-001 art. 187.1 p. 102",
+            "CON-001 art. 200.1 a) y d) p. 114 (análoga)",
+            "CON-004 Directiva 017-2025-OECE-CD num. 10.6.1, 10.6.2, 10.6.5 pp. 9-10",
+            "REG-CON-CDI-001",
+            "Tabla S4.3.2.2: E-F1, C-E3, C-T3, S-E2, S-T2",
+            "S4-3-2-2-sustento.md, Precisión operativa del 2026-11-17"
+          ],
+          "hipotesis": [
+            "La entidad registra directamente la respuesta en el CDI con el rol Monitor: descartada, porque el num. 10.6.2 limita el registro de asientos a residente, inspector y supervisor; el Monitor solo accede y visualiza.",
+            "El residente registra la respuesta (C-T3): es posible y compatible con el 188.3, pero el modelo no lo explicita y la supervisión seguiría sin conocerla.",
+            "La supervisión se entera por el propio cuaderno: depende de quién registre; si nadie registra, no ocurre.",
+            "La notificación se hace por la Pladicop: no se encontró una regla para consultas; queda como pregunta."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:04.850727+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Comunicar también a la supervisión y que esta registre la respuesta",
+              "detalle": "<p>Agregar un mensaje de la caja 43 al pool Supervisión contratada, con un evento de inicio de mensaje y una tarea de usuario «Anotar la respuesta de la entidad en el Cuaderno de Incidencias». Así también se cierra la consulta propia de la supervisión (caja 14). El responsable del asiento debe confirmarlo el equipo antes de aplicarse.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F1",
+                "S-T5",
+                "S-E2"
+              ],
+              "fuentes": [
+                "CON-001 art. 188.1, 188.3, 187.1",
+                "CON-004 num. 10.6.1, 10.6.2, 10.6.5"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener la carta al contratista y explicitar el registro por el residente",
+              "detalle": "<p>Renombrar la caja 8 como «Registrar la respuesta en el Cuaderno de Incidencias» con documento de salida «Asiento: respuesta a consulta». Agregar copia de la carta a la supervisión mediante un mensaje y un evento de recepción en su pool.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "C-T3",
+                "E-F1"
+              ],
+              "fuentes": [
+                "CON-001 art. 188.3",
+                "CON-004 num. 10.6.2"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Pendiente de confirmar el canal real",
+              "detalle": "<p>Registrar EVIDENCIA-INSUFICIENTE sobre el canal de notificación y el registro en el cuaderno, y obtener del equipo una muestra no sensible de una respuesta real.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-F1"
+              ],
+              "fuentes": [
+                "S4-3-2-2-sustento.md, Vacíos de evidencia"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:15.989426+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:15.989426+00:00"
+    },
+    {
+      "id": "ba8a01c0-614d-422e-b1c1-54db3a81c15b",
+      "elemento": "_41e4c328-eceb-5634-974d-6804f4c8fb82",
+      "referencia": "Caja 40 (E-T10)",
+      "texto": "<p><strong>Duda.</strong> La caja 40 «Comunicar causal de modificación a SGGOS» no envía nada fuera del proceso: continúa hacia la notificación normal. El único mensaje externo va a S4.3.2.3 (adicionales). Sin embargo:</p><ul><li>el sustento declara como producto alterno «Respuesta y causal comunicadas a S4.3.2.3, .4, .5 o .6»;</li><li>la nota índice de S4.3.2.4 declara que <em>recibe</em> de S4.3.2.2 la «respuesta o demora que puede constituir causal»;</li><li>el art. 190.4 (ampliación por demora en absolver) y el 190.5 (anticipación suficiente de la consulta) siguen sin representarse, según la auditoría.</li></ul><p>Al buscar la posición contraria: el art. 200.1 a) dispone que la ampliación la <em>solicita el contratista</em>, apoyándose en los asientos del cuaderno. Por eso no parece necesario que este proceso «envíe» una causal a S4.3.2.4. Basta con que deje constancia de las fechas de consulta y de absolución.</p><p><strong>Pregunta:</strong> ¿se prefiere quitar del sustento y del índice de S4.3.2.4 la idea de un envío desde este proceso, o hacer explícitos los mensajes hacia cada proceso hermano?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento (y corregir el índice de S4.3.2.4) o cambia el diagrama si el equipo decide modelar los mensajes.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:27.034793+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:27.034793+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:43.376573+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:53.942311+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong></p><ul><li>Tabla S4.3.2.2: E-G3 «¿Identifica modificación?» Sí → E-T10 → E-G4 → E-T11. Mensajes externos: solo E-F1 → S4.3.2.3.</li><li>Sustento, «Elementos registrados»: producto alterno hacia .3, .4, .5 o .6.</li><li>Sustento, «Cambios aplicados — 2026-11-25 (DEC-058)»: la causal del 190.4 «se anota en el inicio de S4.3.2.4, no aquí».</li><li>Índice de S4.3.2.4: «recibe | S4.3.2.2 … respuesta o demora que puede constituir causal».</li><li>Tabla de S4.3.2.4: la causal 198.1 a) incluye «la consulta no absuelta (S4.3.2.2, art. 190.4)».</li></ul><p><strong>Exigencia normativa:</strong> CON-001, art. 190.4 y 190.5 (p. 106); art. 198.1 a) (p. 112); art. 200.1 a) (p. 114): la solicitud es del contratista y puede usar asientos del cuaderno. REG-CON-CONS-001 (BORRADOR-IA, Opinión D000083): consulta y adicional son procedimientos independientes.</p><p><strong>Inferencia:</strong> la relación con S4.3.2.4 es de evidencia (fechas en el cuaderno), no de un mensaje que active el otro proceso. Con S4.3.2.5 y S4.3.2.6 no se encontró en la biblioteca una fuente que obligue a este proceso a comunicar la causal. Hay una incoherencia documental entre el sustento, el índice de S4.3.2.4 y la tabla.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 art. 190.4, 190.5 p. 106",
+            "CON-001 art. 198.1 p. 112",
+            "CON-001 art. 200.1 p. 114",
+            "REG-CON-CONS-001 (CON-011)",
+            "00-S4-3-2-4-gestion-ampliaciones-plazo.md (interfaces)",
+            "S4-3-2-4-diagrama-proceso-tabla.md (causales)",
+            "S4-3-2-2-sustento.md, Elementos registrados y Cambios 2026-11-25",
+            "DEC-041, DEC-058"
+          ],
+          "hipotesis": [
+            "La entidad debe activar de oficio S4.3.2.4: descartada, porque el 200.1 a) atribuye la solicitud al contratista.",
+            "La respuesta activa S4.3.2.5 (suspensión) o S4.3.2.6 (paralización): no se encontró fuente que lo disponga desde una consulta; queda como criterio del equipo.",
+            "El 190.5 debería modelarse como compuerta: descartada; es una condición de oportunidad que solo afecta lo que el contratista puede alegar después; basta con una anotación."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:43.376573+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Armonizar sustento e índices sin nuevos mensajes",
+              "detalle": "<p>Corregir el producto alterno del sustento: este proceso entrega a S4.3.2.3 la respuesta como antecedente y, para S4.3.2.4, deja como evidencia en el cuaderno las fechas de consulta y absolución. El contratista la usa conforme al art. 200.1 a). Ajustar en el mismo sentido el índice de S4.3.2.4. Agregar en la caja 1 una anotación sobre la anticipación suficiente (art. 190.5) y en la caja 43 otra sobre el 190.4. Revisar si la caja 40 sigue siendo necesaria o si basta con el contenido de la respuesta.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-T10",
+                "E-F1",
+                "C-E1"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.4, 190.5, 200.1 a)"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Modelar mensajes explícitos hacia cada proceso hermano",
+              "detalle": "<p>Agregar mensajes desde la caja 40 o la 43 hacia S4.3.2.4, S4.3.2.5 y S4.3.2.6, con el inicio receptor correspondiente en cada uno. Requiere una decisión del equipo y revisar los hermanos.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-T10",
+                "E-F1"
+              ],
+              "fuentes": [
+                "DEC-041",
+                "DEC-058"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Dejarlo como está y registrar el pendiente",
+              "detalle": "<p>No cambiar el modelo. Registrar en el sustento que la salida hacia .4 a .6 queda pendiente de decisión, tal como prevé DEC-058.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [
+                "E-T10"
+              ],
+              "fuentes": [
+                "DEC-058"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:53.942311+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:53.942311+00:00"
+    },
+    {
+      "id": "a4710baf-0158-46c4-93c6-bf8d6a61ee22",
+      "elemento": "_fc86ae36-8f98-5914-85c3-672bbcaae57c",
+      "referencia": "Caja 56 (S-F3)",
+      "texto": "<p><strong>Duda.</strong> Cuando falta el informe técnico que exige el art. 190.2, el modelo termina en silencio. En la supervisión termina en la caja 56 y en la entidad en la caja 58, ambas «No atendida por falta de informe», sin que nadie lo comunique al contratista ni lo anote en el cuaderno. El sustento advierte con acierto que no se inventan plazo de subsanación, acto de rechazo ni canal (EVIDENCIA-INSUFICIENTE).</p><p>Sin embargo, el contratista no sabría que su consulta no avanza. Podría luego alegar falta de absolución (art. 190.4), o volver a presentarla sin saber qué le falta. En la caja 58 la consulta ya fue elevada por el supervisor, que tampoco se entera.</p><p><strong>Pregunta:</strong> ¿la práctica del GORE o de la supervisión deja constancia de la no atención (por ejemplo, una anotación del supervisor en el cuaderno)? Si existe, ¿con qué fuente?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento si no hay práctica de comunicación; cambia el diagrama si el equipo confirma una anotación o comunicación; queda pendiente hasta incorporar la fuente.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:04.213683+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:04.213683+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:17.255694+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:26.545509+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong> en la tabla, S-G6 «No» (por defecto) → S-F3 (fin) y E-G5 «Sí» → E-F2 (fin), sin mensajes de salida. Sustento, «Aplicación del artículo 190 - 2026-11-17», apartado «Límites y vacíos»: no se inventan plazo de subsanación, acto de rechazo ni canal.</p><p><strong>Exigencia normativa:</strong> CON-001, art. 190.2 (p. 106): sin informe técnico, la consulta «no es atendida». No regula la comunicación. Art. 190.4: consecuencia de no absolver. Art. 188.1: en el cuaderno se registran los principales hechos. CON-004, num. 10.6.5 bb) «Otras ocurrencias»: tipo de asiento disponible.</p><p><strong>Inferencia:</strong> la no atención es un hecho relevante para el contrato. Dejar constancia en el cuaderno sería coherente con el 188.1, pero ninguna fuente de la biblioteca lo exige. Es una propuesta y no puede presentarse como obligación.</p><p><strong>Lectura adversarial:</strong> se buscó en el art. 190 y en la Directiva 017-2025 una regla de comunicación de la no atención, sin resultado. Por eso no se recomienda imponer un acto de rechazo.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 art. 190.2, 190.4 p. 106",
+            "CON-001 art. 188.1 p. 104",
+            "CON-004 num. 10.6.5 pp. 10-11",
+            "Tabla S4.3.2.2: S-G6, S-F3, E-G5, E-F2",
+            "S4-3-2-2-sustento.md, Aplicación del artículo 190"
+          ],
+          "hipotesis": [
+            "La no atención exige un acto formal de rechazo: descartada por falta de fuente.",
+            "El silencio es suficiente porque el 190.2 opera de pleno derecho: posible; si se adopta, debe explicarse en el sustento.",
+            "El supervisor anota la no atención en el cuaderno: compatible con el 188.1 y con el tipo de asiento «Otras ocurrencias», sin exigencia expresa; queda como propuesta sujeta a la práctica."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:17.255694+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Consultar la práctica y mantener el vacío declarado",
+              "detalle": "<p>Preguntar al equipo si la supervisión o la entidad dejan constancia de la no atención y con qué documento. Mientras tanto, conservar los fines actuales y agregar al sustento el riesgo frente al art. 190.4.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "S-F3",
+                "E-F2"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.2, 190.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar una anotación del supervisor antes de los fines",
+              "detalle": "<p>Si el equipo confirma la práctica, agregar antes de la caja 56 una tarea de usuario «Anotar en el Cuaderno de Incidencias que la consulta no se atiende por falta de informe». Para la caja 58, agregar un mensaje de la entidad a la supervisión.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S-F3",
+                "E-F2",
+                "S-G6",
+                "E-G5"
+              ],
+              "fuentes": [
+                "CON-001 art. 188.1",
+                "CON-004 num. 10.6.5 bb)"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener el silencio y explicarlo",
+              "detalle": "<p>Dejar el modelo como está y explicar en el sustento que el 190.2 opera sin acto de comunicación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S-F3",
+                "E-F2"
+              ],
+              "fuentes": [
+                "CON-001 art. 190.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:26.545509+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:26.545509+00:00"
+    },
+    {
+      "id": "40dc4c0c-f025-4355-a648-bf768983071a",
+      "elemento": "_a84b594c-d5dd-5033-aeff-120bf13115e9",
+      "referencia": "Caja 28 (E-T3)",
+      "texto": "<p><strong>Observación.</strong> Las cajas 28, 52, 57 y 58 están en el carril «SGGOS — Monitor de obras». Ese título no figura en el catálogo de carriles de S4.3.2 (estándar de artefactos, sección 7.4, DEC-043). El catálogo prevé «SGGOS — Coordinador de obra» y el proceso hermano S4.3.2.3 lo usa para funciones análogas: integridad, clasificación, trazabilidad y plazos (DEC-038).</p><p>Además, «Monitor» es el nombre de un rol del Cuaderno de Incidencias (Directiva 017-2025-OECE-CD, que lo asigna a coordinadores o administradores de obra, entre otros). No es una función orgánica de la SGGOS en el ROF. Usarlo como carril puede llevar a leer que las tareas se ejecutan con ese rol del sistema.</p><p><strong>Pregunta:</strong> ¿la persona que interviene en estas cajas es el coordinador de obra de la SGGOS? Si el equipo prefiere conservar «monitor», ¿se registra en el catálogo mediante una decisión?</p><p><strong>Efecto posible:</strong> cambia el diagrama (título del carril) o se actualiza el catálogo con una decisión. S4.3.2.1 usa el mismo título y debería revisarse igual.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:35.961631+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:35.961631+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:50.321409+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:00.952837+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong></p><ul><li>Tabla S4.3.2.2, pool Gobierno Regional Huánuco: carril «SGGOS — Monitor de obras» (E-T3, E-T13, E-G5, E-F2).</li><li>Tabla S4.3.2.3: «SGGOS — Coordinador de obra» en 27 elementos; ningún carril «Monitor».</li><li>«SGGOS — Monitor de obras» solo aparece también en la tabla de S4.3.2.1.</li></ul><p><strong>Convención:</strong> 00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4, puntos 2 y 3, y catálogo de títulos vigentes (DEC-043): «SGGOS — Coordinador de obra; SGGOS — Control contractual y costos; SGGOS — Subgerente…». DEC-038: funciones del «monitor o gestor» limitadas a integridad, trazabilidad, plazos y consolidación.</p><p><strong>Fuente normativa:</strong> CON-004, Directiva 017-2025-OECE-CD, literal C (pp. 6-7), y REG-CON-CDI-001 (BORRADOR-IA): «Monitor» es un rol del CDI asignable a coordinador o administrador de obra o al jefe de la unidad ejecutora. ROF GRH 2023 (LOC-007), art. 97: la SGGOS hace control y seguimiento sin nombrar un cargo de monitor.</p><p><strong>Inferencia:</strong> el monitor de este proceso parece corresponder al coordinador de obra que tiene el rol Monitor en el CDI. Debe confirmarlo el equipo.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "00-gobernanza/estandar-artefactos-modelamiento.md §7.4 y catálogo",
+            "DEC-043",
+            "DEC-038",
+            "CON-004 Directiva 017-2025-OECE-CD literal C pp. 6-7",
+            "REG-CON-CDI-001",
+            "LOC-007 ROF art. 97 p. 47",
+            "Tablas S4.3.2.2, S4.3.2.3 y S4.3.2.1"
+          ],
+          "hipotesis": [
+            "El monitor es un cargo distinto del coordinador de obra (por ejemplo, personal del componente de gestión, DEC-021): posible; en ese caso debe incorporarse al catálogo por decisión y no inferirse.",
+            "El título designa el rol del CDI: si fuera así, contradice la convención de que el carril nombra al cargo o función.",
+            "La diferencia es solo de redacción y no afecta: descartada, porque el catálogo es normativo para S4.3.2 (DEC-043)."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:50.321409+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Alinear con el catálogo: «SGGOS — Coordinador de obra»",
+              "detalle": "<p>Renombrar el carril y conservar las tareas. Explicar en el sustento que el coordinador ejerce el rol Monitor en el CDI (Directiva 017-2025-OECE-CD) y que se limita a integridad, trazabilidad y plazos (DEC-038). Requiere que el equipo confirme que se trata de la misma función.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T3",
+                "E-T13",
+                "E-G5",
+                "E-F2"
+              ],
+              "fuentes": [
+                "estándar §7.4 (DEC-043)",
+                "DEC-038",
+                "CON-004 literal C"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Conservar «Monitor de obras» y registrarlo en el catálogo",
+              "detalle": "<p>Si se trata de un cargo distinto, registrar una decisión que lo incorpore al catálogo con su fuente de adscripción. Aplicarlo de manera uniforme en S4.3.2.1 y S4.3.2.2.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-T3",
+                "E-T13",
+                "E-G5",
+                "E-F2"
+              ],
+              "fuentes": [
+                "DEC-043",
+                "DEC-021"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Título funcional provisional",
+              "detalle": "<p>Si la adscripción no está acreditada, usar un título funcional del catálogo (por ejemplo, «Especialista competente») y registrar EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T3"
+              ],
+              "fuentes": [
+                "estándar §7.4 punto 2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:00.952837+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:00.952837+00:00"
+    },
+    {
+      "id": "605cf87a-e0ed-4413-9a07-1d944e7ed965",
+      "elemento": "_53739be9-32ca-5ef6-802a-9d166a7c1a8d",
+      "referencia": "Caja 52 (E-T13)",
+      "texto": "<p><strong>Duda.</strong> En la caja 52 el monitor prepara la carta de respuesta e «indica quién elabora el adicional según bases, si corresponde». Esto se superpone con el proceso de adicionales:</p><ul><li>consulta y adicional son procedimientos independientes (Opinión D000083-2026-OECE/DTN, recogida en la regla en borrador REG-CON-CONS-001);</li><li>el adicional nace con la anotación de su necesidad en el cuaderno por el residente o la supervisión (art. 194.2 a), y el supervisor debe ratificarla (194.2 b y d);</li><li>S4.3.2.3 ya incluye «Avisar anotación y encargo al elaborador» (caja 91 de ese proceso).</li></ul><p>Indicar el elaborador en la respuesta de la consulta, antes de la anotación y de la ratificación, podría leerse como inicio o aprobación anticipada del adicional. Además, la condición «si corresponde» va dentro del nombre de la tarea y no como decisión visible.</p><p><strong>Pregunta:</strong> ¿la carta debe limitarse a la respuesta y, como mucho, mencionar que la eventual necesidad de adicional se tramita en S4.3.2.3? ¿O el equipo confirma que la indicación del elaborador se hace aquí y no se repite allí?</p><p><strong>Efecto posible:</strong> cambia el diagrama (nombre de la caja 52) o basta con explicarlo en el sustento, de forma coherente con S4.3.2.3.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:28:10.996277+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:28:10.996277+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:28:23.794818+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:28:34.295663+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong></p><ul><li>Tabla S4.3.2.2, E-T13 (PROP): «Preparar carta e indicar quien elabora el adicional segun bases, si corresponde». Fuente: instrucción del usuario del 2026-11-17 y 2026-11-18.</li><li>El sustento («Carta de respuesta… 2026-11-18») no presume el elaborador y remite a S4.3.2.3.</li><li>Tabla S4.3.2.3: R-E1 (respuesta recibida) → R-T1 «Anotar necesidad del adicional en cuaderno», con el hito del cómputo de 15 días. Además E-ENOT, E-GNOT y E-TNOT avisan al elaborador.</li></ul><p><strong>Exigencia normativa:</strong> CON-001, art. 194.2 a), b), c) y d), p. 109. El elaborador lo determinan las bases (194.2 c) y el plazo de 15 días corre desde la anotación, siempre que el supervisor ratifique (194.2 d). REG-CON-CONS-001 y REG-CON-ADIC-003 (BORRADOR-IA; CON-011 y CON-010) no sirven como sustento de línea base.</p><p><strong>Inferencia:</strong> la indicación del elaborador no es contraria a la norma (las bases ya lo determinan). El riesgo está en que la duplicidad con S4.3.2.3 genere dos avisos con efectos distintos, o se entienda como acto de inicio. Es una diferencia de criterio que debe resolver el equipo, porque la instrucción proviene del usuario.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-001 art. 194.2 p. 109",
+            "REG-CON-CONS-001 (CON-011 Opinión D000083)",
+            "REG-CON-ADIC-003 (CON-010 Opinión D000092)",
+            "Tabla S4.3.2.3: R-E1, R-T1, E-ENOT, E-TNOT",
+            "S4-3-2-2-sustento.md, Carta de respuesta 2026-11-18"
+          ],
+          "hipotesis": [
+            "La carta es el acto que activa al elaborador: no hay fuente; S4.3.2.3 lo activa tras la anotación y su ratificación.",
+            "La indicación es solo informativa y útil: posible; si se mantiene, debe distinguirse del aviso formal de S4.3.2.3.",
+            "La respuesta a la consulta reemplaza la anotación de necesidad: descartada por el 194.2 a)."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:23.794818+00:00",
+          "revision_modelo": "b995646e7bdf8bbf0fc3ac2da8d2d18704707ed49be6460af699c7dbe9711801"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Mantener la indicación como informativa y deslindarla de S4.3.2.3",
+              "detalle": "<p>Renombrar la caja 52 como «Preparar carta de respuesta al contratista». Agregar una anotación: «Si la respuesta evidencia un adicional, la carta lo informa y menciona el elaborador previsto en las bases; no reemplaza la anotación de necesidad (194.2 a) ni la ratificación de la supervisión». Explicar en el sustento la relación con el aviso de S4.3.2.3.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-T13",
+                "E-F1"
+              ],
+              "fuentes": [
+                "CON-001 art. 194.2",
+                "REG-CON-CONS-001"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Retirar la indicación del elaborador de este proceso",
+              "detalle": "<p>Limitar la caja 52 a la respuesta y dejar la identificación y el aviso al elaborador solo en S4.3.2.3. Requiere confirmar con el usuario, porque modifica su instrucción del 2026-11-18.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-T13"
+              ],
+              "fuentes": [
+                "CON-001 art. 194.2 c)",
+                "S4.3.2.3 E-TNOT"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar las bases del contrato",
+              "detalle": "<p>No cambiar el modelo hasta incorporar bases de contratación de muestra que precisen el elaborador y su forma de activación.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-T13"
+              ],
+              "fuentes": [
+                "S4-3-2-2-sustento.md, EVIDENCIA-INSUFICIENTE sobre las bases"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:28:34.295663+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:28:34.295663+00:00"
+    }
+  ]
+}

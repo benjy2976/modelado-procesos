@@ -1,0 +1,878 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-8-gestion-mayores-metrados/S4-3-2-8-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "489ea335-e60d-4936-853b-ff58bad7c053",
+      "elemento": "_8b5d2912-3bbd-5299-9e24-d3eff53c46ea",
+      "referencia": "Caja 11 (SG)",
+      "texto": "<p><strong>Duda.</strong> El art. 197.1 del Reglamento permite que el supervisor autorice mayores metrados «siempre que no se supere el límite establecido para las prestaciones adicionales de obra», sumando mayores metrados y adicionales y restando deductivos. La compuerta solo distingue dos casos: no supera o supera el 50 % del componente obra.</p><p>Sin embargo, la Ley 32069 fija tramos de autorización para los adicionales en solo construcción (art. 64.2 y 64.3): hasta 15 % la autoridad de la gestión administrativa; más de 15 % hasta 30 % el titular; más de 30 % hasta 50 % el titular con autorización previa de la Contraloría. En diseño y construcción, el art. 195.1 b) fija 20 %, 40 % y 50 % sobre el monto de obra del expediente técnico.</p><p><strong>Pregunta:</strong> ¿el «límite» que acota la autorización del supervisor es el tope del 50 % o el primer tramo (15 % o 20 %)? Si el acumulado ya está en un tramo que requiere decisión del titular o de la Contraloría, ¿puede el supervisor autorizar por sí solo?</p><p><strong>Efecto posible:</strong> queda pendiente hasta contar con una fuente interpretativa; según la respuesta puede cambiar el diagrama (una salida hacia la entidad cuando se supere el tramo del supervisor).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:01.168799+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:01.168799+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:16.297473+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:26.847222+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Lo que dice el modelo.</strong> SG tiene tres salidas: «Sí» (S3), «Supera el 50 % del componente obra» (S5) y «No o no acreditado» (S4). El sustento no explica qué límite usa el supervisor.</p><p><strong>Exigencia normativa observada.</strong></p><ul><li>Reglamento, art. 197.1 (PDF p. 112): autorización del supervisor «siempre que no se supere el límite establecido para las prestaciones adicionales de obra», con el acumulado mayores metrados + adicionales − deductivos.</li><li>Reglamento, art. 197.4 (p. 112): resolución si con la aprobación se supera «el límite para prestaciones adicionales del 50% del componente obra».</li><li>Ley 32069, art. 64.2-64.4 (texto al 19-07-2026, p. 30-31): 15 % la autoridad de la gestión administrativa; 15-30 % el titular; 30-50 % el titular con autorización previa de la CGR (15 días hábiles).</li><li>Reglamento, art. 194.5 (p. 110): las prestaciones adicionales en solo construcción no pueden superar el 50 % del contrato original.</li><li>Reglamento, art. 195.1 b) y c) (p. 110): en diseño y construcción, 20 % / 40 % / 50 %; resolución si se supera.</li><li>Opinión D000092-2026-OECE-DTN, pár. 2.10 (p. 6-7): describe los tramos del art. 64 y la resta de deductivos vinculados para adicionales; <em>no se pronuncia sobre mayores metrados</em>.</li></ul><p><strong>Inferencia.</strong> Hay dos lecturas posibles del 197.1, y el texto no permite elegir entre ellas sin una interpretación autorizada. La compuerta actual aplica la lectura del 50 %.</p><p><strong>Revisión adversarial.</strong> Busqué en la biblioteca una opinión del OECE sobre mayores metrados y límites; no la hay. El 197.4 menciona el 50 %, lo que apoya la lectura actual; pero que el 197.1 hable de «el límite establecido» y que la Ley asigne autoridades distintas por tramo apoya la otra lectura. Ninguna de las dos queda descartada.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento art. 197.1, 197.4 (p. 112)",
+            "CON-001 Reglamento art. 194.5 (p. 110)",
+            "CON-001 Reglamento art. 195.1 b-c (p. 110)",
+            "CON-001 Ley 32069 art. 64.2-64.4 (p. 30-31)",
+            "CON-010 Opinión D000092-2026-OECE-DTN, 2.10 (p. 6-7)",
+            "S4.3.2.3 caja E-G8 (¿Qué límite alcanza el adicional acumulado?)"
+          ],
+          "hipotesis": [
+            "H1: El límite del 197.1 es el tope del 50 % (lectura actual). No descartada: el 197.4 la apoya.",
+            "H2: El límite es el primer tramo del art. 64.2 (15 %) o del 195.1 b (20 %), y por encima el supervisor no puede autorizar solo. No descartada: la Ley asigna autoridades por tramo.",
+            "H3: El supervisor autoriza hasta el 50 %, pero la entidad debe aplicar los tramos del art. 64 cuando autoriza el pago (197.2). No descartada; esto movería el control a S4.3.2.1.",
+            "H4: Hay una opinión del OECE específica sobre mayores metrados. No se encontró en la biblioteca."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:16.297473+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Dejar la duda como EVIDENCIA-INSUFICIENTE y buscar una fuente interpretativa",
+              "detalle": "<p>Registrar en el sustento las dos lecturas del 197.1 (H1 y H2) y la regla de los tramos (Ley, art. 64; Reglamento, art. 195.1 b). Pedir la incorporación de una opinión del OECE o de un informe legal sobre el límite que acota la autorización del supervisor. El diagrama no cambia hasta tenerla.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "SG",
+                "S2"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.1 y 197.4",
+                "Ley 32069 art. 64.2-64.4",
+                "Reglamento art. 195.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar una salida de la compuerta para el acumulado que supera el tramo del supervisor",
+              "detalle": "<p>Agregar en SG la salida «Supera el límite de autorización del supervisor», que lleve a una tarea de comunicación a la entidad y a un evento de fin de mensaje. Solo procede si el equipo confirma la lectura H2. Usa símbolos de la paleta: compuerta exclusiva, tarea de usuario y fin de mensaje.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "SG"
+              ],
+              "fuentes": [
+                "Ley 32069 art. 64.2-64.3"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la lectura del 50 % y explicarla en el sustento",
+              "detalle": "<p>Dejar la compuerta como está y registrar en el sustento que se adopta la lectura H1 por el texto del 197.4, marcada como inferencia y con la duda abierta.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "SG"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.4"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:26.847222+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:26.847222+00:00"
+    },
+    {
+      "id": "2d2c3532-9a5d-42d2-a11c-99e4629fd660",
+      "elemento": "_051dfef9-cf88-551b-8277-cd14e1bf3d26",
+      "referencia": "Caja 17 (SF2)",
+      "texto": "<p><strong>Problema.</strong> Después de remitir la solicitud (caja 3), el residente espera el «Pronunciamiento de supervisión recibido» (caja 4). Ese evento recibe mensajes de las cajas 13 (autorización) y 15 (sin autorización), pero no de la caja 17 («Causal de resolución comunicada a la entidad»), que solo envía un mensaje al Gobierno Regional.</p><p>Si el acumulado supera el 50 %, el carril del contratista queda esperando un mensaje que nunca llega: el diagrama no tiene un final para el contratista en esa ruta.</p><p><strong>Pregunta:</strong> ¿se debe comunicar al contratista que su solicitud no se autoriza porque se supera el 50 %, o el contratista se entera por otra vía (la anotación en el cuaderno o la resolución del contrato)?</p><p><strong>Efecto posible:</strong> cambia el diagrama (agregar un mensaje de la ruta del 50 % al contratista o explicar en el sustento cómo se cierra su espera).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:35.379140+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:35.379140+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:49.800688+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:59.675112+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada en la tabla.</strong> Los mensajes que llegan a R4 son SF1 → R4 («Autorización») y SF0 → R4 («Pronunciamiento sin autorización»). SF2 solo envía «Causal de resolución por superar el 50 %» al Gobierno Regional. R4 es un evento intermedio de recepción de mensaje: en BPMN, el flujo del contratista se detiene hasta que llega un mensaje. En la ruta S5 → SF2 ese mensaje no existe, así que la instancia del contratista queda abierta. Es un defecto de flujo, no una cuestión de forma.</p><p><strong>Exigencia normativa.</strong> El art. 197.1 indica que el supervisor se pronuncia «en el mismo medio», es decir, en el cuaderno de incidencias. El art. 188.3 dispone que en él registran el residente y el supervisor o inspector. El art. 197.4 ordena proceder a la resolución, y DEC-060 la deja en el evento B-1 «Contrato resuelto» de S4.3.2. Ese evento interrumpe todo el subproceso padre, pero solo cuando la resolución ya se perfeccionó, no en el momento de la comunicación.</p><p><strong>Inferencia.</strong> Lo más coherente con «en el mismo medio» es que el supervisor también anote en el cuaderno que no autoriza por superarse el límite, y que esa anotación llegue al contratista igual que en las rutas SF0 y SF1.</p><p><strong>Revisión adversarial.</strong> Se podría sostener que el evento B-1 del padre cierra la espera. Pero entre la comunicación y la resolución pasa un tiempo no modelado (el proceso de resolución, arts. 122-123, no está modelado), y en ese lapso el contratista no sabe si puede ejecutar.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "Tabla S4.3.2.8: flujos SF1→R4, SF0→R4, SF2→Gobierno Regional",
+            "CON-001 Reglamento art. 197.1 y 197.4 (p. 112)",
+            "CON-001 Reglamento art. 188.3 (p. 104)",
+            "DEC-060",
+            "S4.3.2 caja B-1 Contrato resuelto"
+          ],
+          "hipotesis": [
+            "H1: El supervisor anota el pronunciamiento en el cuaderno y lo notifica también al contratista (mensaje SF2→R4 o fin con dos mensajes). Recomendada.",
+            "H2: El evento B-1 de S4.3.2 cierra la espera. Descartada como única solución: la resolución es posterior y no está modelada.",
+            "H3: La ruta del 50 % termina en el mismo pronunciamiento sin autorización (SF0) más la comunicación a la entidad. Posible; simplifica el modelo."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:49.800688+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Agregar un mensaje de SF2 al contratista (R4)",
+              "detalle": "<p>Agregar el flujo de mensaje SF2 → R4 «Pronunciamiento sin autorización por superar el 50 %», sin quitar el que va al Gobierno Regional. La tarea S5 se podría renombrar «Anotar en el cuaderno y comunicar a la entidad que se supera el límite del 50 %». En RG, la condición «No» ya cubre este caso y lleva a RF0.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "SF2",
+                "S5",
+                "R4"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.1 («en el mismo medio») y 197.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Llevar la ruta del 50 % a una tarea previa al pronunciamiento sin autorización",
+              "detalle": "<p>Después de S5, unir el flujo con S4/SF0, de modo que el contratista reciba el mismo «Pronunciamiento sin autorización» y la entidad la comunicación de la causal. Se reduce un evento de fin, pero se mezclan dos motivos de no autorización.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S5",
+                "SF2",
+                "S4",
+                "SF0"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.4"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicar en el sustento que la espera se cierra con el evento Contrato resuelto (B-1)",
+              "detalle": "<p>No cambiar el diagrama y registrar que la interrupción del padre cierra la instancia. Deja sin cubrir el tiempo entre la comunicación y la resolución.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "SF2"
+              ],
+              "fuentes": [
+                "DEC-060"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:59.675112+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:59.675112+00:00"
+    },
+    {
+      "id": "6440fc2b-4532-40c8-b4f1-2fa9c7bb16cf",
+      "elemento": "_2a7fa59b-9edc-5f70-ada3-5990f0a58676",
+      "referencia": "Caja 6 (R5)",
+      "texto": "<p><strong>Problema.</strong> El Reglamento vincula los mayores metrados con la ampliación de plazo de dos formas:</p><ul><li>art. 198.1 c): son causal de ampliación cuando se necesita plazo adicional para ejecutarlos y se modifica la ruta crítica;</li><li>art. 197.3: si generan ampliación, los mayores gastos generales se pagan según el art. 201.</li></ul><p>El proceso S4.3.2.4 ya nombra a S4.3.2.8 como origen de esa causal (caja 1 de S4.3.2.4). En cambio, S4.3.2.8 no tiene ninguna referencia a la ampliación de plazo. La auditoría registra las dos obligaciones como «no representadas» y el sustento lo deja pendiente desde el 24-11-2026.</p><p><strong>Pregunta:</strong> ¿se agrega en la caja 6 («Ejecutar y sustentar mayores metrados del periodo») una anotación que remita a S4.3.2.4 cuando la ejecución requiera plazo adicional y afecte la ruta crítica?</p><p><strong>Efecto posible:</strong> cambia el diagrama (solo una anotación de texto; no se agregan actividades).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:08.661171+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:08.661171+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:22.294889+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:30.066915+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Reglamento, art. 198.1 c) (p. 112-113), con el texto modificado por el D.S. 001-2026-EF: «Cuando es necesario un plazo adicional para la ejecución de los mayores metrados, en contratos a precios unitarios, costo reembolsable o esquema mixto», siempre que se modifique la ruta crítica. Art. 197.3 (p. 112): los mayores gastos generales se pagan según el art. 201.</p><p><strong>Evidencia en procesos relacionados.</strong> S4.3.2.4, caja R-E1, anota: «c) mayores metrados (S4.3.2.8)». En la caja R-T1 de S4.3.2.4, el plazo para solicitar se cuenta «desde la aprobación del adicional o el fin del hecho generador» (art. 200.1 a). El informe de auditoría de S4.3.2.8 registra 197.3 y 198.1 c) como NO-REPRESENTADO («Sin interfaz con S4.3.2.4»).</p><p><strong>Inferencia.</strong> La relación está definida de un solo lado. S4.3.2.4 empieza con un evento condicional, así que no hace falta un mensaje. Basta una anotación en la caja donde se ejecutan los mayores metrados (R5) para dejar la relación explícita en ambos sentidos, igual que la anotación de RF hacia S4.3.2.1.</p><p><strong>Revisión adversarial.</strong> Se podría sostener que basta con la anotación de S4.3.2.4. Pero quien lea solo S4.3.2.8 no sabrá que la ejecución puede abrir una ampliación ni que sus gastos generales se rigen por el 201, y la auditoría seguirá marcando las dos obligaciones como no representadas. No propongo fijar el inicio del plazo de solicitud para este caso, porque el art. 200.1 a) no lo precisa para mayores metrados en el texto consultado.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento art. 198.1 c (p. 112-113, mod. D.S. 001-2026-EF)",
+            "CON-001 Reglamento art. 197.3 (p. 112)",
+            "S4.3.2.4 cajas R-E1 y R-T1",
+            "Auditoría S4.3.2.8: cobertura_fuente 197.3 y 198.1 NO-REPRESENTADO",
+            "Sustento S4.3.2.8, secciones 2026-11-24 y 2026-11-25"
+          ],
+          "hipotesis": [
+            "H1: Anotación en R5 que remita a S4.3.2.4 (198.1 c) y al 201 (197.3). Recomendada.",
+            "H2: Evento de fin de mensaje hacia S4.3.2.4. Descartada: S4.3.2.4 empieza con un evento condicional, no con un mensaje; habría que cambiar también el proceso hermano.",
+            "H3: Solo nota en el sustento. Posible, pero no resuelve la cobertura de la auditoría."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:22.294889+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotación en R5 hacia S4.3.2.4",
+              "detalle": "<p>Completar la anotación de R5: «Si la ejecución requiere plazo adicional y modifica la ruta crítica, se activa S4.3.2.4 (art. 198.1 c); los mayores gastos generales se pagan según el art. 201 (art. 197.3)». Registrar en el sustento que la interfaz queda resuelta.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "R5"
+              ],
+              "fuentes": [
+                "Reglamento art. 198.1 c y 197.3",
+                "S4.3.2.4 R-E1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo nota en el sustento",
+              "detalle": "<p>Explicar en el sustento que la relación se representa en S4.3.2.4 (R-E1) y justificar el estado NO-REPRESENTADO de la auditoría.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "R5"
+              ],
+              "fuentes": [
+                "S4.3.2.4 R-E1"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:30.066915+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:30.066915+00:00"
+    },
+    {
+      "id": "9c1845fc-3855-469a-a2fe-39fb76b62cd6",
+      "elemento": "_06d2fff6-671e-5e31-ba43-fc37f698a71d",
+      "referencia": "Caja 12 (S3)",
+      "texto": "<p><strong>Duda.</strong> La caja 12 («Autorizar ejecución en cuaderno y comunicar a entidad») envía el mensaje «Comunicación de autorización» al Gobierno Regional. El art. 197.1 solo exige la autorización en el cuaderno, y el art. 197.2 dice que la entidad no aprueba la ejecución, aunque sí el pago. El propio sustento califica esta comunicación como inferencia.</p><p>Además, el Gobierno Regional aparece aquí como un participante sin carriles. En los procesos hermanos (S4.3.2.3, S4.3.2.4) la entidad tiene carriles: registro documentario, SGGOS y otros. Aquí no se sabe quién recibe la comunicación ni para qué la usa (por ejemplo, llevar el control del acumulado frente a los adicionales que tramita S4.3.2.3).</p><p><strong>Pregunta:</strong> ¿la entidad necesita una comunicación aparte o se entera por el cuaderno de incidencias digital, en el que puede tener el rol de monitor? Si se mantiene, ¿quién la recibe (por ejemplo, el coordinador o el monitor de obra de SGGOS) y qué hace con ella?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento, o cambia el diagrama si el equipo confirma un receptor y una acción de la entidad.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:39.348431+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:39.348431+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:54.647174+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:05.522440+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> S3 (NORM, «Reglamento art. 197.1») envía «Comunicación de autorización» al participante Gobierno Regional Huánuco, que no tiene carriles en este proceso. En el sustento (auditoría del 24-11-2026): «comunicar la autorización a la entidad (S3) no es exigencia literal».</p><p><strong>Exigencia normativa.</strong></p><ul><li>Reglamento, art. 197.1-197.2 (p. 112): la autorización es del supervisor, en el cuaderno; no hay aprobación previa de la entidad.</li><li>Reglamento, art. 188.1 (p. 104): el cuaderno forma parte de la Pladicop y en él se registran «las aprobaciones de trabajos o partidas».</li><li>Directiva 017-2025-OECE-CD (CON-004, p. 6-8; REG-CON-CDI-001, BORRADOR-IA): rol Monitor para coordinadores de obra o el jefe de la unidad de ejecución de inversiones, con acceso de consulta al cuaderno.</li></ul><p><strong>Convención de procesos hermanos.</strong> S4.3.2.3 y S4.3.2.4 muestran la entidad con carriles (OACGD, SGGOS — coordinador de obra, SGGOS — subgerente). S4.3.2.3, caja E-TC, controla los acumulados (arts. 194-197), lo que da sentido a que la entidad conozca los mayores metrados autorizados.</p><p><strong>Inferencia.</strong> Hay una razón funcional para que la entidad conozca la autorización (el control del acumulado frente a los adicionales), pero no hay una exigencia literal, y el medio podría ser el propio cuaderno digital. La caja está clasificada NORM aunque esa parte es PROP.</p><p><strong>Revisión adversarial.</strong> No encontré en el Reglamento ni en la directiva del cuaderno una obligación del supervisor de comunicar aparte la autorización de mayores metrados. Tampoco hay en la biblioteca un documento interno del GORE que lo exija.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-001 Reglamento art. 197.1-197.2 (p. 112)",
+            "CON-001 Reglamento art. 188.1 (p. 104)",
+            "CON-004 Directiva 017-2025-OECE-CD (p. 6-8)",
+            "REG-CON-CDI-001 (BORRADOR-IA)",
+            "S4.3.2.3 caja E-TC",
+            "S4.3.2.4 carriles de la entidad",
+            "Sustento S4.3.2.8, auditoría 2026-11-24"
+          ],
+          "hipotesis": [
+            "H1: La entidad se entera por el cuaderno digital (rol Monitor), sin un mensaje aparte. No descartada; la vigencia de la regla está por confirmar.",
+            "H2: El supervisor informa a la entidad para el control del acumulado; el receptor sería SGGOS. No descartada; falta que el equipo confirme el circuito.",
+            "H3: La entidad conoce los mayores metrados recién en la valorización (S4.3.2.1, T-1). Posible, pero llega tarde para el control del límite."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:54.647174+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Mantener el mensaje, explicarlo en el sustento y confirmar el receptor con el equipo",
+              "detalle": "<p>Registrar en el sustento que la comunicación es una propuesta (no una exigencia literal), con su finalidad: el control del acumulado junto con S4.3.2.3. Consultar al equipo quién la recibe en el GORE. Mientras tanto, separar la clase de S3: NORM para la autorización en el cuaderno y PROP para la comunicación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S3"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.1-197.2",
+                "S4.3.2.3 E-TC"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Quitar el mensaje y anotar que la entidad conoce la autorización por el cuaderno digital",
+              "detalle": "<p>Renombrar S3 como «Autorizar ejecución en cuaderno», quitar el mensaje al Gobierno Regional y agregar una anotación: «La anotación es visible para el Monitor de la entidad en el cuaderno (Directiva 017-2025-OECE-CD)». Requiere confirmar la vigencia de la directiva.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S3"
+              ],
+              "fuentes": [
+                "Reglamento art. 188.1",
+                "CON-004"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mostrar la recepción en un carril de la entidad",
+              "detalle": "<p>Si el equipo confirma el receptor, mostrar al Gobierno Regional con un carril (por ejemplo, SGGOS — Coordinador de obra), con un evento de recepción de mensaje y una tarea «Registrar mayores metrados autorizados en el control de acumulados», igual que en los hermanos.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S3"
+              ],
+              "fuentes": [
+                "S4.3.2.3 y S4.3.2.4, carriles de la entidad"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:05.522440+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:05.522440+00:00"
+    },
+    {
+      "id": "517e40a2-7a61-4478-932f-a525be2d7056",
+      "elemento": "_38b676c6-6b72-5613-93ee-809fc4d8e037",
+      "referencia": "Caja 10 (S2)",
+      "texto": "<p><strong>Vacío.</strong> Ninguna caja del proceso tiene plazo. El art. 197 no fija plazo para que el supervisor se pronuncie sobre la solicitud de mayores metrados, y el sustento solo indica que «no se trasladan los plazos del art. 194». Pero el art. 192.2 sí da una regla: cuando el Reglamento no establece un plazo específico para la respuesta de las partes, se aplica el plazo máximo de respuesta del contrato, salvo prórroga acordada para cada caso.</p><p><strong>Pregunta:</strong> ¿se registra en las cajas 10 a 12 (o en la 10) el plazo «el que fije el contrato para la respuesta (art. 192.2)»?</p><p><strong>Efecto posible:</strong> cambia la tabla (campo plazo) y el sustento; no cambian los símbolos.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:13.106954+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:13.106954+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:28.084688+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:35.873719+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> El campo plazo está vacío en las 17 cajas. Sustento: «no se trasladan los plazos del art. 194».</p><p><strong>Exigencia normativa.</strong> Reglamento, art. 192.2 (p. 107): «Cuando el Reglamento no establezca un plazo específico para la respuesta de las partes, se aplica el plazo máximo de respuesta establecido en el contrato, salvo que durante la ejecución las partes acuerden la prórroga para cada caso específico». El art. 192 está en el mismo capítulo (ejecución contractual de obras en solo construcción y diseño y construcción) que el art. 197.</p><p><strong>Hipótesis revisadas.</strong> Recorrí los arts. 185 a 212 por su título. Los únicos plazos cercanos son los del art. 194.2 (adicionales: 5 días para el informe del supervisor), los del 192.1 (actualización del programa) y los del 210.2 (valorización). Ninguno se refiere a la autorización de mayores metrados. No corresponde trasladar el plazo de 5 días del 194.2 b), y el sustento hace bien en no hacerlo. El art. 186.8 remite a los plazos de conformidad del art. 144 para los entregables del supervisor, no a su respuesta en el cuaderno.</p><p><strong>Inferencia.</strong> El plazo existe por remisión al contrato. Registrarlo así no inventa un número y deja visible de dónde sale. El número concreto depende de cada contrato (EVIDENCIA-INSUFICIENTE sobre el valor).</p><p><strong>Revisión adversarial.</strong> Se podría pensar que el 192.2 solo rige para respuestas «de las partes», y que el supervisor no es parte del contrato de obra. Pero el art. 197.1 atribuye la respuesta al supervisor en nombre de la supervisión de la entidad, y el contrato de obra suele fijar los plazos de la supervisión. Conviene que el equipo lo confirme.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento art. 192.2 (p. 107)",
+            "CON-001 Reglamento arts. 194.2 b, 186.8, 210.2",
+            "Índice CON-001 arts. 185-212",
+            "Tabla S4.3.2.8, campo plazo",
+            "Sustento S4.3.2.8, Elementos registrados"
+          ],
+          "hipotesis": [
+            "H1: Se aplica el plazo de respuesta del contrato (192.2). Recomendada.",
+            "H2: Por analogía, 5 días del 194.2 b. Descartada: el sustento y DEC-047 excluyen trasladar plazos, y sería inventar.",
+            "H3: Plazos del 186.8 / 144. Descartada: se refieren a la conformidad de entregables del supervisor.",
+            "H4: El supervisor no es parte y el 192.2 no aplica. No descartada del todo; se pide confirmación."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:28.084688+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Registrar el plazo por remisión al contrato",
+              "detalle": "<p>En S2 (o en S3, S4 y S5), poner en el campo plazo: «Plazo máximo de respuesta del contrato, salvo prórroga acordada (art. 192.2)». Registrar en el sustento que el art. 197 no fija plazo y que el valor depende de cada contrato.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S2",
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "fuentes": [
+                "Reglamento art. 192.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo dejar constancia en el sustento",
+              "detalle": "<p>No llenar el campo plazo y explicar en el sustento la regla del 192.2 y por qué no se usan los plazos del 194.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S2"
+              ],
+              "fuentes": [
+                "Reglamento art. 192.2"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:35.873719+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:35.873719+00:00"
+    },
+    {
+      "id": "bfab48ee-12d0-4443-b89c-fe97c8acc993",
+      "elemento": "_38b676c6-6b72-5613-93ee-809fc4d8e037",
+      "referencia": "Caja 10 (S2)",
+      "texto": "<p><strong>Duda.</strong> La caja 10 verifica la «modalidad». El art. 197.1 limita el procedimiento a contratos con modalidad de pago a <em>precios unitarios</em>. Sin embargo, el art. 198.1 c), modificado por el D.S. 001-2026-EF, reconoce mayores metrados también «en contratos a precios unitarios, costo reembolsable o esquema mixto». El art. 161.1 admite las cuatro modalidades para obras.</p><p><strong>Pregunta:</strong> en un contrato con esquema mixto, ¿las partidas pagadas a precios unitarios siguen este procedimiento? ¿Y en costo reembolsable? Si no lo siguen, ¿por qué vía se tramitan?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento (alcance del proceso); queda pendiente si se requiere una interpretación del OECE.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:44.378866+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:44.378866+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:58.631247+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:06.739887+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong></p><ul><li>Art. 197.1 (p. 112): «Cuando en los contratos suscritos bajo la modalidad de pago de precios unitarios se requiera ejecutar mayores metrados…».</li><li>Art. 198.1 c) (p. 113), texto vigente según el D.S. 001-2026-EF (en vigor desde el 14-01-2026, según la ficha de CON-001M1): «…mayores metrados, en contratos a precios unitarios, costo reembolsable o esquema mixto».</li><li>Art. 161.1 (p. 87): modalidades de pago en obras: suma alzada, precios unitarios, esquema mixto y costo reembolsable.</li><li>Art. 210.7 y 210.9 (p. 119): en precios unitarios se valoriza hasta el total de los metrados realmente ejecutados; en costo reembolsable, según los costos reales.</li></ul><p><strong>Evidencia observada.</strong> El sustento limita el detalle a «precios unitarios y sistemas de entrega comprendidos en art. 197». No menciona el esquema mixto ni el costo reembolsable. Busqué en el D.S. 222-2026-EF (CON-001M2) y no modifica el art. 197.</p><p><strong>Inferencia.</strong> La reforma del 198.1 c) supone que puede haber mayores metrados en esquema mixto y costo reembolsable, pero el art. 197 no se ajustó. Para el esquema mixto es razonable pensar que rige para las partidas a precios unitarios. No encontré una fuente que lo diga, así que lo dejo como pregunta. No encontré en el Reglamento la definición de «esquema mixto» con su alcance.</p><p><strong>Revisión adversarial.</strong> Si el procedimiento del 197 solo rige para precios unitarios puros, la salida «No o no acreditado» de SG es correcta para los otros casos. Pero entonces el proceso no dice qué ocurre con ellos, y eso afecta el alcance de la ficha.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento art. 197.1 (p. 112)",
+            "CON-001 Reglamento art. 198.1 c (p. 113; mod. D.S. 001-2026-EF)",
+            "CON-001 Reglamento art. 161.1 (p. 87)",
+            "CON-001 Reglamento art. 210.7 y 210.9 (p. 119)",
+            "CON-001M2 D.S. 222-2026-EF (búsqueda sin coincidencias sobre art. 197)",
+            "Sustento S4.3.2.8, Fuentes utilizadas"
+          ],
+          "hipotesis": [
+            "H1: En esquema mixto aplica el 197 a las partidas a precios unitarios. Plausible, sin fuente expresa.",
+            "H2: En costo reembolsable no se requiere autorización previa en el cuaderno, porque se paga a costo real (210.9). Plausible, sin fuente expresa.",
+            "H3: El 197 solo rige para precios unitarios puros y lo demás queda fuera del proceso. Posible; el sustento debería decirlo de forma expresa."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:58.631247+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Precisar el alcance en el sustento y en la ficha, con la duda abierta",
+              "detalle": "<p>Registrar en el sustento la diferencia entre el 197.1 (precios unitarios) y el 198.1 c) modificado (precios unitarios, costo reembolsable, esquema mixto). Declarar que el proceso cubre precios unitarios y dejar como EVIDENCIA-INSUFICIENTE el tratamiento del esquema mixto y del costo reembolsable hasta contar con una fuente interpretativa.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S2"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.1, 198.1 c, 161.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Anotar en S2 el criterio de modalidad",
+              "detalle": "<p>Agregar en S2 una anotación: «Aplica a precios unitarios y a las partidas a precios unitarios del esquema mixto (por confirmar)». Solo después de que el equipo confirme H1.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S2"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.1 y 198.1 c"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:06.739887+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:06.739887+00:00"
+    },
+    {
+      "id": "0771ade4-4829-45a3-93e4-44a88bd83b7b",
+      "elemento": "",
+      "referencia": "Diagrama completo (sustento)",
+      "texto": "<p><strong>Problema.</strong> El sustento es breve y tiene datos que no coinciden con la tabla ni con las fuentes ancladas:</p><ol><li>«Fuentes utilizadas» cita el «Reglamento, art. 197.1-197.4, PDF p. 123», pero todas las anclas del proceso están en la p. 112 del texto local.</li><li>El enlace a El Peruano es genérico (no lleva a la norma) y menciona una «edición actualizada al 21-10-2026». El texto anclado es el consolidado local al 09-01-2026, comprobado frente a los D.S. 001-2026-EF y 222-2026-EF el 24-11-2026.</li><li>Cita el art. 210, pero no explica qué toma de él.</li><li>Dice que S4.3.2.1 «no registra» el mensaje de mayores metrados. Hoy sí lo recibe (caja 2 de S4.3.2.1).</li><li>Habla de «3 no representadas», mientras la auditoría vigente registra 2.</li><li>Ocho cajas PROP tienen como única fuente «DEC-047», que es una decisión de alcance, no evidencia de la actividad.</li><li>No cita la Ley 32069, art. 64, ni la Opinión D000092-2026-OECE-DTN, que sí usa el proceso hermano S4.3.2.3 para el mismo control de acumulados.</li></ol><p><strong>Pregunta:</strong> ¿se actualiza el sustento con las ubicaciones exactas y con una tabla de evidencias por caja que distinga norma, inferencia y propuesta?</p><p><strong>Efecto posible:</strong> basta con corregir el sustento; no cambia el diagrama.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:17.229779+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:17.229779+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:31.774652+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:40.700986+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Cotejo hecho (texto contra texto).</strong></p><ul><li>Las anclas de R1, R2, R5, RF, S2, SG, S3, S4, S5 y SF2 están en la p. 112 (S3 también en la p. 101); el estado es VIGENTE en auditoria_informe. El índice de CON-001 ubica el art. 197 en la p. 112. La cita «PDF p. 123» no coincide.</li><li>Las fuentes del visor dicen: «Texto local consolidado; vigencia comprobada al 2026-11-24 frente a los D.S. 001-2026-EF y 222-2026-EF». El sustento dice «consulta oficial 2026-11-18; edición de El Peruano actualizada al 21-10-2026». Las fechas y la fuente no coinciden.</li><li>S4.3.2.1, caja T-1: «entra: Sustento de mayores metrados del periodo» y el mensaje «S4.3.2.8 → T-1». auditoria_interfaces(S4.3.2) no tiene candidatos. La afirmación del sustento quedó desactualizada.</li><li>Auditoría: no_representadas = 2 (197.3 y 198.1). El sustento dice 3; la del 197.4 se resolvió con DEC-060.</li><li>Cajas con fuente solo «DEC-047»: R1, R3, R4, RG, RF, RF0, S1, SF1, S4, SF0. DEC-047 decide la división del proceso, no describe actividades.</li><li>Las propiedades dicen fecha_actualizacion 2026-11-18, aunque hay secciones del 24 y del 25-11-2026.</li></ul><p><strong>Exigencia del proyecto.</strong> AGENTS.md pide que toda afirmación normativa registre fuente oficial, fecha de consulta, vigencia y ubicación precisa, y que se distinga evidencia, norma, inferencia y propuesta.</p><p><strong>Inferencia.</strong> El sustento es una suma de notas por fecha sin consolidar. No hay errores de fondo en el diagrama por esto, pero quien revise no puede rastrear la evidencia de cada caja.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "Sustento S4.3.2.8 (lectura completa)",
+            "auditoria_informe S4.3.2.8 (anclas y cobertura)",
+            "indice_documento CON-001 art. 197 p. 112",
+            "S4.3.2.1 caja T-1 y mensaje desde S4.3.2.8",
+            "auditoria_interfaces S4.3.2 (0 candidatos)",
+            "DEC-047, DEC-060",
+            "AGENTS.md, reglas obligatorias"
+          ],
+          "hipotesis": [
+            "H1: La p. 123 corresponde a otra edición del Reglamento. No se verificó: CON-001P (El Peruano) tiene el art. 197 en la p. 48; ninguna fuente de la biblioteca lo ubica en la p. 123.",
+            "H2: El texto del sustento es anterior a las anclas y no se actualizó. Es la explicación más probable."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:31.774652+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Consolidar el sustento con una tabla de evidencias por caja",
+              "detalle": "<p>Reescribir «Fuentes utilizadas» con las ubicaciones exactas (arts. 192.2, 194.5, 195.1, 197.1-197.4, 198.1 c, 210.1-210.2 en sus páginas; Ley 32069, art. 64; Opinión D000092) y una sola declaración de vigencia coherente con las anclas. Agregar una tabla por caja con la clase (norma, inferencia, propuesta, decisión) y la fuente. Corregir las afirmaciones desactualizadas (interfaz con S4.3.2.1, número de obligaciones no representadas) y la fecha de actualización.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "auditoria_informe S4.3.2.8",
+                "AGENTS.md"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Corrección mínima",
+              "detalle": "<p>Corregir solo la página (123 → 112), la vigencia, la interfaz con S4.3.2.1 y el conteo de la auditoría, sin agregar la tabla por caja.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "auditoria_informe S4.3.2.8"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:40.700986+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:40.700986+00:00"
+    },
+    {
+      "id": "7f218603-840d-4305-ae2b-548f04569ca9",
+      "elemento": "_43623da8-47e4-575c-8983-803a84d2e6aa",
+      "referencia": "Caja 7 (RF)",
+      "texto": "<p><strong>Duda.</strong> El art. 197.2 dice que los mayores metrados ejecutados se presentan en la valorización y «son autorizados para pago por la autoridad de la gestión administrativa». La caja 7 lo recoge en una anotación y remite a S4.3.2.1. Pero en S4.3.2.1 no hay una caja en la que esa autoridad autorice el pago de los mayores metrados: el flujo termina en «Valorización remitida a Administración para pago».</p><p>Tampoco está en la biblioteca el documento que diga quién es la autoridad de la gestión administrativa en el GORE Huánuco (designación o delegación).</p><p><strong>Pregunta:</strong> ¿quién ejerce esa autoridad en el GORE y en qué paso del trámite de la valorización autoriza el pago de los mayores metrados?</p><p><strong>Efecto posible:</strong> queda pendiente hasta incorporar la fuente; después puede cambiar S4.3.2.1 (no este proceso).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:48.135096+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:48.135096+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:01.635234+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:09.637340+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Reglamento, art. 197.2 (p. 112): «…y estos son autorizados para pago por la autoridad de la gestión administrativa. El procedimiento de pago se rige por lo señalado en el artículo 210». Art. 210.1 (p. 118): las valorizaciones incluyen los mayores metrados, que «pueden ser calculados de manera independiente». Art. 210.3: la entidad evalúa y paga hasta el último día del mes.</p><p><strong>Evidencia en el proceso relacionado.</strong> S4.3.2.1: T-1 recibe el sustento de mayores metrados; T-7 (monitor de SGGOS) verifica cálculos; T-10 (subgerente SGGOS) emite conformidad; T-11/F-1 (GRI) remiten a Administración. No hay ningún acto expreso de la autoridad de la gestión administrativa.</p><p><strong>Búsqueda de responsable por función.</strong> En el ROF 2023 (LOC-007) busqué «autoridad de la gestión administrativa» y no aparece esa denominación. Lo más cercano es el art. 11 (Gerencia General Regional, «órgano responsable administrativo»), pero no basta para asignarle la función. En la Ley y el Reglamento la figura aparece en los arts. 64.1-64.2 de la Ley y 74.1, 302.1 y 333.3 del Reglamento, sin definir quién la ejerce en un gobierno regional. No hay una decisión del proyecto sobre esto (buscar_decisiones sin resultados).</p><p><strong>Inferencia.</strong> No es posible asignar la autoridad ni el punto del trámite sin una fuente institucional. Asignarla sería inventar un responsable.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "CON-001 Reglamento art. 197.2 (p. 112)",
+            "CON-001 Reglamento art. 210.1 y 210.3 (p. 118)",
+            "S4.3.2.1 cajas T-1, T-7, T-10, T-11, F-1",
+            "LOC-007 ROF GRH 2023 art. 11 (búsqueda)",
+            "CON-001 Ley 32069 art. 64.1-64.2",
+            "buscar_decisiones: sin resultados"
+          ],
+          "hipotesis": [
+            "H1: La autoridad de la gestión administrativa es la Gerencia General Regional. No confirmada: el ROF no usa esa denominación.",
+            "H2: La ejerce el titular o un funcionario por delegación (resolución ejecutiva regional). Plausible; el documento no está en la biblioteca.",
+            "H3: La autorización queda implícita en el trámite de pago de Administración. No descartada, pero el 197.2 la nombra como un acto propio."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:01.635234+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Registrar EVIDENCIA-INSUFICIENTE y pedir el documento de designación o delegación",
+              "detalle": "<p>En el sustento de S4.3.2.8 y de S4.3.2.1, registrar que falta identificar a la autoridad de la gestión administrativa del GORE. Pedir que se incorpore a la biblioteca la resolución de designación o delegación (u otra fuente institucional). Mantener la anotación de RF sin cambios.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "RF"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Abrir una observación cruzada en S4.3.2.1",
+              "detalle": "<p>Cuando se tenga la fuente, proponer en S4.3.2.1 una tarea «Autorizar el pago de mayores metrados» en el carril de la autoridad identificada, antes de la remisión a Administración.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "RF"
+              ],
+              "fuentes": [
+                "Reglamento art. 197.2 y 210"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:09.637340+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:09.637340+00:00"
+    },
+    {
+      "id": "3c260ce6-ec4d-40fe-9ced-ff5e0ba8e5d3",
+      "elemento": "_36278e09-abf4-515c-af11-26cf3e0f3ede",
+      "referencia": "Caja 14 (S4)",
+      "texto": "<p><strong>Problema.</strong> La caja 14 («Documentar impedimento o necesidad de reclasificar») cubre, entre otros casos, que lo solicitado no sea un mayor metrado de una partida del contrato, sino un trabajo nuevo que podría ser un adicional de obra. La ruta termina con un pronunciamiento al residente (cajas 15 y 8: «Ejecución no habilitada por esta ruta»), pero no dice adónde va el caso.</p><p>El proceso de adicionales (S4.3.2.3) empieza con una anotación de la necesidad en el cuaderno, hecha por el residente o por la supervisión (art. 194.2 a). Este proceso no lo menciona, aunque se separó de S4.3.2.3 (DEC-047).</p><p><strong>Pregunta:</strong> ¿se agrega una anotación en las cajas 14 u 8 que indique que, si corresponde un adicional, el residente o la supervisión anotan la necesidad en el cuaderno y el caso sigue en S4.3.2.3? ¿Qué criterio distingue un mayor metrado de un adicional?</p><p><strong>Efecto posible:</strong> cambia el diagrama (solo una anotación) y el sustento (criterio de distinción).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:18.054852+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:18.054852+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:32.893256+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:40.569474+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> S4 (PROP, DEC-047), con la anotación «No habilitar ejecución» → SF0 → R4 → RG «No» → RF0 «Ejecución no habilitada por esta ruta». No hay mensaje ni anotación hacia otro proceso. El sustento: «Glosario: adicional, deductivo vinculado, deductivo puro, reducción y mayor metrado no son sinónimos automáticos», pero no da el criterio.</p><p><strong>Proceso relacionado.</strong> S4.3.2.3: R-T1 «Anotar necesidad del adicional en cuaderno» (194.2 a), S-E2/S-T0 «Necesidad identificada por supervisión», y E-T3 «Clasificar alcance original, causal y figura inicial», donde la entidad clasifica la figura. La fuente de R-F1 en S4.3.2.3 cita el art. 197.1, lo que muestra que ese proceso ya considera la frontera con los mayores metrados.</p><p><strong>Exigencia normativa.</strong> Art. 194.2 a) (p. 109): «La necesidad de ejecutar una prestación adicional es anotada en el cuaderno de incidencias por el contratista, a través del residente de obra o por la supervisión». Art. 196.2: si no existen precios unitarios para una partida, se pactan precios (esto es propio de los adicionales). Art. 210.7: en precios unitarios se valoriza hasta el total de los metrados realmente ejecutados.</p><p><strong>Documento no disponible.</strong> No encontré en la biblioteca una definición normativa de «mayor metrado» (el glosario del proyecto no la tiene y la búsqueda en el régimen de la Ley 32069 no la ubica). La distinción entre un mayor metrado (más cantidad de una partida existente) y un adicional (una partida o trabajo no previsto) es una inferencia razonable, pero no la puedo sustentar con una fuente.</p><p><strong>Revisión adversarial.</strong> Podría pensarse que no hace falta remitir a S4.3.2.3 porque es un proceso independiente que empieza con su propia anotación. Pero sin la anotación, quien lea S4.3.2.8 no sabe que el caso puede seguir, y el cierre en RF0 se puede leer como una denegación de fondo. El propio sustento advierte que «los cierres por evidencia pendiente no equivalen a denegación».</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "Tabla S4.3.2.8: S4, SF0, RG, RF0",
+            "S4.3.2.3 cajas R-T1, R-F1, S-E2, S-T0, E-T3",
+            "CON-001 Reglamento art. 194.2 a (p. 109), 196.2 (p. 112), 210.7 (p. 119)",
+            "Glosario del proyecto: sin término «metrado»",
+            "DEC-047"
+          ],
+          "hipotesis": [
+            "H1: Anotación en S4 o RF0 que remita a S4.3.2.3 (194.2 a). Recomendada.",
+            "H2: Mensaje de S4 a la entidad para que clasifique (E-T3 de S4.3.2.3). Posible, pero S4.3.2.3 no empieza con ese mensaje y habría que cambiarlo.",
+            "H3: Otro destino (reducción, S4.3.2.7; consulta, S4.3.2.2). Posible en casos límite; la anotación podría mencionarlos de forma general."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:32.893256+00:00",
+          "revision_modelo": "f8e3bbc22eb2b409eb4ec2a334490b3a2504b3d1802ee2bd60d4616a4856f9a5"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotación de salida hacia otros procesos en S4 y RF0",
+              "detalle": "<p>Completar la anotación de S4: «No habilitar ejecución. Si corresponde un adicional, la necesidad se anota en el cuaderno (art. 194.2 a) y sigue en S4.3.2.3». En RF0, anotar que no es una denegación de fondo. Registrar en el sustento el criterio propuesto para distinguir un mayor metrado de un adicional, como inferencia, y pedir una fuente que lo defina.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S4",
+                "RF0"
+              ],
+              "fuentes": [
+                "Reglamento art. 194.2 a",
+                "S4.3.2.3 R-T1, S-T0"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo explicar en el sustento",
+              "detalle": "<p>Registrar en el sustento la relación con S4.3.2.3 y el criterio de distinción, sin cambiar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "S4"
+              ],
+              "fuentes": [
+                "Reglamento art. 194.2 a"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:40.569474+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:40.569474+00:00"
+    }
+  ]
+}

@@ -1,0 +1,930 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "c3b0702c-0f39-4644-b3a4-03b8584700e8",
+      "elemento": "_39c960b6-59ac-5e33-a09c-975f772791a1",
+      "referencia": "Caja 9 (CO)",
+      "texto": "<p><strong>Observación.</strong> En el padre, la caja 9 (S4.3.2.2 Atención de consultas de obra) se anota «Puede originar una instancia de S4.3.2.3 a S4.3.2.8, según clasificación». El proceso hijo no muestra esa cobertura:</p><ul><li>S4.3.2.2 solo envía un mensaje a S4.3.2.3: «Respuesta notificada como antecedente», que sale de E-F1, caja 43.</li><li>Su caja 40 (E-T10, «Comunicar causal de modificación a SGGOS») cita como fuente «S4.3.2.3 a S4.3.2.6 según DEC-041», que es anterior a la creación de S4.3.2.7 y S4.3.2.8 (DEC-047).</li><li>S4.3.2.4 menciona en su caja 1 la consulta no absuelta como causal de ampliación (art. 190.4), pero no recibe ningún mensaje de S4.3.2.2. Lo esperable, en todo caso, es que la solicite el contratista.</li></ul><p>Además, el disparador del padre es un mensaje («Consulta registrada en el Cuaderno de Incidencias»). En cambio, el hijo empieza con eventos de inicio simples: «Necesidad de consulta identificada» por el residente y la consulta propia de la supervisión.</p><p><strong>Pregunta:</strong> ¿se limita la anotación del padre a las interfaces que de verdad existen, o se añaden en el hijo los mensajes hacia los demás hermanos?</p><p><strong>Efecto posible:</strong> cambia la anotación del padre y la fuente de una caja del hijo. Si se opta por los mensajes, también cambia el diagrama de S4.3.2.2.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:22:51.286664+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:22:51.286664+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:08.499551+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:18.774921+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>Padre S4.3.2, caja 9 (CO): anotación «Puede originar una instancia de S4.3.2.3 a S4.3.2.8, según clasificación»; disparador «Consulta registrada en el Cuaderno de Incidencias»; tipo: subproceso de evento por mensaje.</li><li>Tabla de S4.3.2.2: la única salida hacia un hermano es E-F1 → «S4.3.2.3 Gestión de adicionales y deductivos de obra». La caja 40 (E-T10) cita «S4.3.2.3 a S4.3.2.6 según DEC-041». Los inicios C-E1 (caja 1) y S-E2 (caja 14) son eventos de inicio simples.</li><li>Tabla de S4.3.2.3: R-E1 recibe el mensaje «Respuesta notificada como antecedente» desde S4.3.2.2, así que esa interfaz es recíproca.</li><li>Tabla de S4.3.2.4: R-E1 es condicional y su anotación remite a la consulta no absuelta (art. 190.4). No hay mensaje desde S4.3.2.2.</li><li>S4.3.2.7 y S4.3.2.8 no reciben nada de S4.3.2.2. Sus inicios son E1/E0 (desde S4.3.2.3 o una condición) y R1 (condicional).</li><li>auditoria_interfaces no devuelve candidatos: el control automático compara mensajes, no el texto de las anotaciones.</li></ul><h4>Exigencia normativa</h4><p>Reglamento de la Ley 32069, art. 190.1-190.3 (CON-001, PDF p. 105-106): la consulta se anota en el Cuaderno de Incidencias y, si modifica el expediente técnico, se eleva a la entidad. El artículo no dice que la consulta inicie por sí misma una modificación de plazo o de alcance. El art. 198.1 a y el art. 200.1 a (p. 112-114) atribuyen al contratista la solicitud de ampliación.</p><h4>Inferencia</h4><p>La anotación del padre promete más interfaces de las que modelan los hijos. Lo más probable es que venga de DEC-041 y se haya extendido de forma mecánica a 2.7 y 2.8 con DEC-047. La consulta lleva directamente a S4.3.2.3. Hacia S4.3.2.4 la relación es indirecta: el contratista solicita la ampliación. Hacia 2.5 a 2.8 no hay evidencia de una derivación directa. El evento de inicio por mensaje del padre es defendible: desde la ejecución, la consulta llega como anotación. Pero el sustento no explica por qué el hijo empieza con eventos simples.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4-3-2-diagrama-proceso-tabla.md, caja 9 (CO)",
+            "S4-3-2-2-diagrama-proceso-tabla.md, cajas 1, 14, 40, 43 y tabla Mensajes",
+            "S4-3-2-3-diagrama-proceso-tabla.md, R-E1",
+            "S4-3-2-4-diagrama-proceso-tabla.md, R-E1",
+            "CON-001 art. 190.1-190.3, PDF p. 105-106",
+            "CON-001 art. 198.1 y 200.1 a, PDF p. 112-114",
+            "DEC-041",
+            "DEC-047"
+          ],
+          "hipotesis": [
+            "La anotación se refiere a derivaciones informales, sin mensaje BPMN: se descarta como única explicación, porque E-T10 del hijo sí comunica la causal a SGGOS pero solo cubre 2.3-2.6 y no lo recoge ningún hermano",
+            "La consulta dispara la ampliación de forma directa: se descarta, porque el art. 200.1 a pone la solicitud a cargo del contratista y S4.3.2.4 empieza por una condición del contratista",
+            "El art. 190 regula una consulta de la supervisión que derive a reducción o mayores metrados: no se encontró en los arts. 190 y 197; la caja 14 de S4.3.2.2 es una precisión operativa del equipo",
+            "Hay un mensaje no declarado en la tabla de S4.3.2.7 o S4.3.2.8: se descarta tras releer ambas tablas de mensajes"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:08.499551+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Ajustar la anotación del padre a las interfaces modeladas y actualizar la fuente de E-T10",
+              "detalle": "<p>Cambiar la anotación de la caja 9 a un texto como «Su respuesta puede ser antecedente de S4.3.2.3; la consulta no absuelta puede sustentar una ampliación solicitada por el contratista (S4.3.2.4)».</p><p>En S4.3.2.2, caja 40, reemplazar la referencia «S4.3.2.3 a S4.3.2.6 según DEC-041» por los procesos a los que efectivamente se comunica la causal.</p><p>Explicar en el sustento del padre por qué el hijo empieza con eventos simples aunque el padre lo dispara por mensaje.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "CO",
+                "S4.3.2.2:E-T10"
+              ],
+              "fuentes": [
+                "CON-001 art. 190 y 200.1 a",
+                "DEC-047"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar en S4.3.2.2 mensajes hacia cada hermano al que pueda derivar",
+              "detalle": "<p>Modelar en S4.3.2.2 mensajes de salida hacia S4.3.2.4 a S4.3.2.8, con su contraparte de recepción en cada hijo.</p><p>Requiere evidencia de que la entidad deriva la consulta a esos procesos, porque hoy no existe. Mientras no se cuente con ella, sería una propuesta sin respaldo.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S4.3.2.2:E-T10",
+                "AP",
+                "SP",
+                "PR",
+                "RP",
+                "MM"
+              ],
+              "fuentes": [
+                "DEC-041",
+                "DEC-047"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener la anotación y explicar en el sustento que la derivación es indirecta",
+              "detalle": "<p>Dejar el diagrama tal como está y explicar en el sustento del padre que las relaciones con S4.3.2.4 a S4.3.2.8 no se representan con mensajes.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "CO"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:18.774921+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:18.774921+00:00"
+    },
+    {
+      "id": "77531693-ee43-4900-ae87-11fe8c96cf58",
+      "elemento": "_a5b93837-f60c-55d4-b97a-012d15f6c644",
+      "referencia": "Caja 13 (PR)",
+      "texto": "<p><strong>Observación.</strong> En el padre, la caja 13 (S4.3.2.6 Gestión de paralización y reinicio) tiene:</p><ul><li>la anotación «Tratamiento diferenciado por régimen»;</li><li>el disparador «Causal de paralización o condiciones de reinicio»;</li><li>como fuente REG-CGR-AD-005, que trata de la paralización en administración directa.</li></ul><p>Desde DEC-063 (25-11-2026), el hijo se centra en obras por contrata, y la administración directa «se cita en el sustento como referencia y no se diagrama». Además, el hijo incorpora un tercer disparador que el padre no menciona: la obra con avance de 40 % o más y 6 meses o más sin ejecución física, que la UEI registra en el inventario de obras paralizadas (TUO de la Ley 31589, art. 2.1, caja 36 del hijo).</p><p><strong>Pregunta:</strong> ¿se actualizan la anotación, el disparador y la fuente del padre para que describan lo que el hijo modela hoy?</p><p><strong>Efecto posible:</strong> cambian los textos de la caja 13 del padre, sin cambiar la estructura del diagrama.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:29.017626+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:29.017626+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:42.745554+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:51.300377+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>Padre, caja 13 (PR): anotación «Tratamiento diferenciado por régimen»; disparador «Causal de paralización o condiciones de reinicio»; fuente «DEC-041; REG-CGR-AD-005; REG-CON-PARAL-001».</li><li>Tabla de S4.3.2.6, encabezado: «Modelo centrado en obras por contrata (DEC-063)… La administración directa se cita en el sustento como referencia (Directiva 017-2023-CG, num. 7.3.7) y no se diagrama».</li><li>El hijo tiene tres inicios condicionales: R-E1 (hecho que impide continuar, arts. 198.1 a y 200.1 a), R-E2 (cese de la causa) y U-E1 (obra con 40 % o más de avance y 6 meses o más sin ejecución, TUO de la Ley 31589, art. 2.1). También recibe un mensaje: C-E1 (propuesta de continuidad).</li><li>DEC-063 (registro de decisiones, 25-11-2026) centra el hijo en contrata.</li></ul><h4>Exigencia normativa</h4><p>En contrata, el Reglamento de la Ley 32069 no regula la paralización como trámite propio. La trata como causal de ampliación (art. 198.1 a) y, si las partes lo acuerdan, como suspensión (arts. 107 y 202). Así lo declara el propio hijo. La obra pública paralizada sigue el TUO de la Ley 31589 (REG-CON-PARAL-001).</p><h4>Inferencia</h4><p>La caja del padre se quedó en el planteamiento de DEC-041, que preveía tratamiento por régimen, y no recoge el cambio de alcance de DEC-063. Quien lea solo el padre entenderá que la administración directa está modelada, y no lo está. El disparador de la Ley 31589 corresponde a otra figura y a otro responsable (la UEI), y tampoco aparece en el padre.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4-3-2-diagrama-proceso-tabla.md, caja 13 (PR)",
+            "S4-3-2-6-diagrama-proceso-tabla.md, encabezado y cajas 1, 25, 36",
+            "DEC-063",
+            "REG-CGR-AD-005",
+            "REG-CON-PARAL-001",
+            "TUO Ley 31589, art. 2.1"
+          ],
+          "hipotesis": [
+            "La anotación del padre se refiere a la diferencia entre contrata (Reglamento) y obra paralizada (Ley 31589), y no a la administración directa: es posible, pero la fuente REG-CGR-AD-005 (administración directa) muestra que se refería al régimen de ejecución",
+            "Mantener la administración directa en el padre como alcance futuro: válido solo si se declara como pendiente; hoy no se declara",
+            "DEC-063 se revirtió después: no se encontró ninguna decisión posterior que lo haga"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:42.745554+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Actualizar la anotación, el disparador y la fuente de la caja 13 según DEC-063",
+              "detalle": "<ul><li>Anotación propuesta: «Contrata: paralización, reinicio y obra paralizada (TUO de la Ley 31589); administración directa no diagramada».</li><li>Disparador propuesto: «Causal de paralización, cese de la causa u obra paralizada».</li><li>Fuente: añadir DEC-063 y dejar REG-CGR-AD-005 solo como referencia de administración directa en el sustento.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "PR"
+              ],
+              "fuentes": [
+                "DEC-063",
+                "REG-CON-PARAL-001",
+                "TUO Ley 31589 art. 2.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener la caja y declarar en el sustento del padre que la administración directa está pendiente",
+              "detalle": "<p>Conservar el texto actual y añadir en el sustento del padre que la variante de administración directa de S4.3.2.6 está pendiente desde DEC-063.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "PR"
+              ],
+              "fuentes": [
+                "DEC-063"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:51.300377+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:51.300377+00:00"
+    },
+    {
+      "id": "4a174f32-6aea-4628-b914-340c6f99c439",
+      "elemento": "_328c03fa-f8ff-575f-9985-913647144fcb",
+      "referencia": "Caja 4 (B-1)",
+      "texto": "<p><strong>Observación.</strong> Hay cuatro finales de procesos hijos que anotan que «activan» o «remiten al» evento «Contrato resuelto» (caja 4, B-1) del padre:</p><ul><li>S4.3.2.3, caja 100: los adicionales superan el 50 % (art. 194.5).</li><li>S4.3.2.6, cajas 49 y 50: no hay continuidad, o la entidad decide resolver (TUO de la Ley 31589, art. 5).</li><li>S4.3.2.8, caja 17: los mayores metrados superan el 50 % (art. 197.4).</li></ul><p>Esos finales producen una <em>causal</em> de resolución, no un contrato resuelto. Entre la causal y el evento B-1 falta el procedimiento de resolución de los arts. 122 y 123, que DEC-061 dejó diferido. El padre no lo dice en B-1 ni en su sustento, y su tabla «Formas de término» no menciona de qué procesos provienen las causales.</p><p><strong>Pregunta:</strong> ¿se documenta en el padre que B-1 depende de un procedimiento de resolución todavía no modelado, y qué hijos lo originan?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento y en la anotación de B-1. El diagrama de la resolución sigue diferido.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:00.329236+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:00.329236+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:16.301973+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:26.911762+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>S4.3.2.3, E-FRES (caja 100), evento de fin simple: anotación «Activa la resolución del contrato (S4.3.2, B-1)».</li><li>S4.3.2.6, T-F1 y T-F4 (cajas 49 y 50), eventos de fin simples: «Remite al evento Contrato resuelto de S4.3.2».</li><li>S4.3.2.8, SF2 (caja 17): «en S4.3.2 la activa el evento Contrato resuelto (B-1). El proceso que la tramita no está modelado».</li><li>Padre, B-1: evento de borde condicional «Contrato resuelto», con fuente «REG-CON-OBRA-004; Reglamento, arts. 122 y 123». La tabla «Formas de término» del sustento solo cita los arts. 122 y 123.</li><li>DEC-061: «Quedan diferidos el proceso de resolución del contrato (arts. 122-123 y 202.4)…».</li></ul><h4>Exigencia normativa</h4><ul><li>Reglamento, art. 194.5 (CON-001, PDF p. 110): si los adicionales superan el 50 %, «se procede a la resolución del contrato».</li><li>Art. 122.1-122.4 (PDF p. 66-67): según el supuesto, la resolución exige un requerimiento previo bajo apercibimiento o puede hacerse sin él, y queda resuelta de pleno derecho desde la notificación.</li><li>Art. 207.3 y 207.5 (PDF p. 116-117): el retraso respecto al programa acelerado también puede ser causal de resolución o de intervención económica.</li></ul><h4>Inferencia</h4><p>En BPMN, un evento de fin simple dentro de un subproceso de evento no cambia por sí mismo la condición de un evento de borde del contenedor. La relación causal-resolución solo se lee en las anotaciones de los hijos. El padre debería hacer explícito que la condición de B-1 se cumple al notificarse la resolución, en un procedimiento que hoy está fuera del modelo, e identificar sus orígenes. No corresponde inventar ese procedimiento.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "S4-3-2-diagrama-proceso-tabla.md, B-1",
+            "S4-3-2-sustento.md, Formas de termino",
+            "S4-3-2-3-diagrama-proceso-tabla.md, E-FRES",
+            "S4-3-2-6-diagrama-proceso-tabla.md, T-F1 y T-F4",
+            "S4-3-2-8-diagrama-proceso-tabla.md, SF2",
+            "CON-001 art. 194.5, PDF p. 110",
+            "CON-001 art. 122.1-122.4, PDF p. 66-67",
+            "CON-001 art. 207.3 y 207.5, PDF p. 116-117",
+            "DEC-061"
+          ],
+          "hipotesis": [
+            "Usar eventos de señal (están en la paleta, DEC-027) para que los hijos «activen» B-1: se descarta como solución inmediata, porque la señal representaría la causal y no la resolución notificada; en medio sigue el procedimiento del art. 122",
+            "Que B-1 se entienda como «causal de resolución» y no como «contrato resuelto»: se descarta, porque el art. 122 distingue la causal del acto que resuelve y del apercibimiento previo, y la nulidad (B-2) también se representa como acto ya declarado",
+            "Que el procedimiento de resolución esté en S4.3.3: se descarta; la nota índice de S4.3.3 menciona la constatación tras la resolución, no el trámite para resolver, y DEC-061 lo difiere de forma expresa"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:16.301973+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar B-1 y completar la tabla «Formas de término» con los orígenes de las causales",
+              "detalle": "<ul><li>Anotación de B-1: «Se cumple al notificarse la resolución; procedimiento (arts. 122-123) diferido por DEC-061».</li><li>En el sustento: listar las causales originadas en los hijos (S4.3.2.3 E-FRES, 194.5; S4.3.2.6 T-F1 y T-F4, Ley 31589 art. 5; S4.3.2.8 SF2, 197.4) y la del art. 207.5, que todavía no se modela.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "B-1"
+              ],
+              "fuentes": [
+                "CON-001 arts. 122, 194.5, 207.5",
+                "DEC-061"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Registrar el proceso de resolución como ampliación diferida y declarar sus entradas",
+              "detalle": "<p>Además de lo anterior, registrar en Alcance (ampliaciones diferidas) las entradas que ese proceso futuro deberá recibir de cada hijo, para no perder la interfaz cuando se modele.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "B-1"
+              ],
+              "fuentes": [
+                "DEC-061"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "No cambiar nada y apoyarse en las anotaciones de los hijos",
+              "detalle": "<p>Considerar suficientes las anotaciones actuales de los hijos y DEC-061.</p>",
+              "formato": "html",
+              "efecto": "NO-PROCEDE",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:26.911762+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:26.911762+00:00"
+    },
+    {
+      "id": "aab3f446-d1a0-4f0b-9c13-2efb0fff817c",
+      "elemento": "_a5f2bebe-1147-5166-9dff-5ab5503c6632",
+      "referencia": "Caja 8 (CP)",
+      "texto": "<p><strong>Observación.</strong> El capítulo de ejecución de obras del Reglamento de la Ley 32069 regula tres figuras con responsables y plazos expresos que ningún proceso de S4.3.2 representa:</p><ul><li><strong>Art. 207, monitoreo y control.</strong> Si al valorizar el avance acumulado es menor al 80 % de lo programado, o hay atraso en la ruta crítica, el supervisor ordena un programa de ejecución acelerado y lo anota en el Cuaderno de Incidencias. El contratista tiene 7 días para presentarlo, el supervisor 5 días para pronunciarse y la entidad 7 días hábiles para observarlo; si no lo observa, se considera aprobado. La falta del programa o un nuevo retraso pueden ser causal de intervención económica o de resolución.</li><li><strong>Art. 206, actualización del programa de ejecución.</strong> Procede tras aprobarse una modificación contractual (adicional, ampliación, reducción), entre otros casos.</li><li><strong>Art. 208, intervención económica de la obra.</strong></li></ul><p>El sustento las deja como «figuras candidatas, no dibujadas hasta que el equipo confirme», y la pregunta abierta 3 («¿qué controles, además de la valorización, integran el control periódico?») sigue sin respuesta. La caja 8 (S4.3.2.1) solo tiene como núcleo la valorización.</p><p><strong>Pregunta:</strong> ¿se incorpora el control del art. 207 a S4.3.2.1, porque se activa al valorizar, y se registra la intervención económica como ampliación diferida?</p><p><strong>Efecto posible:</strong> cambia el diagrama de S4.3.2.1 (dentro del árbol existente, como permite DEC-061) y la anotación de la caja 8. Lo demás se resuelve como decisión de alcance.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:44.745299+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:44.745299+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:02.715724+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:13.318485+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Recorrido de la norma</h4><p>Se revisó el índice de los arts. 176 a 216 de CON-001 (Título V, Capítulo III). Figuras de la etapa de ejecución contrastadas con los hijos:</p><ul><li>Cubiertas: 188 (Cuaderno de Incidencias), 190 (consultas, S4.3.2.2), 194 (adicionales, S4.3.2.3), 197 (mayores metrados, S4.3.2.8), 198 y 200 (ampliación, S4.3.2.4), 202 (suspensión, S4.3.2.5), 210 (valorizaciones, S4.3.2.1). La reducción (art. 109) está en S4.3.2.7.</li><li>No representadas: 189 (sustitución del plantel técnico), 191 (modificaciones contractuales), 205 (ingeniería de valor), 206 (actualización del programa), 207 (monitoreo y control), 208 (intervención económica), 209 (reajustes), 211 (valorización de la supervisión).</li></ul><h4>Exigencia normativa (texto leído)</h4><ul><li>Art. 207.1 a 207.5 (texto modificado por el D.S. 001-2026-EF, CON-001, PDF p. 117). El supervisor, al verificar en la valorización un avance acumulado menor al 80 % o un atraso en la ruta crítica, ordena un programa acelerado y lo anota en el cuaderno. El contratista lo presenta en 7 días, el supervisor se pronuncia en 5 y la entidad puede observarlo en 7 días hábiles; si no, se considera aprobado. La falta de presentación o un retraso respecto al nuevo calendario pueden ser causal de intervención económica o de resolución. <em>Vigencia:</em> la nota del texto consolidado condiciona la entrada en vigor de la modificación a la publicación de una Resolución Directoral sobre las bases estándar. Hay que confirmar que esté vigente.</li><li>Art. 206.1 b y 206.2 (PDF p. 116): se presenta el programa actualizado al supervisor «por la aprobación de modificaciones contractuales»; el supervisor lo evalúa y lo remite a la entidad para su aprobación.</li><li>Art. 208.1 y 208.2 (PDF p. 117-118): la entidad puede intervenir económicamente la obra. Si el contratista la rechaza, el contrato se resuelve por incumplimiento.</li></ul><h4>Inferencia</h4><p>El art. 207 está ligado al control de cada valorización, así que su lugar natural es S4.3.2.1. Eso responde en parte a la pregunta abierta 3, que hoy sigue pendiente. El art. 206 es una salida común de S4.3.2.3, 2.4 y 2.7, y podría bastar con un mensaje o una anotación. El art. 208 es una figura con procedimiento y directiva propios (208.4), que no está en la biblioteca. Por DEC-061, requeriría un diagrama nuevo, que queda diferido.</p><h4>Documento no disponible</h4><p>La directiva de la DGA sobre intervención económica (art. 208.4) no figura en la biblioteca consultada.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 índice arts. 176-216",
+            "CON-001 art. 206.1-206.2, PDF p. 116",
+            "CON-001 art. 207.1-207.5 (texto modificado por el D.S. 001-2026-EF), PDF p. 117",
+            "CON-001 art. 208.1-208.4, PDF p. 117-118",
+            "S4-3-2-sustento.md, Figuras candidatas y Preguntas abiertas 3",
+            "S4-3-2-1-diagrama-proceso-tabla.md",
+            "DEC-061"
+          ],
+          "hipotesis": [
+            "El monitoreo del art. 207 lo cubre S4.3.1 (seguimiento transversal, DEC-023): no se encontraron cajas del art. 207 en S4.3.1, cuyo modelo acaba en el acta de inicio",
+            "El art. 207 es interno del supervisor y no requiere modelado institucional: se descarta, porque la entidad tiene un plazo propio de 7 días hábiles para observar y una consecuencia (aprobación tácita)",
+            "La intervención económica puede incluirse en S4.3.2.6: se descarta, porque es otra figura (208.1: caso fortuito, fuerza mayor o incumplimiento) y su fin es culminar la obra sin resolver el contrato",
+            "Los reajustes (209) pertenecen a la valorización: es probable, pero no se analizaron en esta revisión"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:02.715724+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Incorporar el art. 207 en S4.3.2.1 y registrar la intervención económica como ampliación diferida",
+              "detalle": "<ul><li>En S4.3.2.1, después de revisar la valorización, el supervisor verifica si el avance es menor al 80 % o si hay atraso en la ruta crítica. Si es así: orden del programa acelerado, presentación en 7 días, pronunciamiento en 5 días y observación de la entidad en 7 días hábiles, con un temporizador y la aprobación tácita.</li><li>Anotar en la caja 8 del padre: «Valorización y control del avance (art. 207)».</li><li>Registrar en Alcance el art. 208 (intervención económica) como ampliación diferida, pendiente de incorporar la directiva de la DGA.</li><li>Antes de aplicarlo, confirmar que está vigente el texto modificado por el D.S. 001-2026-EF.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "CP",
+                "S4.3.2.1"
+              ],
+              "fuentes": [
+                "CON-001 art. 207",
+                "CON-001 art. 208",
+                "DEC-061"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Registrar los arts. 206, 207 y 208 como ampliaciones diferidas",
+              "detalle": "<p>No modelar nada en esta etapa y mover las tres figuras de «candidatas» a ampliaciones diferidas, con sus plazos citados.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "CP"
+              ],
+              "fuentes": [
+                "DEC-061"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantenerlas como figuras candidatas pendientes de confirmación del equipo",
+              "detalle": "<p>Dejar la situación actual y pedir al equipo que responda la pregunta abierta 3.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "CP"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:13.318485+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:13.318485+00:00"
+    },
+    {
+      "id": "bd1b620b-9165-4f59-9bad-2cc730f7396e",
+      "elemento": "_7835bc18-8adc-50e8-9e58-726f42cdbc2c",
+      "referencia": "Caja 7 (F-3)",
+      "texto": "<p><strong>Observación.</strong> La caja 7 («Ejecución terminada por nulidad») siempre envía a S4.3.3 el mensaje «Contrato nulo para constatación e inventario». Pero su anotación dice que la constatación solo corresponde cuando la nulidad <em>no</em> es atribuible al contratista (art. 111.3), y que para el caso atribuible no hay tratamiento definido. El mensaje no recoge esa condición.</p><p>Además hay tres desajustes de coherencia:</p><ul><li>El informe de auditoría vigente, para la misma revisión de la tabla, todavía marca el art. 111.3 como «NO-REPRESENTADO: F-3 lo deja por definir». En cambio, el sustento (sección DEC-059) indica que ya se corrigió, que D1-D5 no tienen hallazgos y que la auditoría quedó rectificada. Sin embargo, el informe devuelve <em>ok = false</em>.</li><li>La tabla «Formas de término» del sustento todavía dice para la nulidad «S4.3.3: EVIDENCIA-INSUFICIENTE».</li><li>La nota índice de S4.3.3 describe la constatación «cuando el contrato se resuelve», pero no menciona la nulidad.</li></ul><p><strong>Pregunta:</strong> ¿se condiciona el mensaje de F-3 al caso no atribuible y se actualizan la auditoría y el sustento?</p><p><strong>Efecto posible:</strong> cambia el nombre del mensaje de F-3. También requiere reconfirmar la cobertura de la auditoría y alinear el sustento y la nota de S4.3.3.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:24.807335+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:24.807335+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:39.190459+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:48.064734+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>Tabla del padre (revisión F0F27A5E…): F-3 tiene la anotación «Si la nulidad no es atribuible al contratista, corresponde constatación física e inventario. Si es atribuible, el 111.3 no fija el tratamiento». El mensaje F-3 → S4.3.3 se llama «Contrato nulo para constatación e inventario», sin ninguna condición.</li><li>auditoria_informe (26-11-2026, la misma revisión de la tabla): la cobertura del fragmento art-111.3 figura como «NO-REPRESENTADO», con el razonamiento «F-3 lo deja por definir», no_representadas: 1 y ok: false.</li><li>Sustento, sección «Corrección de contradicciones — 2026-11-25 (DEC-059)»: «Las dos contradicciones se rectifican a NO-APLICA… D1-D5 sin hallazgos». La tabla «Formas de término» del mismo sustento conserva para la nulidad «S4.3.3: EVIDENCIA-INSUFICIENTE sobre el tratamiento posterior».</li><li>Nota índice de S4.3.3: comprende «la constatación física e inventario cuando el contrato se resuelve».</li></ul><h4>Exigencia normativa</h4><p>Reglamento, art. 111.3 (CON-001, PDF p. 61): «En el caso de obras, cuando la declaración de nulidad sea por causa no atribuible al contratista, corresponde la constatación física de la obra y el inventario correspondiente». Para el caso atribuible, el numeral no dispone nada; se mantiene EVIDENCIA-INSUFICIENTE (DEC-061).</p><h4>Inferencia</h4><p>DEC-059 corrigió el mensaje, pero no se reconfirmó la obligación de cobertura en la auditoría, ni se actualizó la tabla «Formas de término». El mensaje, tal como está, generaliza la constatación a toda nulidad, y eso va más allá del art. 111.3. No se propone tratamiento para la nulidad atribuible.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4-3-2-diagrama-proceso-tabla.md, F-3 y mensaje F-3 a S4.3.3",
+            "auditorias/S4-3-2/informe.md (auditoria_informe 2026-11-26)",
+            "S4-3-2-sustento.md, Formas de termino y seccion DEC-059",
+            "00-S4-3-3-recepcion.md",
+            "CON-001 art. 111.3, PDF p. 61",
+            "DEC-059",
+            "DEC-061"
+          ],
+          "hipotesis": [
+            "El estado NO-REPRESENTADO es correcto, porque el mensaje no está condicionado: es posible, pero el razonamiento registrado («F-3 lo deja por definir») describe la versión anterior y no la actual, así que hay que reconfirmarlo igual",
+            "Representar la condición con una compuerta antes de F-3: se descarta en el padre, que solo muestra formas de término; basta con nombrar el mensaje con la condición o dejar la decisión a S4.3.3",
+            "La constatación tras la nulidad la hace otro proceso distinto de S4.3.3: no se encontró ninguna fuente; el sustento de S4.3 (O4) solo trata el contrato resuelto"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:39.190459+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Condicionar el mensaje y alinear la auditoría, el sustento y la nota de S4.3.3",
+              "detalle": "<ul><li>Renombrar el mensaje F-3 → S4.3.3 a algo como «Contrato nulo no atribuible al contratista, para constatación e inventario».</li><li>Reconfirmar la cobertura del art. 111.3 en la auditoría con la revisión vigente.</li><li>Actualizar la fila de nulidad en «Formas de término».</li><li>Añadir la nulidad a la delimitación de S4.3.3.</li></ul><p>El caso atribuible se mantiene como EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "F-3"
+              ],
+              "fuentes": [
+                "CON-001 art. 111.3",
+                "DEC-059",
+                "DEC-061"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el mensaje y solo reconfirmar la auditoría y el sustento",
+              "detalle": "<p>Dejar que S4.3.3 decida si corresponde la constatación, y corregir solo la auditoría y «Formas de término».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "F-3"
+              ],
+              "fuentes": [
+                "DEC-059"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:48.064734+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:48.064734+00:00"
+    },
+    {
+      "id": "8cc10047-3f60-4dd4-bbf7-7d78dca3f523",
+      "elemento": "",
+      "referencia": "Diagrama completo (convención de carriles de los ocho hijos)",
+      "texto": "<p><strong>Duda.</strong> La convención de carriles de S4.3.2 (estándar de artefactos, sección 7.4, DEC-043) todavía habla de «sus seis hijos», pero hoy son ocho. Al comparar los hijos, la misma función aparece con nombres distintos:</p><ul><li><strong>Registro documentario (ROF, art. 20):</strong> «Atención al Ciudadano — Recepción documentaria» en S4.3.2.1, y «OACGD — Registro documentario» en S4.3.2.2 a S4.3.2.6.</li><li><strong>Gestión de la obra en SGGOS:</strong> «SGGOS — Monitor de obras» en S4.3.2.1 y S4.3.2.2, y «SGGOS — Coordinador de obra» en S4.3.2.3 a S4.3.2.6. No se explica si son el mismo rol. S4.3.1 designa a un «coordinador de obra».</li><li><strong>Decisión:</strong> «Titular de la competencia o autoridad delegada» (2.3, 2.5), «Autoridad competente para resolver» (2.4), «Titular de la entidad» (2.6) y «Autoridad de gestión administrativa» (2.7). Algunas de estas denominaciones reproducen el texto de la norma (por ejemplo, el art. 109.1 dice «autoridad de la gestión administrativa»), pero el catálogo de la sección 7.4 solo recoge las dos primeras.</li><li><strong>S4.3.2.7 y S4.3.2.8:</strong> 2.7 usa «Área usuaria competente (por confirmar)» y «Unidad competente (por confirmar)». En 2.8, el pool del Gobierno Regional no tiene carriles.</li></ul><p><strong>Pregunta:</strong> ¿«Monitor de obras» y «Coordinador de obra» son el mismo rol? ¿Se actualiza el catálogo para los ocho hijos, con las denominaciones de decisión que exige cada norma?</p><p><strong>Efecto posible:</strong> requiere una decisión sobre la convención. Después cambian etiquetas de carriles en algunos hijos, sin cambiar la secuencia.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:59.094760+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:59.094760+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:18.412691+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:29.615662+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>Estándar, sección 7.4: «Convención… para S4.3.2, sus seis hijos». Etiqueta común: «OACGD — Registro documentario». Catálogo de decisión: «Titular de la competencia o autoridad delegada; Autoridad competente para resolver». También declara que S4.3.2.1 conserva provisionalmente un pool único heredado.</li><li>S4.3.2.1, T-8: carril «Atención al Ciudadano — Recepción documentaria», con fuente ROF art. 20. Ese es el mismo artículo que usan los hermanos para OACGD.</li><li>S4.3.2.1 (cajas 7, 9, 10, 20) y S4.3.2.2 (cajas 28 y 52): «SGGOS — Monitor de obras». S4.3.2.3 a S4.3.2.6: «SGGOS — Coordinador de obra». S4.3.1, caja 16: «Designar coordinador de obra».</li><li>Decisión: «Titular de la competencia o autoridad delegada» en 2.3 (E-T8, E-T10) y 2.5 (E-T5, E-T9); «Autoridad competente para resolver» en 2.4 (E-T9); «Titular de la entidad» en 2.6 (T-T1 a T-T3); «Autoridad de gestión administrativa» en 2.7 (T4).</li><li>S4.3.2.8: el pool «Gobierno Regional Huánuco» no tiene carriles y solo recibe mensajes.</li></ul><h4>Fuentes de responsabilidad</h4><ul><li>ROF del GRH 2023 (LOC-007), art. 97: la SGGOS es «responsable del control y seguimiento de la ejecución de las obras». El ROF no define los cargos de monitor ni de coordinador; sería necesario el MOF o el CAP, que no figuran en la biblioteca.</li><li>Reglamento, art. 109.1 (CON-001, PDF p. 60): «La autoridad de la gestión administrativa, mediante resolución, puede ordenar la reducción».</li><li>Ley 32069, art. 71.1: la misma autoridad declara la nulidad. Para la Ley 31589, el hijo cita los arts. 4 y 5 para el titular de la entidad; no se releyeron en esta revisión.</li></ul><h4>Inferencia</h4><p>Parte de la variación en los carriles de decisión tiene base normativa y no es un error. La sección 7.4 no la recoge y no relaciona cada denominación con su fuente. La diferencia entre «Atención al Ciudadano» y «OACGD» para la misma función sí contradice la regla 2 de la sección 7.4, que no permite mezclar denominaciones para una misma unidad. Si «monitor» y «coordinador» son el mismo rol, también hay duplicación; si no lo son, falta explicar la diferencia.</p><h4>Documento no disponible</h4><p>El MOF o CAP del GRH, o un documento de asignación de funciones a los cargos de la SGGOS.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4",
+            "S4-3-2-1-diagrama-proceso-tabla.md, T-8 y carriles SGGOS",
+            "S4-3-2-2-diagrama-proceso-tabla.md, Pools",
+            "S4-3-2-3 a S4-3-2-8, tablas de Pools",
+            "LOC-007 ROF GRH 2023, arts. 20 y 97",
+            "CON-001 art. 109.1, PDF p. 60",
+            "Ley 32069 art. 71.1",
+            "DEC-041",
+            "DEC-042",
+            "DEC-043"
+          ],
+          "hipotesis": [
+            "Unificar todas las decisiones en «Titular de la competencia o autoridad delegada»: se descarta, porque se perdería la denominación que la norma usa en los arts. 109.1 y 71.1 y la competencia específica de la Ley 31589",
+            "Que «Atención al Ciudadano» sea otra unidad distinta de OACGD: no se encontró una fuente que las distinga, y ambas citan el ROF art. 20; hay que confirmarlo con el equipo",
+            "Que «Monitor de obras» se refiera al rol Monitor del Cuaderno de Incidencias digital (REG-CON-CDI-001): es posible; sería un rol de sistema, no un cargo, y habría que precisarlo en el sustento",
+            "Que S4.3.2.1 quede fuera de la convención por la excepción de la sección 7.4: la excepción cubre el pool único, no las etiquetas, que deben usar «el mismo vocabulario de esta sección»"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:18.412691+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Actualizar la sección 7.4 para los ocho hijos y homologar las etiquetas sin respaldo",
+              "detalle": "<ul><li>Cambiar «seis» por «ocho» en la sección 7.4.</li><li>Agregar al catálogo las denominaciones de decisión que vienen de la norma: «Autoridad de gestión administrativa» (art. 109.1, Ley art. 71.1) y «Titular de la entidad» (TUO de la Ley 31589), con su fuente.</li><li>En S4.3.2.1, reemplazar «Atención al Ciudadano — Recepción documentaria» por «OACGD — Registro documentario», salvo que el equipo acredite que es otra unidad.</li><li>Pedir al equipo que precise si el monitor y el coordinador de obra son el mismo rol, y unificar o explicar según la respuesta.</li></ul>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "S4.3.2.1:T-8",
+                "S4.3.2.1",
+                "S4.3.2.2",
+                "S4.3.2.7",
+                "S4.3.2.8"
+              ],
+              "fuentes": [
+                "Estándar sección 7.4",
+                "LOC-007 arts. 20 y 97",
+                "CON-001 art. 109.1",
+                "DEC-043"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Añadir al sustento del padre una tabla de correspondencia de roles entre hijos",
+              "detalle": "<p>Sin cambiar carriles, listar en el sustento del padre cada denominación, el hijo en que aparece, su fuente y si equivale a otra. Esto deja la homologación para la revisión visual.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "DEC-042",
+                "DEC-043"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Esperar el MOF o CAP para definir los cargos",
+              "detalle": "<p>Mantener las etiquetas actuales hasta incorporar a la biblioteca el documento que asigna funciones a los cargos de la SGGOS.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:29.615662+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:29.615662+00:00"
+    },
+    {
+      "id": "8dad38ec-551b-44f3-9cb1-5ad1353ccd1d",
+      "elemento": "_cbca7bfa-d6ac-5577-8c7a-a7d6c799ee8a",
+      "referencia": "Caja 1 (E-1)",
+      "texto": "<p><strong>Duda.</strong> El padre se plantea como un solo diagrama para contrata y administración directa: su tarea principal (caja 2) y su fin normal (caja 3) citan la Directiva 017-2023-CG y REG-CGR-AD-002. Sin embargo:</p><ul><li>El único inicio (caja 1) recibe el acta de inicio desde S4.3.1, y S4.3.1 parte de un «Contrato de obra suscrito». Es decir, solo hay entrada por contrata.</li><li>Varios hijos ya se limitaron a contrata: S4.3.2.3 (Ley 32069, solo construcción), S4.3.2.6 (DEC-063) y S4.3.2.4 (Reglamento). En S4.3.2.5, la administración directa figura como EVIDENCIA-INSUFICIENTE.</li><li>La pregunta abierta 2 del sustento («¿un solo diagrama o uno por modalidad?») sigue sin respuesta.</li></ul><p>La Directiva 017-2023-CG también prevé un acta de inicio de obra para la administración directa.</p><p><strong>Pregunta:</strong> ¿se declara que este nivel cubre hoy la ejecución por contrata y que la administración directa queda pendiente, o se mantiene el diagrama mixto y se agrega su entrada desde S4.3.1?</p><p><strong>Efecto posible:</strong> basta con explicarlo en el sustento y en la ficha. Si se mantiene el diagrama mixto, cambian S4.3.1 y la caja 1.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:39.043297+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:39.043297+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:53.180367+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:01.779490+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>Padre: E-1 «Acta de inicio de obra recibida», que llega por el mensaje «Acta de inicio de obra» desde S4.3.1. T-1 cita «Directiva 017-2023-CG, num. 7.3.2». F-1 cita «REG-CON-OBRA-003; REG-CGR-AD-002».</li><li>S4.3.1 (procesos relacionados del paquete de contexto): E1 «Contrato de obra suscrito» y F1 «Acta de inicio de obra emitida». No hay una ruta de administración directa.</li><li>Sustento del padre: propuesta 5 («Un solo diagrama para contrata y administración directa… Queda por confirmar») y pregunta abierta 2.</li><li>Hijos: S4.3.2.3 dice «El detalle de este lote corresponde a Ley 32069, solo construcción». S4.3.2.5 declara la administración directa como EVIDENCIA-INSUFICIENTE. S4.3.2.6 dice «La administración directa… no se diagrama» (DEC-063).</li></ul><h4>Exigencia normativa</h4><p>Directiva 017-2023-CG (CTRL-001): entre el sustento documentario de obra incluye el «Acta de Inicio de Obra» y el cuaderno de obra de cada obra por administración directa que se inicie. Esto se encontró mediante buscar_fuentes, en un fragmento sin numeral preciso dentro del anexo, entre las p. 3 y 30. La ubicación exacta queda por precisar.</p><h4>Inferencia</h4><p>El alcance real del árbol S4.3.2 se fue limitando a contrata, decisión por decisión, pero el padre no lo declara y conserva fuentes de administración directa. No se propone crear la ruta de administración directa sin una decisión del equipo.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "S4-3-2-diagrama-proceso-tabla.md, E-1, T-1, F-1",
+            "S4.3.1, E1 y F1 (paquete de contexto)",
+            "S4-3-2-sustento.md, propuesta 5 y pregunta abierta 2",
+            "S4-3-2-3, S4-3-2-5 y S4-3-2-6, encabezados de tabla",
+            "CTRL-001 Directiva 017-2023-CG (anexo, ubicación por precisar)",
+            "DEC-063"
+          ],
+          "hipotesis": [
+            "La administración directa entra a S4.3.2 por otra vía (S4.3.1 «provisión continua por administración directa», DEC-023): DEC-023 la ubica en S4.3.1, pero no hay un mensaje de inicio de administración directa hacia S4.3.2",
+            "El diagrama mixto es válido porque las figuras «son parecidas» (aclaración del equipo): es posible a nivel conceptual, pero hoy ningún hijo modela la variante de administración directa",
+            "Que la administración directa esté fuera del alcance del proyecto: no se encontró una decisión que lo diga; DEC-063 solo afecta a S4.3.2.6"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:53.180367+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Declarar que el alcance vigente del nivel es contrata y que la administración directa queda pendiente",
+              "detalle": "<p>Registrar una decisión que responda la pregunta abierta 2. En la ficha y el sustento del padre, indicar que S4.3.2 y sus hijos modelan hoy la contrata (Ley 32069) y que la administración directa queda como ampliación diferida.</p><p>Dejar las citas de la Directiva 017-2023-CG en T-1 y F-1 solo como referencia.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-1",
+                "T-1",
+                "F-1"
+              ],
+              "fuentes": [
+                "DEC-061",
+                "DEC-063"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener el diagrama mixto y agregar la entrada de administración directa",
+              "detalle": "<p>Modelar en S4.3.1 la emisión del acta de inicio en administración directa y su mensaje hacia E-1, y completar las variantes de administración directa en los hijos. Requiere precisar la ubicación en la Directiva 017-2023-CG y una decisión de alcance (DEC-061 limita los diagramas nuevos).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-1",
+                "S4.3.1"
+              ],
+              "fuentes": [
+                "CTRL-001"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:01.779490+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:01.779490+00:00"
+    },
+    {
+      "id": "0d379452-1ac9-4d27-985d-e31339099c9b",
+      "elemento": "_2aaa8754-ad2c-59b0-8c41-65875536756e",
+      "referencia": "Caja 15 (MM)",
+      "texto": "<p><strong>Observación.</strong> Las derivaciones de S4.3.2.3 a sus dos hermanos de alcance no están modeladas de la misma forma:</p><ul><li>Hacia <strong>S4.3.2.7</strong> (reducción) hay un mensaje recíproco: sale de E-FRED y llega al inicio E1 de 2.7.</li><li>Hacia <strong>S4.3.2.8</strong> (mayores metrados), la caja 17 de 2.3 (E-T15) anota «mayores metrados: S4.3.2.8», pero termina en un fin genérico, «Caso clasificado fuera del proceso» (caja 18), sin mensaje hacia 2.8. S4.3.2.8 solo tiene un inicio condicional del residente (R1).</li></ul><p>Además, por el art. 197.1, el mayor metrado lo solicita el contratista en el cuaderno y lo autoriza el supervisor. Por eso no está claro que la entidad pueda «derivarlo» desde 2.3.</p><p><strong>Pregunta:</strong> ¿qué ocurre en 2.8 con un caso que 2.3 reclasifica como mayor metrado: se comunica al residente para que lo solicite, o se recibe por mensaje?</p><p><strong>Efecto posible:</strong> cambia el diagrama de S4.3.2.3 (mensaje en la caja 18), y quizá S4.3.2.8. Si basta con avisar al contratista, alcanza con explicarlo en el sustento.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:12.049074+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:12.049074+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:30.594882+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:40.444638+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<h4>Evidencia observada</h4><ul><li>S4.3.2.3: E-G0 [No] → E-T15 «Comunicar clasificación y proceso de destino», con la anotación «Reducciones: S4.3.2.7; mayores metrados: S4.3.2.8». Luego E-F3 «Caso clasificado fuera del proceso», evento de fin por mensaje, sin destino en la tabla Mensajes. La única derivación con mensaje es E-FRED → S4.3.2.7.</li><li>S4.3.2.7: E1 «Caso reclasificado como reducción recibido» (inicio por mensaje), que es la contraparte de E-FRED.</li><li>S4.3.2.8: un solo inicio, R1 condicional «Necesidad de mayores metrados identificada» (residente). Mensajes: solo los internos y RF → S4.3.2.1.</li><li>Padre, caja 15 (MM): disparador «Necesidad de mayores metrados» (condicional).</li></ul><h4>Exigencia normativa</h4><ul><li>Art. 197.1 (CON-001, PDF p. 112): en contratos a precios unitarios, «el contratista solicita su ejecución mediante anotación en cuaderno de incidencias y estos son autorizados por el supervisor en el mismo medio», dentro del límite de adicionales.</li><li>Art. 197.2: no requiere aprobación previa de la entidad para ejecutarse, pero sí para pagarse. El pago lo autoriza «la autoridad de la gestión administrativa» y se rige por el art. 210.</li></ul><h4>Inferencia</h4><p>Como el inicio de 2.8 depende de la anotación del contratista, la salida de 2.3 hacia 2.8 debería ser una comunicación al contratista o residente, y no un mensaje directo a 2.8. Hoy no está claro a quién se dirige E-F3. Hay un punto secundario relacionado: S4.3.2.1 recibe el sustento de los mayores metrados (mensaje desde 2.8 a T-1), pero no muestra la autorización de pago por la autoridad de la gestión administrativa del art. 197.2. Esa autorización solo figura en la anotación de RF en 2.8.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4-3-2-3-diagrama-proceso-tabla.md, E-G0, E-T15, E-F3, E-FRED y Mensajes",
+            "S4-3-2-7-diagrama-proceso-tabla.md, E1",
+            "S4-3-2-8-diagrama-proceso-tabla.md, R1, RF y Mensajes",
+            "S4-3-2-1-diagrama-proceso-tabla.md, T-1 y mensajes",
+            "CON-001 art. 197.1-197.2, PDF p. 112"
+          ],
+          "hipotesis": [
+            "Agregar en 2.8 un inicio por mensaje desde 2.3, igual que en 2.7: se descarta como primera opción, porque el art. 197.1 hace del contratista quien inicia, y en la reducción el que inicia es la entidad (109.1)",
+            "E-F3 ya comunica al contratista y basta con nombrar el destino: es plausible y es la opción más simple",
+            "El mayor metrado en contratos a suma alzada se trata como adicional: está fuera del 197.1, que solo cubre precios unitarios; no se analizó aquí"
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:30.594882+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Dirigir el mensaje de E-F3 al contratista y explicar el reingreso por 2.8",
+              "detalle": "<ul><li>En S4.3.2.3, agregar el mensaje E-F3 → «Ejecutor de obra, según régimen» con el nombre «Clasificación y proceso de destino comunicados».</li><li>En el sustento del padre, explicar que el caso reclasificado como mayor metrado empieza en 2.8 por la anotación del contratista (art. 197.1).</li><li>Anotar en S4.3.2.1 la autorización de pago del art. 197.2 como pendiente de modelar.</li></ul>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S4.3.2.3:E-F3",
+                "MM",
+                "S4.3.2.1:T-1"
+              ],
+              "fuentes": [
+                "CON-001 art. 197.1-197.2"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Agregar en S4.3.2.8 un inicio por mensaje desde S4.3.2.3",
+              "detalle": "<p>Igual que en 2.7, añadir en 2.8 un inicio «Caso reclasificado como mayor metrado recibido». Habría que justificar quién lo recibe, porque la norma pone la solicitud a cargo del contratista.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "S4.3.2.3:E-F3",
+                "S4.3.2.8"
+              ],
+              "fuentes": [
+                "CON-001 art. 197.1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Explicarlo solo en los sustentos",
+              "detalle": "<p>Mantener los diagramas y describir en los sustentos de 2.3 y 2.8 cómo se comunica la clasificación.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "MM"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:40.444638+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:40.444638+00:00"
+    },
+    {
+      "id": "970306c4-62fa-4dbf-833e-bbdc298cb920",
+      "elemento": "",
+      "referencia": "Diagrama completo",
+      "texto": "<p><strong>Duda transversal.</strong> Los subprocesos de ejecución reciben y comunican los actos con el contratista de formas distintas: mesa de partes (OACGD) y SGD en S4.3.2.4, «publicar en la Pladicop» en S4.3.2.7, y finales de mensaje sin medio en S4.3.2.3 y S4.3.2.5.</p><p>El Reglamento prevé la Pladicop para todos los actos de la ejecución contractual (art. 105.1), pero su <strong>Decimotercera Disposición Complementaria Transitoria</strong> permite, mientras no se implemente, usar los medios físicos y digitales de la entidad y notificar al domicilio o correo del contrato.</p><p><strong>Preguntas:</strong></p><ol><li>¿La Pladicop ya está operativa para la ejecución contractual del GORE Huánuco?</li><li>Mientras no lo esté, ¿cómo recibe la entidad las comunicaciones del contratista y cómo le notifica: mesa de partes física, mesa de partes digital o correo del contrato?</li></ol><p><strong>Efecto posible:</strong> una convención común para los ocho subprocesos, que se anota en el estándar (sección 7.4) y se aplica en cada diagrama.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T13:35:06.234513+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T13:35:06.234513+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T13:35:17.467051+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T13:35:26.589270+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p>Tres revisiones independientes de los subprocesos (S4.3.2.4, S4.3.2.5 y S4.3.2.7) llegaron a la Pladicop por el art. 105.1: «todos los actos correspondientes a la ejecución contractual se realizan a través de la Pladicop, y se entienden válidamente notificados el mismo día que se registran». La revisión cruzada encontró que el mismo Reglamento lo condiciona en su <strong>Decimotercera Disposición Complementaria Transitoria</strong>:</p><ul><li>num. 1: en tanto se implementen las funcionalidades para la ejecución contractual, las entidades <em>«pueden seguir utilizando los medios físicos y digitales a su disposición»</em>, conforme a la LPAG;</li><li>num. 2 a: las notificaciones <em>«se realizan al domicilio o al correo electrónico previsto en el contrato y surten efectos desde su recepción»</em>;</li><li>num. 2 b: la nulidad de oficio se comunica por carta notarial (art. 111).</li></ul><p>La Opinión D000092-2026-OECE-DTN aplica esta disposición. Por eso las observaciones de esos tres subprocesos se corrigieron. El problema de fondo es de convención: cada subproceso modela el canal a su manera y ninguno indica el régimen de transición. El momento de la notificación importa porque desde él corren los plazos.</p><p>No está en la biblioteca la resolución directoral de la DGA que fije desde cuándo la Pladicop es obligatoria para el GORE Huánuco en ejecución contractual.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-001 art. 105.1",
+            "CON-001 13.ª DCT num. 1, 2 a y 2 b (fragmento 0ebe95b3e05661b8-ec988166:art-389-parte12)",
+            "CON-010 Opinión D000092-2026-OECE-DTN, p. 8",
+            "S4.3.2.4 observación d3cdb000",
+            "S4.3.2.5 observación bca68e87",
+            "S4.3.2.7 observación 3d7b3a9f",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, 7.4"
+          ],
+          "hipotesis": [
+            "Exigir la Pladicop en todos los subprocesos: descartada mientras no se implemente (13.ª DCT).",
+            "Resolver caso por caso en cada subproceso: posible, pero repetiría la divergencia actual; se prefiere una convención común.",
+            "Revisión adversarial: si la DGA ya obligó al GORE, la convención debe ser la Pladicop; por eso la pregunta 1 va primero."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:35:17.467051+00:00",
+          "revision_modelo": "f0f27a5e72ce1d1c8cd972caf38f30bb885e914fc5240aa34c000bb4003d4c22"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Convención de transición para los ocho subprocesos",
+              "detalle": "<p>Agregar a la sección 7.4 del estándar: las comunicaciones del contratista entran por la mesa de partes de la entidad (OACGD) y se registran en el SGD; las notificaciones al contratista van al domicilio o correo del contrato y surten efecto desde su recepción (13.ª DCT); cada final de mensaje nombra destinatario y documento. Una anotación tipo, igual en todos los diagramas, recuerda que con la Pladicop operativa el canal cambia (art. 105.1).</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [
+                "CON-001 13.ª DCT",
+                "CON-001 art. 105.1"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Convención con la Pladicop desde ya",
+              "detalle": "<p>Solo si se confirma que la DGA ya obligó al GORE Huánuco: todos los subprocesos modelan la recepción y la notificación por la Pladicop, notificadas el día de su registro, y el registro interno en el SGD.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [
+                "CON-001 art. 105.1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Pendiente hasta confirmar el estado de la Pladicop",
+              "detalle": "<p>Pedir al área de contrataciones la resolución directoral de la DGA o la confirmación de uso, y decidir la convención después.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T13:35:26.589270+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T13:35:26.589270+00:00"
+    }
+  ]
+}

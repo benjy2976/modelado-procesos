@@ -1,0 +1,892 @@
+{
+  "modelo": "02-procesos/S4-gestion-de-las-inversiones/S4-3-ejecucion-inversion/S4-3-2-ejecucion/S4-3-2-1-control-periodico-ejecucion/S4-3-2-1-diagrama-proceso.html",
+  "observaciones": [
+    {
+      "id": "5ad0fa80-7cbe-47f6-8d18-4b6baaf22245",
+      "elemento": "_791b9ed2-e528-5671-b57e-41a86a5b5f47",
+      "referencia": "Caja 12 (T-8)",
+      "texto": "<p><strong>Observación.</strong> El modelo representa el trámite de la valorización como un expediente en papel: el supervisor o inspector la entrega en mesa de partes (caja 12), se deriva al subgerente y al monitor (cajas 13 y 7) y las observaciones se notifican con una carta (caja 16). La Directiva 018-2025-OECE-CD, que está en la biblioteca y no se cita en este proceso, establece que la valorización de obra se registra y tramita de manera electrónica en la sección de valorizaciones del módulo de ejecución contractual del SEACE:</p><ul><li>el residente registra y presenta la valorización al supervisor y a la entidad (num. 10.3.1; transitoriamente lo hace el supervisor o inspector, num. 12.1);</li><li>el supervisor o inspector registra su informe (10.3.3);</li><li>el operador del área usuaria registra la conformidad o las observaciones, con plazo de subsanación (10.4.1-10.4.2), y el SEACE notifica a todos los actores (10.3.6 y 10.4.5);</li><li>la entidad no puede pedir documentos adicionales a los del anexo de la directiva (10.3.4).</li></ul><p><strong>Pregunta:</strong> ¿El trámite por mesa de partes y carta descrito el 2026-11-17 coexiste con el registro en el SEACE (por ejemplo, para contratos de la Ley 30225, a los que la directiva exceptúa en el num. 12.2) o lo sustituye para los contratos de la Ley 32069?</p><p><strong>Efecto posible:</strong> cambia el diagrama (canal de presentación, de observaciones y de notificación) o, si ambos canales coexisten, basta con explicarlo en el sustento e identificar a qué contratos aplica cada uno.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:22:30.398874+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:22:30.398874+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:22:44.812926+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:22:54.847296+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Qué entiendo.</strong> Las cajas 12, 13, 7, 9 y 16 describen un circuito documental interno (mesa de partes, derivación, informe y carta) que proviene de la descripción operativa del usuario del 2026-11-17 (evidencia observada, clase EQ). El sustento no menciona el SEACE ni la Directiva 018-2025-OECE-CD.</p><p><strong>Exigencia normativa.</strong> Directiva 018-2025-OECE-CD (CON-005, PDF p. 4-8; texto extraído pendiente de cotejo): 9.1 (registro y trámite electrónico), 10.1 (roles: residente registra, presenta y subsana; supervisor o inspector presenta su informe; operador del área usuaria registra conformidad u observaciones), 10.3.1, 10.3.3, 10.3.4, 10.3.6, 10.4.1 a 10.4.5, 12.1 (transitoria: mientras no se implemente la funcionalidad del residente, registra el supervisor o inspector) y 12.2 (contratos de la Ley 30225 aplican la Directiva 001-2022-OSCE/CD en presentación, subsanación y conformidad). Vigencia y modificatorias de la directiva: POR-CONFIRMAR (REG-CON-VAL-001).</p><p><strong>Inferencia.</strong> El registro en el SEACE no impide que exista un trámite interno paralelo (derivación por SGD, informes internos), pero el acto que la norma reconoce como presentación, observación y conformidad es el registro electrónico. Representar solo la mesa de partes puede llevar a computar plazos del art. 210 desde una fecha distinta de la que reconoce el sistema.</p><p><strong>Vacío.</strong> No hay evidencia en la biblioteca de que el GORE haya asignado los roles de operador del área usuaria ni de cómo se articula el SEACE con el SGD; no se dispone del texto de la Directiva 001-2022-OSCE/CD.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-005 Directiva 018-2025-OECE-CD, num. 9.1, 10.1, 10.3.1-10.3.6, 10.4.1-10.4.5, 12.1, 12.2 (PDF p. 4-9)",
+            "REG-CON-VAL-001",
+            "CON-001 Reglamento Ley 32069, art. 210.2-210.4 (PDF p. 118)",
+            "LOC-007 ROF GRH 2023, art. 20 (PDF p. 14)",
+            "S4-3-2-1-sustento.md, Trámite regular descrito el 2026-11-17"
+          ],
+          "hipotesis": [
+            "H1: el trámite por mesa de partes corresponde a contratos de la Ley 30225 (exceptuados por el num. 12.2). Posible, pero la directiva 001-2022-OSCE/CD también usaba el SEACE para valorizaciones según el título citado en 12.2; no está en la biblioteca para confirmarlo. Se mantiene abierta.",
+            "H2: la mesa de partes es un trámite interno complementario del registro en SEACE. Plausible; requiere confirmación del usuario. Se mantiene abierta.",
+            "H3: el SEACE aún no está operativo para el GORE. La transitoria 12.1 solo traslada el registro del residente al supervisor, no suprime el canal electrónico. Descartada como justificación para omitir el SEACE."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:22:44.812926+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Incorporar el registro en SEACE como canal de la valorización",
+              "detalle": "<p>Indicar en las cajas 2, 3, 7 y 16 que la presentación, el informe del supervisor o inspector y la conformidad u observaciones se registran en el SEACE, con almacen de datos del SEACE en la columna Documentos (símbolo almacén de datos de la paleta 7.3) y conservando la derivación interna por SGD como tarea de usuario. Citar la Directiva 018-2025-OECE-CD en tabla y sustento y registrar su vigencia.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-1",
+                "T-2",
+                "T-8",
+                "T-3",
+                "T-12"
+              ],
+              "fuentes": [
+                "CON-005 num. 10.3-10.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Conservar el circuito y explicar en el sustento su relación con el SEACE",
+              "detalle": "<p>Mantener el diagrama y declarar en el sustento que el registro en SEACE es el acto formal y el circuito documental es interno, con evidencia del usuario sobre qué contratos siguen cada vía (Ley 32069 o Ley 30225).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T-8"
+              ],
+              "fuentes": [
+                "CON-005 num. 12.2"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Dejar pendiente hasta incorporar la Directiva 001-2022-OSCE/CD y confirmar la práctica",
+              "detalle": "<p>Registrar EVIDENCIA-INSUFICIENTE sobre el canal de la valorización hasta contar con la directiva anterior y con la confirmación del área usuaria sobre el uso del SEACE.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:22:54.847296+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:22:54.847296+00:00"
+    },
+    {
+      "id": "f614884b-549e-481c-ac99-331a70b426c8",
+      "elemento": "_dabeeb5d-ede7-5656-81f2-b6293f988a3d",
+      "referencia": "Caja 7 (T-3)",
+      "texto": "<p><strong>Observación.</strong> El carril «SGGOS — Monitor de obras» revisa la valorización, decide si cumple y propone el monto a pagar (cajas 7, 8, 9, 10 y 20). El término «Monitor» tiene en el proyecto otro significado: el glosario lo define como el rol de las Directivas 017-2025 y 018-2025-OECE-CD, y en esta última el Monitor solo <em>visualiza</em> las valorizaciones del contrato asignado (num. 10.1, B). Quien verifica y otorga la conformidad u observa es «el área usuaria o el área técnica estratégica», mediante su operador (num. 10.4.1-10.4.2). Además, la convención de carriles de S4.3.2 (estándar, sección 7.4) no incluye «Monitor de obras» y usa «SGGOS — Coordinador de obra», cargo al que la directiva permite asignar el rol de Monitor.</p><p><strong>Pregunta:</strong> ¿«Monitor de obras» es el nombre del cargo que el GORE da al coordinador de obra de SGGOS, o es otra función? ¿Quién actúa como operador del área usuaria que registra la conformidad en el SEACE: el monitor, el subgerente (caja 14) u otro?</p><p><strong>Efecto posible:</strong> cambia el nombre del carril y, si corresponde, quién registra la conformidad; o basta con explicar en el sustento y el glosario la diferencia entre el cargo institucional y el rol del SEACE.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:04.218997+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:04.218997+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:18.850442+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:23:29.410836+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> El usuario identificó el 2026-11-17 al «monitor de obras de SGGOS» como responsable de la revisión institucional (sustento, «Trámite regular descrito el 2026-11-17»). Es un dato operativo, no normativo.</p><p><strong>Exigencia normativa.</strong> Directiva 018-2025-OECE-CD, num. 10.1 (tabla de roles, PDF p. 5-6): el rol Monitor «puede asignarse al: Coordinador de proyecto, Administrador de proyecto, Coordinador de obra, Administrador de obra, Jefe de la unidad de organización de ejecución de inversiones o similares» y su privilegio es «Visualizar la información registrada de las valorizaciones del contrato asignado»; el «Operador del área usuaria o área técnica estratégica» registra «la conformidad u observaciones». Num. 10.4.1: el área usuaria verifica y da la conformidad considerando el informe del supervisor o inspector. ROF GRH 2023, art. 97 (PDF p. 47): SGGOS es responsable del control y seguimiento de la ejecución de obras y de «efectuar control a la supervisión o inspección», lo que es compatible con que actúe como área usuaria, pero el ROF no lo dice expresamente.</p><p><strong>Convención del proyecto.</strong> Estándar de artefactos, 7.4, num. 3 y catálogo: «SGGOS — Coordinador de obra»; DEC-041 denomina así el rol de gestión de SGGOS en S4.3.2. El glosario define «Monitor» como el rol OECE.</p><p><strong>Inferencia.</strong> Un mismo término con dos significados puede hacer leer que el rol de solo lectura del SEACE emite conformidades. No hay contradicción de fondo si el monitor de obras es, además, el operador del área usuaria; falta acreditarlo.</p>",
+          "formato": "html",
+          "clase": "DIFERENCIA-CRITERIO",
+          "fuentes": [
+            "CON-005 Directiva 018-2025-OECE-CD, num. 10.1 y 10.4.1-10.4.2 (PDF p. 5-7)",
+            "REG-CON-VAL-001",
+            "REG-CON-CDI-001",
+            "LOC-007 ROF GRH 2023, art. 97 (PDF p. 47)",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4",
+            "DEC-041",
+            "Glosario: Monitor"
+          ],
+          "hipotesis": [
+            "H1: «monitor de obras» es la denominación local del coordinador de obra de SGGOS. Coherente con la directiva (el coordinador de obra puede recibir el rol Monitor) y con DEC-041; requiere confirmación. Abierta.",
+            "H2: el monitor de obras es también el operador del área usuaria en SEACE. Posible; sin evidencia documental. Abierta.",
+            "H3: la conformidad la registra el subgerente (caja 14) como responsable del área usuaria (num. 10.2.3). Compatible con la descripción del usuario de que el subgerente emite el informe de conformidad. Abierta.",
+            "H4: el carril debe ser «SGGOS — Control contractual y costos» del catálogo. Descartada como recomendación: el catálogo lo reserva para funciones de S4.3.2.4 y no hay evidencia de que intervenga aquí."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:18.850442+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Confirmar el cargo y alinear el carril con la convención 7.4",
+              "detalle": "<p>Si el usuario confirma que el monitor de obras es el coordinador de obra, renombrar el carril a «SGGOS — Coordinador de obra» y registrar en el sustento que ese cargo tiene asignado el rol Monitor del SEACE y, en su caso, el de operador del área usuaria. Si no lo confirma, conservar un título funcional con EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-3",
+                "G-2",
+                "T-6",
+                "T-7",
+                "T-13"
+              ],
+              "fuentes": [
+                "CON-005 num. 10.1",
+                "Estándar 7.4",
+                "DEC-041"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Conservar «Monitor de obras» y aclararlo en sustento y glosario",
+              "detalle": "<p>Mantener el carril y añadir al glosario una entrada distinta para el cargo institucional «monitor de obras», separada del rol OECE «Monitor», indicando quién registra la conformidad en el SEACE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T-3"
+              ],
+              "fuentes": [
+                "Glosario: Monitor"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Registrar una decisión de denominación para todo S4.3.2",
+              "detalle": "<p>Si el cargo «monitor de obras» existe en otros procesos, plantear al equipo una decisión que lo incorpore al catálogo 7.4 con su diferencia respecto del rol OECE.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [
+                "Estándar 7.4"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:29.410836+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:23:29.410836+00:00"
+    },
+    {
+      "id": "cb44a4b7-1549-4bfa-b083-5e1b6398bea9",
+      "elemento": "_074eba92-56b5-5527-a429-20ea93f672cd",
+      "referencia": "Caja 4 (G-1)",
+      "texto": "<p><strong>Observación.</strong> La secuencia inicial no corresponde a la que establece el Reglamento de la Ley 32069, art. 210.2:</p><ol><li>La norma pide que residente y supervisor <em>revisen juntos</em> los metrados antes de presentar la valorización; el modelo los muestra sucesivos (cajas 2 y 3).</li><li>La valorización se presenta <em>al supervisor y a la entidad</em> dentro de los primeros tres días del mes siguiente; en el modelo la entidad solo la recibe después de que el supervisor la aprueba (caja 4 → caja 12).</li><li>El supervisor presenta su informe a la entidad en cinco días; el modelo no registra ese plazo y, en su lugar, incluye un ciclo de devolución del supervisor al ejecutor (cajas 4, 5 y 6) tomado del Bizagi, que no aparece en el art. 210 y que puede extender el plazo sin límite.</li></ol><p><strong>Pregunta:</strong> ¿El ciclo de devolución del supervisor al residente es una práctica real que ocurre <em>durante</em> la revisión conjunta, antes de presentar, o es un trámite posterior? En el segundo caso, ¿cómo se concilia con el plazo de cinco días?</p><p><strong>Efecto posible:</strong> cambia el diagrama (revisión conjunta, presentación simultánea y plazos de 3 y 5 días; reubicación o retiro del ciclo de las cajas 4 a 6).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:23:38.538447+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:23:38.538447+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:23:53.270149+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:03.386019+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Reglamento de la Ley 32069 (CON-001, texto consolidado al 09-01-2026, PDF p. 118), art. 210.2: «El residente y el supervisor revisan de forma conjunta los metrados ejecutados para la presentación de las valorizaciones, luego de lo cual son presentadas por el contratista al supervisor y a la entidad dentro de los primeros tres días del mes siguiente al mes valorizado. En el plazo de cinco días contabilizados desde el día siguiente de presentada, el supervisor presenta a la entidad contratante su informe […]. Si el supervisor no se presenta para la valorización conjunta con el contratista, este la efectúa.» La Directiva 018-2025-OECE-CD, num. 10.3.1 y 10.3.3, reitera la presentación dirigida al supervisor y a la entidad y el informe dentro del plazo del art. 210.</p><p><strong>Evidencia observada.</strong> Cajas 4, 5 y 6 (G-1 clase PROP, T-4 OBS, T-5 PROP) provienen del Bizagi «S4.3.P2 Emisión de Valorización», que el sustento declara BPMN inválido. La auditoría del 2026-11-24 ya registró como NO-REPRESENTADAS la revisión conjunta y la presentación en tres días, y el sustento (DEC-059) las deja como pendientes; esta observación no duplica una existente porque no hay observaciones abiertas.</p><p><strong>Inferencia.</strong> El único espacio normativo para ajustes del residente antes de presentar es la revisión conjunta; después de presentada, las observaciones las formula la entidad (210.3), no el supervisor. Por tanto el ciclo de cajas 4-6, ubicado después de presentar, no tiene sustento y, como bucle sin plazo, choca con los cinco días del 210.2.</p><p><strong>Vacío.</strong> No se encontró regla sobre la variante de inspector en contrata distinta del 210.2.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento Ley 32069, art. 210.2 y 210.3 (PDF p. 118)",
+            "CON-005 Directiva 018-2025-OECE-CD, num. 10.3.1 y 10.3.3 (PDF p. 6-7)",
+            "05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md",
+            "S4-3-2-1-sustento.md, Auditoría 2026-11-24 y DEC-059"
+          ],
+          "hipotesis": [
+            "H1: el ciclo 4-6 representa la revisión conjunta vista como idas y vueltas. Plausible; en ese caso debe ubicarse antes de la presentación y no después. Abierta y recomendada como lectura.",
+            "H2: el ciclo representa la subsanación del 210.3. Descartada: esa subsanación ya está modelada en cajas 16, 18, 19, 20 y 21, y la formula la entidad.",
+            "H3: el supervisor puede devolver la valorización en lugar de informar. Descartada: el 210.2 solo prevé que el supervisor presente su informe en cinco días; no se encontró una facultad de devolución en los arts. 207-211."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:23:53.270149+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Reordenar según el 210.2: revisión conjunta, presentación doble e informe en 5 días",
+              "detalle": "<p>Reemplazar las cajas 2 a 6 por: tarea de revisión conjunta de metrados (residente con supervisor o inspector); elaboración y presentación de la valorización al supervisor y a la entidad (plazo: primeros 3 días del mes siguiente); e informe del supervisor o inspector a la entidad (plazo: 5 días desde el día siguiente de presentada). Retirar el ciclo G-1/T-4/T-5 o, si el usuario confirma la práctica, integrarlo dentro de la revisión conjunta. Anotar el caso en que el supervisor no se presenta.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-1",
+                "T-2",
+                "G-1",
+                "T-4",
+                "T-5",
+                "T-8"
+              ],
+              "fuentes": [
+                "CON-001 art. 210.2",
+                "CON-005 num. 10.3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Añadir solo los plazos y mantener la secuencia",
+              "detalle": "<p>Anotar 3 días en la caja 2 y 5 días en la caja 3 y explicar en el sustento que el ciclo 4-6 es práctica observada pendiente de contraste.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-1",
+                "T-2"
+              ],
+              "fuentes": [
+                "CON-001 art. 210.2"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Consultar al equipo la práctica antes de cambiar",
+              "detalle": "<p>Registrar en el sustento la diferencia con el 210.2 y esperar la confirmación del usuario sobre cuándo ocurre la devolución del supervisor.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "G-1"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:03.386019+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:03.386019+00:00"
+    },
+    {
+      "id": "f99ede74-a299-4256-9811-a429b55dc469",
+      "elemento": "_b8afdac7-ecbd-5c4b-b147-4bab97f2b861",
+      "referencia": "Caja 1 (E-1)",
+      "texto": "<p><strong>Observación.</strong> El inicio (caja 1) cita a la vez el Reglamento de la Ley 32069 (contrata) y la Directiva 017-2023-CG, num. 7.3.4 (administración directa), y el carril se titula «Ejecutor de obra, según régimen». Sin embargo, todo el flujo posterior es solo de contrata: pago de la valorización, carta y mensajes al «Contratista», monto no cuestionado (art. 210.4) y remisión a Administración para pago. En administración directa la directiva de la CGR regula otra cosa:</p><ul><li>el residente valoriza el último día de cada mes y presenta un <em>informe mensual</em> de avance físico y financiero dentro de los 10 días calendario posteriores al cierre;</li><li>el inspector o supervisor verifica en obra, anota su conformidad en el cuaderno y, en 5 días calendario, emite informe «al área de supervisión de la entidad» con conformidad u observaciones y el contenido mínimo de los literales a) a f);</li><li>no hay pago al ejecutor ni carta a un contratista.</li></ul><p><strong>Pregunta:</strong> ¿Este proceso debe cubrir también la administración directa, o se limita a contrata y la variante por administración directa se modela aparte?</p><p><strong>Efecto posible:</strong> cambia el diagrama (variante o ruta propia para administración directa, o retiro de la cita) y el título del carril.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:12.583291+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:12.583291+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:25.875851+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:24:35.354023+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Directiva 017-2023-CG (CTRL-001, num. 7.3.4 «Informes de Valorización de Obra», en el anexo de la Resolución; texto extraído pendiente de cotejo): metrados consolidados diariamente y registrados en el cuaderno; valorización física el último día calendario del mes; informe mensual del residente dentro de los 10 días calendario posteriores al cierre del mes; el inspector o supervisor verifica en obra y «en un plazo de cinco (5) días calendarios de recibido el informe mensual del residente de obra, revisa y emite un informe al área de supervisión de la entidad, determinando la conformidad respectiva, o de ser el caso, comunicando las observaciones», con los literales a) a f), incluido el pronunciamiento ante atraso mayor al 20 %. Las valorizaciones de modificaciones se presentan en cuadros distintos. Formato: Anexo 13 «Informe mensual de supervisión y valorización» (CTRL-001A).</p><p><strong>Convención.</strong> Estándar 7.4, num. 1: la ruta exclusivamente contractual usa el pool «Contratista»; la que unifica contrata y administración directa usa «Ejecutor de obra, según régimen», con la diferencia declarada en el sustento. El sustento de S4.3.2.1 no declara esa diferencia para el circuito de pago.</p><p><strong>Inferencia.</strong> La cita a 7.3.4 en la caja 1 sugiere que el proceso pretende cubrir ambos regímenes, pero las cajas 10 a 21 solo son válidas en contrata. Hoy el modelo es, en la práctica, de contrata con un título de carril de ambos regímenes.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CTRL-001 Directiva 017-2023-CG, num. 7.3.4",
+            "CTRL-001A Anexo 13 Informe mensual de supervisión y valorización",
+            "CON-001 Reglamento Ley 32069, art. 210 (PDF p. 118-119)",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4 num. 1",
+            "DEC-037",
+            "DEC-042",
+            "REG-CGR-AD-001"
+          ],
+          "hipotesis": [
+            "H1: la administración directa se trata en otro proceso hermano. Buscado en el padre S4.3.2 y sus hijos: no hay un proceso de informes mensuales de administración directa. Descartada.",
+            "H2: basta con un solo flujo porque las tareas son análogas. Descartada parcialmente: el informe del inspector es análogo (5 días, aunque calendario), pero no hay pago al ejecutor, carta ni monto no cuestionado.",
+            "H3: la cita a 7.3.4 es un resto del modelo inicial y el proceso es solo de contrata. Posible; entonces debe retirarse la cita y usarse el título «Contratista». Abierta."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:25.875851+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Separar las rutas por régimen dentro del proceso",
+              "detalle": "<p>Agregar después del inicio una compuerta exclusiva «¿Régimen de ejecución?»: la ruta de contrata conserva el circuito del art. 210; la ruta de administración directa modela el informe mensual del residente (10 días calendario), la verificación y el informe del inspector o supervisor al área de supervisión (5 días calendario) y la conformidad u observaciones, sin pago ni carta. Declarar la diferencia de organización en el sustento.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-1",
+                "T-1",
+                "T-2"
+              ],
+              "fuentes": [
+                "CTRL-001 num. 7.3.4",
+                "CON-001 art. 210"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Limitar este proceso a contrata",
+              "detalle": "<p>Retirar la cita a la Directiva 017-2023-CG de la caja 1, titular el carril «Contratista — Residente de obra» y registrar como pendiente un proceso o variante para administración directa.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-1",
+                "T-1",
+                "T-5"
+              ],
+              "fuentes": [
+                "Estándar 7.4 num. 1"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Consultar al equipo el alcance por régimen",
+              "detalle": "<p>Registrar la decisión de alcance antes de modificar el diagrama.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:35.354023+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:24:35.354023+00:00"
+    },
+    {
+      "id": "55f451f9-5eea-410c-b265-c4c17876a896",
+      "elemento": "",
+      "referencia": "",
+      "texto": "<p><strong>Duda.</strong> El proceso se llama «Control periódico de la ejecución», pero solo modela la valorización. Hay controles mensuales de la inversión que no están ubicados en ningún proceso de S4.3.2:</p><ul><li>la Directiva 001-2019-EF/63.01 obliga a la UEI a registrar mensualmente el seguimiento de cada inversión en el Formato N.° 12-B dentro de los primeros diez días hábiles del mes siguiente (num. 45.3) y a vigilar permanentemente el avance (num. 33.3);</li><li>el ROF asigna a SGGOS registrar y mantener actualizada la información técnica y financiera de la ejecución en el Banco de Inversiones (art. 97), y a la Sub Gerencia de Estudios registrar mensualmente el avance físico y financiero de las inversiones «a su cargo» (art. 96).</li></ul><p>El sustento de S4.3 indica que estas obligaciones deben ubicarse dentro de S4.3.2, y la nota índice de este proceso reconoce que los otros controles están pendientes.</p><p><strong>Pregunta:</strong> ¿El registro mensual del Formato 12-B (y el de Infobras, si aplica) forma parte de este proceso, que ya se dispara cada mes, o se asigna a otro proceso? ¿Qué unidad lo realiza en la práctica: SGGOS o la Sub Gerencia de Estudios?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una rama del registro de seguimiento) o basta con explicarlo en el sustento y la nota índice si se asigna a otro proceso.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:24:44.839539+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:24:44.839539+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:24:59.704600+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:20.565134+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa (regla BORRADOR-IA, no sustenta línea base).</strong> REG-INV-EJEC-006: Directiva 001-2019-EF/63.01 actualizada a 2025 (INV-003, art. 45, num. 45.3, PDF p. 39): «La información sobre el seguimiento de la ejecución de cada inversión de la entidad debe ser registrada mensualmente por la UEI en el Formato N° 12-B […] dentro de los primeros diez (10) días hábiles del mes siguiente.» REG-INV-EJEC-005: num. 33.3 (PDF p. 30), vigilancia permanente del avance. Ambas con vigencia POR-CONFIRMAR: la regla advierte que el texto cita el reglamento anterior (D.S. 284-2018-EF) y debe verificarse su adecuación al D.S. 140-2026-EF.</p><p><strong>Responsables por función (ROF GRH 2023, LOC-007, PDF p. 47).</strong> Art. 97 SGGOS: «Registrar y mantener actualizada la información técnica y financiera durante la etapa de ejecución […] en el Banco de Inversiones» y «Realizar el control y seguimiento a la ejecución física y financiera». Art. 96 Sub Gerencia de Estudios: «Registrar y mantener actualizada la información del avance físico y financiero de todos los componentes de las inversiones a su cargo en el Banco de Inversiones de manera mensual». Hay posible superposición; el ROF no menciona el Formato 12-B.</p><p><strong>Evidencia del proyecto.</strong> S4-3-sustento.md: vigilancia del avance y seguimiento mensual (Formato 12-B) con indicación «ubicarlas dentro de S4.3.2». S4.3.2.6 solo usa el 12-B al reiniciar una obra paralizada. Ningún otro proceso de S4.3.2 lo modela.</p><p><strong>Inferencia.</strong> Por su periodicidad mensual y su dependencia del avance valorizado, S4.3.2.1 es el candidato natural, pero la decisión de alcance corresponde al equipo.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "REG-INV-EJEC-005",
+            "REG-INV-EJEC-006",
+            "INV-003 Directiva 001-2019-EF/63.01, num. 33.3 y 45.3",
+            "LOC-007 ROF GRH 2023, arts. 96 y 97 (PDF p. 47)",
+            "02-procesos/.../S4-3-sustento.md",
+            "02-procesos/.../S4-3-2-6-diagrama-proceso-tabla.md",
+            "00-S4-3-2-1-control-periodico-ejecucion.md, Pendientes"
+          ],
+          "hipotesis": [
+            "H1: el 12-B pertenece a S4.3.2.1. Coherente con el disparador mensual; requiere decisión del equipo. Abierta.",
+            "H2: pertenece al padre S4.3.2 o a S4.3 como actividad transversal. Posible, pero el padre solo tiene subprocesos de evento y no hay rama para ello. Abierta.",
+            "H3: lo realiza la Sub Gerencia de Estudios. El art. 96 lo limita a inversiones «a su cargo» (expedientes técnicos); para obras en ejecución el art. 97 es más específico. Menos probable, pero no descartada sin confirmación.",
+            "H4: la regla 45.3 fue reemplazada por el nuevo reglamento (D.S. 140-2026-EF). No verificable: el texto del nuevo reglamento de Invierte.pe no se consultó en esta revisión. Abierta."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:24:59.704600+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Decidir la ubicación del seguimiento mensual y, si es aquí, añadir una rama",
+              "detalle": "<p>Plantear al equipo que el registro mensual del seguimiento de la inversión se integre a S4.3.2.1. Si se acepta, agregar tras el inicio una rama paralela (compuerta paralela) con una tarea de usuario de SGGOS «Registrar el seguimiento mensual de la inversión» (plazo: primeros 10 días hábiles del mes siguiente, sujeto a confirmar vigencia) que use como entrada el avance valorizado. Nota: el nuevo Reglamento del D. Leg. 1252 (D.S. 140-2026-EF, INV-002C) mantiene a cargo de la UEI «realizar el monitoreo y seguimiento de la ejecución física y financiera […] y efectuar el registro correspondiente en los aplicativos informáticos del SNPMGI» (art. 13.3, num. 5, PDF p. 20-21) y señala el Sistema de Seguimiento de Inversiones (art. 17.11, PDF p. 26); el Formato 12-B como tal proviene de la directiva y su vigencia está por confirmar.</p>",
+              "formato": "html",
+              "efecto": "DECISION",
+              "elementos": [
+                "E-1"
+              ],
+              "fuentes": [
+                "REG-INV-EJEC-006",
+                "INV-002C art. 13.3 num. 5 y 17.11",
+                "LOC-007 art. 97"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Asignarlo a otro proceso y dejarlo explícito",
+              "detalle": "<p>Si el equipo lo ubica en S4.3.2 u otro proceso, registrarlo en el sustento y en la nota índice de S4.3.2.1 como control periódico fuera de su alcance, con el proceso receptor.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "S4-3-sustento.md"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Mantener pendiente hasta confirmar la vigencia del Formato 12-B",
+              "detalle": "<p>Registrar EVIDENCIA-INSUFICIENTE hasta verificar la adecuación de la Directiva 001-2019-EF/63.01 al D.S. 140-2026-EF y qué unidad realiza el registro.</p>",
+              "formato": "html",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [],
+              "fuentes": [
+                "INV-003"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:20.565134+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:20.565134+00:00"
+    },
+    {
+      "id": "8432b397-c233-4a3c-8a80-c2057cd1be8a",
+      "elemento": "_a1644910-806b-500f-a7a3-e6c6d6f282f1",
+      "referencia": "Caja 3 (T-2)",
+      "texto": "<p><strong>Duda.</strong> El Reglamento de la Ley 32069, art. 207, vincula el control del avance con la valorización: si al realizarla el supervisor verifica que la valorización acumulada ejecutada es menor al 80 % de la programada, o hay atraso en la ruta crítica, ordena en el cuaderno un programa de ejecución acelerado; el contratista lo presenta en 7 días, el supervisor se pronuncia en 5 y la entidad puede observarlo en 7 días hábiles. Si el atraso persiste frente al nuevo calendario, puede ser causal de intervención económica o de resolución. Ninguno de los procesos de S4.3.2 representa este control; el sustento del padre solo lo lista como fuente.</p><p><strong>Pregunta:</strong> ¿La verificación del 80 % forma parte de la revisión de la valorización por el supervisor o inspector (caja 3), o se tratará en otro proceso? En administración directa, ¿se aplica el pronunciamiento ante atraso mayor al 20 % de la Directiva 017-2023-CG, num. 7.3.4 f)?</p><p><strong>Efecto posible:</strong> cambia el diagrama (una decisión tras la caja 3 que active el programa acelerado, y un mensaje hacia el proceso que trate la intervención o la resolución) o basta con explicarlo en el sustento si se asigna a otro proceso.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "COMENTARIO",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:25:30.750603+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:25:30.750603+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:25:44.710355+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:25:53.821534+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> Reglamento de la Ley 32069 (CON-001, PDF p. 116-117), art. 207. Hay dos textos: el original (p. 116) y el modificado por el art. 2 del D.S. 001-2026-EF (p. 117), cuya entrada en vigor está condicionada a la publicación de la Resolución Directoral que modifique las bases estándar (RD 0015-2025-EF/54.01). El texto modificado agrega el «calendario de avance de obra valorizado acelerado». Contenido común: 207.1 (orden del supervisor ante valorización acumulada &lt; 80 % o atraso en ruta crítica «al momento de realizada dicha valorización», con anotación en el cuaderno), 207.2 (7 días contratista; 5 días supervisor; 7 días hábiles entidad, aprobación ficta), 207.3 (falta de presentación: causal de intervención económica o resolución), 207.5 (atraso frente al nuevo calendario: informe a la entidad; causal sin apercibimiento). Art. 208: intervención económica.</p><p><strong>Administración directa.</strong> Directiva 017-2023-CG, num. 7.3.4 f): el informe del inspector o supervisor indica «las acciones a adoptar en caso la obra se encuentre con un atraso mayor al veinte por ciento (20%)».</p><p><strong>Evidencia del proyecto.</strong> S4-3-2-sustento.md lista el art. 207 y el 208 como fuentes; buscar_notas no encontró ningún modelo que los represente. Los procesos de S4.3.2.4 (ampliación) y S4.3.2.6 (paralización) tratan otras figuras.</p><p><strong>Inferencia.</strong> Como el disparador normativo es la valorización, el lugar natural de la verificación es la revisión del supervisor (caja 3); el trámite del programa acelerado tiene plazos propios y podría ser un subproceso distinto.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "CON-001 Reglamento Ley 32069, arts. 207.1-207.5 (PDF p. 116-117) y 208 (PDF p. 117-118)",
+            "D.S. 001-2026-EF, art. 2 (vigencia condicionada)",
+            "CTRL-001 Directiva 017-2023-CG, num. 7.3.4 f)",
+            "S4-3-2-sustento.md"
+          ],
+          "hipotesis": [
+            "H1: el control del 80 % lo trata S4.3.2.4 (ampliaciones de plazo). Descartada: el 207.4 separa expresamente el programa acelerado del análisis de ampliaciones.",
+            "H2: lo trata S4.3.2.6 (paralización). Descartada: la paralización es otra figura (REG-CON-PARAL-001).",
+            "H3: corresponde a un proceso nuevo de «intervención económica o resolución». Posible para la consecuencia, no para la verificación mensual. Abierta.",
+            "H4: queda fuera de alcance porque la verificación es interna del supervisor. Descartada: genera una anotación en cuaderno, una orden al contratista y una comunicación a la entidad con plazos."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:44.710355+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Agregar la verificación del avance y un envío hacia un proceso de programa acelerado",
+              "detalle": "<p>Tras la caja 3, una compuerta exclusiva «¿Avance acumulado menor al 80 % o atraso en ruta crítica?»; en caso afirmativo, tarea de usuario del supervisor o inspector «Ordenar programa acelerado en cuaderno» y evento de envío de mensaje hacia un proceso que gestione el programa acelerado (a crear o asignar), sin detener la valorización. Anotar en el sustento la doble redacción del art. 207 y su vigencia condicionada.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-2"
+              ],
+              "fuentes": [
+                "CON-001 art. 207.1-207.5"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Registrar el control como vacío del padre S4.3.2",
+              "detalle": "<p>Dejar S4.3.2.1 sin cambios y anotar en el sustento de S4.3.2 que el control del art. 207 y la intervención económica (art. 208) no tienen proceso asignado.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "S4-3-2-sustento.md"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:25:53.821534+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:25:53.821534+00:00"
+    },
+    {
+      "id": "89f7ac31-de5e-405e-8d87-019521931bae",
+      "elemento": "_ad1e6037-840d-5e1b-9854-6f83b61bd342",
+      "referencia": "Caja 10 (T-7)",
+      "texto": "<p><strong>Observación.</strong> Dos condiciones del art. 210 que afectan el monto o la oportunidad del pago no están en el modelo:</p><ol><li><strong>Plazo de pago.</strong> La entidad «evalúa y paga la valorización hasta el último día del mes en que es presentada» (210.3). Ninguna caja lo indica, y el plazo de subsanación que fija la carta (cajas 16 y 21) no tiene relación con ese límite.</li><li><strong>Última valorización.</strong> En la última valorización el contratista entrega los planos post construcción; si no los entrega, la entidad suspende su pago (210.10). La auditoría del proceso lo registra como obligación no representada, y la nota índice deja pendiente la relación con la recepción (S4.3.3).</li></ol><p>Además, en la caja 10 se verifican penalidades, amortizaciones y retenciones, pero no los reajustes, que el contratista calcula en su valorización (art. 209.2) y que el anexo de la Directiva 018-2025-OECE-CD exige como documento («Cálculo de reajustes»).</p><p><strong>Pregunta:</strong> ¿Cómo controla hoy la entidad que el pago no pase del último día del mes, y cómo se identifica la última valorización?</p><p><strong>Efecto posible:</strong> cambia el diagrama (anotación del plazo; decisión «¿Es la última valorización?» con la verificación de planos post construcción) y basta con precisar en el sustento los conceptos verificados en la caja 10.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:02.937802+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:02.937802+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:16.496585+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:26.092952+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Exigencia normativa.</strong> CON-001, art. 210.3 (PDF p. 118): pago hasta el último día del mes de presentación; art. 210.10 (PDF p. 119): «En la última valorización, el contratista entrega los planos post construcción, de lo contrario la entidad suspende su pago»; art. 209.2 (PDF p. 118): el contratista calcula y consigna en su valorización el reajuste por fórmulas polinómicas con los índices del INEI; 209.4: el contratista puede pedir los reajustes en las valorizaciones o en la liquidación. CON-005, num. 10.4.5 (PDF p. 8): los registros consideran que la entidad debe evaluar y pagar hasta el último día del mes de su presentación; Anexo (PDF p. 10): ítem 7 «Cálculo de reajustes», ítem 6 penalidades, ítem 8 amortizaciones y deducciones. Art. 210.5: deducción de la extensión de supervisión por atraso imputable.</p><p><strong>Evidencia.</strong> Auditoría (cobertura_fuente): 210.10 NO-REPRESENTADO; 210.3 plazo de pago «el plazo de pago no» está representado. Caja 10: verificaciones de penalidad, amortización y retenciones (precisión del usuario del 2026-11-17).</p><p><strong>Inferencia.</strong> El plazo de subsanación de la carta debería fijarse de modo que la revisión (2 días hábiles) y el pago quepan dentro del mes; esto es una inferencia de compatibilidad, no un plazo regulado.</p><p><strong>Vacío.</strong> No hay evidencia del circuito de pago dentro de Administración (sustento: EVIDENCIA-INSUFICIENTE).</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "CON-001 Reglamento Ley 32069, arts. 209.2, 209.4, 210.3, 210.5, 210.10 (PDF p. 118-119)",
+            "CON-005 Directiva 018-2025-OECE-CD, num. 10.4.5 y Anexo (PDF p. 8 y 10)",
+            "05-herramientas/gestor-modelos/auditorias/S4-3-2-1/informe.md",
+            "00-S4-3-2-1-control-periodico-ejecucion.md, Interacciones y Pendientes"
+          ],
+          "hipotesis": [
+            "H1: el planos post construcción se controla en la recepción (S4.3.3). Posible complementariamente, pero el 210.10 condiciona el pago de la valorización, que se tramita aquí. Descartada como única ubicación.",
+            "H2: los reajustes se cobran solo en la liquidación. Posible por el 209.4 (potestad del contratista); por ello se propone mencionarlos como verificación «en caso corresponda», no como paso obligatorio.",
+            "H3: el plazo de pago lo controla Administración y no es parte de este proceso. Descartada: el 210.3 lo impone a la entidad desde la evaluación, que sí está en este proceso."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:16.496585+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Anotar el plazo de pago y agregar la condición de última valorización",
+              "detalle": "<p>(a) En la caja 11 (fin) o en la caja 15, columna Plazo: «Pago hasta el último día del mes de presentación (210.3)». (b) Antes de la caja 10, compuerta exclusiva «¿Es la última valorización?»: si es la última y no se entregaron planos post construcción, el pago queda suspendido (tarea de usuario de comunicación al contratista y fin o espera), conforme al 210.10. (c) Ampliar la anotación de la caja 10 con «reajustes, en caso corresponda (209.2)».</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-7",
+                "T-11",
+                "F-1"
+              ],
+              "fuentes": [
+                "CON-001 arts. 209.2, 210.3, 210.10"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Solo anotar plazo y reajustes; dejar la última valorización para S4.3.3",
+              "detalle": "<p>Aplicar (a) y (c) y registrar en el sustento que la verificación de planos post construcción se tratará al definir la interfaz con S4.3.3, con EVIDENCIA-INSUFICIENTE sobre la práctica.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-7",
+                "F-1"
+              ],
+              "fuentes": [
+                "CON-001 art. 210.3"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:26.092952+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:26.092952+00:00"
+    },
+    {
+      "id": "49320fc1-a8e1-47f1-9d38-ed6f3d73a061",
+      "elemento": "_791b9ed2-e528-5671-b57e-41a86a5b5f47",
+      "referencia": "Caja 12 (T-8)",
+      "texto": "<p><strong>Observación.</strong> El carril de la caja 12 se titula «Atención al Ciudadano — Recepción documentaria» y el sustento dice que su adscripción «requiere confirmación documental». Pero la propia caja 12 ya cita el ROF, art. 20, que corresponde a la <em>Oficina de Atención al Ciudadano y Gestión Documental</em>, con la función de «recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes». La convención de carriles de S4.3.2 (estándar, sección 7.4, num. 3) fija para esa función la etiqueta común «OACGD — Registro documentario», que usan los procesos hermanos.</p><p>De igual modo, el carril «GRI — Trámite de valorización» (cajas 11 y 15) no figura en el catálogo; el catálogo prevé «GRI — Gerente Regional de Infraestructura».</p><p><strong>Pregunta:</strong> ¿Se puede dar por acreditada la adscripción con el ROF, art. 20, y usar la etiqueta común? ¿Quién actúa en GRI: el gerente u otra función?</p><p><strong>Efecto posible:</strong> cambia el nombre de los carriles y se actualiza el sustento (el vacío de adscripción de Atención al Ciudadano queda cerrado si se acepta).</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:26:34.740525+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:26:34.740525+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:26:46.629664+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:26:55.029563+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Fuente institucional.</strong> ROF GRH 2023 (LOC-007, PDF p. 14), art. 20 «Oficina de Atención al Ciudadano y Gestión Documental»: unidad orgánica que depende de la Gerencia General Regional; literal a) «Recepcionar, registrar, clasificar, derivar, distribuir y tramitar documentos que ingresan por mesa de partes». La caja T-8 ya tiene esa cita anclada (estado VIGENTE). Vigencia del ROF: «por verificar».</p><p><strong>Convención del proyecto.</strong> Estándar de artefactos, 7.4, num. 2 (formato «SIGLA — cargo o función») y num. 3 («OACGD — Registro documentario» como etiqueta común); catálogo: «GRI — Gerente Regional de Infraestructura». El mismo estándar reconoce que S4.3.2.1 conserva un solo pool heredado y que la separación de participantes queda pendiente, pero eso no exime de normalizar títulos.</p><p><strong>Inconsistencia tabla-sustento.</strong> El sustento («Delimitación aplicada» y «Vacíos de evidencia») mantiene como pendiente la adscripción que la tabla ya sustenta con el ROF.</p><p><strong>Inferencia.</strong> Para GRI, el ROF no se revisó en esta observación en cuanto a la función que tramita pagos; se mantiene EVIDENCIA-INSUFICIENTE.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "LOC-007 ROF GRH 2023, art. 20 (PDF p. 14)",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 7.4 num. 2 y 3 y catálogo",
+            "DEC-043",
+            "S4-3-2-1-sustento.md, Delimitación aplicada y Vacíos de evidencia"
+          ],
+          "hipotesis": [
+            "H1: «Atención al Ciudadano» es otra unidad distinta de la OACGD (p. ej., una mesa de partes de GRI). No se encontró otra unidad con esa denominación en el ROF; descartada salvo evidencia del usuario.",
+            "H2: la recepción ocurre en el SEACE y no en mesa de partes (ver observación sobre la Directiva 018-2025-OECE-CD). Si se adopta, el carril podría desaparecer; se mantiene abierta y se trata en esa observación."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:46.629664+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Normalizar los carriles con la convención 7.4 y cerrar el vacío de adscripción",
+              "detalle": "<p>Renombrar el carril de la caja 12 a «OACGD — Registro documentario», citando el ROF art. 20, y actualizar el sustento. Para GRI, usar «GRI — Gerente Regional de Infraestructura» si el usuario confirma que es quien tramita, o conservar un título funcional con EVIDENCIA-INSUFICIENTE.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "T-8",
+                "T-11",
+                "F-1"
+              ],
+              "fuentes": [
+                "LOC-007 art. 20",
+                "Estándar 7.4"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Mantener los títulos y justificar la diferencia en el sustento",
+              "detalle": "<p>Explicar por qué este proceso usa un título distinto del catálogo y conservar el vacío de adscripción.</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "T-8"
+              ],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:26:55.029563+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:26:55.029563+00:00"
+    },
+    {
+      "id": "c33cf524-2e72-4ca7-9cff-626afd872f15",
+      "elemento": "",
+      "referencia": "",
+      "texto": "<p><strong>Observación.</strong> La ficha de producto y proceso y la nota índice no reflejan el diagrama vigente desde el 2026-11-25 (DEC-059), que retiró el final «Observaciones notificadas al contratista»:</p><ul><li>la ficha declara como producto la «Carta de observaciones notificada por el subgerente de SGGOS» con receptor el contratista, y su objetivo dice «tramitar la valorización […] o comunicar al contratista las observaciones», como si fueran resultados alternativos. Hoy toda valorización termina en el trámite de pago (total o del monto no cuestionado); la carta es un paso intermedio;</li><li>en la misma tabla de la ficha, «Atención al Ciudadano» aparece como proveedor de un producto que es la carta, lo que no corresponde;</li><li>la nota índice («Qué hace» e «Interacciones») repite el envío de la carta como salida del proceso y no menciona la recepción de la subsanación ni el sustento de mayores metrados que llega de S4.3.2.8;</li><li>la ficha no se actualiza desde el 2026-11-17.</li></ul><p><strong>Pregunta:</strong> ¿Se confirma que el único producto del proceso es la valorización remitida para pago (con el monto que corresponda)?</p><p><strong>Efecto posible:</strong> basta con corregir la ficha y la nota índice; el diagrama no cambia.</p>",
+      "formato": "html",
+      "autor": "Claudia",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T04:27:04.189179+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T04:27:04.189179+00:00",
+          "autor": "Claudia"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T04:27:15.476375+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T04:27:24.512681+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada.</strong> S4-3-2-1-ficha-producto-proceso.md (fecha_actualizacion 2026-11-17): «Objetivo del proceso» y tabla «Proveedor, elementos de entrada, producto y receptor», fila 3 (proveedor Atención al Ciudadano; producto carta de observaciones; receptor contratista). 00-S4-3-2-1-control-periodico-ejecucion.md: «Qué hace» y tabla «Interacciones» (envía carta al contratista). Tabla del diagrama vigente (revisión 35817525…): un solo fin (F-1, caja 11) y ciclo de subsanación GE-1/M-1/R-1/T-13 que vuelve a T-7. Mensaje entrante desde S4.3.2.8 a T-1.</p><p><strong>Decisión aplicable.</strong> DEC-059 retiró F-2 por contradecir los arts. 210.3 y 210.4 del Reglamento de la Ley 32069. El estándar de artefactos, sección 10, exige que ficha, sustento y vista se refieran al mismo modelo antes de revisión.</p><p><strong>Inferencia.</strong> La ficha sigue los campos del Anexo 2 de la NT; solo hay que actualizar su contenido, sin cambiar su estructura.</p>",
+          "formato": "html",
+          "clase": "EXPLICACION-AUSENTE",
+          "fuentes": [
+            "S4-3-2-1-ficha-producto-proceso.md",
+            "00-S4-3-2-1-control-periodico-ejecucion.md",
+            "S4-3-2-1-diagrama-proceso-tabla.md (leer_proceso)",
+            "DEC-059",
+            "00-gobernanza/estandar-artefactos-modelamiento.md, sección 10"
+          ],
+          "hipotesis": [
+            "H1: la carta es un producto secundario que la NT permite listar. Descartada como producto: es un registro intermedio; puede listarse en «Registros», donde ya figura.",
+            "H2: la desactualización es intencional hasta cerrar las demás observaciones. Posible, pero el sustento no lo declara; se recomienda corregir o anotarlo."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:15.476375+00:00",
+          "revision_modelo": "35817525cfe5d84663f3a1c2abfb8a7d18621009d9e0c67bf716f88da8a38f6c"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Actualizar ficha y nota índice al modelo vigente",
+              "detalle": "<p>En la ficha: objetivo «verificar periódicamente el avance ejecutado y tramitar la valorización para pago, previa subsanación de observaciones o por el monto no cuestionado» (propuesta, pendiente de validación del dueño); un solo producto (valorización remitida para trámite de pago); proveedores: ejecutor (valorización y subsanación), supervisor o inspector (informe) y S4.3.2.8 (sustento de mayores metrados); retirar la fila de Atención al Ciudadano como proveedor de la carta. En la nota índice: corregir «Qué hace» e «Interacciones» (recibe subsanación y sustento de S4.3.2.8; la carta es comunicación intermedia).</p>",
+              "formato": "html",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [],
+              "fuentes": [
+                "DEC-059"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Posponer la actualización hasta cerrar las observaciones que cambian el diagrama",
+              "detalle": "<p>Anotar en el sustento que ficha y nota índice se actualizarán en un solo lote cuando se resuelvan las observaciones sobre régimen, SEACE y art. 210.2.</p>",
+              "formato": "html",
+              "efecto": "ACLARACION",
+              "elementos": [],
+              "fuentes": [],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T04:27:24.512681+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T04:27:24.512681+00:00"
+    }
+  ]
+}

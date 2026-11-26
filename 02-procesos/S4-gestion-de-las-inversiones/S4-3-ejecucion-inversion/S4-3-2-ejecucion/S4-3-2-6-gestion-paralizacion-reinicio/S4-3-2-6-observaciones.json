@@ -5,7 +5,7 @@
       "id": "db191fe9-61b3-4ad8-9eb2-f91ae0736859",
       "elemento": "_f048ad50-6470-5ad5-bd35-eb8a3d9826bf",
       "referencia": "Caja 5 (S-T1)",
-      "texto": "[Duda] El informe de paralización de la supervisión se modeló como práctica institucional (indicación del usuario, 2026-11-25); ninguna fuente de la biblioteca lo regula en contrata. Falta confirmar: (1) en qué plazo lo emite tras la anotación del contratista; (2) su contenido mínimo (causa, fecha de inicio, avance, imputabilidad preliminar); (3) si lo remite por mesa de partes (OACGD) o directamente a SGGOS. Atención sugerida: CAMBIO-MODELO si se fija plazo o destinatario; si no, ACLARACION en el sustento.",
+      "texto": "<p><strong>Duda.</strong> El informe con el que la supervisión comunica la paralización se modeló como práctica institucional, según lo indicado por el usuario el 2026-11-25. Ninguna fuente de la biblioteca lo regula para obras por contrata.</p><p><strong>Falta confirmar:</strong></p><ol><li>En qué plazo lo emite la supervisión después de la anotación del contratista.</li><li>Su contenido mínimo: causa, fecha de inicio, avance de obra e imputabilidad preliminar.</li><li>Si lo envía por mesa de partes (OACGD) o directamente a SGGOS.</li></ol><p><strong>Efecto posible:</strong> si se fija un plazo o un destinatario, cambia el diagrama; si no, basta con explicarlo en el sustento.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
       "estado": "ABIERTA",
@@ -27,6 +27,14 @@
           "fecha": "2026-11-25T05:16:29.375038+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:20.974265+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] El informe de paralización de la supervisión se modeló como práctica institucional (indicación del usuario, 2026-11-25); ninguna fuente de la biblioteca lo regula en contrata. Falta confirmar: (1) en qué plazo lo emite tras la anotación del contratista; (2) su contenido mínimo (causa, fecha de inicio, avance, imputabilidad preliminar); (3) si lo remite por mesa de partes (OACGD) o directamente a SGGOS. Atención sugerida: CAMBIO-MODELO si se fija plazo o destinatario; si no, ACLARACION en el sustento.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -91,13 +99,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:16:29.375038+00:00"
+      "actualizada": "2026-11-26T04:13:20.974265+00:00",
+      "formato": "html"
     },
     {
       "id": "d6186bc1-b5c7-411f-8504-448646ac253a",
       "elemento": "_a23981a7-38e7-5d4a-b8ea-0459749ec603",
       "referencia": "Caja 34 (E-T4)",
-      "texto": "[Duda] La evaluación de la causa y de su atribución al contratista quedó en el coordinador de obra. En S4.3.2.4 una decisión equivalente pasa por coordinador, subgerente SGGOS, GRI y Asesoría Jurídica. ¿Quién concluye si la paralización es atribuible: el coordinador, el subgerente con informe del coordinador u otra instancia? Atención sugerida: CAMBIO-MODELO con los carriles que confirme el equipo.",
+      "texto": "<p><strong>Duda.</strong> Hoy el coordinador de obra evalúa por sí solo la causa de la paralización y si es atribuible al contratista. En S4.3.2.4 (ampliaciones de plazo), una decisión equivalente pasa por el coordinador, el subgerente de SGGOS, la GRI y Asesoría Jurídica.</p><p><strong>Pregunta:</strong> ¿quién concluye si la paralización es atribuible al contratista: el coordinador, el subgerente de SGGOS con informe del coordinador u otra instancia?</p><p><strong>Efecto posible:</strong> cambia el diagrama, con los carriles que confirme el equipo.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
       "estado": "ABIERTA",
@@ -119,6 +128,14 @@
           "fecha": "2026-11-25T05:15:16.074782+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:20.981640+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] La evaluación de la causa y de su atribución al contratista quedó en el coordinador de obra. En S4.3.2.4 una decisión equivalente pasa por coordinador, subgerente SGGOS, GRI y Asesoría Jurídica. ¿Quién concluye si la paralización es atribuible: el coordinador, el subgerente con informe del coordinador u otra instancia? Atención sugerida: CAMBIO-MODELO con los carriles que confirme el equipo.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -189,16 +206,17 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:15:16.074782+00:00"
+      "actualizada": "2026-11-26T04:13:20.981640+00:00",
+      "formato": "html"
     },
     {
       "id": "dde0a181-805a-45f1-918b-bfeb0890d2a8",
       "elemento": "_fda28071-a79a-5bf0-a0d8-ec3fa7706fbd",
       "referencia": "Caja 35 (E-T5)",
-      "texto": "[Pendiente de evidencia] El registro de la paralización en INFOBRAS es práctica informada por el usuario. La Directiva 005-2023-CG/GMPL (gestión del registro de obras en INFOBRAS, vigente desde el 01-06-2024) no está en la biblioteca: la guía CTRL-002 solo la menciona. Falta: el texto de la directiva o la confirmación de quién registra (coordinador, responsable designado de INFOBRAS u otro) y en qué plazo. El carril actual (coordinador) es provisional. Atención sugerida: PENDIENTE-EVIDENCIA hasta incorporar la fuente.",
+      "texto": "<p><strong>Pendiente de evidencia.</strong> El registro de la paralización en INFOBRAS se modeló como práctica informada por el usuario.</p><p>La norma que lo regula, la Directiva 005-2023-CG/GMPL (gestión del registro de obras en INFOBRAS, vigente desde el 01-06-2024), no está en la biblioteca: la guía CTRL-002 solo la menciona.</p><p><strong>Falta:</strong></p><ul><li>El texto de la directiva, o la confirmación de quién registra (coordinador, responsable designado de INFOBRAS u otro) y en qué plazo.</li></ul><p>El carril actual (coordinador de obra) es provisional.</p><p><strong>Efecto posible:</strong> queda pendiente hasta incorporar la fuente.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
-      "estado": "ABIERTA",
+      "estado": "RESUELTA",
       "fecha": "2026-11-25T04:03:53.381934+00:00",
       "historial": [
         {
@@ -217,6 +235,19 @@
           "fecha": "2026-11-25T05:17:00.606286+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:20.988530+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Pendiente de evidencia] El registro de la paralización en INFOBRAS es práctica informada por el usuario. La Directiva 005-2023-CG/GMPL (gestión del registro de obras en INFOBRAS, vigente desde el 01-06-2024) no está en la biblioteca: la guía CTRL-002 solo la menciona. Falta: el texto de la directiva o la confirmación de quién registra (coordinador, responsable designado de INFOBRAS u otro) y en qué plazo. El carril actual (coordinador) es provisional. Atención sugerida: PENDIENTE-EVIDENCIA hasta incorporar la fuente.",
+          "formato_anterior": "texto"
+        },
+        {
+          "accion": "ESTADO_CAMBIADO",
+          "fecha": "2026-11-26T14:24:24.646873+00:00",
+          "estado": "RESUELTA"
         }
       ],
       "respuestas": [],
@@ -283,14 +314,15 @@
           "fecha": "2026-11-25T05:17:00.606286+00:00"
         }
       },
-      "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:17:00.606286+00:00"
+      "etapa": "RESUELTA",
+      "actualizada": "2026-11-26T14:24:24.646873+00:00",
+      "formato": "html"
     },
     {
       "id": "43959fd8-d2d3-4823-9078-b05b4908ae2d",
       "elemento": "_5595744c-c20f-5721-a3ef-5716df15565c",
       "referencia": "Caja 20 (E-T8)",
-      "texto": "[Pendiente de evidencia] Igual que la observación de la caja 35 (E-T5), aplicada al registro del reinicio en INFOBRAS: responsable, plazo y fuente por confirmar. Se resolverá vinculada a esa observación (VINCULADA-A-CAMBIO).",
+      "texto": "<p><strong>Pendiente de evidencia.</strong> Es la misma duda de la observación de la caja 35 (E-T5), pero para el registro del <em>reinicio</em> en INFOBRAS: falta confirmar el responsable, el plazo y la fuente.</p><p><strong>Efecto posible:</strong> se resolverá junto con la observación de la caja 35.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -312,6 +344,14 @@
           "fecha": "2026-11-25T05:17:12.438954+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:20.995698+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Pendiente de evidencia] Igual que la observación de la caja 35 (E-T5), aplicada al registro del reinicio en INFOBRAS: responsable, plazo y fuente por confirmar. Se resolverá vinculada a esa observación (VINCULADA-A-CAMBIO).",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -364,13 +404,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:17:12.438954+00:00"
+      "actualizada": "2026-11-26T04:13:20.995698+00:00",
+      "formato": "html"
     },
     {
       "id": "fd1218e6-e31a-4364-aad1-1e9d26be8fa1",
       "elemento": "_b067ef06-5d5b-5736-a2ab-c6ef90b1f103",
       "referencia": "Caja 18 (E-F2)",
-      "texto": "[Duda] Si la paralización es atribuible al contratista, el modelo solo la comunica y remite a la aplicación del contrato (la resolución está diferida por DEC-061). ¿Qué acto emite la entidad en la práctica: carta de requerimiento de reinicio, aplicación de penalidades, apercibimiento de resolución u otro? Con esa respuesta se precisa el nombre del fin y del mensaje. Atención sugerida: CAMBIO-MODELO o ACLARACION.",
+      "texto": "<p><strong>Duda.</strong> Cuando la paralización es atribuible al contratista, el modelo solo la comunica y remite a la aplicación del contrato. La resolución del contrato quedó fuera de este proceso por la decisión DEC-061.</p><p><strong>Pregunta:</strong> ¿qué documento emite la entidad en la práctica? Por ejemplo: carta de requerimiento de reinicio, aplicación de penalidades, apercibimiento de resolución u otro.</p><p><strong>Efecto posible:</strong> con la respuesta se precisa el nombre del evento final y del mensaje; puede cambiar el diagrama o bastar con explicarlo en el sustento.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
       "estado": "ABIERTA",
@@ -392,6 +433,14 @@
           "fecha": "2026-11-25T05:15:43.179722+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.004627+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] Si la paralización es atribuible al contratista, el modelo solo la comunica y remite a la aplicación del contrato (la resolución está diferida por DEC-061). ¿Qué acto emite la entidad en la práctica: carta de requerimiento de reinicio, aplicación de penalidades, apercibimiento de resolución u otro? Con esa respuesta se precisa el nombre del fin y del mensaje. Atención sugerida: CAMBIO-MODELO o ACLARACION.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -461,13 +510,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:15:43.179722+00:00"
+      "actualizada": "2026-11-26T04:13:21.004627+00:00",
+      "formato": "html"
     },
     {
       "id": "fbc49135-c121-4987-9d06-ec2e084e69ad",
       "elemento": "_ccacc64a-10ff-59f8-916f-7f362f9dc578",
       "referencia": "Caja 17 (E-F1)",
-      "texto": "[Interfaz] La paralización no atribuible se deriva a S4.3.2.5 para acordar la suspensión (preferencia institucional indicada por el usuario). Si el contratista no acepta, S4.3.2.5 termina en suspensión no acordada y la paralización fundada sigue como causal de ampliación (198.1 a). Hay que decidir si ese caso vuelve a S4.3.2.6 (por ejemplo, para registrar el estado) o queda cerrado a la espera del cese de la causa (caja 25, R-E2). Atención sugerida: CAMBIO-MODELO en la interfaz S4.3.2.5–S4.3.2.6 o ACLARACION en el sustento.",
+      "texto": "<p><strong>Conexión con otro proceso.</strong> Cuando la paralización no es atribuible al contratista, se deriva a S4.3.2.5 para acordar la suspensión del plazo, por preferencia institucional indicada por el usuario.</p><p>Si el contratista no acepta, S4.3.2.5 termina en «suspensión no acordada», y la paralización fundada sigue siendo causal de ampliación de plazo (Reglamento, art. 198.1 a).</p><p><strong>Hay que decidir</strong> qué pasa en ese caso:</p><ul><li>vuelve a S4.3.2.6, por ejemplo para registrar el estado; o</li><li>queda cerrado a la espera de que cese la causa (caja 25, R-E2).</li></ul><p><strong>Efecto posible:</strong> cambia la conexión entre S4.3.2.5 y S4.3.2.6 en el diagrama, o basta con explicarlo en el sustento.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -489,6 +539,14 @@
           "fecha": "2026-11-25T05:15:28.827653+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.015812+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Interfaz] La paralización no atribuible se deriva a S4.3.2.5 para acordar la suspensión (preferencia institucional indicada por el usuario). Si el contratista no acepta, S4.3.2.5 termina en suspensión no acordada y la paralización fundada sigue como causal de ampliación (198.1 a). Hay que decidir si ese caso vuelve a S4.3.2.6 (por ejemplo, para registrar el estado) o queda cerrado a la espera del cese de la causa (caja 25, R-E2). Atención sugerida: CAMBIO-MODELO en la interfaz S4.3.2.5–S4.3.2.6 o ACLARACION en el sustento.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -544,13 +602,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:15:28.827653+00:00"
+      "actualizada": "2026-11-26T04:13:21.015812+00:00",
+      "formato": "html"
     },
     {
       "id": "afdbec87-be7d-4eae-ba01-3bcc7eb6993a",
       "elemento": "_ff203a1e-97dc-50d7-8ccd-73ea75094b97",
       "referencia": "Caja 32 (S-T2)",
-      "texto": "[Duda] El acta de reinicio se modeló como práctica (indicación del usuario), suscrita por la supervisión y el contratista. ¿Participa también la entidad (coordinador de obra)? ¿Se usa la misma acta cuando la obra se reactiva por la Ley 31589 (caja 48, T-F3)? Atención sugerida: CAMBIO-MODELO si cambian los participantes.",
+      "texto": "<p><strong>Duda.</strong> El acta de reinicio de los trabajos se modeló como práctica indicada por el usuario, firmada por la supervisión y el contratista.</p><p><strong>Preguntas:</strong></p><ol><li>¿Participa también la entidad, a través del coordinador de obra?</li><li>¿Se usa la misma acta cuando la obra se reactiva por la Ley 31589 (caja 48, T-F3)?</li></ol><p><strong>Efecto posible:</strong> si cambian los participantes, cambia el diagrama.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
       "estado": "ABIERTA",
@@ -572,6 +631,14 @@
           "fecha": "2026-11-25T05:16:43.770963+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.026355+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] El acta de reinicio se modeló como práctica (indicación del usuario), suscrita por la supervisión y el contratista. ¿Participa también la entidad (coordinador de obra)? ¿Se usa la misma acta cuando la obra se reactiva por la Ley 31589 (caja 48, T-F3)? Atención sugerida: CAMBIO-MODELO si cambian los participantes.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -637,16 +704,17 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:16:43.770963+00:00"
+      "actualizada": "2026-11-26T04:13:21.026355+00:00",
+      "formato": "html"
     },
     {
       "id": "54716c68-7ac5-4eae-b20b-f43805bcd7af",
       "elemento": "_7b43973d-d853-526e-abe0-2aa3cac47052",
       "referencia": "Caja 36 (U-E1)",
-      "texto": "[Duda] El TUO de la Ley 31589 asigna el inventario y el informe de estado situacional a la UEI (arts. 3.1 y 9.2) y el registro de la lista priorizada a la OPMI (art. 4.4). ¿Qué unidad del GORE Huánuco actúa como UEI de las obras por contrata (GRI, SGGOS u otra unidad ejecutora)? Con el ROF se precisaría el carril. Atención sugerida: CAMBIO-MODELO del carril y ACLARACION con el artículo del ROF.",
+      "texto": "<p><strong>Duda.</strong> El TUO de la Ley 31589 asigna a la Unidad Ejecutora de Inversiones (UEI) el inventario y el informe de estado situacional de las obras paralizadas (arts. 3.1 y 9.2), y a la OPMI el registro de la lista priorizada (art. 4.4).</p><p><strong>Pregunta:</strong> ¿qué unidad del GORE Huánuco actúa como UEI de las obras por contrata: la GRI, SGGOS u otra unidad ejecutora?</p><p><strong>Efecto posible:</strong> cambia el carril en el diagrama, y en el sustento se cita el artículo del ROF que lo respalde.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
-      "estado": "ABIERTA",
+      "estado": "RESUELTA",
       "fecha": "2026-11-25T04:03:53.395609+00:00",
       "historial": [
         {
@@ -665,6 +733,19 @@
           "fecha": "2026-11-25T05:15:58.327107+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.036231+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] El TUO de la Ley 31589 asigna el inventario y el informe de estado situacional a la UEI (arts. 3.1 y 9.2) y el registro de la lista priorizada a la OPMI (art. 4.4). ¿Qué unidad del GORE Huánuco actúa como UEI de las obras por contrata (GRI, SGGOS u otra unidad ejecutora)? Con el ROF se precisaría el carril. Atención sugerida: CAMBIO-MODELO del carril y ACLARACION con el artículo del ROF.",
+          "formato_anterior": "texto"
+        },
+        {
+          "accion": "ESTADO_CAMBIADO",
+          "fecha": "2026-11-26T14:23:07.805175+00:00",
+          "estado": "RESUELTA"
         }
       ],
       "respuestas": [],
@@ -749,14 +830,15 @@
           "fecha": "2026-11-25T05:15:58.327107+00:00"
         }
       },
-      "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:15:58.327107+00:00"
+      "etapa": "RESUELTA",
+      "actualizada": "2026-11-26T14:23:07.805175+00:00",
+      "formato": "html"
     },
     {
       "id": "e54696d7-731a-4639-80bb-4ebc77649d3d",
       "elemento": "_b5210ec5-bdb7-54f4-99d8-908fafa84c3e",
       "referencia": "Caja 43 (T-T3)",
-      "texto": "[Duda] El art. 5.2 dice que «la entidad» propone la continuidad o resuelve el contrato; el modelo lo asignó al titular. ¿Lo ejerce el Gobernador Regional o una autoridad delegada (GRI, Gerencia General)? Afecta también la decisión T-G1 (caja 42). Atención sugerida: CAMBIO-MODELO del carril.",
+      "texto": "<p><strong>Duda.</strong> El art. 5.2 de la Ley 31589 dice que «la entidad» propone la continuidad de la obra o resuelve el contrato. El modelo asignó esa decisión al titular de la entidad.</p><p><strong>Pregunta:</strong> ¿la ejerce el Gobernador Regional o una autoridad delegada, como la GRI o la Gerencia General? La respuesta afecta también a la decisión de la caja 42 (T-G1).</p><p><strong>Efecto posible:</strong> cambia el carril en el diagrama.</p>",
       "autor": "Claudia",
       "tipo": "COMENTARIO",
       "estado": "ABIERTA",
@@ -778,6 +860,14 @@
           "fecha": "2026-11-25T05:16:11.274715+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.048776+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Duda] El art. 5.2 dice que «la entidad» propone la continuidad o resuelve el contrato; el modelo lo asignó al titular. ¿Lo ejerce el Gobernador Regional o una autoridad delegada (GRI, Gerencia General)? Afecta también la decisión T-G1 (caja 42). Atención sugerida: CAMBIO-MODELO del carril.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -850,13 +940,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:16:11.274715+00:00"
+      "actualizada": "2026-11-26T04:13:21.048776+00:00",
+      "formato": "html"
     },
     {
       "id": "45fd43a6-d3ab-42ae-944e-4a2c2f08efb0",
       "elemento": "_63b3c073-ebcb-578e-9045-caa7a349eeee",
       "referencia": "Caja 51 (T-F2)",
-      "texto": "[Inferencia] El fin «Obra no incluida en la lista priorizada» no está en la ley: es una inferencia sobre el art. 4.4. La ley no dice qué ocurre con una obra inventariada que no se prioriza; podría reevaluarse en la siguiente actualización del inventario (art. 3.1: se actualiza permanentemente). Atención sugerida: PENDIENTE-EVIDENCIA o decisión del equipo sobre el tratamiento.",
+      "texto": "<p><strong>Inferencia.</strong> El evento final «Obra no incluida en la lista priorizada» no aparece en la ley: es una deducción a partir del art. 4.4.</p><p>La ley no dice qué ocurre con una obra inventariada que no se prioriza. Podría reevaluarse en la siguiente actualización del inventario, que según el art. 3.1 se actualiza de forma permanente.</p><p><strong>Efecto posible:</strong> queda pendiente hasta tener una fuente, o el equipo decide cómo tratar ese caso.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -878,6 +969,14 @@
           "fecha": "2026-11-25T05:17:25.904126+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.062277+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Inferencia] El fin «Obra no incluida en la lista priorizada» no está en la ley: es una inferencia sobre el art. 4.4. La ley no dice qué ocurre con una obra inventariada que no se prioriza; podría reevaluarse en la siguiente actualización del inventario (art. 3.1: se actualiza permanentemente). Atención sugerida: PENDIENTE-EVIDENCIA o decisión del equipo sobre el tratamiento.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -942,13 +1041,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:17:25.904126+00:00"
+      "actualizada": "2026-11-26T04:13:21.062277+00:00",
+      "formato": "html"
     },
     {
       "id": "7d0319b5-a10a-4864-9661-4b92769c679a",
       "elemento": "",
       "referencia": "Diagrama completo",
-      "texto": "[Vigencia] El TUO de la Ley 31589 (D.S. 206-2024-EF) remite a la Ley 30225 y al D.S. 344-2018-EF. El preámbulo del Reglamento de la Ley 32069 menciona un decreto supremo que aprueba equivalencias entre los procedimientos de selección del TUO y los de la Ley 32069. La vigencia jurídica del régimen frente a la Ley 32069 figura como por confirmar en el catálogo. Falta incorporar ese decreto de equivalencias y confirmar la vigencia. Atención sugerida: PENDIENTE-EVIDENCIA; no afecta el flujo mientras no se confirme lo contrario.",
+      "texto": "<p><strong>Vigencia.</strong> El TUO de la Ley 31589 (D.S. 206-2024-EF) remite a la Ley 30225 y al D.S. 344-2018-EF. El preámbulo del Reglamento de la Ley 32069 menciona un decreto supremo que establece equivalencias entre los procedimientos de selección del TUO y los de la Ley 32069.</p><p>En el catálogo, la vigencia de este régimen frente a la Ley 32069 figura como «por confirmar».</p><p><strong>Falta:</strong> incorporar ese decreto de equivalencias a la biblioteca y confirmar la vigencia.</p><p><strong>Efecto posible:</strong> queda pendiente de evidencia; no cambia el flujo mientras no se confirme lo contrario.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -970,6 +1070,14 @@
           "fecha": "2026-11-25T05:17:46.070953+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.072406+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Vigencia] El TUO de la Ley 31589 (D.S. 206-2024-EF) remite a la Ley 30225 y al D.S. 344-2018-EF. El preámbulo del Reglamento de la Ley 32069 menciona un decreto supremo que aprueba equivalencias entre los procedimientos de selección del TUO y los de la Ley 32069. La vigencia jurídica del régimen frente a la Ley 32069 figura como por confirmar en el catálogo. Falta incorporar ese decreto de equivalencias y confirmar la vigencia. Atención sugerida: PENDIENTE-EVIDENCIA; no afecta el flujo mientras no se confirme lo contrario.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -1030,13 +1138,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:17:46.070953+00:00"
+      "actualizada": "2026-11-26T04:13:21.072406+00:00",
+      "formato": "html"
     },
     {
       "id": "5a614d27-0585-42e4-9b62-979fc68d7a59",
       "elemento": "",
       "referencia": "Diagrama completo",
-      "texto": "[Trazado] La generación del 2026-11-25 deja 5 hallazgos D4: 3 flujos superpuestos (corredor común de R-F1→S-E1 y T-T3→C-E1; salidas de T-G1 hacia T-F4 y T-F2 sobre la entrada desde O-T1) y 2 etiquetas montadas sobre anotaciones (documentos de U-T2 y T-T3). Se adoptó con --forzar para poder observar los elementos nuevos. Requiere revisión visual del usuario y, si corresponde, ajuste de orden o anotaciones. D1, D2, D3 y D5 sin hallazgos.",
+      "texto": "<p><strong>Disposición del diagrama.</strong> La generación del 2026-11-25 dejó cinco avisos de trazado (control D4); los controles D1, D2, D3 y D5 no tienen avisos.</p><ul><li><strong>Tres flujos superpuestos:</strong> el corredor común de R-F1→S-E1 y de T-T3→C-E1, y las salidas de T-G1 hacia T-F4 y T-F2, que pasan sobre la entrada desde O-T1.</li><li><strong>Dos etiquetas montadas sobre anotaciones:</strong> los documentos de U-T2 y de T-T3.</li></ul><p>El diagrama se generó de todos modos, aceptando esos avisos, para poder revisar los elementos nuevos.</p><p><strong>Requiere:</strong> que el usuario revise visualmente el diagrama y, si corresponde, ajustar el orden de los elementos o las anotaciones.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -1058,6 +1167,14 @@
           "fecha": "2026-11-25T05:18:06.961698+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.084752+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Trazado] La generación del 2026-11-25 deja 5 hallazgos D4: 3 flujos superpuestos (corredor común de R-F1→S-E1 y T-T3→C-E1; salidas de T-G1 hacia T-F4 y T-F2 sobre la entrada desde O-T1) y 2 etiquetas montadas sobre anotaciones (documentos de U-T2 y T-T3). Se adoptó con --forzar para poder observar los elementos nuevos. Requiere revisión visual del usuario y, si corresponde, ajuste de orden o anotaciones. D1, D2, D3 y D5 sin hallazgos.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -1131,13 +1248,14 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:18:06.961698+00:00"
+      "actualizada": "2026-11-26T04:13:21.084752+00:00",
+      "formato": "html"
     },
     {
       "id": "d5eaa537-f8a6-4930-9ad2-1c082bed2707",
       "elemento": "",
       "referencia": "Diagrama completo",
-      "texto": "[Trabajo pendiente del agente] La tabla cambió a enfoque contrata (decisión del usuario, 2026-11-25). La auditoría por afirmación y la cobertura de fuente siguen sobre la revisión anterior; las anclas de R-E1, R-T1, S-T1, E-E1, E-T1, E-T2, E-T5 y E-T8 provienen del contenido previo (Directiva 017-2023-CG, num. 7.3.7) y algunas ya no corresponden. Hay que reinventariar, reconfirmar afirmaciones y anclas, y registrar las obligaciones nuevas (Reglamento 198.1 a y 200.1 a; TUO de la Ley 31589, arts. 2.1, 3, 4.1, 4.2, 4.4, 5.2, 5.3, 9.1-9.3). Atención sugerida: CAMBIO-SUSTENTO al cerrar el lote, después de resolver las dudas que cambian el flujo.",
+      "texto": "<p><strong>Trabajo pendiente del agente.</strong> La tabla cambió al enfoque de obras por contrata (decisión del usuario, 2026-11-25), pero la auditoría de afirmaciones y la cobertura de fuentes siguen hechas sobre la versión anterior.</p><p>Las citas ancladas de R-E1, R-T1, S-T1, E-E1, E-T1, E-T2, E-T5 y E-T8 vienen del contenido previo (Directiva 017-2023-CG, numeral 7.3.7), y algunas ya no corresponden.</p><p><strong>Falta:</strong></p><ul><li>volver a inventariar los elementos;</li><li>reconfirmar las afirmaciones y las citas;</li><li>registrar las obligaciones nuevas: Reglamento, arts. 198.1 a y 200.1 a; TUO de la Ley 31589, arts. 2.1, 3, 4.1, 4.2, 4.4, 5.2, 5.3 y 9.1 a 9.3.</li></ul><p><strong>Efecto posible:</strong> se actualiza el sustento al cerrar el lote, después de resolver las dudas que cambian el flujo.</p>",
       "autor": "Claudia",
       "tipo": "OBSERVACION",
       "estado": "ABIERTA",
@@ -1159,6 +1277,14 @@
           "fecha": "2026-11-25T05:18:19.651353+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "REDACTADA",
+          "fecha": "2026-11-26T04:13:21.095612+00:00",
+          "autor": "Claudia",
+          "motivo": "Redacción más clara y en HTML, a pedido del usuario; sin cambios de contenido",
+          "texto_anterior": "[Trabajo pendiente del agente] La tabla cambió a enfoque contrata (decisión del usuario, 2026-11-25). La auditoría por afirmación y la cobertura de fuente siguen sobre la revisión anterior; las anclas de R-E1, R-T1, S-T1, E-E1, E-T1, E-T2, E-T5 y E-T8 provienen del contenido previo (Directiva 017-2023-CG, num. 7.3.7) y algunas ya no corresponden. Hay que reinventariar, reconfirmar afirmaciones y anclas, y registrar las obligaciones nuevas (Reglamento 198.1 a y 200.1 a; TUO de la Ley 31589, arts. 2.1, 3, 4.1, 4.2, 4.4, 5.2, 5.3, 9.1-9.3). Atención sugerida: CAMBIO-SUSTENTO al cerrar el lote, después de resolver las dudas que cambian el flujo.",
+          "formato_anterior": "texto"
         }
       ],
       "respuestas": [],
@@ -1204,7 +1330,224 @@
         }
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-25T05:18:19.651353+00:00"
+      "actualizada": "2026-11-26T04:13:21.095612+00:00",
+      "formato": "html"
+    },
+    {
+      "id": "3dadf8d0-e06d-4097-a8b8-f754c573e21f",
+      "elemento": "",
+      "referencia": "",
+      "texto": "El pool del proceso S4.3.2.5 Formalización de las suspensiones de plazo o cumple con la notación BPMN, alinearlo",
+      "formato": "html",
+      "autor": "kathering inguza lastra",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T14:26:00.725897+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T14:26:00.725897+00:00",
+          "autor": "kathering inguza lastra"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T14:37:35.776208+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T14:37:48.260777+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong> en S4.3.2.6, el fin de mensaje E-F1 (caja 17) envía «Paralización derivada para suspensión» a la referencia S4.3.2.5. En el diagrama propio de S4.3.2.5, el mismo mensaje llega desde la referencia a S4.3.2.6 a E-E3 (caja 30), dentro del Gobierno Regional Huánuco, carril SGGOS; E-E3 continúa a E-T3. La auditoría de interfaces del padre sobre ambas revisiones no reporta candidatos, pero no mide la geometría ni el tipo BPMN emitido.</p><p><strong>Criterio:</strong> DEC-027 y LOC-004, pp. PDF 100 y 105–106 (fig. 2.103), distinguen el pool de un carril y admiten un pool cerrado sin actividades internas visibles con mensaje anclado en su borde. DEC-063 conserva esta derivación como práctica institucional; CON-001, arts. 107 y 202, regula la suspensión de plazo y sus supuestos, no la alineación del diagrama. La representación de la interfaz no convierte a S4.3.2.5 en otra entidad ni cambia las competencias.</p><p><strong>Inferencia y límite:</strong> por el proceso donde se registró y la etiqueta citada, la observación apunta a la referencia gráfica a S4.3.2.5 en el visor de S4.3.2.6, no al diagrama propio de suspensiones. <strong>EVIDENCIA-INSUFICIENTE</strong> para afirmar si hay geometría defectuosa, un símbolo incorrecto o solo una diferencia de presentación: se necesita el BPMN generado de la misma revisión y una vista o captura del visor con el elemento señalado. El paquete de contexto no incluye esos artefactos.</p>",
+          "formato": "html",
+          "clase": "FALTA-EVIDENCIA",
+          "fuentes": [
+            "Tablas vigentes S4.3.2.6 E-F1 y S4.3.2.5 E-E3/E-T3; flujo «Paralización derivada para suspensión» en ambas",
+            "S4.3.2 paquete de contexto, SP",
+            "Auditoría de interfaces S4.3.2 del 2026-11-26",
+            "DEC-027",
+            "DEC-058",
+            "DEC-063",
+            "LOC-004 pp. PDF 100, 105–106",
+            "CON-001 arts. 107, 198.1 a y 202",
+            "LOC-007 arts. 20, 97–98"
+          ],
+          "hipotesis": [
+            "Problema del dibujo del participante cerrado: principal si el visor confirma que el borde, rótulo o punto de llegada no se distinguen; un rectángulo delgado por sí solo no prueba un fallo según DEC-027 y LOC-004.",
+            "Problema de clasificación de la interfaz o caso de otro diagrama: cotejar el XML. La tabla del hermano muestra el mensaje recíproco y E-E3 en SGGOS; el padre muestra SP como subproceso en su propio nivel, no como forma que deba copiarse al visor del hermano. No expandir el vecino ni sustituir el mensaje por flujo de secuencia sin evidencia.",
+            "Otra figura o responsable: la suspensión contractual de los arts. 107 y 202 se distingue de la ampliación del 198.1 a. El ROF distingue registrar/derivar documentos (art. 20) de controlar y seguir obras (arts. 97–98). Nada de ello justifica mover E-E3, alterar el destino de E-F1 o asignar otra responsabilidad para alinear el dibujo.",
+            "Prueba en contra de un ajuste solo gráfico: si el XML no representa a la referencia como participante cerrado o el mensaje no apunta al extremo debido, corresponde corregir la salida de generación y no solo la posición. Si ambos extremos y el dibujo ya son correctos, bastaría explicar la convención. La auditoría de interfaces no resuelve esta distinción."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T14:37:35.776208+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Cotejar y alinear el pool cerrado en S4.3.2.6",
+              "detalle": "Comparar el BPMN y el visor de la misma revisión. Si se confirma la diferencia, representar la referencia a S4.3.2.5 como pool cerrado de la paleta, sin carriles ni cajas internas, con rótulo legible, alineado respecto de los demás pools sin superposición y con la punta del mensaje de E-F1 anclada en su borde. Corregir en la tabla maestra o en la generación según el origen; regenerar BPMN y HTML, no editarlos a mano. Comprobar D2, D4 y D5 y que el diagrama propio de S4.3.2.5 conserve la recepción E-E3. Justificar en el sustento cualquier hallazgo que se decida adoptar.",
+              "formato": "texto",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F1"
+              ],
+              "fuentes": [
+                "LOC-004 pp. PDF 105–106, fig. 2.103",
+                "DEC-027",
+                "DEC-063",
+                "Tablas S4.3.2.6 E-F1 y S4.3.2.5 E-E3"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Explicar el pool cerrado si ya está bien representado",
+              "detalle": "Si el BPMN y el visor confirman que el símbolo, la alineación y el extremo del mensaje son correctos, mantener el dibujo y explicar en el sustento que el pool cerrado muestra únicamente la interfaz con el proceso vecino; la lógica de suspensión se consulta en el diagrama propio de S4.3.2.5.",
+              "formato": "texto",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-F1"
+              ],
+              "fuentes": [
+                "LOC-004 pp. PDF 105–106",
+                "DEC-027",
+                "Tablas S4.3.2.6 E-F1 y S4.3.2.5 E-E3"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T14:37:48.260777+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T14:37:48.260777+00:00"
+    },
+    {
+      "id": "146379f2-0e1a-48eb-8472-7a693ad595e6",
+      "elemento": "",
+      "referencia": "",
+      "texto": "La flecha de flujo de mensaje, que informa sobre la comunicación de paralización atribuible, no tiene un destino",
+      "formato": "html",
+      "autor": "kathering inguza lastra",
+      "tipo": "OBSERVACION",
+      "estado": "ABIERTA",
+      "etapa": "PROPUESTA",
+      "fecha": "2026-11-26T14:34:49.315522+00:00",
+      "historial": [
+        {
+          "accion": "CREADA",
+          "fecha": "2026-11-26T14:34:49.315522+00:00",
+          "autor": "kathering inguza lastra"
+        },
+        {
+          "accion": "ANALIZADA",
+          "fecha": "2026-11-26T14:36:35.685323+00:00",
+          "autor": "Claudia",
+          "estado": "EN-ANALISIS"
+        },
+        {
+          "accion": "PROPUESTA",
+          "fecha": "2026-11-26T14:36:50.701981+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
+        }
+      ],
+      "respuestas": [],
+      "resolucion": {
+        "analisis": {
+          "texto": "<p><strong>Evidencia observada:</strong> la tabla maestra sí asigna destino al mensaje «Comunicación de paralización atribuible» (flujo _51fd5f49-0e07-5351-aedf-d73bf0dee35f): sale de E-F2 (caja 18, Gobierno Regional Huánuco) y apunta al participante Contratista. La rama «Sí» de E-G3 conduce a E-F2. El pool del Contratista ya contiene otros recorridos; ninguna de sus cajas representa la recepción de este aviso. La falta de un extremo visible fue reportada en el visor; no se comprobó directamente el BPMN generado ni su trazado. El aviso D4 previo no enumera este flujo.</p><p><strong>Norma y alcance:</strong> el art. 105.1 del Reglamento de la Ley 32069 establece el régimen general de comunicaciones de ejecución por Pladicop; no define una tarea receptora ni una respuesta específica para este aviso. Los arts. 107.1 y 202 distinguen la suspensión del plazo; el 198.1 a regula otra causal, por hechos no atribuibles al contratista, y el 122 distingue el requerimiento bajo apercibimiento y la resolución. El art. 5.2–5.3 del TUO de la Ley 31589 regula otra comunicación: la propuesta de continuidad. El manual BPMN ejemplifica flujos al borde del pool sin actividad receptora (LOC-004, pp. 105–106); DEC-027 fija la notación del proyecto.</p><p><strong>Inferencia:</strong> el destinatario institucional no falta en la tabla; hay que distinguir si la flecha termina correctamente en el borde pero no se distingue, o si el generador no resolvió o dibujó bien el extremo. <strong>EVIDENCIA-INSUFICIENTE:</strong> para identificar la causa gráfica falta cotejar el BPMN generado, su trazado y el visor; para asignar una caja, firma, acuse o trámite específico falta la cláusula contractual, delegación o instrucción interna aplicable y un ejemplo del aviso efectivamente cursado.</p>",
+          "formato": "html",
+          "clase": "ERROR-MODELO",
+          "fuentes": [
+            "S4.3.2.6 tabla vigente: E-G3, E-F2, C-E1, T-T3, flujo _51fd5f49-0e07-5351-aedf-d73bf0dee35f",
+            "S4.3.2.5 paquete de contexto, E-E3",
+            "S4.3.2 paquete de contexto, B-1",
+            "Observación D4 5a614d27-0585-42e4-9b62-979fc68d7a59",
+            "LOC-004 pp. PDF 105–106",
+            "DEC-027",
+            "DEC-063",
+            "CON-001 arts. 105, 107, 122, 198–202",
+            "CON-009 art. 5.2–5.3",
+            "LOC-007 arts. 20, 25, 97–98"
+          ],
+          "hipotesis": [
+            "Destino existente pero poco visible, ambiguo o no resuelto en el artefacto: principal. La tabla identifica al Contratista; el detalle gráfico queda por comprobar. El manual, incluidas las pp. 105–106, no exige inventar una caja para mostrar un intercambio al nivel del participante.",
+            "Conectar a C-E1 o a S4.3.2.5 E-E3: descartado. C-E1 recibe una propuesta de continuidad por un régimen especial y E-E3 recibe la derivación distinta para suspensión. El evento B-1 del padre presupone contrato resuelto, no solo comunicación de paralización atribuible.",
+            "Asignar como responsable a la oficina que registra y tramita, a quien suscribe contratos o a quien controla y supervisa obra: el ROF (arts. 20, 25 y 97–98) distingue esas funciones, pero no prueba quién cursa este aviso particular ni quién lo tramita dentro del Contratista. No cambiar roles por analogía.",
+            "Prueba en contra de conservar el destino al participante: un procedimiento específico que exija recepción o respuesta, o un artefacto que no resuelva el borde. El art. 105.1 prescribe el canal general, no una caja; el art. 122 regula supuestos distintos, y C-E1 solo sería compatible con la propuesta de continuidad. No se identificó sustento para una nueva recepción específica."
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T14:36:35.685323+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "propuesta": {
+          "seleccion": "UNICA",
+          "opciones": [
+            {
+              "id": "A",
+              "titulo": "Hacer visible el destino en el pool Contratista",
+              "detalle": "Cotejar que el extremo BPMN del flujo de E-F2 referencia al participante Contratista y que la punta se distingue en su borde en el HTML. Si falla, corregir la referencia en la tabla maestra o el trazado en la generación, según dónde esté el defecto, y regenerar BPMN y HTML. Conservar el destinatario y el significado del aviso; no crear otra caja ni convertirlo en propuesta de continuidad, suspensión, apercibimiento o resolución. Comprobar el extremo y la etiqueta en el visor y revisar D2, D4 y D5; si se adopta algún hallazgo, justificarlo en el sustento.",
+              "formato": "texto",
+              "efecto": "CAMBIO-MODELO",
+              "elementos": [
+                "E-F2"
+              ],
+              "fuentes": [
+                "S4.3.2.6 tabla vigente, flujo _51fd5f49-0e07-5351-aedf-d73bf0dee35f",
+                "LOC-004 pp. PDF 105–106",
+                "DEC-027",
+                "CON-001 arts. 105.1 y 122"
+              ],
+              "recomendada": true
+            },
+            {
+              "id": "B",
+              "titulo": "Aclarar el destino si la flecha ya termina correctamente",
+              "detalle": "Solo si el cotejo confirma que la referencia BPMN y la punta visible son correctas, mantener el flujo y aclarar en el sustento que el destinatario es el participante Contratista, no una actividad receptora. Si la punta no se distingue, esta alternativa no atiende el problema de trazado.",
+              "formato": "texto",
+              "efecto": "CAMBIO-SUSTENTO",
+              "elementos": [
+                "E-F2"
+              ],
+              "fuentes": [
+                "S4.3.2.6 tabla vigente, flujo _51fd5f49-0e07-5351-aedf-d73bf0dee35f",
+                "LOC-004 pp. PDF 105–106"
+              ],
+              "recomendada": false
+            },
+            {
+              "id": "C",
+              "titulo": "Pedir evidencia antes de modelar una recepción específica",
+              "detalle": "Si se requiere representar el trámite del lado del Contratista, obtener primero la cláusula contractual o instrucción interna pertinente y un aviso real que identifique receptor y eventual actuación. Mantener entretanto el destino al participante, sin inventar recepción, acuse, plazo ni respuesta.",
+              "formato": "texto",
+              "efecto": "PENDIENTE-EVIDENCIA",
+              "elementos": [
+                "E-F2"
+              ],
+              "fuentes": [
+                "CON-001 art. 105.1",
+                "LOC-007 arts. 20, 25, 97–98",
+                "S4.3.2.6 tabla vigente"
+              ],
+              "recomendada": false
+            }
+          ],
+          "autor": "Claudia",
+          "fecha": "2026-11-26T14:36:50.701981+00:00"
+        }
+      },
+      "actualizada": "2026-11-26T14:36:50.701981+00:00"
     }
   ]
 }
