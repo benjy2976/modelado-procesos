@@ -641,3 +641,10 @@ def test_conteo_de_observaciones_abiertas_por_proceso(repositorio: RepositorioPr
     )  # fmt: skip
     cliente = TestClient(crear_aplicacion(repositorio))
     assert cliente.get("/api/observaciones/abiertas").json() == {"abiertas": {"S4.3": 2}}
+
+
+def test_descarga_para_bizagi_convierte_identificadores(repositorio: RepositorioProcesos) -> None:
+    cliente = TestClient(crear_aplicacion(repositorio))
+    respuesta = cliente.get("/api/procesos/S4.3/bizagi")
+    assert respuesta.status_code == 200 and respuesta.headers["content-type"].startswith("application/xml")
+    assert respuesta.content.startswith(b"<?xml") and b"definitions" in respuesta.content

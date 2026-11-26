@@ -95,17 +95,32 @@ function highlight(id: string | null) {
   if (id) service.addMarker(id, 'selected-node')
 }
 
-function save(blob: Blob, extension: string) {
+function save(blob: Blob, extension: string, suffix = '') {
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  link.download = `${props.downloadName || 'diagrama-proceso'}.${extension}`
+  link.download = `${props.downloadName || 'diagrama-proceso'}${suffix}.${extension}`
   link.click()
   setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 function downloadBpmn() {
   if (originalXml) save(new Blob([originalXml], { type: 'application/xml' }), 'bpmn')
+}
+
+// Copia en el dialecto que importa Bizagi Modeler; la API la convierte al momento desde el mismo BPMN.
+async function downloadBizagi() {
+  if (downloading.value || !props.xmlUrl) return
+  downloading.value = true
+  try {
+    const response = await fetch(props.xmlUrl.replace(/\/bpmn$/, '/bizagi'), { cache: 'no-store' })
+    if (!response.ok) throw new Error(`No se pudo generar la copia para Bizagi (${response.status}).`)
+    save(await response.blob(), 'bpmn', '-bizagi')
+  } catch (error) {
+    emit('error', error instanceof Error ? error.message : 'No se pudo descargar la copia para Bizagi.')
+  } finally {
+    downloading.value = false
+  }
 }
 
 // Imagen del diagrama completo, como se ve (colores, números y marcas), a doble resolución.
@@ -193,6 +208,7 @@ onBeforeUnmount(() => {
         <summary title="Descargar el diagrama">{{ downloading ? 'Generando…' : 'Descargar' }}</summary>
         <div class="diagram-download-menu">
           <button type="button" @click="downloadBpmn">BPMN (XML editable)</button>
+          <button type="button" :disabled="downloading" @click="downloadBizagi">Para Bizagi Modeler (.bpmn)</button>
           <button type="button" :disabled="downloading" @click="downloadImage('png')">Imagen PNG</button>
           <button type="button" :disabled="downloading" @click="downloadImage('jpeg')">Imagen JPG</button>
         </div>

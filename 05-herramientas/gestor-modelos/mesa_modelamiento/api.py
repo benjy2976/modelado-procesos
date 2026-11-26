@@ -32,6 +32,7 @@ from .esquemas import (
     TrabajoVista,
     VersionDetalle,
 )
+from .exportaciones import bpmn_para_bizagi
 from .repositorio import ErrorDominio, RepositorioProcesos
 from .resolucion import ServicioResolucion
 from .sesiones import ServicioSesiones
@@ -149,6 +150,10 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     def bpmn(codigo: str) -> FileResponse:
         ruta = repositorio.bpmn(codigo)
         return FileResponse(ruta, media_type="application/xml", filename=ruta.name, content_disposition_type="inline")
+
+    @app.get("/api/procesos/{codigo}/bizagi")
+    def bizagi(codigo: str) -> Response:
+        return Response(bpmn_para_bizagi(repositorio.bpmn(codigo).read_bytes()), media_type="application/xml")
 
     @app.get("/api/procesos/{codigo}/documentos/{tipo}")
     def documento_proceso(codigo: str, tipo: str) -> FileResponse:
@@ -281,6 +286,10 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     @app.get("/api/procesos/{codigo}/versiones/{numero}/bpmn")
     def bpmn_version(codigo: str, numero: int) -> Response:
         return Response(versiones.bpmn(codigo, numero), media_type="application/xml")
+
+    @app.get("/api/procesos/{codigo}/versiones/{numero}/bizagi")
+    def bizagi_version(codigo: str, numero: int) -> Response:
+        return Response(bpmn_para_bizagi(versiones.bpmn(codigo, numero)), media_type="application/xml")
 
     @app.post("/api/procesos/{codigo}/edicion/liberacion", response_model=LiberacionVista)
     def liberar_modelo(codigo: str, entrada: LiberacionModelo, request: Request) -> dict:
