@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { colorizeBpmn, markEventSubprocesses } from '~/utils/bpmnPresentation'
 import type { BpmnRegistry } from '~/utils/bpmnPresentation'
 
-const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'>; refreshToken?: number }>()
+const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'>; refreshToken?: number; downloadName?: string }>()
 const emit = defineEmits<{ select: [id: string]; error: [message: string] }>()
 const host = ref<HTMLElement | null>(null)
 
@@ -15,11 +15,14 @@ type CanvasService = {
   removeMarker: (id: string, marker: string) => void
 }
 type EventBusService = { on: (name: string, handler: (event: { element?: { id: string; labelTarget?: { id: string } } }) => void) => void }
-type Viewer = { importXML: (xml: string) => Promise<unknown>; get: (name: string) => unknown; destroy: () => void }
+type Viewer = { importXML: (xml: string) => Promise<unknown>; saveSVG: () => Promise<{ svg: string }>; get: (name: string) => unknown; destroy: () => void }
 
 let viewer: Viewer | null = null
 let currentMarker: string | null = null
 let changeMarkers: [string, string][] = []
+// XML tal como lo entregó el servidor (sin los colores de presentación), para descargarlo.
+let originalXml = ''
+const downloading = ref(false)
 
 function canvas(): CanvasService | null {
   return viewer?.get('canvas') as CanvasService | null
@@ -32,7 +35,8 @@ async function load(keepView = false) {
   try {
     const response = await fetch(props.xmlUrl, { cache: 'no-store' })
     if (!response.ok) throw new Error(`No se pudo cargar el BPMN (${response.status}).`)
-    await viewer.importXML(colorizeBpmn(await response.text()))
+    originalXml = await response.text()
+    await viewer.importXML(colorizeBpmn(originalXml))
     const registry = viewer.get('elementRegistry') as BpmnRegistry
     markEventSubprocesses(registry)
     markNumbers()
@@ -91,6 +95,52 @@ function highlight(id: string | null) {
   if (id) service.addMarker(id, 'selected-node')
 }
 
+function save(blob: Blob, extension: string) {
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `${props.downloadName || 'diagrama-proceso'}.${extension}`
+  link.click()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
+
+function downloadBpmn() {
+  if (originalXml) save(new Blob([originalXml], { type: 'application/xml' }), 'bpmn')
+}
+
+// Imagen del diagrama completo, como se ve (colores, números y marcas), a doble resolución.
+async function downloadImage(kind: 'png' | 'jpeg') {
+  if (!viewer || downloading.value) return
+  downloading.value = true
+  try {
+    const { svg } = await viewer.saveSVG()
+    const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }))
+    const image = new Image()
+    await new Promise<void>((resolve, reject) => {
+      image.onload = () => resolve()
+      image.onerror = () => reject(new Error('No se pudo convertir el diagrama a imagen.'))
+      image.src = url
+    })
+    URL.revokeObjectURL(url)
+    const scale = Math.min(2, 16000 / Math.max(image.width, image.height, 1))
+    const output = document.createElement('canvas')
+    output.width = Math.round(image.width * scale)
+    output.height = Math.round(image.height * scale)
+    const context = output.getContext('2d')
+    if (!context) throw new Error('El navegador no permite generar la imagen.')
+    context.fillStyle = '#ffffff'
+    context.fillRect(0, 0, output.width, output.height)
+    context.drawImage(image, 0, 0, output.width, output.height)
+    const blob = await new Promise<Blob | null>(resolve => output.toBlob(resolve, `image/${kind}`, 0.95))
+    if (!blob) throw new Error('No se pudo generar la imagen.')
+    save(blob, kind === 'jpeg' ? 'jpg' : 'png')
+  } catch (error) {
+    emit('error', error instanceof Error ? error.message : 'No se pudo descargar la imagen.')
+  } finally {
+    downloading.value = false
+  }
+}
+
 function zoom(factor: number, center?: { x: number; y: number }) {
   const service = canvas()
   if (!service) return
@@ -138,6 +188,15 @@ onBeforeUnmount(() => {
       <button type="button" title="Acercar" @click="zoom(1.2)">+</button>
       <button type="button" title="Alejar" @click="zoom(1 / 1.2)">−</button>
       <button type="button" title="Ajustar diagrama" @click="canvas()?.zoom('fit-viewport')">Ajustar</button>
+      <span class="toolbar-separator" aria-hidden="true" />
+      <details class="diagram-download">
+        <summary title="Descargar el diagrama">{{ downloading ? 'Generando…' : 'Descargar' }}</summary>
+        <div class="diagram-download-menu">
+          <button type="button" @click="downloadBpmn">BPMN (XML editable)</button>
+          <button type="button" :disabled="downloading" @click="downloadImage('png')">Imagen PNG</button>
+          <button type="button" :disabled="downloading" @click="downloadImage('jpeg')">Imagen JPG</button>
+        </div>
+      </details>
     </div>
     <div ref="host" class="diagram-canvas" aria-label="Diagrama BPMN; arrastre para moverse y use la rueda para ampliar" />
   </div>

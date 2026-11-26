@@ -36,7 +36,12 @@ export default ts.config(
         localStorage: 'readonly',
         sessionStorage: 'readonly',
         TextDecoder: 'readonly',
-        window: 'readonly'
+        window: 'readonly',
+        Blob: 'readonly',
+        Image: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly'
       }
     }
   }

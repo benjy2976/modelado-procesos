@@ -14,6 +14,16 @@ const tree = ref<Nodo | null>(null)
 const activeCode = ref('Nivel 0')
 const model = ref<Modelo | null>(null)
 const observacionesAbiertas = ref(0)
+// Observaciones abiertas de todos los procesos, para el árbol; se refresca con el sondeo.
+const conteos = ref<Record<string, number>>({})
+async function cargarConteos() {
+  try {
+    const respuesta = await fetch('/api/observaciones/abiertas', { cache: 'no-store' })
+    if (respuesta.ok) conteos.value = (await respuesta.json() as { abiertas: Record<string, number> }).abiertas
+  } catch {
+    // El árbol sigue funcionando sin contadores.
+  }
+}
 // Reactividad (DEC-069): se consulta el estado de edición; si cambia la huella del contenido, se recarga el modelo
 // y el lienzo conserva su encuadre. `refreshToken` avisa a lienzo, historial y edición.
 const editState = ref<EstadoEdicion | null>(null)
@@ -65,6 +75,7 @@ function resizeWithKeys(event: KeyboardEvent) {
 }
 onBeforeUnmount(stopResize)
 onMounted(() => {
+  void cargarConteos()
   iniciarSondeo()
   document.addEventListener('visibilitychange', alVolverVisible)
 })
@@ -192,8 +203,10 @@ async function refreshModel(code: string) {
 }
 
 async function consultarEstado() {
+  if (document.visibilityState !== 'visible') return
+  void cargarConteos()
   const code = model.value?.codigo
-  if (!code || document.visibilityState !== 'visible') return
+  if (!code) return
   try {
     const response = await fetch(`/api/procesos/${encodeURIComponent(code)}/edicion`, { cache: 'no-store' })
     if (!response.ok || model.value?.codigo !== code) return
@@ -204,6 +217,12 @@ async function consultarEstado() {
   } catch {
     // Sin conexión momentánea: se reintenta en el próximo ciclo.
   }
+}
+
+function alCambiarAbiertas(cantidad: number) {
+  observacionesAbiertas.value = cantidad
+  const code = model.value?.codigo
+  if (code) conteos.value = { ...conteos.value, [code]: cantidad }
 }
 
 function iniciarSondeo() {
@@ -286,7 +305,7 @@ onMounted(async () => {
           <p>Desde el mapa institucional hasta cada proceso interior.</p>
         </div>
         <div class="tree-scroll">
-          <ProcessTree v-if="tree" :node="tree" :selected="activeCode" @select="openProcess" />
+          <ProcessTree v-if="tree" :node="tree" :selected="activeCode" :counts="conteos" @select="openProcess" />
           <p v-else class="muted">Cargando árbol…</p>
         </div>
       </aside>
@@ -321,6 +340,7 @@ onMounted(async () => {
           :numbers="elementNumbers"
           :changes="versionView?.cambios"
           :refresh-token="versionView ? 0 : refreshToken"
+          :download-name="`${model.codigo.replace(/\./g, '-')}-diagrama-proceso${versionView ? `-v${versionView.numero}` : ''}`"
           @select="selectedId = $event"
           @error="message = $event"
         />
@@ -367,7 +387,7 @@ onMounted(async () => {
           <button type="button" role="tab" :aria-selected="inspectorTab === 'asistente'" :class="{ active: inspectorTab === 'asistente' }" @click="inspectorTab = 'asistente'">Asistente</button>
         </div>
         <div class="inspector-scroll">
-          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="observacionesAbiertas = $event" />
+          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="alCambiarAbiertas" />
           <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :refresh-token="refreshToken" :viewing="versionView?.numero ?? null" @view="versionView = $event" @select="selectedId = $event" />
           <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
           <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" :refresh-token="refreshToken" @integrated="openProcess(model.codigo)" />
