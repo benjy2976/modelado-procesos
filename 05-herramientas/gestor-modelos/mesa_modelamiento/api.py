@@ -77,6 +77,14 @@ class CambioEstado(BaseModel):
     autor: str = ""
 
 
+class NuevaRedaccion(BaseModel):
+    texto: str = Field(min_length=1, max_length=20000)
+    autor: str = Field(min_length=1, max_length=100)
+    motivo: str = Field(min_length=10, max_length=300)
+    formato: Literal["texto", "html"] = "html"
+    revision_esperada: str
+
+
 class NuevaRespuesta(BaseModel):
     texto: str = Field(min_length=1, max_length=20000)
     autor: str = Field(min_length=1, max_length=100)
@@ -187,6 +195,15 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     def crear_observacion(codigo: str, entrada: NuevaObservacion, request: Request) -> dict:
         comprobar_origen(request)
         return observaciones.agregar(codigo, **entrada.model_dump())
+
+    @app.put(
+        "/api/procesos/{codigo}/observaciones/{identificador}/texto",
+        response_model=RegistroObservacion,
+        response_model_exclude_unset=True,
+    )
+    def redactar_observacion(codigo: str, identificador: str, entrada: NuevaRedaccion, request: Request) -> dict:
+        comprobar_origen(request)
+        return observaciones.redactar(codigo, identificador, **entrada.model_dump())
 
     @app.post(
         "/api/procesos/{codigo}/observaciones/{identificador}/respuestas",

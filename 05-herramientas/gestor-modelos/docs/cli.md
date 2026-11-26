@@ -102,6 +102,7 @@ Estos comandos producen un manifiesto y Markdown paginado en `01-referencias/09-
 | `contrato [--check]` | Exporta `contracts/openapi.json` o comprueba que coincide con FastAPI |
 | `sesiones iniciar <codigo> [--titular ...] [--motivo ...] [--modo EDICION\|BORRADOR] [--observacion ...]` | Captura árbol de trabajo y abre copia recuperable; `EDICION` toma el bloqueo del proceso, `BORRADOR` no |
 | `sesiones estado <codigo>` | Estado `LIBRE`, `EN-EDICION` o `APROBADO`, bloqueo vigente y borradores abiertos |
+| `observaciones redactar <codigo> <id> --archivo <ruta> --autor ... --motivo ... --revision ... [--formato html\|texto]` | Mejora la redacción de una observación propia; conserva el texto anterior en el historial |
 | `versiones listar <codigo>` | Versiones integradas del proceso con conteo de cambios |
 | `versiones leer <codigo> <numero>` | Cambio por caja y diff de tabla y sustento de una versión |
 | `sesiones liberar <codigo> --autor ... --motivo ...` | Libera el bloqueo de otro titular; la sesión queda `LIBERADA` con autor y motivo |

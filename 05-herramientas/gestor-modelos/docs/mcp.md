@@ -23,6 +23,7 @@ Sube a: [Documentación de la aplicación](00-documentacion-aplicacion.md).
 | `cambiar_estado_observacion` | Abre o resuelve una observación con revisión esperada |
 | `leer_elemento` | Lee una caja o flujo por ID y sus fuentes registradas |
 | `leer_fuente` | Lee texto acotado de una fuente y página registrada, con hash y estado de extracción |
+| `redactar_observacion` | Mejora la redacción de una observación propia de Claudia (html o texto) sin cambiar su sentido; el texto anterior queda en el historial (`REDACTADA`) |
 | `listar_versiones` | Versiones integradas del proceso, la más reciente primero, con titular, motivo, observación y conteo de cajas agregadas, modificadas y retiradas (plan B) |
 | `leer_version` | Una versión con su cambio por caja (antes y después por campo, ID BPMN) y el diff de tabla y sustento |
 | `estado_modelo` | Estado de edición del proceso: `LIBRE`, `EN-EDICION` (titular, motivo, vencimiento) o `APROBADO`, y borradores abiertos (`DEC-069`) |
@@ -83,7 +84,7 @@ La cola vive en `.mesa-trabajos/cola.json`, fuera de Git, con bloqueo de archivo
 
 ## Paridad con la CLI (2026-11-25)
 
-La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`; con las versiones livianas suma 55 (`listar_versiones`, `leer_version`) y la CLI agrega `versiones listar` y `versiones leer`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
+La CLI tiene 66 comandos y el MCP 48 herramientas (tandas 1, 2A y 2B cerradas el 2026-11-25); con la cola de trabajos de `DEC-068` el MCP suma 51 y la CLI agrega los grupos `trabajos` y `relevo`; con el bloqueo de `DEC-069` el MCP suma 53 (`estado_modelo`, `iniciar_borrador`) y la CLI agrega `sesiones estado` y `sesiones liberar`; con las versiones livianas suma 55 (`listar_versiones`, `leer_version`) y la CLI agrega `versiones listar` y `versiones leer`; con `redactar_observacion` el MCP suma 56 y la CLI agrega `observaciones redactar`. El MCP no tiene herramienta para definir: esa etapa es de una persona, por la web, la API o la CLI.
 
 | Grupo de la CLI | En el MCP | Comentario |
 |---|---|---|
@@ -146,6 +147,21 @@ Hasta el 2026-11-25 los diagramas de S4.3 se editaron con escritura directa y sc
 | — | Commit, push, pruebas y cambios de herramientas | Git y pytest | Fuera del alcance del MCP | Siguen a cargo de una persona o de una tarea de desarrollo autorizada |
 
 Las filas `Cerrada` quedaron resueltas en la tanda 1 (2026-11-25), en servicio, CLI y MCP con pruebas. También se agregó la numeración de cajas nuevas al preparar una sesión, que antes solo hacía `modelar.py`. La regla del experimento es que, desde la conexión del MCP, todo cambio de modelo se hace por sus herramientas. Cuando una acción falte, se registra aquí en lugar de resolverla por fuera.
+
+## Brechas detectadas en la revisión de S4.3.2 (2026-11-26)
+
+Ocho revisores (agentes que firman como Claudia) revisaron S4.3.2 y sus subprocesos solo con este MCP y registraron 70 observaciones. Encontraron estas fallas; ninguna impidió el trabajo, pero varias los obligaron a leer archivos por fuera del MCP.
+
+| Prioridad | Falla | Efecto | Qué falta |
+|---|---|---|---|
+| 1 | `leer_proceso` omite los flujos marcados «por defecto» | Las compuertas parecen tener ramas sin salida (en S4.3.2.3, 81 secuencias frente a 84 de la auditoría); hubo que leer la tabla con `leer_nota` | Incluir el flujo por defecto con su marca |
+| 1 | `leer_elemento` responde 404 con el ID de tabla (p. ej., `E-GREG`), aunque su descripción dice aceptarlo | Solo funciona con el ID BPMN interno | Resolver ID de tabla y número de caja, como `registrar_observacion` |
+| 2 | `leer_proceso` de S4.3.2.3 supera el tamaño máximo de respuesta | El resultado se guarda en un archivo y el agente lo filtra por fuera | Paginación o lectura por carril o rango de cajas |
+| 2 | `leer_articulos` falla con la huella del documento | Solo acepta el ID de catálogo (`CON-001`) | Aceptar también la huella |
+| 2 | `listar_documentos` con texto («adicional», «Contraloría») no devuelve resultados | Hay que filtrar por área | Búsqueda por título y descripción |
+| 2 | No se pueden vincular observaciones de procesos distintos | Las interfaces entre S4.3.2.5 y S4.3.2.6 solo se citan en el texto | Vínculo entre observaciones de procesos distintos |
+| 3 | No hay herramienta para leer el estándar de artefactos (paleta 7.3 y carriles 7.4) | Se leyó con `grep`; `buscar_notas`/`leer_nota` sirven si la nota está indexada | Confirmar que el estándar se puede leer con `leer_nota` y documentarlo |
+| 3 | `auditoria_interfaces` solo compara mensajes, no las anotaciones que prometen una interfaz | Una interfaz anotada sin mensaje (S4.3.2.3 → S4.3.2.8) no aparece como candidata | Revisar también las anotaciones |
 
 ## Hallazgos del primer experimento por MCP (2026-11-25)
 

@@ -287,3 +287,5 @@ button:focus-visible { outline: 3px solid #d28a1a; outline-offset: 2px; }
 .added { color: #2f8f4e; }
 .modified { color: #b07a0e; }
 .removed { color: #9b2c2c; }
+.previous-text { margin: 4px 0 6px; color: #536b7d; }
+.previous-text p { margin: 4px 0; white-space: pre-wrap; }

@@ -845,6 +845,61 @@
           "fecha": {
             "title": "Fecha",
             "type": "string"
+          },
+          "formato_anterior": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Formato Anterior"
+          },
+          "motivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motivo"
+          },
+          "sesion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sesion"
+          },
+          "texto_anterior": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Texto Anterior"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
           }
         },
         "required": [
@@ -1484,6 +1539,49 @@
           "revision_esperada"
         ],
         "title": "NuevaObservacion",
+        "type": "object"
+      },
+      "NuevaRedaccion": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "formato": {
+            "default": "html",
+            "enum": [
+              "texto",
+              "html"
+            ],
+            "title": "Formato",
+            "type": "string"
+          },
+          "motivo": {
+            "maxLength": 300,
+            "minLength": 10,
+            "title": "Motivo",
+            "type": "string"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Texto",
+            "type": "string"
+          }
+        },
+        "required": [
+          "texto",
+          "autor",
+          "motivo",
+          "revision_esperada"
+        ],
+        "title": "NuevaRedaccion",
         "type": "object"
       },
       "NuevaRespuesta": {
@@ -3658,6 +3756,64 @@
           }
         },
         "summary": "Solicitar Analisis"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}/texto": {
+      "put": {
+        "operationId": "redactar_observacion_api_procesos__codigo__observaciones__identificador__texto_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevaRedaccion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Redactar Observacion"
       }
     },
     "/api/procesos/{codigo}/sesiones": {

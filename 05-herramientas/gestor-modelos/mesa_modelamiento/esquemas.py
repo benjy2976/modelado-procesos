@@ -82,6 +82,11 @@ class EventoObservacion(BaseModel):
     fecha: str
     autor: str | None = None
     estado: str | None = None
+    motivo: str | None = None
+    texto_anterior: str | None = None
+    formato_anterior: str | None = None
+    version: int | None = None
+    sesion: str | None = None
 
 
 class RespuestaObservacion(BaseModel):

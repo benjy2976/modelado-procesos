@@ -92,6 +92,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/bizagi": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Bizagi */
+        get: operations["bizagi_api_procesos__codigo__bizagi_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}/bpmn": {
         parameters: {
             query?: never;
@@ -306,6 +323,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/procesos/{codigo}/observaciones/{identificador}/texto": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Redactar Observacion */
+        put: operations["redactar_observacion_api_procesos__codigo__observaciones__identificador__texto_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}/sesiones": {
         parameters: {
             query?: never;
@@ -469,6 +503,23 @@ export interface paths {
         };
         /** Leer Version */
         get: operations["leer_version_api_procesos__codigo__versiones__numero__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/procesos/{codigo}/versiones/{numero}/bizagi": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Bizagi Version */
+        get: operations["bizagi_version_api_procesos__codigo__versiones__numero__bizagi_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -865,6 +916,16 @@ export interface components {
             estado?: string | null;
             /** Fecha */
             fecha: string;
+            /** Formato Anterior */
+            formato_anterior?: string | null;
+            /** Motivo */
+            motivo?: string | null;
+            /** Sesion */
+            sesion?: string | null;
+            /** Texto Anterior */
+            texto_anterior?: string | null;
+            /** Version */
+            version?: number | null;
         };
         /** EventoTrabajo */
         EventoTrabajo: {
@@ -1136,6 +1197,23 @@ export interface components {
              * @default OBSERVACION
              */
             tipo: string;
+        };
+        /** NuevaRedaccion */
+        NuevaRedaccion: {
+            /** Autor */
+            autor: string;
+            /**
+             * Formato
+             * @default html
+             * @enum {string}
+             */
+            formato: "texto" | "html";
+            /** Motivo */
+            motivo: string;
+            /** Revision Esperada */
+            revision_esperada: string;
+            /** Texto */
+            texto: string;
         };
         /** NuevaRespuesta */
         NuevaRespuesta: {
@@ -1734,6 +1812,37 @@ export interface operations {
             };
         };
     };
+    bizagi_api_procesos__codigo__bizagi_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     bpmn_api_procesos__codigo__bpmn_get: {
         parameters: {
             query?: never;
@@ -2174,6 +2283,42 @@ export interface operations {
             };
         };
     };
+    redactar_observacion_api_procesos__codigo__observaciones__identificador__texto_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                identificador: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NuevaRedaccion"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistroObservacion"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     iniciar_sesion_api_procesos__codigo__sesiones_post: {
         parameters: {
             query?: never;
@@ -2529,6 +2674,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["VersionDetalle"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    bizagi_version_api_procesos__codigo__versiones__numero__bizagi_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                numero: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

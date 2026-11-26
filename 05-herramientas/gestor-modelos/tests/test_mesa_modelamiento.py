@@ -648,3 +648,21 @@ def test_descarga_para_bizagi_convierte_identificadores(repositorio: Repositorio
     respuesta = cliente.get("/api/procesos/S4.3/bizagi")
     assert respuesta.status_code == 200 and respuesta.headers["content-type"].startswith("application/xml")
     assert respuesta.content.startswith(b"<?xml") and b"definitions" in respuesta.content
+
+
+def test_redactar_conserva_texto_anterior_y_exige_autor(repositorio: RepositorioProcesos) -> None:
+    servicio = ServicioObservaciones(repositorio)
+    revision = servicio.listar("S4.3")["revision"]
+    creada = servicio.agregar(
+        "S4.3", elemento="", texto="[Duda] Texto confuso", autor="Claudia", revision_esperada=revision
+    )
+    revision = servicio.listar("S4.3")["revision"]
+    with pytest.raises(ErrorDominio, match="Solo el autor"):
+        servicio.redactar("S4.3", creada["id"], "<p>Otro</p>", "Otra persona", revision, "Mejorar la redacción")
+    with pytest.raises(ErrorDominio, match="motivo"):
+        servicio.redactar("S4.3", creada["id"], "<p>Claro</p>", "Claudia", revision, "corto")
+    nueva = servicio.redactar("S4.3", creada["id"], "<p><strong>Duda.</strong> Claro</p>", "Claudia", revision,
+                              "Redacción más clara")  # fmt: skip
+    assert nueva["formato"] == "html" and "<strong>Duda.</strong>" in nueva["texto"]
+    evento = nueva["historial"][-1]
+    assert evento["accion"] == "REDACTADA" and evento["texto_anterior"] == "[Duda] Texto confuso"

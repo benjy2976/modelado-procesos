@@ -207,7 +207,7 @@ async function toggle(item: Registro) {
           <p v-else>{{ answer.texto }}</p>
         </div>
       </div>
-      <details v-if="item.historial?.length"><summary>Historial ({{ item.historial.length }})</summary><ul><li v-for="(event, index) in item.historial" :key="index">{{ event.accion }} · {{ event.estado || event.autor || '' }} · {{ new Date(event.fecha).toLocaleString('es-PE') }}</li></ul></details>
+      <details v-if="item.historial?.length"><summary>Historial ({{ item.historial.length }})</summary><ul><li v-for="(event, index) in item.historial" :key="index">{{ event.accion }}<template v-if="event.version"> v{{ event.version }}</template> · {{ event.estado || event.autor || '' }} · {{ new Date(event.fecha).toLocaleString('es-PE') }}<template v-if="event.motivo"> · {{ event.motivo }}</template><details v-if="event.texto_anterior" class="previous-text"><summary>Texto anterior</summary><!-- eslint-disable-next-line vue/no-v-html -- HTML saneado en el servidor y con DOMPurify --><div v-if="event.formato_anterior === 'html'" class="rich-content" v-html="rich(event.texto_anterior, 'html')" /><p v-else>{{ event.texto_anterior }}</p></details></li></ul></details>
       <div class="observation-actions">
         <button type="button" @click="replyId = replyId === item.id ? null : item.id">Responder</button>
         <button type="button" :disabled="saving" @click="toggle(item)">{{ item.estado === 'ABIERTA' ? 'Marcar resuelta' : 'Reabrir' }}</button>

@@ -230,6 +230,52 @@ class ServicioObservaciones:
         except Timeout as exc:
             raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
 
+    def redactar(
+        self,
+        codigo: str,
+        identificador: str,
+        texto: str,
+        autor: str,
+        revision_esperada: str,
+        motivo: str,
+        formato: str = "html",
+    ) -> dict:
+        """Mejora la redacción de una observación sin cambiar su sentido; solo su autor puede hacerlo.
+
+        El texto anterior y su formato quedan en el historial (evento REDACTADA), de modo que el análisis y la
+        propuesta siguen siendo verificables contra lo que se escribió originalmente."""
+        contenido = self._validar_texto_autor(texto, autor, formato)
+        motivo = (motivo or "").strip()
+        if len(motivo) < 10 or len(motivo) > 300:
+            raise ErrorDominio("Indique el motivo de la nueva redacción (10 a 300 caracteres)")
+        try:
+            with self._bloqueo, self._bloqueo_archivo(codigo):
+                archivo, datos = self._leer(codigo)
+                self._comprobar_revision(datos, revision_esperada)
+                registro = next((o for o in datos["observaciones"] if o.get("id") == identificador), None)
+                if registro is None:
+                    raise ErrorDominio("Observacion no encontrada", 404)
+                if registro.get("autor", "").strip().casefold() != autor.strip().casefold():
+                    raise ErrorDominio("Solo el autor de la observación puede cambiar su redacción", 403)
+                if registro.get("texto") == contenido and registro.get("formato", "texto") == formato:
+                    return {**registro, "revision": _revision(datos)}
+                fecha = datetime.now(timezone.utc).isoformat()
+                registro.setdefault("historial", []).append(
+                    {
+                        "accion": "REDACTADA",
+                        "fecha": fecha,
+                        "autor": autor.strip(),
+                        "motivo": motivo,
+                        "texto_anterior": registro.get("texto", ""),
+                        "formato_anterior": registro.get("formato", "texto"),
+                    }
+                )
+                registro.update(texto=contenido, formato=formato, actualizada=fecha)
+                self._guardar(archivo, datos)
+                return {**registro, "revision": _revision(datos)}
+        except Timeout as exc:
+            raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
+
     def conteo_abiertas(self) -> dict:
         """Observaciones ABIERTAS por proceso, para los contadores del árbol; omite los procesos sin abiertas."""
 

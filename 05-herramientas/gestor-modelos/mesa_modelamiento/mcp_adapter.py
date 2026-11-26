@@ -110,6 +110,17 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
         )
 
     @herramienta()
+    def redactar_observacion(
+        codigo: str, identificador: str, texto: str, motivo: str, revision_esperada: str, formato: str = "html"
+    ) -> dict:
+        """Mejora la redacción de una observación propia (de Claudia) sin cambiar su sentido; formato html o texto.
+
+        El texto anterior queda en el historial. No sirve para cambiar hechos, fuentes ni la propuesta."""
+        return _confirmacion(
+            observaciones.redactar(codigo, identificador, texto, AUTOR_AGENTE, revision_esperada, motivo, formato)
+        )
+
+    @herramienta()
     def responder_observacion(
         codigo: str, identificador: str, texto: str, revision_esperada: str, formato: str = "texto"
     ) -> dict:
