@@ -161,3 +161,17 @@ def test_relevo_agentes_fijos_streaming_y_autorizacion() -> None:
         relevo.servidor("0.0.0.0", 0, "a", "b")
     with pytest.raises(SystemExit):
         relevo.servidor("127.0.0.1", 0, "a", "b", "http://10.0.0.5:18789")
+
+
+def test_iniciar_edicion_toma_la_observacion_del_trabajo(repositorio: RepositorioProcesos) -> None:
+    """Si el agente indica solo el trabajo, la sesión (y luego su versión) queda ligada a la observación."""
+    import asyncio
+
+    from mesa_modelamiento.mcp_adapter import crear_servidor
+
+    trabajo = ServicioTrabajos(repositorio).encolar("APLICACION", "S4.3", "obs-7", "Equipo")
+    servidor = crear_servidor(repositorio)
+    argumentos = {"codigo": "S4.3", "motivo": "Aplicar", "trabajo": trabajo["id"]}
+    sesion = json.loads(asyncio.run(servidor.call_tool("iniciar_edicion", argumentos)).content[0].text)
+    assert sesion["observacion"] == "obs-7" and sesion["trabajo"] == trabajo["id"]
+    assert "lote" not in relevo.MENSAJES_TRABAJO["APLICACION"]

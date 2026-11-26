@@ -34,9 +34,11 @@ MENSAJES_TRABAJO = {
     "ANALISIS": "Hay trabajos de ANALISIS pendientes en la mesa de modelamiento. Toma uno con "
     "tomar_trabajo(tipo='ANALISIS'), procésalo según tus instrucciones y ciérralo con completar_trabajo. "
     "Repite hasta que tomar_trabajo no devuelva trabajos.",
-    "APLICACION": "Hay trabajos de APLICACION pendientes en la mesa de modelamiento. Toma un lote con "
-    "tomar_trabajo(tipo='APLICACION', lote=true), aplícalo según tus instrucciones y cierra cada trabajo con "
-    "completar_trabajo. Repite hasta que tomar_trabajo no devuelva trabajos.",
+    # DEC-069: una observación por trabajo y por sesión, para que cada cambio sea una versión propia.
+    "APLICACION": "Hay trabajos de APLICACION pendientes en la mesa de modelamiento. Toma uno con "
+    "tomar_trabajo(tipo='APLICACION'): recibes una sola observación. Aplícala según tus instrucciones, en su "
+    "propia sesión (iniciar_edicion con la observación y el trabajo), y cierra con completar_trabajo. Repite "
+    "hasta que tomar_trabajo no devuelva trabajos.",
 }
 CONVERSACION = re.compile(r"^M-[0-9A-Za-z.-]{6,80}$")
 MAX_MENSAJE = 16000

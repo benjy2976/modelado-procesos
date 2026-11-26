@@ -264,6 +264,10 @@ def crear_servidor(repositorio: RepositorioProcesos | None = None) -> MCPServer:
 
         Falla con 409 si otro titular lo tiene; el bloqueo vence tras 30 min sin actividad y se libera al aplicar o
         cerrar. Indique la observación y el trabajo que atiende."""
+        if trabajo and not observacion:  # el vínculo con la observación da la trazabilidad de la versión
+            del_proceso = trabajos.listar(codigo=codigo, limite=500)["trabajos"]
+            tomado = next((t for t in del_proceso if t["id"] == trabajo), None)
+            observacion = tomado["observacion"] if tomado else None
         return sesiones.iniciar(codigo, AUTOR_AGENTE, motivo, "EDICION", observacion, trabajo)
 
     @herramienta()
