@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { components } from '~/types/api'
 
 type Nodo = components['schemas']['NodoArbol']
 
-const props = withDefaults(defineProps<{ node: Nodo; selected: string; depth?: number }>(), { depth: 0 })
+// counts: observaciones abiertas por código de proceso (contador del árbol).
+const props = withDefaults(defineProps<{ node: Nodo; selected: string; depth?: number; counts?: Record<string, number> }>(), { depth: 0, counts: () => ({}) })
 const emit = defineEmits<{ select: [codigo: string] }>()
 
 function contains(node: Nodo, code: string): boolean {
@@ -15,6 +16,13 @@ const expanded = ref(props.depth === 0 || contains(props.node, props.selected))
 watch(() => props.selected, code => {
   expanded.value = props.depth === 0 || contains(props.node, code)
 })
+
+function suma(node: Nodo): number {
+  return node.hijos.reduce((total, child) => total + (props.counts[child.codigo] || 0) + suma(child), 0)
+}
+const propias = computed(() => props.counts[props.node.codigo] || 0)
+// Plegado, el nodo también avisa de las abiertas de sus procesos interiores.
+const interiores = computed(() => expanded.value ? 0 : suma(props.node))
 
 function selectNode() {
   if (props.node.hijos.length) expanded.value = true
@@ -43,6 +51,8 @@ function selectNode() {
       >
         <span class="tree-node__code">{{ node.codigo }}</span>
         <span class="tree-node__name">{{ node.nombre }}</span>
+        <span v-if="propias" class="tab-badge tree-badge" :title="`${propias} observaciones abiertas`">{{ propias }}</span>
+        <span v-else-if="interiores" class="tree-badge tree-badge--inner" :title="`${interiores} observaciones abiertas en procesos interiores`">{{ interiores }}</span>
       </button>
     </div>
     <div v-if="expanded" class="tree-children">
@@ -52,6 +62,7 @@ function selectNode() {
         :node="child"
         :selected="selected"
         :depth="depth + 1"
+        :counts="counts"
         @select="emit('select', $event)"
       />
     </div>

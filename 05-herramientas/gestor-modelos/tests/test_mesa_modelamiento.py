@@ -631,3 +631,13 @@ def test_estado_expone_huella_que_cambia_con_el_contenido(repositorio: Repositor
     assert antes == servicio.estado("S4.3")["huella"]
     repositorio.rutas("S4.3")["sustento"].write_text("# Cambio hecho por otra persona\n", encoding="utf-8")
     assert servicio.estado("S4.3")["huella"] != antes
+
+
+def test_conteo_de_observaciones_abiertas_por_proceso(repositorio: RepositorioProcesos) -> None:
+    repositorio.rutas("S4.3")["observaciones"].write_text(
+        json.dumps({"observaciones": [{"id": "a", "estado": "ABIERTA"}, {"id": "b", "estado": "RESUELTA"},
+                                      {"id": "c", "estado": "ABIERTA"}]}),
+        encoding="utf-8",
+    )  # fmt: skip
+    cliente = TestClient(crear_aplicacion(repositorio))
+    assert cliente.get("/api/observaciones/abiertas").json() == {"abiertas": {"S4.3": 2}}

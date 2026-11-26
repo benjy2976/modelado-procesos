@@ -382,6 +382,22 @@
         "title": "ConteoCambios",
         "type": "object"
       },
+      "ConteoObservaciones": {
+        "properties": {
+          "abiertas": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Abiertas",
+            "type": "object"
+          }
+        },
+        "required": [
+          "abiertas"
+        ],
+        "title": "ConteoObservaciones",
+        "type": "object"
+      },
       "CorreccionVista": {
         "properties": {
           "autor": {
@@ -2834,6 +2850,24 @@
           }
         },
         "summary": "Estado Chat"
+      }
+    },
+    "/api/observaciones/abiertas": {
+      "get": {
+        "operationId": "conteo_observaciones_api_observaciones_abiertas_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConteoObservaciones"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Conteo Observaciones"
       }
     },
     "/api/observaciones/etapas": {

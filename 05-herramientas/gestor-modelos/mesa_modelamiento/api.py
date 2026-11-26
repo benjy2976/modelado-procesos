@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 from . import relevo_cliente
 from .documentos import ServicioDocumentos
 from .esquemas import (
+    ConteoObservaciones,
     DocumentoCopia,
     EdicionCopia,
     EstadoChat,
@@ -135,6 +136,10 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
     @app.get("/api/arbol", response_model=NodoArbol)
     def arbol() -> dict:
         return repositorio.arbol()
+
+    @app.get("/api/observaciones/abiertas", response_model=ConteoObservaciones)
+    def conteo_observaciones() -> dict:
+        return observaciones.conteo_abiertas()
 
     @app.get("/api/procesos/{codigo}", response_model=ModeloVista, response_model_exclude_unset=True)
     def modelo(codigo: str) -> dict:

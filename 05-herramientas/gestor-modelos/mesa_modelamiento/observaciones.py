@@ -230,6 +230,26 @@ class ServicioObservaciones:
         except Timeout as exc:
             raise ErrorDominio("El registro de observaciones esta ocupado", 409) from exc
 
+    def conteo_abiertas(self) -> dict:
+        """Observaciones ABIERTAS por proceso, para los contadores del árbol; omite los procesos sin abiertas."""
+
+        def codigos(nodo: dict) -> list[str]:
+            return [nodo["codigo"], *(c for hijo in nodo["hijos"] for c in codigos(hijo))]
+
+        abiertas = {}
+        for codigo in codigos(self.repositorio.arbol())[1:]:  # el primero es «Nivel 0», sin carpeta propia
+            archivo = self.repositorio.rutas(codigo)["observaciones"]
+            if not archivo.is_file():
+                continue
+            try:
+                datos = json.loads(archivo.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue  # un archivo ilegible se informa al abrir el proceso, no rompe el árbol
+            cantidad = sum(1 for o in datos.get("observaciones", []) if o.get("estado") == "ABIERTA")
+            if cantidad:
+                abiertas[codigo] = cantidad
+        return {"abiertas": abiertas}
+
     def anotar_evento(self, codigo: str, identificador: str, evento: dict) -> None:
         """Agrega al historial un evento generado por el sistema (p. ej., la versión que atendió la observación).
 

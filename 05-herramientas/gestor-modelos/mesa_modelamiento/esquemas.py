@@ -258,6 +258,10 @@ class BorradorAbierto(BaseModel):
     creada: str | None = None
 
 
+class ConteoObservaciones(BaseModel):
+    abiertas: dict[str, int]
+
+
 class EstadoModelo(BaseModel):
     codigo: str
     estado: str
