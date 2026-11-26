@@ -254,6 +254,18 @@
           "fecha": "2026-11-26T16:35:40.578051+00:00",
           "estado": "ABIERTA",
           "autor": "Claudia (a pedido del usuario)"
+        },
+        {
+          "accion": "DEFINIDA",
+          "fecha": "2026-11-26T17:21:26.138477+00:00",
+          "autor": "kathering inguza lastra",
+          "estado": "DEFINIDA"
+        },
+        {
+          "accion": "EN-ESPERA-DE-EVIDENCIA",
+          "fecha": "2026-11-26T17:26:27.527474+00:00",
+          "autor": "Claudia",
+          "estado": "PENDIENTE-EVIDENCIA"
         }
       ],
       "respuestas": [],
@@ -318,10 +330,35 @@
           ],
           "autor": "Claudia",
           "fecha": "2026-11-25T05:17:00.606286+00:00"
+        },
+        "definicion": {
+          "tipo": "OPCION",
+          "opciones": [
+            "A"
+          ],
+          "texto": "",
+          "formato": "html",
+          "vinculada_a": null,
+          "autor": "kathering inguza lastra",
+          "fecha": "2026-11-26T17:21:26.138477+00:00",
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
+        },
+        "aplicacion": {
+          "texto": "EVIDENCIA-INSUFICIENTE. Se eligió incorporar la Directiva 005-2023-CG/GMPL a la biblioteca para precisar quién registra la paralización en INFOBRAS y en qué plazo. Falta descargar la versión oficial, catalogarla y extraer su texto; la incorporación de documentos no está disponible con mis herramientas y corresponde al responsable de la biblioteca de fuentes. La observación permanece pendiente; no se modificó el modelo.",
+          "formato": "texto",
+          "sesion": null,
+          "cambios": [],
+          "validacion": null,
+          "decision": null,
+          "autor": "Claudia",
+          "fecha": "2026-11-26T17:26:27.527474+00:00",
+          "cerrada": false,
+          "resultado": null,
+          "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61"
         }
       },
-      "etapa": "PROPUESTA",
-      "actualizada": "2026-11-26T16:35:40.578051+00:00",
+      "etapa": "PENDIENTE-EVIDENCIA",
+      "actualizada": "2026-11-26T17:26:27.527474+00:00",
       "formato": "html"
     },
     {
@@ -758,9 +795,35 @@
           "fecha": "2026-11-26T16:35:40.586944+00:00",
           "estado": "ABIERTA",
           "autor": "Claudia (a pedido del usuario)"
+        },
+        {
+          "accion": "DEFINIDA",
+          "fecha": "2026-11-26T17:22:02.678819+00:00",
+          "autor": "kathering inguza lastra",
+          "estado": "DEFINIDA"
+        },
+        {
+          "accion": "CORRECCION-INICIADA",
+          "fecha": "2026-11-26T17:26:42.845096+00:00",
+          "autor": "Claudia",
+          "estado": "EN-CORRECCION"
+        },
+        {
+          "accion": "DECISION-DEVUELTA",
+          "fecha": "2026-11-26T17:27:11.975676+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": [],
+      "respuestas": [
+        {
+          "id": "461a7af6-ba34-4eb7-8cb8-0d7293816eb0",
+          "texto": "<p>No se pudo integrar el cambio de carril en esta ejecución: la edición disponible exige reemplazar documentos completos y no se obtuvo una copia modificada verificable. Se cerró la sesión sin cambios. ¿Puede solicitarse nuevamente la aplicación de la opción A mediante un mecanismo de edición verificable?</p>",
+          "formato": "html",
+          "autor": "Claudia",
+          "fecha": "2026-11-26T17:27:11.975676+00:00"
+        }
+      ],
       "resolucion": {
         "analisis": {
           "texto": "<p>La rama de la Ley 31589 asigna el inventario y el informe de estado situacional a la UEI (arts. 3.1 y 9.2) y el registro de la lista priorizada a la OPMI (4.4). Falta saber qué unidad del GORE es cada una.</p><ul><li><strong>OPMI:</strong> el ROF da a la Sub Gerencia de Programación Multianual de Inversiones la conducción de la fase de programación multianual y el registro de las UF y UEI del Gobierno Regional en el Banco de Inversiones (art. 56). Es la candidata natural a OPMI.</li><li><strong>UEI:</strong> el ROF no dice qué órgano es la UEI de las obras por contrata. La GRI dirige y monitorea la ejecución (arts. 92-93) y SGGOS controla y sigue las obras (art. 97); cualquiera podría estar registrada como UEI. La respuesta está en el registro del Banco de Inversiones, que no está en la biblioteca.</li></ul>",
@@ -840,10 +903,28 @@
           ],
           "autor": "Claudia",
           "fecha": "2026-11-25T05:15:58.327107+00:00"
-        }
+        },
+        "decisiones_devueltas": [
+          {
+            "tipo": "OPCION",
+            "opciones": [
+              "A"
+            ],
+            "texto": "",
+            "formato": "html",
+            "vinculada_a": null,
+            "autor": "kathering inguza lastra",
+            "fecha": "2026-11-26T17:22:02.678819+00:00",
+            "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61",
+            "pregunta": "<p>No se pudo integrar el cambio de carril en esta ejecución: la edición disponible exige reemplazar documentos completos y no se obtuvo una copia modificada verificable. Se cerró la sesión sin cambios. ¿Puede solicitarse nuevamente la aplicación de la opción A mediante un mecanismo de edición verificable?</p>",
+            "pregunta_formato": "html",
+            "devuelta_por": "Claudia",
+            "devuelta": "2026-11-26T17:27:11.975676+00:00"
+          }
+        ]
       },
       "etapa": "PROPUESTA",
-      "actualizada": "2026-11-26T16:35:40.586944+00:00",
+      "actualizada": "2026-11-26T17:27:11.975676+00:00",
       "formato": "html"
     },
     {
@@ -1373,9 +1454,35 @@
           "fecha": "2026-11-26T14:37:48.260777+00:00",
           "autor": "Claudia",
           "estado": "PROPUESTA"
+        },
+        {
+          "accion": "DEFINIDA",
+          "fecha": "2026-11-26T17:22:31.639257+00:00",
+          "autor": "kathering inguza lastra",
+          "estado": "DEFINIDA"
+        },
+        {
+          "accion": "CORRECCION-INICIADA",
+          "fecha": "2026-11-26T17:27:33.037552+00:00",
+          "autor": "Claudia",
+          "estado": "EN-CORRECCION"
+        },
+        {
+          "accion": "DECISION-DEVUELTA",
+          "fecha": "2026-11-26T17:27:47.416506+00:00",
+          "autor": "Claudia",
+          "estado": "PROPUESTA"
         }
       ],
-      "respuestas": [],
+      "respuestas": [
+        {
+          "id": "eee0cd85-54f7-468c-8a90-014ceb0b8e00",
+          "texto": "<p>No se pudo cotejar el BPMN y el visor: la lectura del BPMN de la copia devuelve «Documento no editable» y no se dispone de vista visual. La sesión se cerró sin cambios. ¿Se puede facilitar el BPMN y una captura de esta revisión para identificar el defecto antes de aplicar la opción A?</p>",
+          "formato": "html",
+          "autor": "Claudia",
+          "fecha": "2026-11-26T17:27:47.416506+00:00"
+        }
+      ],
       "resolucion": {
         "analisis": {
           "texto": "<p><strong>Evidencia observada:</strong> en S4.3.2.6, el fin de mensaje E-F1 (caja 17) envía «Paralización derivada para suspensión» a la referencia S4.3.2.5. En el diagrama propio de S4.3.2.5, el mismo mensaje llega desde la referencia a S4.3.2.6 a E-E3 (caja 30), dentro del Gobierno Regional Huánuco, carril SGGOS; E-E3 continúa a E-T3. La auditoría de interfaces del padre sobre ambas revisiones no reporta candidatos, pero no mide la geometría ni el tipo BPMN emitido.</p><p><strong>Criterio:</strong> DEC-027 y LOC-004, pp. PDF 100 y 105–106 (fig. 2.103), distinguen el pool de un carril y admiten un pool cerrado sin actividades internas visibles con mensaje anclado en su borde. DEC-063 conserva esta derivación como práctica institucional; CON-001, arts. 107 y 202, regula la suspensión de plazo y sus supuestos, no la alineación del diagrama. La representación de la interfaz no convierte a S4.3.2.5 en otra entidad ni cambia las competencias.</p><p><strong>Inferencia y límite:</strong> por el proceso donde se registró y la etiqueta citada, la observación apunta a la referencia gráfica a S4.3.2.5 en el visor de S4.3.2.6, no al diagrama propio de suspensiones. <strong>EVIDENCIA-INSUFICIENTE</strong> para afirmar si hay geometría defectuosa, un símbolo incorrecto o solo una diferencia de presentación: se necesita el BPMN generado de la misma revisión y una vista o captura del visor con el elemento señalado. El paquete de contexto no incluye esos artefactos.</p>",
@@ -1441,9 +1548,27 @@
           ],
           "autor": "Claudia",
           "fecha": "2026-11-26T14:37:48.260777+00:00"
-        }
+        },
+        "decisiones_devueltas": [
+          {
+            "tipo": "OPCION",
+            "opciones": [
+              "A"
+            ],
+            "texto": "",
+            "formato": "html",
+            "vinculada_a": null,
+            "autor": "kathering inguza lastra",
+            "fecha": "2026-11-26T17:22:31.639257+00:00",
+            "revision_modelo": "7096966ee2f0e5db37c4f1f0c9cd4526dbcbcee2da0023243dd1e3a8bc7eee61",
+            "pregunta": "<p>No se pudo cotejar el BPMN y el visor: la lectura del BPMN de la copia devuelve «Documento no editable» y no se dispone de vista visual. La sesión se cerró sin cambios. ¿Se puede facilitar el BPMN y una captura de esta revisión para identificar el defecto antes de aplicar la opción A?</p>",
+            "pregunta_formato": "html",
+            "devuelta_por": "Claudia",
+            "devuelta": "2026-11-26T17:27:47.416506+00:00"
+          }
+        ]
       },
-      "actualizada": "2026-11-26T14:37:48.260777+00:00"
+      "actualizada": "2026-11-26T17:27:47.416506+00:00"
     },
     {
       "id": "146379f2-0e1a-48eb-8472-7a693ad595e6",
