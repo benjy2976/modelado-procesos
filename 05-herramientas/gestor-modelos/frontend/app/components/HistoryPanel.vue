@@ -9,7 +9,7 @@ type Detalle = components['schemas']['VersionDetalle']
 type Cambiado = components['schemas']['ElementoCambiado']
 export type VistaVersion = { numero: number; url: string; cambios: Record<string, 'agregado' | 'modificado'> }
 
-const props = defineProps<{ code: string; viewing: number | null; refreshToken?: number }>()
+const props = defineProps<{ code: string; viewing: number | null; refreshToken?: number; abrirVersion?: { numero: number; token: number } | null }>()
 const emit = defineEmits<{ view: [vista: VistaVersion | null]; select: [id: string] }>()
 const versiones = ref<Resumen[]>([])
 const detalle = ref<Detalle | null>(null)
@@ -62,7 +62,17 @@ function seleccionar(item: Cambiado) {
 
 const total = (v: Resumen) => v.conteo.agregados + v.conteo.retirados + v.conteo.modificados
 
-onMounted(cargar)
+// Desde una observación resuelta se pide ver su versión: se abre y se muestra en el lienzo.
+async function abrirPedida() {
+  if (!props.abrirVersion) return
+  await abrir(props.abrirVersion.numero)
+  verDiagrama()
+}
+onMounted(async () => {
+  await cargar()
+  await abrirPedida()
+})
+watch(() => props.abrirVersion?.token, () => { void abrirPedida() })
 watch(() => props.code, cargar)
 // Un cambio integrado por otro editor agrega versiones; se recarga la lista sin cerrar la versión abierta.
 watch(() => props.refreshToken, async () => {

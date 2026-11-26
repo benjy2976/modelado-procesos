@@ -266,6 +266,26 @@ export interface paths {
         patch: operations["cambiar_estado_api_procesos__codigo__observaciones__identificador__patch"];
         trace?: never;
     };
+    "/api/procesos/{codigo}/observaciones/{identificador}/cierre": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Cerrar Observacion
+         * @description Una persona cierra sin cambio de modelo (aclarada, no procede) o la deja pendiente de evidencia.
+         */
+        post: operations["cerrar_observacion_api_procesos__codigo__observaciones__identificador__cierre_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/procesos/{codigo}/observaciones/{identificador}/definicion": {
         parameters: {
             query?: never;
@@ -691,6 +711,44 @@ export interface components {
             modificados: components["schemas"]["ElementoCambiado"][];
             /** Retirados */
             retirados: components["schemas"]["ElementoCambiado"][];
+        };
+        /** CierreEntrada */
+        CierreEntrada: {
+            /** Autor */
+            autor: string;
+            /**
+             * Formato
+             * @default html
+             * @enum {string}
+             */
+            formato: "texto" | "html";
+            /** Revision Esperada */
+            revision_esperada: string;
+            /** Texto */
+            texto: string;
+            /**
+             * Tipo
+             * @enum {string}
+             */
+            tipo: "ACLARADA" | "NO-PROCEDE" | "PENDIENTE-EVIDENCIA";
+        };
+        /** CierreVista */
+        CierreVista: {
+            /** Autor */
+            autor: string;
+            /** Fecha */
+            fecha: string;
+            /**
+             * Formato
+             * @default html
+             */
+            formato: string;
+            /** Revision Modelo */
+            revision_modelo?: string | null;
+            /** Texto */
+            texto: string;
+            /** Tipo */
+            tipo: string;
         };
         /** ConteoCambios */
         ConteoCambios: {
@@ -1434,6 +1492,7 @@ export interface components {
         ResolucionVista: {
             analisis?: components["schemas"]["AnalisisVista"] | null;
             aplicacion?: components["schemas"]["AplicacionVista"] | null;
+            cierre?: components["schemas"]["CierreVista"] | null;
             correccion?: components["schemas"]["CorreccionVista"] | null;
             definicion?: components["schemas"]["DefinicionVista"] | null;
             propuesta?: components["schemas"]["PropuestaVista"] | null;
@@ -2152,6 +2211,42 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["CambioEstado"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistroObservacion"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cerrar_observacion_api_procesos__codigo__observaciones__identificador__cierre_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                codigo: string;
+                identificador: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CierreEntrada"];
             };
         };
         responses: {

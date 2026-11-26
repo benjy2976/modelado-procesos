@@ -3,8 +3,10 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { colorizeBpmn, markEventSubprocesses } from '~/utils/bpmnPresentation'
 import type { BpmnRegistry } from '~/utils/bpmnPresentation'
 
-const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'>; refreshToken?: number; downloadName?: string }>()
-const emit = defineEmits<{ select: [id: string]; error: [message: string] }>()
+const props = defineProps<{ xmlUrl: string; selectedId: string | null; numbers: Record<string, string>; changes?: Record<string, 'agregado' | 'modificado'>; refreshToken?: number; downloadName?: string; pins?: Record<string, Marcador> }>()
+const emit = defineEmits<{ select: [id: string]; error: [message: string]; pin: [id: string] }>()
+// Marcador de observaciones sobre una caja (rediseño 2026-11-26): cantidad, color del estado más urgente y resumen.
+export type Marcador = { n: number; color: string; titulo: string }
 const host = ref<HTMLElement | null>(null)
 
 type ViewBox = { x: number; y: number; width: number; height: number }
@@ -13,6 +15,10 @@ type CanvasService = {
   viewbox: (box?: ViewBox) => ViewBox
   addMarker: (id: string, marker: string) => void
   removeMarker: (id: string, marker: string) => void
+}
+type OverlaysService = {
+  add: (id: string, type: string, overlay: { position: { top?: number; right?: number }; html: HTMLElement }) => string
+  remove: (filter: { type: string }) => void
 }
 type EventBusService = { on: (name: string, handler: (event: { element?: { id: string; labelTarget?: { id: string } } }) => void) => void }
 type Viewer = { importXML: (xml: string) => Promise<unknown>; saveSVG: () => Promise<{ svg: string }>; get: (name: string) => unknown; destroy: () => void }
@@ -45,6 +51,7 @@ async function load(keepView = false) {
     currentMarker = null
     changeMarkers = []
     markChanges()
+    markPins()
     highlight(props.selectedId)
   } catch (error) {
     emit('error', error instanceof Error ? error.message : 'No se pudo abrir el BPMN.')
@@ -84,6 +91,27 @@ function markChanges() {
     const marker = kind === 'agregado' ? 'change-added' : 'change-modified'
     service.addMarker(id, marker)
     changeMarkers.push([id, marker])
+  }
+}
+
+const mostrarMarcadores = ref(true)
+function markPins() {
+  const overlays = viewer?.get('overlays') as OverlaysService | undefined
+  const registry = viewer?.get('elementRegistry') as BpmnRegistry | undefined
+  if (!overlays || !registry) return
+  overlays.remove({ type: 'observaciones' })
+  if (!mostrarMarcadores.value) return
+  for (const [id, marcador] of Object.entries(props.pins || {})) {
+    if (!registry.get(id)) continue
+    const boton = document.createElement('button')
+    boton.type = 'button'
+    boton.className = 'obs-pin'
+    boton.style.background = marcador.color
+    boton.textContent = String(marcador.n)
+    boton.title = marcador.titulo
+    boton.setAttribute('aria-label', `${marcador.n} observaciones: ${marcador.titulo}`)
+    boton.addEventListener('click', (evento) => { evento.stopPropagation(); emit('pin', id) })
+    overlays.add(id, 'observaciones', { position: { top: -11, right: 11 }, html: boton })
   }
 }
 
@@ -190,6 +218,7 @@ watch(() => props.xmlUrl, () => load())
 watch(() => props.refreshToken, () => load(true))
 watch(() => props.selectedId, highlight)
 watch(() => props.changes, markChanges)
+watch([() => props.pins, mostrarMarcadores], markPins, { deep: true })
 
 onBeforeUnmount(() => {
   host.value?.removeEventListener('wheel', onWheel, true)
@@ -204,6 +233,7 @@ onBeforeUnmount(() => {
       <button type="button" title="Alejar" @click="zoom(1 / 1.2)">−</button>
       <button type="button" title="Ajustar diagrama" @click="canvas()?.zoom('fit-viewport')">Ajustar</button>
       <span class="toolbar-separator" aria-hidden="true" />
+      <button type="button" :aria-pressed="mostrarMarcadores" title="Mostrar u ocultar los marcadores de observaciones" @click="mostrarMarcadores = !mostrarMarcadores">{{ mostrarMarcadores ? 'Ocultar marcas' : 'Ver marcas' }}</button>
       <details class="diagram-download">
         <summary title="Descargar el diagrama">{{ downloading ? 'Generando…' : 'Descargar' }}</summary>
         <div class="diagram-download-menu">

@@ -181,6 +181,14 @@ def _argumentos() -> argparse.ArgumentParser:
     responder.add_argument("--autor", required=True)
     responder.add_argument("--revision", required=True)
     responder.add_argument("--formato", choices=["texto", "html"], default="texto")
+    cerrar_o = operaciones.add_parser("cerrar", help="Cerrar sin cambio de modelo, con decisión (solo personas)")
+    cerrar_o.add_argument("codigo")
+    cerrar_o.add_argument("identificador")
+    cerrar_o.add_argument("--tipo", choices=["ACLARADA", "NO-PROCEDE", "PENDIENTE-EVIDENCIA"], required=True)
+    cerrar_o.add_argument("--texto", required=True, help="Respuesta, motivo o lo que falta")
+    cerrar_o.add_argument("--autor", required=True)
+    cerrar_o.add_argument("--revision", required=True)
+    cerrar_o.add_argument("--formato", choices=["texto", "html"], default="texto")
     redactar = operaciones.add_parser("redactar", help="Mejorar la redacción de una observación propia")
     redactar.add_argument("codigo")
     redactar.add_argument("identificador")
@@ -541,6 +549,11 @@ def ejecutar(args: argparse.Namespace) -> object:
             return observaciones.responder(
                 args.codigo, args.identificador, args.texto, args.autor, args.revision, args.formato
             )
+        if args.operacion == "cerrar":
+            return observaciones.cerrar(
+                args.codigo, args.identificador, tipo=args.tipo, autor=args.autor, texto=args.texto,
+                revision_esperada=args.revision, formato=args.formato,
+            )  # fmt: skip
         if args.operacion == "redactar":
             return observaciones.redactar(
                 args.codigo, args.identificador, args.archivo.read_text(encoding="utf-8"), args.autor, args.revision,

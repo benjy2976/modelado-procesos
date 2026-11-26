@@ -359,6 +359,96 @@
         "title": "CambiosElementos",
         "type": "object"
       },
+      "CierreEntrada": {
+        "properties": {
+          "autor": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Autor",
+            "type": "string"
+          },
+          "formato": {
+            "default": "html",
+            "enum": [
+              "texto",
+              "html"
+            ],
+            "title": "Formato",
+            "type": "string"
+          },
+          "revision_esperada": {
+            "title": "Revision Esperada",
+            "type": "string"
+          },
+          "texto": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "enum": [
+              "ACLARADA",
+              "NO-PROCEDE",
+              "PENDIENTE-EVIDENCIA"
+            ],
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tipo",
+          "autor",
+          "texto",
+          "revision_esperada"
+        ],
+        "title": "CierreEntrada",
+        "type": "object"
+      },
+      "CierreVista": {
+        "properties": {
+          "autor": {
+            "title": "Autor",
+            "type": "string"
+          },
+          "fecha": {
+            "title": "Fecha",
+            "type": "string"
+          },
+          "formato": {
+            "default": "html",
+            "title": "Formato",
+            "type": "string"
+          },
+          "revision_modelo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Modelo"
+          },
+          "texto": {
+            "title": "Texto",
+            "type": "string"
+          },
+          "tipo": {
+            "title": "Tipo",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tipo",
+          "texto",
+          "autor",
+          "fecha"
+        ],
+        "title": "CierreVista",
+        "type": "object"
+      },
       "ConteoCambios": {
         "properties": {
           "agregados": {
@@ -2151,6 +2241,16 @@
               }
             ]
           },
+          "cierre": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CierreVista"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "correccion": {
             "anyOf": [
               {
@@ -3580,6 +3680,65 @@
           }
         },
         "summary": "Cambiar Estado"
+      }
+    },
+    "/api/procesos/{codigo}/observaciones/{identificador}/cierre": {
+      "post": {
+        "description": "Una persona cierra sin cambio de modelo (aclarada, no procede) o la deja pendiente de evidencia.",
+        "operationId": "cerrar_observacion_api_procesos__codigo__observaciones__identificador__cierre_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "codigo",
+            "required": true,
+            "schema": {
+              "title": "Codigo",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "identificador",
+            "required": true,
+            "schema": {
+              "title": "Identificador",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CierreEntrada"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistroObservacion"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cerrar Observacion"
       }
     },
     "/api/procesos/{codigo}/observaciones/{identificador}/definicion": {

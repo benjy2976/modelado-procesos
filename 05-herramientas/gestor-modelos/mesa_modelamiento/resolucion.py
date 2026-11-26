@@ -21,6 +21,8 @@ ETAPAS = ("REGISTRADA", "EN-ANALISIS", "PROPUESTA", "DEFINIDA", "EN-CORRECCION",
 CLASES = ("ERROR-MODELO", "EXPLICACION-AUSENTE", "DIFERENCIA-CRITERIO", "FALTA-EVIDENCIA", "FUERA-DE-ALCANCE")
 EFECTOS = ("CAMBIO-MODELO", "CAMBIO-SUSTENTO", "DECISION", "ACLARACION", "NO-PROCEDE", "PENDIENTE-EVIDENCIA")
 DEFINICIONES = ("OPCION", "OPCIONES", "MANUAL", "VINCULADA")
+# Cierres que decide una persona sin cambiar el modelo; quedan con su texto, autor y fecha (no «marcar resuelta»).
+CIERRES = ("ACLARADA", "NO-PROCEDE", "PENDIENTE-EVIDENCIA")
 AUTORES_AGENTE = {"claudia"}
 MAXIMO_OPCIONES = 8
 
@@ -238,6 +240,47 @@ class ServicioResolucion(ServicioObservaciones):
             "APLICACION", codigo, identificador, autor.strip(), registro.get("referencia") or ""
         )
         return {**registro, "trabajo": {"id": trabajo["id"], "tipo": trabajo["tipo"], "estado": trabajo["estado"]}}
+
+    def cerrar(
+        self,
+        codigo: str,
+        identificador: str,
+        *,
+        tipo: str,
+        autor: str,
+        texto: str,
+        revision_esperada: str,
+        formato: str = "html",
+    ) -> dict:
+        """Una persona cierra sin cambio de modelo: aclarada o no procede (RESUELTA), o falta evidencia (abierta).
+
+        El texto es obligatorio: es la respuesta, el motivo o lo que falta, y queda en `resolucion.cierre`."""
+        if tipo not in CIERRES:
+            raise ErrorDominio(f"Tipo de cierre inválido; use {CIERRES}")
+        if not isinstance(autor, str) or autor.strip().casefold() in AUTORES_AGENTE:
+            raise ErrorDominio("El cierre lo decide una persona; el agente solo analiza y propone", 403)
+        if not (texto or "").strip():
+            raise ErrorDominio("Indique la respuesta, el motivo o lo que falta")
+        contenido = self._validar_texto_autor(texto, autor, formato)
+        revision_modelo = self._revision_modelo(codigo)
+
+        def cambio(registro: dict, fecha: str) -> str:
+            self._exigir_etapa(registro, ("REGISTRADA", "EN-ANALISIS", "PROPUESTA", "PENDIENTE-EVIDENCIA"), "cerrar")
+            registro.setdefault("resolucion", {})["cierre"] = {
+                "tipo": tipo,
+                "texto": contenido,
+                "formato": formato,
+                "autor": autor.strip(),
+                "fecha": fecha,
+                "revision_modelo": revision_modelo,
+            }
+            pendiente = tipo == "PENDIENTE-EVIDENCIA"
+            registro["etapa"] = "PENDIENTE-EVIDENCIA" if pendiente else "RESUELTA"
+            registro["estado"] = "ABIERTA" if pendiente else "RESUELTA"
+            registro["_autor_evento"] = autor.strip()
+            return "EN-ESPERA-DE-EVIDENCIA" if pendiente else f"CERRADA-{tipo}"
+
+        return self._mutar(codigo, identificador, revision_esperada, cambio)
 
     def solicitar_analisis(self, codigo: str, identificador: str, solicitante: str, nota: str = "") -> dict:
         """Encola el análisis de una observación a pedido de una persona (botón «Solicitar análisis»)."""

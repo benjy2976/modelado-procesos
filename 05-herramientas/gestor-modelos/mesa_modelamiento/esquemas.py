@@ -168,12 +168,22 @@ class AplicacionVista(BaseModel):
     revision_modelo: str | None = None
 
 
+class CierreVista(BaseModel):
+    tipo: str
+    texto: str
+    formato: str = "html"
+    autor: str
+    fecha: str
+    revision_modelo: str | None = None
+
+
 class ResolucionVista(BaseModel):
     analisis: AnalisisVista | None = None
     propuesta: PropuestaVista | None = None
     definicion: DefinicionVista | None = None
     correccion: CorreccionVista | None = None
     aplicacion: AplicacionVista | None = None
+    cierre: CierreVista | None = None
     reemplazada: ReemplazoVista | None = None
 
 

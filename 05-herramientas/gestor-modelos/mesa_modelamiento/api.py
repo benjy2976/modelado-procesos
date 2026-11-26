@@ -71,6 +71,14 @@ class DefinicionEntrada(BaseModel):
     vinculada_a: str = ""
 
 
+class CierreEntrada(BaseModel):
+    tipo: Literal["ACLARADA", "NO-PROCEDE", "PENDIENTE-EVIDENCIA"]
+    autor: str = Field(min_length=1, max_length=100)
+    texto: str = Field(min_length=1, max_length=20000)
+    formato: Literal["texto", "html"] = "html"
+    revision_esperada: str
+
+
 class CambioEstado(BaseModel):
     estado: str
     revision_esperada: str
@@ -233,6 +241,16 @@ def crear_aplicacion(repositorio: RepositorioProcesos | None = None) -> FastAPI:
         """Una persona acoge opciones, escribe una respuesta manual o vincula a otra observación resuelta."""
         comprobar_origen(request)
         return observaciones.definir(codigo, identificador, **entrada.model_dump())
+
+    @app.post(
+        "/api/procesos/{codigo}/observaciones/{identificador}/cierre",
+        response_model=RegistroObservacion,
+        response_model_exclude_unset=True,
+    )
+    def cerrar_observacion(codigo: str, identificador: str, entrada: CierreEntrada, request: Request) -> dict:
+        """Una persona cierra sin cambio de modelo (aclarada, no procede) o la deja pendiente de evidencia."""
+        comprobar_origen(request)
+        return observaciones.cerrar(codigo, identificador, **entrada.model_dump())
 
     @app.post(
         "/api/procesos/{codigo}/observaciones/{identificador}/solicitud-analisis",

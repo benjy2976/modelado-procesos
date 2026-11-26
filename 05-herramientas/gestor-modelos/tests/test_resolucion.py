@@ -166,3 +166,36 @@ def test_mcp_responde_con_confirmacion_compacta(repositorio: RepositorioProcesos
         "codigo": "S4.3", "elemento": "", "texto": "Diagrama", "revision_esperada": _revision(servicio)}))  # fmt: skip
     datos = json.loads(resultado.content[0].text)
     assert set(datos) == {"id", "referencia", "etapa", "estado", "revision", "ultimo_evento"}
+
+
+rev2 = _revision
+
+
+def test_cerrar_con_decision_deja_registro_y_lo_exige(repositorio: RepositorioProcesos) -> None:
+    """Cerrar sin cambio de modelo exige tipo y texto de una persona; ya no se cierra «en blanco»."""
+    servicio = ServicioResolucion(repositorio)
+    rev = _revision(servicio)
+    obs = servicio.agregar("S4.3", elemento="Tarea_1", texto="¿Aplica?", autor="Equipo", revision_esperada=rev)
+    with pytest.raises(ErrorDominio, match="persona"):
+        servicio.cerrar("S4.3", obs["id"], tipo="ACLARADA", autor="Claudia", texto="x", revision_esperada=rev)
+    with pytest.raises(ErrorDominio, match="respuesta"):
+        servicio.cerrar("S4.3", obs["id"], tipo="ACLARADA", autor="Equipo", texto=" ", revision_esperada=rev2(servicio))
+    pendiente = servicio.cerrar(
+        "S4.3", obs["id"], tipo="PENDIENTE-EVIDENCIA", autor="Equipo", texto="<p>Falta la directiva</p>",
+        revision_esperada=_revision(servicio),
+    )  # fmt: skip
+    assert pendiente["etapa"] == "PENDIENTE-EVIDENCIA" and pendiente["estado"] == "ABIERTA"
+    cerrada = servicio.cerrar(
+        "S4.3", obs["id"], tipo="ACLARADA", autor="Equipo", texto="<p>Se confirmó en reunión</p>",
+        revision_esperada=_revision(servicio),
+    )  # fmt: skip
+    assert cerrada["estado"] == "RESUELTA" and cerrada["resolucion"]["cierre"]["tipo"] == "ACLARADA"
+    assert cerrada["historial"][-1]["accion"] == "CERRADA-ACLARADA"
+    cliente = TestClient(crear_aplicacion(repositorio))
+    otra = servicio.agregar("S4.3", elemento="", texto="Otra", autor="Equipo", revision_esperada=_revision(servicio))
+    respuesta = cliente.post(
+        f"/api/procesos/S4.3/observaciones/{otra['id']}/cierre",
+        json={"tipo": "NO-PROCEDE", "autor": "Equipo", "texto": "<p>No aplica a contrata</p>",
+              "revision_esperada": _revision(servicio)},
+    )  # fmt: skip
+    assert respuesta.status_code == 200 and respuesta.json()["resolucion"]["cierre"]["tipo"] == "NO-PROCEDE"

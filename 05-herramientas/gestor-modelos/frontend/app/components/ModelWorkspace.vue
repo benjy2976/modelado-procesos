@@ -3,6 +3,8 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { navigateTo, useRoute } from '#imports'
 import type { components } from '~/types/api'
 import type { VistaVersion } from './HistoryPanel.vue'
+import type { Marcador } from './BpmnCanvas.client.vue'
+import { ORDEN_ATENCION, estadoVisual, resumenObservacion } from '~/utils/estadoObservacion'
 
 type Nodo = components['schemas']['NodoArbol']
 type Modelo = components['schemas']['ModeloVista']
@@ -168,12 +170,43 @@ watch([tree, routeCode], ([root, code]) => {
 }, { immediate: true })
 
 // Contador de la pestaña Observaciones: se carga al cambiar de proceso y lo actualiza el panel al editar.
+// Observaciones del proceso abierto: contador de la pestaña y marcadores sobre las cajas del diagrama.
+const observacionesModelo = ref<components['schemas']['ObservacionVista'][]>([])
+const marcadores = computed<Record<string, Marcador>>(() => {
+  const porCaja: Record<string, { n: number; rango: number; color: string; titulo: string }> = {}
+  for (const item of observacionesModelo.value) {
+    if (!item.elemento) continue
+    const visual = estadoVisual(item)
+    if (visual.clave === 'resuelta-cambio' || visual.clave === 'resuelta-sin-cambio') continue
+    const rango = ORDEN_ATENCION.indexOf(visual.clave)
+    const actual = porCaja[item.elemento]
+    const titulo = `${visual.texto}: ${resumenObservacion(item).titulo}`
+    if (!actual) porCaja[item.elemento] = { n: 1, rango, color: visual.barra, titulo }
+    else {
+      actual.n++
+      if (rango < actual.rango) Object.assign(actual, { rango, color: visual.barra, titulo })
+    }
+  }
+  return Object.fromEntries(Object.entries(porCaja).map(([id, m]) => [id, { n: m.n, color: m.color, titulo: m.n > 1 ? `${m.titulo} (y ${m.n - 1} más)` : m.titulo }]))
+})
+const focoObservacion = ref<{ elemento: string; token: number } | null>(null)
+const versionPedida = ref<{ numero: number; token: number } | null>(null)
+function abrirMarcador(id: string) {
+  selectedId.value = id
+  focoObservacion.value = { elemento: id, token: Date.now() }
+  inspectorTab.value = 'observaciones'
+}
+function verVersionDeObservacion(numero: number) {
+  versionPedida.value = { numero, token: Date.now() }
+  inspectorTab.value = 'historial'
+}
+
 async function contarObservaciones(code: string) {
-  observacionesAbiertas.value = 0
   try {
-    const respuesta = await fetch(`/api/procesos/${encodeURIComponent(code)}/observaciones`)
+    const respuesta = await fetch(`/api/procesos/${encodeURIComponent(code)}/observaciones`, { cache: 'no-store' })
     if (!respuesta.ok || model.value?.codigo !== code) return
-    const datos = await respuesta.json() as { observaciones: { estado: string }[] }
+    const datos = await respuesta.json() as { observaciones: components['schemas']['ObservacionVista'][] }
+    observacionesModelo.value = datos.observaciones
     observacionesAbiertas.value = datos.observaciones.filter(item => item.estado === 'ABIERTA').length
   } catch {
     // Sin contador si la API no responde; el panel muestra su propio error al abrirse.
@@ -181,6 +214,8 @@ async function contarObservaciones(code: string) {
 }
 watch(() => model.value?.codigo, code => {
   versionView.value = null
+  observacionesModelo.value = []
+  observacionesAbiertas.value = 0
   editState.value = null
   huellaVista = ''
   actualizado.value = ''
@@ -222,7 +257,10 @@ async function consultarEstado() {
 function alCambiarAbiertas(cantidad: number) {
   observacionesAbiertas.value = cantidad
   const code = model.value?.codigo
-  if (code) conteos.value = { ...conteos.value, [code]: cantidad }
+  if (code) {
+    conteos.value = { ...conteos.value, [code]: cantidad }
+    void contarObservaciones(code)
+  }
 }
 
 function iniciarSondeo() {
@@ -341,7 +379,9 @@ onMounted(async () => {
           :changes="versionView?.cambios"
           :refresh-token="versionView ? 0 : refreshToken"
           :download-name="`${model.codigo.replace(/\./g, '-')}-diagrama-proceso${versionView ? `-v${versionView.numero}` : ''}`"
+          :pins="versionView ? {} : marcadores"
           @select="selectedId = $event"
+          @pin="abrirMarcador"
           @error="message = $event"
         />
         <div v-else class="level-landing">
@@ -387,8 +427,8 @@ onMounted(async () => {
           <button type="button" role="tab" :aria-selected="inspectorTab === 'asistente'" :class="{ active: inspectorTab === 'asistente' }" @click="inspectorTab = 'asistente'">Asistente</button>
         </div>
         <div class="inspector-scroll">
-          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" @abiertas="alCambiarAbiertas" />
-          <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :refresh-token="refreshToken" :viewing="versionView?.numero ?? null" @view="versionView = $event" @select="selectedId = $event" />
+          <ObservationsPanel v-if="model && inspectorTab === 'observaciones'" :code="model.codigo" :element-id="selectedId" :reference="selectedElement?.ref || ''" :focus="focoObservacion" @abiertas="alCambiarAbiertas" @version="verVersionDeObservacion" />
+          <HistoryPanel v-else-if="model && inspectorTab === 'historial'" :code="model.codigo" :refresh-token="refreshToken" :viewing="versionView?.numero ?? null" :abrir-version="versionPedida" @view="versionView = $event" @select="selectedId = $event" />
           <ChatPanel v-else-if="model && inspectorTab === 'asistente'" :code="model.codigo" :reference="selectedElement?.ref || ''" :element-name="selectedElement?.nombre || ''" />
           <ModelEditPanel v-else-if="model && inspectorTab === 'edicion'" :code="model.codigo" :refresh-token="refreshToken" @integrated="openProcess(model.codigo)" />
           <template v-else-if="selectedElement">
