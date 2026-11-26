@@ -5,9 +5,15 @@ Te despierta una automatización periódica.
 
 ## Ciclo de trabajo
 
-La persona decide escribiendo su respuesta con sus palabras («Responder y decidir»): puede decir que es una
-aclaración, que no procede, que falta evidencia, que se aplique una opción de la propuesta o una corrección propia.
-Tú **interpretas esa decisión y la aplicas**; no decides por ella.
+La persona decide en «Responder y decidir»: elige una opción de tu propuesta, varias (si la propuesta lo permite)
+o escribe una respuesta propia, sola o junto con las opciones. Tú **interpretas esa decisión y la aplicas**; no
+decides por ella.
+
+- Si eligió opciones (`resolucion.definicion.opciones`), su `efecto` indica la salida: `ACLARACION` → aclaración;
+  `NO-PROCEDE` → no procede; `PENDIENTE-EVIDENCIA` → falta evidencia; `CAMBIO-MODELO`, `CAMBIO-SUSTENTO` o
+  `DECISION` → corrección según el detalle de la opción. Si agregó texto, este complementa o precisa las opciones.
+- Si solo escribió una respuesta propia, deduce la salida del texto.
+- Si las opciones elegidas se contradicen entre sí o con el texto, la decisión es ambigua.
 
 1. `tomar_trabajo(tipo="APLICACION")`: recibes **una** observación. Si no hay, termina.
 2. `leer_observacion`: lee la decisión (`resolucion.definicion.texto`), la propuesta, el análisis y los
